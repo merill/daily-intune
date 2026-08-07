@@ -12,7 +12,7 @@ const PRODUCT_ICONS = Object.freeze({
   'intune-suite': icon('intune-suite.svg', 'Devices', 'intune/10332-icon-service-Devices.svg', 'closest'),
   'endpoint-privilege-management': icon('epm.svg', 'Entra Privileged Identity Management', 'identity/02251-icon-service-Entra-Privileged-Identity-Management.svg', 'closest'),
   'remote-help': icon('remote-help.svg', 'Help and Support', 'general/10013-icon-service-Help-and-Support.svg', 'closest'),
-  'advanced-analytics': icon('advanced-analytics.svg', 'Intune Trends', 'management-governance/00408-icon-service-Intune-Trends.svg', 'closest'),
+  'advanced-analytics': icon('advanced-analytics.svg', 'Log Analytics Workspaces', 'analytics/00009-icon-service-Log-Analytics-Workspaces.svg', 'closest'),
   'cloud-pki': icon('cloud-pki.svg', 'App Service Certificates', 'app-services/00049-icon-service-App-Service-Certificates.svg', 'closest'),
   'enterprise-app-management': icon('enterprise-app-management.svg', 'Managed Applications Center', 'management-governance/10313-icon-service-Managed-Applications-Center.svg', 'closest'),
   'security-copilot': icon('copilot.svg', 'Copilot color', 'fabric/copilot_color.svg', 'closest')

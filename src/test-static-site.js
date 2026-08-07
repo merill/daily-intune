@@ -372,6 +372,8 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(siteCss, /\.search-select-content\{/);
   assert.match(siteCss, /\.search-select-option\[aria-selected="true"\] \.search-select-check\{opacity:1\}/);
   assert.match(indexHtml, /class="icon-link" href="\/rss\.xml"[^>]*aria-label="Subscribe to the Daily Intune News RSS feed"><img src="\/assets\/ui\/rss\.svg"/);
+  assert.doesNotMatch(indexHtml, /class="icon-link" href="https:\/\/intune\.admin\.news"|class="icon-link" href="https:\/\/intune\.chat"/);
+  assert.doesNotMatch(indexHtml, /assets\/ui\/(?:newspaper|microphone)\.svg/);
   assert.match(indexHtml, /class="footer-rss-link"[^>]*href="\/rss\.xml"><img src="\/assets\/ui\/rss\.svg" alt="">Daily RSS<\/a>/);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'rss.svg'))).size > 0, true);
   assert.doesNotMatch(indexHtml, /class="story-time"|class="source-label"/);
@@ -542,13 +544,8 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(aboutHtml, /data-kit-form-uid="daily-form-123" data-kit-form-src="https:\/\/daily-intune-news\.kit\.com\/daily-form-123\/index\.js"/);
   assert.doesNotMatch(aboutHtml, /<script async data-uid="daily-form-123"/);
   assert.doesNotMatch(aboutHtml, /Email signup will appear here/);
-  assert.match(aboutHtml, /Daily automated AI entries are useful, but nothing beats content created and curated/);
-  assert.match(aboutHtml, /insights from Microsoft MVPs and endpoint-management subject-matter experts/);
-  assert.match(aboutHtml, /practical guidance learned the hard way/);
-  assert.match(aboutHtml, /Want to chat about Intune\?/);
-  assert.match(aboutHtml, /href="https:\/\/discord\.intune\.admin\.news"/);
-  assert.match(aboutHtml, /Intune admins, architects, MVPs, and other Intune folks/);
-  assert.match(aboutHtml, /Join the Intune community on Discord/);
+  assert.doesNotMatch(aboutHtml, /Stay current with Microsoft Intune/);
+  assert.doesNotMatch(aboutHtml, /id="stay-current"/);
   assert.match(aboutHtml, /Get daily email updates/);
   assert.match(aboutHtml, /Subscribe to the weekly update/);
   assert.match(indexHtml, /href="\/about\/\?subscribe=daily"[^>]*data-daily-email-open[^>]*>Get daily email updates<\/a>/);
@@ -645,8 +642,6 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(siteJs, /window\.uj\?\.showWidget\(\{section:'feedback'\}\)/);
   assert.doesNotMatch(indexHtml, /Follow Merill on GitHub|href="https:\/\/github\.com\/merill"/);
   assert.match(indexHtml, /href="https:\/\/merill\.net" target="_blank" rel="noopener noreferrer">merill\.net/);
-  assert.match(indexHtml, /href="https:\/\/intune\.admin\.news" target="_blank" rel="noopener noreferrer"[^>]*><img src="\/assets\/ui\/newspaper\.svg"/);
-  assert.match(indexHtml, /href="https:\/\/intune\.chat" target="_blank" rel="noopener noreferrer"[^>]*><img src="\/assets\/ui\/microphone\.svg"/);
   assert.match(indexHtml, /<a class="brand" href="\/">\s*<img class="brand-logo" src="\/assets\/products\/intune\.svg" alt="">\s*<span>Daily Intune News<\/span><\/a>/);
   assert.doesNotMatch(indexHtml, /<small>daily\.intune\.admin\.news<\/small>/);
   const headerHtml = indexHtml.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
@@ -675,8 +670,6 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(siteJs, /data-theme-option/);
   assert.equal((await fs.stat(path.join(websiteDir, 'favicon.ico'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'og-image.png'))).size > 0, true);
-  assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'newspaper.svg'))).size > 0, true);
-  assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'microphone.svg'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'products', 'intune.svg'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'maester.png'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'book-bookmark.svg'))).size > 0, true);

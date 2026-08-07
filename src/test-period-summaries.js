@@ -327,6 +327,62 @@ test('UTC-day usage ledger prevents a later scheduled run from starting another 
   assert.equal(stored.usageByDay['2026-08-06'].requests, 1);
 });
 
+test('manual current-period regeneration can bypass both budget guardrails', async () => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'intune-ignore-budget-'));
+  const outputPath = path.join(root, 'period-summaries.json');
+  await fs.writeFile(outputPath, JSON.stringify({
+    version: 3,
+    days: {}, weeks: {}, months: {},
+    usageByDay: {
+      '2026-08-07': { inputTokens: 1000, outputTokens: 1000, requests: 1, costUsd: 10 }
+    }
+  }));
+  const requests = [];
+  const generator = new PeriodSummaryGenerator({
+    outputPath,
+    now: '2026-08-07T10:00:00Z',
+    budgetUsd: 0.000001,
+    dailyBudgetUsd: 0.000001,
+    ignoreBudget: true,
+    client: { responses: { create: async request => {
+      const period = JSON.parse(request.input).period;
+      requests.push(period.type);
+      return {
+        status: 'completed', model: 'gpt-5.6-luna',
+        output_text: JSON.stringify({
+          headline: `${period.type} budget override`,
+          overview: `The current ${period.type} was regenerated despite the recorded spend.`,
+          adminImpact: 'Review the regenerated current-period brief.',
+          keyChanges: [{ title: 'Budget override', detail: 'The manual override permitted this request.', product: 'Intune', sourceId: 'doc-current' }]
+        }),
+        usage: { input_tokens: 100, output_tokens: 100 }
+      };
+    } } },
+    logger: { log() {}, warn() {} }
+  });
+  generator.loadItems = async () => [{
+    id: 'doc-current', date: '2026-08-07', source: 'docs', changeType: 'Updated', additions: 1,
+    product: { slug: 'intune', short: 'Intune' }, topic: { name: 'Authentication' },
+    title: 'Current update', summary: 'The current source changed.', adminImpact: 'Review it.'
+  }];
+
+  const result = await generator.run({ force: true });
+  const stored = JSON.parse(await fs.readFile(outputPath, 'utf8'));
+  assert.deepEqual(requests, ['day', 'week', 'month']);
+  assert.equal(result.generated, 3);
+  assert.equal(stored.days['2026-08-07'].generatedBy, 'openai');
+  assert.equal(stored.weeks['2026-08-03'].generatedBy, 'openai');
+  assert.equal(stored.months['2026-08'].generatedBy, 'openai');
+  assert.equal(stored.usageByDay['2026-08-07'].requests, 4);
+});
+
+test('manual workflow exposes the current-period budget override only on its explicit branch', async () => {
+  const workflow = await fs.readFile(path.join(__dirname, '..', '.github', 'workflows', 'daily-docs-monitor.yml'), 'utf8');
+  assert.match(workflow, /regenerate_current_period_summaries:\n\s+description: Force current day, week, and month briefs without budget limits/);
+  assert.match(workflow, /inputs\.regenerate_current_period_summaries == true/);
+  assert.match(workflow, /--current --force --ignore-budget/);
+});
+
 test('max reasoning retries an incomplete response with a larger token allowance and counts both attempts', async () => {
   const requests = [];
   const completed = {

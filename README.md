@@ -178,6 +178,8 @@ Or trigger the GitHub Action manually:
 2. Select "Daily Intune Docs Monitor"
 3. Click "Run workflow"
 
+To replace the latest fallback brief after a budget-limited run, enable **Force current day, week, and month briefs without budget limits**. This explicitly regenerates those three Luna xhigh briefs, rebuilds the static site, and bypasses both period-summary cost guards for that manual run only. Leave **Publish the Kit subscriber summary** disabled unless you also intend to send email.
+
 ## 📁 File Structure
 
 ```

@@ -1,11 +1,4 @@
 {
-  "version": 3,
-  "generatedAt": "2026-08-06T22:27:40.761Z",
-  "generator": {
-    "model": "gpt-5.6-terra",
-    "reasoningEffort": "xhigh",
-    "mode": "codex-one-time-backfill"
-  },
   "days": {
     "2026-01-04": {
       "headline": "Cloud-native Windows endpoint starter guidance was simplified",
@@ -3755,179 +3748,210 @@
   },
   "weeks": {
     "2025-12-29": {
-      "headline": "Cloud-native Windows endpoint starter guidance was simplified",
-      "overview": "This partial week recorded one documentation-only change. The cloud-native Windows endpoint tutorial removed its comparison with Windows in cloud configuration and its embedded Windows 10 support notice, leaving a more direct setup path for the tutorial.",
-      "adminImpact": "If your Windows onboarding material points teams to this tutorial, check that local runbooks still distinguish your custom cloud-native build from any standardized Windows cloud configuration approach. No tenant setting or deployed policy changed.",
+      "headline": "Cloud-native Windows tutorial removes its Windows in cloud configuration comparison",
+      "overview": "This was a quiet Intune period with one documentation-only update. The Cloud Native Windows Endpoints tutorial removed its tip linking to Windows in cloud configuration, the table contrasting the two approaches, and the Windows 10 support callout. The edit does not indicate a product, policy, or configuration-behavior change.",
+      "adminImpact": "Administrators evaluating cloud-native Windows deployments should use the linked solution documentation directly to decide between creating a custom configuration and using Windows in cloud configuration. Existing deployments are not identified as requiring changes.",
       "keyChanges": [
         {
-          "title": "Cloud-native Windows endpoint tutorial removes legacy orientation content",
-          "detail": "The guide no longer compares its five-phase tutorial with Windows in cloud configuration and no longer carries the included Windows 10 support notice. The practical setup phases remain, but the introductory framing is leaner.",
+          "title": "Comparison guidance removed from the cloud-native Windows tutorial",
+          "detail": "The tutorial no longer includes the Microsoft-recommended, standardized-solution tip; the comparison table stating that the tutorial helps administrators create their own configuration while Windows in cloud configuration applies a pre-built configuration for frontline, remote, and other focused-use workers; or the note that the two approaches can be combined. The Windows 10 support include was also removed. This is an ordinary documentation change, not evidence of changed Intune functionality.",
           "product": "Intune",
           "sourceId": "doc-2026-01-04-cloud-native-windows-endpoints-01"
         }
       ],
-      "generatedBy": "codex-one-time-backfill",
-      "model": "gpt-5.6-terra",
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-06T22:05:02.949Z"
+      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "usage": {
+        "inputTokens": 1058,
+        "outputTokens": 699,
+        "costUsd": 0.00105
+      }
     },
     "2026-01-05": {
-      "headline": "Windows update policy guidance expands from drivers to reporting and rollout",
-      "overview": "The week recorded 165 changes, led by a substantial Windows update documentation refresh. New and revised material covers driver update approvals, Hotpatch, feature-update policy behavior and reporting, shared Autopatch prerequisites, plus the retirement implications for MDT and Configuration Manager.",
-      "adminImpact": "Treat the documentation changes as a policy-design review: verify Autopatch entitlement, telemetry, Windows Update connectivity, and device join state before deploying feature, quality, or driver policies. Use pilot rings for drivers and feature updates, avoid custom update rings on Autopatch-managed devices, and schedule removal of MDT task sequence dependencies.",
+      "headline": "Entra-registered devices remain limited to Windows update rings",
+      "overview": "Windows Update policy and reporting content was extensively reorganized this week, but the consequential guidance is specific: Windows Update for Business Deployment Service-backed policies exclude Microsoft Entra-registered devices, Hotpatch has a defined eligibility chain, and driver approvals have documented constraints. Outside Windows servicing, Configuration Manager's MDT retirement carries an immediate cleanup sequence, while a February Intune release will extend Managed Home Screen permissions in built-in roles.",
+      "adminImpact": "Prioritize the documented Windows Update eligibility and prerequisite checks, and remove MDT task-sequence steps before removing MDT integration. Driver administrators should use staged deployment rings and avoid conflicting policies. The Managed Home Screen change requires no action, although role assignments and internal documentation may merit review. Treat ordinary retitles, link moves, and prerequisite consolidation as documentation maintenance. Also, removal of the “public preview” label from the Admin Tasks article does not establish general availability; the in-development page still says the capability will soon be generally available.",
       "keyChanges": [
         {
-          "title": "Windows Driver Update Management receives policy and FAQ coverage",
-          "detail": "The new driver-update content explains approvals, pauses, policy overlap, and operational limitations. Assignment filters, Autopilot deployment, and policy-based rollback are not supported, making staged deployment rings and monitoring important safeguards.",
+          "title": "WUfB DS-backed update policies exclude Microsoft Entra-registered devices",
+          "detail": "The Windows updates overview now states that Feature updates, Quality updates, Driver updates, and Hotpatch policies rely on the Windows Update for Business Deployment Service and aren't supported on Microsoft Entra-registered devices. Those devices remain supported through Windows Update client policies and update rings. This is a documented eligibility boundary, not a newly announced enforcement change.",
           "product": "Intune",
-          "sourceId": "doc-2026-01-05-learn-about-windows-driver-updates-policy-for-windows-devices-in-intune-01"
+          "sourceId": "doc-2026-01-06-index-14"
         },
         {
-          "title": "Feature-update reporting is tied more directly to diagnostic data",
-          "detail": "The report guidance now calls out the tenant setting to share Windows diagnostic data with Intune and requires Required-level-or-higher diagnostic data to report the full feature-update lifecycle from offer through install, restart, rollback, and cancellation states.",
+          "title": "Hotpatch guidance ties eligibility to Autopatch, Windows 11 24H2, and VBS",
+          "detail": "The dedicated quality-update guidance documents Hotpatch as Monthly B release security updates that install and take effect without a restart. It lists Autopatch, Windows 11 Enterprise version 24H2 or later, the latest baseline release, an Intune quality update policy with Hotpatch enabled, and VBS turned on among the prerequisites. This adds concrete deployment guidance rather than announcing a new Hotpatch launch.",
           "product": "Intune",
-          "sourceId": "doc-2026-01-06-feature-updates-reports-23"
+          "sourceId": "doc-2026-01-05-windows-quality-update-policy-02"
         },
         {
-          "title": "MDT retirement is reiterated for Configuration Manager administrators",
-          "detail": "The release notes state that MDT integration and standalone MDT are no longer supported. Administrators should remove MDT task sequence steps and then the integration itself to prevent task sequence corruption and modification failures; Windows Autopilot and supported Configuration Manager OSD remain the stated alternatives.",
+          "title": "Driver FAQ documents approval conflicts, Autopilot, filters, and rollback limits",
+          "detail": "The driver-update FAQ states that Driver Updates don't support Assignment Filters or Windows Autopilot, and that Windows Update client policies don't support driver rollback. Multiple policies per device are supported but not recommended: if one policy approves an update and another pauses it, the approved status wins and the driver installs. The guidance points to small deployment rings and manual approval or monitoring for safer rollout.",
+          "product": "Intune",
+          "sourceId": "doc-2026-01-06-learn-about-windows-driver-updates-policy-for-windows-devices-in-intune-01"
+        },
+        {
+          "title": "MDT retirement requires task-sequence cleanup before integration removal",
+          "detail": "Configuration Manager release notes now warn that Microsoft Deployment Toolkit integration and MDT Standalone are retired and unsupported. Administrators must remove all MDT task-sequence steps first and then remove MDT integration to prevent task-sequence corruption and modification failures; Windows Autopilot or supported Configuration Manager OSD are suggested alternatives.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-01-06-release-notes-07"
         },
         {
-          "title": "Endpoint Privilege Management adds Azure Virtual Desktop support",
-          "detail": "EPM documentation lists Azure Virtual Desktop single-session virtual machines as supported for onboarding, alongside Windows 365. This extends elevation-policy planning to supported single-session AVD environments.",
-          "product": "Endpoint Privilege Management",
-          "sourceId": "doc-2026-01-06-epm-frequently-asked-questions-10"
-        },
-        {
-          "title": "Managed Home Screen RBAC permissions are announced for February",
-          "detail": "The Message Center announcement says School Administrator and Help Desk Operator roles will receive TemporarilySuspendManagedHomeScreen and RestoreManagedHomeScreen permissions. Existing role holders should be reviewed before the new capabilities become available.",
+          "title": "Managed Home Screen adds two permissions to built-in roles in February",
+          "detail": "The planned February Intune release adds TemporarilySuspendManagedHomeScreen and RestoreManagedHomeScreen to the School Administrator and Help Desk Operator built-in roles. Microsoft says no administrator action is required, but organizations using those roles should review role assignments and update their internal permissions documentation.",
           "product": "Intune",
           "sourceId": "MC1213781"
         }
       ],
-      "generatedBy": "codex-one-time-backfill",
-      "model": "gpt-5.6-terra",
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-06T22:05:02.949Z"
+      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "usage": {
+        "inputTokens": 36265,
+        "outputTokens": 8023,
+        "costUsd": 0.016881
+      }
     },
     "2026-01-12": {
-      "headline": "Windows servicing guidance is rebuilt around focused policies and staged operations",
-      "overview": "The week recorded 232 changes, dominated by a task-focused restructuring of Windows update documentation: update-ring settings, driver updates, feature updates, quality updates, Hotpatch, expedited updates, reports, and rollout options. Supporting changes refresh Edge for Business data-security guidance, Defender compliance integration, centralized admin tasks, and Autopilot known issues.",
-      "adminImpact": "Make the new focused policy guides the source of truth for Windows servicing runbooks. Validate update-ring deferrals and restart controls, use feature-update policy for version targeting, reserve expedited policies for emergencies, and stage Hotpatch or driver rollouts. Also address the documented local Autopilot Reset limitation before relying on local-admin reset procedures.",
+      "headline": "Windows quality-update guidance now separates expedite, hotpatch, and ordinary servicing",
+      "overview": "This was a documentation-heavy week, with the most consequential guidance concentrated in Windows update administration. Revised Intune articles distinguish standard monthly servicing from quality-update policies, targeted expedite policies, and hotpatch, while also documenting feature-update rollout constraints, a Win32 PowerShell installer path, Edge policy conflicts, and a local Autopilot Reset issue. The supplied evidence contains no Message Center item and does not establish preview, general-availability, or capability-retirement status.",
+      "adminImpact": "Audit Windows update designs against the clarified division: retain update rings and Windows Update client policies for ordinary servicing, deferrals, deadlines, restarts, and notifications; use quality-update policies for cloud orchestration, Autopatch-managed deployments, hotpatch, or reporting, and expedite policies for targeted urgent updates. For gradual feature rollouts, verify the timing and cloud-processing prerequisite. For Win32 scripts, observe the 50 KB, silent-execution, return-code, and Multi-Admin Approval constraints. Review Edge policy assignments and any Autopilot devices that depend on local reset.",
       "keyChanges": [
         {
-          "title": "Update-ring settings are documented in a detailed new reference",
-          "detail": "The new reference covers delivery, driver, deferral, restart, notification, pause, scan-access, and deadline controls with CSP mappings. It turns update-ring configuration into a clearer review checklist for production policies.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-12-update-rings-policy-settings-32"
+          "title": "Quality-update guidance separates routine servicing from targeted scenarios",
+          "detail": "The revised Quality Updates article says devices do not need a Windows quality updates policy to continue receiving monthly quality updates through standard Windows Update behavior. Update rings and Windows Update client policies continue to control deferrals, deadlines, restarts, and notifications. Create a quality-update policy when cloud-based orchestration, Windows Autopatch-managed deployments, hotpatch, or policy-based reporting is required; use an expedite policy instead when accelerating one specific update",
+          "product": "Intune — Windows quality updates",
+          "sourceId": "doc-2026-01-13-quality-updates-47"
         },
         {
-          "title": "Hotpatch and expedited quality updates receive dedicated operational guidance",
-          "detail": "The week separates Hotpatch and expedited quality updates from general policy documentation, reinforcing that they have distinct eligibility, urgency, rollout, and monitoring considerations.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-13-hotpatch-updates-with-windows-quality-updates-policies-01"
+          "title": "Gradual feature-update rollouts get concrete timing and prerequisite rules",
+          "detail": "The rollout guidance specifies that the first offer-group date must be at least two days in the future. Devices are assigned randomly and evenly, with a minimum of 100 devices per group; changing dates or spacing recalculates groups for devices that have not yet received the offer. Intelligent rollouts require a Settings Catalog profile enabling Allow Windows Update for Business Cloud Processing, assigned to the same groups as the feature-update policy. This is procedural and prerequisite guidance, not a stated GA或",
+          "product": "Intune — Feature update policies",
+          "sourceId": "doc-2026-01-14-rollout-options-29"
         },
         {
-          "title": "Windows update policy content moves to task-specific pages",
-          "detail": "New driver-update, feature-update, and update-ring policy guides replace earlier broad pages, making the latest links and page names important for operational documentation and help-desk references.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-15-manage-windows-driver-update-policies-01"
+          "title": "Win32 app guidance documents a PowerShell-script installer path",
+          "detail": "The Win32 app procedure now documents two installer types: Command line and PowerShell script. A script replaces the standard install command, is packaged with the app content, runs in the same system or user context as the installer, should run silently, is limited to 50 KB, and uses its return code to determine installation status. With Multi-Admin Approval enabled, scripts cannot be uploaded during app creation; create the app first, then add or modify the script. The documentation does not state preview or GA‌",
+          "product": "Intune — Win32 app management",
+          "sourceId": "doc-2026-01-14-add-and-assign-win32-apps-to-microsoft-intune-23"
         },
         {
-          "title": "Edge for Business data-security guidance is renumbered and consolidated",
-          "detail": "The documentation sequence gains a revised troubleshooting step and retires older security-baseline and end-user-experience pages, requiring any internally shared guide links to be checked.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-15-step-7-troubleshoot-microsoft-edge-for-business-data-security-05"
+          "title": "Edge for Business guidance sets enrollment-based policy boundaries",
+          "detail": "The Edge for Business guidance directs administrators to use App Configuration Policies for non-enrolled devices. For enrolled Windows devices, choose either Settings Catalog policies or the Microsoft Edge Security Baseline, not both. It also warns that deploying App Configuration Policies and Settings Catalog policies targeting the same client creates conflicts. This is an administration and security-guidance clarification, not evidence that the Edge security baseline capability was retired.",
+          "product": "Intune — Microsoft Edge for Business",
+          "sourceId": "doc-2026-01-15-secure-your-corporate-data-in-intune-with-microsoft-edge-for-business-35"
         },
         {
-          "title": "A local Autopilot Reset policy conflict is documented",
-          "detail": "A Deny access to this computer from the network setting for the Local account prevents local administrators from initiating Autopilot Reset. Exclude affected devices or remove the setting where that reset path is required.",
-          "product": "Windows Autopilot",
+          "title": "Autopilot known issue links local reset to a network-denial setting",
+          "detail": "The Windows Autopilot known-issues page records that a local Windows administrator cannot start local Windows Autopilot Reset when an Intune policy sets “Deny access to this computer from the network” for the Local account. The documented workaround is to remove that setting or exclude devices that require local Autopilot Reset; the issue remains under investigation.",
+          "product": "Windows Autopilot — Local Autopilot Reset",
           "sourceId": "doc-2026-01-16-known-issues-26"
         }
       ],
-      "generatedBy": "codex-one-time-backfill",
-      "model": "gpt-5.6-terra",
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-06T22:06:31.616Z"
+      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "usage": {
+        "inputTokens": 43263,
+        "outputTokens": 9729,
+        "costUsd": 0.020327
+      }
     },
     "2026-01-19": {
-      "headline": "App-protection retirement planning and frontline Android control define the week",
-      "overview": "The week recorded 63 changes and three Message Center announcements. The most consequential work is planning for the June retirement of Require approved client app, the March end of Defender for Android personal-profile protection, and the introduction of Managed Home Screen suspend and restore actions for corporate-owned Android devices. Migration and device-query guidance also becomes more operational.",
-      "adminImpact": "Create a Conditional Access migration plan before June and review Android security scope before March. Define role ownership and an escalation process for Managed Home Screen suspension, stage Basic Mobility and Security migrations around licensing and replacement policies, and update saved Advanced Analytics joins that use Device.DeviceId.",
+      "headline": "Require approved client app retires in June; switch to application protection policy",
+      "overview": "The biggest admin signal is the June 2026 retirement of Microsoft Entra Conditional Access's **Require approved client app** control; a second Message Center notice says Microsoft Defender for Android will stop protecting personal profiles on enrolled devices by March 2026. The 63-record period was otherwise mostly documentation maintenance, but it also records OS enforcement for **Install Windows quality updates** in the `2026-01 B` quality update and clarifies scalar-property rules for Advanced Analytics Device Query. New Managed Home Screen pages document suspend and restore procedures for Android Enterprise corporate-owned Fully Managed and Dedicated devices; the supplied evidence does not establish a preview or general-availability launch.",
+      "adminImpact": "Before June 2026, find Conditional Access policies using **Require approved client app** and replace the control with **Require application protection policy**; after retirement, the old control will no longer be enforceable. No admin action is required for the Defender scope change, which doesn't affect corporate work profiles or unenrolled devices. If you use Device Query, change scalar operators to use properties such as `Device.SerialNumber` or `Device.OSVersion`. For normal Windows update deployment, follow the recommended Update rings, Feature updates, or Quality updates path rather than packaging `.msu` files as Win32 apps; use the Win32 method only when granular control is needed. Teams migrating from Basic Mobility and Security should use the revised license-assignment and policy-",
       "keyChanges": [
         {
-          "title": "Conditional Access Require approved client app retirement is announced",
-          "detail": "The control retires in June 2026; Microsoft directs administrators to Require application protection policy as the equivalent successor. Policies that retain the old control will not be enforceable after retirement.",
+          "title": "Conditional Access control has a June 2026 retirement deadline",
+          "detail": "Microsoft says the **Require approved client app** control will retire in June 2026 and will no longer be enforceable. Organizations should update affected policies to use **Require application protection policy** for equivalent and enhanced protection. This is a Message Center retirement notice.",
           "product": "Intune",
           "sourceId": "MC1220751"
         },
         {
-          "title": "Managed Home Screen gains suspend and restore remote actions",
-          "detail": "Help Desk Operator, School Administrator, and appropriately scoped custom roles can suspend or restore Managed Home Screen on supported Android Enterprise corporate-owned fully managed and dedicated devices, with dedicated Remote tasks permissions.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-20-remote-device-action-suspend-managed-home-screen-02"
-        },
-        {
-          "title": "Basic Mobility and Security migration guidance is expanded",
-          "detail": "The migration guide emphasizes license assignment sequencing, policy mapping and replacement, group review, and removal of obsolete Basic Mobility and Security policy after users move to Intune.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-22-move-from-basic-mobility-and-security-to-intune-migration-guide-06"
-        },
-        {
-          "title": "Device Query scripts need an updated Device join pattern",
-          "detail": "The documentation deprecates joins using Device.DeviceId in favor of joining on Device or omitting the clause where the Device entity supplies the join context.",
-          "product": "Advanced Analytics",
-          "sourceId": "doc-2026-01-24-device-query-multiple-devices-01"
-        },
-        {
-          "title": "Defender for Android personal-profile protection end is announced",
-          "detail": "From March 2026, enrolled personal profiles are no longer protected by Defender for Android; corporate work profiles and unenrolled devices remain outside the stated impact.",
+          "title": "Defender for Android drops enrolled personal-profile protection",
+          "detail": "By March 2026, Microsoft Defender for Android will end support for protecting personal profiles on enrolled devices and focus solely on securing corporate work profiles. Work profiles and unenrolled devices are unaffected, and Microsoft says no admin action is required.",
           "product": "Intune",
           "sourceId": "MC1221927"
-        }
-      ],
-      "generatedBy": "codex-one-time-backfill",
-      "model": "gpt-5.6-terra",
-      "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-06T22:07:37.360Z"
-    },
-    "2026-01-26": {
-      "headline": "Cloud PKI lifecycle planning is the week’s operational priority",
-      "overview": "The week recorded 205 changes, including a substantial standalone Cloud PKI documentation set and a new CA-expiration recovery guide. The remaining volume is mostly Configuration Manager reference maintenance, Defender integration clarification, and routine app-management updates.",
-      "adminImpact": "Cloud PKI administrators should validate BYOCA design and build a CA-expiration playbook now, before certificate issuance is at risk. Configuration Manager teams should use the updated SQL requirement table and developer references during planned maintenance; the bulk reference edits do not by themselves require a deployment change.",
-      "keyChanges": [
-        {
-          "title": "Cloud PKI BYOCA and deployment guidance is consolidated",
-          "detail": "New documentation covers Cloud PKI architecture, deployment models, Microsoft-managed root and issuing CAs, BYOCA issuing CAs, monitoring, audit logs, and deletion. The BYOCA model anchors an Intune Cloud PKI issuing CA to a private or on-premises CA.",
-          "product": "Cloud PKI",
-          "sourceId": "doc-2026-01-26-bring-your-own-certificate-authority-with-cloud-pki-02"
         },
         {
-          "title": "CA expiration gets an explicit service-continuity procedure",
-          "detail": "Administrators must replace an expiring issuing CA and update affected SCEP profiles to its single new SCEP URI. Failure to act stops new certificate issuance after expiry and can interrupt network access and certificate-based authentication.",
+          "title": "Windows quality-update enforcement is tied to 2026-01 B",
+          "detail": "In the Enrollment Status Page guidance, the **Install Windows quality updates** statement changed from saying the setting was available but not yet enforced by the OS, with enforcement planned for `2026-01 B`, to saying OS enforcement is included in the `2026-01 B` quality update. This updates the documented enforcement status rather than announcing a new policy setting.",
+          "product": "Intune",
+          "sourceId": "doc-2026-01-20-set-up-the-enrollment-status-page-in-the-admin-center-copy-11"
+        },
+        {
+          "title": "Advanced Analytics requires scalar properties in Device Query operators",
+          "detail": "The Device Query reference now says the `Device` entity cannot be used directly in scalar-requiring operators such as `distinct`, `summarize`, and `order by`. Administrators should use a specific scalar property instead, such as `Device.SerialNumber` or `Device.OSVersion`. This is a query limitation clarification.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-01-24-device-query-multiple-devices-03"
+        },
+        {
+          "title": "Intune now recommends Windows Update policies over Win32 .msu packages",
+          "detail": "The updated Windows update package guidance explicitly says deploying an `.msu` file as a Win32 app isn't the recommended approach and points administrators to Update rings, Feature updates, and Quality updates. Win32 deployment remains an option when more granular control is needed; this is operational guidance, not a change to the Win32 capability.",
+          "product": "Intune",
+          "sourceId": "doc-2026-01-22-deploy-windows-update-packages-in-intune-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "usage": {
+        "inputTokens": 20580,
+        "outputTokens": 11176,
+        "costUsd": 0.017527
+      }
+    },
+    "2026-01-26": {
+      "headline": "Cloud PKI expiry guidance requires issuing CA replacement and SCEP updates",
+      "overview": "The week was dominated by mechanical Learn maintenance, particularly Configuration Manager reference and navigation updates, rather than service announcements. The meaningful exceptions were a customer-managed Cloud PKI expiration procedure, a Windows Autopilot device preparation limit increase, clearer Endpoint Privilege Management child-process behavior, and refreshed Windows MAM guidance. New Cloud PKI deployment, audit, and lifecycle pages appear alongside removals of older pages with matching content, which indicates documentation reorganization rather than a documented capability retirement. No Message Center items were supplied.",
+      "adminImpact": "Inventory Cloud PKI issuing CAs and the SCEP profiles that reference them. For an expiring CA, the documented path is to create a replacement with the same Root CA Source and matching Extended Key Usages and key sizes, then replace the SCEP URI in each profile; do not add a second URI, and remember that changing the URI does not trigger certificate reissuance. Review Autopilot deployment timeouts before assigning up to 25 apps, audit EPM rules for applications that can launch shells or script engines, and verify that Windows Security Center MTD connector targets run Windows 11 version 22631 (23H2) or later. Use the Cloud PKI audit guidance when validating required roles, licensing, Graph tokens, and permissions.",
+      "keyChanges": [
+        {
+          "title": "Cloud PKI expiration guidance makes CA replacement customer-managed",
+          "detail": "The new Cloud PKI CA expiration guidance says Microsoft can't automatically update a CA or its SCEP profiles. If an issuing CA expires, profiles that reference it stop issuing new certificates, potentially causing loss of Wi-Fi, VPN, or email connectivity, resource access failures, and certificate-based authentication failures. Administrators must create a new issuing CA using the same Root CA Source, match Extended Key Usages and key sizes, and replace the SCEP URI in every affected profile. Cloud PKI doesn't支持-",
           "product": "Cloud PKI",
           "sourceId": "doc-2026-01-31-cloud-pki-ca-expiration-01"
         },
         {
-          "title": "Defender for Endpoint integration guide clarifies portal connection work",
-          "detail": "The updated runbook uses Intune connection status as the starting decision, then directs administrators to enable Microsoft Intune connection in Defender XDR only when the services are not already connected.",
-          "product": "Intune",
-          "sourceId": "doc-2026-01-29-configure-microsoft-defender-for-endpoint-with-intune-and-onboard-devices-01"
+          "title": "Autopilot device preparation limit increases to 25 apps",
+          "detail": "Windows Autopilot device preparation guidance records a maximum of 25 apps, up from 10. The change applies to both user-driven and automatic modes, including all Cloud PC offerings. Administrators assigning more apps during OOBE are told to adjust deployment timeout settings to help avoid unexpected timeouts.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-01-26-what-s-new-in-windows-autopilot-device-preparation-30"
         },
         {
-          "title": "Configuration Manager reference maintenance is extensive but non-feature-bearing",
-          "detail": "A broad SDK, WMI, migration, software-update, and hierarchy documentation pass refreshes the reference surface for developers and operators without an indicated new Configuration Manager service capability.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-01-28-checkdecommissionstate-method-57"
+          "title": "EPM guidance exposes child-process elevation paths that bypass deny rules",
+          "detail": "Endpoint Privilege Management guidance now explicitly distinguishes Require rule to elevate, Deny all, and Allow child processes to run elevated. In the allow mode, child processes automatically run elevated and rule evaluation is skipped, including deny rules. Microsoft recommends avoiding overly broad elevation rules for applications that can launch other processes, such as command shells or script engines.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-01-31-epm-elevation-rules-02"
+        },
+        {
+          "title": "Windows MAM guidance marks App Protection Conditional Access generally available",
+          "detail": "The refreshed Windows Mobile Application Management prerequisites label App Protection Conditional Access as generally available and replace older fixed build references with the supported Windows versions page. They also state that the Mobile Threat Defense Connector for the Windows Security Center component is supported only on Windows 11 version 22631 (23H2) or later. The diff establishes the documented status and prerequisite, but does not provide a separate launch date.",
+          "product": "Intune",
+          "sourceId": "doc-2026-01-29-protect-mam-windows-29"
+        },
+        {
+          "title": "Cloud PKI audit guidance specifies CA, certificate actions and prerequisites",
+          "detail": "The new audit-log article lists actions including creating, searching, retrieving, updating, and deleting CAs; searching and revoking leaf certificates; uploading externally signed CA certificates; changing CA status; and revoking CA certificates. It directs administrators to Tenant Administration > Audit Logs or Microsoft Graph and lists a Cloud PKI license, Intune service administrator role, Graph access token, and DeviceManagementApps.Read.All or DeviceManagementApps.ReadWrite.All permissions as prerequisites.",
+          "product": "Cloud PKI",
+          "sourceId": "doc-2026-01-26-audit-logs-for-microsoft-intune-cloud-pki-01"
         }
       ],
-      "generatedBy": "codex-one-time-backfill",
-      "model": "gpt-5.6-terra",
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-06T22:08:52.424Z"
+      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "usage": {
+        "inputTokens": 39463,
+        "outputTokens": 10086,
+        "costUsd": 0.019996
+      }
     },
     "2026-02-02": {
       "headline": "Role delegation, Apple configuration references, and Autopilot maintenance shape the first February week",
@@ -4905,17 +4929,30 @@
       "generatedAt": "2026-08-06T22:27:40.761Z"
     }
   },
-  "usageByDay": {},
+  "version": 3,
+  "generatedAt": "2026-08-07T06:20:38.899Z",
+  "generator": {
+    "model": "gpt-5.6-luna",
+    "reasoningEffort": "xhigh"
+  },
+  "usageByDay": {
+    "2026-08-07": {
+      "inputTokens": 161209,
+      "outputTokens": 51713,
+      "requests": 6,
+      "costUsd": 0.094297
+    }
+  },
   "lastRun": {
-    "inputTokens": 0,
-    "outputTokens": 0,
-    "requests": 0,
-    "costUsd": 0
+    "inputTokens": 161209,
+    "outputTokens": 51713,
+    "requests": 6,
+    "costUsd": 0.094297
   },
   "totalUsage": {
-    "inputTokens": 0,
-    "outputTokens": 0,
-    "requests": 0,
-    "costUsd": 0
+    "inputTokens": 161209,
+    "outputTokens": 51713,
+    "requests": 6,
+    "costUsd": 0.094297
   }
 }

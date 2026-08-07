@@ -12,6 +12,24 @@ test('period prompt requires specific content changes instead of count-only pros
   assert.match(PERIOD_SUMMARY_PROMPT, /copy the id.*sourceId/i);
   assert.match(PERIOD_SUMMARY_PROMPT, /Do not begin with.*Intune documentation/i);
   assert.match(PERIOD_SUMMARY_PROMPT, /recentHeadlines.*style history, never as evidence/i);
+  assert.match(PERIOD_SUMMARY_PROMPT, /use diffEvidence as the primary factual source/i);
+});
+
+test('period evidence includes raw changed lines when an individual summary is fallback', () => {
+  const generator = new PeriodSummaryGenerator();
+  const item = {
+    id: 'doc-odbc', date: '2026-05-13', source: 'docs', changeType: 'Updated', additions: 1,
+    product: { slug: 'configuration-manager', short: 'Configuration Manager' }, topic: { name: 'Fundamentals' },
+    title: 'Configuration Manager ODBC requirement',
+    summary: 'Updated Microsoft Intune documentation.',
+    adminImpact: 'Review the underlying documentation change.',
+    summaryGeneratedBy: 'fallback',
+    patch: '- Prerequisite check blocks versions lower than 18.4.4.1.\n+ Prerequisite check blocks versions lower than 18.4.1.1.'
+  };
+
+  const evidence = generator.buildEvidence('week', '2026-05-11', [item], { days: {}, weeks: {}, months: {} });
+  assert.match(evidence.representativeChanges[0].diffEvidence, /18\.4\.4\.1/);
+  assert.match(evidence.representativeChanges[0].diffEvidence, /18\.4\.1\.1/);
 });
 
 test('daily evidence includes recent headlines only as style context', () => {

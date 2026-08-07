@@ -17,7 +17,7 @@ them outside this site.
 | `intune-suite.svg` | Intune Suite | Devices | `msicons/public/icons/intune/10332-icon-service-Devices.svg` | Closest available |
 | `epm.svg` | Endpoint Privilege Management | Entra Privileged Identity Management | `msicons/public/icons/identity/02251-icon-service-Entra-Privileged-Identity-Management.svg` | Closest available |
 | `remote-help.svg` | Remote Help | Help and Support | `msicons/public/icons/general/10013-icon-service-Help-and-Support.svg` | Closest available |
-| `advanced-analytics.svg` | Advanced Analytics | Intune Trends | `msicons/public/icons/management-governance/00408-icon-service-Intune-Trends.svg` | Closest available |
+| `advanced-analytics.svg` | Advanced Analytics | Log Analytics Workspaces | `msicons/public/icons/analytics/00009-icon-service-Log-Analytics-Workspaces.svg` | Closest available |
 | `cloud-pki.svg` | Cloud PKI | App Service Certificates | `msicons/public/icons/app-services/00049-icon-service-App-Service-Certificates.svg` | Closest available |
 | `enterprise-app-management.svg` | Enterprise App Management | Managed Applications Center | `msicons/public/icons/management-governance/10313-icon-service-Managed-Applications-Center.svg` | Closest available |
 | `copilot.svg` | Security Copilot | Copilot color | `msicons/public/icons/fabric/copilot_color.svg` | Closest available |

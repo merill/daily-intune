@@ -40,3 +40,9 @@ test('Microsoft Intune uses the upstream product mark', () => {
   assert.equal(mapping.sourceName, 'Microsoft Intune');
   assert.equal(mapping.match, 'exact');
 });
+
+test('Windows Autopilot uses the Automanaged VM service icon', () => {
+  const mapping = productIcon('windows-autopilot');
+  assert.equal(mapping.sourceName, 'Automanaged VM');
+  assert.equal(mapping.sourcePath, 'compute/02112-icon-service-Automanaged-VM.svg');
+});

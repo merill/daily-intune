@@ -535,6 +535,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(monthHtml, /class="story-description">This readable summary explains the configuration baseline change in full/);
   assert.doesNotMatch(monthHtml, /Notable changes|class="two-column"/);
   assert.match(aboutHtml, /Built for the die-hard Microsoft Intune community/);
+  assert.match(aboutHtml, /class="about-kicker"><img src="\/assets\/ui\/intune-news-icon-64\.png" alt=""><div class="eyebrow">About Daily Intune News<\/div>/);
   assert.match(aboutHtml, /Why it exists/);
   assert.match(aboutHtml, /How it works/);
   assert.match(aboutHtml, /Made for the community/);
@@ -642,7 +643,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(siteJs, /window\.uj\?\.showWidget\(\{section:'feedback'\}\)/);
   assert.doesNotMatch(indexHtml, /Follow Merill on GitHub|href="https:\/\/github\.com\/merill"/);
   assert.match(indexHtml, /href="https:\/\/merill\.net" target="_blank" rel="noopener noreferrer">merill\.net/);
-  assert.match(indexHtml, /<a class="brand" href="\/">\s*<img class="brand-logo" src="\/assets\/products\/intune\.svg" alt="">\s*<span>Daily Intune News<\/span><\/a>/);
+  assert.match(indexHtml, /<a class="brand" href="\/">\s*<img class="brand-logo" src="\/assets\/ui\/intune-news-icon-64\.png" alt="">\s*<span>Daily Intune News<\/span><\/a>/);
   assert.doesNotMatch(indexHtml, /<small>daily\.intune\.admin\.news<\/small>/);
   const headerHtml = indexHtml.match(/<header class="site-header">[\s\S]*?<\/header>/)?.[0] || '';
   assert.doesNotMatch(headerHtml, />Products<\/a>|>Topics<\/a>/);
@@ -670,6 +671,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(siteJs, /data-theme-option/);
   assert.equal((await fs.stat(path.join(websiteDir, 'favicon.ico'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'og-image.png'))).size > 0, true);
+  assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'intune-news-icon-64.png'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'products', 'intune.svg'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'maester.png'))).size > 0, true);
   assert.equal((await fs.stat(path.join(websiteDir, 'assets', 'ui', 'book-bookmark.svg'))).size > 0, true);

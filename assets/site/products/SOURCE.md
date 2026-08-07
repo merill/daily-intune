@@ -12,7 +12,7 @@ them outside this site.
 | Local file | Daily Intune product | Upstream icon | Upstream path | Match |
 | --- | --- | --- | --- | --- |
 | `intune.svg` | Microsoft Intune | Microsoft Intune | `msicons/public/icons/intune/Microsoft-intune.svg` | Exact |
-| `autopilot.svg` | Windows Autopilot | Device Provisioning Services | `msicons/public/icons/iot/10369-icon-service-Device-Provisioning-Services.svg` | Closest available |
+| `autopilot.svg` | Windows Autopilot | Automanaged VM | `msicons/public/icons/compute/02112-icon-service-Automanaged-VM.svg` | Closest available |
 | `configuration-manager.svg` | Configuration Manager | Managed Desktop | `msicons/public/icons/management-governance/10311-icon-service-Managed-Desktop.svg` | Closest available |
 | `intune-suite.svg` | Intune Suite | Devices | `msicons/public/icons/intune/10332-icon-service-Devices.svg` | Closest available |
 | `epm.svg` | Endpoint Privilege Management | Entra Privileged Identity Management | `msicons/public/icons/identity/02251-icon-service-Entra-Privileged-Identity-Management.svg` | Closest available |

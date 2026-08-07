@@ -7,7 +7,7 @@ const SOURCE = Object.freeze({
 
 const PRODUCT_ICONS = Object.freeze({
   intune: icon('intune.svg', 'Microsoft Intune', 'intune/Microsoft-intune.svg', 'exact'),
-  'windows-autopilot': icon('autopilot.svg', 'Device Provisioning Services', 'iot/10369-icon-service-Device-Provisioning-Services.svg', 'closest'),
+  'windows-autopilot': icon('autopilot.svg', 'Automanaged VM', 'compute/02112-icon-service-Automanaged-VM.svg', 'closest'),
   'configuration-manager': icon('configuration-manager.svg', 'Managed Desktop', 'management-governance/10311-icon-service-Managed-Desktop.svg', 'closest'),
   'intune-suite': icon('intune-suite.svg', 'Devices', 'intune/10332-icon-service-Devices.svg', 'closest'),
   'endpoint-privilege-management': icon('epm.svg', 'Entra Privileged Identity Management', 'identity/02251-icon-service-Entra-Privileged-Identity-Management.svg', 'closest'),

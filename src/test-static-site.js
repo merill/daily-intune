@@ -275,6 +275,10 @@ test('static generator writes indexable archive and detail pages', async () => {
         patch: `+title: Archive update ${date}\n+description: Historical archive navigation fixture`,
         additions: 2,
         deletions: 0,
+        ...(date === '2026-06-15' ? {
+          baseCommitSha: 'cccccccccccccccccccccccccccccccccccccccc',
+          commitSha: 'dddddddddddddddddddddddddddddddddddddddd'
+        } : {}),
         publicDocsUrl: 'https://learn.microsoft.com/en-us/intune/intune-service/'
       }]
     }));
@@ -318,7 +322,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   const generator = new StaticSiteGenerator({
     websiteDir,
     mcDataPath,
-    detailDays: 60,
+    detailDays: 14,
     generatedAt: '2026-08-04T09:00:00Z',
     userJotProjectId: 'intune-test-project',
     kitDailyFormUid: 'daily-form-123',
@@ -329,6 +333,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   const indexHtml = await fs.readFile(path.join(websiteDir, 'index.html'), 'utf8');
   const dayIndexHtml = await fs.readFile(path.join(websiteDir, 'day', 'index.html'), 'utf8');
   const dayHtml = await fs.readFile(path.join(websiteDir, 'day', '2026-08-01', 'index.html'), 'utf8');
+  const historicalDayHtml = await fs.readFile(path.join(websiteDir, 'day', '2026-06-15', 'index.html'), 'utf8');
   const weekIndexHtml = await fs.readFile(path.join(websiteDir, 'week', 'index.html'), 'utf8');
   const monthHtml = await fs.readFile(path.join(websiteDir, 'month', '2026-08', 'index.html'), 'utf8');
   const docDetailHtml = await fs.readFile(path.join(websiteDir, 'changes', '2026-08-01', 'create-a-configuration-monitor-01', 'index.html'), 'utf8');
@@ -443,6 +448,8 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(dayHtml, /class="mini-calendar-grid"/);
   assert.match(dayHtml, /href="#product-intune"/);
   assert.match(dayHtml, /class="change-pill updated">Updated/);
+  assert.match(historicalDayHtml, /href="\/compare\/\?url=https%3A%2F%2Flearn\.microsoft\.com%2Fen-us%2Fintune%2Fintune-service%2F&amp;base=cccccccccccccccccccccccccccccccccccccccc&amp;head=dddddddddddddddddddddddddddddddddddddddd&amp;view=diff">Archive update 2026-06-15<\/a>/);
+  await assert.rejects(fs.access(path.join(websiteDir, 'changes', '2026-06-15', 'archive-update-2026-06-15-01', 'index.html')));
   assert.match(dayHtml, /class="change-pill new">New/);
   assert.match(dayHtml, /<time datetime="2026-08-01T08:15:00Z" data-local-day>/);
   assert.match(dayHtml, /class="theme-picker" role="group" aria-label="Color theme"/);

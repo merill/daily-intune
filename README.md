@@ -169,7 +169,7 @@ window.DOC_DIFF_CONFIG = {
 
 `siteUrl` supplies both the allowed HTTPS host and the public path prefix. With `stripLocale`, a leading segment such as `en-us` is ignored while mapping. The example maps `https://docs.example.com/en-us/guide/start` to `content/start.md`. Include every supported source in the `sources` array.
 
-The checked-in static list currently covers Microsoft Intune, Azure, .NET, PowerShell, Microsoft 365, Microsoft Intune, Microsoft Fabric, Dynamics 365, SQL, Microsoft Graph, Visual Studio, ASP.NET Core, and Windows Server. Sources are matched in array order, so narrower routes belong before broad ones. An optional `query` object can select variants such as Microsoft Graph beta, and `pathAliases` can describe individual Learn-to-repository path exceptions without changing the client code.
+The checked-in static list currently covers Azure, .NET, PowerShell, Microsoft 365, Microsoft Entra, Microsoft Intune, Windows Autopilot, Microsoft Fabric, Dynamics 365, SQL, Microsoft Graph, Visual Studio, ASP.NET Core, and Windows Server. Sources are matched in array order, so narrower routes belong before broad ones. An optional `query` object can select variants such as Microsoft Graph beta, and `pathAliases` can describe individual Learn-to-repository path exceptions without changing the client code.
 
 Message Center ingestion includes a post when either its service list or title contains the standalone word `Intune` (case-insensitive). Set `MC_DATA_PATH` to the Message Center repository's `@data` directory when building locally; the GitHub workflow clones that repository automatically.
 

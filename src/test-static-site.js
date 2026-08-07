@@ -626,6 +626,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(compareHtml, /src="\/assets\/diff-config\.js"/);
   assert.match(diffConfigJs, /repositoryUrl: 'https:\/\/github\.com\/MicrosoftDocs\/memdocs'/);
   assert.match(diffConfigJs, /repositoryUrl: 'https:\/\/github\.com\/MicrosoftDocs\/azure-docs'/);
+  assert.match(diffConfigJs, /repositoryUrl: 'https:\/\/github\.com\/MicrosoftDocs\/entra-docs'/);
   assert.match(diffConfigJs, /repositoryUrl: 'https:\/\/github\.com\/microsoftgraph\/microsoft-graph-docs-contrib'/);
   assert.match(diffConfigJs, /repositoryUrl: 'https:\/\/github\.com\/MicrosoftDocs\/windowsserverdocs'/);
   assert.match(compareHtml, /src="\/assets\/vendor\/diff\.min\.js"/);

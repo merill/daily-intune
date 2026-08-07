@@ -133,6 +133,7 @@ test('static Microsoft Learn source list maps representative articles to their p
     ['https://learn.microsoft.com/en-us/dotnet/core/introduction', 'dotnet/docs', 'docs/core/introduction.md', 'main'],
     ['https://learn.microsoft.com/en-us/powershell/scripting/overview', 'MicrosoftDocs/PowerShell-Docs', 'reference/docs-conceptual/overview.md', 'main'],
     ['https://learn.microsoft.com/en-us/microsoft-365/admin/setup/setup', 'MicrosoftDocs/microsoft-365-docs', 'microsoft-365/admin/setup/setup.md', 'public'],
+    ['https://learn.microsoft.com/en-us/entra/identity/conditional-access/deployment-guide-token-protection-web-apps', 'MicrosoftDocs/entra-docs', 'docs/identity/conditional-access/deployment-guide-token-protection-web-apps.md', 'main'],
     ['https://learn.microsoft.com/en-us/autopilot/device-preparation/overview', 'MicrosoftDocs/memdocs', 'autopilot/device-preparation/overview.md', 'main'],
     ['https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview', 'MicrosoftDocs/fabric-docs', 'docs/fundamentals/microsoft-fabric-overview.md', 'main'],
     ['https://learn.microsoft.com/en-us/dynamics365/get-started/intro-crossapp-index', 'MicrosoftDocs/dynamics365hubpages', 'dynamics365/get-started/intro-crossapp-index.md', 'live'],

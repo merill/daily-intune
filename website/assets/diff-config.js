@@ -91,6 +91,16 @@
         fileExtension: '.md'
       },
       {
+        id: 'entra-learn',
+        label: 'Microsoft Entra',
+        siteUrl: 'https://learn.microsoft.com/entra/',
+        stripLocale: true,
+        repositoryUrl: 'https://github.com/MicrosoftDocs/entra-docs',
+        repositoryPathPrefix: 'docs',
+        defaultBranch: 'main',
+        fileExtension: '.md'
+      },
+      {
         id: 'intune-learn',
         label: 'Microsoft Intune',
         siteUrl: 'https://learn.microsoft.com/intune/',

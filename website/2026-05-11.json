@@ -1,0 +1,417 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/deployment/add-lob-android.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "patch": "diff --git a/intune/app-management/deployment/add-lob-android.md b/intune/app-management/deployment/add-lob-android.md\nindex f778418e4a..4b8a97f6c0 100644\n--- a/intune/app-management/deployment/add-lob-android.md\n+++ b/intune/app-management/deployment/add-lob-android.md\n@@ -1,7 +1,7 @@\n ---\n title: Add an Android Line-of-Business App to Microsoft Intune\n description: Learn about how to add a Android line-of-business (LOB) app to Microsoft Intune.\n-ms.date: 04/23/2026\n+ms.date: 05/11/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n ms.reviewer: bryanke\n@@ -91,6 +91,14 @@ If **Check apps from external sources** is enabled on the Android device, the us\n > [!IMPORTANT]\n > When you upload a new version of an Android line-of-business app, existing app configuration policies associated with the previous version don't automatically apply to the updated app. To apply app configuration settings to the updated app, create and assign a new app configuration policy that targets the new app version.\n \n+## Known issues\n+\n+The following known issues affect app install status reporting for Android Enterprise line-of-business (LOB) apps that are deployed directly to devices. In all cases, the app installs correctly on the device. Only the status displayed in the Microsoft Intune admin center is affected. These issues are being actively addressed.\n+\n+- **Lower version shows as Installed instead of In-Conflict.** When two versions of the same LOB app are assigned to a device, the lower version may continue to show as **Installed** in the admin center instead of **In-Conflict**.\n+- **Play Store app shows Waiting for install or doesn't appear in the report.** When the same app is assigned as both a Managed Google Play app and a direct LOB app, the Play Store app policy may show **Waiting for install** or may not appear in the policy report, instead of showing **In-Conflict**.\n+- **Conflict resolution and reporting are inconsistent for mixed install intents.** When two versions of the same LOB app are assigned with different install intents (for example, **Install** for one version and **Uninstall** for another), conflict resolution and reporting may not behave as expected.\n+\n ## Next steps\n \n - The app that you created appears in the list of apps. You can now assign it to groups that you choose. For help, see [How to assign apps to groups](./assign-groups.md).\n",
+      "baseCommitSha": "8b995b9c5c4c475fd57de0178befbceae01d1e67",
+      "commitSha": "2b94c3a6f1ee88218b98f9885b7e989adea527a0",
+      "commitMessage": "577582 - Add Known issues callout to Android LOB apps article",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-05-11T08:41:21-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/add-lob-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-lob-android",
+      "firstSeenAt": "2026-05-11T12:41:21.000Z",
+      "eventId": "intune-docs:2b94c3a6f1ee88218b98f9885b7e989adea527a0:modified:intune/app-management/deployment/add-lob-android.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Android LOB install-status known issues documented",
+        "summary": "Adds Known issues explaining direct Android Enterprise LOB apps install correctly while only Intune admin-center install-status reporting is affected.",
+        "adminImpact": "Do not treat the listed status-reporting issue as an installation failure; verify the app on-device.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:10:18.963Z"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/create-compliance-policy.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/create-compliance-policy.md b/intune/device-security/mobile-threat-defense/create-compliance-policy.md\nindex 64a16b875c..13f6f07511 100644\n--- a/intune/device-security/mobile-threat-defense/create-compliance-policy.md\n+++ b/intune/device-security/mobile-threat-defense/create-compliance-policy.md\n@@ -42,7 +42,7 @@ With integration complete and the partner policy in place, you can then create I\n \n 5. On **Compliance settings**, expand and configure **Device Health**. Choose a threat-level from the drop-down list for **Require the device to be at or under the Device Threat Level**.\n \n-   - **Secured**: This level is the most secure. The device can't have any threats present and still access company resources. If any threats are found, the device is evaluated as noncompliant.\n+   - **Clear**: This level is the most secure. The device can't have any threats present and still access company resources. If any threats are found, the device is evaluated as noncompliant.\n \n    - **Low**: The device is compliant if only low-level threats are present. Anything higher puts the device in a noncompliant status.\n \n",
+      "baseCommitSha": "02922638fa78eaeaed99aa2dce0a3da8075b952e",
+      "commitSha": "f9cf4cdfa8a47e8d9adbb2f04b866a67163fe8aa",
+      "commitMessage": "Correct threat level description in compliance policy",
+      "commitAuthor": "Matthew Levy",
+      "commitDate": "2026-05-11T14:49:05+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/create-compliance-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/create-compliance-policy",
+      "firstSeenAt": "2026-05-11T12:49:05.000Z",
+      "eventId": "intune-docs:f9cf4cdfa8a47e8d9adbb2f04b866a67163fe8aa:modified:intune/device-security/mobile-threat-defense/create-compliance-policy.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "MTD highest threat level renamed Clear",
+        "summary": "Corrects the most secure MTD compliance threat level from Secured to Clear; devices with any threats remain noncompliant.",
+        "adminImpact": "Use Clear when configuring the strictest MTD compliance threshold.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:10:18.963Z"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "changes": 3,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/multi-admin-approval.md b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\nindex 349c32ed0e..c0be20d03c 100644\n--- a/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n+++ b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n@@ -27,7 +27,6 @@ Intune supports access policies for the following resources:\n - Device actions - Applies to [wipe](../../device-management/actions/wipe.md), [retire](../../device-management/actions/retire.md), and [delete](../../device-management/actions/delete.md) device actions.\n - Role-based access control – Applies to changes to roles, including modifications to role permissions, admin groups, or member group assignments.\n - Scripts – Applies to deploying scripts to devices that run [Windows](../../device-management/tools/run-powershell-scripts-windows.md).\n-- Access Policies - Applies to creating or managing multiple administrative approval policies.\n - Tenant Configuration - Applies to managing [device categories](../../device-management/create-device-categories.md), including creating, editing, or deleting them.\n \n ## Prerequisites for access policies and approvers\n@@ -179,4 +178,4 @@ You can cancel a request before it's approved by selecting it from the **My requ\n \n ## Related content\n \n-Manage [role-based access control](../role-based-access-control/overview.md)\n\\ No newline at end of file\n+Manage [role-based access control](../role-based-access-control/overview.md)\n",
+      "baseCommitSha": "ee63c498c33c5a523a63a241563428aae2612de4",
+      "commitSha": "e09f99d79666502c565adc6564fad00522285465",
+      "commitMessage": "Remove access policies entry",
+      "commitAuthor": "Matthew Levy",
+      "commitDate": "2026-05-11T15:16:19+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/multi-admin-approval",
+      "firstSeenAt": "2026-05-11T13:16:19.000Z",
+      "eventId": "intune-docs:e09f99d79666502c565adc6564fad00522285465:modified:intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove access policies entry",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/reporting-monitoring.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/autopilot/device-preparation/reporting-monitoring.md b/autopilot/device-preparation/reporting-monitoring.md\nindex fe1ce114bc..6d7e6e67e5 100644\n--- a/autopilot/device-preparation/reporting-monitoring.md\n+++ b/autopilot/device-preparation/reporting-monitoring.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation reporting and monitoring\n description: Reporting and monitoring in Windows Autopilot device preparation.\n-ms.date: 06/11/2025\n+ms.date: 05/11/2026\n ms.topic: how-to\n ms.collection:\n   - M365-modern-desktop\n@@ -12,10 +12,15 @@ appliesto:\n \n # Windows Autopilot device preparation reporting and monitoring\n \n-Out of the box reporting and monitoring with near real-time status of deployments, including applications and PowerShell scripts details and deployment time. This feature provides improved troubleshooting.\n+This feature provides built-in reporting and monitoring with near real-time status of deployments, including applications and PowerShell script details, and deployment time. It provides improved troubleshooting.\n \n ## Accessing reports and near real-time monitoring\n \n To access Windows Autopilot device preparation reports and monitor deployments in near real-time:\n \n [!INCLUDE [Windows Autopilot device preparation reporting and monitoring](includes/reporting-monitoring.md)]\n+\n+> [!IMPORTANT]\n+> Deployment logs are automatically cleaned up every 28 days to prevent outdated or redundant records from accumulating in your reports. Automatic cleanup applies only to deployment records created after the auto-cleanup feature was introduced. \n+> \n+> If you enabled Windows Autopilot device preparation for Windows 365 before automatic cleanup was available, manually remove any older deployment records that remain in your reports. This one-time manual cleanup ensures your reports reflect only current deployments.  \n",
+      "baseCommitSha": "fd3bcb1b7633ca4c4e4f6128be07643f5cbeb8fa",
+      "commitSha": "184d0aec17abceeb6420120300cc3442a1e32cb6",
+      "commitMessage": "new note for auto cleanup",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-11T10:45:17-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/reporting-monitoring.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/reporting-monitoring",
+      "firstSeenAt": "2026-05-11T14:45:17.000Z",
+      "eventId": "intune-docs:184d0aec17abceeb6420120300cc3442a1e32cb6:modified:autopilot/device-preparation/reporting-monitoring.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Autopilot deployment logs now auto-clean after 28 days",
+        "summary": "Adds that device-preparation deployment records created after feature introduction are automatically removed after 28 days; older Windows 365 records need one-time manual removal.",
+        "adminImpact": "Export needed history and manually clean pre-feature records so reports reflect current deployments.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:10:18.963Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 0,
+      "changes": 22,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex e288e06abf..b3e6554c52 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -23,6 +23,28 @@ appliesto:\n >\n > For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.  \n \n+## Windows Autopilot device preparation in automatic mode for Windows 365 general availability  \n+\n+**Date added:** May 11, 2026  \n+\n+Use Windows Autopilot device preparation policies in the automatic flow to provision Cloud PCs at creation. This feature is generally available for:  \n+\n+- Windows 365 Enterprise\n+- Windows 365 Frontline (dedicated)\n+- Windows 365 Frontline (shared)\n+- Windows 365 Cloud Apps  \n+- \n+This feature is in public preview for Windows 365 Reserve.  \n+\n+You can include Windows Autopilot device preparation policies in your Cloud PC provisioning policy. Policies apply immediately after you create a Cloud PC, and deliver apps, scripts, and configurations automatically before users sign in. This ensures each device is ready to use with all required apps and settings from the start. \n+\n+You can monitor deployment status in the [Windows Autopilot device preparation deployment report](reporting-monitoring.md). For a tutorial, see [Step by step tutorial for Windows Autopilot device preparation in automatic mode for Windows 365 in Intune](tutorial/automatic/automatic-workflow.md). \n+\n+For related information, see the following articles:  \n+- [Create provisioning policies for Windows 365](/windows-365/enterprise/create-provisioning-policy)  \n+- [Windows 365 Cloud Apps](/windows-365/enterprise/cloud-apps)  \n+- [Use Autopilot device preparation with Cloud PCs](/windows-365/enterprise/autopilot-device-preparation) \n+\n ## Managed installer policy support during Windows Autopilot device preparation<!-- 31776436 -->  \n \n Date added: *April 10, 2026*\n",
+      "baseCommitSha": "184d0aec17abceeb6420120300cc3442a1e32cb6",
+      "commitSha": "6feac7e4bf6c629eeb66b12d6dac6be30c52213a",
+      "commitMessage": "Add whats new",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-11T10:56:51-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-05-11T14:56:51.000Z",
+      "eventId": "intune-docs:6feac7e4bf6c629eeb66b12d6dac6be30c52213a:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Windows 365 automatic device preparation is generally available",
+        "summary": "Adds GA for automatic-mode device-preparation policies that provision Cloud PCs at creation; Windows 365 Reserve remains preview.",
+        "adminImpact": "Add device-preparation policies to Cloud PC provisioning policies and monitor the deployment report.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:10:18.963Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex b3e6554c52..051a1d18e5 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -23,7 +23,7 @@ appliesto:\n >\n > For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.  \n \n-## Windows Autopilot device preparation in automatic mode for Windows 365 general availability  \n+## Windows Autopilot device preparation in automatic mode for Windows 365 general availability<!-- 30057449 -->  \n \n **Date added:** May 11, 2026  \n \n",
+      "baseCommitSha": "6feac7e4bf6c629eeb66b12d6dac6be30c52213a",
+      "commitSha": "273232eb4e9fb282a517fbf15c52c945c9842a6d",
+      "commitMessage": "Add ado tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-11T10:57:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-05-11T14:57:30.000Z",
+      "eventId": "intune-docs:273232eb4e9fb282a517fbf15c52c945c9842a6d:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add ado tag",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex 051a1d18e5..20d072023d 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -33,7 +33,7 @@ Use Windows Autopilot device preparation policies in the automatic flow to provi\n - Windows 365 Frontline (dedicated)\n - Windows 365 Frontline (shared)\n - Windows 365 Cloud Apps  \n-- \n+\n This feature is in public preview for Windows 365 Reserve.  \n \n You can include Windows Autopilot device preparation policies in your Cloud PC provisioning policy. Policies apply immediately after you create a Cloud PC, and deliver apps, scripts, and configurations automatically before users sign in. This ensures each device is ready to use with all required apps and settings from the start. \n",
+      "baseCommitSha": "273232eb4e9fb282a517fbf15c52c945c9842a6d",
+      "commitSha": "9c6b0018af2f742d2a09359181175556a794d54a",
+      "commitMessage": "removed stray bullet",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-11T11:03:50-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-05-11T15:03:50.000Z",
+      "eventId": "intune-docs:9c6b0018af2f742d2a09359181175556a794d54a:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Windows 365 automatic device preparation is generally available",
+        "summary": "Adds GA for automatic-mode device-preparation policies that provision Cloud PCs at creation; Windows 365 Reserve remains preview.",
+        "adminImpact": "Add device-preparation policies to Cloud PC provisioning policies and monitor the deployment report.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:10:18.963Z"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/36949461.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 3,
+      "changes": 10,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36949461.md b/intune/configmgr/hotfix/2509/36949461.md\nindex 6b0822e219..0ed7fcb907 100644\n--- a/intune/configmgr/hotfix/2509/36949461.md\n+++ b/intune/configmgr/hotfix/2509/36949461.md\n@@ -65,8 +65,6 @@ For more information on changes in Configuration Manager version 2509, see:\n \n ## Hotfixes that are included in this update \n \n-- [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n-- [KB 36495448](../2509/36495448.md): Co-management and 3rd party update scan source fix for Configuration Manager\n - [KB 37172183](../2503/37172183.md): Software Center compliance check fails with GET_TOKEN_FROM_STS_ERROR in co-managed environments\n - [KB 37447175](../2503/37447175.md): Security update to harden access to Network Access Account information\n \n@@ -98,7 +96,6 @@ The following major components are updated to the versions specified:\n \n | Component | Version |\n |---|---|\n-| Configuration Manager console | 5.2509.9141.1030 |\n | Client | 5.0.9141.1030 |\n \n ## File information\n@@ -109,6 +106,13 @@ File information for the release is available in the downloadable [KB36949461_Fi\n \n - April 2026: Initial hotfix release\n \n+## Known issues\n+\n+The following fixes are not included in this update rollup. If these fixes were previously installed as individual hotfixes, installing this update rollup overwrites those changes. These fixes will be included in a future update rollup.\n+\n+- [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n+- [KB 36495448](../2509/36495448.md): Co-management and 3rd party update scan source fix for Configuration Manager\n+\n ## References\n \n [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n",
+      "baseCommitSha": "aaed2ca9acc65f641b876e47f3d1f41274be3bb9",
+      "commitSha": "446a5686ad22b1115ecdbd457e7cd0001c44d05a",
+      "commitMessage": "Update KB36949461: remove missed fixes and add known issues",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-05-11T09:38:31-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36949461.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36949461",
+      "firstSeenAt": "2026-05-11T16:38:31.000Z",
+      "eventId": "intune-docs:446a5686ad22b1115ecdbd457e7cd0001c44d05a:modified:intune/configmgr/hotfix/2509/36949461.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update KB36949461: remove missed fixes and add known issues",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/36949461.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 5,
+      "changes": 11,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36949461.md b/intune/configmgr/hotfix/2509/36949461.md\nindex 0ed7fcb907..2efe0d6a62 100644\n--- a/intune/configmgr/hotfix/2509/36949461.md\n+++ b/intune/configmgr/hotfix/2509/36949461.md\n@@ -1,7 +1,7 @@\n ---\n title: Update rollup for Microsoft Configuration Manager version 2509\n description: Update rollup for Configuration Manager 2509\n-ms.date: 04/13/2026\n+ms.date: 05/11/2026\n ms.subservice: core-infra\n ms.topic: reference\n ---\n@@ -102,10 +102,6 @@ The following major components are updated to the versions specified:\n \n File information for the release is available in the downloadable [KB36949461_FileList.txt](https://aka.ms/KB36949461_2509) text file.\n \n-## Release history \n-\n-- April 2026: Initial hotfix release\n-\n ## Known issues\n \n The following fixes are not included in this update rollup. If these fixes were previously installed as individual hotfixes, installing this update rollup overwrites those changes. These fixes will be included in a future update rollup.\n@@ -113,6 +109,11 @@ The following fixes are not included in this update rollup. If these fixes were\n - [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n - [KB 36495448](../2509/36495448.md): Co-management and 3rd party update scan source fix for Configuration Manager\n \n+## Release history \n+\n+- May 2026: Article revised to document known issues\n+- April 2026: Initial hotfix release\n+\n ## References\n \n [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n",
+      "baseCommitSha": "446a5686ad22b1115ecdbd457e7cd0001c44d05a",
+      "commitSha": "4442e954d9d07f0efb907cf27cf4f835163790e6",
+      "commitMessage": "Move Known issues before Release history and add revision entry",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-05-11T09:44:42-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36949461.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36949461",
+      "firstSeenAt": "2026-05-11T16:44:42.000Z",
+      "eventId": "intune-docs:4442e954d9d07f0efb907cf27cf4f835163790e6:modified:intune/configmgr/hotfix/2509/36949461.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Move Known issues before Release history and add revision entry",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/upgrade.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/upgrade.md b/intune/device-security/microsoft-tunnel/upgrade.md\nindex 4d4b60ca37..e791a95164 100644\n--- a/intune/device-security/microsoft-tunnel/upgrade.md\n+++ b/intune/device-security/microsoft-tunnel/upgrade.md\n@@ -128,14 +128,14 @@ After an update releases, it rolls out to tenants over the following days. This\n >\n > Container releases take place in stages. If you notice that your container images aren't the most recent, please be assured that they will be updated and delivered within the following week.\n \n-### May 1, 2026 \n+### May 7, 2026 \n \n-Version Number: 20260407.1\n+Version Number: 20260507.2\n \n Image hash values:\n \n-- **agentImageDigest**:  sha256:adc8259f8946e23612f9156223be6462690da82d113f919b9503fe227ca811e3\n-- **serverImageDigest**: sha256:a8f1d5c7d734516e40ee3c2ead88d785ad25c5886ded095ce6dc74cf62b9916f\n+- **agentImageDigest**:  sha256:fc8a3c599c36073affe234feaf57b619441317faaa5c1090df3c3e40d6f70a57\n+- **serverImageDigest**: sha256:f53affd23ba2fa9fc5fbcc0d1446c7a1437541b6bacfe246d62aa8ce34c1e3a6\n \n Changes in this release:\n - Package updates\n",
+      "baseCommitSha": "fd3bcb1b7633ca4c4e4f6128be07643f5cbeb8fa",
+      "commitSha": "5fe5e9d08052cfb3a3ff2fe63e17e37437a0f30c",
+      "commitMessage": "Update upgrade.md for May 2026 release details",
+      "commitAuthor": "Oluchi",
+      "commitDate": "2026-05-11T10:42:24-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/upgrade.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/upgrade",
+      "firstSeenAt": "2026-05-11T17:42:24.000Z",
+      "eventId": "intune-docs:5fe5e9d08052cfb3a3ff2fe63e17e37437a0f30c:modified:intune/device-security/microsoft-tunnel/upgrade.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Microsoft Tunnel May release version updated",
+        "summary": "Changes the Microsoft Tunnel release entry from May 1 version 20260407.1 to May 7 version 20260507.2.",
+        "adminImpact": "Validate Tunnel servers against the May 7 release version.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:10:18.963Z"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/settings-catalog/ref-android-settings.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/intune/device-configuration/settings-catalog/ref-android-settings.md b/intune/device-configuration/settings-catalog/ref-android-settings.md\nindex 8c095983b1..7a5f87b2b4 100644\n--- a/intune/device-configuration/settings-catalog/ref-android-settings.md\n+++ b/intune/device-configuration/settings-catalog/ref-android-settings.md\n@@ -3,7 +3,7 @@ title: Android configuration list for Intune settings catalog\n description: Use the Microsoft Intune settings catalog to add, configure, or restrict features on Android devices. This article lists and describes the settings you can configure.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 04/27/2026\n+ms.date: 05/26/2026\n ms.topic: reference\n params:\n   siblings_only: true\n@@ -309,6 +309,16 @@ To learn more about the different Android enrollment types, see [Android Enrollm\n   - Android Enterprise corporate owned fully managed (COBO)\n   - Android Enterprise corporate owned dedicated devices (COSU)\n \n+- **Block Bluetooth sharing**: If **True**, the device can't share content over Bluetooth. If **False**, Intune doesn't change or update this setting. By default, the OS has the following behavior:\n+  - Fully managed and dedicated devices allow Bluetooth sharing.\n+  - Corporate-owned devices with work profile devices block Bluetooth sharing.\n+\n+  Applies to:\n+\n+  - Android Enterprise corporate-owned devices with a work profile (COPE)\n+  - Android Enterprise corporate owned fully managed (COBO)\n+  - Android Enterprise corporate owned dedicated devices (COSU)\n+\n - **Block Contact sharing via Bluetooth (work profile level)**: If **True**, prevents sharing work profile contacts with paired Bluetooth devices, like cars or mobile devices. If **False**, Intune doesn't change or update this setting. By default, the OS might allow users to share their contacts using Bluetooth.\n \n   Applies to:\n",
+      "baseCommitSha": "fd3bcb1b7633ca4c4e4f6128be07643f5cbeb8fa",
+      "commitSha": "a9f3e89795b25e96f8830761709b8d692fe331eb",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-11T14:17:05-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/settings-catalog/ref-android-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/ref-android-settings",
+      "firstSeenAt": "2026-05-11T18:17:05.000Z",
+      "eventId": "intune-docs:a9f3e89795b25e96f8830761709b8d692fe331eb:modified:intune/device-configuration/settings-catalog/ref-android-settings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/ref-android-settings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37426535.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37426535.md b/intune/configmgr/hotfix/2603/37426535.md\nindex 85d717c3c2..11fa24661f 100644\n--- a/intune/configmgr/hotfix/2603/37426535.md\n+++ b/intune/configmgr/hotfix/2603/37426535.md\n@@ -18,7 +18,7 @@ Release version 2603 of Configuration Manager current branch contains fixes and\n ##### Notes\n \n 1. Version 2603 is available as an in-console update that can be installed at the top-tier site in a hierarchy.\n-2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2509.md).\n+2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2603.md).\n 3. For more information about the changes that are included in version 2603, see [What's new in version 2603 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-in-version-2603.md).\n 4. This release contains all of the fixes summarized in the following article.\n \n",
+      "baseCommitSha": "4442e954d9d07f0efb907cf27cf4f835163790e6",
+      "commitSha": "7f8160fd01bf4ec955e72c9ae44cc712159b14b6",
+      "commitMessage": "Fix incorrect checklist link in KB37426535 hotfix article",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-05-11T12:30:27-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37426535.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37426535",
+      "firstSeenAt": "2026-05-11T19:30:27.000Z",
+      "eventId": "intune-docs:7f8160fd01bf4ec955e72c9ae44cc712159b14b6:modified:intune/configmgr/hotfix/2603/37426535.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix incorrect checklist link in KB37426535 hotfix article",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 12,
+    "totalFiles": 12,
+    "authors": [
+      "Laura Newsad",
+      "Mandi Ohlinger",
+      "Matthew Levy",
+      "Nicholas S. White",
+      "Oluchi",
+      "QianDong Ni"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-lob-android.md.",
+        "sourceFiles": [
+          "intune/app-management/deployment/add-lob-android.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/create-compliance-policy.md. Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/upgrade.md.",
+        "sourceFiles": [
+          "intune/device-security/mobile-threat-defense/create-compliance-policy.md",
+          "intune/device-security/microsoft-tunnel/upgrade.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md.",
+        "sourceFiles": [
+          "intune/fundamentals/role-based-access-control/multi-admin-approval.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/reporting-monitoring.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/device-preparation/reporting-monitoring.md",
+          "autopilot/device-preparation/whats-new.md",
+          "autopilot/device-preparation/whats-new.md",
+          "autopilot/device-preparation/whats-new.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2509/36949461.md",
+          "intune/configmgr/hotfix/2509/36949461.md",
+          "intune/configmgr/hotfix/2603/37426535.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/ref-android-settings.md.",
+        "sourceFiles": [
+          "intune/device-configuration/settings-catalog/ref-android-settings.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-lob-android.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/create-compliance-policy.md. Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/upgrade.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/reporting-monitoring.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/ref-android-settings.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

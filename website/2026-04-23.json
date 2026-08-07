@@ -1,0 +1,598 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/device-security/overview.md",
+      "status": "added",
+      "additions": 193,
+      "deletions": 0,
+      "changes": 193,
+      "patch": "diff --git a/intune/device-security/overview.md b/intune/device-security/overview.md\nnew file mode 100644\nindex 0000000000..1be4541f05\n--- /dev/null\n+++ b/intune/device-security/overview.md\n@@ -0,0 +1,193 @@\n+---\n+title: Protect data and devices with Microsoft Intune\n+description: Learn about the Intune capabilities that can help you protect your devices and data against unauthorized access and other threats.\n+author: brenduns\n+ms.author: brenduns\n+ms.date: 02/17/2026\n+ms.topic: overview\n+ms.reviewer: davidra\n+ms.collection:\n+- M365-identity-device-management\n+- sub-secure-endpoints\n+---\n+\n+# Protect data and devices with Microsoft Intune\n+\n+Microsoft Intune helps you keep managed devices secure and up to date while protecting your organization's data from compromised devices. Control what users do with organizational data on both managed and unmanaged devices, and block access to data from potentially compromised devices.\n+\n+This article introduces Intune's built-in security capabilities and partner technologies that work together to support **Zero Trust** solutions for your organization. As an overview, it describes key protection capabilities and links to detailed documentation for configuration and deployment guidance.\n+\n+Intune can also integrate with third-party products that provide device compliance and Mobile Threat Defense (MTD) signals.\n+\n+## Platform support\n+\n+From the Microsoft Intune admin center, Intune [supports managed devices](../fundamentals/ref-supported-platforms.md#intune-supported-operating-systems) that run:\n+\n+- Android\n+- iOS/iPadOS\n+- Linux\n+- macOS\n+- Windows\n+\n+In addition, when you use [Configuration Manager](#configuration-manager) to manage on-premises devices, you can extend Intune policies to those devices through tenant attach or co-management.\n+\n+## Deploy security policies to protect devices\n+\n+Deploy policies to configure and enforce security on enrolled devices. The following policy types work together to protect devices:\n+\n+**[Endpoint security policies](./endpoint-security-policies.md)** - Focused security policies for specific protection areas:\n+\n+- **Account protection** - Windows Hello for Business, Credential Guard, and Windows LAPS\n+- **Antivirus** - Microsoft Defender Antivirus configuration and exclusions\n+- **App Control for Business** - Application allowlisting using Windows Defender Application Control\n+- **Attack surface reduction** - Reduce exploit vulnerabilities and attack vectors\n+- **Disk encryption** - BitLocker, Personal Data Encryption (PDE), and FileVault\n+- **Endpoint detection and response** - Microsoft Defender for Endpoint onboarding\n+- **Firewall** - Network protection and firewall rules\n+\n+**[Device configuration policies](../device-configuration/overview.md)** - Broader device settings including endpoint protection, certificates, software updates, and VPN. Use when you need to combine security settings with device functionality configurations.\n+\n+**[Device compliance policies](./compliance/overview.md)** - Define device requirements like OS versions, encryption status, and threat levels. Noncompliant devices trigger alerts and can be blocked from organizational resources when combined with [Conditional Access](#conditional-access).\n+\n+### Key security capabilities\n+\n+The following security areas can be managed through these policies:\n+\n+- **Authentication and identity**\n+  - **Certificates** - Deploy certificates using [SCEP and PKCS profiles](../fundamentals/certificates/overview.md), or use [Microsoft Cloud PKI](../cloud-pki/index.md) for simplified cloud-based certificate management without on-premises infrastructure. Configure [derived credentials](./certificates/derived-credentials.md) for smartcard scenarios.\n+  - **Modern authentication** - Enable [Windows Hello for Business](./identity-protection/configure-tenant-wide-policy.md) for passwordless sign-in. Configure [Platform SSO for macOS](../device-configuration/settings-catalog/configure-platform-sso-macos.md) to strengthen authentication across apps and services.\n+  - **Multi-factor authentication** - Use Microsoft Entra Conditional Access to require MFA, and use Intune to configure device PIN/password and other sign-in related settings as needed.\n+\n+- **Data encryption**\n+  - **Windows** - Deploy [BitLocker](../device-configuration/endpoint-security/encrypt-bitlocker-windows.md) for full disk encryption and [Personal Data Encryption (PDE)](../device-configuration/endpoint-security/encrypt-bitlocker-windows.md#personal-data-encryption-pde) for file-level encryption on Windows 11.\n+  - **macOS** - Manage [FileVault](../device-configuration/endpoint-security/encrypt-filevault-macos.md) for full disk encryption.\n+\n+- **Software updates** - Control when and how devices receive updates:\n+  - **Android** - [FOTA updates](../device-updates/android/manage-fota.md) for OEM firmware, [Zebra LifeGuard OTA](../device-updates/android/setup-zebra-lifeguard.md) for Zebra devices.\n+  - **iOS/iPadOS and macOS** - [Configure update policies](../device-updates/apple/index.md) to manage OS versions and update schedules.\n+  - **Windows** - Configure [Windows Update behaviors](../device-updates/windows/index.md), schedule updates, and maintain feature update compliance.\n+\n+- **Application control** - Use [App Control for Business](../device-configuration/endpoint-security/manage-app-control.md) policies to define which applications can run on Windows devices.\n+\n+- **Attack surface reduction** - Deploy [ASR policies](../device-configuration/endpoint-security/attack-surface-reduction.md) to reduce vulnerabilities through exploit protection, device control, application isolation, and ASR rules.\n+\n+- **Security baselines** - Deploy preconfigured [security baselines](./security-baselines/overview.md) for Windows devices, Microsoft Edge, and Microsoft Defender for Endpoint that reflect Microsoft security team recommendations.\n+\n+- **Network security**\n+  - **VPN profiles** - Configure [VPN connections](../device-configuration/templates/configure-vpn.md#vpn-connection-types) for secure remote access to organizational resources.\n+  - **Firewall policies** - Manage built-in firewall protection on Windows and macOS devices.\n+\n+- **Privileged access management**\n+  - **[Windows LAPS](./laps/overview.md)** - Manage local administrator passwords with automatic rotation and secure backup to Active Directory or Microsoft Entra.\n+  - **[Endpoint Privilege Management](#add-endpoint-privilege-management)** - Run users as standard accounts while allowing elevation for approved applications.\n+\n+## Protect data with app protection policies\n+\n+Protect organizational data at the application layer using [app protection policies](../app-management/protection/overview.md) with Intune-managed apps. These protections work on both enrolled and unenrolled devices, supporting Bring Your Own Device (BYOD) scenarios.\n+\n+**Intune-managed apps** integrate the [Intune App SDK](../developer/app-sdk/index.md) or use the [Intune App Wrapping Tool](../developer/app-sdk/integration-methods.md). See [Intune protected apps](../app-management/ref-protected-apps.md) for a list of supported apps.\n+\n+When you require managed apps (for example, by using app-based Conditional Access policies), users can only access organizational data through those managed apps, while personal data remains unaffected.\n+\n+**Key app protection policy capabilities:**\n+\n+- Require PIN or biometric authentication for organizational data access.\n+- Block copy/paste, screenshots, and data transfer to unmanaged apps.\n+- Prevent saving organizational data to personal storage.\n+- Enforce encryption of organizational data at rest.\n+- Wipe organizational data remotely when devices are lost or users leave.\n+\n+## Use device actions to protect devices and data\n+\n+Run immediate [device actions](../device-management/actions/index.md) to respond to security incidents or maintain device security. Unlike policies that maintain ongoing configurations, device actions execute once when invoked. Actions take effect immediately for online devices, or at next check-in for offline devices. [Bulk device actions](../device-management/actions/index.md#bulk-device-actions) can target multiple devices simultaneously.\n+\n+**Common security actions:**\n+\n+- **Remote lock** - Lock a device remotely to prevent unauthorized access.\n+- **Wipe** - Factory reset a device, removing all data and settings.\n+- **Retire** - Remove organizational data while preserving personal data.\n+- **BitLocker key rotation** (Windows) - Rotate encryption keys for enhanced security.\n+- **Antivirus scan** (Windows) - Run full or quick malware scans.\n+- **Update Defender intelligence** - Refresh threat definitions.\n+- **Disable Activation Lock** (iOS/iPadOS) - Remove Activation Lock for device reuse.\n+\n+These actions are also available for devices managed through [Configuration Manager](#configuration-manager) when using co-management or tenant attach.\n+\n+## Integrate with partner technologies\n+\n+Extend Intune's protection capabilities through integrations with Microsoft technologies and third-party partners.\n+\n+### Compliance partners\n+\n+Integrate [device compliance data](./compliance/third-party-partners.md) from third-party MDM solutions with Microsoft Entra ID. This enables organizations with mixed management environments to enforce unified Conditional Access policies across all devices, regardless of which MDM solution manages them.\n+\n+### Configuration Manager\n+\n+Extend Intune's cloud-based security policies to on-premises and hybrid-managed devices through [co-management](../configmgr/comanage/overview.md) or [tenant attach](../configmgr/tenant-attach/device-sync-actions.md). This integration provides a unified management experience for organizations transitioning to cloud management or maintaining hybrid infrastructure:\n+\n+- **Co-management** - Concurrently manage Windows devices with both Configuration Manager and Intune, with workload sliders to control which service manages specific capabilities.\n+- **Tenant attach** - Synchronize Configuration Manager devices into the Microsoft Intune admin center for centralized visibility and management.\n+\n+Both approaches enable [Intune security policies](../device-management/manage-endpoint-security-devices.md) on Configuration Manager devices, including endpoint security policies, compliance policies, certificate deployment (SCEP/PKCS), and security baselines. This creates a consistent security posture across cloud and on-premises managed devices.\n+\n+### Mobile Threat Defense\n+\n+[Mobile Threat Defense (MTD)](./mobile-threat-defense/overview.md) partners extend threat detection beyond Microsoft's built-in capabilities by scanning for device-level threats, network threats, app-based threats, and phishing attempts. MTD apps continuously assess device risk and report threat levels to Intune, enabling risk-based access decisions through compliance policies, app protection policies, and Conditional Access.\n+\n+**For [enrolled devices](./mobile-threat-defense/create-compliance-policy.md)**, Intune deploys and manages MTD apps while using their threat level assessments in device compliance evaluations. Devices exceeding acceptable risk thresholds can be blocked from accessing organizational resources until threats are remediated.\n+\n+**For [unenrolled devices](./mobile-threat-defense/create-app-protection-policy.md)** in BYOD scenarios, MTD threat levels inform app protection policy decisions, blocking access to organizational data within managed apps when device risk is too high.\n+\n+Intune supports [Microsoft Defender for Endpoint](./microsoft-defender/overview.md) with enhanced integration capabilities, and multiple [third-party MTD partners](./mobile-threat-defense/overview.md#mobile-threat-defense-partners) to fit diverse security requirements.\n+\n+### Microsoft Defender for Endpoint\n+\n+[Microsoft Defender for Endpoint deeply integrates with Intune](./microsoft-defender/overview.md) across Windows, macOS, Linux, Android, and iOS/iPadOS, creating a unified security platform that combines device management with advanced threat protection. This integration enables:\n+\n+- **Threat intelligence and risk assessment** - Defender's continuous threat detection and device risk scores flow directly into Intune compliance policies and Conditional Access decisions, enabling dynamic, risk-based access control\n+- **Enhanced endpoint security management** - Configure and deploy Defender capabilities through Intune policies, including [Antivirus](../device-configuration/endpoint-security/antivirus.md) settings, [EDR onboarding](../device-configuration/endpoint-security/deploy-edr.md), Attack Surface Reduction rules, tamper protection, web protection, and device control\n+- **Vulnerability management** - [Security tasks](./microsoft-defender/remediate-vulnerabilities.md) create a collaboration workflow where Defender's threat and vulnerability management identifies at-risk devices and provides remediation guidance that Intune admins can act on directly\n+- **[Microsoft Tunnel](./microsoft-tunnel/overview.md)** - Defender for Endpoint serves as the VPN client for Microsoft Tunnel on Android devices, providing secure remote access without requiring separate Defender licensing\n+\n+### Conditional Access\n+\n+[Conditional Access](./conditional-access-integration/overview.md) is a Microsoft Entra capability that serves as the enforcement engine for Zero Trust access policies. It evaluates signals from Intune and other sources to make real-time access decisions, helping to ensure only trusted users on compliant devices can access organizational resources.\n+\n+**Conditional Access evaluates multiple signals:**\n+\n+- Device compliance status from Intune policies\n+- Device risk levels from Microsoft Defender for Endpoint and MTD partners\n+- User risk and sign-in risk from Microsoft Entra ID Protection\n+- Location, device platform, and application being accessed\n+\n+**Conditional Access with Intune enables:**\n+\n+- [Device-based policies](/entra/identity/conditional-access/policy-all-users-device-compliance) - Require devices to meet compliance requirements before accessing organizational resources.\n+- [App-based policies](./conditional-access-integration/app-based-policies.md) - Ensure only apps protected by Intune app protection policies can access Microsoft 365 and other services.\n+- Risk-based access - Dynamically adjust access requirements based on real-time threat intelligence from Defender and MTD partners.\n+\n+Conditional Access works across managed and unmanaged devices, helping create an access control layer that adapts to changing threat conditions.\n+\n+## Add Endpoint Privilege Management\n+\n+[Endpoint Privilege Management (EPM)](../epm/overview.md) enforces **least privilege access** for Windows users by running them as standard users while allowing temporary elevation for approved applications. This approach reduces attack surface by preventing blanket administrative access.\n+\n+**How EPM works:**\n+\n+- Users run as standard accounts by default.\n+- Elevation rules define which applications can run with elevated privileges.\n+- Applications are validated using file hashes, certificates, or other criteria.\n+- Common elevated scenarios: application installations, driver updates, Windows diagnostics.\n+\n+> [!TIP]\n+> EPM is available as an [Intune add-on](../fundamentals/add-ons.md) for Windows devices and requires an additional license.\n+\n+## Next steps\n+\n+Build your security posture with Intune:\n+\n+- **Plan your approach** - Review [Zero Trust security guidance](./ref-zero-trust-security.md) for Intune.\n+- **Configure endpoint security** - Start with [endpoint security policies](./endpoint-security-policies.md) for focused security configurations.\n+- **Implement compliance** - Deploy [device compliance policies](./compliance/overview.md) and [Conditional Access](./conditional-access-integration/overview.md).\n+- **Protect data** - Configure [app protection policies](../app-management/protection/overview.md) for organizational data.\n+- **Monitor and maintain** - Learn about [data security and sharing in Intune](../privacy/data-sharing/index.md).\n",
+      "baseCommitSha": "549027a2c93f76c743169717f77e0d05f1f66604",
+      "commitSha": "67aa3d01fabdb245ad4104df24c928267e7d9e5d",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T07:32:14-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/overview",
+      "firstSeenAt": "2026-04-23T11:32:14.000Z",
+      "eventId": "intune-docs:67aa3d01fabdb245ad4104df24c928267e7d9e5d:added:intune/device-security/overview.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "updates",
+        "summary": "Added Microsoft Intune documentation in intune/device-security/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/configuration/configure-managed-android.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 2,
+      "changes": 10,
+      "patch": "diff --git a/intune/app-management/configuration/configure-managed-android.md b/intune/app-management/configuration/configure-managed-android.md\nindex f52e2eaa70..203ecb3c66 100644\n--- a/intune/app-management/configuration/configure-managed-android.md\n+++ b/intune/app-management/configuration/configure-managed-android.md\n@@ -1,7 +1,7 @@\n ---\n title: Add App Configuration Policies for Managed Android Enterprise Devices\n description: Use app configuration policies in Microsoft Intune to supply settings when users run a Managed Google Play app.\n-ms.date: 08/13/2025\n+ms.date: 04/23/2026\n ms.topic: how-to\n ms.reviewer: esalter\n ms.collection:\n@@ -12,7 +12,13 @@ ms.collection:\n \n # Add App Configuration Policies for Managed Android Enterprise Devices\n \n-App configuration policies in Microsoft Intune supply settings to Managed Google Play apps on managed Android Enterprise devices. The app developer exposes Android-managed app configuration settings. Intune uses these exposed setting to let the admin configure features for the app. The app configuration policy is assigned to your user groups. The policy settings are used when the app checks for them, typically the first time the app runs.\n+App configuration policies in Microsoft Intune supply settings to Managed Google Play apps and directly deployed line-of-business (LOB) apps on managed Android Enterprise devices. The app developer exposes Android-managed app configuration settings. Intune uses these exposed setting to let the admin configure features for the app. The app configuration policy is assigned to your user groups. The policy settings are used when the app checks for them, typically the first time the app runs.\n+\n+> [!IMPORTANT]\n+> When an Android line-of-business app deployed directly to Intune is updated to a new version, existing app configuration policies associated with the previous version are not automatically applied to the updated app. You must create and assign a new app configuration policy targeting the new app version to ensure configuration settings are applied.\n+\n+> [!NOTE]\n+> App configuration policies for directly deployed Android LOB apps are supported on Android Enterprise fully managed (COBO) and dedicated (COSU) devices. Personally owned work profile and corporate-owned work profile (COPE) devices do not support direct LOB app deployment or app configuration for direct LOB apps.\n \n Not every app supports app configuration. Check with the app developer to see if their app supports app configuration policies.\n \n",
+      "baseCommitSha": "9cc8a4195418c9e3de01d4a6795de09f9976c9ab",
+      "commitSha": "fbefe6333a70e97ed5f35de309b92aba02ce53e3",
+      "commitMessage": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T09:55:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/configuration/configure-managed-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-android",
+      "firstSeenAt": "2026-04-23T13:55:36.000Z",
+      "eventId": "intune-docs:fbefe6333a70e97ed5f35de309b92aba02ce53e3:modified:intune/app-management/configuration/configure-managed-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/configure-managed-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/configuration/overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/app-management/configuration/overview.md b/intune/app-management/configuration/overview.md\nindex 7bced7e6e2..59442ab7d9 100644\n--- a/intune/app-management/configuration/overview.md\n+++ b/intune/app-management/configuration/overview.md\n@@ -1,7 +1,7 @@\n ---\n title: App Configuration Policies for Microsoft Intune\n description: Learn how to use app configuration policies on an iOS/iPadOS or Android device in Microsoft Intune.\n-ms.date: 06/12/2025\n+ms.date: 04/23/2026\n ms.topic: how-to\n ms.reviewer: bryanke\n ms.collection:\n@@ -45,7 +45,7 @@ App configuration can be delivered either through the mobile device management (\n \n Intune represents these different app configuration policy channels as:\n \n-- **Managed devices** - The device is managed by Intune as the unified endpoint management provider. The app must be pinned to the management profile on iOS/iPadOS or deployed through Managed Google Play on Android devices. In addition, the app supports the desired app configuration.\n+- **Managed devices** - The device is managed by Intune as the unified endpoint management provider. The app must be pinned to the management profile on iOS/iPadOS, deployed through Managed Google Play or as a directly deployed line-of-business app on Android devices. In addition, the app supports the desired app configuration.\n - **Managed apps** - An app that has either integrated the Intune App SDK or has been wrapped using the Intune Wrapping Tool and supports app protection policies. In this configuration, neither the device's enrollment state or how the app is delivered to the device matter. The app supports the desired app configuration.\n \n ![Device enrollment type](media/overview/device-enrollment-type.png)\n",
+      "baseCommitSha": "9cc8a4195418c9e3de01d4a6795de09f9976c9ab",
+      "commitSha": "fbefe6333a70e97ed5f35de309b92aba02ce53e3",
+      "commitMessage": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T09:55:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/configuration/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/overview",
+      "firstSeenAt": "2026-04-23T13:55:36.000Z",
+      "eventId": "intune-docs:fbefe6333a70e97ed5f35de309b92aba02ce53e3:modified:intune/app-management/configuration/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/add-lob-android.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 4,
+      "changes": 13,
+      "patch": "diff --git a/intune/app-management/deployment/add-lob-android.md b/intune/app-management/deployment/add-lob-android.md\nindex 74e7302148..ca7aed14be 100644\n--- a/intune/app-management/deployment/add-lob-android.md\n+++ b/intune/app-management/deployment/add-lob-android.md\n@@ -1,7 +1,7 @@\n ---\n title: Add an Android Line-of-Business App to Microsoft Intune\n description: Learn about how to add a Android line-of-business (LOB) app to Microsoft Intune.\n-ms.date: 04/14/2026\n+ms.date: 04/23/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n ms.reviewer: bryanke\n@@ -18,11 +18,13 @@ A line-of-business (LOB) app is an app that you add to Intune from an app instal\n > [!NOTE]\n > For more information about LOB apps and the Google Play Developer Console, see [Managed Google Play private (LOB) app publishing using the Google Developer Console](./add-managed-google-play.md?#managed-google-play-private-lob-app-publishing-using-the-google-developer-console).\n \n+Apps for Android Enterprise devices can be deployed by using either Managed Google Play synchronization or direct deployment of an Android installation file (.apk). For information about deploying apps through Managed Google Play, see [Add Managed Google Play apps to Android Enterprise devices with Intune](./add-managed-google-play.md). Direct deployment is only supported for Android Enterprise fully managed and dedicated devices.\n+\n > [!NOTE]\n-> For Android Enterprise devices, see [Add Managed Google Play apps to Android Enterprise devices with Intune](./add-managed-google-play.md).\n+> If the same app is deployed through both Managed Google Play and as an Android direct LOB app, the version uploaded directly to Intune is installed on the device, regardless of the app version deployed through Managed Google Play.\n \n-> [!IMPORTANT]\n-> For Android Enterprise fully managed and dedicated devices, you can deploy required LOB apps directly to devices without using Managed Google Play. Upload APK files directly to Intune and assign them as required apps to corporate-owned devices.\n+> [!NOTE]\n+> If multiple versions of the same Android line-of-business app uploaded directly to Intune are assigned to a device, the higher version is installed.\n \n ## Select the app type\n \n@@ -86,6 +88,9 @@ If **Check apps from external sources** is enabled on the Android device, the us\n > [!NOTE]\n > For the Intune service to successfully deploy a new APK file to the device, you must increment the `android:versionCode` string in the AndroidManifest.xml file in your APK package.\n \n+> [!IMPORTANT]\n+> When you upload a new version of an Android line-of-business app, existing app configuration policies associated with the previous version don't automatically apply to the updated app. To apply app configuration settings to the updated app, create and assign a new app configuration policy that targets the new app version.\n+\n ## Next steps\n \n - The app that you created appears in the list of apps. You can now assign it to groups that you choose. For help, see [How to assign apps to groups](./assign-groups.md).\n",
+      "baseCommitSha": "9cc8a4195418c9e3de01d4a6795de09f9976c9ab",
+      "commitSha": "fbefe6333a70e97ed5f35de309b92aba02ce53e3",
+      "commitMessage": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T09:55:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/add-lob-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-lob-android",
+      "firstSeenAt": "2026-04-23T13:55:36.000Z",
+      "eventId": "intune-docs:fbefe6333a70e97ed5f35de309b92aba02ce53e3:modified:intune/app-management/deployment/add-lob-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-lob-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/add-managed-google-play.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/intune/app-management/deployment/add-managed-google-play.md b/intune/app-management/deployment/add-managed-google-play.md\nindex 3501180890..148ada747e 100644\n--- a/intune/app-management/deployment/add-managed-google-play.md\n+++ b/intune/app-management/deployment/add-managed-google-play.md\n@@ -1,7 +1,7 @@\n ---\n title: Add and Assign Managed Google Play Apps to Android Enterprise Devices\n description: Understand how to synchronize and assign apps to Android Enterprise devices from the Managed Google Play store.\n-ms.date: 03/19/2026\n+ms.date: 04/23/2026\n ms.topic: how-to\n ms.reviewer: ilwu\n ai-usage: ai-assisted\n@@ -14,7 +14,9 @@ ms.custom: intune-classic\n \n # Add Managed Google Play Apps to Android Enterprise Devices With Intune\n \n-Managed Google Play is Google's enterprise app store and sole source of applications for Android Enterprise in Intune. You can use Intune to orchestrate app deployment through Managed Google Play for any Android Enterprise scenario (including personally owned work profile, dedicated, fully managed, and corporate-owned work profile enrollments). How you add Managed Google Play apps to Intune differs from how Android apps are added for non-Android Enterprise scenarios. Store apps, line-of-business (LOB) apps, and web apps are added to Managed Google Play, and then synchronized into Intune so that they appear in the Client Apps list. Once they appear in the Client Apps list, you can manage assignment of any Managed Google Play app as you would any other app.\n+Managed Google Play is Google's enterprise app store for Android Enterprise. You can use Intune to orchestrate deployment of public store apps, private apps, and web apps through Managed Google Play for Android Enterprise management scenarios.\n+\n+For LOB apps, you can also deploy Android installation files (.apk) directly from Intune to Android Enterprise fully managed and dedicated devices without synchronizing them through Managed Google Play. For more information, see [Add an Android line-of-business app to Microsoft Intune](add-lob-android.md).\n \n To make it easier for you to configure and use Android Enterprise management, upon connecting your Intune tenant to Managed Google Play, Intune automatically adds five common Android Enterprise related apps to the Intune admin center. The five apps are as follows:\n \n@@ -77,6 +79,9 @@ Browse and approve store apps in a view hosted within Intune. This view opens di\n > [!NOTE]\n > For Android Enterprise fully managed and dedicated devices, you can also deploy required LOB apps directly to devices without using Managed Google Play. For more information, see [Add an Android line-of-business app to Microsoft Intune](add-lob-android.md).\n \n+> [!NOTE]\n+> When the same application is deployed both from Managed Google Play and as an Android line-of-business app uploaded directly to Intune, the app uploaded directly to Intune is installed on the targeted device, regardless of the Managed Google Play version.\n+\n There are two ways to add LOB apps to Managed Google Play:\n \n 1. Directly in the Microsoft Intune admin center - This allows you to add LOB apps by submitting just the app APK and a title, directly within Intune. This method doesn't require you to have a Google developer account and doesn't require you to pay the fee to register with Google as a developer. This method is simpler and has a reduced number of steps, and makes LOB apps available for management in as little as 10 minutes.\n",
+      "baseCommitSha": "9cc8a4195418c9e3de01d4a6795de09f9976c9ab",
+      "commitSha": "fbefe6333a70e97ed5f35de309b92aba02ce53e3",
+      "commitMessage": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T09:55:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/add-managed-google-play.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-managed-google-play",
+      "firstSeenAt": "2026-04-23T13:55:36.000Z",
+      "eventId": "intune-docs:fbefe6333a70e97ed5f35de309b92aba02ce53e3:modified:intune/app-management/deployment/add-managed-google-play.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-managed-google-play.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/index.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/app-management/deployment/index.md b/intune/app-management/deployment/index.md\nindex 5824eb0e41..91051c1881 100644\n--- a/intune/app-management/deployment/index.md\n+++ b/intune/app-management/deployment/index.md\n@@ -1,7 +1,7 @@\n ---\n title: Add Apps to Microsoft Intune\n description: Learn how to add apps to Microsoft Intune so you can assign apps to users and devices. Intune supports a wide range of app types.\n-ms.date: 03/19/2026\n+ms.date: 04/23/2026\n ms.topic: overview\n ms.reviewer: bryanke\n ai-usage: ai-assisted\n@@ -141,7 +141,7 @@ Intune-managed apps can also enable app protection without requiring enrollment,\n In addition to understanding web apps, store apps, and LOB apps, you should also be aware of the destination of volume-purchase-program apps and licensed apps, such as:\n \n - **Apple Volume Purchasing Program for Business (iOS)**: The iOS/iPadOS App Store lets you purchase multiple licenses for an app that you want to run in your company. Purchasing multiple copies helps you to efficiently manage apps in your company. For more information, see [Manage iOS/iPadOS volume-purchased apps](./manage-vpp-apple.md).\n-- **Android Enterprise fully managed work profile**: How you assign apps to Android Enterprise fully managed work profile devices differs from how you assign them to standard Android devices. All apps you install for Android Enterprise fully managed work profiles come from the Managed Google Play store. You use Intune to browse for the apps you want and approve them. The app then appears in the **Licensed apps** node of the portal, and you can manage assignment of the app as you would any other app.\n+- **Android Enterprise fully managed work profile**: How you assign apps to Android Enterprise fully managed work profile devices differs from how you assign them to standard Android devices. Apps for Android Enterprise fully managed devices can come from the Managed Google Play store or be deployed directly as line-of-business (LOB) apps from Intune. For more information about direct LOB deployment, see [Add an Android line-of-business app](add-lob-android.md). You use Intune to browse for the apps you want and approve them. The app then appears in the **Licensed apps** node of the portal, and you can manage assignment of the app as you would any other app.\n \n     > [!NOTE]\n     > The file extensions for Windows apps include **.msi**, **.appx**, **.appxbundle**, **.msix** and **.msixbundle**.\n",
+      "baseCommitSha": "9cc8a4195418c9e3de01d4a6795de09f9976c9ab",
+      "commitSha": "fbefe6333a70e97ed5f35de309b92aba02ce53e3",
+      "commitMessage": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T09:55:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/index",
+      "firstSeenAt": "2026-04-23T13:55:36.000Z",
+      "eventId": "intune-docs:fbefe6333a70e97ed5f35de309b92aba02ce53e3:modified:intune/app-management/deployment/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Incorporate Abigail Stein review feedback for direct Android LOB app management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md b/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md\nindex 725b364bc0..1d9a1dca10 100644\n--- a/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md\n+++ b/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md\n@@ -14,14 +14,14 @@ ms.collection:\n \n On macOS devices, you can configure [Platform Single Sign-On (PSSO)](configure-platform-sso-macos.md) during Automated Device Enrollment (ADE). With Platform SSO, users sign in with their Microsoft Entra account and can get immediate access to Microsoft Entra ID resources. Platform SSO also minimizes the number of times users need to enter their organizational credentials.\n \n-When you add the Platform SSO policy and enable the Setup Assistant await final configuration in an ADE enrollment profile, the Platform SSO policy runs during device registration. When users arrive at the desktop, they have a seamless sign-in experience and can access resources protected by Conditional Access right away.\n+When you add the Platform SSO policy and enable the Setup Assistant await final configuration in an ADE enrollment profile, the Platform SSO policy runs during device registration. When users arrive at the desktop, they're already signed into Microsoft Entra resources and can start using productivity apps, like Teams, immediately.\n \n This feature:\n \n - Enables Microsoft Entra device registration during macOS Setup Assistant.\n - Establishes device identity early in the provisioning process.\n - Allows Platform SSO credentials to be set up during initial device configuration.\n-- Minimizes delays accessing resources protected by Conditional Access.\n+- Minimizes delays accessing resources, including resources protected by Conditional Access.\n \n This article lists and describes the settings you need to configure to enable Platform SSO during ADE with Setup Assistant. It also lists the other required steps to use this feature, including adding the Company Portal as a line-of-business app, and configuring the enrollment profile.\n \n@@ -161,9 +161,11 @@ It's possible the Platform SSO settings catalog policy is delivered, and the Com\n \n **Resolution**: Select the **Try again** button on the error message until the Company Portal finishes downloading and installing. When it completes, the SSO extension is available and the error message no longer appears.\n \n-### Remove Platform SSO and reenroll if policies are misconfigured\n+### Remove Platform SSO and reenroll if steps are misconfigured\n \n-If the policies are misconfigured, remove the existing Platform SSO (PSSO) configuration and re-enroll the devices by using the following steps. Complete all of the following steps. For more information, see [Steps to Opt out of Platform SSO on macOS](/entra/identity/devices/troubleshoot-mac-sso-extension-plugin#steps-to-opt-out-of-platform-sso-on-macos).\n+All the steps in this article are required - the settings catalog policy, Company Portal as a LOB app, and using Setup assistant with Modern Authentication and await final configuration enabled in the ADE profile. If any of these steps are misconfigured or missing, then the configuration fails. \n+\n+In this situation, remove the existing Platform SSO (PSSO) configuration and re-enroll the devices by using the following steps. Complete all of the following steps. For more information, see [Steps to Opt out of Platform SSO on macOS](/entra/identity/devices/troubleshoot-mac-sso-extension-plugin#steps-to-opt-out-of-platform-sso-on-macos).\n \n 1. Unassign the Platform SSO policy that has the **Enable Registration During Setup** setting enabled. [Sync](../../device-management/actions/sync.md) the device to ensure the policy is removed.\n 2. Update the Platform SSO policy and set the **Enable Registration During Setup** setting to disabled. [Sync](../../device-management/actions/sync.md) the device to ensure the setting is removed.\n",
+      "baseCommitSha": "bfd5f16e6252b72393e555af8303026c5a4d2bce",
+      "commitSha": "ab6c52e5ff50f1cab8d74bdfb9846a17a1b2599e",
+      "commitMessage": "Updated info based on Platform SSO training w/CSS",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-04-23T10:23:12-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment",
+      "firstSeenAt": "2026-04-23T14:23:12.000Z",
+      "eventId": "intune-docs:ab6c52e5ff50f1cab8d74bdfb9846a17a1b2599e:modified:intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updated info based on Platform SSO training w/CSS",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/configuration/configure-managed-android.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/app-management/configuration/configure-managed-android.md b/intune/app-management/configuration/configure-managed-android.md\nindex 203ecb3c66..e91aeb1674 100644\n--- a/intune/app-management/configuration/configure-managed-android.md\n+++ b/intune/app-management/configuration/configure-managed-android.md\n@@ -3,6 +3,7 @@ title: Add App Configuration Policies for Managed Android Enterprise Devices\n description: Use app configuration policies in Microsoft Intune to supply settings when users run a Managed Google Play app.\n ms.date: 04/23/2026\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: esalter\n ms.collection:\n - M365-identity-device-management\n",
+      "baseCommitSha": "dfed518b47282712eb35dbaa24a721d5cf9c5aa2",
+      "commitSha": "456cbf1f7f50aa8480e9faa4b694f473dd064108",
+      "commitMessage": "Add ai-usage frontmatter to Abigail review updates",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T11:09:06-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/configuration/configure-managed-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-android",
+      "firstSeenAt": "2026-04-23T15:09:06.000Z",
+      "eventId": "intune-docs:456cbf1f7f50aa8480e9faa4b694f473dd064108:modified:intune/app-management/configuration/configure-managed-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add ai-usage frontmatter to Abigail review updates",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/configure-managed-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/configuration/overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/app-management/configuration/overview.md b/intune/app-management/configuration/overview.md\nindex 59442ab7d9..bb53be0356 100644\n--- a/intune/app-management/configuration/overview.md\n+++ b/intune/app-management/configuration/overview.md\n@@ -3,6 +3,7 @@ title: App Configuration Policies for Microsoft Intune\n description: Learn how to use app configuration policies on an iOS/iPadOS or Android device in Microsoft Intune.\n ms.date: 04/23/2026\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: bryanke\n ms.collection:\n - M365-identity-device-management\n",
+      "baseCommitSha": "dfed518b47282712eb35dbaa24a721d5cf9c5aa2",
+      "commitSha": "456cbf1f7f50aa8480e9faa4b694f473dd064108",
+      "commitMessage": "Add ai-usage frontmatter to Abigail review updates",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T11:09:06-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/configuration/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/overview",
+      "firstSeenAt": "2026-04-23T15:09:06.000Z",
+      "eventId": "intune-docs:456cbf1f7f50aa8480e9faa4b694f473dd064108:modified:intune/app-management/configuration/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add ai-usage frontmatter to Abigail review updates",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/add-microsoft-365-windows.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/intune/app-management/deployment/add-microsoft-365-windows.md b/intune/app-management/deployment/add-microsoft-365-windows.md\nindex 1663aceff9..8b66ece51d 100644\n--- a/intune/app-management/deployment/add-microsoft-365-windows.md\n+++ b/intune/app-management/deployment/add-microsoft-365-windows.md\n@@ -1,7 +1,7 @@\n ---\n title: Add Microsoft 365 Apps to Windows Devices Using Microsoft Intune\n description: Learn how you can use Microsoft Intune to install Microsoft 365 apps on Windows devices.\n-ms.date: 04/07/2026\n+ms.date: 04/23/2026\n ms.topic: how-to\n ms.reviewer: craigma\n ms.collection:\n@@ -25,15 +25,12 @@ Before you can assign, monitor, configure, or protect apps, you must add them to\n \n > [!IMPORTANT]\n > If there are .msi Microsoft 365 apps on the end-user device, you must use the **Remove MSI** feature to safely uninstall these apps. Otherwise, the Intune delivered Microsoft 365 apps fail to install.\n->\n-> Multiple required or available app assignments aren't additive. A later app assignment overwrites preexisting installed app assignments.\n \n - Devices to which you deploy these apps must be running the Windows Creators Update or later.\n - Intune supports adding Microsoft 365 apps from the Microsoft 365 Apps suite only.\n - If any Microsoft 365 apps are open when Intune installs the app suite, the installation might fail, and users might lose data from unsaved files.\n - This installation method isn't supported on Windows Home, Windows Team, Windows Holographic, or Windows Holographic for Business devices.\n - Intune doesn't support installing Microsoft 365 desktop apps from the Microsoft Store (known as Office Centennial apps) on a device to which you have already deployed Microsoft 365 apps with Intune. If you install this configuration, it might cause data loss or corruption.\n-- Multiple required or available app assignments aren't additive. A later app assignment overwrites preexisting installed app assignments. For example, if the first set of Microsoft 365 apps contains Word, and the later one doesn't, Word is uninstalled. This condition doesn't apply to any Visio or Project applications.\n - Multiple Microsoft 365 deployments aren't currently supported. Only one deployment is delivered to the device.\n - **Office version** - Choose whether you want to assign the 32-bit or 64-bit version of Office. You can install the 32-bit version on both 32-bit and 64-bit devices, but you can install the 64-bit version on 64-bit devices only.\n - **Remove MSI from end-user devices** - Choose whether you want to remove preexisting Office .MSI apps from end-user devices. The installation won't succeed if there are preexisting .MSI apps on end-user devices. The apps to be uninstalled aren't limited to the apps selected for installation in **Configure App Suite**, as it removes all Office (MSI) apps from the end user device. For more information, see [Remove existing MSI versions of Office when upgrading to Microsoft 365 Apps](/deployoffice/upgrade-from-msi-version). When Intune reinstalls Office on your end user's machines, end users automatically get the same language packs that they had with previous .MSI Office installations.\n",
+      "baseCommitSha": "4ef474ae6e7f42d378756ada3241c2fa30cfa32f",
+      "commitSha": "fc8b2a89fd449be081d8c16c864beed050f4baa4",
+      "commitMessage": "571794 - Remove duplicate multi-assignment text per Nicole Zhao request",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T12:12:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/add-microsoft-365-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-microsoft-365-windows",
+      "firstSeenAt": "2026-04-23T16:12:36.000Z",
+      "eventId": "intune-docs:fc8b2a89fd449be081d8c16c864beed050f4baa4:modified:intune/app-management/deployment/add-microsoft-365-windows.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "571794 - Remove duplicate multi-assignment text per Nicole Zhao request",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-microsoft-365-windows.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md b/intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md\nindex 0b1e55babb..d3df422f7b 100644\n--- a/intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md\n+++ b/intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md\n@@ -27,4 +27,4 @@ You want your users to securely access your organization's resources. Protect bo\n \n - Protect data stored on on-premises Windows clients with BitLocker Drive Encryption (BDE). Configuration Manager provides full BitLocker lifecycle management that can replace the use of Microsoft BitLocker Administration and Monitoring (MBAM). For more information, see [Plan for BitLocker management](../plan-design/bitlocker-management.md).\n \n-Use other components of Microsoft Intune to protect your devices. For more information, see [Protect devices with Microsoft Intune](../../../device-security/index.md).\n+Use other components of Microsoft Intune to protect your devices. For more information, see [Protect devices with Microsoft Intune](../../../device-security/overview.md).\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/protect/understand/protect-data-and-site-infrastructure",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/endpoint-security/manage-policies.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/endpoint-security/manage-policies.md b/intune/device-configuration/endpoint-security/manage-policies.md\nindex b6fbe6a836..8489ec9c51 100644\n--- a/intune/device-configuration/endpoint-security/manage-policies.md\n+++ b/intune/device-configuration/endpoint-security/manage-policies.md\n@@ -272,4 +272,4 @@ Many endpoint security policies have deep integration with Microsoft Defender fo\n - [Review security baselines for comprehensive security configurations](../../device-security/security-baselines/overview.md)\n - [Learn about reusable settings groups](../../device-security/reusable-settings-groups.md)\n - [Configure Microsoft Defender for Endpoint integration](../../device-security/microsoft-defender/configure-integration.md)\n-- [Understand device protection strategies](../../device-security/index.md)\n\\ No newline at end of file\n+- [Understand device protection strategies](../../device-security/overview.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/endpoint-security/manage-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/endpoint-security/manage-policies",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/device-configuration/endpoint-security/manage-policies.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/manage-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/endpoint-security-policies.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/endpoint-security-policies.md b/intune/device-security/endpoint-security-policies.md\nindex bc55d215df..6a1bfdc81b 100644\n--- a/intune/device-security/endpoint-security-policies.md\n+++ b/intune/device-security/endpoint-security-policies.md\n@@ -26,7 +26,7 @@ Use the Endpoint security node to address common security challenges:\n \n - **Apply zero trust principles** - Require device compliance for resource access, integrate with Conditional Access to verify security posture, use device risk signals from Defender for Endpoint, deploy disk encryption, and enforce least privilege access with Endpoint Privilege Management (EPM). For more information, see [Zero Trust with Microsoft Intune](../fundamentals/zero-trust.md).\n \n-- **Secure remote and hybrid work** - Monitor compliance for remote devices, onboard devices to Defender for Endpoint through EDR policies, configure firewall policies, and use Conditional Access to block access from noncompliant devices. For more information, see [Protect data and devices with Microsoft Intune](./index.md).\n+- **Secure remote and hybrid work** - Monitor compliance for remote devices, onboard devices to Defender for Endpoint through EDR policies, configure firewall policies, and use Conditional Access to block access from noncompliant devices. For more information, see [Protect data and devices with Microsoft Intune](./overview.md).\n \n - **Meet compliance requirements** - Deploy standardized security configurations using baselines aligned to industry frameworks, monitor compliance status through reporting, and configure automated actions for noncompliant devices. For more information, see [Use security baselines to configure Windows devices in Intune](./security-baselines/overview.md).\n \n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/endpoint-security-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/endpoint-security-policies",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/device-security/endpoint-security-policies.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/endpoint-security-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/ref-zero-trust-data.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/ref-zero-trust-data.md b/intune/device-security/ref-zero-trust-data.md\nindex 42893366d9..f2c85d056f 100644\n--- a/intune/device-security/ref-zero-trust-data.md\n+++ b/intune/device-security/ref-zero-trust-data.md\n@@ -48,5 +48,5 @@ Protecting sensitive data across mobile apps and networks is a key part of a Zer\n ## Related content\n \n - [Deployment guide for Microsoft Intune](../fundamentals/get-started.md)\n-- [Protect data and devices with Microsoft Intune](./index.md)\n+- [Protect data and devices with Microsoft Intune](./overview.md)\n - [Configure Microsoft Entra for increased security (Preview)](/entra/fundamentals/configure-security)\n\\ No newline at end of file\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/ref-zero-trust-data.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/ref-zero-trust-data",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/device-security/ref-zero-trust-data.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-data.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/ref-zero-trust-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/ref-zero-trust-devices.md b/intune/device-security/ref-zero-trust-devices.md\nindex ec80faed55..cdc48b0c8f 100644\n--- a/intune/device-security/ref-zero-trust-devices.md\n+++ b/intune/device-security/ref-zero-trust-devices.md\n@@ -80,6 +80,6 @@ Securing endpoints is a critical part of a Zero Trust strategy. These Intune rec\n ## Related content\n \n - [Deployment guide for Microsoft Intune](../fundamentals/get-started.md)\n-- [Protect data and devices with Microsoft Intune](./index.md)\n+- [Protect data and devices with Microsoft Intune](./overview.md)\n - [Configure Microsoft Entra for increased security (Preview)](/entra/fundamentals/configure-security)\n - [Configure Microsoft Intune for increased security (preview)](./ref-zero-trust-security.md)\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/ref-zero-trust-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/ref-zero-trust-devices",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/device-security/ref-zero-trust-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/ref-zero-trust-security.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/ref-zero-trust-security.md b/intune/device-security/ref-zero-trust-security.md\nindex e8f12b0a38..23c2c4342e 100644\n--- a/intune/device-security/ref-zero-trust-security.md\n+++ b/intune/device-security/ref-zero-trust-security.md\n@@ -105,5 +105,5 @@ For license details, see:\n \n - [Zero Trust deployment approach with Microsoft Intune](../fundamentals/zero-trust-deployment.md)\n - [Deployment guide for Microsoft Intune](../fundamentals/get-started.md)\n-- [Protect data and devices with Microsoft Intune](./index.md)\n+- [Protect data and devices with Microsoft Intune](./overview.md)\n - [Configure Microsoft Entra for increased security (Preview)](/entra/fundamentals/configure-security)\n\\ No newline at end of file\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/ref-zero-trust-security.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/ref-zero-trust-security",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/device-security/ref-zero-trust-security.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-security.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/ref-zero-trust-tenant.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/ref-zero-trust-tenant.md b/intune/device-security/ref-zero-trust-tenant.md\nindex 8fb4cc935e..c6cc7e8e2c 100644\n--- a/intune/device-security/ref-zero-trust-tenant.md\n+++ b/intune/device-security/ref-zero-trust-tenant.md\n@@ -76,5 +76,5 @@ Protecting your Intune tenant is essential to enforcing Zero Trust principles an\n ## Related content\n \n - [Deployment guide for Microsoft Intune](../fundamentals/get-started.md)\n-- [Protect data and devices with Microsoft Intune](./index.md)\n+- [Protect data and devices with Microsoft Intune](./overview.md)\n - [Configure Microsoft Entra for increased security (Preview)](/entra/fundamentals/configure-security)\n\\ No newline at end of file\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/ref-zero-trust-tenant.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/ref-zero-trust-tenant",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/device-security/ref-zero-trust-tenant.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-tenant.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/what-is-intune.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/what-is-intune.md b/intune/fundamentals/what-is-intune.md\nindex 6340ab5b87..fde9f86182 100644\n--- a/intune/fundamentals/what-is-intune.md\n+++ b/intune/fundamentals/what-is-intune.md\n@@ -246,7 +246,7 @@ On devices using application management, you can:\n \n For more information, go to:\n \n-- [Protect data and devices with Microsoft Intune](../device-security/index.md)\n+- [Protect data and devices with Microsoft Intune](../device-security/overview.md)\n - [Mobile Threat Defense integration with Intune](../device-security/mobile-threat-defense/overview.md)\n \n ## Simplify access\n",
+      "baseCommitSha": "f6e7ae4811e1c2f6aff2ec91776e7e8edca20c10",
+      "commitSha": "ce3f41a3c652a11ac9e19c4ecb19b67d78800eed",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T13:09:24-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/what-is-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/what-is-intune",
+      "firstSeenAt": "2026-04-23T17:09:24.000Z",
+      "eventId": "intune-docs:ce3f41a3c652a11ac9e19c4ecb19b67d78800eed:modified:intune/fundamentals/what-is-intune.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/what-is-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/edge-data-security/protection-policies-step-2.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/solutions/edge-data-security/protection-policies-step-2.md b/intune/solutions/edge-data-security/protection-policies-step-2.md\nindex a4560e1bb0..9e3d6e2bd5 100644\n--- a/intune/solutions/edge-data-security/protection-policies-step-2.md\n+++ b/intune/solutions/edge-data-security/protection-policies-step-2.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 2. Create App Protection Policies for Microsoft Edge for Business\n description: Step 2. Create app protection policies for Microsoft Edge for Business across Windows, Android, and iOS platforms.\n-ms.date: 01/23/2026\n+ms.date: 04/23/2026\n author: nicholasswhite\n ms.author: nwhite\n ms.topic: how-to\n@@ -122,7 +122,7 @@ Level 3 configuration provides the highest level of data protection and is recom\n 9. On the **Health checks** tab, configure:\n    - Disabled account: **Block access**\n    - Min OS version: **10.0.22621.2506 / Block access**\n-   - Max allowed device threat level: **Medium / Block access**\n+   - Max allowed device threat level: **Secured / Block access**\n    - Offline grace period: **1440 minutes / Block access**\n    - Offline grace period: **30 days / Wipe data**\n 10. Select **Next**.\n",
+      "baseCommitSha": "4ef474ae6e7f42d378756ada3241c2fa30cfa32f",
+      "commitSha": "dbd26e53712176b8a1c1571dbe3d8f153a61897e",
+      "commitMessage": "Edge APP Level 3 Windows: change max device threat level to Secured",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-23T16:46:29-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/edge-data-security/protection-policies-step-2.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/edge-data-security/protection-policies-step-2",
+      "firstSeenAt": "2026-04-23T20:46:29.000Z",
+      "eventId": "intune-docs:dbd26e53712176b8a1c1571dbe3d8f153a61897e:modified:intune/solutions/edge-data-security/protection-policies-step-2.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Edge APP Level 3 Windows: change max device threat level to Secured",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/edge-data-security/protection-policies-step-2.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/device-security/index.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 191,
+      "changes": 191,
+      "patch": "diff --git a/intune/device-security/index.md b/intune/device-security/index.md\ndeleted file mode 100644\nindex 1be4541f05..0000000000\n--- a/intune/device-security/index.md\n+++ /dev/null\n@@ -1,193 +0,0 @@\n----\n-title: Protect data and devices with Microsoft Intune\n-description: Learn about the Intune capabilities that can help you protect your devices and data against unauthorized access and other threats.\n-author: brenduns\n-ms.author: brenduns\n-ms.date: 02/17/2026\n-ms.topic: overview\n-ms.reviewer: davidra\n-ms.collection:\n-- M365-identity-device-management\n-- sub-secure-endpoints\n----\n-\n-# Protect data and devices with Microsoft Intune\n-\n-Microsoft Intune helps you keep managed devices secure and up to date while protecting your organization's data from compromised devices. Control what users do with organizational data on both managed and unmanaged devices, and block access to data from potentially compromised devices.\n-\n-This article introduces Intune's built-in security capabilities and partner technologies that work together to support **Zero Trust** solutions for your organization. As an overview, it describes key protection capabilities and links to detailed documentation for configuration and deployment guidance.\n-\n-Intune can also integrate with third-party products that provide device compliance and Mobile Threat Defense (MTD) signals.\n-\n-## Platform support\n-\n-From the Microsoft Intune admin center, Intune [supports managed devices](../fundamentals/ref-supported-platforms.md#intune-supported-operating-systems) that run:\n-\n-- Android\n-- iOS/iPadOS\n-- Linux\n-- macOS\n-- Windows\n-\n-In addition, when you use [Configuration Manager](#configuration-manager) to manage on-premises devices, you can extend Intune policies to those devices through tenant attach or co-management.\n-\n-## Deploy security policies to protect devices\n-\n-Deploy policies to configure and enforce security on enrolled devices. The following policy types work together to protect devices:\n-\n-**[Endpoint security policies](./endpoint-security-policies.md)** - Focused security policies for specific protection areas:\n-\n-- **Account protection** - Windows Hello for Business, Credential Guard, and Windows LAPS\n-- **Antivirus** - Microsoft Defender Antivirus configuration and exclusions\n-- **App Control for Business** - Application allowlisting using Windows Defender Application Control\n-- **Attack surface reduction** - Reduce exploit vulnerabilities and attack vectors\n-- **Disk encryption** - BitLocker, Personal Data Encryption (PDE), and FileVault\n-- **Endpoint detection and response** - Microsoft Defender for Endpoint onboarding\n-- **Firewall** - Network protection and firewall rules\n-\n-**[Device configuration policies](../device-configuration/overview.md)** - Broader device settings including endpoint protection, certificates, software updates, and VPN. Use when you need to combine security settings with device functionality configurations.\n-\n-**[Device compliance policies](./compliance/overview.md)** - Define device requirements like OS versions, encryption status, and threat levels. Noncompliant devices trigger alerts and can be blocked from organizational resources when combined with [Conditional Access](#conditional-access).\n-\n-### Key security capabilities\n-\n-The following security areas can be managed through these policies:\n-\n-- **Authentication and identity**\n-  - **Certificates** - Deploy certificates using [SCEP and PKCS profiles](../fundamentals/certificates/overview.md), or use [Microsoft Cloud PKI](../cloud-pki/index.md) for simplified cloud-based certificate management without on-premises infrastructure. Configure [derived credentials](./certificates/derived-credentials.md) for smartcard scenarios.\n-  - **Modern authentication** - Enable [Windows Hello for Business](./identity-protection/configure-tenant-wide-policy.md) for passwordless sign-in. Configure [Platform SSO for macOS](../device-configuration/settings-catalog/configure-platform-sso-macos.md) to strengthen authentication across apps and services.\n-  - **Multi-factor authentication** - Use Microsoft Entra Conditional Access to require MFA, and use Intune to configure device PIN/password and other sign-in related settings as needed.\n-\n-- **Data encryption**\n-  - **Windows** - Deploy [BitLocker](../device-configuration/endpoint-security/encrypt-bitlocker-windows.md) for full disk encryption and [Personal Data Encryption (PDE)](../device-configuration/endpoint-security/encrypt-bitlocker-windows.md#personal-data-encryption-pde) for file-level encryption on Windows 11.\n-  - **macOS** - Manage [FileVault](../device-configuration/endpoint-security/encrypt-filevault-macos.md) for full disk encryption.\n-\n-- **Software updates** - Control when and how devices receive updates:\n-  - **Android** - [FOTA updates](../device-updates/android/manage-fota.md) for OEM firmware, [Zebra LifeGuard OTA](../device-updates/android/setup-zebra-lifeguard.md) for Zebra devices.\n-  - **iOS/iPadOS and macOS** - [Configure update policies](../device-updates/apple/index.md) to manage OS versions and update schedules.\n-  - **Windows** - Configure [Windows Update behaviors](../device-updates/windows/index.md), schedule updates, and maintain feature update compliance.\n-\n-- **Application control** - Use [App Control for Business](../device-configuration/endpoint-security/manage-app-control.md) policies to define which applications can run on Windows devices.\n-\n-- **Attack surface reduction** - Deploy [ASR policies](../device-configuration/endpoint-security/attack-surface-reduction.md) to reduce vulnerabilities through exploit protection, device control, application isolation, and ASR rules.\n-\n-- **Security baselines** - Deploy preconfigured [security baselines](./security-baselines/overview.md) for Windows devices, Microsoft Edge, and Microsoft Defender for Endpoint that reflect Microsoft security team recommendations.\n-\n-- **Network security**\n-  - **VPN profiles** - Configure [VPN connections](../device-configuration/templates/configure-vpn.md#vpn-connection-types) for secure remote access to organizational resources.\n-  - **Firewall policies** - Manage built-in firewall protection on Windows and macOS devices.\n-\n-- **Privileged access management**\n-  - **[Windows LAPS](./laps/overview.md)** - Manage local administrator passwords with automatic rotation and secure backup to Active Directory or Microsoft Entra.\n-  - **[Endpoint Privilege Management](#add-endpoint-privilege-management)** - Run users as standard accounts while allowing elevation for approved applications.\n-\n-## Protect data with app protection policies\n-\n-Protect organizational data at the application layer using [app protection policies](../app-management/protection/overview.md) with Intune-managed apps. These protections work on both enrolled and unenrolled devices, supporting Bring Your Own Device (BYOD) scenarios.\n-\n-**Intune-managed apps** integrate the [Intune App SDK](../developer/app-sdk/index.md) or use the [Intune App Wrapping Tool](../developer/app-sdk/integration-methods.md). See [Intune protected apps](../app-management/ref-protected-apps.md) for a list of supported apps.\n-\n-When you require managed apps (for example, by using app-based Conditional Access policies), users can only access organizational data through those managed apps, while personal data remains unaffected.\n-\n-**Key app protection policy capabilities:**\n-\n-- Require PIN or biometric authentication for organizational data access.\n-- Block copy/paste, screenshots, and data transfer to unmanaged apps.\n-- Prevent saving organizational data to personal storage.\n-- Enforce encryption of organizational data at rest.\n-- Wipe organizational data remotely when devices are lost or users leave.\n-\n-## Use device actions to protect devices and data\n-\n-Run immediate [device actions](../device-management/actions/index.md) to respond to security incidents or maintain device security. Unlike policies that maintain ongoing configurations, device actions execute once when invoked. Actions take effect immediately for online devices, or at next check-in for offline devices. [Bulk device actions](../device-management/actions/index.md#bulk-device-actions) can target multiple devices simultaneously.\n-\n-**Common security actions:**\n-\n-- **Remote lock** - Lock a device remotely to prevent unauthorized access.\n-- **Wipe** - Factory reset a device, removing all data and settings.\n-- **Retire** - Remove organizational data while preserving personal data.\n-- **BitLocker key rotation** (Windows) - Rotate encryption keys for enhanced security.\n-- **Antivirus scan** (Windows) - Run full or quick malware scans.\n-- **Update Defender intelligence** - Refresh threat definitions.\n-- **Disable Activation Lock** (iOS/iPadOS) - Remove Activation Lock for device reuse.\n-\n-These actions are also available for devices managed through [Configuration Manager](#configuration-manager) when using co-management or tenant attach.\n-\n-## Integrate with partner technologies\n-\n-Extend Intune's protection capabilities through integrations with Microsoft technologies and third-party partners.\n-\n-### Compliance partners\n-\n-Integrate [device compliance data](./compliance/third-party-partners.md) from third-party MDM solutions with Microsoft Entra ID. This enables organizations with mixed management environments to enforce unified Conditional Access policies across all devices, regardless of which MDM solution manages them.\n-\n-### Configuration Manager\n-\n-Extend Intune's cloud-based security policies to on-premises and hybrid-managed devices through [co-management](../configmgr/comanage/overview.md) or [tenant attach](../configmgr/tenant-attach/device-sync-actions.md). This integration provides a unified management experience for organizations transitioning to cloud management or maintaining hybrid infrastructure:\n-\n-- **Co-management** - Concurrently manage Windows devices with both Configuration Manager and Intune, with workload sliders to control which service manages specific capabilities.\n-- **Tenant attach** - Synchronize Configuration Manager devices into the Microsoft Intune admin center for centralized visibility and management.\n-\n-Both approaches enable [Intune security policies](../device-management/manage-endpoint-security-devices.md) on Configuration Manager devices, including endpoint security policies, compliance policies, certificate deployment (SCEP/PKCS), and security baselines. This creates a consistent security posture across cloud and on-premises managed devices.\n-\n-### Mobile Threat Defense\n-\n-[Mobile Threat Defense (MTD)](./mobile-threat-defense/overview.md) partners extend threat detection beyond Microsoft's built-in capabilities by scanning for device-level threats, network threats, app-based threats, and phishing attempts. MTD apps continuously assess device risk and report threat levels to Intune, enabling risk-based access decisions through compliance policies, app protection policies, and Conditional Access.\n-\n-**For [enrolled devices](./mobile-threat-defense/create-compliance-policy.md)**, Intune deploys and manages MTD apps while using their threat level assessments in device compliance evaluations. Devices exceeding acceptable risk thresholds can be blocked from accessing organizational resources until threats are remediated.\n-\n-**For [unenrolled devices](./mobile-threat-defense/create-app-protection-policy.md)** in BYOD scenarios, MTD threat levels inform app protection policy decisions, blocking access to organizational data within managed apps when device risk is too high.\n-\n-Intune supports [Microsoft Defender for Endpoint](./microsoft-defender/overview.md) with enhanced integration capabilities, and multiple [third-party MTD partners](./mobile-threat-defense/overview.md#mobile-threat-defense-partners) to fit diverse security requirements.\n-\n-### Microsoft Defender for Endpoint\n-\n-[Microsoft Defender for Endpoint deeply integrates with Intune](./microsoft-defender/overview.md) across Windows, macOS, Linux, Android, and iOS/iPadOS, creating a unified security platform that combines device management with advanced threat protection. This integration enables:\n-\n-- **Threat intelligence and risk assessment** - Defender's continuous threat detection and device risk scores flow directly into Intune compliance policies and Conditional Access decisions, enabling dynamic, risk-based access control\n-- **Enhanced endpoint security management** - Configure and deploy Defender capabilities through Intune policies, including [Antivirus](../device-configuration/endpoint-security/antivirus.md) settings, [EDR onboarding](../device-configuration/endpoint-security/deploy-edr.md), Attack Surface Reduction rules, tamper protection, web protection, and device control\n-- **Vulnerability management** - [Security tasks](./microsoft-defender/remediate-vulnerabilities.md) create a collaboration workflow where Defender's threat and vulnerability management identifies at-risk devices and provides remediation guidance that Intune admins can act on directly\n-- **[Microsoft Tunnel](./microsoft-tunnel/overview.md)** - Defender for Endpoint serves as the VPN client for Microsoft Tunnel on Android devices, providing secure remote access without requiring separate Defender licensing\n-\n-### Conditional Access\n-\n-[Conditional Access](./conditional-access-integration/overview.md) is a Microsoft Entra capability that serves as the enforcement engine for Zero Trust access policies. It evaluates signals from Intune and other sources to make real-time access decisions, helping to ensure only trusted users on compliant devices can access organizational resources.\n-\n-**Conditional Access evaluates multiple signals:**\n-\n-- Device compliance status from Intune policies\n-- Device risk levels from Microsoft Defender for Endpoint and MTD partners\n-- User risk and sign-in risk from Microsoft Entra ID Protection\n-- Location, device platform, and application being accessed\n-\n-**Conditional Access with Intune enables:**\n-\n-- [Device-based policies](/entra/identity/conditional-access/policy-all-users-device-compliance) - Require devices to meet compliance requirements before accessing organizational resources.\n-- [App-based policies](./conditional-access-integration/app-based-policies.md) - Ensure only apps protected by Intune app protection policies can access Microsoft 365 and other services.\n-- Risk-based access - Dynamically adjust access requirements based on real-time threat intelligence from Defender and MTD partners.\n-\n-Conditional Access works across managed and unmanaged devices, helping create an access control layer that adapts to changing threat conditions.\n-\n-## Add Endpoint Privilege Management\n-\n-[Endpoint Privilege Management (EPM)](../epm/overview.md) enforces **least privilege access** for Windows users by running them as standard users while allowing temporary elevation for approved applications. This approach reduces attack surface by preventing blanket administrative access.\n-\n-**How EPM works:**\n-\n-- Users run as standard accounts by default.\n-- Elevation rules define which applications can run with elevated privileges.\n-- Applications are validated using file hashes, certificates, or other criteria.\n-- Common elevated scenarios: application installations, driver updates, Windows diagnostics.\n-\n-> [!TIP]\n-> EPM is available as an [Intune add-on](../fundamentals/add-ons.md) for Windows devices and requires an additional license.\n-\n-## Next steps\n-\n-Build your security posture with Intune:\n-\n-- **Plan your approach** - Review [Zero Trust security guidance](./ref-zero-trust-security.md) for Intune.\n-- **Configure endpoint security** - Start with [endpoint security policies](./endpoint-security-policies.md) for focused security configurations.\n-- **Implement compliance** - Deploy [device compliance policies](./compliance/overview.md) and [Conditional Access](./conditional-access-integration/overview.md).\n-- **Protect data** - Configure [app protection policies](../app-management/protection/overview.md) for organizational data.\n-- **Monitor and maintain** - Learn about [data security and sharing in Intune](../privacy/data-sharing/index.md).\n",
+      "baseCommitSha": "549027a2c93f76c743169717f77e0d05f1f66604",
+      "commitSha": "67aa3d01fabdb245ad4104df24c928267e7d9e5d",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-23T07:32:14-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/index",
+      "firstSeenAt": "2026-04-23T11:32:14.000Z",
+      "eventId": "intune-docs:67aa3d01fabdb245ad4104df24c928267e7d9e5d:removed:intune/device-security/index.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "updates",
+        "summary": "Removed Microsoft Intune documentation in intune/device-security/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 7,
+    "totalFiles": 20,
+    "authors": [
+      "Mandi Ohlinger",
+      "Nicholas S. White",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 18 updated, and 1 removed Microsoft Intune documentation files across 6 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/device-security",
+        "summary": "Added Microsoft Intune documentation in intune/device-security/overview.md. Updated Microsoft Intune documentation in intune/device-security/endpoint-security-policies.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-data.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-devices.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-security.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-tenant.md. Removed Microsoft Intune documentation in intune/device-security/index.md.",
+        "sourceFiles": [
+          "intune/device-security/overview.md",
+          "intune/device-security/endpoint-security-policies.md",
+          "intune/device-security/ref-zero-trust-data.md",
+          "intune/device-security/ref-zero-trust-devices.md",
+          "intune/device-security/ref-zero-trust-security.md",
+          "intune/device-security/ref-zero-trust-tenant.md",
+          "intune/device-security/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/configure-managed-android.md. Updated Microsoft Intune documentation in intune/app-management/configuration/overview.md. Updated Microsoft Intune documentation in intune/app-management/deployment/add-lob-android.md. Updated Microsoft Intune documentation in intune/app-management/deployment/add-managed-google-play.md. Updated Microsoft Intune documentation in intune/app-management/deployment/index.md. Updated Microsoft Intune documentation in intune/app-management/configuration/configure-managed-android.md. Updated Microsoft Intune documentation in intune/app-management/configuration/overview.md. Updated Microsoft I",
+        "sourceFiles": [
+          "intune/app-management/configuration/configure-managed-android.md",
+          "intune/app-management/configuration/overview.md",
+          "intune/app-management/deployment/add-lob-android.md",
+          "intune/app-management/deployment/add-managed-google-play.md",
+          "intune/app-management/deployment/index.md",
+          "intune/app-management/configuration/configure-managed-android.md",
+          "intune/app-management/configuration/overview.md",
+          "intune/app-management/deployment/add-microsoft-365-windows.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/manage-policies.md.",
+        "sourceFiles": [
+          "intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+          "intune/device-configuration/endpoint-security/manage-policies.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md.",
+        "sourceFiles": [
+          "intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/what-is-intune.md.",
+        "sourceFiles": [
+          "intune/fundamentals/what-is-intune.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/edge-data-security/protection-policies-step-2.md.",
+        "sourceFiles": [
+          "intune/solutions/edge-data-security/protection-policies-step-2.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/device-security",
+        "detail": "Added Microsoft Intune documentation in intune/device-security/overview.md. Updated Microsoft Intune documentation in intune/device-security/endpoint-security-policies.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-data.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-devices.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-security.md. Updated Microsoft Intune documentation in intune/device-security/ref-zero-trust-tenant.md. Removed Microsoft Intune documentation in intune/device-security/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "Updated Microsoft Intune documentation in intune/app-management/configuration/configure-managed-android.md. Updated Microsoft Intune documentation in intune/app-management/configuration/overview.md. Updated Microsoft Intune documentation in intune/app-management/deployment/add-lob-android.md. Updated Microsoft Intune documentation in intune/app-management/deployment/add-managed-google-play.md. Updated Microsoft Intune documentation in intune/app-management/deployment/index.md. Updated Microsoft Intune documentation in intune/app-management/configuration/configure-managed-android.md. Updated Microsoft Intune documentation in intune/app-management/configuration/overview.md. Updated Microsoft I"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/manage-policies.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/protect/understand/protect-data-and-site-infrastructure.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/what-is-intune.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/edge-data-security/protection-policies-step-2.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

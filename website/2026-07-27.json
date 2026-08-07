@@ -1,0 +1,486 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md b/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md\nindex 9dd1c16faf..aebfb1d8f4 100644\n--- a/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md\n+++ b/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md\n@@ -178,9 +178,9 @@ You can also use the following optional parameters:\n \n `ServiceConnectionTool.exe -connect -usagedatasrc D:\\USB\\ -updatepackdest D:\\USB\\UpdatePacks`\n \n-#### Example of connect with a proxy server\n+#### Example of connect with a proxy server and port\n \n-`ServiceConnectionTool.exe -connect -usagedatasrc D:\\USB\\Usagedata.cab -updatepackdest D:\\USB\\UpdatePacks -proxyserveruri itproxy.contoso.com -proxyusername jqpublic`\n+`ServiceConnectionTool.exe -connect -usagedatasrc D:\\USB\\Usagedata.cab -updatepackdest D:\\USB\\UpdatePacks -proxyserveruri itproxy.contoso.com:8080 -proxyusername jqpublic`\n \n #### Example of connect to download only site version applicable updates\n \n",
+      "baseCommitSha": "ef577612b4dd8ff0abdd5b8337a0c5556f70b8c5",
+      "commitSha": "6f92867e8f5cb1d55db15953b242394cd4579d11",
+      "commitMessage": "Add example for proxy server with port in documentation (#5191)",
+      "commitAuthor": "PraveenGururaj",
+      "commitDate": "2026-07-27T14:01:21+04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/use-the-service-connection-tool",
+      "firstSeenAt": "2026-07-27T10:01:21.000Z",
+      "eventId": "intune-docs:6f92867e8f5cb1d55db15953b242394cd4579d11:modified:intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add example for proxy server with port in documentation (#5191)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/use-the-service-connection-tool.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nindex 131dc9c113..62779194b3 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -103,7 +103,7 @@ Ensure that the management point server can connect to Microsoft Entra authentic\n - `https://login.microsoftonline.com`\n - `https://sts.windows.net`\n \n-If the management point server uses a proxy, configure the proxy at the system level. For more information, see [Management point proxy configuration](../network/proxy-server-support.md#management-point).\n+If the management point server uses a proxy, you must configure the proxy in the system (Local System) context. The proxy set in the site system properties and a WinHTTP-only proxy (`netsh winhttp set proxy`) aren't used for this validation path in version 2603. For the required configuration steps, see [Management point proxy configuration](../network/proxy-server-support.md#management-point).\n \n For a full list of required endpoints, see [Management point internet access requirements](../network/internet-endpoints.md#management-point).\n \n",
+      "baseCommitSha": "3b5c315dcd35e6f95a86ed912bc28051553285e2",
+      "commitSha": "7e0bf1ecaa8d0a937de0cd6292f4097aa9a695af",
+      "commitMessage": "MP MISE token validation: document system-context WinINET proxy requirement (2603)",
+      "commitAuthor": "umaikhan",
+      "commitDate": "2026-07-27T09:52:59-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-07-27T14:52:59.000Z",
+      "eventId": "intune-docs:7e0bf1ecaa8d0a937de0cd6292f4097aa9a695af:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MP MISE token validation: document system-context WinINET proxy requirement (2603)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/network/internet-endpoints.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/network/internet-endpoints.md b/intune/configmgr/core/plan-design/network/internet-endpoints.md\nindex a8200d6a59..12ed3f2342 100644\n--- a/intune/configmgr/core/plan-design/network/internet-endpoints.md\n+++ b/intune/configmgr/core/plan-design/network/internet-endpoints.md\n@@ -140,6 +140,8 @@ Allow the management point server to access the following endpoints:\n - `https://login.microsoftonline.us`\n - `https://sts.windows.net`\n \n+If the management point connects to the internet through a proxy, you must configure the proxy in the system (Local System) context. A proxy set in the site system properties or a WinHTTP-only proxy isn't used for this validation path in version 2603. For the required steps, see [Proxy server support for the management point](proxy-server-support.md#management-point).\n+\n For more information, see [Management point requires internet access for Microsoft Entra token validation](../changes/whats-new-in-version-2603.md#management-point-requires-internet-access-for-microsoft-entra-token-validation).\n \n ## Software updates\n",
+      "baseCommitSha": "3b5c315dcd35e6f95a86ed912bc28051553285e2",
+      "commitSha": "7e0bf1ecaa8d0a937de0cd6292f4097aa9a695af",
+      "commitMessage": "MP MISE token validation: document system-context WinINET proxy requirement (2603)",
+      "commitAuthor": "umaikhan",
+      "commitDate": "2026-07-27T09:52:59-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/network/internet-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/network/internet-endpoints",
+      "firstSeenAt": "2026-07-27T14:52:59.000Z",
+      "eventId": "intune-docs:7e0bf1ecaa8d0a937de0cd6292f4097aa9a695af:modified:intune/configmgr/core/plan-design/network/internet-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MP MISE token validation: document system-context WinINET proxy requirement (2603)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/internet-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/network/proxy-server-support.md",
+      "status": "modified",
+      "additions": 35,
+      "deletions": 15,
+      "changes": 50,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/network/proxy-server-support.md b/intune/configmgr/core/plan-design/network/proxy-server-support.md\nindex b3c1f9958a..44c8817424 100644\n--- a/intune/configmgr/core/plan-design/network/proxy-server-support.md\n+++ b/intune/configmgr/core/plan-design/network/proxy-server-support.md\n@@ -66,32 +66,52 @@ This site system role connects to an Exchange Server. It uses a proxy server con\n \n ### Management point\n \n-<!--Starting in version 2603-->Starting in version 2603, the management point uses Microsoft Identity Service Essentials (MISE) for Microsoft Entra token validation. In environments that support Microsoft Entra joined users and devices, the management point server requires internet access to connect to Microsoft Entra authentication endpoints.\n+<!--Starting in version 2603-->Starting in version 2603, the management point uses Microsoft Identity Service Essentials (MISE) for Microsoft Entra token validation. In environments that support Microsoft Entra joined users and devices, the management point server requires internet access to connect to Microsoft Entra authentication endpoints. For the list of endpoints to allow, see [Management point internet access requirements](internet-endpoints.md#management-point).\n+\n+Microsoft Entra token validation runs in the **system (Local System) context** using the .NET Framework HTTP stack. As a result, if the management point reaches the internet through a proxy, the proxy must be available to the Local System account through its **WinINET (Windows Internet, or Internet Options) settings**.\n \n > [!IMPORTANT]\n-> The proxy configured in the [site system properties](#configure-the-proxy-for-a-site-system-server) doesn't apply to MISE token validation. You must configure the proxy at the system level on the management point server.\n+> In version 2603, the following proxy configurations are **not** used for MISE token validation:\n+>\n+> - The proxy configured in the [site system properties](#configure-the-proxy-for-a-site-system-server).\n+> - A machine-wide WinHTTP proxy set with `netsh winhttp set proxy`.\n+>\n+> You must configure the proxy in the **Local System account's WinINET settings** on the management point server, as described in this section.\n \n-To configure the proxy, run the following command at an elevated command prompt on the management point server:\n+#### Configure the system-context WinINET proxy\n \n-```cmd\n-netsh winhttp set proxy <proxyservername>:<portnumber>\n-```\n+Use one of the following methods to set the proxy for the Local System account on the management point server:\n \n-Replace `<proxyservername>` with the fully qualified domain name of the proxy server. Replace `<portnumber>` with the port number for the proxy server. For example, `proxy.domain.example.com:80`.\n+- **Registry**: Set the following values under `HKEY_USERS\\S-1-5-18\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings`:\n \n-To verify the current proxy configuration:\n+    - `ProxyEnable` (DWORD) = `1`\n+    - `ProxyServer` (String) = `<proxyservername>:<portnumber>`, for example `proxy.domain.example.com:80`\n+    - `ProxyOverride` (String) = optional proxy bypass list, for example `<local>`\n \n-```cmd\n-netsh winhttp show proxy\n-```\n+- **Internet Options in the system context**: Open Internet Options as the Local System account and configure the LAN proxy. For example, use [PsExec](/sysinternals/downloads/psexec) to launch the browser as the system account:\n+\n+    ```cmd\n+    PsExec.exe -i -s \"C:\\Program Files\\Internet Explorer\\iexplore.exe\"\n+    ```\n \n-To remove the proxy configuration and configure direct access to the internet:\n+    Then go to **Internet Options** > **Connections** > **LAN settings** and configure the proxy server.\n \n-```cmd\n-netsh winhttp reset proxy\n+After you change the proxy, restart the `SMS_EXECUTIVE` service on the management point for the new setting to take effect.\n+\n+#### Verify and troubleshoot\n+\n+If the management point can't reach the Microsoft Entra endpoints, the `CCM_STS_ManagedBase.log` on the management point logs a `MISE12034` error with an underlying `SocketException` or `HttpRequestException`. Microsoft Entra joined clients then fail to get a token and log a transient error such as `0x87d00231` in `ClientIDManagerStartup`.\n+\n+To confirm connectivity from the management point in the system context, run the following command as the Local System account (for example, using `PsExec.exe -i -s cmd`):\n+\n+```powershell\n+Invoke-WebRequest \"https://login.microsoftonline.com/<TenantID>/.well-known/openid-configuration\" -UseBasicParsing\n ```\n \n-For more information about this requirement and troubleshooting, see [Management point requires internet access for Microsoft Entra token validation](../changes/whats-new-in-version-2603.md#management-point-requires-internet-access-for-microsoft-entra-token-validation).\n+> [!NOTE]\n+> This system-context proxy requirement is specific to version 2603. A future update is planned to let MISE token validation use the proxy configured in the site system properties.\n+\n+For more information about this requirement, see [Management point requires internet access for Microsoft Entra token validation](../changes/whats-new-in-version-2603.md#management-point-requires-internet-access-for-microsoft-entra-token-validation).\n \n ### Service connection point\n \n",
+      "baseCommitSha": "3b5c315dcd35e6f95a86ed912bc28051553285e2",
+      "commitSha": "7e0bf1ecaa8d0a937de0cd6292f4097aa9a695af",
+      "commitMessage": "MP MISE token validation: document system-context WinINET proxy requirement (2603)",
+      "commitAuthor": "umaikhan",
+      "commitDate": "2026-07-27T09:52:59-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/network/proxy-server-support.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/network/proxy-server-support",
+      "firstSeenAt": "2026-07-27T14:52:59.000Z",
+      "eventId": "intune-docs:7e0bf1ecaa8d0a937de0cd6292f4097aa9a695af:modified:intune/configmgr/core/plan-design/network/proxy-server-support.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "MP MISE token validation: document system-context WinINET proxy requirement (2603)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/proxy-server-support.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/sync.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 2,
+      "changes": 24,
+      "patch": "diff --git a/intune/device-management/actions/sync.md b/intune/device-management/actions/sync.md\nindex 1843d71ec1..da2c32cbca 100644\n--- a/intune/device-management/actions/sync.md\n+++ b/intune/device-management/actions/sync.md\n@@ -3,6 +3,7 @@ title: \"Device Action: Sync\"\n description: Learn how to use the device sync action in Intune to apply policy, app, and configuration updates to managed devices.\n ms.date: 10/27/2025\n ms.topic: how-to\n+ai-usage: ai-assisted\n zone_pivot_groups: 51e33912-415a-402f-8201-8acebf3e4991\n ---\n \n@@ -49,18 +50,37 @@ For more information about the standard Intune policy check-in frequencies, see\n >   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n :::column-end:::\n :::row-end:::\n-## How to sync a device from the Intune admin center\n+## Sync a device from the Intune admin center\n \n 1. In the [Microsoft Intune admin center], select [**Devices**] > [**All devices**].\n 1. From the devices list, select a device.\n 1. At the top of the device overview pane, find the row of action icons. Select **Sync**.\n 1. To confirm, select **Yes**.\n \n+::: zone pivot=\"windows\"\n+\n+## Sync behavior on Windows\n+\n+After selecting **Sync**, Intune initiates an on-demand synchronization across multiple workloads to help ensure the device reflects the latest admin intent as quickly as possible. This process includes, but isn't limited to:\n+\n+- Compliance policy evaluation\n+- Configuration policy processing\n+- App detection and deployment state updates\n+- Script and remediation processing\n+- Other device management signals required to align device state with current assignments\n+\n+You can track the progress of the sync action by selecting the **Device sync status** tab in the device overview pane.\n+\n+>[!NOTE]\n+> The described sync behavior, including the **Device sync status** tab, applies only to Windows devices.\n+\n+::: zone-end\n+\n ::: zone pivot=\"ios,android\"\n \n ## Retryable error codes\n \n-When you execute the **Sync** action, iOS/iPadOS and Android apps that failed and raised a retryable error code are still available to the device. However, apps that raised a nonretryable error code must wait seven days before they're available to the device.\n+When you run the **Sync** action, apps that fail and raise a retryable error code remain available to the device. Apps that raise a nonretryable error code must wait seven days before they're available to the device.\n \n | Error code  | Suggested description | Retryable |\n |---|---|---|\n",
+      "baseCommitSha": "707e583194c51c9db7816d7661452efd5ef43749",
+      "commitSha": "d1c73759b20dfb5fe9b94d91281c8733d7f62956",
+      "commitMessage": "Recover Intune device sync documentation (#20565)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T09:35:36-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/sync.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/sync",
+      "firstSeenAt": "2026-07-27T16:35:36.000Z",
+      "eventId": "intune-docs:d1c73759b20dfb5fe9b94d91281c8733d7f62956:modified:intune/device-management/actions/sync.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Recover Intune device sync documentation (#20565)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-management/actions/sync.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/remote-help/plan.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/remote-help/plan.md b/intune/remote-help/plan.md\nindex b63878c416..87a469cc59 100644\n--- a/intune/remote-help/plan.md\n+++ b/intune/remote-help/plan.md\n@@ -3,6 +3,7 @@ title: Plan for Remote Help with Microsoft Intune\n description: Learn about the requirements and capabilities of Remote Help with Microsoft Intune on Windows, macOS, and Android Enterprise.\n ms.date: 06/24/2026\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: karawang\n ---\n \n@@ -230,7 +231,9 @@ The sharer's Windows device must be enrolled into the same tenant where the Remo\n \n ### [:::image type=\"icon\" source=\"../media/icons/16/macos.svg\"::: **macOS**](#tab/macos)\n \n-1. **Single sign-on (SSO)**. For more information, see [Use Enterprise SSO Plug-in on macOS](../intune-service/configuration/use-enterprise-sso-plug-in-macos-with-intune.md?tabs=prereq-intune%2Ccreate-profile-intune).\n+The following requirements ensure Remote Help can authenticate the user and recognize the device as enrolled:\n+\n+1. Configure the Microsoft Enterprise SSO plug-in. For more information, see [Use Enterprise SSO Plug-in on macOS](../intune-service/configuration/use-enterprise-sso-plug-in-macos-with-intune.md?tabs=prereq-intune%2Ccreate-profile-intune).\n 1. Open and sign in to Company Portal. The user must open and sign in to Company Portal for Remote Help to recognize the device is enrolled.\n \n > [!NOTE]\n",
+      "baseCommitSha": "569d45db8497ddfe987dde4ea031c4e3ff690b00",
+      "commitSha": "e45a08485b0f31c6a71a79695c9478a60ca83eea",
+      "commitMessage": "Recover Remote Help enrollment requirements (#20566)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T10:21:48-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/remote-help/plan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/remote-help/plan",
+      "firstSeenAt": "2026-07-27T17:21:48.000Z",
+      "eventId": "intune-docs:e45a08485b0f31c6a71a79695c9478a60ca83eea:modified:intune/remote-help/plan.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Recover Remote Help enrollment requirements (#20566)",
+        "summary": "Updated Microsoft Intune documentation in intune/remote-help/plan.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/endpoint-security/antivirus.md",
+      "status": "modified",
+      "additions": 67,
+      "deletions": 8,
+      "changes": 75,
+      "patch": "diff --git a/intune/device-configuration/endpoint-security/antivirus.md b/intune/device-configuration/endpoint-security/antivirus.md\nindex a24cbea9ff..817ca28763 100644\n--- a/intune/device-configuration/endpoint-security/antivirus.md\n+++ b/intune/device-configuration/endpoint-security/antivirus.md\n@@ -1,7 +1,7 @@\n ---\n title: Manage antivirus settings with endpoint security policies in Microsoft Intune\n description: Configure and deploy policies and use reports for devices you manage with endpoint security antivirus policy in Microsoft Intune.\n-ms.date: 05/13/2026\n+ms.date: 07/17/2026\n ms.topic: reference\n ai-usage: ai-assisted\n ms.reviewer: mattcall\n@@ -14,7 +14,7 @@ Intune Endpoint security Antivirus policies help security admins focus on managi\n \n Antivirus policy includes several profiles. Each profile contains only the settings that are relevant for Microsoft Defender for Endpoint antivirus for macOS and Windows devices, or for the user experience in the Windows Security app on Windows devices.\n \n-Find the antivirus policies under **Manage** in the Endpoint security node of the [Microsoft Intune admin center].\n+Find the antivirus policies under **Manage** in the Endpoint security node of the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n \n Antivirus policies include the same settings as found *endpoint protection* or *device restriction* templates for [device configuration](../create-device-profile.md) policy. However, those policy types include other categories of settings that are unrelated to Antivirus. The additional settings can complicate the task of configuring Antivirus workload. Also, the settings found in the Antivirus policy for macOS aren't available through the other policy types. The macOS Antivirus profile replaces the need to configure the settings by using `.plist` files.\n \n@@ -110,6 +110,69 @@ Prerequisites to support managing tamper protection with these profiles:\n - Platform: **Windows (ConfigMgr)**\n   - Profile: **Windows Security experience (preview)**\n \n+### Controlled configuration for Microsoft Defender settings (preview)\n+\n+Controlled configuration extends tamper protection by making Microsoft Intune the single authoritative source for Microsoft Defender security settings on a device. While tamper protection locks certain security settings to their secure defaults, controlled configuration goes further by locking *all* applicable settings to the values configured in Intune. Non-configured settings fall back to their secure platform defaults.\n+\n+Organizations deploying Microsoft Defender for Endpoint can face indeterminate device states when multiple management channels, including Group Policy, Configuration Manager, third-party tools, and local administrator scripts, override cloud-delivered settings. These conflicts make Defender configurations unpredictable and difficult to troubleshoot.\n+\n+Controlled configuration establishes a clear **precedence of authority**. When controlled configuration is enabled on a device, settings delivered by Intune or [Microsoft Defender for Endpoint security settings management](../../device-security/microsoft-defender/security-settings-management.md) take exclusive precedence. Settings from all other channels, including Group Policy, Configuration Manager, and local changes, are overridden. Other channels can still deliver settings, but the Intune-configured values always take priority.\n+\n+This capability is useful in two common scenarios:\n+\n+- **Proof-of-concept deployments** — Organizations can quickly deploy and validate their Defender configuration without first needing to identify and remediate legacy GPO or third-party tool conflicts.\n+- **Steady-state management** — Administrators can maintain deterministic, auditable Defender configurations without having to monitor or police every other management channel.\n+\n+#### Enable controlled configuration\n+\n+Controlled configuration is available as a dedicated setting in the **Windows Security experience** profile for Antivirus policy. Under the **Defender** section, the **Controlled Configuration (Device)** setting supports the following values:\n+\n+| Value | Description |\n+|---|---|\n+| **Not configured** | No change to the device's current state. |\n+| **Off (Default)** | Turns off both controlled configuration and tamper protection. |\n+| **Tamper Protection (On)** | Turns on tamper protection and enforces tamper-protected settings to their secure defaults. This is the existing tamper protection behavior. |\n+| **Controlled Configuration (On)** | Turns on controlled configuration. Intune-delivered settings take exclusive precedence; non-configured settings use secure defaults. |\n+\n+To enable controlled configuration, create or edit an Antivirus policy that uses the **Windows Security experience** profile. Set **Controlled Configuration (Device)** to **Controlled Configuration (On)**, and then deploy the policy to the devices you want to protect.\n+\n+- **CSP**: [Defender CSP > Configuration/TamperProtection](/windows/client-management/mdm/defender-csp#configurationtamperprotection)\n+\n+> [!NOTE]\n+> Controlled configuration has the same [prerequisites as tamper protection](#prerequisites-for-tamper-protection).\n+\n+> [!IMPORTANT]\n+> Controlled configuration operates at the per-device level. You can opt individual devices in or out of the controlled state by changing the **Controlled Configuration (Device)** value in the policy that targets those devices. Switching from controlled configuration back to tamper protection (or off) takes effect on the next policy check-in.\n+\n+#### Scope and limitations\n+\n+During preview, controlled configuration enforces settings that are configured through the following endpoint security policy templates:\n+\n+- **Antivirus**\n+- **Attack surface reduction (ASR)**\n+\n+When a device is in the controlled configuration state, the Defender settings delivered through these templates are authoritative. Settings for the same Defender components that are delivered through other channels are overridden.\n+\n+Settings that aren't explicitly configured in controlled configuration revert to their default values. Local users can still modify these settings because controlled configuration locks only the settings that its policy defines.\n+\n+Controlled configuration does *not* apply to:\n+\n+- Endpoint detection and response (EDR)\n+- Firewall settings\n+- Policies authored outside the Endpoint Security experience, such as Settings Catalog policies\n+- Endpoint security policy types not used by Defender components, such as Account Protection\n+\n+#### Reporting with controlled configuration\n+\n+When a device is in the controlled configuration state, reporting behavior for that device changes:\n+\n+- For policies configured through a template that supports controlled configuration (Antivirus, ASR), per-setting status reports reflect the enforced configuration as expected.\n+- For non-controlled configuration policies, such as Settings Catalog policies, that contain settings overlapping with a controlled configuration policy, the overlapping settings report as **Not applicable** on that device. The controlled configuration policy takes precedence for those settings, regardless of the configured value in the other policy.\n+- In the **Unhealthy endpoints** (**Endpoint security** > **Antivirus** > **Unhealthy endpoints**) and **Antivirus agent status** (**Reports** > **Antivirus** > **Antivirus agent status**) reports, the **Tamper protection** column is renamed to **Controlled configuration**. The values reflect whether controlled configuration is enabled or disabled for MDM-enrolled devices. Defender-enrolled devices aren't included in these reports.\n+- When a device receives conflicting Intune policies—one enabling controlled configuration and another disabling or enabling tamper protection—the controlled configuration policy takes precedence.\n+\n+For more information about tamper protection and how controlled configuration extends it, see [Protect security settings with tamper protection](/microsoft-365/security/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection).\n+\n ## Antivirus profiles\n \n Find guidance for creating endpoint security profiles at [Create an endpoint security policy](./manage-policies.md).\n@@ -215,7 +278,7 @@ The following settings support policy merge:\n \n Antivirus policy reports display status details about your endpoint security Antivirus policies and device status. These reports are available in the Endpoint security node of the Microsoft Intune admin center.\n \n-To view the reports, in the [Microsoft Intune admin center], go to  Endpoint security and select **Antivirus**. Selecting Antivirus opens the Summary page. Additional report and status views are available as additional pages.\n+To view the reports, in the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to  Endpoint security and select **Antivirus**. Selecting Antivirus opens the Summary page. Additional report and status views are available as additional pages.\n \n In addition to reports detailed in the following sections, additional reports for Microsoft Defender Antivirus are found in the Reports node of the Microsoft Intune admin center, as documented in the Intune Reports article:\n \n@@ -253,8 +316,4 @@ View details for the Windows settings in the deprecated profiles for the depreca\n \n - [Antivirus policy settings](./ref-antivirus-defender-settings-windows.md)\n - [Antivirus exclusions](./ref-antivirus-defender-settings-windows.md#microsoft-defender-antivirus-exclusions)\n-- [Windows Security app settings](./ref-security-experience-settings-windows.md)\n-\n-<!--links-->\n-\n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+- [Windows Security app settings](./ref-security-experience-settings-windows.md)\n\\ No newline at end of file\n",
+      "baseCommitSha": "72de17baa3d9a4f1667dff5931bb3bda10f9f82e",
+      "commitSha": "5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76",
+      "commitMessage": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T12:17:30-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/endpoint-security/antivirus.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/endpoint-security/antivirus",
+      "firstSeenAt": "2026-07-27T19:17:30.000Z",
+      "eventId": "intune-docs:5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76:modified:intune/device-configuration/endpoint-security/antivirus.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/antivirus.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/endpoint-security-policies.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 6,
+      "changes": 9,
+      "patch": "diff --git a/intune/device-security/endpoint-security-policies.md b/intune/device-security/endpoint-security-policies.md\nindex 2be31e6201..1eac876e0d 100644\n--- a/intune/device-security/endpoint-security-policies.md\n+++ b/intune/device-security/endpoint-security-policies.md\n@@ -4,6 +4,7 @@ description: Learn how to manage endpoint security in Microsoft Intune. Configur\n keywords: Intune security policies, endpoint protection Intune, configure endpoint security, device security Intune, Microsoft Defender Intune, security baselines, zero trust Intune, ransomware protection, endpoint security node, device compliance Intune, Endpoint Security Manager, attack surface reduction Intune\n ms.date: 05/26/2026\n ms.topic: overview\n+ai-usage: ai-assisted\n ms.collection:\n - M365-identity-device-management\n - sub-secure-endpoints\n@@ -34,7 +35,7 @@ Use the Endpoint security node to address common security challenges:\n \n The Endpoint security dashboard provides a consolidated view of your security posture.\n \n-To access the dashboard, sign in to the [Microsoft Intune admin center] and go to **Endpoint security** > **Overview**.\n+To access the dashboard, sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) and go to **Endpoint security** > **Overview**.\n \n The dashboard helps you quickly assess device security status and identify areas requiring attention. It displays information from multiple endpoint security areas including *Antivirus*, *Endpoint detection and response*, and *Defender for Endpoint*:\n \n@@ -117,7 +118,7 @@ Integration benefits include:\n - **Security tasks** - Collaborate between Defender and Intune teams to identify and remediate device vulnerabilities.\n - **Streamlined device onboarding** - Deploy EDR policies from Intune to onboard devices to Defender for Endpoint.\n - **Device risk signals** - Use Defender threat levels in compliance policies and app protection policies.\n-- **Tamper protection** - Prevent attackers from disabling security features.\n+- **Controlled configuration (preview)** - Enforce Defender security settings from Intune, superseding settings from other management channels. The [controlled configuration setting](../device-configuration/endpoint-security/antivirus.md#controlled-configuration-for-microsoft-defender-settings-preview) also supports the existing tamper protection behavior.\n \n For more information, see [Integrate Microsoft Defender for Endpoint with Intune for Device Compliance](./microsoft-defender/overview.md).\n \n@@ -267,7 +268,3 @@ Configure:\n - [Compliance policies](./compliance/overview.md)\n - [Conditional Access integration](./conditional-access-integration/overview.md)\n - [Integration with Microsoft Defender for Endpoint](./microsoft-defender/overview.md)\n-\n-<!--links-->\n-\n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n",
+      "baseCommitSha": "72de17baa3d9a4f1667dff5931bb3bda10f9f82e",
+      "commitSha": "5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76",
+      "commitMessage": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T12:17:30-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/endpoint-security-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/endpoint-security-policies",
+      "firstSeenAt": "2026-07-27T19:17:30.000Z",
+      "eventId": "intune-docs:5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76:modified:intune/device-security/endpoint-security-policies.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/endpoint-security-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-defender/security-settings-management.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 11,
+      "changes": 25,
+      "patch": "diff --git a/intune/device-security/microsoft-defender/security-settings-management.md b/intune/device-security/microsoft-defender/security-settings-management.md\nindex 396a46c79e..2fad09c5f3 100644\n--- a/intune/device-security/microsoft-defender/security-settings-management.md\n+++ b/intune/device-security/microsoft-defender/security-settings-management.md\n@@ -1,8 +1,9 @@\n ---\n title: Learn about using Intune to manage Microsoft Defender settings on devices that aren't enrolled with Intune\n description: Learn how to use Intune policy to manage Microsoft Defender security settings on devices that aren't enrolled with Microsoft Intune.\n-ms.date: 08/27/2025\n+ms.date: 07/17/2026\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: laarrizz\n ---\n \n@@ -49,6 +50,7 @@ When a supported device onboards to Microsoft Defender for Endpoint:\n The Defender for Endpoint security settings management scenario is supported in the following government tenants:\n \n - US Government Community Cloud (GCC)\n+- US Government Community High (GCC High)\n - Department of Defense (DoD)\n \n For more information, see:\n@@ -343,7 +345,7 @@ In the Microsoft Defender portal, as a security administrator:\n \n In the Microsoft Intune admin center, your account needs permissions equal to Endpoint Security Manager built-in Role based access control (RBAC) role.\n \n-1. Sign in to the [Microsoft Intune admin center].\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n \n 2. Select **Endpoint security** > **Microsoft Defender for Endpoint**, and set **Allow Microsoft Defender for Endpoint to enforce Endpoint Security Configurations** to **On**.\n \n@@ -367,7 +369,7 @@ To support this, configure the *Manage Security settings using Configuration Man\n \n After devices onboard to Defender for Endpoint, you'll need to create device groups to support deployment of policy for Microsoft Defender for Endpoint. To identify devices that have enrolled with Microsoft Defender for Endpoint but aren't managed by Intune or Configuration Manager:\n \n-1. Sign in to [Microsoft Intune admin center].\n+1. Sign in to [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n \n 2. Go to **Devices** > **All devices**, and then select the column **Managed by** to sort the view of devices.\n \n@@ -423,7 +425,7 @@ For the list of policy and profile combinations supported for security settings\n >\n > Microsoft Intune supports deploying multiple instances of each endpoint security policy type to the same device, with each policy instance being received by the device separately. Therefore, a device might receive separate configurations for the same setting from different policies, which results in a conflict. Some settings (like Antivirus Exclusions) merge on the client and apply successfully.\n \n-1. Sign in to the [Microsoft Intune admin center].\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n \n 2. Go to **Endpoint security**, select the type of policy you want to configure, and then select **Create Policy**.\n \n@@ -497,9 +499,14 @@ You can manually sync a device on-demand from the [Microsoft Defender portal](ht\n \n The Policy sync button only appears for devices that are successfully managed by Microsoft Defender for Endpoint.\n \n-### Devices protected by tamper protection\n+### Devices protected by controlled configuration\n \n-If a device has tamper protection turned on, it isn't possible to edit the values of [Tamper-protected settings](/microsoft-365/security/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection#what-happens-when-tamper-protection-is-turned-on) without disabling Tamper Protection first.\n+The **Controlled Configuration (Device)** setting in the **Windows Security experience** profile for Antivirus policy supersedes the previous standalone tamper protection setting. This setting supports both tamper protection and the broader controlled configuration mode:\n+\n+- When set to **Tamper Protection (On)**, the behavior is identical to the previous tamper protection setting. Tamper-protected settings are locked to their secure defaults. It isn't possible to edit the values of [tamper-protected settings](/microsoft-365/security/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection#what-happens-when-tamper-protection-is-turned-on) without changing this setting first.\n+- When set to **Controlled Configuration (On)**, settings delivered by Intune take exclusive precedence over other management sources like Group Policy or Configuration Manager.\n+\n+Controlled configuration is also supported for devices managed through Microsoft Defender for Endpoint security settings management. For details on how to configure controlled configuration and its scope, see [Controlled configuration for Microsoft Defender settings](../../device-configuration/endpoint-security/antivirus.md#controlled-configuration-for-microsoft-defender-settings-preview).\n \n ### Assignment Filters and security settings management\n \n@@ -509,7 +516,7 @@ Assignment filters aren't supported for devices communicating through the Micros\n \n You can delete devices that use this flow using one of two methods:\n \n-- From within the [Microsoft Intune admin center] go to **Devices** > **All devices**, select a device that displays either *MDEJoined* or *MDEManaged* in the *Managed by* column, and then select **Delete**.\n+- From within the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) go to **Devices** > **All devices**, select a device that displays either *MDEJoined* or *MDEManaged* in the *Managed by* column, and then select **Delete**.\n - You can also remove devices from the scope of Configuration Management in the Security Center.\n \n Once a device is removed from either location, that change propagates to the other service.\n@@ -561,7 +568,3 @@ If you previously had a third-party security tool on the machine and are now man\n - [Monitor Defender for Endpoint in Intune](./monitor.md)\n \n - [Manage endpoint security policies in Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/manage-security-policies) in the Defender documentation.\n-\n-<!--links-->\n-\n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n",
+      "baseCommitSha": "72de17baa3d9a4f1667dff5931bb3bda10f9f82e",
+      "commitSha": "5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76",
+      "commitMessage": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T12:17:30-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-defender/security-settings-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-defender/security-settings-management",
+      "firstSeenAt": "2026-07-27T19:17:30.000Z",
+      "eventId": "intune-docs:5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76:modified:intune/device-security/microsoft-defender/security-settings-management.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-defender/security-settings-management.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-security/overview.md b/intune/device-security/overview.md\nindex db71b7cad2..efbe75ee44 100644\n--- a/intune/device-security/overview.md\n+++ b/intune/device-security/overview.md\n@@ -3,6 +3,7 @@ title: Protect data and devices with Microsoft Intune\n description: Learn about the Intune capabilities that can help you protect your devices and data against unauthorized access and other threats.\n ms.date: 02/17/2026\n ms.topic: overview\n+ai-usage: ai-assisted\n ms.reviewer: davidra\n ms.collection:\n - M365-identity-device-management\n@@ -143,7 +144,7 @@ Intune supports [Microsoft Defender for Endpoint](./microsoft-defender/overview.\n [Microsoft Defender for Endpoint deeply integrates with Intune](./microsoft-defender/overview.md) across Windows, macOS, Linux, Android, and iOS/iPadOS, creating a unified security platform that combines device management with advanced threat protection. This integration enables:\n \n - **Threat intelligence and risk assessment** - Defender's continuous threat detection and device risk scores flow directly into Intune compliance policies and Conditional Access decisions, enabling dynamic, risk-based access control\n-- **Enhanced endpoint security management** - Configure and deploy Defender capabilities through Intune policies, including [Antivirus](../device-configuration/endpoint-security/antivirus.md) settings, [EDR onboarding](../device-configuration/endpoint-security/deploy-edr.md), Attack Surface Reduction rules, tamper protection, web protection, and device control\n+- **Enhanced endpoint security management** - Configure and deploy Defender capabilities through Intune policies, including [Antivirus](../device-configuration/endpoint-security/antivirus.md) settings, [EDR onboarding](../device-configuration/endpoint-security/deploy-edr.md), Attack Surface Reduction rules, [controlled configuration](../device-configuration/endpoint-security/antivirus.md#controlled-configuration-for-microsoft-defender-settings-preview) (which also supports tamper protection), web protection, and device control\n - **Vulnerability management** - [Security tasks](./microsoft-defender/remediate-vulnerabilities.md) create a collaboration workflow where Defender's threat and vulnerability management identifies at-risk devices and provides remediation guidance that Intune admins can act on directly\n - **[Microsoft Tunnel](./microsoft-tunnel/overview.md)** - Defender for Endpoint serves as the VPN client for Microsoft Tunnel on Android devices, providing secure remote access without requiring separate Defender licensing\n \n",
+      "baseCommitSha": "72de17baa3d9a4f1667dff5931bb3bda10f9f82e",
+      "commitSha": "5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76",
+      "commitMessage": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T12:17:30-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/overview",
+      "firstSeenAt": "2026-07-27T19:17:30.000Z",
+      "eventId": "intune-docs:5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76:modified:intune/device-security/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607 OOB] Controlled configuration for Defender settings (#20569)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/endpoints-china.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/endpoints-china.md b/intune/fundamentals/endpoints-china.md\nindex 2e40f19e6f..471f6efb2f 100644\n--- a/intune/fundamentals/endpoints-china.md\n+++ b/intune/fundamentals/endpoints-china.md\n@@ -59,7 +59,7 @@ Intune operated by 21Vianet depends on the following partner service endpoints:\n - Azure AD `Graph: https://graph.chinacloudapi.us`\n - MS Graph: `https://microsoftgraph.chinacloudapi.cn`\n - ADRS: `https://enterpriseregistration.partner.microsoftonline.cn`\n-- Experimentation and Configuration Service (ECS): `*.ecs.gov.teams.microsoft.us`\n+- Experimentation and Configuration Service (ECS): `https://mooncake.ecs.office.com`\n \n [!INCLUDE [Intune notices](./includes/windows-push-notification-services.md)]\n \n",
+      "baseCommitSha": "5a43cdfb8ab346c09df32a0e2e7e52d3fcf1cf76",
+      "commitSha": "5fefde134efff59ba59458c40c4b2488f93297a5",
+      "commitMessage": "Update ECS URL for China endpoints (#20579)",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-07-27T13:03:19-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/endpoints-china.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/endpoints-china",
+      "firstSeenAt": "2026-07-27T20:03:19.000Z",
+      "eventId": "intune-docs:5fefde134efff59ba59458c40c4b2488f93297a5:modified:intune/fundamentals/endpoints-china.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update ECS URL for China endpoints (#20579)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/endpoints-china.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/servicing-information.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "changes": 20,
+      "patch": "diff --git a/intune/fundamentals/servicing-information.md b/intune/fundamentals/servicing-information.md\nindex c5973d564c..a0d13336c8 100644\n--- a/intune/fundamentals/servicing-information.md\n+++ b/intune/fundamentals/servicing-information.md\n@@ -75,6 +75,24 @@ For more information from the Intune support team and the broader Intune communi\n \n For post-incident actions, Microsoft emails service administrators using the email address in your [Microsoft 365 communication preferences](/microsoft-365/admin/manage/change-address-contact-and-more).\n \n+## Intune service configurations and experimentation\n+\n+Intune uses Experimentation and Configuration Service (ECS) to request and receive service configuration payloads that help maintain service reliability, security, compliance, and customer experience. These payloads can include service configurations, controlled feature rollouts, and experimentation data.\n+\n+[!CAUTION] Disabling communication with required Microsoft cloud services can affect Microsoft's ability to deliver critical service updates, reliability improvements, security mitigations, and feature enablement for Intune-managed devices.\n+\n+### Configurations\n+\n+Configurations are payloads meant to ensure service health and reliability, security, and privacy compliance, and are intended to have the same value for all the users (based on platforms and channels). Configuration updates can be deployed rapidly to maintain service quality and respond to emerging issues\n+\n+### Controlled feature rollout\n+\n+Controlled feature rollout (CFR) is a procedure for slowly increasing the size of the user group that receives a feature. By distributing a new feature to a randomly selected subset of the user population, it's possible to compare user feedback to an equally sized control group without the feature to measure the impact of the feature. This approach helps reduce deploymnet risk, identify potential issues early, validate feature performance at scale and improve overall service quality. During a controlled rollout, some organizations might see a feature before others, even when they are running the same supported platform and service version\n+\n+### Experiments\n+\n+Currently, Intune doesn't do any experimental testing. Development is carried out via the controlled feature rollout process. If this changes, an announcement will be posted in the Message Center.\n+\n ## Privacy and personal data in Intune\n \n You should understand how Intune collects, stores, retains, processes, secures, shares, audits, and exports personal data. Microsoft Intune doesn't use any personal data collected as part of providing the service for profiling, advertising, or marketing purposes.\n@@ -96,4 +114,4 @@ The following resources can help you understand privacy and personal data in Int\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "5fefde134efff59ba59458c40c4b2488f93297a5",
+      "commitSha": "e2289d6c856a3c90bafa156491cc6bfb98c85e05",
+      "commitMessage": "Adding use cases for ECS (#20580)",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-07-27T13:04:18-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/servicing-information.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/servicing-information",
+      "firstSeenAt": "2026-07-27T20:04:18.000Z",
+      "eventId": "intune-docs:e2289d6c856a3c90bafa156491cc6bfb98c85e05:modified:intune/fundamentals/servicing-information.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding use cases for ECS (#20580)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/servicing-information.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/azure-virtual-desktop.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/solutions/azure-virtual-desktop.md b/intune/solutions/azure-virtual-desktop.md\nindex a589df76fc..10fb005854 100644\n--- a/intune/solutions/azure-virtual-desktop.md\n+++ b/intune/solutions/azure-virtual-desktop.md\n@@ -37,7 +37,7 @@ There are some limitations to keep in mind when managing Windows Enterprise remo\n \n ### Enrollment\n \n-Cross-regional enrollments aren't supported, for example an Azure Virtual Desktop created in Asia can't be enrolled in a European tenant.\n+Cross-cloud (public to sovereign) enrollments aren't supported, for example an Azure Virtual Desktop created in Azure China Cloud or Azure Government Cloud can't be enrolled in an Intune tenant in the Public Cloud.\n \n ### Configuration\n \n",
+      "baseCommitSha": "e2289d6c856a3c90bafa156491cc6bfb98c85e05",
+      "commitSha": "f285add6af9e540a91d581d59c524ce85bf294b4",
+      "commitMessage": "Update azure-virtual-desktop.md (#20577)",
+      "commitAuthor": "Scott Duffey",
+      "commitDate": "2026-07-28T06:10:32+10:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/azure-virtual-desktop.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/azure-virtual-desktop",
+      "firstSeenAt": "2026-07-27T20:10:32.000Z",
+      "eventId": "intune-docs:f285add6af9e540a91d581d59c524ce85bf294b4:modified:intune/solutions/azure-virtual-desktop.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update azure-virtual-desktop.md (#20577)",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/azure-virtual-desktop.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 123,
+      "deletions": 74,
+      "changes": 197,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex e822429059..394bbbd35d 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -1,18 +1,20 @@\n ---\n-title: \"Collect Device Hardware Info With the Properties Catalog\"\n-description: \"Use the properties catalog in Microsoft Intune to collect device hardware info like BIOS version, TPM status, and disk details on managed Windows devices. Get deeper visibility into your device inventory and troubleshoot issues.\"\n-ms.date: 06/03/2026\n+title: Collect Device Properties With Intune Properties Catalog\n+description: Use Microsoft Intune properties catalog to collect device properties—including hardware, registry values, and security signals—from Windows devices.\n+ms.date: 07/01/2026\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: abbystarr, madisoncooks\n ---\n \n-# Use the Intune properties catalog to get device hardware properties\n+# Use Intune properties catalog to collect device properties from Windows devices\n \n-In Microsoft Intune, you can use the **properties catalog** to collect and view hardware properties from your managed Windows devices. When you create the policy, you can select specific properties to collect.\n+In Microsoft Intune, use the **properties catalog** to collect device properties—including hardware details, configuration data, and application signals—from managed Windows devices.\n \n For example, you can:\n \n - Discover local AI agents, like OpenClaw, running on your Windows devices.\n+- Collect selected Windows registry key values from managed Windows devices, such as configuration settings, application state, or security posture signals.\n - Get the BIOS version and TPM status to identify devices that might need firmware updates or aren't compliant with security policies.\n - Identify devices that lack encryption, which might violate security policies.\n - Identify devices that need to be replaced based on hardware properties, like disk size or memory.\n@@ -20,29 +22,36 @@ For example, you can:\n - Collect battery health information to help monitor device performance and lifespan.\n - Retrieve network adapter configurations to troubleshoot connectivity issues.\n \n-Use this information to get deeper visibility into your device inventory, including detailed hardware and system information.\n+This visibility helps you make informed decisions about device compliance, lifecycle management, and troubleshooting.\n \n-This article shows you how to configure a properties catalog policy, view the data collected by the policy, and lists the available properties. After you create a profile, assign or deploy that profile to your Windows devices.\n+In this article, you'll learn how to create a properties catalog policy, view the collected data, and explore the available hardware properties. After creating a profile, you can assign it to your Windows devices.\n \n-This feature applies to:\n+## Prerequisites\n \n-- Windows\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../includes/requirements/platform.md)]\n \n-> [!NOTE]\n+:::column-end:::\n+:::column span=\"3\":::\n+> This feature supports Windows devices only.\n+>\n > On Android and Apple devices, device properties are collected automatically.\n-\n-## Prerequisites\n+:::column-end:::\n+:::row-end:::\n \n :::row:::\n :::column span=\"1\":::\n-[!INCLUDE [platform](../includes/requirements/platform.md)]\n+[!INCLUDE [device-configuration](../includes/requirements/device-configuration.md)]\n \n :::column-end:::\n :::column span=\"3\":::\n-> This feature supports the following platforms:\n+> This feature supports devices that are:\n >\n-> - Windows\n-> - Devices must be corporate owned, Intune managed (includes co-managed), Microsoft Entra Hybrid joined, and Microsoft Entra joined.\n+> - Managed by Intune\n+> - Co-managed (Intune + Configuration Manager)\n+> - Microsoft Entra joined\n+> - Microsoft Entra hybrid joined\n :::column-end:::\n :::row-end:::\n \n@@ -52,108 +61,148 @@ This feature applies to:\n \n :::column-end:::\n :::column span=\"3\":::\n-> To configure this policy and start collecting inventory data from devices, use an account with at least one of the following roles:\n+> Role requirements vary based on the tasks being performed.\n+>\n+> ---\n+>\n+> To configure the properties catalog policy, use an account with at least one of the following Intune roles:\n >\n-> - [!INCLUDE [minimum-rbac-role-policy-profile-manager](../includes/minimum-rbac-role-policy-profile-manager.md)]\n-> - A [custom role](./templates/configure-custom-settings.md) that includes the **Device Configurations** > **Create** permission and the **Organization** > **Read** permission.\n-> - For a user to view collected data about devices, they must have the **Managed Devices** > **Read** permission. This permission is included in many built-in roles. For a list, see [Built-in role permissions for Microsoft Intune](../fundamentals/role-based-access-control/ref-built-in-roles.md).\n+> - [Policy and Profile Manager](../fundamentals/role-based-access-control/ref-built-in-roles.md#policy-and-profile-manager)\n+> - A [custom role] that includes the permissions:\n+>   - **Organization/Read** and **Managed Devices/Read** — Required for device visibility.\n+>   - **Device configurations/Create, Read, Assign** — Required to create and assign the data collection policy.\n+>\n+> ---\n+>\n+> To view the collected data, use an account with the permission **Managed Devices/Read**.\n :::column-end:::\n :::row-end:::\n \n-## Create the policy\n+## Available and required properties\n \n-Use the following steps to create a properties catalog profile and assign it to your Windows devices.\n+You can collect the following properties. To learn more about the different properties, see [Intune Data Platform Schema](../advanced-analytics/ref-data-platform-schema.md).\n \n-1. Sign in to the [Microsoft Intune admin center].\n+When you create the policy, select any of the following property categories to collect. The **required** properties are automatically collected when you collect any property in that category.\n \n-2. Select **Devices** > **Manage devices** > **Configuration** > **Create** > **New Policy**.\n+| Category | Required properties |\n+|--|--|\n+| Application Properties | App Name<br/>App Version<br/>Architectures<br/>Install Scope<br/>Install Scope Platform User ID<br/>Install Scope User ID<br/>Publisher |\n+| Battery | Instance Name |\n+| Bios Info | Bios Name<br/>Software Element ID<br/>Software Element State<br/>Target Operating System |\n+| CPU | Processor ID |\n+| Disk Drive | Drive ID |\n+| Encryptable Volume | Volume ID |\n+| Local AI Agent | Agent Name<br/>Install Location<br/>Install Scope <br/><br/>Microsoft recommends collecting **Host process**, as OpenClaw can run in different process names, like `node.exe`, `wsl.exe`, etc. |\n+| Logical Drive | Drive Identifier |\n+| Memory Info | — |\n+| Network Adapter | Identifier |\n+| OS Version | — |\n+| Sim Info | Windows eSIM ID |\n+| Registry | Registry keys |\n+| System Enclosure | Serial Number |\n+| System Info | — |\n+| Time | — |\n+| TPM | — |\n+| Video Controller | Identifier |\n+| Windows QFE | Hot Fix ID |\n \n-3. Enter the following properties and select **Create**:\n+## Create the collection policy\n+\n+Use the following steps to create a properties catalog profile and assign it to your Windows devices.\n+\n+1. In the [Microsoft Intune admin center], select **Devices** > **Windows**.\n+1. Under **Manage devices**, select **Configuration** > **Create** > **New Policy**.\n+1. Select the following properties and select **Create**:\n \n     - **Platform**: Select **Windows 10 and later**.\n     - **Profile type**: Select **Properties catalog**.\n \n-4. In **Basics**, enter the following properties and select **Next**:\n+1. In **Basics**, enter the following properties and select **Next**:\n \n     - **Name**: Enter a descriptive name for the new profile.\n     - **Description**: Enter a description for the profile. This setting is optional, but recommended.\n \n-5. Select **Add properties** and select the properties you want to collect. You can select multiple properties from multiple categories.\n+1. Select **Add properties** and select the properties you want to collect. You can select multiple properties from multiple categories.\n \n-    Some required properties are automatically added. For a list, see [Required properties](#available-and-required-properties) (in this article).\n+    Some required properties are automatically added. For a list, see [Required properties](#available-and-required-properties).\n \n     Select **Next**.\n \n-6. Optional. In **Scope (Tags)**, select any scope tags you want to assign to the profile. To learn more about scope tags, see [Use scope tags for distributed IT](../fundamentals/role-based-access-control/scope-tags.md).\n+1. Optional. In **Scope (Tags)**, select any scope tags you want to assign to the profile. To learn more about scope tags, see [Use scope tags for distributed IT](../fundamentals/role-based-access-control/scope-tags.md).\n \n     Select **Next**.\n \n-7. In **Assignments**, select the groups that receive this profile. For more information on assigning profiles, see [Assign user and device profiles](./assign-device-profile.md).\n+1. In **Assignments**, select the groups that receive this profile. For more information on assigning profiles, see [Assign policies in Microsoft Intune](./assign-device-profile.md).\n \n    Select **Next**.\n \n-8. In **Review + create**, review your settings, and select **Create**.\n+1. In **Review + create**, review your settings, and select **Create**.\n \n-    When you select **Create**, the profile is assigned to the groups you specified. The profile is also created and shown in the list.\n+When you select **Create**, the profile is assigned to the groups you specified. The profile is also created and shown in the list. The next time each device checks in with the Intune service, the policy applies.\n \n-The next time each device checks in with the Intune service, the policy applies. It can take up to 24 hours for the initial collection of inventory data.\n+> [!NOTE]\n+> It can take up to 24 hours for the initial collection of inventory data.\n \n-## Available and required properties\n+## View collected data\n \n-You can collect the following properties. To learn more about the different properties, see [Intune Data Platform Schema](../advanced-analytics/ref-data-platform-schema.md).\n+Use the following steps to view the collected device inventory information:\n \n-When you create the policy, select any of the following property categories to collect. The **required** properties are automatically collected when you collect any property in that category.\n+1. In the [Microsoft Intune admin center], select **Devices** > **Windows**.\n+1. From the devices list, select a device.\n+1. Under **Tools**, select **Device Inventory**.\n+1. Select a category to view the collected information.\n \n-| Category | Required properties |\n-| --- | --- |\n-| Application Properties | App Name<br/>App Version<br/>Architectures<br/>Install Scope<br/>Install Scope Platform User ID<br/>Install Scope User ID<br/>Publisher |\n-| Battery | Instance Name |\n-| Bios Info | Bios Name<br/>Software Element ID<br/>Software Element State<br/>Target Operating System |\n-| CPU | Processor ID |\n-| Disk Drive | Drive ID |\n-| Encryptable Volume | Volume ID |\n-| Local AI Agent | Agent Name<br/>Install Location<br/>Install Scope <br/><br/>Microsoft recommends collecting **Host process**, as OpenClaw can run in different process names, like `node.exe`, `wsl.exe`, etc. |\n-| Logical Drive | Drive Identifier |\n-| Memory Info | |\n-| Network Adapter | Identifier |\n-| OS Version | |\n-| Sim Info | Windows eSIM ID |\n-| System Enclosure | Serial Number |\n-| System Info | |\n-| Time | |\n-| TPM | |\n-| Video Controller | Identifier |\n-| Windows QFE | Hot Fix ID |\n+## Feature details and usage\n \n-## View collected data\n+:::row:::\n+:::column span=\"1\":::\n+**Local AI agent**\n \n-Use the following steps to view the collected device inventory information:\n+:::column-end:::\n+:::column span=\"3\":::\n+> Helps you discover OpenClaw running on your Windows devices. After you deploy the properties catalog policy and start collecting data, the next steps are:\n+>\n+> - Use [Device Query](../advanced-analytics/device-query-multiple-devices.md) to view devices with a Local AI Agent.\n+> - Use the [Local AI Agent Baseline - OpenClaw](../device-security/security-baselines/ref-openclaw-settings.md) to block users from using OpenClaw.\n+:::column-end:::\n+:::row-end:::\n \n-1. Sign in to the [Microsoft Intune admin center].\n-2. Go to **Devices** > **By platform** > **Windows Devices** and select a device.\n-3. In **Monitor**, select **Device Inventory**. Select a category to view the hardware information.\n+:::row:::\n+:::column span=\"1\":::\n+**Registry key inventory**\n \n-## What you need to know\n+:::column-end:::\n+:::column span=\"3\":::\n+>Lets you collect selected Windows registry data through the properties catalog for configuration visibility and troubleshooting. Here are some important details about this feature:\n+> - Supported collection methods include a single value, all values directly under a key (non-recursive), and the same value across immediate subkeys.\n+> - Registry key inventory isn't intended to collect sensitive or confidential values and includes detection logic to help prevent potentially sensitive values from being ingested. If a value is flagged as potentially sensitive, it isn't collected.\n+> - To view collected registry data, use Device Inventory.\n+> - Initial release limitations include HKLM-only collection and enforced value (6KB) and per-device (100 registry keys) collection limits.\n+:::column-end:::\n+:::row-end:::\n \n-- **Local AI Agent** helps you discover OpenClaw running on your Windows devices. After you deploy the properties catalog policy and start collecting data, the next steps are:\n+## Stop collecting properties\n \n-  - Use [Device Query](../advanced-analytics/device-query-multiple-devices.md) to view devices with a Local AI Agent.\n-  - Use the [Local AI Agent Baseline - OpenClaw](../device-security/security-baselines/ref-openclaw-settings.md) to block users from using OpenClaw.\n+You can stop (delete) the collection of properties only at the category level. To stop collecting properties, go to the **properties catalog** profile, and remove the collection for every property in the category.\n \n-- You can stop (delete) the collection of properties only at the category level. To stop collecting properties, go to the **properties catalog** profile, and remove the collection for every property in the category.\n+> [!NOTE]\n+> If you delete a properties catalog policy, you can see the last-collected data in Device Inventory for up to 28 days.\n+\n+## Troubleshooting\n \n-  If you delete a properties catalog policy, you can see the last-collected data in Device Inventory for up to 28 days.\n+To troubleshoot issues with the properties catalog, review the client logs at `C:\\Program Files\\Microsoft Device Inventory Agent\\Logs`. You can also collect the logs by using the [Device Action: Collect Diagnostics](../device-management/actions/collect-diagnostics.md).\n \n-- If you use co-management with tenant attach, you see the **Resource Explorer** and **Device Inventory** nodes.\n+## Related content\n \n-  For Intune collected data, you see a **Device Inventory** tab. For Configuration Manager collected data, you see a **Resource Explorer** tab. Use the source that best fits your use case. In the future, use the Intune-based **Device Inventory**.\n+- [Intune data platform schema](../advanced-analytics/ref-data-platform-schema.md)\n+- [Device query](../advanced-analytics/device-query.md)\n+- [Device query for multiple devices](../advanced-analytics/device-query-multiple-devices.md)\n \n-- The client logs are at `C:\\Program Files\\Microsoft Device Inventory Agent\\Logs`. You can also collect the logs by using the [Remote device action: collect diagnostics](../device-management/actions/collect-diagnostics.md). Use these logs to help troubleshoot.\n+<!--Intune admin center links-->\n \n-## Related content\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n \n-- [Intune Data Platform Schema and property info](../advanced-analytics/ref-data-platform-schema.md)\n \n-<!--links-->\n+<!--Intune roles-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Custom role]: ../fundamentals/role-based-access-control/create-custom-role.md\n\\ No newline at end of file\n",
+      "baseCommitSha": "f285add6af9e540a91d581d59c524ce85bf294b4",
+      "commitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitMessage": "[2607] Properties catalog and Windows registry (#20568)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-27T13:53:07-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "firstSeenAt": "2026-07-27T20:53:07.000Z",
+      "eventId": "intune-docs:a7ae2a672451b64b8d5e762ea286845823963bd1:modified:intune/device-configuration/collect-device-properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607] Properties catalog and Windows registry (#20568)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/create-custom-role.md b/intune/fundamentals/role-based-access-control/create-custom-role.md\nindex 95b5907cc0..3831be8f1a 100644\n--- a/intune/fundamentals/role-based-access-control/create-custom-role.md\n+++ b/intune/fundamentals/role-based-access-control/create-custom-role.md\n@@ -65,6 +65,7 @@ The following permissions are available when creating custom roles.\n | Android Enterprise | Update app sync | Manage or change the Managed Google Play configuration used to sync applications with the Managed Google Play store, or sync the apps you approved from the store with Intune. |\n | Android Enterprise | Update enrollment profiles | Manage or change Android Enterprise Device Owner enrollment profiles used to enroll devices. |\n | Android Enterprise | Update onboarding | Manage or change the Android Enterprise binding to Managed Google Play and other account-wide configurations. |\n+| Android Enterprise | Manage zero touch enrollment | Manage or change the connection to Google's Zero-Touch Enrollment (ZTE) portal. |\n \n ### Android FOTA\n \n@@ -578,4 +579,4 @@ The following permissions are available when creating custom roles.\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "3b6a4d5dff6b35e1fd900e2d5acfddac2b936c1c",
+      "commitSha": "5d85c487f0400aab9390c0aecb8f9706560cd125",
+      "commitMessage": "Add RBAC permission for managing ZTE (#5193)",
+      "commitAuthor": "Gracey Wilson",
+      "commitDate": "2026-07-27T18:44:48-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/create-custom-role",
+      "firstSeenAt": "2026-07-27T22:44:48.000Z",
+      "eventId": "intune-docs:5d85c487f0400aab9390c0aecb8f9706560cd125:modified:intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add RBAC permission for managing ZTE (#5193)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/create-custom-role.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 15,
+    "authors": [
+      "Albert Cabello Serrano",
+      "Gracey Wilson",
+      "Marsh Macy",
+      "PraveenGururaj",
+      "Scott Duffey",
+      "umaikhan"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 15 updated, and 0 removed Microsoft Intune documentation files across 7 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/use-the-service-connection-tool.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/internet-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/proxy-server-support.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/core/plan-design/network/internet-endpoints.md",
+          "intune/configmgr/core/plan-design/network/proxy-server-support.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-management",
+        "summary": "Updated Microsoft Intune documentation in intune/device-management/actions/sync.md.",
+        "sourceFiles": [
+          "intune/device-management/actions/sync.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/remote-help",
+        "summary": "Updated Microsoft Intune documentation in intune/remote-help/plan.md.",
+        "sourceFiles": [
+          "intune/remote-help/plan.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/antivirus.md. Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "sourceFiles": [
+          "intune/device-configuration/endpoint-security/antivirus.md",
+          "intune/device-configuration/collect-device-properties.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/endpoint-security-policies.md. Updated Microsoft Intune documentation in intune/device-security/microsoft-defender/security-settings-management.md. Updated Microsoft Intune documentation in intune/device-security/overview.md.",
+        "sourceFiles": [
+          "intune/device-security/endpoint-security-policies.md",
+          "intune/device-security/microsoft-defender/security-settings-management.md",
+          "intune/device-security/overview.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/endpoints-china.md. Updated Microsoft Intune documentation in intune/fundamentals/servicing-information.md. Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/create-custom-role.md.",
+        "sourceFiles": [
+          "intune/fundamentals/endpoints-china.md",
+          "intune/fundamentals/servicing-information.md",
+          "intune/fundamentals/role-based-access-control/create-custom-role.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/azure-virtual-desktop.md.",
+        "sourceFiles": [
+          "intune/solutions/azure-virtual-desktop.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/use-the-service-connection-tool.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/internet-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/proxy-server-support.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-management",
+        "detail": "Updated Microsoft Intune documentation in intune/device-management/actions/sync.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/remote-help",
+        "detail": "Updated Microsoft Intune documentation in intune/remote-help/plan.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/antivirus.md. Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/endpoint-security-policies.md. Updated Microsoft Intune documentation in intune/device-security/microsoft-defender/security-settings-management.md. Updated Microsoft Intune documentation in intune/device-security/overview.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/endpoints-china.md. Updated Microsoft Intune documentation in intune/fundamentals/servicing-information.md. Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/create-custom-role.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/azure-virtual-desktop.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

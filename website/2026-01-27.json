@@ -1,0 +1,385 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/apps/app-protection-policies-monitor.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 5,
+      "changes": 11,
+      "patch": "diff --git a/intune/intune-service/apps/app-protection-policies-monitor.md b/intune/intune-service/apps/app-protection-policies-monitor.md\nindex bd4004f6bd..c661e20da6 100644\n--- a/intune/intune-service/apps/app-protection-policies-monitor.md\n+++ b/intune/intune-service/apps/app-protection-policies-monitor.md\n@@ -9,17 +9,18 @@ ms.collection:\n ---\n \n # How to Monitor App Protection Policies\n-[!INCLUDE [azure_portal](../includes/azure_portal.md)]\n \n You can monitor the status of the app protection policies that you applied to users from the Intune app protection pane in Intune. Additionally, you can find information about the users affected by app protection policies, policy compliance status, and any issues that your users might be experiencing.\n \n App protection data is retained for a minimum of 90 days. Any app instances that checked in to the Intune service within the past 90 days is included in the app protection status report.\n \n-> [!NOTE]\n-> When you delete an app protection policy, scoped admins no longer see app instances associated with that policy. Global admins continue to see the policy name listed as \"not available.\"\n+## Before you begin\n \n-> [!NOTE]\n-> For iOS 16 and later devices, the **Device Name** value in all app protection reports is a generic device name. For more information, see [Apple Developer documentation](https://developer.apple.com/documentation/uikit/uidevice/1620015-name).\n+- When you delete an app protection policy, scoped admins no longer see app instances associated with that policy. Global Administrators continue to see the policy name listed as \"not available.\"\n+\n+  [!INCLUDE [global-admin](../includes/global-admin.md)]\n+\n+- For iOS 16 and later devices, the **Device Name** value in all app protection reports is a generic device name. For more information, see [Apple Developer documentation](https://developer.apple.com/documentation/uikit/uidevice/1620015-name).\n \n ## View the **App protection status** report\n \n",
+      "baseCommitSha": "95975afa77452d59838f6937b8af79268a6fc879",
+      "commitSha": "a1618983de2bf787892f9a9c2905038e11380170",
+      "commitMessage": "global admin",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T14:07:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/app-protection-policies-monitor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/app-protection-policies-monitor",
+      "firstSeenAt": "2026-01-27T19:07:30.000Z",
+      "eventId": "intune-docs:a1618983de2bf787892f9a9c2905038e11380170:modified:intune/intune-service/apps/app-protection-policies-monitor.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "global admin",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/app-protection-policies-monitor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 5,
+      "changes": 5,
+      "patch": "diff --git a/intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md b/intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md\nindex a976ae1d4f..c2c2ebaf12 100644\n--- a/intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md\n+++ b/intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md\n@@ -38,11 +38,6 @@ Turn on EMM for your Slack Enterprise Grid plan by following [Slack's instructio\n \n Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) as the built-in **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** Microsoft Entra role.\n \n-If you created an Intune Trial subscription, the account that created the subscription is a Microsoft Entra [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator).\n-\n-> [!CAUTION]\n-> [!INCLUDE [global-admin](../includes/global-admin.md)]\n-\n ## Set up Slack for EMM on iOS devices\n \n Add the iOS/iPadOS app Slack for EMM to your Intune tenant and create an app configuration policy to enable your organizations' iOS/iPadOS users to access Slack with Intune as an EMM provider.\n",
+      "baseCommitSha": "95975afa77452d59838f6937b8af79268a6fc879",
+      "commitSha": "a1618983de2bf787892f9a9c2905038e11380170",
+      "commitMessage": "global admin",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T14:07:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/tutorial-configure-slack-enterprise-grid",
+      "firstSeenAt": "2026-01-27T19:07:30.000Z",
+      "eventId": "intune-docs:a1618983de2bf787892f9a9c2905038e11380170:modified:intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "global admin",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-setup.md b/intune/intune-service/fundamentals/deployment-plan-setup.md\nindex fd0f7b431f..53a4f56ea3 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-setup.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-setup.md\n@@ -95,10 +95,7 @@ The people in your organization each need a user account before they can sign in\n \n As an administrator, you can add users individually or in bulk to Intune.\n \n-You must be a Microsoft Entra [License Administrator](/entra/identity/role-based-access-control/permissions-reference#license-administrator) or [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator) to add users to Intune. If you created an Intune Trial subscription, the account that created the subscription is a Microsoft Entra [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator).\n-\n-> [!CAUTION]\n-> [!INCLUDE [global-admin](../includes/global-admin.md)]\n+You must be a Microsoft Entra [License Administrator](/entra/identity/role-based-access-control/permissions-reference#license-administrator) or [User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator) to add users to Intune.\n \n ## 5 - Create groups in Intune\n \n",
+      "baseCommitSha": "95975afa77452d59838f6937b8af79268a6fc879",
+      "commitSha": "a1618983de2bf787892f9a9c2905038e11380170",
+      "commitMessage": "global admin",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T14:07:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-setup",
+      "firstSeenAt": "2026-01-27T19:07:30.000Z",
+      "eventId": "intune-docs:a1618983de2bf787892f9a9c2905038e11380170:modified:intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "global admin",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 15,
+      "changes": 25,
+      "patch": "diff --git a/intune/intune-service/fundamentals/microsoft-intune-service-description.md b/intune/intune-service/fundamentals/microsoft-intune-service-description.md\nindex 5e27f94b69..f8bd3d253d 100644\n--- a/intune/intune-service/fundamentals/microsoft-intune-service-description.md\n+++ b/intune/intune-service/fundamentals/microsoft-intune-service-description.md\n@@ -1,9 +1,9 @@\n ---\n title: Microsoft Intune Service Description\n description: Microsoft Intune is a cloud-based service that helps you manage Windows, iOS/iPadOS, macOS, and Android devices.\n-author: dougeby\n-ms.author: dougeby\n-ms.date: 12/12/2023\n+author: MandiOhlinger\n+ms.author: mandia\n+ms.date: 01/27/2026\n ms.topic: article\n ms.reviewer: cacamp\n ms.collection:\n@@ -22,25 +22,19 @@ Intune is a cloud-based enterprise mobility management (EMM) service that helps\n \n Intune integrates closely with Microsoft Entra ID for identity and access control, and Azure Information Protection for data protection. You can also integrate it with Configuration Manager to extend your management capabilities.\n \n-To learn more about how you can manage devices, apps, and protect corporate data with Intune, see the [Intune documentation](../index.yml).\n+To learn more about how you can manage devices, apps, and protect corporate data with Intune, see [Microsoft Intune securely manages identities, apps, and devices](what-is-intune.md).\n \n ## 30-day free trial\n \n You can start to use Intune with a 30-day free trial that includes 100 user licenses. To start your free trial, [go to the Intune Sign up page](https://admin.microsoft.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20). If your organization has an Enterprise Agreement or equivalent volume licensing agreement, contact your Microsoft representative to set up your free trial.\n \n-> [!NOTE]\n-> If your organization has a Microsoft Online Services work or school account, and you might continue with this Intune subscription in production after the trial period ends, then choose the **Sign in** option on that page and authenticate by using the Global Administrator account for your organization. This action ensures that your Intune trial links to your existing work or school account.\n-\n-Microsoft recommends that you use roles with the fewest permissions. Using lower permissioned accounts helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to the initial set up or emergency scenarios when you can't use an existing role.\n-\n-<!--- For a list of settings that you can set up on mobile devices, see:\n+If your organization has a Microsoft Online Services work or school account, and you might continue with this Intune subscription in production after the trial period ends, then choose the **Sign in** option on that page and authenticate by using the Microsoft Entra Global Administrator account for your organization. This action ensures that your Intune trial links to your existing work or school account.\n \n-- [Enrolled device management capabilities of Microsoft Intune](introduction-intune.md)\n+[!INCLUDE [global-admin](../includes/global-admin.md)]\n \n---->\n ## Intune Onboarding benefit\n \n-Microsoft offers the Intune Onboarding benefit for eligible services in eligible plans. The Onboarding benefit lets you work remotely with Microsoft specialists to get your Intune environment ready for use. For more about the Onboarding benefit, see [Microsoft Intune Onboarding Benefit Description](/fasttrack/introduction).\n+Microsoft offers the Intune Onboarding benefit for eligible services in eligible plans. The Onboarding benefit lets you work remotely with Microsoft specialists to get your Intune environment ready for use. For more about the Onboarding benefit, see [Microsoft Intune Onboarding Benefit Description](/microsoft-365/fasttrack/introduction).\n \n ## Learn how Intune service updates affect you\n \n@@ -48,7 +42,7 @@ Because the mobile device management ecosystem changes frequently with operating\n \n * [What's new in Microsoft Intune](whats-new.md). This topic is updated with the monthly service update and weekly when, for example, apps such as the Company Portal app are released.\n \n-* Important service updates are also announced in the [Microsoft 365 admin center](https://admin.microsoft.com/) Message Center. If you install the companion [Microsoft 365 Admin mobile app](https://support.office.com/article/Office-365-Admin-Mobile-App-e16f6421-2a1a-4142-bf9d-9846600a060a), you can receive notifications on your mobile device. Learn more about how to work with the [Microsoft 365 Message Center](/microsoft-365/admin/manage/message-center).\n+* Important service updates are also announced in the [Microsoft 365 admin center](https://admin.microsoft.com/) Message Center. If you install the companion [Microsoft 365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app), you can receive notifications on your mobile device. Learn more about how to work with the [Microsoft 365 Message Center](/microsoft-365/admin/manage/message-center).\n \n   A few helpful hints:\n \n@@ -67,7 +61,7 @@ Because the mobile device management ecosystem changes frequently with operating\n   * [Intune Customer Success Blog](https://aka.ms/IntuneCustomerSuccess)\n \n > [!NOTE]\n-> You can monitor Intune service health in the [Microsoft 365 admin center](https://admin.microsoft.com). Choose **Service Health** in the left pane. You can also use the [Microsoft 365 Admin mobile app](https://support.office.com/article/Office-365-Admin-Mobile-App-e16f6421-2a1a-4142-bf9d-9846600a060a) to view service health.\n+> You can monitor Intune service health in the [Microsoft 365 admin center](https://admin.microsoft.com). Choose **Service Health** in the left pane. You can also use the [Microsoft 365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app) to view service health.\n \n ## Types of notices Microsoft provides about the Intune service\n \n@@ -81,7 +75,7 @@ To help you plan for service changes, we notify you at least 7-90 days prior to\n \n - In the event of Intune service retirement, you would be notified 12 months in advance.\n \n-Finally, in the rare event there's any post-incident action needed to get your service back to normal or a large change that we deem potentially disruptive based on customer feedback, we will email the service administrators based on how your [Microsoft 365 communication preferences](https://support.office.com/article/Change-your-contact-preferences-for-communications-from-Microsoft-6f70de1b-a64d-4498-bfbd-be8c83a9c0fc) are set and whether you include a valid (and preferably work) email address.\n+Finally, in the rare event there's any post-incident action needed to get your service back to normal or a large change that we deem potentially disruptive based on customer feedback, we will email the service administrators based on how your [Microsoft 365 communication preferences](/microsoft-365/admin/manage/change-address-contact-and-more) are set and whether you include a valid (and preferably work) email address.\n \n ## Language support\n \n",
+      "baseCommitSha": "95975afa77452d59838f6937b8af79268a6fc879",
+      "commitSha": "a1618983de2bf787892f9a9c2905038e11380170",
+      "commitMessage": "global admin",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T14:07:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/microsoft-intune-service-description",
+      "firstSeenAt": "2026-01-27T19:07:30.000Z",
+      "eventId": "intune-docs:a1618983de2bf787892f9a9c2905038e11380170:modified:intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "global admin",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-setup.md b/intune/intune-service/fundamentals/deployment-plan-setup.md\nindex 53a4f56ea3..f3bdb2edad 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-setup.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-setup.md\n@@ -21,7 +21,7 @@ The first step when deploying Microsoft Intune is to set up your Intune environm\n \n This article takes you through each step in the process of setting up Microsoft Intune. This article also provides the choices and considerations you need to make when setting up an endpoint-management solution such as Intune.\n \n-The purpose of this article is to help you get a better understanding of Intune's supported configurations. After reviewing the article, you should be able to sign up for the Microsoft Intune's free trial, add end users, define user groups, assign licenses to users, and set up the other needed settings to begin using Microsoft Intune. All the steps provided in the article help you to add and manage devices and apps using Intune.\n+The purpose of this article is to help you get a better understanding of Intune's supported configurations. After reviewing the article, you should be able to sign up for the [Microsoft Intune's free trial](try-intune-overview.md), add end users, define user groups, assign licenses to users, and set up the other needed settings to begin using Microsoft Intune. All the steps provided in the article help you to add and manage devices and apps using Intune.\n \n ## Prerequisites\n \n@@ -117,7 +117,7 @@ For guidance, go to [Microsoft Intune licensing](licenses.md).\n \n ✔️ **Get started with assigning licenses to users**\n \n-Whether you added users one at a time or all at once, you must assign each user an Intune license before users can enroll their devices in Intune. The Microsoft Intune free trial provides 25 Intune licenses. For a list of licenses, see Licenses that include Intune.\n+Whether you added users one at a time or all at once, you must assign each user an Intune license before users can enroll their devices in Intune. The [Microsoft Intune's free trial](try-intune-overview.md) provides 25 Intune licenses. For a list of licenses, see Licenses that include Intune.\n Give users permission to use Intune. Each user or userless device requires an Intune license to access the service.\n \n For guidance, go to [Assign licenses](licenses-assign.md).\n",
+      "baseCommitSha": "a1618983de2bf787892f9a9c2905038e11380170",
+      "commitSha": "61c5bbc6c4bfb28f6c906030862476c5d383fa8a",
+      "commitMessage": "review updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T14:32:13-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-setup",
+      "firstSeenAt": "2026-01-27T19:32:13.000Z",
+      "eventId": "intune-docs:61c5bbc6c4bfb28f6c906030862476c5d383fa8a:modified:intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "review updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 16,
+      "changes": 33,
+      "patch": "diff --git a/intune/intune-service/fundamentals/microsoft-intune-service-description.md b/intune/intune-service/fundamentals/microsoft-intune-service-description.md\nindex f8bd3d253d..2223af8840 100644\n--- a/intune/intune-service/fundamentals/microsoft-intune-service-description.md\n+++ b/intune/intune-service/fundamentals/microsoft-intune-service-description.md\n@@ -13,7 +13,7 @@ ms.collection:\n \n # Microsoft Intune service description\n \n-Intune is a cloud-based enterprise mobility management (EMM) service that helps enable your workforce to be productive while keeping your corporate data protected. With Intune, you can:\n+Intune is a cloud-based enterprise mobility management (EMM) service that helps enable your workforce to be productive while keeping your corporate data protected. By using Intune, you can:\n \n * Manage the mobile devices your workforce uses to access company data.\n * Manage the client apps your workforce uses.\n@@ -28,9 +28,10 @@ To learn more about how you can manage devices, apps, and protect corporate data\n \n You can start to use Intune with a 30-day free trial that includes 100 user licenses. To start your free trial, [go to the Intune Sign up page](https://admin.microsoft.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20). If your organization has an Enterprise Agreement or equivalent volume licensing agreement, contact your Microsoft representative to set up your free trial.\n \n-If your organization has a Microsoft Online Services work or school account, and you might continue with this Intune subscription in production after the trial period ends, then choose the **Sign in** option on that page and authenticate by using the Microsoft Entra Global Administrator account for your organization. This action ensures that your Intune trial links to your existing work or school account.\n+If your organization has a Microsoft Online Services work or school account, and you might continue with this Intune subscription in production after the trial period ends, select the **Sign in** option on that page and authenticate by using the Microsoft Entra Global Administrator account for your organization. This action ensures that your Intune trial links to your existing work or school account.\n \n-[!INCLUDE [global-admin](../includes/global-admin.md)]\n+> [!IMPORTANT]\n+> [!INCLUDE [global-admin](../includes/global-admin.md)]\n \n ## Intune Onboarding benefit\n \n@@ -38,23 +39,23 @@ Microsoft offers the Intune Onboarding benefit for eligible services in eligible\n \n ## Learn how Intune service updates affect you\n \n-Because the mobile device management ecosystem changes frequently with operating system updates and mobile app releases, Microsoft updates Intune regularly. There are three ways you can learn about changes in the Intune service:\n+Because the mobile device management ecosystem changes frequently with operating system updates and mobile app releases, Microsoft regularly updates Intune. You can learn about changes in the Intune service through three main sources:\n \n-* [What's new in Microsoft Intune](whats-new.md). This topic is updated with the monthly service update and weekly when, for example, apps such as the Company Portal app are released.\n+* [What's new in Microsoft Intune](whats-new.md). This article is updated monthly and can be updated weekly when, for example, apps such as the Company Portal app are released.\n \n-* Important service updates are also announced in the [Microsoft 365 admin center](https://admin.microsoft.com/) Message Center. If you install the companion [Microsoft 365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app), you can receive notifications on your mobile device. Learn more about how to work with the [Microsoft 365 Message Center](/microsoft-365/admin/manage/message-center).\n+* The [Microsoft 365 admin center](https://admin.microsoft.com/) Message Center announces important service updates. If you install the companion [Microsoft 365 Admin mobile app](/microsoft-365/admin/admin-overview/admin-mobile-app), you can receive notifications on your mobile device. Learn more about how to work with the [Microsoft 365 Message Center](/microsoft-365/admin/manage/message-center).\n \n   A few helpful hints:\n \n-  * The messages in the Microsoft 365 Message Center are targeted. This means that if your company doesn't have an Intune for Education offer, we won't message you about Intune for Education.\n+  * The messages in the Microsoft 365 Message Center are targeted. So, if your company doesn't have an Intune for Education offer, you won't receive messages about Intune for Education.\n \n-  * Messages expire. For example, the notification that your service has been updated with a link to the What's new page will likely expire prior to the next service update notification. Otherwise, you'd have a large backlog of posts that may no longer be relevant.\n+  * Messages expire. For example, the notification that your service is updated with a link to the What's new page likely expires prior to the next service update notification. Otherwise, you'd have a large backlog of posts that might no longer be relevant.\n \n-  * The Microsoft 365 admin mobile app allows you to search through all the messages and to forward the notification if you wanted to share it with peers in your organization.\n+  * The Microsoft 365 admin mobile app allows you to search through all the messages. You can also forward the notification to share it with others in your organization.\n \n-  * Under Edit message center preferences, we'll eventually have a toggle for **Intune** so you can look at those messages posted to an Intune subscription. If you see Mobile Device Management for Microsoft 365, that is a different service, not Intune.\n+    * Under **Edit message center preferences**, you might see an **Intune** toggle so you can look at those messages posted to an Intune subscription. If you see **Mobile Device Management for Microsoft 365**, that is a different service, not Intune.\n \n-* We also use two blogs to share new features and capabilities and best practices with Microsoft Intune:\n+* Two blogs share new features, capabilities, and best practices for Microsoft Intune:\n \n   * [Microsoft Intune Blog](https://aka.ms/IntuneBlog)\n \n@@ -65,17 +66,17 @@ Because the mobile device management ecosystem changes frequently with operating\n \n ## Types of notices Microsoft provides about the Intune service\n \n-To help you plan for service changes, we notify you at least 7-90 days prior to the service change, depending on the impact of the change. These changes might include any of the following types of change:\n+To help you plan for service changes, Microsoft notifies you at least 7-90 days prior to the service change, depending on the impact of the change. These changes might include any of the following types of change:\n \n-- Changes to the end-user experience that you may want to share with your helpdesk staff or your end users. We provide typically 7 to 30 days notice of those changes and document them on the [What's new in Intune App UI](whats-new-app-ui.md). For something like a spelling error fix, we won't typically call out in documentation. But a change in the end-user enrollment experience is significant enough in the UI that we'll both post a message to customers in the Microsoft 365 Message center and link to the What's new in the Intune App UI so you are notified of what's changing and have time to evaluate and update your end-user guidance before the changes rolling out in production.\n+- Changes to the end-user experience that you might want to share with your helpdesk staff or your end users. Microsoft typically provides 7 to 30 days' notice of those changes and documents them on the [What's new in Intune App UI](whats-new-app-ui.md). For something like a spelling error fix, Microsoft typically doesn't call out the change in documentation. But a change in the end-user enrollment experience is significant enough in the UI that Microsoft posts a message to customers in the Microsoft 365 Message center and links to the What's new in the Intune App UI. So, you're notified of what's changing and have time to evaluate and update your end-user guidance before the changes roll out in production.\n \n-- Changes that require you to take action are called **Plan for Change** and typically provide about 30 days notice. In the Microsoft 365 Message Center the Category specifically says Plan for Change, and if we have an exact date for when the change is in production, we also put in an **Act By** date and that gives you a visual queue and an explanation mark.\n+- Changes that require you to take action are called **Plan for Change** and typically provide about 30 days' notice. In the Microsoft 365 Message Center, the category specifically says Plan for Change. If Microsoft has an exact date for when the change is in production, there's an **Act By** date. That date gives you a visual queue and an explanation mark.\n \n-- For most deprecations, we prefer to provide 90 days notice of that deprecation. For example, if we're no longer going to support a specific version of IE, our goal is to provide 90 days notice. However, deprecations do get complicated when it's another company announcing the deprecation. For example, a browser company provided notice that they would no longer support Silverlight with their latest build, so we let customers know we were dropping support of that browser, but our notification to customers under the 90-day period.\n+- For most deprecations, Microsoft prefers to provide 90 days' notice of that deprecation. For example, if Microsoft is no longer going to support a specific version of IE, the goal is to provide 90 days' notice. However, deprecations get complicated when it's another company announcing the deprecation. For example, a browser company provided notice that they won't support Silverlight with their latest build. So, Microsoft lets customers know we're dropping support of that browser, but the Microsoft notification to customers might be under the 90-day period.\n \n - In the event of Intune service retirement, you would be notified 12 months in advance.\n \n-Finally, in the rare event there's any post-incident action needed to get your service back to normal or a large change that we deem potentially disruptive based on customer feedback, we will email the service administrators based on how your [Microsoft 365 communication preferences](/microsoft-365/admin/manage/change-address-contact-and-more) are set and whether you include a valid (and preferably work) email address.\n+Finally, in the rare event there's any post-incident action needed to get your service back to normal or a large change that Microsoft deems potentially disruptive based on customer feedback, Microsoft emails the service administrators based on how your [Microsoft 365 communication preferences](/microsoft-365/admin/manage/change-address-contact-and-more) are set. Be sure to include a valid work email address.\n \n ## Language support\n \n",
+      "baseCommitSha": "a1618983de2bf787892f9a9c2905038e11380170",
+      "commitSha": "61c5bbc6c4bfb28f6c906030862476c5d383fa8a",
+      "commitMessage": "review updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T14:32:13-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/microsoft-intune-service-description",
+      "firstSeenAt": "2026-01-27T19:32:13.000Z",
+      "eventId": "intune-docs:61c5bbc6c4bfb28f6c906030862476c5d383fa8a:modified:intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "review updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/filters-supported-workloads.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/fundamentals/filters-supported-workloads.md b/intune/intune-service/fundamentals/filters-supported-workloads.md\nindex 10b44f6c1f..ba1e387e8a 100644\n--- a/intune/intune-service/fundamentals/filters-supported-workloads.md\n+++ b/intune/intune-service/fundamentals/filters-supported-workloads.md\n@@ -3,7 +3,7 @@ title: Platforms and policy types supported by assignment filters\n description: Learn which apps, compliance policies, and device configuration profiles and their platforms support assignment filters in Microsoft Intune.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 01/26/2026\n+ms.date: 11/19/2025\n ms.topic: reference\n ms.reviewer: mattcall\n ms.collection:\n@@ -295,7 +295,7 @@ You can use assignment filters for some common app policies on the following pla\n | PKCS imported certificate | ✅ |\n | SCEP certificate | ✅ |\n | Settings catalog (MDM) | ✅ |\n-| Settings catalog (DDM) | ✅ |\n+| Settings catalog (DDM) | ❌ |\n | Trusted certificate | ✅ |\n | VPN | ✅ |\n | Wi-Fi | ✅ |\n@@ -328,7 +328,7 @@ You can use assignment filters for some common app policies on the following pla\n | Preference file | ✅ |\n | SCEP certificate | ✅ |\n | Settings catalog (MDM) | ✅ |\n-| Settings catalog (DDM) | ✅ |\n+| Settings catalog (DDM) | ❌ |\n | Trusted certificate | ✅ |\n | VPN | ✅ |\n | Wi-Fi | ✅ |\n",
+      "baseCommitSha": "f5ab6fd37286f68d784f9100cd433ba323f825ec",
+      "commitSha": "d5b77f3501eb4539a2c1789a75be600e42d4adab",
+      "commitMessage": "Revert \"24298491 - 2601 release: Filters support Apple DDM updates\"",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T15:41:34-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/filters-supported-workloads.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/filters-supported-workloads",
+      "firstSeenAt": "2026-01-27T20:41:34.000Z",
+      "eventId": "intune-docs:d5b77f3501eb4539a2c1789a75be600e42d4adab:modified:intune/intune-service/fundamentals/filters-supported-workloads.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert \"24298491 - 2601 release: Filters support Apple DDM updates\"",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/filters-supported-workloads.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md b/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md\nindex 8c31cf338b..4b4ddc7898 100644\n--- a/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md\n+++ b/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md\n@@ -3,7 +3,7 @@ title: Set up automatic enrollment in Intune\n description: Enable Intune automatic enrollment of Windows devices that join or register with your Microsoft Entra ID.\n services: microsoft-intune\n ms.topic: how-to\n-ms.date: 01/20/2026\n+ms.date: 01/27/2026\n ms.reviewer: maholdaa\n ms.collection:\n - M365-identity-device-management\n@@ -34,7 +34,7 @@ In this article, you set up Microsoft Intune to automatically enroll Windows cor\n :::column-end:::\n :::column span=\"3\":::\n > Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) with the following role:\n-> - Built-in **[Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)** Microsoft Entra role\n+> - Built-in **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** Microsoft Entra role\n :::column-end:::\n :::row-end:::\n \n",
+      "baseCommitSha": "34e22881d749dc1868cc79ccc2a31f326a2303be",
+      "commitSha": "f926134e04de84e1419b63998caa435d7e28fc83",
+      "commitMessage": "Update permissions for automatic enrollment",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-01-27T15:42:31-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-setup-auto-enrollment",
+      "firstSeenAt": "2026-01-27T20:42:31.000Z",
+      "eventId": "intune-docs:f926134e04de84e1419b63998caa435d7e28fc83:modified:intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update permissions for automatic enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/windows-enroll.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 7,
+      "changes": 28,
+      "patch": "diff --git a/intune/intune-service/enrollment/windows-enroll.md b/intune/intune-service/enrollment/windows-enroll.md\nindex ae6751123f..e5efbe77ca 100644\n--- a/intune/intune-service/enrollment/windows-enroll.md\n+++ b/intune/intune-service/enrollment/windows-enroll.md\n@@ -26,13 +26,27 @@ Automatic enrollment can be used in the following device management and provisio\n \n This article describes how to enable automatic mobile device management (MDM) enrollment for personal and corporate-owned devices.\n \n-## Requirements\n-\n-You must have:\n-\n-- A [Microsoft Entra ID P1 or P2 subscription](/azure/active-directory/active-directory-get-started-premium) or [Premium trial subscription](https://go.microsoft.com/fwlink/?LinkID=816845) for automatic MDM enrollment and custom company branding.\n-- A Microsoft Intune subscription.\n-- A Microsoft Entra Global Administrator role. For more information about role-based-access-control (RBAC), see [RBAC with Microsoft Intune](../fundamentals/role-based-access-control.md).\n+## Prerequisites  \n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [licensing](../../includes/requirements/licensing.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> - A Microsoft Intune subscription. [Sign up for a free trial account](../fundamentals/free-trial-sign-up.md).\n+> - [Microsoft Entra ID P1 or P2](/azure/active-directory/active-directory-get-started-premium) or the [Premium trial subscription](https://go.microsoft.com/fwlink/?LinkID=816845). You can activate a free Premium trial subscription during setup.\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) with the following role:\n+> - Built-in **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** Microsoft Entra role\n+:::column-end:::\n+:::row-end:::\n \n ## Enable Windows automatic enrollment\n \n",
+      "baseCommitSha": "f926134e04de84e1419b63998caa435d7e28fc83",
+      "commitSha": "d148f6929df7e44c5abfbdaec6a49aa3e505de97",
+      "commitMessage": "Revise requirements to prerequisites in enrollment guide",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-01-27T16:19:13-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/windows-enroll.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/windows-enroll",
+      "firstSeenAt": "2026-01-27T21:19:13.000Z",
+      "eventId": "intune-docs:d148f6929df7e44c5abfbdaec6a49aa3e505de97:modified:intune/intune-service/enrollment/windows-enroll.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revise requirements to prerequisites in enrollment guide",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/account-sign-up.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/intune-service/fundamentals/account-sign-up.md b/intune/intune-service/fundamentals/account-sign-up.md\nindex 7d45a19b9f..cebc325250 100644\n--- a/intune/intune-service/fundamentals/account-sign-up.md\n+++ b/intune/intune-service/fundamentals/account-sign-up.md\n@@ -15,14 +15,14 @@ ms.collection:\n \n # Sign up or sign in to Microsoft Intune\n \n-This article can help system administrators sign up for an Intune account. Before you sign up for Intune, determine if your organization already uses [Microsoft Entra ID](/entra/fundamentals/what-is-entra). Entra ID supports work or school accounts that you use with Intune and other Microsoft online services and subscriptions, like Microsoft Azure and Microsoft 365.\n+This article can help system administrators sign up for an Intune account. Before you sign up for Intune, determine if your organization already uses [Microsoft Entra ID](/entra/fundamentals/what-is-entra). Microsoft Entra supports work or school accounts that you use with Intune and other Microsoft online services and subscriptions, like Microsoft Azure and Microsoft 365.\n \n-- To add an Intune subscription to an Entra tenant, you must use an account that is assigned an Entra ID built-in role with sufficient permissions to add Intune. The initial sign-up page identifies the applicable built-in roles, which include [Billing Administrator](/entra/identity/role-based-access-control/permissions-reference#billing-administrator), [Compliance Administrator](/entra/identity/role-based-access-control/permissions-reference#compliance-administrator), and [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator).\n+- To add an Intune subscription to an Entra tenant, you must use an account that is assigned an Entra ID built-in role with sufficient permissions to add Intune. The initial sign-up page identifies the applicable built-in roles, including:\n \n-  > [!CAUTION]\n-  > [!INCLUDE [global-admin](../includes/global-admin.md)]\n+  - [Billing Administrator](/entra/identity/role-based-access-control/permissions-reference#billing-administrator)\n+  - [Compliance Administrator](/entra/identity/role-based-access-control/permissions-reference#compliance-administrator)\n \n-- If you don't have an Entra tenant, then an Entra tenant is created for your organization when you **sign up** for an Intune subscription, which is common for trial subscriptions. In this scenario, the account you use to sign up automatically receives the Global Administrator role for the new Entra tenant.\n+- If you don't have a Microsoft Entra tenant, then a tenant is created for your organization when you **sign up** for an Intune subscription. You can also sign up for a [trial subscriptions](try-intune-overview.md).\n \n > [!WARNING]\n > You can't combine an existing work or school account after you sign up for a new account.\n",
+      "baseCommitSha": "10df8d21f8f30d7729afd9997f474814ca7c07d2",
+      "commitSha": "fd14eefd419cb82424b0b647f38ed373e5a715ba",
+      "commitMessage": "GA",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T18:34:40-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/account-sign-up.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/account-sign-up",
+      "firstSeenAt": "2026-01-27T23:34:40.000Z",
+      "eventId": "intune-docs:fd14eefd419cb82424b0b647f38ed373e5a715ba:modified:intune/intune-service/fundamentals/account-sign-up.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/account-sign-up.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-guide-enrollment.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 5,
+      "changes": 5,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-guide-enrollment.md b/intune/intune-service/fundamentals/deployment-guide-enrollment.md\nindex 71c3967e1f..1633a9eab5 100644\n--- a/intune/intune-service/fundamentals/deployment-guide-enrollment.md\n+++ b/intune/intune-service/fundamentals/deployment-guide-enrollment.md\n@@ -77,11 +77,6 @@ Microsoft Intune automatically marks devices that meet certain criteria as corpo\n \n - Sign in as a member of the **Policy and Profile Manager** built-in Intune role. For information on the permissions in this role, go to [Built-in role permissions for Microsoft Intune - Policy and Profile manager](role-based-access-control-reference.md#policy-and-profile-manager).\n \n-  If you created an Intune Trial subscription, the account that created the subscription is a Microsoft Entra [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator).\n-\n-  > [!CAUTION]\n-  > [!INCLUDE [global-admin](../includes/global-admin.md)]\n-\n   It's possible some enrollment platforms might require a more privileged Microsoft Entra role, like the **Intune Administrator** built-in role. For information on this role, go to [Microsoft Entra built-in roles - Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator).\n \n - Different platforms can have other requirements. For example, iOS/iPadOS and macOS devices require an [MDM push certificate from Apple](../enrollment/apple-mdm-push-certificate-get.md). Any other platform requirements are listed.\n",
+      "baseCommitSha": "10df8d21f8f30d7729afd9997f474814ca7c07d2",
+      "commitSha": "fd14eefd419cb82424b0b647f38ed373e5a715ba",
+      "commitMessage": "GA",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T18:34:40-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-guide-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-guide-enrollment",
+      "firstSeenAt": "2026-01-27T23:34:40.000Z",
+      "eventId": "intune-docs:fd14eefd419cb82424b0b647f38ed373e5a715ba:modified:intune/intune-service/fundamentals/deployment-guide-enrollment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 5,
+      "changes": 9,
+      "patch": "diff --git a/intune/intune-service/fundamentals/free-trial-sign-up.md b/intune/intune-service/fundamentals/free-trial-sign-up.md\nindex 69b35b3a1e..e12fc4f55c 100644\n--- a/intune/intune-service/fundamentals/free-trial-sign-up.md\n+++ b/intune/intune-service/fundamentals/free-trial-sign-up.md\n@@ -3,7 +3,7 @@ title: Sign Up for Microsoft Intune Free Trial Setup Guide\n description: Sign up for a Microsoft Intune free trial and configure your tenant. Learn the setup process, prerequisites, and how to configure domain names. Start evaluating Intune today.\n author: nicholasswhite\n ms.author: nwhite\n-ms.date: 01/20/2026\n+ms.date: 01/27/2026\n ms.topic: how-to\n ms.reviewer: tycast\n ms.collection:\n@@ -113,24 +113,23 @@ Intune uses role-based access control (RBAC) to manage permissions.\n \n The account that creates the subscription is assigned the Microsoft Entra [Global Administrator role](/entra/identity/role-based-access-control/permissions-reference#global-administrator). This built-in role is a privileged Microsoft Entra role and has more permissions than needed for most Intune tasks.\n \n+We suggest that you sign out of the Global Administrator role account and sign in with an account that's needed for the Intune task.\n+\n There are built-in roles specifically created and used to manage Intune. Your goal is to use the least privilege role that can perform the necessary tasks. For this series of articles, the following built-in roles are needed:\n \n | Role | Description |\n |---|---|\n-| **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** | A Microsoft Entra role that has full access to all features in Microsoft Intune. You can use this account to set up Intune. |\n+| **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** | A Microsoft Entra role that has full access to all features in Microsoft Intune. You can use this account to set up Intune and set up Automatic Enrollment for Windows devices. |\n | **[Domain Name Administrator role](/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator)** | A Microsoft Entra role that can add and verify custom domain names in your tenant. This role is only used if you configure a custom domain name in this series, which is optional. |\n | **[User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator)** | A Microsoft Entra role that can create and manage user accounts and groups in Intune and Microsoft 365. |\n | **[Policy and Profile Manager](../fundamentals/role-based-access-control-reference.md#policy-and-profile-manager)** | An Intune role that can create and manage Intune policies. |\n | **[Application Manager](../fundamentals/role-based-access-control-reference.md#application-manager)** | An Intune role that can add and manage apps in Intune. |\n | **[Intune Role Administrator](../fundamentals/role-based-access-control-reference.md#intune-role-administrator)** | An Intune role that can create and manage custom roles and add users to Intune roles. |\n-| **[Global Administrator role](/entra/identity/role-based-access-control/permissions-reference#global-administrator)** | A Microsoft Entra role that sets up Automatic Enrollment for Windows devices. This role is only used once in this series. |\n \n If many admins are testing Intune, then assign their accounts to only the roles they need. For example, if an admin is only responsible for adding and managing apps, assign that admin only to the **Application Manager** role.\n \n - To assign built-in roles to your admin team, see [Assign Microsoft Intune roles for role-based access control](assign-role.md).\n \n-We also suggest that you sign out of the Global Administrator role account and sign in with an account that's needed for the Intune task.\n-\n For more information about Intune built-in roles, see:\n \n - [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md)\n",
+      "baseCommitSha": "10df8d21f8f30d7729afd9997f474814ca7c07d2",
+      "commitSha": "fd14eefd419cb82424b0b647f38ed373e5a715ba",
+      "commitMessage": "GA",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T18:34:40-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/free-trial-sign-up",
+      "firstSeenAt": "2026-01-27T23:34:40.000Z",
+      "eventId": "intune-docs:fd14eefd419cb82424b0b647f38ed373e5a715ba:modified:intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/account-sign-up.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/account-sign-up.md b/intune/intune-service/fundamentals/account-sign-up.md\nindex cebc325250..9c0064db0a 100644\n--- a/intune/intune-service/fundamentals/account-sign-up.md\n+++ b/intune/intune-service/fundamentals/account-sign-up.md\n@@ -22,7 +22,7 @@ This article can help system administrators sign up for an Intune account. Befor\n   - [Billing Administrator](/entra/identity/role-based-access-control/permissions-reference#billing-administrator)\n   - [Compliance Administrator](/entra/identity/role-based-access-control/permissions-reference#compliance-administrator)\n \n-- If you don't have a Microsoft Entra tenant, then a tenant is created for your organization when you **sign up** for an Intune subscription. You can also sign up for a [trial subscriptions](try-intune-overview.md).\n+- If you don't have a Microsoft Entra tenant, then a tenant is created for your organization when you **sign up** for an Intune subscription. You can also sign up for a [trial subscription](try-intune-overview.md).\n \n > [!WARNING]\n > You can't combine an existing work or school account after you sign up for a new account.\n",
+      "baseCommitSha": "fd14eefd419cb82424b0b647f38ed373e5a715ba",
+      "commitSha": "d0027cc41f3a3a3f562a6259648dac40f44ace32",
+      "commitMessage": "review updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T18:46:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/account-sign-up.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/account-sign-up",
+      "firstSeenAt": "2026-01-27T23:46:30.000Z",
+      "eventId": "intune-docs:d0027cc41f3a3a3f562a6259648dac40f44ace32:modified:intune/intune-service/fundamentals/account-sign-up.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "review updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/account-sign-up.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/free-trial-sign-up.md b/intune/intune-service/fundamentals/free-trial-sign-up.md\nindex e12fc4f55c..e845fad3e6 100644\n--- a/intune/intune-service/fundamentals/free-trial-sign-up.md\n+++ b/intune/intune-service/fundamentals/free-trial-sign-up.md\n@@ -119,12 +119,12 @@ There are built-in roles specifically created and used to manage Intune. Your go\n \n | Role | Description |\n |---|---|\n-| **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** | A Microsoft Entra role that has full access to all features in Microsoft Intune. You can use this account to set up Intune and set up Automatic Enrollment for Windows devices. |\n | **[Domain Name Administrator role](/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator)** | A Microsoft Entra role that can add and verify custom domain names in your tenant. This role is only used if you configure a custom domain name in this series, which is optional. |\n+| **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** | A Microsoft Entra role that has full access to all features in Microsoft Intune. You can use this account to set up Intune and set up Automatic Enrollment for Windows devices. |\n | **[User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator)** | A Microsoft Entra role that can create and manage user accounts and groups in Intune and Microsoft 365. |\n-| **[Policy and Profile Manager](../fundamentals/role-based-access-control-reference.md#policy-and-profile-manager)** | An Intune role that can create and manage Intune policies. |\n | **[Application Manager](../fundamentals/role-based-access-control-reference.md#application-manager)** | An Intune role that can add and manage apps in Intune. |\n | **[Intune Role Administrator](../fundamentals/role-based-access-control-reference.md#intune-role-administrator)** | An Intune role that can create and manage custom roles and add users to Intune roles. |\n+| **[Policy and Profile Manager](../fundamentals/role-based-access-control-reference.md#policy-and-profile-manager)** | An Intune role that can create and manage Intune policies, including compliance, device configuration, and most enrollment policies. |\n \n If many admins are testing Intune, then assign their accounts to only the roles they need. For example, if an admin is only responsible for adding and managing apps, assign that admin only to the **Application Manager** role.\n \n",
+      "baseCommitSha": "fd14eefd419cb82424b0b647f38ed373e5a715ba",
+      "commitSha": "d0027cc41f3a3a3f562a6259648dac40f44ace32",
+      "commitMessage": "review updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-27T18:46:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/free-trial-sign-up",
+      "firstSeenAt": "2026-01-27T23:46:30.000Z",
+      "eventId": "intune-docs:d0027cc41f3a3a3f562a6259648dac40f44ace32:modified:intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "review updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 7,
+    "totalFiles": 14,
+    "authors": [
+      "Laura Newsad",
+      "Mandi Ohlinger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/app-protection-policies-monitor.md. Updated Microsoft Intune documentation in intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md. Updated Microsoft Intune documentation ",
+        "sourceFiles": [
+          "intune/intune-service/apps/app-protection-policies-monitor.md",
+          "intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md",
+          "intune/intune-service/fundamentals/deployment-plan-setup.md",
+          "intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+          "intune/intune-service/fundamentals/deployment-plan-setup.md",
+          "intune/intune-service/fundamentals/microsoft-intune-service-description.md",
+          "intune/intune-service/fundamentals/filters-supported-workloads.md",
+          "intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+          "intune/intune-service/enrollment/windows-enroll.md",
+          "intune/intune-service/fundamentals/account-sign-up.md",
+          "intune/intune-service/fundamentals/deployment-guide-enrollment.md",
+          "intune/intune-service/fundamentals/free-trial-sign-up.md",
+          "intune/intune-service/fundamentals/account-sign-up.md",
+          "intune/intune-service/fundamentals/free-trial-sign-up.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/app-protection-policies-monitor.md. Updated Microsoft Intune documentation in intune/intune-service/apps/tutorial-configure-slack-enterprise-grid.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md. Updated Microsoft Intune documentation "
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

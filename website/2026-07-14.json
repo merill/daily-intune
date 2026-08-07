@@ -1,0 +1,160 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md b/intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md\nindex 3fc46f518e..a97a4098f2 100644\n--- a/intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md\n+++ b/intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md\n@@ -214,8 +214,8 @@ Using the schema settings in the **Zebra OEMConfig Powered by MX** app, this pro\n \n     For the steps to configure the OEM app schema, go to the OEM's documentation:\n \n-    - [Enable Notification Access Permission via MDM/EMM OEMConfig 11.9.x.x and Up](https://supportcommunity.zebra.com/s/article/000027795) (opens Zebra's web site)\n-    - [Enabling Display Over Other Apps Permission via MDM/EMM OEMConfig](https://supportcommunity.zebra.com/s/article/000021297) (opens Zebra's web site)\n+    - [Enable Notification Access Permission via MDM/EMM OEMConfig 11.9.x.x and Up](https://support.zebra.com/article/000027795) (opens Zebra's web site)\n+    - [Enabling Display Over Other Apps Permission via MDM/EMM OEMConfig](https://support.zebra.com/article/000021297) (opens Zebra's web site)\n     - [Zebra Managed Configurations docs](https://techdocs.zebra.com/oemconfig/15-0/mc2/#pkgConfig.package.packagePermissions.packagePermission) (opens Zebra's web site)\n \n     When you create the Intune policy, you enter the following info:\n@@ -263,8 +263,8 @@ When you use the schema settings in the **Legacy Zebra OEMConfig** app, this pro\n \n     For the steps to configure the OEM app schema, go to the OEM's documentation:\n \n-    - [Enabling Display Over Other Apps Permission via MDM/EMM OEMConfig](https://supportcommunity.zebra.com/s/article/000021297)\n-    - [Enable Notification Access Permission via MDM/EMM OEMConfig 11.5.x.x](https://supportcommunity.zebra.com/s/article/000026099)\n+    - [Enabling Display Over Other Apps Permission via MDM/EMM OEMConfig](https://support.zebra.com/article/000021297)\n+    - [Enable Notification Access Permission via MDM/EMM OEMConfig 11.5.x.x](https://support.zebra.com/article/000027795)\n \n     When you create the Intune policy, you enter the following info:\n \n@@ -342,4 +342,4 @@ The next time the device checks for configuration updates, the settings you conf\n \n [check-icon]: ../../media/icons/16/check.svg\n [error-icon]: ../../media/icons/16/error.svg\n-[info-icon]: ../../media/icons/16/info-gray.svg\n\\ No newline at end of file\n+[info-icon]: ../../media/icons/16/info-gray.svg\n",
+      "baseCommitSha": "697e7e79e6a4ec7491a14f1a8ab5e69ee10c747b",
+      "commitSha": "c55ef18117727e164dcf4af1c47e0efa265e8919",
+      "commitMessage": "Update links to Zebra's support articles (#20536)",
+      "commitAuthor": "abigail-stein2",
+      "commitDate": "2026-07-14T13:43:47-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-managed-home-screen-permissions-android",
+      "firstSeenAt": "2026-07-14T17:43:47.000Z",
+      "eventId": "intune-docs:c55ef18117727e164dcf4af1c47e0efa265e8919:modified:intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update links to Zebra's support articles (#20536)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/protection/multiple-managed-accounts.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/app-management/protection/multiple-managed-accounts.md b/intune/app-management/protection/multiple-managed-accounts.md\nindex f6239d1836..bb336b2137 100644\n--- a/intune/app-management/protection/multiple-managed-accounts.md\n+++ b/intune/app-management/protection/multiple-managed-accounts.md\n@@ -33,14 +33,13 @@ The following account configurations are supported with MMA:\n \n ### Currently supported apps\n \n-Currently we support Multiple Managed Accounts in Microsoft Teams on iOS/iPadOS (v8.10.0 or later). Support for additional apps and platforms is coming soon.\n+Support for additional apps and platforms is coming soon.\n+\n \n-<!--\n | App | Platform | Minimum version |\n |-----|----------|-----------------|\n-| Microsoft Teams | iOS/iPadOS | |\n-| Microsoft Teams | | |\n--->\n+| Microsoft Teams | iOS/iPadOS | v8.10.0 or later |\n+| Microsoft Outlook | iOS/iPadOS | v5.2626.0 or later |\n \n ## Segmented views and mixed views\n \n",
+      "baseCommitSha": "c55ef18117727e164dcf4af1c47e0efa265e8919",
+      "commitSha": "60807614c5668ec0d7567ec1591d675c277b46e6",
+      "commitMessage": "Revise supported apps for Multiple Managed Accounts - Outlook (#20535)",
+      "commitAuthor": "Chevelyn De Mello",
+      "commitDate": "2026-07-14T14:21:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/protection/multiple-managed-accounts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/protection/multiple-managed-accounts",
+      "firstSeenAt": "2026-07-14T18:21:36.000Z",
+      "eventId": "intune-docs:60807614c5668ec0d7567ec1591d675c277b46e6:modified:intune/app-management/protection/multiple-managed-accounts.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revise supported apps for Multiple Managed Accounts - Outlook (#20535)",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/protection/multiple-managed-accounts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+      "status": "modified",
+      "additions": 80,
+      "deletions": 1,
+      "changes": 81,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/modify-your-infrastructure.md b/intune/configmgr/core/servers/manage/modify-your-infrastructure.md\nindex d6b8672172..82633199a3 100644\n--- a/intune/configmgr/core/servers/manage/modify-your-infrastructure.md\n+++ b/intune/configmgr/core/servers/manage/modify-your-infrastructure.md\n@@ -1,7 +1,7 @@\n ---\n title: Modify infrastructure\n description: Make changes or take actions that affect your Configuration Manager infrastructure.\n-ms.date: 04/01/2020\n+ms.date: 07/14/2026\n ms.subservice: core-infra\n ms.topic: how-to\n ms.collection: tier3\n@@ -164,6 +164,9 @@ Run Configuration Manager setup on the site server, and select the option **Perf\n \n - SQL Server Service Broker port in use by Configuration Manager.\n \n+> [!IMPORTANT]\n+> The **Modify SQL Server configuration** maintenance path doesn't run the SQL Server collation prerequisite check that a new install or upgrade performs. Before you continue, verify that the target SQL Server instance *and* the site database both use the required collation, **SQL_Latin1_General_CP1_CI_AS**. Moving or pointing the site to an instance or database that uses a different collation can corrupt data and cause site failures that might not appear immediately. The only exceptions are the two China GB18030 collations. For more information, see [SQL Server instance and database collations](../../plan-design/configs/support-for-sql-server-versions.md#sql-instance-and-database-collations) and [International support](../../plan-design/hierarchy/international-support.md). To verify the configuration, run the [verification script](#verify-sql-server-configuration-before-you-move-the-site-database).\n+\n ### Move the site database\n \n If you move the site database, also review the following configurations:\n@@ -172,11 +175,87 @@ If you move the site database, also review the following configurations:\n \n - When you move the database to a new instance on SQL Server, or to a new SQL Server computer, enable common language runtime (CLR) integration. Use **SQL Server Management Studio** to connect to the instance of SQL Server that hosts the site database. Then run the following stored procedure as a query: `sp_configure 'clr enabled',1; reconfigure`\n \n+- Confirm the target SQL Server instance and site database use the required collation before you move. This maintenance path doesn't enforce the collation prerequisite check, so verify it yourself by running the [verification script](#verify-sql-server-configuration-before-you-move-the-site-database). For details, see the collation requirement in the [Modify the database configuration](#modify-the-database-configuration) section.\n+\n - Make sure the new SQL Server has access to the backup location. When you use a UNC for storing your site database backup, after moving the database to a new server, make sure the computer account of the new SQL Server has **write** permissions to the UNC location. This configuration includes when you move to a SQL Server Always On availability group or a failover cluster instance.\n \n > [!IMPORTANT]\n > Before you move a database that has one or more database replicas for management points, first remove the database replicas. After you complete the database move, you can reconfigure database replicas. For more information, see [Database replicas for management points](../deploy/configure/database-replicas-for-management-points.md).\n \n+#### Verify SQL Server configuration before you move the site database\n+\n+Before you run **Modify SQL Server configuration**, use **SQL Server Management Studio** to connect to the target site database, and run the following verification script against the site database (`CM_<sitecode>`), not the `master` database. Resolve every `ERROR:` line before you continue. Both the SQL Server instance and the site database must use the `SQL_Latin1_General_CP1_CI_AS` collation. This script also confirms the other configurations that Configuration Manager requires for the site database.\n+\n+```SQL\n+SET NOCOUNT ON\n+\n+DECLARE @dbname NVARCHAR(128)\n+\n+SELECT @dbname = sd.name FROM sys.sysdatabases sd WHERE sd.dbid = DB_ID()\n+\n+IF (@dbname = N'master' OR @dbname = N'model' OR @dbname = N'msdb' OR @dbname = N'tempdb' OR @dbname = N'distribution' ) BEGIN\n+    RAISERROR(N'ERROR: Script is targeting a system database.  It should be targeting the site database instead.', 0, 1)\n+    GOTO Branch_Exit;\n+END ELSE\n+    PRINT N'INFO: Targeted database is ' + @dbname + N'.'\n+\n+PRINT N'INFO: Running verifications....'\n+\n+IF CONVERT(NVARCHAR(128), SERVERPROPERTY('Collation')) <> N'SQL_Latin1_General_CP1_CI_AS'\n+    PRINT N'ERROR: SQL Server instance collation is ' + CONVERT(NVARCHAR(128), SERVERPROPERTY('Collation')) + N' (must be SQL_Latin1_General_CP1_CI_AS)!'\n+ELSE\n+    PRINT N'PASS: SQL Server instance collation is SQL_Latin1_General_CP1_CI_AS.'\n+\n+IF CONVERT(NVARCHAR(128), DATABASEPROPERTYEX(@dbname, 'Collation')) <> N'SQL_Latin1_General_CP1_CI_AS'\n+    PRINT N'ERROR: Database collation is ' + CONVERT(NVARCHAR(128), DATABASEPROPERTYEX(@dbname, 'Collation')) + N' (must be SQL_Latin1_General_CP1_CI_AS)!'\n+ELSE\n+    PRINT N'PASS: Database collation is SQL_Latin1_General_CP1_CI_AS.'\n+\n+IF NOT EXISTS (SELECT * FROM sys.configurations c WHERE c.name = 'clr enabled' AND c.value_in_use = 1)\n+    PRINT N'ERROR: CLR is not enabled!'\n+ELSE\n+    PRINT N'PASS: CLR is enabled.'\n+\n+DECLARE @repltable TABLE (\n+    name nvarchar(max),\n+    minimum int,\n+    maximum int,\n+    config_value int,\n+    run_value int )\n+\n+INSERT INTO @repltable\n+EXEC sp_configure 'max text repl size (B)'\n+\n+IF NOT EXISTS(SELECT * from @repltable where config_value = 2147483647 and run_value = 2147483647 )\n+    PRINT N'ERROR: Max text repl size is not correct!'\n+ELSE\n+    PRINT N'PASS: Max text repl size is correct.'\n+\n+IF NOT EXISTS (SELECT db.owner_sid FROM sys.databases db WHERE db.database_id = DB_ID() AND db.owner_sid = 0x01)\n+    PRINT N'ERROR: Database owner is not sa account!'\n+ELSE\n+    PRINT N'PASS: Database owner is sa account.'\n+\n+IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_trustworthy_on = 1 )\n+    PRINT N'ERROR: Trustworthy bit is not on!'\n+ELSE\n+    PRINT N'PASS: Trustworthy bit is on.'\n+\n+IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_broker_enabled = 1 )\n+    PRINT N'ERROR: Service broker is not enabled!'\n+ELSE\n+    PRINT N'PASS: Service broker is enabled.'\n+\n+IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_honor_broker_priority_on = 1 )\n+    PRINT N'ERROR: Service broker priority is not set!'\n+ELSE\n+    PRINT N'PASS: Service broker priority is set.'\n+\n+PRINT N'Done!'\n+\n+Branch_Exit:\n+```\n+\n ## <a name=\"bkmk_SPN\"></a> Manage the SPN for the site database server\n \n You can choose the account that runs SQL Server services for the site database:\n",
+      "baseCommitSha": "60807614c5668ec0d7567ec1591d675c277b46e6",
+      "commitSha": "bd54eea18d442412e7bc78ab822a1716bbe79d45",
+      "commitMessage": "Add SQL collation/config check before Modify SQL Server configuration (site maintenance) (AB#9510464)",
+      "commitAuthor": "Umair Khan",
+      "commitDate": "2026-07-14T15:43:31-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/modify-your-infrastructure",
+      "firstSeenAt": "2026-07-14T20:43:31.000Z",
+      "eventId": "intune-docs:bd54eea18d442412e7bc78ab822a1716bbe79d45:modified:intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add SQL collation/config check before Modify SQL Server configuration (site maintenance) (AB#9510464)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/modify-your-infrastructure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/osd/understand/task-sequence-steps.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/intune/configmgr/osd/understand/task-sequence-steps.md b/intune/configmgr/osd/understand/task-sequence-steps.md\nindex ee80bc5911..cbd10ce659 100644\n--- a/intune/configmgr/osd/understand/task-sequence-steps.md\n+++ b/intune/configmgr/osd/understand/task-sequence-steps.md\n@@ -2231,6 +2231,11 @@ Determine which PowerShell scripts (if any) you allow to run on the computer. Ch\n > [!IMPORTANT]\n > PowerShell 1.0 doesn't support Undefined and Bypass execution policies.\n \n+> [!NOTE]\n+> When you use the **AllSigned** execution policy, don't use the **Enter a PowerShell script** option to embed a signed script directly in the task sequence step. The script content isn't always preserved byte-for-byte through the task sequence XML, so the digital signature can become invalid on the client. When that happens, the client rejects the script and `smsts.log` records a \"hash does not match\" error.\n+>\n+> To use a signed script with **AllSigned**, place the signed `.ps1` file in a Configuration Manager package and reference it with the **Package** and **Script name** options above. This approach preserves the original file bytes and signature.\n+\n #### Output to task sequence variable\n \n <!-- 3556028 -->\n",
+      "baseCommitSha": "74695b278756b49b243b502fa4f2f77474a39248",
+      "commitSha": "fdb408d53452623642dc2e790116ee8ae5d6280a",
+      "commitMessage": "Learn Editor: Update task-sequence-steps.md",
+      "commitAuthor": "Umair Khan",
+      "commitDate": "2026-07-14T16:28:59-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/osd/understand/task-sequence-steps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/osd/understand/task-sequence-steps",
+      "firstSeenAt": "2026-07-14T21:28:59.000Z",
+      "eventId": "intune-docs:fdb408d53452623642dc2e790116ee8ae5d6280a:modified:intune/configmgr/osd/understand/task-sequence-steps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update task-sequence-steps.md",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/osd/understand/task-sequence-steps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 4,
+    "authors": [
+      "Chevelyn De Mello",
+      "Umair Khan",
+      "abigail-stein2"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md.",
+        "sourceFiles": [
+          "intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/protection/multiple-managed-accounts.md.",
+        "sourceFiles": [
+          "intune/app-management/protection/multiple-managed-accounts.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/modify-your-infrastructure.md. Updated Microsoft Intune documentation in intune/configmgr/osd/understand/task-sequence-steps.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+          "intune/configmgr/osd/understand/task-sequence-steps.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-managed-home-screen-permissions-android.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "Updated Microsoft Intune documentation in intune/app-management/protection/multiple-managed-accounts.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/modify-your-infrastructure.md. Updated Microsoft Intune documentation in intune/configmgr/osd/understand/task-sequence-steps.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

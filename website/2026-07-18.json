@@ -1,0 +1,59 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/apps/deploy-use/packages-and-programs.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/apps/deploy-use/packages-and-programs.md b/intune/configmgr/apps/deploy-use/packages-and-programs.md\nindex 1446dc6738..ccfeef0550 100644\n--- a/intune/configmgr/apps/deploy-use/packages-and-programs.md\n+++ b/intune/configmgr/apps/deploy-use/packages-and-programs.md\n@@ -192,7 +192,7 @@ When clients receive the deployment policy, they'll display the icon in Software\n         - **Required**: The package and program is deployed automatically, according to the configured schedule. In Software Center, you can track its deployment status and install it before the deadline.\n \n         > [!NOTE]\n-        > If multiple users are signed in to the device, package and task sequence deployments appear in Software Center for the user in the active console session. If no user is signed in to the active console session, the deployments appear for the user with the lowest active session ID. When a user signs in, Windows starts a session for that user and identifies it with a unique session ID. To view the session ID and type for each signed-in user, open Task Manager, select the **Users** tab, right-click a column header, and then select **ID** and **Session**. The **Session** column shows the session type, such as **Console** for a local sign-in or an **RDP** session name for a remote connection. For more information, see [Remote Desktop Sessions](/windows/win32/termserv/terminal-services-sessions).\n+        > If multiple users are signed in to the device, package and task sequence deployments appear in Software Center for the user in the active console session. If no user is in the active console session, the deployments appear for the user with the lowest connected interactive session ID. To view the session ID and type for each signed-in user, open Task Manager, select the **Users** tab, right-click a column header, and enable **ID** and **Session**. The **Session** column shows the **Console** for a local sign-in or an **RDP** session name for a remote connection. For more information, see [Remote Desktop Sessions](/windows/win32/termserv/terminal-services-sessions).\n \n     - **Send wake-up packets**: If you set the deployment purpose to **Required** and select this option, the site first sends a wake-up packet to computers at the installation deadline time. Before you can use this option, configure computers for Wake On LAN. For more information, see [How to configure Wake on LAN](../../core/clients/deploy/configure-wake-on-lan.md).\n \n",
+      "baseCommitSha": "c088068f3207a0fe799b812b7e43ab152f27d45f",
+      "commitSha": "0bd508bc3ed160efae10a7f0dc44540117a569ea",
+      "commitMessage": "Fixes as per qiani comment",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-18T18:18:14+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/apps/deploy-use/packages-and-programs.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/apps/deploy-use/packages-and-programs",
+      "firstSeenAt": "2026-07-18T17:18:14.000Z",
+      "eventId": "intune-docs:0bd508bc3ed160efae10a7f0dc44540117a569ea:modified:intune/configmgr/apps/deploy-use/packages-and-programs.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixes as per qiani comment",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/apps/deploy-use/packages-and-programs.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Pavel Yurenev"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/apps/deploy-use/packages-and-programs.md.",
+        "sourceFiles": [
+          "intune/configmgr/apps/deploy-use/packages-and-programs.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/apps/deploy-use/packages-and-programs.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

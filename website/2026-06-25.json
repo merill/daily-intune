@@ -1,0 +1,159 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/deployment/add-unmanaged-pkg-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/app-management/deployment/add-unmanaged-pkg-macos.md b/intune/app-management/deployment/add-unmanaged-pkg-macos.md\nindex 2d4438b415..bdd7430259 100644\n--- a/intune/app-management/deployment/add-unmanaged-pkg-macos.md\n+++ b/intune/app-management/deployment/add-unmanaged-pkg-macos.md\n@@ -129,7 +129,7 @@ You can select either the **Required** or **Available** group assignments for th\n 2. Select **Next** to display the **Review + create** page.\n \n > [!NOTE]\n-> When you upload a new version of an available app to Intune, users must select **Install** or **Reinstall** in Company Portal to update the app on their device.\n+> When you upload a new version of an available app to Intune, users do not need to take any action. It installs automatically.\n \n ## Step 7 – Review + create\n \n",
+      "baseCommitSha": "380067cfcaa7778a66bf785e8910e57ada1b07c5",
+      "commitSha": "534db1ea62ac16afc87b54ce2eaf27688427eb5f",
+      "commitMessage": "Update note on app version uploads for automatic installation in Company Portal (#20457)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-06-25T07:34:34-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/add-unmanaged-pkg-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-unmanaged-pkg-macos",
+      "firstSeenAt": "2026-06-25T11:34:34.000Z",
+      "eventId": "intune-docs:534db1ea62ac16afc87b54ce2eaf27688427eb5f:modified:intune/app-management/deployment/add-unmanaged-pkg-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update note on app version uploads for automatic installation in Company Portal (#20457)",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-unmanaged-pkg-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 0,
+      "changes": 15,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 2eff3e199b..c48482d741 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -50,6 +50,21 @@ You can use RSS to be notified when this page is updated. For more information,\n \n ## Week of June 22, 2026\n \n+### App management\n+\n+#### Microsoft Intune app for Android requires version 2025.11.01 or later<!-- 30154210 -->\n+\n+The minimum supported version of the Microsoft Intune app for Android is now version `2025.11.01`. This change took effect on May 1, 2026. Users running an older version might experience sign-in failures.\n+\n+Most users have app updates set to automatic and receive the updated app without taking any action. Users not running a supported version should update the Microsoft Intune app to the latest version to resolve any sign-in issues.\n+\n+To check which devices are affected, go to **Apps** > **Monitor** > **Discovered apps** and find the Microsoft Intune app to identify devices running older versions.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Android\n+\n ## Tenant administration\n \n #### Multi Admin Approval now enforces on API calls made by automation<!-- 37629074 -->\n",
+      "baseCommitSha": "534db1ea62ac16afc87b54ce2eaf27688427eb5f",
+      "commitSha": "eebf6a661feab8e43220f1097fa3d1b0ec88e281",
+      "commitMessage": "Add note on minimum supported version for Microsoft Intune app on Android (#20465)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-06-25T08:11:23-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-06-25T12:11:23.000Z",
+      "eventId": "intune-docs:eebf6a661feab8e43220f1097fa3d1b0ec88e281:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add note on minimum supported version for Microsoft Intune app on Android (#20465)",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/android/setup-personal-work-profile.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 2,
+      "changes": 9,
+      "patch": "diff --git a/intune/device-enrollment/android/setup-personal-work-profile.md b/intune/device-enrollment/android/setup-personal-work-profile.md\nindex 92fe41ef91..62fa673371 100644\n--- a/intune/device-enrollment/android/setup-personal-work-profile.md\n+++ b/intune/device-enrollment/android/setup-personal-work-profile.md\n@@ -75,7 +75,7 @@ To enable web-based enrollment for your tenant, see [Enable web-based enrollment\n \n ## Set up enrollment\n \n-Complete these steps to set up enrollment for Android Enterprise devices in BYOD scenarios. Web-based enrollment is the recommended method for personally owned work profile devices. Configuring device platform restrictions is optional and only needed if you want to restrict or customize enrollment behavior beyond the defaults.\n+Complete these steps to set up enrollment for Android Enterprise devices in BYOD scenarios. The following steps cover web-based enrollment, which is the recommended method. App-based enrollment through Company Portal works by default and requires no additional configuration, but is being phased out. Configuring device platform restrictions is optional and only needed if you want to restrict or customize enrollment behavior beyond the defaults.\n \n > [!NOTE]\n > Device enrollment managers can enroll up to 10 devices per account.\n@@ -112,6 +112,11 @@ Optionally, control or restrict other enrollment methods. Apply platform restric\n    - **Platform**: Select **Allow** to permit enrollment with Android Enterprise work profile. Select **Block** to prevent work profile enrollment. If you block work profile, devices enroll using the Android device administrator management solution, unless device administrator enrollment is also blocked.\n    - **Personally owned**: Select **Allow** to permit personal devices to enroll with a work profile. Personal devices are allowed by default. Select **Block** to prevent personal devices from enrolling with a work profile. Android devices that don't support Android Enterprise enroll using the Android device administrator solution, unless device administrator enrollment is blocked.\n \n+   > [!IMPORTANT]\n+   > The **Personally owned** setting configured as **Block** doesn't apply to [Android Management API (AMAPI)](android-management-api-overview.md) devices and isn't reliable for devices running Android 12 and later that use Custom DPC enrollment. If you're using this setting to prevent personally owned work profile enrollment, consider one of the following alternatives:\n+   > - Use a corporate-owned management method: Enroll devices as [corporate-owned work profile](setup-corporate-work-profile.md) devices instead of personally owned.\n+   > - Restrict enrollment by user group: Configure the enrollment restriction to block Android Enterprise work profile enrollment for all users. Then create a higher-priority restriction that allows enrollment for an approved group only. This way controls enrollment through group membership rather than the **Personally owned** setting.\n+\n    Any device that supports Android Enterprise personal work profiles also supports the Android device administrator management solution, so if you don't want Android device administrator to be a part of enrollments, make sure to block the platform. For more information, see [device platform restrictions](../create-platform-restrictions.md#best-practice---android-platform-restrictions).\n \n    > [!NOTE]\n@@ -148,7 +153,7 @@ For more information and screenshots of the end user experience, see [Enroll dev\n \n Intune automatically installs the following apps on enrolled devices:\n \n-- Microsoft Intune: Handles device management tasks, including checking compliance, syncing policies, collecting diagnostic logs, and contacting IT support.\n+- Microsoft Intune: User-facing app for device management tasks, including checking compliance, syncing policies, collecting diagnostic logs, and contacting IT support.\n - Company Portal: Used for browsing and installing work apps and supports MAM scenarios.\n - Android Device Policy: Enforces Android Management API policies on web-based enrollments. Installed in a hidden state. Users don't see it.\n - Microsoft Authenticator: Provides single sign-on (SSO) for the user's work account.\n",
+      "baseCommitSha": "eebf6a661feab8e43220f1097fa3d1b0ec88e281",
+      "commitSha": "065282ba77b985d2fa108597d9187d7223a10105",
+      "commitMessage": "Added note",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-06-25T16:58:33-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/android/setup-personal-work-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/setup-personal-work-profile",
+      "firstSeenAt": "2026-06-25T20:58:33.000Z",
+      "eventId": "intune-docs:065282ba77b985d2fa108597d9187d7223a10105:modified:intune/device-enrollment/android/setup-personal-work-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added note",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/android/setup-personal-work-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/android/setup-personal-work-profile.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/android/setup-personal-work-profile.md b/intune/device-enrollment/android/setup-personal-work-profile.md\nindex 62fa673371..d7ec9d8bce 100644\n--- a/intune/device-enrollment/android/setup-personal-work-profile.md\n+++ b/intune/device-enrollment/android/setup-personal-work-profile.md\n@@ -75,7 +75,7 @@ To enable web-based enrollment for your tenant, see [Enable web-based enrollment\n \n ## Set up enrollment\n \n-Complete these steps to set up enrollment for Android Enterprise devices in BYOD scenarios. The following steps cover web-based enrollment, which is the recommended method. App-based enrollment through Company Portal works by default and requires no additional configuration, but is being phased out. Configuring device platform restrictions is optional and only needed if you want to restrict or customize enrollment behavior beyond the defaults.\n+Complete these steps to set up enrollment for Android Enterprise devices in BYOD scenarios. The following steps cover web-based enrollment, which is the recommended method. App-based enrollment through Company Portal works by default and requires no additional configuration. Configuring device platform restrictions is optional and only needed if you want to restrict or customize enrollment behavior beyond the defaults.\n \n > [!NOTE]\n > Device enrollment managers can enroll up to 10 devices per account.\n",
+      "baseCommitSha": "065282ba77b985d2fa108597d9187d7223a10105",
+      "commitSha": "daefdbad98ff4862d6ae24fc61e4b6fb14f07d1c",
+      "commitMessage": "Adjusted intro sentence",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-06-25T17:11:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/android/setup-personal-work-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/setup-personal-work-profile",
+      "firstSeenAt": "2026-06-25T21:11:10.000Z",
+      "eventId": "intune-docs:daefdbad98ff4862d6ae24fc61e4b6fb14f07d1c:modified:intune/device-enrollment/android/setup-personal-work-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adjusted intro sentence",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/android/setup-personal-work-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 4,
+    "authors": [
+      "Laura Newsad",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-unmanaged-pkg-macos.md.",
+        "sourceFiles": [
+          "intune/app-management/deployment/add-unmanaged-pkg-macos.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/android/setup-personal-work-profile.md. Updated Microsoft Intune documentation in intune/device-enrollment/android/setup-personal-work-profile.md.",
+        "sourceFiles": [
+          "intune/device-enrollment/android/setup-personal-work-profile.md",
+          "intune/device-enrollment/android/setup-personal-work-profile.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "Updated Microsoft Intune documentation in intune/app-management/deployment/add-unmanaged-pkg-macos.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/android/setup-personal-work-profile.md. Updated Microsoft Intune documentation in intune/device-enrollment/android/setup-personal-work-profile.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

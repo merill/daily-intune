@@ -1,0 +1,153 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-04-29",
+      "summary": {
+        "headline": "Device retirement, Cloud PKI CA configuration, and offboarding-agent guidance are updated",
+        "overview": "The archive includes updates to the Intune retire action, Cloud PKI certificate authority configuration, Endpoint Analytics configuration, and the Security Copilot Device Offboarding Agent.",
+        "adminImpact": "Endpoint and PKI teams should verify runbooks for retiring devices and configuring Cloud PKI CAs. Security operations owners should also review the updated Device Offboarding Agent reference.",
+        "keyChanges": [
+          {
+            "title": "Device retirement guidance is updated",
+            "detail": "Microsoft updated the Intune documentation for retiring devices.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-29-retire-06"
+          },
+          {
+            "title": "Cloud PKI CA configuration guidance is updated",
+            "detail": "The Microsoft Intune Cloud PKI documentation for configuring a certificate authority was revised.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-04-29-configure-ca-17"
+          },
+          {
+            "title": "Device Offboarding Agent guidance is updated",
+            "detail": "The Security Copilot documentation for managing the Device Offboarding Agent was updated.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-04-29-manage-device-offboarding-agent-02"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-30",
+      "summary": {
+        "headline": "Configuration Manager security-update guidance is revised",
+        "overview": "Microsoft updated the revised security-update documentation for Configuration Manager versions 2403, 2409, and 2503, along with retire-action and Universal Print settings-catalog material.",
+        "adminImpact": "Configuration Manager administrators should review the revised security-update documentation and account for it in patch planning. Intune teams should also validate any Universal Print policy configuration against the refreshed settings-catalog guidance.",
+        "keyChanges": [
+          {
+            "title": "Configuration Manager security-update guidance is revised",
+            "detail": "Microsoft updated the revised security-update documentation for Configuration Manager versions 2403, 2409, and 2503.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-30-revised-security-update-for-microsoft-configuration-manager-versions-2403-2409-and-2503-02"
+          },
+          {
+            "title": "Universal Print settings-catalog guidance is updated",
+            "detail": "The Intune documentation for configuring Universal Print policy with Settings Catalog was revised.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-30-configure-universal-print-policy-using-settings-catalog-37"
+          },
+          {
+            "title": "Device retirement guidance is updated",
+            "detail": "Microsoft updated the Intune retire-action documentation.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-30-retire-23"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-04-27",
+      "summary": {
+        "headline": "Mobile threat-defense integration and Configuration Manager security updates shape the week",
+        "overview": "The week updates the mobile threat-defense integration step for app protection, provides revised Configuration Manager security-update information, and refreshes Autopilot device-preparation and Cloud PKI guidance.",
+        "adminImpact": "App-protection teams should review the current mobile threat-defense integration step. Configuration Manager administrators should incorporate the revised security-update reference into patch assessment, while PKI and Autopilot teams review the associated documentation changes.",
+        "keyChanges": [
+          {
+            "title": "Mobile threat-defense app-protection integration guidance is updated",
+            "detail": "Microsoft updated step three for integrating mobile threat defense with an app protection policy.",
+            "product": "Intune",
+            "sourceId": "doc-2026-05-01-step-3-integrate-mobile-threat-defense-for-app-protection-policy-01"
+          },
+          {
+            "title": "Configuration Manager security-update guidance is revised",
+            "detail": "The revised security-update documentation for Configuration Manager versions 2403, 2409, and 2503 was updated.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-30-revised-security-update-for-microsoft-configuration-manager-versions-2403-2409-and-2503-02"
+          },
+          {
+            "title": "Cloud PKI CA configuration guidance is updated",
+            "detail": "The Intune Cloud PKI reference for configuring a certificate authority was revised.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-04-29-configure-ca-17"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "month",
+      "key": "2026-04",
+      "summary": {
+        "headline": "April adds major compliance, least-privilege, and tenant-attach security references",
+        "overview": "April's high-volume archive introduces Android AOSP compliance settings, Endpoint Privilege Management guidance for transitioning users to standard accounts, and Intune endpoint-security firewall settings for Configuration Manager devices. It also contains broad documentation maintenance across Intune and Security Copilot.",
+        "adminImpact": "Use the new Android and EPM references to inform compliance and privileged-access programs. Co-management teams should validate firewall policy design against the tenant-attach documentation before implementation.",
+        "keyChanges": [
+          {
+            "title": "Android AOSP compliance settings guidance is added",
+            "detail": "Microsoft published an Intune reference for Android (AOSP) compliance settings.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-14-android-aosp-compliance-settings-in-microsoft-intune-76"
+          },
+          {
+            "title": "EPM standard-user transition guidance is added",
+            "detail": "New documentation covers transitioning users from administrator to standard user with Endpoint Privilege Management.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-04-14-use-endpoint-privilege-management-to-transition-users-from-administrator-to-standard-user-178"
+          },
+          {
+            "title": "Tenant-attach firewall settings reference is added",
+            "detail": "Microsoft added endpoint-security firewall settings guidance for Configuration Manager devices.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-15-intune-endpoint-security-firewall-settings-for-configuration-manager-devices-21"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-05-01",
+      "summary": {
+        "headline": "Mobile threat-defense app-protection and Autopilot device-preparation guidance are updated",
+        "overview": "The day updates the mobile threat-defense integration step for app protection and several Windows Autopilot device-preparation tutorial references for user-driven and automatic flows.",
+        "adminImpact": "App-protection owners should recheck the mobile threat-defense step before integrating a threat-defense provider. Autopilot teams should verify tutorial-based build documentation and scripts against the revised device-preparation material.",
+        "keyChanges": [
+          {
+            "title": "Mobile threat-defense app-protection integration guidance is updated",
+            "detail": "Microsoft updated the step for integrating mobile threat defense with an app protection policy.",
+            "product": "Intune",
+            "sourceId": "doc-2026-05-01-step-3-integrate-mobile-threat-defense-for-app-protection-policy-01"
+          },
+          {
+            "title": "User-driven device-preparation app-assignment guidance is updated",
+            "detail": "The Windows Autopilot device-preparation tutorial for assigning apps and scripts in a user-driven Entra join flow was revised.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-05-01-entra-join-assign-apps-scripts-04"
+          },
+          {
+            "title": "Automatic device-preparation app-assignment guidance is updated",
+            "detail": "Microsoft updated the automatic Windows Autopilot device-preparation tutorial for assigning apps and scripts.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-05-01-automatic-assign-apps-scripts-02"
+          }
+        ]
+      }
+    }
+  ]
+}

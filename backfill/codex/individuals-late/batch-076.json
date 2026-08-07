@@ -1,0 +1,58 @@
+{
+  "worker": "individuals-late",
+  "kind": "individuals",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "medium",
+  "items": [
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/locate.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Locate device navigation now targets Devices and All devices",
+        "summary": "The Locate device procedure replaces generic portal and relative RBAC references with direct Devices and All devices links plus direct Custom role, Help Desk Operator, and School Administrator links.",
+        "adminImpact": "No locate permission changed; operators still need the listed remote-task and managed-device permissions."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/logout-user.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Logout current user navigation now targets Devices and All devices",
+        "summary": "The shared-device logout procedure now links directly to the Devices and All devices pages and to Help Desk Operator and custom-role definitions.",
+        "adminImpact": "No logout permission changed; retain Remote tasks/Manage shared device users and device visibility permissions."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/lost-mode.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Lost Mode procedures now use direct device-navigation links",
+        "summary": "Both enable and disable Lost Mode steps now link directly to Devices and All devices, with direct Help Desk Operator, School Administrator, and custom-role references.",
+        "adminImpact": "No Lost Mode permission changed; retain Enable/Disable lost mode and managed-device visibility permissions."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/pause-config-refresh.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Pause Config Refresh navigation and role links are direct",
+        "summary": "The procedure now links directly to Devices and All devices and names Intune Administrator and custom-role destinations; its 1,440-minute maximum remains documented.",
+        "adminImpact": "No pause limit changed; retain Remote tasks/Run Pause Configuration Refresh permission."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/play-lost-mode-sound.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Play Lost Mode sound procedure uses direct navigation links",
+        "summary": "The supervised-device sound procedure now links directly to Devices and All devices and to Help Desk Operator, School Administrator, and custom-role definitions.",
+        "adminImpact": "No sound permission changed; retain Remote tasks/Play sound to locate lost devices."
+      }
+    }
+  ]
+}

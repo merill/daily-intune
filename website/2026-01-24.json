@@ -1,0 +1,109 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex df4d2cf81a..09006c894f 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -185,7 +185,7 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | --- | --- |\n | `count` | Returns a table with a single record containing the number of records. |\n | `distinct` | Produces a table with distinct combinations of the provided columns from the input table. |\n-| `join` | Merges rows from two tables to form a new table based on matching values in the specified columns. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`<br><br>Join statements support an optional `on` clause. In device query scenarios, you typically use `on Device` when joining tables that contain a `Device` entity. Common syntax for `join` is: `LeftTable | join [hints] (RightTable) on Conditions`.<br><br>For more information, see [Join operator](/kusto/query/join-operator). |\n+| `join` | Merges rows from two tables to form a new table based on matching values in the specified columns. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`<br><br>Join statements support an optional `on` clause. In device query scenarios, you typically use `on Device` when joining tables that contain a `Device` entity. Common syntax for `join` is: `LeftTable | join [hints] (RightTable) on Conditions`.<br><br>For more information, see [Join operator](/kusto/query/join-operator). <br><br> **Important:** Joins that use `on Device.DeviceID` are no longer supported. Queries that currently specify `on Device.DeviceId` should switch to using `on Device`, or omit the `on` clause when joining on the `Device` entity.|\n | `order by` | Sorts the rows of the input table by one or more columns. |\n | `project` | Selects columns to include, rename, or drop, and inserts new computed columns. |\n | `take` | Returns up to the specified number of rows. |\n",
+      "baseCommitSha": "55f2ee90cb5c29ffc87184d4c2c9471882d4f29c",
+      "commitSha": "b7ebf760cfcdd31aef60f0c9ea8979f7d61012fd",
+      "commitMessage": "added note",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-24T12:35:18-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-24T17:35:18.000Z",
+      "eventId": "intune-docs:b7ebf760cfcdd31aef60f0c9ea8979f7d61012fd:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "added note",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 09006c894f..40d16b2da9 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -185,7 +185,7 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | --- | --- |\n | `count` | Returns a table with a single record containing the number of records. |\n | `distinct` | Produces a table with distinct combinations of the provided columns from the input table. |\n-| `join` | Merges rows from two tables to form a new table based on matching values in the specified columns. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`<br><br>Join statements support an optional `on` clause. In device query scenarios, you typically use `on Device` when joining tables that contain a `Device` entity. Common syntax for `join` is: `LeftTable | join [hints] (RightTable) on Conditions`.<br><br>For more information, see [Join operator](/kusto/query/join-operator). <br><br> **Important:** Joins that use `on Device.DeviceID` are no longer supported. Queries that currently specify `on Device.DeviceId` should switch to using `on Device`, or omit the `on` clause when joining on the `Device` entity.|\n+| `join` | Merges rows from two tables to form a new table based on matching values in the specified columns. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`<br><br>Join statements support an optional `on` clause. In device query scenarios, you typically use `on Device` when joining tables that contain a `Device` entity. Common syntax for `join` is: `LeftTable | join [hints] (RightTable) on Conditions`.<br><br> **Important:** Joins that use `on Device.DeviceID` are no longer supported. Queries that currently specify `on Device.DeviceId` should switch to using `on Device`, or omit the `on` clause when joining on the `Device` entity.<br><br>For more information, see [Join operator](/kusto/query/join-operator). |\n | `order by` | Sorts the rows of the input table by one or more columns. |\n | `project` | Selects columns to include, rename, or drop, and inserts new computed columns. |\n | `take` | Returns up to the specified number of rows. |\n",
+      "baseCommitSha": "654bcc6be5f149adeeed557ef5ba543077210a69",
+      "commitSha": "300ed63d0cbfe9a1b46dbdaf162c2b0d065ed901",
+      "commitMessage": "update",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-24T12:50:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-24T17:50:49.000Z",
+      "eventId": "intune-docs:300ed63d0cbfe9a1b46dbdaf162c2b0d065ed901:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "update",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 40d16b2da9..5c0d7c5948 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -194,7 +194,7 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | `summarize` | Produces a table that aggregates the contents of the input table. |\n \n > [!NOTE]\n-> `Device` is an entity-type and can't be used directly in operators that require scalar values (such as `distinct`, `summarize`, and `order by`). Use a specific device property (for example, `Device.DeviceId`) instead.\n+> `Device` is an entity-type and can't be used directly in operators that require scalar values (such as `distinct`, `summarize`, and `order by`). For these operators, use a specific scalar property of the device (for example, `Device.SerialNumber` or `Device.OSVersion`).\n \n ### Scalar operators\n \n",
+      "baseCommitSha": "300ed63d0cbfe9a1b46dbdaf162c2b0d065ed901",
+      "commitSha": "1ff1206e2ae2ce7dd9fe83bb9026d2e83793b83f",
+      "commitMessage": "update",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-24T12:57:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-24T17:57:49.000Z",
+      "eventId": "intune-docs:1ff1206e2ae2ce7dd9fe83bb9026d2e83793b83f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "update",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 3,
+    "authors": [
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "sourceFiles": [
+          "intune/advanced-analytics/device-query-multiple-devices.md",
+          "intune/advanced-analytics/device-query-multiple-devices.md",
+          "intune/advanced-analytics/device-query-multiple-devices.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

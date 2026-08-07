@@ -1,0 +1,524 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/apps/lob-apps-ios.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "patch": "diff --git a/intune/intune-service/apps/lob-apps-ios.md b/intune/intune-service/apps/lob-apps-ios.md\nindex b648e41fc6..77e9c878cb 100644\n--- a/intune/intune-service/apps/lob-apps-ios.md\n+++ b/intune/intune-service/apps/lob-apps-ios.md\n@@ -51,6 +51,13 @@ You can deploy LOB apps to Shared iPad devices. For Shared iPad devices, line-of\n     - **Developer**: Optionally, enter the name of the app developer.\n     - **Owner**: Optionally, enter a name for the owner of this app. An example is **HR department**.\n     - **Management type**: Select **MDM** (default) or **DDM** to choose how the app is managed on the device. Declarative Device Management (DDM) uses Apple's policy-based management model for app deployment and configuration on devices running iOS/iPadOS 18 and later. DDM provides efficient app delivery, real-time app status reporting, and expanded app attribute options for per-app associated domains. For devices running earlier versions of iOS/iPadOS, select **MDM**.\n+\n+      > [!IMPORTANT]\n+      > The following limitations apply when using DDM for app management:\n+      >\n+      > - **MAM-enabled apps**: If the app is integrated with the Intune App SDK, the **Management type** setting isn't available and the app can only be created for MDM.\n+      > - **App configuration policies**: App configuration policies only work for MDM-based apps. If you need to apply app configuration policies to a line-of-business app, use **MDM** as the management type.\n+\n     - **Notes**: Enter any notes that you want to associate with this app.\n     - **Logo**: Upload an icon that is associated with the app. This icon is displayed with the app when users browse through the company portal.\n 2. Choose **Next** to display the **Scope tags** page.\n",
+      "baseCommitSha": "36e90f31ef10ff7fc9bda7900f548abeeaea70d3",
+      "commitSha": "8aea1f95ccc6d02dfc194c4d7204d2c6425d2055",
+      "commitMessage": "Add DDM limitations note for MAM-enabled apps and app config policies",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T08:24:41-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/lob-apps-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/lob-apps-ios",
+      "firstSeenAt": "2026-03-20T13:24:41.000Z",
+      "eventId": "intune-docs:8aea1f95ccc6d02dfc194c4d7204d2c6425d2055:modified:intune/intune-service/apps/lob-apps-ios.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add DDM limitations note for MAM-enabled apps and app config policies",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/lob-apps-ios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 0,
+      "changes": 23,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 7e694ebb62..82c5ccdfb1 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -257,6 +257,29 @@ The following protected apps are now available for Microsoft Intune:\n \n For more information about protected apps, see [Microsoft Intune protected apps](../apps/apps-supported-intune-apps.md).\n \n+### Monitor and troubleshootg\n+\n+#### Support for system proxy settings in endpoint analytics and Advanced Analytics<!--30148318 -->\n+\n+Devices configured with system-level (WinHTTP) proxy settings can now send telemetry to endpoint analytics and Advanced Analytics, enabling more comprehensive reporting. Endpoint Privilege Management (EPM) will also include elevation usage data from these devices.\n+\n+No admin action is required. If endpoint analytics or EPM is enabled for a device, telemetry and events will automatically appear in the User Experience (Device blade), endpoint Analytics reports, and EPM.\n+\n+For more details about displaying advanced proxy settings, see [Netsh.exe commands](/windows/win32/winhttp/netsh-exe-commands#show-advproxy).\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+#### Improvements to device query for multiple devices<!-- 32041372, 29800657, 33412956 -->\n+   \n+Device query for multiple devices now includes new capabilities to help you work with query results more efficiently.\n+\n+You can use a search text box to search across all resulting rows of a query, use column headers to add filters for specific values, and create Microsoft Entra security groups directly from a query's device results.\n+   \n+For more information, see [Device query for  multiple devices](../../advanced-analytics/device-query-multiple-devices.md).\n+\n ### Role-based access control\n \n #### Scoped permissions for Role-based access control (public preview)<!-- 37134761 -->\n",
+      "baseCommitSha": "cafc7fab94a50934bd0b483cc191907ade434484",
+      "commitSha": "ba363e8a8b9bfb052f26188577b88774412e17f4",
+      "commitMessage": "Update whats-new.md with monitoring and troubleshooting features",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-20T06:58:05-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-03-20T13:58:05.000Z",
+      "eventId": "intune-docs:ba363e8a8b9bfb052f26188577b88774412e17f4:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update whats-new.md with monitoring and troubleshooting features",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/in-development.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 10,
+      "changes": 12,
+      "patch": "diff --git a/intune/intune-service/fundamentals/in-development.md b/intune/intune-service/fundamentals/in-development.md\nindex f9090ea27c..2d3ab775b2 100644\n--- a/intune/intune-service/fundamentals/in-development.md\n+++ b/intune/intune-service/fundamentals/in-development.md\n@@ -78,21 +78,13 @@ The Multiple Managed Accounts (MMA) feature for Intune mobile application manage\n \n <!-- *********************************************** -->\n \n-## Device configuration\n-\n-#### New supported OEMConfig app for Android Enterprise <!-- 36423115 -->\n-\n-The following OEMConfig app is available in Intune for Android Enterprise:\n-\n-- Inventus | `com.inventus.oemconfig.gen`\n-\n-For more information about OEMConfig, see [Use and manage Android Enterprise devices with OEMConfig in Microsoft Intune](../configuration/android-oem-configuration-overview.md).\n+<!-- ## Device configuration -->\n \n <!-- *********************************************** -->\n \n ## Device enrollment\n \n-### Access management for Apple services<!-- 31209876 iddraft idready idstaged -->\n+### Access management for Apple services<!-- 31209876  -->\n \n You will be able to use Apple access management settings in Apple Business Manager and Apple School Manager to configure service access for Apple accounts on organization-owned devices. These controls will let you choose what devices users can sign in to and which apps and services are available to them. For more information about how Apple defines service access and Apple account permissions, see the [Apple Business Manager User Guide](https://support.apple.com/guide/apple-business-manager/customize-user-access-to-apps-and-services-axm53xk34bq/web)(opens Apple support site).\n \n",
+      "baseCommitSha": "ba363e8a8b9bfb052f26188577b88774412e17f4",
+      "commitSha": "c1afeb937c0cc22173061819c87f8ff74bc7b732",
+      "commitMessage": "Fixes",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-20T09:14:43-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development",
+      "firstSeenAt": "2026-03-20T16:14:43.000Z",
+      "eventId": "intune-docs:c1afeb937c0cc22173061819c87f8ff74bc7b732:modified:intune/intune-service/fundamentals/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixes",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 4,
+      "changes": 17,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 82c5ccdfb1..b6bde450c5 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -81,6 +81,14 @@ The Recovery Lock password can be viewed in the per-setting status report > **Pa\n >\n > - macOS\n \n+#### New supported OEMConfig app for Android Enterprise <!-- 36423115 -->\n+\n+The following OEMConfig app is available in Intune for Android Enterprise:\n+\n+- Inventus | `com.inventus.oemconfig.gen`\n+\n+For more information about OEMConfig, see [Use and manage Android Enterprise devices with OEMConfig in Microsoft Intune](../configuration/android-oem-configuration-overview.md).\n+\n #### New updates to the Apple settings catalog <!-- 36630003 -->\n \n The [Settings Catalog](../configuration/settings-catalog.md) lists all the settings you can configure in a device policy, and all in one place. For more information about configuring Settings Catalog profiles in Intune, see [Create a policy using settings catalog](../configuration/settings-catalog.md).\n@@ -257,7 +265,7 @@ The following protected apps are now available for Microsoft Intune:\n \n For more information about protected apps, see [Microsoft Intune protected apps](../apps/apps-supported-intune-apps.md).\n \n-### Monitor and troubleshootg\n+### Monitor and troubleshooting\n \n #### Support for system proxy settings in endpoint analytics and Advanced Analytics<!--30148318 -->\n \n@@ -273,16 +281,17 @@ For more details about displaying advanced proxy settings, see [Netsh.exe comman\n > - Windows\n \n #### Improvements to device query for multiple devices<!-- 32041372, 29800657, 33412956 -->\n-   \n+\n Device query for multiple devices now includes new capabilities to help you work with query results more efficiently.\n \n You can use a search text box to search across all resulting rows of a query, use column headers to add filters for specific values, and create Microsoft Entra security groups directly from a query's device results.\n-   \n-For more information, see [Device query for  multiple devices](../../advanced-analytics/device-query-multiple-devices.md).\n+\n+For more information, see [Device query for multiple devices](../../advanced-analytics/device-query-multiple-devices.md).\n \n ### Role-based access control\n \n #### Scoped permissions for Role-based access control (public preview)<!-- 37134761 -->\n+\n Intune now includes an opt-in public preview to enable **Scoped permissions**, making your role-based access control (RBAC) configuration more precise. Enabling Scoped permissions is a one-time choice that can't be undone. In the future, this will become the default behavior for all tenants.\n \n Previously, when an admin had multiple role assignments using different scope tags for the same permission category, Intune merged permissions across those assignments, which could unintentionally grant broader access than intended. With Scoped permissions enabled, each role assignment's permissions apply only within its own scope tag context, so admins receive exactly the access you intended.\n",
+      "baseCommitSha": "ba363e8a8b9bfb052f26188577b88774412e17f4",
+      "commitSha": "c1afeb937c0cc22173061819c87f8ff74bc7b732",
+      "commitMessage": "Fixes",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-20T09:14:43-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-03-20T16:14:43.000Z",
+      "eventId": "intune-docs:c1afeb937c0cc22173061819c87f8ff74bc7b732:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixes",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md b/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\nindex cb0f5544e7..959052ca85 100644\n--- a/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\n+++ b/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\n@@ -66,6 +66,9 @@ To turn on automatic app updates:\n \n 3. On the Microsoft AutoUpdate screen, select **Automatically download and install**.\n \n+> [!NOTE]\n+> The minimum supported version of the Company Portal app for macOS is v5.2401.0. If you're running an older version, you'll be prompted to update the Company Portal app when you sign in.\n+\n ## Update on Windows device\n \n To view available app updates on devices running Windows:\n",
+      "baseCommitSha": "7f560001a31d71c361a3d4d6c0bad23b43cb435e",
+      "commitSha": "aa6d0692141f4ba084e54fd22e744c3596e5f048",
+      "commitMessage": "Add note on minimum Company Portal app version for macOS",
+      "commitAuthor": "Arnab Biswas [MSFT]",
+      "commitDate": "2026-03-20T13:00:25-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app",
+      "firstSeenAt": "2026-03-20T17:00:25.000Z",
+      "eventId": "intune-docs:aa6d0692141f4ba084e54fd22e744c3596e5f048:modified:intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add note on minimum Company Portal app version for macOS",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/cloud-configuration.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/intune/intune-service/fundamentals/cloud-configuration.md b/intune/intune-service/fundamentals/cloud-configuration.md\nindex 6655509a14..ca0f8f70eb 100644\n--- a/intune/intune-service/fundamentals/cloud-configuration.md\n+++ b/intune/intune-service/fundamentals/cloud-configuration.md\n@@ -25,8 +25,10 @@ Cloud config makes these devices easy to use, and secures these devices with Mic\n \n There are two ways to deploy cloud config:\n \n-- **Option 1 - Automatic** (this article): Use the guided scenario described in this article to automatically create all the groups and policies with their configured values.\n-- **Option 2 - Manual**: Use a step-by-step setup guide to deploy cloud config yourself, including manually creating all the policies. For information on this option, go to [Windows client cloud config setup guide](cloud-configuration-setup-guide.md).\n+> [!IMPORTANT]\n+> The guided scenario for automatic deployment of Windows in cloud configuration is deprecated and being removed from the Intune admin center. Use the manual step-by-step setup guide to deploy cloud config.\n+\n+- **Step-by-step setup guide**: Use the [Windows client cloud config setup guide](cloud-configuration-setup-guide.md) to deploy cloud config yourself, including manually creating all the policies.\n \n With Windows in cloud configuration:\n \n@@ -212,5 +214,4 @@ When it deploys successfully, you can use the monitoring and reporting features\n \n ## Related content\n \n-- [Guided scenarios overview](guided-scenarios-overview.md)\n - [Windows client cloud config step by step setup guide](cloud-configuration-setup-guide.md)\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/cloud-configuration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/cloud-configuration",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/cloud-configuration.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md b/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md\nindex 3a2b620ae1..218721a8e9 100644\n--- a/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md\n+++ b/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md\n@@ -13,6 +13,8 @@ ms.collection:\n \n # Guided Scenario - Cloud-Managed Modern Desktop\n \n+[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n+\n The modern desktop is the state-of-the-art productivity platform for the Information Worker. Microsoft 365 Apps and Windows are the core components of the modern desktop along with the latest security baselines for Windows and Microsoft Defender for Endpoint.\n \n Managing the modern desktop from the cloud brings the added benefit of internet-wide remote actions. Cloud-management utilizes the in-built Windows Mobile Device Management policies and removes dependencies on local Active Directory group policy.\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-edge.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-edge.md b/intune/intune-service/fundamentals/guided-scenarios-edge.md\nindex 4d1d01c77f..a4116e0a0f 100644\n--- a/intune/intune-service/fundamentals/guided-scenarios-edge.md\n+++ b/intune/intune-service/fundamentals/guided-scenarios-edge.md\n@@ -13,6 +13,8 @@ ms.collection:\n \n # Guided Scenario - Deploy Microsoft Edge for Mobile\n \n+[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n+\n By following this [guided scenario](guided-scenarios-overview.md), you can assign the Microsoft Edge app to your users on iOS/iPadOS or Android devices at your organization. Assigning this app allows your users to seamlessly browse content using their corporate devices.\n \n Microsoft Edge lets users cut through the clutter of the web with built-in features that help them consolidate, arrange, and manage work content. Users of iOS/iPadOS and Android devices who sign in with their corporate Microsoft Entra accounts in the Microsoft Edge application will find their browser preloaded with workplace **Favorites** and website filters you define.\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-edge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-edge",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/guided-scenarios-edge.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-edge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md b/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md\nindex 615def70b7..ca7207713e 100644\n--- a/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md\n+++ b/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md\n@@ -13,6 +13,8 @@ ms.collection:\n \n # Guided Scenario - Secure Microsoft Office Mobile Apps\n \n+[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n+\n By following this guided scenario in the Device Management portal, you can enable basic Intune app protection on iOS/iPadOS and Android devices.\n \n The app protection that you enable will enforce the following actions:\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-office-mobile",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-office-mobile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-overview.md b/intune/intune-service/fundamentals/guided-scenarios-overview.md\nindex 8a9967a703..abb8c219eb 100644\n--- a/intune/intune-service/fundamentals/guided-scenarios-overview.md\n+++ b/intune/intune-service/fundamentals/guided-scenarios-overview.md\n@@ -12,6 +12,8 @@ ms.collection:\n \n # Intune Guided Scenarios Overview\n \n+[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n+\n A guided scenario is a customized series of steps centered around one end-to-end use-case. Common scenarios are based on the role an admin, user, or device plays in your organization. These roles typically require a collection of carefully orchestrated profiles, settings, applications, and security controls. The goal is to provide the best user experience and security.\n \n If you're not familiar with the steps and resources to implement a particular scenario, then start with guided scenarios. The guided scenarios assemble policies, apps, assignments, and other management configurations automatically. Additionally, the guided scenarios may deliberately omit certain options not applicable or uncommon for the given scenario.\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-overview",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/guided-scenarios-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/help-desk-operators.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/intune/intune-service/fundamentals/help-desk-operators.md b/intune/intune-service/fundamentals/help-desk-operators.md\nindex 5f037c6cc4..bbe1fd25bc 100644\n--- a/intune/intune-service/fundamentals/help-desk-operators.md\n+++ b/intune/intune-service/fundamentals/help-desk-operators.md\n@@ -17,7 +17,6 @@ The troubleshooting pane lets help desk operators and Intune administrators view\n \n The **Troubleshooting + support** pane provides three options:\n \n-- [Guided scenarios](guided-scenarios-overview.md) to provide a customized series of steps centered around one end-to-end use-case. For more information, see [Guided scenarios](guided-scenarios-overview.md).\n - **Troubleshooting** to help determine any issues with **Assignments**, **App protection status**, and **Enrollment failures**.\n - [Help and support](../../fundamentals/it-pro-support/get-support-admin-center.md) to provide global technical, pre-sales, billing, and subscription support for device management cloud-based services related to Intune. For more information, see [Help and support](../../fundamentals/it-pro-support/get-support-admin-center.md).\n \n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/help-desk-operators.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/help-desk-operators",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/help-desk-operators.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/help-desk-operators.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/intune-planning-guide.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/intune-planning-guide.md b/intune/intune-service/fundamentals/intune-planning-guide.md\nindex f2c4ecfd81..7e3412d66a 100644\n--- a/intune/intune-service/fundamentals/intune-planning-guide.md\n+++ b/intune/intune-service/fundamentals/intune-planning-guide.md\n@@ -254,7 +254,7 @@ As a best practice, always assume data will leave the device. Be sure your track\n \n Intune can manage desktop computers running Windows. The Windows client OS includes built-in modern device management features, and removes dependencies on local Active Directory (AD) group policy. You get the benefits of the cloud when creating rules and settings in Intune, and deploying these policies to all your Windows client devices, including desktop computers and PCs.\n \n-For more information, go to [Guided scenario - Cloud-managed Modern Desktop](guided-scenarios-cloud-managed-pc.md).\n+For more information, go to [Windows client cloud config setup guide](cloud-configuration-setup-guide.md).\n \n If your Windows devices are currently managed using Configuration Manager, you can still enroll these devices in Intune. This approach is called **co-management**. Co-management offers many benefits, including running remote actions on the device (restart, remote control, factory reset), Conditional Access with device compliance, and more. You can also cloud-attach your devices to Intune.\n \n@@ -401,8 +401,6 @@ Some considerations:\n \n     You can also create an Intune policy based on your imported settings. For more information, go to [Create a settings catalog policy using your imported GPOs](../configuration/group-policy-analytics-migrate.md).\n \n-  - **Guided scenarios**: [Guided scenarios](guided-scenarios-overview.md) are a customized series of steps focused on end-to-end use cases. These scenarios automatically include policies, apps, assignments, and other management configurations.\n-\n - **Create a policy baseline** that includes the minimum of your goals. For example:\n \n   - Secure e-mail: At a minimum, you might want to:\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/intune-planning-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-planning-guide",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/intune-planning-guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-planning-guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/manage-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/fundamentals/manage-devices.md b/intune/intune-service/fundamentals/manage-devices.md\nindex f2961aa999..0d414e0196 100644\n--- a/intune/intune-service/fundamentals/manage-devices.md\n+++ b/intune/intune-service/fundamentals/manage-devices.md\n@@ -114,12 +114,11 @@ In Intune, some common security tasks include:\n \n - **Use security baselines** on your Windows devices. Security baselines are preconfigured settings that you can deploy to your devices. These baseline settings focus on security at a granular level and can also be changed to meet any organization specific requirements.\n \n-  If you're not sure where to start, then look at security baseline and the built-in guided scenarios.\n+  If you're not sure where to start, then look at security baselines.\n \n   For more specific information, go to:\n \n   - [Use security baselines to configure Windows devices in Intune](../protect/security-baselines.md)\n-  - [Guided scenarios overview](guided-scenarios-overview.md)\n \n - **Manage software updates, encrypt hard disks, configure built-in firewalls**, and more using built-in policy settings. You can also use Windows Autopatch for automatic patching of Windows, including Windows quality updates and Windows feature updates.\n \n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/manage-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/manage-devices",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/manage-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/manage-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 10,
+      "changes": 10,
+      "patch": "diff --git a/intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md b/intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md\nindex 5287308064..16c2466cf4 100644\n--- a/intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md\n+++ b/intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md\n@@ -208,16 +208,6 @@ Follow the steps below to better understand Intune in the Microsoft Intune admin\n \n     For more information, see [How to get support in Microsoft Intune](../../fundamentals/it-pro-support/get-support-admin-center.md).\n \n-15. From the navigation pane, select **Troubleshooting + support** > **Guided scenarios** to display available Intune guided scenarios.\n-\n-    A guided scenario is a customized series of steps centered around one end-to-end use-case. Common scenarios are based on the role an admin, user, or device plays in your organization. These roles typically require a collection of carefully orchestrated profiles, settings, applications, and security controls to provide the best user experience and security.\n-\n-    If you are not familiar with all the steps and resources needed to implement a particular Intune scenario, guided scenarios may be used as your starting point.\n-\n-    :::image type=\"content\" alt-text=\"Screenshot of the Microsoft Intune admin center - Guided scenarios.\" source=\"./media/tutorial-walkthrough-endpoint-manager/tutorial-walkthrough-mem-15.png\" lightbox=\"./media/tutorial-walkthrough-endpoint-manager/tutorial-walkthrough-mem-15.png\":::\n-\n-    For more information about guided scenarios, see [Guided scenarios overview](guided-scenarios-overview.md).\n-\n ## Configure the Microsoft Intune admin center\n \n Microsoft Intune admin center allows you to customize and configure the view of the portal.\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/frontline-worker/frontline-worker-overview.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 5,
+      "changes": 9,
+      "patch": "diff --git a/intune/solutions/frontline-worker/frontline-worker-overview.md b/intune/solutions/frontline-worker/frontline-worker-overview.md\nindex 2a07929c6e..de4b49055e 100644\n--- a/intune/solutions/frontline-worker/frontline-worker-overview.md\n+++ b/intune/solutions/frontline-worker/frontline-worker-overview.md\n@@ -59,13 +59,12 @@ Intune has built-in features that can be used for frontline worker devices, incl\n \n - **[Windows cloud configuration](../../intune-service/fundamentals/cloud-configuration.md)**\n \n-  This feature is a guided scenario and can turn a Windows client device into a cloud-optimized device. It simplifies the devices, and secures them with Microsoft-recommended security features.\n+  This feature can turn a Windows client device into a cloud-optimized device. It simplifies the devices, and secures them with Microsoft-recommended security features.\n \n-  For more information on this guided scenario and the other guided scenarios available, go to:\n+  For more information, go to:\n \n-  - [Guided scenario - Windows in cloud configuration](../../intune-service/fundamentals/cloud-configuration.md)\n-  - [Step-by-step guide - Windows in cloud configuration](../../intune-service/fundamentals/cloud-configuration-setup-guide.md)\n-  - [Intune guided scenarios overview](../../intune-service/fundamentals/guided-scenarios-overview.md)\n+  - [Windows in cloud configuration overview](../../intune-service/fundamentals/cloud-configuration.md)\n+  - [Step-by-step setup guide](../../intune-service/fundamentals/cloud-configuration-setup-guide.md)\n \n - **[Remote Help](../../intune-service/fundamentals/remote-help.md)**\n \n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitMessage": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T09:38:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/frontline-worker/frontline-worker-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/frontline-worker/frontline-worker-overview",
+      "firstSeenAt": "2026-03-20T14:38:49.000Z",
+      "eventId": "intune-docs:9cbbc96952010a0c5290ceba5716b88430782ae7:modified:intune/solutions/frontline-worker/frontline-worker-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "29654118 - 2603: Deprecate guided scenarios, clean up cross-references",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/frontline-worker/frontline-worker-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 118,
+      "changes": 118,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md b/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md\ndeleted file mode 100644\nindex 218721a8e9..0000000000\n--- a/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md\n+++ /dev/null\n@@ -1,120 +0,0 @@\n----\n-title: Guided Scenario - Cloud-Managed Modern Desktop\n-description: Learn about the guided scenario to set up and configure a basic Modern Desktop from the Microsoft 365 Device Management portal.\n-author: nicholasswhite\n-ms.author: nwhite\n-ms.date: 04/17/2024\n-ms.topic: article\n-ms.reviewer: dagerrit\n-ms.collection:\n-- M365-identity-device-management\n-- intune-scenario\n----\n-\n-# Guided Scenario - Cloud-Managed Modern Desktop\n-\n-[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n-\n-The modern desktop is the state-of-the-art productivity platform for the Information Worker. Microsoft 365 Apps and Windows are the core components of the modern desktop along with the latest security baselines for Windows and Microsoft Defender for Endpoint.\n-\n-Managing the modern desktop from the cloud brings the added benefit of internet-wide remote actions. Cloud-management utilizes the in-built Windows Mobile Device Management policies and removes dependencies on local Active Directory group policy.\n-\n-If you want to evaluate a cloud-managed modern desktop in your own organization, this guided scenario predefines all the necessary configurations for a basic deployment. In this guided scenario, you'll create a secure environment where you can try out Intune device management capabilities.\n-\n-## Prerequisites\n-\n-- [Set the MDM authority to Intune](../fundamentals/mdm-authority-set.md#set-mdm-authority-to-intune) - The mobile device management (MDM) authority setting determines how you manage your devices. As an IT admin, you must set an MDM authority before users can enroll devices for management.\n-- A Microsoft Intune license (such as Microsoft 365 Business Premium, Microsoft 365 E3,  or Microsoft 365 E5). For more licensing information, see [Microsoft Intune licensing](../../fundamentals/licensing/index.md).\n-- Windows device (registered with Windows Autopilot for best end-user experience)\n-- Intune administrator permissions required to complete this guided scenario:\n-  - Device configuration Read, Create, Delete, Assign and Update\n-  - Enrollment Programs Read device, Read profile, Create profile, Assign profile, Delete profile\n-  - Mobile apps Read, Create, Delete, Assign and Update\n-  - Organization Read and Update\n-  - Security baselines Read, Create, Delete, Assign and Update\n-  - Policy Sets Read, Create, Delete, Assign and Update\n-\n-## Step 1 - Introduction\n-\n-Using this guided scenario, you'll set up a test user, enroll a device in Intune, and deploy the device with Intune-recommended settings, as well as Windows and Microsoft 365 Apps. Your device will also be configured for Microsoft Defender for Endpoint, if you choose to [enable this protection in Intune](../protect/microsoft-defender-integrate.md#connect-microsoft-defender-for-endpoint-to-intune). The user you set up and the device that you enroll will be added to a new security groups and will be configured with the recommended settings for security and productivity.\n-\n-### What you will need to continue\n-\n-You must supply your test device and test user in this guided scenario. Make sure you complete the following tasks:\n-\n-- Set up a test user account in Microsoft Entra ID.\n-- Create a test device running Windows.\n-- (Optional) [Register the test device with Windows Autopilot](/autopilot/add-devices#add-devices).\n-- (Optional) Enable [branding to your organization's Microsoft Entra sign-in page](/azure/active-directory/fundamentals/customize-branding).\n-\n-## Step 2 - User\n-\n-Choose a user to set up on the device. This person will be the primary user of the device.\n-\n-If you want to add more users or devices to this configuration, add the users and devices to the Microsoft Entra security groups generated by the wizard. Unlike other Guided Scenarios, you don't need to run the wizard more than once since the configuration isn't customizable. Just add more users and devices to the Microsoft Entra groups created. After completing the wizard, you'll be able to view the group generated with the recommended policies deployed.\n-\n-## Step 3 - Device\n-\n-Make sure your device is running Windows.  The primary user will need to set up the device when they receive it. There are two setup options available to the user.\n-\n-### Option A – Windows Autopilot\n-\n-Windows Autopilot automates the configuration of new devices so that users can set up them up out of box, without IT assistance. If your device is already registered with Windows Autopilot, select it by its serial number. For more information about using Windows Autopilot, see [Register device with Windows Auto pilot (Optional)](../fundamentals/guided-scenarios-cloud-managed-pc.md#register-device-with-windows-autopilot-optional).\n-\n-### Option B – Manual device enrollment\n-\n-Users will manually set up and enroll their new devices in mobile device management. After you complete this scenario, reset the device and give the primary user the enrollment instructions for Windows devices. For more information, see [Join a Windows device to Microsoft Entra ID during the first-run experience](/azure/active-directory/devices/azuread-joined-devices-frx#joining-a-device).\n-\n-## Step 4 - Review + create\n-\n-The final step allows you to review a summary of the settings you configured. Once you have reviewed your choices click **Deploy** to complete the guided scenario. Once the guided scenario is complete, a table of resources is displayed. You can edit these resources later, however once you leave the summary view, the table won't be saved.\n-\n-> [!IMPORTANT]\n-> Once the guided scenario is complete it will display a summary. You can modify the resources listed in the summary later, however the table displaying these resources will not be saved.\n-\n-### Verification\n-\n-1. Verify that the selected is assigned MDM user scope\n-    - Ensure [MDM User scope](../enrollment/windows-enroll.md#enable-windows-automatic-enrollment) is:\n-        - Set to **All** for the **Microsoft Intune** app or,\n-        - Set to **Some**. Also, add the user group created by this guided scenario.\n-2. Verify that the selected user is able to join devices to Microsoft Entra ID.\n-    - Ensure Microsoft Entra join is:\n-        - Set to **All** or,\n-        - Set to **Some**. Also add the user group created by this guided scenario.\n-3. Follow the appropriate steps on the device to join it to Microsoft Entra ID based on the following:\n-    - With Windows Autopilot. For more information, see [Windows Autopilot user-driven mode](/windows/deployment/windows-autopilot/user-driven).\n-    - Without Windows Autopilot: For more information, see [Join a Windows device to Microsoft Entra ID during the first-run experience](/azure/active-directory/devices/azuread-joined-devices-frx#joining-a-device).\n-\n-### What happens when I click Deploy?\n-The user and device will be added to new security groups. They'll also be configured with Intune-recommended settings for security and productivity at work or school. After the user joins the device to Microsoft Entra ID, additional apps and settings will be added to the device. To learn more about these additional configurations, see [Quickstart: Enroll your Windows device](../enrollment/quickstart-enroll-windows-device.md).\n-\n-## Additional information\n-\n-### Register device with Windows Autopilot (Optional)\n-\n-You can optionally choose to use a registered Windows Autopilot device. For Windows Autopilot, this guided scenario will assign a Windows Autopilot deployment profile and enrollment status page profile. The Windows Autopilot deployment profile will be configured as follows:\n-\n-- User-driven mode – that is, require the end user to enter username and password during Windows setup.\n-- Microsoft Entra join.\n-- Customize Windows setup:\n-  - Hide the Microsoft Software licensing terms screen\n-  - Hide Privacy settings\n-  - Create the user's local profile without local admin privileges\n-  - Hide the Change Account options on the corporate sign-in page\n-\n-The Enrollment status page will be configured to be enabled only for Windows Autopilot devices and won't block waiting for all apps to be installed.\n-\n-The guided scenario will also assign the user to the selected Windows Autopilot device for a personalized setup experience.\n-\n-#### Post-requisites\n-\n-Once the user joins the device to Microsoft Entra ID, the following configurations will be applied to the device:\n-\n-1. Microsoft 365 Apps will be automatically installed on the Cloud-managed PC. It includes the applications that you're familiar with, including Access, Excel, OneNote, Outlook, PowerPoint, Publisher, Skype for Business, and Word. You can use these applications to connect with Microsoft 365 services such as SharePoint Online, Exchange Online, and Skype for Business Online. Microsoft 365 Apps is updated regularly with new features, unlike nonsubscription versions of Office. For a list of new features, see What's new in Microsoft 365.\n-2. Windows security baselines will be installed on the Cloud-managed PC. If you have setup Microsoft Defender for Endpoint, the guided scenario will also configure baseline settings for Defender. Defender for Endpoint provides a new post-breach layer of protection to the Windows security stack. With a combination of client technology built into Windows and a robust cloud service, it will help detect threats that have made it past other defenses.\n-\n-## Next steps\n-\n-- If you're using Microsoft Defender Advanced Threat Detection, create an [Intune Compliance policy](../protect/microsoft-defender-integrate.md#create-and-assign-compliance-policy-to-set-device-risk-level) to require Defender threat analysis to meet compliance.\n-- Create a [Device-based Conditional Access policy](../protect/microsoft-defender-integrate.md#create-a-conditional-access-policy) to block access if the device doesn't meet Intune compliance.\n",
+      "baseCommitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitSha": "d4d55d936cc986d0e4f7efbded24e4a46f0b95c0",
+      "commitMessage": "Remove guided scenario articles, add redirects, clean up TOC",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T10:02:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc",
+      "firstSeenAt": "2026-03-20T15:02:30.000Z",
+      "eventId": "intune-docs:d4d55d936cc986d0e4f7efbded24e4a46f0b95c0:removed:intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Remove guided scenario articles, add redirects, clean up TOC",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-edge.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 82,
+      "changes": 82,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-edge.md b/intune/intune-service/fundamentals/guided-scenarios-edge.md\ndeleted file mode 100644\nindex a4116e0a0f..0000000000\n--- a/intune/intune-service/fundamentals/guided-scenarios-edge.md\n+++ /dev/null\n@@ -1,84 +0,0 @@\n----\n-title: Guided Scenario - Deploy Microsoft Edge for Mobile\n-description: Learn about the guided scenario to deploy Microsoft Edge for Mobile from the Microsoft 365 Device Management portal.\n-author: nicholasswhite\n-ms.author: nwhite\n-ms.date: 02/24/2025\n-ms.topic: install-set-up-deploy\n-ms.reviewer: dagerrit\n-ms.collection:\n-- M365-identity-device-management\n-- intune-scenario\n----\n-\n-# Guided Scenario - Deploy Microsoft Edge for Mobile\n-\n-[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n-\n-By following this [guided scenario](guided-scenarios-overview.md), you can assign the Microsoft Edge app to your users on iOS/iPadOS or Android devices at your organization. Assigning this app allows your users to seamlessly browse content using their corporate devices.\n-\n-Microsoft Edge lets users cut through the clutter of the web with built-in features that help them consolidate, arrange, and manage work content. Users of iOS/iPadOS and Android devices who sign in with their corporate Microsoft Entra accounts in the Microsoft Edge application will find their browser preloaded with workplace **Favorites** and website filters you define.\n-\n-> [!NOTE]\n-> If you have blocked users from enrolling either iOS/iPadOS or Android devices, this scenario won't enable enrollment, and the users will need to install Microsoft Edge for themselves.\n-The following Microsoft Edge enterprise features that are enabled by Intune policies include:\n-\n-- **Dual-Identity** - Users can add both a work account, as well as a personal account, for browsing. There's complete separation between the two identities, which is similar to the architecture and experience in Microsoft 365 and Outlook. Intune admins will be able to set the desired policies for a protected browsing experience within the work account.\n-- **Intune app protection policy integration** - Admins can now target app protection policies to Microsoft Edge, including the control of cut, copy, and paste, preventing screen captures, and ensuring that user-selected links open only in other managed apps.\n-- **Azure Application Proxy integration** - Admins can control access to SaaS apps and web apps, helping ensure browser-based apps only run in the secure Microsoft Edge browser, whether end users connect from the corporate network or connect from the Internet.\n-- **Managed Favorites and Home Page shortcuts** - For ease of access, admins can set URLs to appear under favorites when end users are in their corporate context. Admins can set a homepage shortcut, which will show as the primary shortcut when the corporate user opens a new page or a new tab in Microsoft Edge.\n-\n-## Prerequisites\n-\n-- [Set the MDM authority to Intune](mdm-authority-set.md#set-mdm-authority-to-intune) - The mobile device management (MDM) authority setting determines how you manage your devices. As an IT admin, you must set an MDM authority before users can enroll devices for management.\n-- Intune Admin permissions needed:\n-  - Managed apps read, create, delete, and assign permissions\n-  - Mobile apps read, create, and assign permissions\n-  - Policy sets read, create, and assign permissions\n-  - Organization read, update permission\n-\n-## Step 1 - Introduction\n-\n-By following the **Deploy Microsoft Edge for Mobile** guided scenario, you'll set up a basic deployment of Microsoft Edge for a selected group of iOS/iPadOS and Android users. This deployment will implement **Dual-Identity** and **Managed Favorites and Home Page shortcuts**. In addition, devices enrolled by the selected users will automatically have the Microsoft Edge app installed by Intune. This automatic installation will occur on all user-driven enrollment types, which include:\n-\n-- iOS/iPadOS enrollment through the Company Portal app\n-- iOS/iPadOS user-affinity enrollment through Apple Business Manager\n-- Legacy Android enrollment through the Company Portal App\n-\n-This guided scenario will automatically enable **MyApps** to appear in the Microsoft Edge favorites and configure the browser with the same branding you have set for the Intune Company Portal app.\n-\n-### What you will need to continue\n-\n-We'll ask you about the workplace favorites your users need, and the filters you require for web browsing. Make sure you complete the following tasks before you continue:\n-\n-- Add users to Microsoft Entra groups. For more information, see [Create a basic group and add members using Microsoft Entra ID](/entra/fundamentals/how-to-manage-groups).\n-- Enroll iOS/iPadOS or Android devices in Intune. For more information, see [Device enrollment](deployment-guide-enrollment.md).\n-- Gather a list of workplace favorites to add in Microsoft Edge.\n-- Gather a list of website filters to enforce in Microsoft Edge.\n-\n-## Step 2 - Basics\n-\n-In this step, you must enter a name and description for your new Microsoft Edge policies. These policies can be referenced later if you need to change the assignments and configurations. The guided scenario will add and assign both a Microsoft Edge iOS/iPadOS app for your iOS/iPadOS devices and a Microsoft Edge Android app for your Android devices. Also, this step will create configuration policies for these apps.\n-\n-## Step 3 - Configuration\n-\n-In this step, the guided scenario will configure Microsoft Edge to show all the other apps assigned to users through Intune and share the same branding as the Microsoft Intune Company Portal app. You may further configure Microsoft Edge with a **Home page shortcut URL**, a list of **Managed Bookmarks**, and a list of **Blocked URLs**. The **Home page shortcut URL** will appear to users as the first icon beneath the search bar when they open a new tab in Microsoft Edge on their device. The **Managed Bookmarks** are a list of favorite URLs for your users to have available when using Microsoft Edge in their work context. The **Blocked URLs** specify the sites that are blocked for your users while in their work context. All other sites will be allowed.\n-\n-## Step 4 - Assignments\n-\n-In this step, you can choose the user groups that you want to include to have Microsoft Edge mobile configured for work. Microsoft Edge will also be installed on all iOS/iPadOS and Android devices enrolled by these users.\n-\n-## Step 5 - Review + create\n-\n-The final step allows you to review a summary of the settings you configured. Once you have reviewed your choices select **Create** to complete the guided scenario.\n-\n-> [!NOTE]\n-> Microsoft Edge may take up to 12 hours to receive configuration. For more information, see [App configuration policies for Microsoft Intune](../apps/app-configuration-policies-overview.md).\n-\n-> [!IMPORTANT]\n-> Once the guided scenario is complete it will display a summary. You can modify the resources listed in the summary later, however the table displaying these resources won't be saved.\n-\n-## Next steps\n-\n-- Enhance the security of using Microsoft Edge by setting up Intune app protection policy integration. For more information, see [Create Intune app protection policies](../apps/manage-microsoft-edge.md#create-intune-app-protection-policies).\n-- If you have intranet sites to include, explore protecting access with Azure Application Proxy integration. For more information, see [Manage proxy configuration](../apps/manage-microsoft-edge.md#manage-proxy-configuration).\n",
+      "baseCommitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitSha": "d4d55d936cc986d0e4f7efbded24e4a46f0b95c0",
+      "commitMessage": "Remove guided scenario articles, add redirects, clean up TOC",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T10:02:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-edge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-edge",
+      "firstSeenAt": "2026-03-20T15:02:30.000Z",
+      "eventId": "intune-docs:d4d55d936cc986d0e4f7efbded24e4a46f0b95c0:removed:intune/intune-service/fundamentals/guided-scenarios-edge.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Remove guided scenario articles, add redirects, clean up TOC",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-edge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 123,
+      "changes": 123,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md b/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md\ndeleted file mode 100644\nindex ca7207713e..0000000000\n--- a/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md\n+++ /dev/null\n@@ -1,125 +0,0 @@\n----\n-title: Guided Scenario - Secure Microsoft Office Mobile Apps\n-description: Learn about the guided scenario to deploy secure Microsoft Office mobile apps from the Microsoft 365 Device Management portal.\n-author: nicholasswhite\n-ms.author: nwhite\n-ms.date: 03/28/2024\n-ms.topic: article\n-ms.reviewer: ilwu\n-ms.collection:\n-- M365-identity-device-management\n-- intune-scenario\n----\n-\n-# Guided Scenario - Secure Microsoft Office Mobile Apps\n-\n-[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n-\n-By following this guided scenario in the Device Management portal, you can enable basic Intune app protection on iOS/iPadOS and Android devices.\n-\n-The app protection that you enable will enforce the following actions:\n-\n-- Encrypt work files.\n-- Require a PIN to access work files.\n-- Require the PIN to be reset after five failed attempts.\n-- Block work files from being backed up in iTunes, iCloud, or Android backup services.\n-- Require work files to only be saved to OneDrive or SharePoint.\n-- Prevent protected apps from loading work files on jailbroken or rooted devices.\n-- Block access to work files if the device is offline for 720 minutes.\n-- Remove work files if device is offline for 90 days.\n-\n-## Background\n-\n-Office mobile apps, and Microsoft Edge for Mobile, support dual identity. Dual identity allows the apps to manage work files separately from personal files.\n-\n-![Image of corporate data versus personal data](./media/guided-scenarios-office-mobile/guided-scenarios-office-mobile-01.png)\n-\n-[Intune app protection policies](../apps/app-protection-policy.md) help protect your work files on devices that are enrolled into Intune. You can also use app protection policies on employee owned devices that aren't enrolled for management in Intune. In this case, even though your company doesn't manage the device, you still need to make sure that work files and resources are protected.\n-\n-You can use App protection policies to prevent users from saving work files in unprotected locations. You can also restrict data movement to other apps that aren't protected by App protection policies. App protection policy settings include:\n-\n-- Data relocation policies like **Save copies of org data**, and **Restrict cut, copy, and paste**.\n-- Access policy settings to require simple PIN for access, and block managed apps from running on jailbroken or rooted devices.\n-\n-App-based Conditional Access and client app management add a security layer by making sure only client apps that support Intune app protection policies can access Exchange online and other Microsoft 365 services.\n-\n-You can block the built-in mail apps on iOS/iPadOS and Android when you allow only the Microsoft Outlook app to access Exchange Online. Additionally, you can block apps that don't have Intune app protection policies applied from accessing SharePoint Online.\n-\n-In this example, the admin has applied app protection policies to the Outlook app followed by a Conditional Access rule that adds the Outlook app to an approved list of apps that can be used when accessing corporate e-mail.\n-\n-![Outlook app Conditional Access process flow](./media/guided-scenarios-office-mobile/guided-scenarios-office-mobile-02.png)\n-\n-## Prerequisites\n-\n-You'll need the follow Intune admin permissions:\n-\n-- Managed apps read, create, delete, and assign permissions\n-- Policy sets read, create, and assign permissions\n-- Organization read permission\n-\n-## Step 1 - Introduction\n-\n-By following the **Intune App Protection** guided scenario, you'll prevent data from being shared or leaked outside of your organization.\n-\n-Assigned iOS/iPadOS and Android users must enter a PIN each time they open an Office app. After five failed PIN attempts, users must reset their PIN. If you already require a device PIN, users won't be impacted.​\n-\n-### What you will need to continue\n-\n-We'll ask you about the apps your users need, and what's needed to access them. Make sure you have the following information handy:\n-\n-- List of Office apps approved for corporate use.\n-- Any PIN requirements for launching approved apps on nonmanaged devices.\n-\n-## Step 2 - Basics\n-\n-In this step, you must enter a **Prefix** and **Description** for your new App protection policy. As you add the **Prefix**, the details related to the resources that the guided scenario creates will be updated. These details will make it easy to find your policies later if you need to change the assignments and configuration.\n-\n-> [!TIP]\n-> Consider making a note of the resources that will be created, so that you can refer to them later.\n-\n-## Step 3 - Apps\n-\n-To help you get started, this guided scenario pre-selects the following mobile apps to protect on iOS/iPadOS and Android devices:\n-\n-- Microsoft Excel\n-- Microsoft Word\n-- Microsoft Teams\n-- Microsoft Edge\n-- Microsoft PowerPoint\n-- Microsoft Outlook\n-- Microsoft OneDrive\n-\n-This guided scenario will also configure these apps to open weblinks in Microsoft Edge to guarantee work sites are opened in a protected browser.\n-\n-Modify the list of policy-managed apps that you want to protect. Add or remove apps from this list.\n-\n-When you've selected the apps, click **Next**.\n-\n-## Step 4 - Configuration\n-\n-In this step, you must configure the requirements for accessing and sharing the corporate files and emails in these apps. By default, users can save data to your organization's OneDrive and SharePoint accounts.\n-\n-:::image type=\"content\" border=\"true\" source=\"./media/guided-scenarios-office-mobile/guided-scenarios-office-mobile-03.png\" alt-text=\"Screenshot of the App protection settings.\":::\n-\n-The following settings are applied when using the **Enhanced data protection** setting shown above.\n-\n-| Setting | Description | Value |\n-|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|\n-|Timeout (minutes of inactivity) |Specify a time in minutes after which either a passcode or numeric (as configured) PIN will override the use of a biometric. This timeout value should be greater than the value specified under 'Recheck the access requirements after (minutes of inactivity)'. Default value: 30 | 720\n-\n-## Step 5 - Assignments\n-\n-In this step, you can choose the user groups that you want to include to ensure that they have access to your corporate data. App protection is assigned to users, and not devices, so your corporate data will be secure regardless of the device used and its enrollment status.\n-\n-Users without app protection policies and Conditional Access settings assigned will be able to save data from their corporate profile to personal apps and nonmanaged local storage on their mobile devices. They could also connect to corporate data services, such as Microsoft Exchange, with personal apps.\n-\n-## Step 6 - Review + create\n-\n-The final step allows you to review a summary of the settings you configured. Once you have reviewed your choices click **Create** to complete the guided scenario. Once the guided scenario is complete, a table of resources is displayed. You can edit these resources later, however once you leave the summary view, the table won't be saved.\n-\n-> [!IMPORTANT]\n-> Once the guided scenario is complete it will display a summary. You can modify the resources listed in the summary later, however the table displaying these resources will not be saved.\n-\n-## Next steps\n-\n-- Enhance the security of work files by assigning users an App-based Conditional Access policy to protect cloud services from sending work files to unprotected apps. For more information, see [Set up app-based Conditional Access policies with Intune](../protect/app-based-conditional-access-intune-create.md).\n",
+      "baseCommitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitSha": "d4d55d936cc986d0e4f7efbded24e4a46f0b95c0",
+      "commitMessage": "Remove guided scenario articles, add redirects, clean up TOC",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T10:02:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-office-mobile",
+      "firstSeenAt": "2026-03-20T15:02:30.000Z",
+      "eventId": "intune-docs:d4d55d936cc986d0e4f7efbded24e4a46f0b95c0:removed:intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Remove guided scenario articles, add redirects, clean up TOC",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-office-mobile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/guided-scenarios-overview.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 72,
+      "changes": 72,
+      "patch": "diff --git a/intune/intune-service/fundamentals/guided-scenarios-overview.md b/intune/intune-service/fundamentals/guided-scenarios-overview.md\ndeleted file mode 100644\nindex abb8c219eb..0000000000\n--- a/intune/intune-service/fundamentals/guided-scenarios-overview.md\n+++ /dev/null\n@@ -1,74 +0,0 @@\n----\n-title: Guided Scenarios Overview\n-description: Learn about the Intune guided scenarios available in the Microsoft 365 Device Management portal.\n-author: nicholasswhite\n-ms.author: nwhite\n-ms.date: 05/16/2024\n-ms.topic: overview\n-ms.reviewer: dagerrit\n-ms.collection:\n-- M365-identity-device-management\n----\n-\n-# Intune Guided Scenarios Overview\n-\n-[!INCLUDE [guided-scenarios-deprecation](../includes/guided-scenarios-deprecation.md)]\n-\n-A guided scenario is a customized series of steps centered around one end-to-end use-case. Common scenarios are based on the role an admin, user, or device plays in your organization. These roles typically require a collection of carefully orchestrated profiles, settings, applications, and security controls. The goal is to provide the best user experience and security.\n-\n-If you're not familiar with the steps and resources to implement a particular scenario, then start with guided scenarios. The guided scenarios assemble policies, apps, assignments, and other management configurations automatically. Additionally, the guided scenarios may deliberately omit certain options not applicable or uncommon for the given scenario.\n-\n-Guided scenarios aren't a different management space from Intune's normal workflows. These workflows are used with Intune's existing workflows for profiles, apps, and policies. Upon completing a guided scenario, all future management of the scenario must take place in the existing menus for policies, apps, and profiles. A guided scenario doesn't save a \"guided scenario\" resource type, or track future changes made to the resources. Every resource created by a guided scenario shows in its respective workload. All options, even those options omitted in the guided scenario, are available for editing in the existing menus.\n-\n-## Types of guided scenarios\n-\n-For simplicity, all guided scenarios omit scoping features, such as scope tags, exclusion groups, and virtual group assignments. All resources created by a guided scenario inherit every scope tag of the admin that completes the scenario. Some scenarios offer some customization for common settings to cover closely related scenarios. These scenarios support group assignment to inclusion groups only. For other guided scenarios, the entire scenario guarantees one consistent experience by offering no customization and automatically generates a new group to receive all assignments. Once the guided scenario completes, you can use more assignment features directly through existing policy, app, and profile workloads.\n-\n-The following guided scenarios are available:\n-\n-- [Secure Office apps for mobile](guided-scenarios-office-mobile.md)\n-- [Deploy Edge for mobile](guided-scenarios-edge.md)\n-- [Set up a test device to try out cloud management](guided-scenarios-cloud-managed-pc.md)\n-- [Deploy Windows in cloud configuration](cloud-configuration.md)\n-- [Windows 365 Boot](/windows-365/enterprise/windows-365-boot-guide)\n-\n-## Guided scenario functionality\n-\n-Guided scenarios offer specific functionality. The following details help explain what you can and can't do while following a guided scenario.\n-\n-### Launching\n-\n-All guided scenarios are available from the **[Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431)** > **Troubleshooting + support** > **Guided scenarios**.\n-\n-Guided scenarios start with an introduction. It explains the purpose of the scenario, and any prerequisites required to complete the setup. At this point, your admin permissions are checked to verify you have all the necessary privileges to complete the scenario.\n-\n-After all prerequisite checks pass, the scenario offers appropriate settings for customization. Guided scenarios only require input for a minimum number of settings. They hide uncommon or advanced settings until needed, or based on special circumstances. Each guided scenario links to documentation that provides more details.\n-\n-After all required settings are entered, the guided scenario shows a summary of the settings entered and the resources the scenario requires. At this point, nothing is saved unless explicitly noted.\n-\n-The next step is to deploy the scenario. Deploying a scenario creates and saves all necessary resources and selected settings. The time it takes to complete a deployment varies by scenario. Once the deployment is complete, the guided scenario shows a list of the created resources. It also has links to each resource's management view, the resource's normal workload, and documentation.\n-\n-> [!IMPORTANT]\n-> The list presented at the end of the guided scenario isn't saved, and is only viewable while the guided scenario is open.\n-\n-If there's an error deploying the scenario, all changes are reverted.\n-\n-### Editing\n-\n-Guided scenarios can't be used to edit existing resources. Once created, all resources, groups, and assignments must be edited using the existing workloads.\n-\n-### Monitoring\n-\n-Guided scenarios can't be used to monitor existing resources apart from the initial creation process. Once created, all resources, groups, and assignments must be monitored using the existing workloads.\n-\n-### Retiring\n-\n-Guided scenarios can't be used to retire existing resources. Once created, all resources, groups, and assignments must be retired using the existing workloads.\n-\n-### Updating\n-\n-As technology evolves, Intune may update a guided scenario to improve the user experience, security, or other aspects of the scenario. This update only affects new guided scenario deployments. Intune won't update resources previously generated by the guided scenario.\n-\n-## Next steps\n-\n-To get running quickly on Microsoft Intune, step through the Intune guided scenarios. If you're new to Intune, set up your Intune tenant by following the [free trial quickstart](free-trial-sign-up.md).\n",
+      "baseCommitSha": "9cbbc96952010a0c5290ceba5716b88430782ae7",
+      "commitSha": "d4d55d936cc986d0e4f7efbded24e4a46f0b95c0",
+      "commitMessage": "Remove guided scenario articles, add redirects, clean up TOC",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-20T10:02:30-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/guided-scenarios-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/guided-scenarios-overview",
+      "firstSeenAt": "2026-03-20T15:02:30.000Z",
+      "eventId": "intune-docs:d4d55d936cc986d0e4f7efbded24e4a46f0b95c0:removed:intune/intune-service/fundamentals/guided-scenarios-overview.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Remove guided scenario articles, add redirects, clean up TOC",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 6,
+    "totalFiles": 19,
+    "authors": [
+      "Arnab Biswas [MSFT]",
+      "Brent Dunsire",
+      "Nicholas S. White"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 15 updated, and 4 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/lob-apps-ios.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-cloud-managed-p",
+        "sourceFiles": [
+          "intune/intune-service/apps/lob-apps-ios.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/fundamentals/in-development.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+          "intune/intune-service/fundamentals/cloud-configuration.md",
+          "intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+          "intune/intune-service/fundamentals/guided-scenarios-edge.md",
+          "intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+          "intune/intune-service/fundamentals/guided-scenarios-overview.md",
+          "intune/intune-service/fundamentals/help-desk-operators.md",
+          "intune/intune-service/fundamentals/intune-planning-guide.md",
+          "intune/intune-service/fundamentals/manage-devices.md",
+          "intune/intune-service/fundamentals/tutorial-walkthrough-endpoint-manager.md",
+          "intune/intune-service/fundamentals/guided-scenarios-cloud-managed-pc.md",
+          "intune/intune-service/fundamentals/guided-scenarios-edge.md",
+          "intune/intune-service/fundamentals/guided-scenarios-office-mobile.md",
+          "intune/intune-service/fundamentals/guided-scenarios-overview.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/frontline-worker/frontline-worker-overview.md.",
+        "sourceFiles": [
+          "intune/solutions/frontline-worker/frontline-worker-overview.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/lob-apps-ios.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/guided-scenarios-cloud-managed-p"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/frontline-worker/frontline-worker-overview.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

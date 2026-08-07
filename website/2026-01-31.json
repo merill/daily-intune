@@ -1,0 +1,148 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/cloud-pki/renew-ca.md",
+      "status": "added",
+      "additions": 47,
+      "deletions": 0,
+      "changes": 47,
+      "patch": "diff --git a/intune/cloud-pki/renew-ca.md b/intune/cloud-pki/renew-ca.md\nnew file mode 100644\nindex 0000000000..84231e3c06\n--- /dev/null\n+++ b/intune/cloud-pki/renew-ca.md\n@@ -0,0 +1,47 @@\n+---\n+title: Cloud PKI CA Expiration\n+description: Learn how to renew a certificate authority (CA) in Microsoft Cloud PKI to maintain continuous certificate issuance.\n+ms.date: 01/31/2026\n+ms.topic: how-to\n+---\n+\n+# Microsoft Cloud PKI CA expiration\n+\n+When a Certificate Authority (CA) in Cloud PKI approaches its expiration date, take action to ensure continued certificate issuance and avoid service disruptions. This article explains how to renew your CA and update SCEP certificate profiles in Microsoft Intune. Follow these steps to maintain secure device connectivity and uninterrupted access to corporate resources.\n+\n+Renewing a CA is a customer-specific action. Microsoft can't automatically update your CA or SCEP profiles.\n+\n+If you need assistance, contact Microsoft support or your account representative.\n+\n+## Action required: Cloud PKI Certificate Authority expiring soon - Create new issuing CA and update SCEP profiles to prevent service disruption\n+\n+### User impact\n+\n+If you don't take action, SCEP certificate profiles that use the expiring Certificate Authority (CA) can't issue new certificates after the CA's expiration date. This condition might result in device connectivity loss, inability to access corporate resources, or failed certificate-based authentication for affected users.\n+\n+## Action needed\n+\n+To avoid service disruption, Intune administrators must create a new issuing CA and update all SCEP certificate profiles that reference the expiring CA.\n+\n+- Use the same *Root CA Source* as the expiring CA.\n+- Ensure all CA properties match the expiring CA, especially Extended Key Usages and Key Sizes.\n+\n+### Update SCEP Certificate Profiles\n+\n+1. After creating the new Issuing CA, copy the SCEP URI from its properties.\n+1. For each SCEP certificate profile using the soon‑to‑expire CA, update the profile to reference the new Issuing CA's SCEP URI.\n+1. Replace the existing (expiring) Issuing CA SCEP URI with the new SCEP URI copied in step 1.\n+\n+> [!NOTE] \n+> - Don't add an additional SCEP URI. Cloud PKI doesn't support multiple SCEP URIs within a single SCEP certificate profile.\n+> - Updating the SCEP URI on a profile will not trigger a cert re-issuance.\n+\n+## Additional Diagnostics\n+\n+Review all SCEP certificate profiles to confirm they reference the new CA.\n+\n+For more information on managing CAs and SCEP profiles, refer to the Intune documentation.\n+\n+## Coming Soon\n+\n+Cloud PKI will soon provide the ability to renew an existing CA. Be sure to look for this upcoming feature at https://aka.ms/IntuneWhatsNew.\n",
+      "baseCommitSha": "ac0e4d5147f213a8c933b6161ad52069b25c52d2",
+      "commitSha": "b3547b6a3459521b32ad80f74452467e6b99de6c",
+      "commitMessage": "New article",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-31T09:03:11-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/cloud-pki/renew-ca.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/cloud-pki/renew-ca",
+      "firstSeenAt": "2026-01-31T14:03:11.000Z",
+      "eventId": "intune-docs:b3547b6a3459521b32ad80f74452467e6b99de6c:added:intune/cloud-pki/renew-ca.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "New article",
+        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/protect/epm-elevation-rules.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 4,
+      "changes": 13,
+      "patch": "diff --git a/intune/intune-service/protect/epm-elevation-rules.md b/intune/intune-service/protect/epm-elevation-rules.md\nindex dc6893e17e..d41ef7b9dd 100644\n--- a/intune/intune-service/protect/epm-elevation-rules.md\n+++ b/intune/intune-service/protect/epm-elevation-rules.md\n@@ -64,11 +64,16 @@ Each elevation rule instructs EPM on how to:\n \n   - **Automatic**: An automatic elevation happens invisibly to the user. There's no prompt, and no indication that the file is running in an elevated context.\n \n-- **Manage the behavior of child processes.** You can set the elevation behavior that applies to any child processes that the elevated process creates.\n+- **Manage the behavior of child processes.** You can control how elevation rules apply to any child processes that the elevated parent process launches.\n+\n+    - **Require rule to elevate** – Child processes must meet their own rule requirements before they can run elevated. The child process elevates according to its rule definition, including any deny rules.\n+\n+    - **Deny all** – All child processes launch without elevated context.\n+\n+    - **Allow child processes to run elevated** – Any child process launched by the elevated parent will automatically run elevated. When this option is selected, rule evaluation for the child process is skipped, including deny rules. This means a child process may run elevated even when an explicit deny rule exists for that process.\n+\n+    **Best practice:** Avoid creating overly broad elevation rules for applications that can start other processes (for example, command shells or script engines) to prevent unintended elevation.\n \n-  - **Require rule to elevate** - Configure a child processes to require its own rule before that child process can run in an elevated context.\n-  - **Deny all** - All child processes launch without elevated context.\n-  - **Allow child processes to run elevated** - Configure a child process to always run elevated.\n \n > [!NOTE]\n > For more information about creating *strong rules*, see [Defining rules for use with Endpoint Privilege Management](#defining-rules-for-use-with-endpoint-privilege-management).\n",
+      "baseCommitSha": "ac0e4d5147f213a8c933b6161ad52069b25c52d2",
+      "commitSha": "25c38ea15e91a22d78556c83095fd9dacf640bcb",
+      "commitMessage": "Clarify child process elevation behavior descriptions",
+      "commitAuthor": "MikeDano",
+      "commitDate": "2026-01-30T17:06:47-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/epm-elevation-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/epm-elevation-rules",
+      "firstSeenAt": "2026-01-31T01:06:47.000Z",
+      "eventId": "intune-docs:25c38ea15e91a22d78556c83095fd9dacf640bcb:modified:intune/intune-service/protect/epm-elevation-rules.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify child process elevation behavior descriptions",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/epm-elevation-rules.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/cloud-pki/renew-ca.md",
+      "status": "modified",
+      "additions": 34,
+      "deletions": 21,
+      "changes": 55,
+      "patch": "diff --git a/intune/cloud-pki/renew-ca.md b/intune/cloud-pki/renew-ca.md\nindex 84231e3c06..f425353a9d 100644\n--- a/intune/cloud-pki/renew-ca.md\n+++ b/intune/cloud-pki/renew-ca.md\n@@ -7,41 +7,54 @@ ms.topic: how-to\n \n # Microsoft Cloud PKI CA expiration\n \n-When a Certificate Authority (CA) in Cloud PKI approaches its expiration date, take action to ensure continued certificate issuance and avoid service disruptions. This article explains how to renew your CA and update SCEP certificate profiles in Microsoft Intune. Follow these steps to maintain secure device connectivity and uninterrupted access to corporate resources.\n+When a Microsoft Cloud PKI issuing certification authority (CA) approaches its expiration date, Intune administrators must take action to maintain certificate issuance and avoid service disruption. This article describes the steps to create a new issuing CA and update SCEP certificate profiles.\n \n-Renewing a CA is a customer-specific action. Microsoft can't automatically update your CA or SCEP profiles.\n+> [!IMPORTANT]  \n+> Renewing or replacing a CA is a customer‑managed action. Microsoft can't automatically update your Cloud PKI CA or associated SCEP certificate profiles.\n \n-If you need assistance, contact Microsoft support or your account representative.\n+If you need assistance, contact Microsoft Support or your account representative.\n \n-## Action required: Cloud PKI Certificate Authority expiring soon - Create new issuing CA and update SCEP profiles to prevent service disruption\n+## User impact\n \n-### User impact\n+If no action is taken, SCEP certificate profiles that reference the expiring CA will stop issuing new certificates after the CA expires. Devices and users may experience:\n \n-If you don't take action, SCEP certificate profiles that use the expiring Certificate Authority (CA) can't issue new certificates after the CA's expiration date. This condition might result in device connectivity loss, inability to access corporate resources, or failed certificate-based authentication for affected users.\n+- Loss of Wi‑Fi, VPN, or email connectivity  \n+- Inability to access corporate resources  \n+- Failed certificate‑based authentication  \n+\n+These impacts are consistent with known Cloud PKI expiring CA behavior.\n \n ## Action needed\n \n-To avoid service disruption, Intune administrators must create a new issuing CA and update all SCEP certificate profiles that reference the expiring CA.\n+To avoid service disruption, create a new Cloud PKI issuing CA and update all SCEP certificate profiles that reference the expiring CA.\n+\n+### 1. Create a new issuing CA\n+\n+When creating the replacement issuing CA:\n+\n+- Use the same *Root CA Source* as the expiring CA.  \n+- Ensure all CA properties match the existing CA, including:\n+  - Extended Key Usages (EKUs)  \n+  - Key sizes  \n \n-- Use the same *Root CA Source* as the expiring CA.\n-- Ensure all CA properties match the expiring CA, especially Extended Key Usages and Key Sizes.\n+### 2. Update SCEP certificate profiles\n \n-### Update SCEP Certificate Profiles\n+After you create the new issuing CA:\n \n-1. After creating the new Issuing CA, copy the SCEP URI from its properties.\n-1. For each SCEP certificate profile using the soon‑to‑expire CA, update the profile to reference the new Issuing CA's SCEP URI.\n-1. Replace the existing (expiring) Issuing CA SCEP URI with the new SCEP URI copied in step 1.\n+1. In the CA properties, copy the **SCEP URI**.  \n+2. For each SCEP certificate profile referencing the expiring CA, replace the old SCEP URI with the new one.\n \n-> [!NOTE] \n-> - Don't add an additional SCEP URI. Cloud PKI doesn't support multiple SCEP URIs within a single SCEP certificate profile.\n-> - Updating the SCEP URI on a profile will not trigger a cert re-issuance.\n+> [!NOTE]\n+> - Don't add additional SCEP URIs. Cloud PKI doesn't support multiple SCEP URIs in a single SCEP certificate profile.  \n+> - Updating the SCEP URI doesn't trigger certificate re‑issuance.\n \n-## Additional Diagnostics\n+## Additional diagnostics\n \n-Review all SCEP certificate profiles to confirm they reference the new CA.\n+To confirm configuration:\n \n-For more information on managing CAs and SCEP profiles, refer to the Intune documentation.\n+- Review all SCEP certificate profiles to verify they reference the new issuing CA.  \n+- For Cloud PKI and SCEP guidance, see [Overview of Microsoft Cloud PKI for Microsoft Intune](index.md).\n \n-## Coming Soon\n+## Coming soon\n \n-Cloud PKI will soon provide the ability to renew an existing CA. Be sure to look for this upcoming feature at https://aka.ms/IntuneWhatsNew.\n+Cloud PKI will soon support **renewing an existing CA** directly. Watch for updates at:  [What's new in Microsoft Intune](../intune-service/fundamentals/whats-new.md).\n",
+      "baseCommitSha": "54b097c535b089d87d07efd97398272cd54d7066",
+      "commitSha": "95ea8c2031f99a19c4a2c9bcc76b16271a045345",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-31T12:43:42-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/cloud-pki/renew-ca.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/cloud-pki/renew-ca",
+      "firstSeenAt": "2026-01-31T17:43:42.000Z",
+      "eventId": "intune-docs:95ea8c2031f99a19c4a2c9bcc76b16271a045345:modified:intune/cloud-pki/renew-ca.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/cloud-pki/renew-ca.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/cloud-pki/renew-ca.md b/intune/cloud-pki/renew-ca.md\nindex f425353a9d..a3f147e5af 100644\n--- a/intune/cloud-pki/renew-ca.md\n+++ b/intune/cloud-pki/renew-ca.md\n@@ -45,10 +45,10 @@ After you create the new issuing CA:\n 2. For each SCEP certificate profile referencing the expiring CA, replace the old SCEP URI with the new one.\n \n > [!NOTE]\n-> - Don't add additional SCEP URIs. Cloud PKI doesn't support multiple SCEP URIs in a single SCEP certificate profile.  \n+> - Don't add more SCEP URIs. Cloud PKI doesn't support multiple SCEP URIs in a single SCEP certificate profile.  \n > - Updating the SCEP URI doesn't trigger certificate re‑issuance.\n \n-## Additional diagnostics\n+## More diagnostics\n \n To confirm configuration:\n \n",
+      "baseCommitSha": "95ea8c2031f99a19c4a2c9bcc76b16271a045345",
+      "commitSha": "35750006cd4bb4e2bbe5018629412850e364ab88",
+      "commitMessage": "acrolinx",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-31T12:45:32-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/cloud-pki/renew-ca.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/cloud-pki/renew-ca",
+      "firstSeenAt": "2026-01-31T17:45:32.000Z",
+      "eventId": "intune-docs:35750006cd4bb4e2bbe5018629412850e364ab88:modified:intune/cloud-pki/renew-ca.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "acrolinx",
+        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 4,
+    "authors": [
+      "MikeDano",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 3 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/cloud-pki",
+        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "sourceFiles": [
+          "intune/cloud-pki/renew-ca.md",
+          "intune/cloud-pki/renew-ca.md",
+          "intune/cloud-pki/renew-ca.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/epm-elevation-rules.md.",
+        "sourceFiles": [
+          "intune/intune-service/protect/epm-elevation-rules.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/cloud-pki",
+        "detail": "Added Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/protect/epm-elevation-rules.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

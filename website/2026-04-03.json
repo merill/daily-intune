@@ -1,0 +1,339 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/teamviewer-integration.md",
+      "status": "added",
+      "additions": 128,
+      "deletions": 0,
+      "changes": 128,
+      "patch": "diff --git a/intune/intune-service/fundamentals/teamviewer-integration.md b/intune/intune-service/fundamentals/teamviewer-integration.md\nnew file mode 100644\nindex 0000000000..e6eba37251\n--- /dev/null\n+++ b/intune/intune-service/fundamentals/teamviewer-integration.md\n@@ -0,0 +1,128 @@\n+---\n+title: Use the TeamViewer integration in Microsoft Intune \n+description: Learn how to use the TeamViewer integration in Microsoft Intune to initiate remote assistance sessions for managed devices.\n+author: lenewsad\n+ms.author: lanewsad\n+ms.date: 04/07/2026\n+ms.topic: how-to\n+ms.collection:\n+- M365-identity-device-management\n+---\n+\n+# Use the TeamViewer integration in Microsoft Intune  \n+\n+> [!IMPORTANT]\n+> A new TeamViewer remote assistance experience is available in Intune. This article describes the new integration. If you’re using the previous TeamViewer connector, see [Use TeamViewer to remotely administer Intune devices](teamviewer-support.md).  \n+\n+Devices managed by Microsoft Intune can be administered remotely using TeamViewer, a third-party remote assistance solution that you purchase separately. This article describes how to configure the new TeamViewer connector in the Intune admin center, how to start a remote assistance session on a managed device using TeamViewer, and what data Intune shares with TeamViewer on behalf of your tenant to enable the remote assistance experience.  \n+\n+This feature applies to:  \n+\n+- All Android Device Enrollment options: BYOD, COSU, COBO, COPE, AOSP and DA.\n+- iOS/iPadOS\n+- macOS\n+- Windows\n+\n+## TeamViewer license and privacy terms\n+\n+- [TeamViewer End User License Agreement (EULA)](https://www.teamviewer.com/en/legal/eula/)\n+- [TeamViewer Privacy Terms](https://www.teamviewer.com/en/legal/privacy-and-cookies/)\n+\n+An eligible TeamViewer license is required in order to use the TeamViewer integration. Visit the [TeamViewer Integration web page](https://www.teamviewer.com/en/integrations/microsoft-intune/) or contact the TeamViewer sales team for more information about required licenses.  \n+\n+> [!NOTE]\n+> TeamViewer is not supported on GCC or GCC High environments.\n+\n+## Prerequisites\n+\n+Before you configure the TeamViewer connector in Intune, make sure the following requirements are met:\n+\n+- **Intune administrator license:**  \n+  The administrator configuring the TeamViewer connector must have an Intune license. You can give administrators access to Microsoft Intune without them requiring an Intune license. For more information, see [Unlicensed admins](../../fundamentals/licensing/unlicensed-admins.md).\n+\n+- **Intune roles and permissions:**  \n+  Users must be assigned the Remote assistance connectors/Read and Remote assistance connectors/Update permissions (or the Intune Administrator or Global Administrator role) in the Intune admin center to onboard TeamViewer. For more information, see [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md).\n+\n+- **TeamViewer account and license:**  \n+  A licensed [TeamViewer](https://www.teamviewer.com/) account. Only some TeamViewer licenses support integration with Intune. For more information, see the [TeamViewer Intune Integration overview](https://www.teamviewer.com/integrations/microsoft-intune/)(opens the Teamviewer website).  \n+\n+The integration supports connections to TeamViewer Managed Devices that have been managed by your TeamViewer company with an installed TeamViewer Host or Full Client. Any connection settings, policies or TeamViewer Conditional Access rules you have configured will also apply to connections started from the integration. For more information, see [Getting Started with Intune Integration](https://www.teamviewer.com/link/?url=178709)(opens the Teamviewer website).\n+\n+>[!TIP]\n+> To ensure a seamless setup, you can configure Intune Sync in your TeamViewer company settings to match your Intune and TeamViewer device group setups. For more information, see [TeamViewer Intune Device Sync](https://www.teamviewer.com/link/?url=737977)(opens the Teamviewer website).  \n+\n+>[!TIP]\n+> To get the best experience while using the integration, we recommend you enable single sign-on (SSO) between TeamViewer and Microsoft Entra identity provider.  \n+\n+## Configure the TeamViewer connector\n+\n+To enable remote assistance through TeamViewer, an Intune administrator must configure the TeamViewer connector in the Intune admin center. This connector establishes the connection between your Intune tenant and your TeamViewer environment.  \n+\n+### Before you begin  \n+\n+- Ensure you are signed in with an account that has permissions and confirm that your organization has an active TeamViewer license that supports the new Microsoft Intune integration.  \n+- Users with **Remote assistance connectors / Read** permission can view the connector status.\n+- Users with **Remote assistance connectors / Read** and **Remote Tasks/Offer Remote assistance** permissions can view the connector status and initiate TeamViewer sessions.\n+- Users with **Remote assistance connectors / Read** and **Remote assistance connectors / Update** permissions can view and modify the connector configuration.\n+- If a user has **Read** permission without **Update**, they can still view the connector, but they may not edit any configurations.\n+- These permissions allow you to delegate connector management and session initiation without granting full administrative access to Intune.\n+- If your tenant previously used the older TeamViewer connector, see [Migration from the previous TeamViewer connector](#migration-from-the-previous-teamviewer-connector).\n+\n+### Step-by-step configuration\n+\n+1. Sign in to the Intune admin center with an account that has permissions.\n+2. Navigate to the TeamViewer connector by selecting **Tenant administration > Connectors and tokens > TeamViewer connector**.\n+   > [!NOTE]\n+   > The new TeamViewer connector is named **TeamViewer connector** and the previous one has changed to **TeamViewer connector (old)**.\n+3. On the TeamViewer connector page, flip the **Turn on TeamViewer connector** toggle to **On**. This toggle enables TeamViewer as a remote assistance option for your tenant.\n+4. Review the [Data shared with TeamViewer](#data-shared-with-teamviewer) section later in this article to understand the data that will be sent to TeamViewer when this connector is enabled.\n+5. When the toggle is enabled, configure the TeamViewer base URL. It is automatically prefilled with `https://web.teamviewer.com/`, which is the correct choice for most companies. If your organization uses a specific TeamViewer region, enter the appropriate subdomain of the URL. This URL determines which TeamViewer environment Intune launches when a helpdesk user starts a remote assistance session.\n+6. Select **Save** to apply the configuration. When the configuration is saved successfully, a confirmation message appears and the connector status is updated.\n+\n+After the TeamViewer connector is enabled and saved:  \n+  - When authorized users select **New remote assistance session** on a device, TeamViewer is available as an option.  \n+  - Intune uses the configured TeamViewer URL each time it launches a session.  \n+  - Configuration changes and session launches are recorded in Intune audit logs for administrative visibility.  \n+\n+## Remotely administer a device using TeamViewer\n+\n+Once the TeamViewer connector is configured, authorized support personnel can initiate a remote assistance session to an Intune managed device through the Intune admin center. Session launches are recorded in the Intune audit logs.\n+\n+1. In the Microsoft Intune admin center, go to **Devices > All devices**.\n+2. Select a device and choose **New Remote Assistance Session**.\n+3. Select **TeamViewer**, and then select **Continue**.\n+4. Intune opens a new browser tab and loads the TeamViewer URL with device identifiers.\n+5. From this point on, TeamViewer handles ownership of experience including authentication and session management. Complete the steps as prompted.  \n+6. Close the TeamViewer window to end the session.    \n+\n+## End user experience\n+\n+When a support technician starts a remote assistance session via Intune and TeamViewer, the connection is established using the access policies, such as the Conditional Access rules, device policies, and access control settings, defined in your TeamViewer organizational settings.  \n+\n+## Data shared with TeamViewer\n+\n+This TeamViewer integration requires Intune to exchange a limited set of data with the TeamViewer service on behalf of your tenant. This data sharing is strictly to enable the remote assistance sessions that you initiate.\n+\n+### During session creation\n+\n+When a helpdesk agent launches a new remote assistance session to a device, Intune passes specific device identification data to TeamViewer as query parameters in the session URL which includes the base URL you configured for TeamViewer.\n+\n+| Data element              | Description                                                                                 |\n+|---------------------------|---------------------------------------------------------------------------------------------|\n+| Microsoft Entra Device ID | A tenant unique identifier for the device, used by TeamViewer to look up the device record. |\n+| Device Name               | The device name of the Intune registered device, used as a fallback if Entra Device ID is not available. |\n+\n+## Migration from the previous TeamViewer connector\n+\n+If you previously configured the TeamViewer connection in Intune, the existing connector has been renamed **TeamViewer connector (old)**. A new connector is now available as **TeamViewer connector**, which must be set up to enable the new experience.\n+\n+If both connectors are enabled, helpdesk agents will see two TeamViewer options when starting a remote assistance session: **TeamViewer (old)** for the existing experience and **TeamViewer** for the new experience.\n+\n+## Where to get help\n+\n+Microsoft Intune supports the setup of TeamViewer Remote assistance from the Intune admin center. After a remote assistance session is launched the experience is owned and supported by TeamViewer.\n+\n+## Next steps\n+\n+- Learn about Remote Help.  \n+\n",
+      "baseCommitSha": "2093c400b783de552966b54e94d8b8d166801d38",
+      "commitSha": "1e2697d112a5ee243ce68d23eb1597e3eb33db75",
+      "commitMessage": "New teamviewer article",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-03T15:50:00-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/teamviewer-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/teamviewer-integration",
+      "firstSeenAt": "2026-04-03T19:50:00.000Z",
+      "eventId": "intune-docs:1e2697d112a5ee243ce68d23eb1597e3eb33db75:added:intune/intune-service/fundamentals/teamviewer-integration.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "New teamviewer article",
+        "summary": "Added Microsoft Intune documentation in intune/intune-service/fundamentals/teamviewer-integration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/team-viewer-integration.md",
+      "status": "added",
+      "additions": 128,
+      "deletions": 0,
+      "changes": 128,
+      "patch": "diff --git a/intune/intune-service/fundamentals/team-viewer-integration.md b/intune/intune-service/fundamentals/team-viewer-integration.md\nnew file mode 100644\nindex 0000000000..e6eba37251\n--- /dev/null\n+++ b/intune/intune-service/fundamentals/team-viewer-integration.md\n@@ -0,0 +1,128 @@\n+---\n+title: Use the TeamViewer integration in Microsoft Intune \n+description: Learn how to use the TeamViewer integration in Microsoft Intune to initiate remote assistance sessions for managed devices.\n+author: lenewsad\n+ms.author: lanewsad\n+ms.date: 04/07/2026\n+ms.topic: how-to\n+ms.collection:\n+- M365-identity-device-management\n+---\n+\n+# Use the TeamViewer integration in Microsoft Intune  \n+\n+> [!IMPORTANT]\n+> A new TeamViewer remote assistance experience is available in Intune. This article describes the new integration. If you’re using the previous TeamViewer connector, see [Use TeamViewer to remotely administer Intune devices](teamviewer-support.md).  \n+\n+Devices managed by Microsoft Intune can be administered remotely using TeamViewer, a third-party remote assistance solution that you purchase separately. This article describes how to configure the new TeamViewer connector in the Intune admin center, how to start a remote assistance session on a managed device using TeamViewer, and what data Intune shares with TeamViewer on behalf of your tenant to enable the remote assistance experience.  \n+\n+This feature applies to:  \n+\n+- All Android Device Enrollment options: BYOD, COSU, COBO, COPE, AOSP and DA.\n+- iOS/iPadOS\n+- macOS\n+- Windows\n+\n+## TeamViewer license and privacy terms\n+\n+- [TeamViewer End User License Agreement (EULA)](https://www.teamviewer.com/en/legal/eula/)\n+- [TeamViewer Privacy Terms](https://www.teamviewer.com/en/legal/privacy-and-cookies/)\n+\n+An eligible TeamViewer license is required in order to use the TeamViewer integration. Visit the [TeamViewer Integration web page](https://www.teamviewer.com/en/integrations/microsoft-intune/) or contact the TeamViewer sales team for more information about required licenses.  \n+\n+> [!NOTE]\n+> TeamViewer is not supported on GCC or GCC High environments.\n+\n+## Prerequisites\n+\n+Before you configure the TeamViewer connector in Intune, make sure the following requirements are met:\n+\n+- **Intune administrator license:**  \n+  The administrator configuring the TeamViewer connector must have an Intune license. You can give administrators access to Microsoft Intune without them requiring an Intune license. For more information, see [Unlicensed admins](../../fundamentals/licensing/unlicensed-admins.md).\n+\n+- **Intune roles and permissions:**  \n+  Users must be assigned the Remote assistance connectors/Read and Remote assistance connectors/Update permissions (or the Intune Administrator or Global Administrator role) in the Intune admin center to onboard TeamViewer. For more information, see [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md).\n+\n+- **TeamViewer account and license:**  \n+  A licensed [TeamViewer](https://www.teamviewer.com/) account. Only some TeamViewer licenses support integration with Intune. For more information, see the [TeamViewer Intune Integration overview](https://www.teamviewer.com/integrations/microsoft-intune/)(opens the Teamviewer website).  \n+\n+The integration supports connections to TeamViewer Managed Devices that have been managed by your TeamViewer company with an installed TeamViewer Host or Full Client. Any connection settings, policies or TeamViewer Conditional Access rules you have configured will also apply to connections started from the integration. For more information, see [Getting Started with Intune Integration](https://www.teamviewer.com/link/?url=178709)(opens the Teamviewer website).\n+\n+>[!TIP]\n+> To ensure a seamless setup, you can configure Intune Sync in your TeamViewer company settings to match your Intune and TeamViewer device group setups. For more information, see [TeamViewer Intune Device Sync](https://www.teamviewer.com/link/?url=737977)(opens the Teamviewer website).  \n+\n+>[!TIP]\n+> To get the best experience while using the integration, we recommend you enable single sign-on (SSO) between TeamViewer and Microsoft Entra identity provider.  \n+\n+## Configure the TeamViewer connector\n+\n+To enable remote assistance through TeamViewer, an Intune administrator must configure the TeamViewer connector in the Intune admin center. This connector establishes the connection between your Intune tenant and your TeamViewer environment.  \n+\n+### Before you begin  \n+\n+- Ensure you are signed in with an account that has permissions and confirm that your organization has an active TeamViewer license that supports the new Microsoft Intune integration.  \n+- Users with **Remote assistance connectors / Read** permission can view the connector status.\n+- Users with **Remote assistance connectors / Read** and **Remote Tasks/Offer Remote assistance** permissions can view the connector status and initiate TeamViewer sessions.\n+- Users with **Remote assistance connectors / Read** and **Remote assistance connectors / Update** permissions can view and modify the connector configuration.\n+- If a user has **Read** permission without **Update**, they can still view the connector, but they may not edit any configurations.\n+- These permissions allow you to delegate connector management and session initiation without granting full administrative access to Intune.\n+- If your tenant previously used the older TeamViewer connector, see [Migration from the previous TeamViewer connector](#migration-from-the-previous-teamviewer-connector).\n+\n+### Step-by-step configuration\n+\n+1. Sign in to the Intune admin center with an account that has permissions.\n+2. Navigate to the TeamViewer connector by selecting **Tenant administration > Connectors and tokens > TeamViewer connector**.\n+   > [!NOTE]\n+   > The new TeamViewer connector is named **TeamViewer connector** and the previous one has changed to **TeamViewer connector (old)**.\n+3. On the TeamViewer connector page, flip the **Turn on TeamViewer connector** toggle to **On**. This toggle enables TeamViewer as a remote assistance option for your tenant.\n+4. Review the [Data shared with TeamViewer](#data-shared-with-teamviewer) section later in this article to understand the data that will be sent to TeamViewer when this connector is enabled.\n+5. When the toggle is enabled, configure the TeamViewer base URL. It is automatically prefilled with `https://web.teamviewer.com/`, which is the correct choice for most companies. If your organization uses a specific TeamViewer region, enter the appropriate subdomain of the URL. This URL determines which TeamViewer environment Intune launches when a helpdesk user starts a remote assistance session.\n+6. Select **Save** to apply the configuration. When the configuration is saved successfully, a confirmation message appears and the connector status is updated.\n+\n+After the TeamViewer connector is enabled and saved:  \n+  - When authorized users select **New remote assistance session** on a device, TeamViewer is available as an option.  \n+  - Intune uses the configured TeamViewer URL each time it launches a session.  \n+  - Configuration changes and session launches are recorded in Intune audit logs for administrative visibility.  \n+\n+## Remotely administer a device using TeamViewer\n+\n+Once the TeamViewer connector is configured, authorized support personnel can initiate a remote assistance session to an Intune managed device through the Intune admin center. Session launches are recorded in the Intune audit logs.\n+\n+1. In the Microsoft Intune admin center, go to **Devices > All devices**.\n+2. Select a device and choose **New Remote Assistance Session**.\n+3. Select **TeamViewer**, and then select **Continue**.\n+4. Intune opens a new browser tab and loads the TeamViewer URL with device identifiers.\n+5. From this point on, TeamViewer handles ownership of experience including authentication and session management. Complete the steps as prompted.  \n+6. Close the TeamViewer window to end the session.    \n+\n+## End user experience\n+\n+When a support technician starts a remote assistance session via Intune and TeamViewer, the connection is established using the access policies, such as the Conditional Access rules, device policies, and access control settings, defined in your TeamViewer organizational settings.  \n+\n+## Data shared with TeamViewer\n+\n+This TeamViewer integration requires Intune to exchange a limited set of data with the TeamViewer service on behalf of your tenant. This data sharing is strictly to enable the remote assistance sessions that you initiate.\n+\n+### During session creation\n+\n+When a helpdesk agent launches a new remote assistance session to a device, Intune passes specific device identification data to TeamViewer as query parameters in the session URL which includes the base URL you configured for TeamViewer.\n+\n+| Data element              | Description                                                                                 |\n+|---------------------------|---------------------------------------------------------------------------------------------|\n+| Microsoft Entra Device ID | A tenant unique identifier for the device, used by TeamViewer to look up the device record. |\n+| Device Name               | The device name of the Intune registered device, used as a fallback if Entra Device ID is not available. |\n+\n+## Migration from the previous TeamViewer connector\n+\n+If you previously configured the TeamViewer connection in Intune, the existing connector has been renamed **TeamViewer connector (old)**. A new connector is now available as **TeamViewer connector**, which must be set up to enable the new experience.\n+\n+If both connectors are enabled, helpdesk agents will see two TeamViewer options when starting a remote assistance session: **TeamViewer (old)** for the existing experience and **TeamViewer** for the new experience.\n+\n+## Where to get help\n+\n+Microsoft Intune supports the setup of TeamViewer Remote assistance from the Intune admin center. After a remote assistance session is launched the experience is owned and supported by TeamViewer.\n+\n+## Next steps\n+\n+- Learn about Remote Help.  \n+\n",
+      "baseCommitSha": "1e2697d112a5ee243ce68d23eb1597e3eb33db75",
+      "commitSha": "424a1befda638106e52a266fb3c3f2f12156c7a7",
+      "commitMessage": "fix filename",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-03T16:04:34-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/team-viewer-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/team-viewer-integration",
+      "firstSeenAt": "2026-04-03T20:04:34.000Z",
+      "eventId": "intune-docs:424a1befda638106e52a266fb3c3f2f12156c7a7:added:intune/intune-service/fundamentals/team-viewer-integration.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "fix filename",
+        "summary": "Added Microsoft Intune documentation in intune/intune-service/fundamentals/team-viewer-integration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/protect/security-baseline-settings-mdm-all.md b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\nindex 64c3b67645..6e744b7a81 100644\n--- a/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n+++ b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n@@ -3,7 +3,7 @@ title: Default configuration of Intune's Windows security baselines\n description: View the default setting configuration of the various Microsoft Intune security baselines for Windows.\n author: brenduns\n ms.author: brenduns\n-ms.date: 03/23/2026\n+ms.date: 04/03/2026\n ms.topic: reference\n ms.reviewer: juidaewoaa\n ms.collection:\n",
+      "baseCommitSha": "e072ee425313e79909dafca342e5dd11c4f967b8",
+      "commitSha": "98c59f6151f88f832beb79797d138179caa4711c",
+      "commitMessage": "Adding for OOB release",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-03T09:37:26-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all",
+      "firstSeenAt": "2026-04-03T16:37:26.000Z",
+      "eventId": "intune-docs:98c59f6151f88f832beb79797d138179caa4711c:modified:intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding for OOB release",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/security-baselines.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/protect/security-baselines.md b/intune/intune-service/protect/security-baselines.md\nindex 17f47d32d1..402c0bdb8f 100644\n--- a/intune/intune-service/protect/security-baselines.md\n+++ b/intune/intune-service/protect/security-baselines.md\n@@ -3,7 +3,7 @@ title: Learn about Intune security baselines for Windows devices\n description: Deploy security baselines that have preset and recommended configurations to the Windows devices you manage with Microsoft Intune.\n author: brenduns\n ms.author: brenduns\n-ms.date: 03/23/2026\n+ms.date: 04/03/2026\n ms.topic: overview\n ms.reviewer: juidaewo\n   - intune-azure\n",
+      "baseCommitSha": "e072ee425313e79909dafca342e5dd11c4f967b8",
+      "commitSha": "98c59f6151f88f832beb79797d138179caa4711c",
+      "commitMessage": "Adding for OOB release",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-03T09:37:26-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baselines.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baselines",
+      "firstSeenAt": "2026-04-03T16:37:26.000Z",
+      "eventId": "intune-docs:98c59f6151f88f832beb79797d138179caa4711c:modified:intune/intune-service/protect/security-baselines.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding for OOB release",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baselines.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex ae94d08618..c67d9863f4 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -262,7 +262,7 @@ The Windows security baseline for *Windows 11, version 25H2* is now available in\n \n The Windows 11, version 25H2 security baseline includes new settings, updated default values, retired settings, and revised security guidance. Existing security baseline profiles don’t automatically update to the new version.\n \n-To use the Windows 11, version 25H2 security baseline, Intune admins can [create a new baseline profile](../protect/security-baselines-configure.md#create-a-profile-for-a-security-baseline) or [update an existing profile to the latest version](../protect/security-baselines-configure.md #update-a-baseline-profile-to-the-latest-version).\n+To use the Windows 11, version 25H2 security baseline, Intune admins can [create a new baseline profile](../protect/security-baselines-configure.md#create-a-profile-for-a-security-baseline.md) or [update an existing profile to the latest version](../protect/security-baselines-configure.md #update-a-baseline-profile-to-the-latest-version).\n \n The following two settings aren’t included in this baseline release and will be added in a future baseline update. Each change will be communicated to customers when available:\n \n",
+      "baseCommitSha": "7ebf7e3c1e99e4a9828c5ff40597cff9cf7ce2fc",
+      "commitSha": "18e82c755cf413290ba87fe4c310fa40cda5773b",
+      "commitMessage": "Link fix",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-03T10:47:22-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-04-03T17:47:22.000Z",
+      "eventId": "intune-docs:18e82c755cf413290ba87fe4c310fa40cda5773b:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Link fix",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 17,
+      "changes": 25,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md b/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md\nindex b787dcc9dc..b7c636047d 100644\n--- a/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md\n+++ b/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md\n@@ -27,35 +27,26 @@ Configuration Manager supports the in-place upgrade of the server OS that hosts\n \n   - Windows Server 2022 to Windows Server 2025\n \n-  - Windows Server 2019 to Windows Server 2022<!-- 10200029 -->\n+  - Windows Server 2019 to Windows Server 2022 or 2025 <!-- 10200029 -->\n \n-  - Windows Server 2016 to Windows Server 2022\n+  - Windows Server 2016 to Windows Server 2019, 2022, or 2025\n \n-  - Windows Server 2016 to Windows Server 2019\n-\n-  - Windows Server 2012 R2 to Windows Server 2019\n-\n-  - Windows Server 2012 R2 to Windows Server 2016\n+  - Windows Server 2012 R2 to Windows Server 2016, 2019, or 2025\n \n   - Windows Server 2012 to Windows Server 2016\n \n To upgrade a server, use the upgrade procedures provided by the OS you're upgrading to. See the following articles:\n \n-- [Windows Server Upgrade Center](/windows-server/upgrade/upgrade-overview)\n+- [Windows Server Upgrade Center](/windows-server/get-started/upgrade-overview)\n \n - [Upgrade and conversion options for Windows Server 2016](/windows-server/get-started/supported-upgrade-paths)\n \n-### Upgrade to Windows Server 2016, 2019, 2022 or 2025\n-\n-Use the steps in this section for any of the following upgrade scenarios:\n+### Upgrade to Windows Server 2016, 2019, 2022, or 2025\n \n-- Upgrade either Windows Server 2019 or Windows Server 2022 to Windows Server 2025\n+Use the steps in this section for any of the upgrade scenarios listed above.\n \n-- Upgrade either Windows Server 2016 or Windows Server 2019 to Windows Server 2022\n-\n-- Upgrade either Windows Server 2012 R2 or Windows Server 2016 to Windows Server 2019\n-\n-- Upgrade either Windows Server 2012 or Windows Server 2012 R2 to Windows Server 2016\n+> [!IMPORTANT]\n+> All site systems that run the Software Update Point (SUP) role must use the same version of Windows Server to communicate correctly during synchronization. This requirement also applies to Central Administration sites and primary site servers that don’t host the SUP role but have the WSUS Administration Tools installed to communicate with a remote SUP.\n \n #### Before upgrade\n \n",
+      "baseCommitSha": "7ebf7e3c1e99e4a9828c5ff40597cff9cf7ce2fc",
+      "commitSha": "9b3dc26e083f3ce8c0d0d72a4418b95b9df2b8d4",
+      "commitMessage": "Learn Editor: Update upgrade-on-premises-infrastructure.md",
+      "commitAuthor": "Jon",
+      "commitDate": "2026-04-03T12:49:33-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure",
+      "firstSeenAt": "2026-04-03T17:49:33.000Z",
+      "eventId": "intune-docs:9b3dc26e083f3ce8c0d0d72a4418b95b9df2b8d4:modified:intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update upgrade-on-premises-infrastructure.md",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex c67d9863f4..017ba95894 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -262,7 +262,7 @@ The Windows security baseline for *Windows 11, version 25H2* is now available in\n \n The Windows 11, version 25H2 security baseline includes new settings, updated default values, retired settings, and revised security guidance. Existing security baseline profiles don’t automatically update to the new version.\n \n-To use the Windows 11, version 25H2 security baseline, Intune admins can [create a new baseline profile](../protect/security-baselines-configure.md#create-a-profile-for-a-security-baseline.md) or [update an existing profile to the latest version](../protect/security-baselines-configure.md #update-a-baseline-profile-to-the-latest-version).\n+To use the Windows 11, version 25H2 security baseline, Intune admins can [create a new baseline profile](../protect/security-baselines-configure.md#create-a-profile-for-a-security-baseline) or [update an existing profile to the latest version](../protect/security-baselines-configure.md#update-a-baseline-profile-to-the-latest-version).\n \n The following two settings aren’t included in this baseline release and will be added in a future baseline update. Each change will be communicated to customers when available:\n \n",
+      "baseCommitSha": "18e82c755cf413290ba87fe4c310fa40cda5773b",
+      "commitSha": "df4aca634c0370403c6049137286e142e755efb6",
+      "commitMessage": "Link fix",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-03T10:53:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-04-03T17:53:12.000Z",
+      "eventId": "intune-docs:df4aca634c0370403c6049137286e142e755efb6:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Link fix",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/in-development.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/intune/intune-service/fundamentals/in-development.md b/intune/intune-service/fundamentals/in-development.md\nindex 869a73279f..e44ac03a2d 100644\n--- a/intune/intune-service/fundamentals/in-development.md\n+++ b/intune/intune-service/fundamentals/in-development.md\n@@ -3,7 +3,7 @@ title: In development - Microsoft Intune\n description: This article describes Microsoft Intune features that are in development.\n author: brenduns\n ms.author: brenduns\n-ms.date: 04/02/2026\n+ms.date: 04/03/2026\n ms.topic: article\n ms.reviewer: intuner\n ms.collection:\n@@ -339,6 +339,16 @@ The transition will begin in late April 2026 and occur gradually over two weeks.\n > - macOS\n > - Android\n \n+### Reporting considerations for compliance policies<!-- 37266708 -->\n+\n+Intune will add new guidance to the compliance policy reporting documentation to help clarify expected reporting behaviors. This documentation update will address common questions about how compliance policy reports reflect device state, including:\n+\n+- Check-in dependency: Compliance policy reports are updated when a device checks in with the Intune service. Reporting data refreshes during device check-in and policy refresh cycles and might not immediately reflect recent assignment or targeting changes.\n+- Multi-user devices: Compliance reports display the compliance state for the last user who checked in on the device. If multiple users sign in to a shared device, the report can reflect the last known compliance state for a previous user.\n+- Pending status: A device might appear in a **Pending** state if it has not yet checked in to receive or report compliance policy status. This status can persist in reports until the next reporting cycle completes.\n+- Multiple records: Policy reports can show multiple records for a single device, such as separate entries associated with user and system contexts. This behavior can occur when different users sign in to the same device or when automatic device check-ins occur.\n+- Summary vs. detail differences: Summary report views and detailed device lists can update on different cadences. As a result, aggregated summary values might temporarily differ from detailed report entries.\n+\n <!-- *********************************************** -->\n \n <!-- ## Role-based access control -->\n",
+      "baseCommitSha": "be4baca13ba738d22fbfa5841d9bbce2d498b3b8",
+      "commitSha": "5c411284edf1dd508363f53c9eeb4589efc46468",
+      "commitMessage": "2604 ID: Stage PRSv3 reporting behavior clarification (37266708)",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-03T13:54:06-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development",
+      "firstSeenAt": "2026-04-03T17:54:06.000Z",
+      "eventId": "intune-docs:5c411284edf1dd508363f53c9eeb4589efc46468:modified:intune/intune-service/fundamentals/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2604 ID: Stage PRSv3 reporting behavior clarification (37266708)",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/team-viewer-integration.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 13,
+      "changes": 22,
+      "patch": "diff --git a/intune/intune-service/fundamentals/team-viewer-integration.md b/intune/intune-service/fundamentals/team-viewer-integration.md\nindex e6eba37251..fcb78e9dc2 100644\n--- a/intune/intune-service/fundamentals/team-viewer-integration.md\n+++ b/intune/intune-service/fundamentals/team-viewer-integration.md\n@@ -31,7 +31,7 @@ This feature applies to:\n An eligible TeamViewer license is required in order to use the TeamViewer integration. Visit the [TeamViewer Integration web page](https://www.teamviewer.com/en/integrations/microsoft-intune/) or contact the TeamViewer sales team for more information about required licenses.  \n \n > [!NOTE]\n-> TeamViewer is not supported on GCC or GCC High environments.\n+> TeamViewer isn't supported on GCC or GCC High environments.\n \n ## Prerequisites\n \n@@ -44,12 +44,12 @@ Before you configure the TeamViewer connector in Intune, make sure the following\n   Users must be assigned the Remote assistance connectors/Read and Remote assistance connectors/Update permissions (or the Intune Administrator or Global Administrator role) in the Intune admin center to onboard TeamViewer. For more information, see [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md).\n \n - **TeamViewer account and license:**  \n-  A licensed [TeamViewer](https://www.teamviewer.com/) account. Only some TeamViewer licenses support integration with Intune. For more information, see the [TeamViewer Intune Integration overview](https://www.teamviewer.com/integrations/microsoft-intune/)(opens the Teamviewer website).  \n+  A licensed [TeamViewer](https://www.teamviewer.com/) account. Only some TeamViewer licenses support integration with Intune. For more information, see the [TeamViewer Intune Integration overview](https://www.teamviewer.com/integrations/microsoft-intune/)(opens the TeamViewer website).  \n \n-The integration supports connections to TeamViewer Managed Devices that have been managed by your TeamViewer company with an installed TeamViewer Host or Full Client. Any connection settings, policies or TeamViewer Conditional Access rules you have configured will also apply to connections started from the integration. For more information, see [Getting Started with Intune Integration](https://www.teamviewer.com/link/?url=178709)(opens the Teamviewer website).\n+The integration supports connections to TeamViewer Managed Devices that have been managed by your TeamViewer company with an installed TeamViewer Host or Full Client. Any connection settings, policies or TeamViewer Conditional Access rules you have configured will also apply to connections started from the integration. For more information, see [Getting Started with Intune Integration](https://www.teamviewer.com/link/?url=178709)(opens the TeamViewer website).\n \n >[!TIP]\n-> To ensure a seamless setup, you can configure Intune Sync in your TeamViewer company settings to match your Intune and TeamViewer device group setups. For more information, see [TeamViewer Intune Device Sync](https://www.teamviewer.com/link/?url=737977)(opens the Teamviewer website).  \n+> To ensure a seamless setup, you can configure Intune Sync in your TeamViewer company settings to match your Intune and TeamViewer device group setups. For more information, see [TeamViewer Intune Device Sync](https://www.teamviewer.com/link/?url=737977)(opens the TeamViewer website).  \n \n >[!TIP]\n > To get the best experience while using the integration, we recommend you enable single sign-on (SSO) between TeamViewer and Microsoft Entra identity provider.  \n@@ -60,7 +60,8 @@ To enable remote assistance through TeamViewer, an Intune administrator must con\n \n ### Before you begin  \n \n-- Ensure you are signed in with an account that has permissions and confirm that your organization has an active TeamViewer license that supports the new Microsoft Intune integration.  \n+- Confirm that your organization has an active TeamViewer license that supports the new Microsoft Intune integration.  \n+- Ensure you're signed in with an account that has permissions.\n - Users with **Remote assistance connectors / Read** permission can view the connector status.\n - Users with **Remote assistance connectors / Read** and **Remote Tasks/Offer Remote assistance** permissions can view the connector status and initiate TeamViewer sessions.\n - Users with **Remote assistance connectors / Read** and **Remote assistance connectors / Update** permissions can view and modify the connector configuration.\n@@ -76,7 +77,7 @@ To enable remote assistance through TeamViewer, an Intune administrator must con\n    > The new TeamViewer connector is named **TeamViewer connector** and the previous one has changed to **TeamViewer connector (old)**.\n 3. On the TeamViewer connector page, flip the **Turn on TeamViewer connector** toggle to **On**. This toggle enables TeamViewer as a remote assistance option for your tenant.\n 4. Review the [Data shared with TeamViewer](#data-shared-with-teamviewer) section later in this article to understand the data that will be sent to TeamViewer when this connector is enabled.\n-5. When the toggle is enabled, configure the TeamViewer base URL. It is automatically prefilled with `https://web.teamviewer.com/`, which is the correct choice for most companies. If your organization uses a specific TeamViewer region, enter the appropriate subdomain of the URL. This URL determines which TeamViewer environment Intune launches when a helpdesk user starts a remote assistance session.\n+5. When the toggle is enabled, configure the TeamViewer base URL. It's automatically prefilled with `https://web.teamviewer.com/`, which is the correct choice for most companies. If your organization uses a specific TeamViewer region, enter the appropriate subdomain of the URL. This URL determines which TeamViewer environment Intune launches when a helpdesk user starts a remote assistance session.\n 6. Select **Save** to apply the configuration. When the configuration is saved successfully, a confirmation message appears and the connector status is updated.\n \n After the TeamViewer connector is enabled and saved:  \n@@ -110,7 +111,7 @@ When a helpdesk agent launches a new remote assistance session to a device, Intu\n | Data element              | Description                                                                                 |\n |---------------------------|---------------------------------------------------------------------------------------------|\n | Microsoft Entra Device ID | A tenant unique identifier for the device, used by TeamViewer to look up the device record. |\n-| Device Name               | The device name of the Intune registered device, used as a fallback if Entra Device ID is not available. |\n+| Device Name               | The device name of the Intune registered device, used as a fallback if Entra Device ID isn't available. |\n \n ## Migration from the previous TeamViewer connector\n \n@@ -120,9 +121,4 @@ If both connectors are enabled, helpdesk agents will see two TeamViewer options\n \n ## Where to get help\n \n-Microsoft Intune supports the setup of TeamViewer Remote assistance from the Intune admin center. After a remote assistance session is launched the experience is owned and supported by TeamViewer.\n-\n-## Next steps\n-\n-- Learn about Remote Help.  \n-\n+Microsoft Intune supports the setup of TeamViewer Remote assistance from the Intune admin center. After you launch a remote assistance session, the experience is owned and supported by TeamViewer.  \n\\ No newline at end of file\n",
+      "baseCommitSha": "424a1befda638106e52a266fb3c3f2f12156c7a7",
+      "commitSha": "7c0951b126e9cd160f98cc745282011deeb6ce80",
+      "commitMessage": "Acrolinx",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-03T16:08:25-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/team-viewer-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/team-viewer-integration",
+      "firstSeenAt": "2026-04-03T20:08:25.000Z",
+      "eventId": "intune-docs:7c0951b126e9cd160f98cc745282011deeb6ce80:modified:intune/intune-service/fundamentals/team-viewer-integration.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Acrolinx",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/team-viewer-integration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/autopilot-hybrid-connector-proxy.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/autopilot/autopilot-hybrid-connector-proxy.md b/autopilot/autopilot-hybrid-connector-proxy.md\nindex f14f4ed37b..65f9192ea2 100644\n--- a/autopilot/autopilot-hybrid-connector-proxy.md\n+++ b/autopilot/autopilot-hybrid-connector-proxy.md\n@@ -89,7 +89,7 @@ If a different proxy server needs to be used with the Intune Connector for Activ\n <configuration>\n     <system.net>\n         <defaultProxy>\n-            <proxy proxyaddress=\"<PROXY ADDRESS HERE>:<PORT HERE>\" bypassonlocal=\"True\" usesystemdefault=\"True\"/>\n+            <proxy proxyaddress=\"<https://PROXY ADDRESS HERE>:<PORT HERE>\" bypassonlocal=\"True\" usesystemdefault=\"True\"/>\n         </defaultProxy>\n     </system.net>\n     <runtime>\n@@ -117,7 +117,7 @@ To ensure that the Connector Updater service also bypasses the proxy, make a sim\n <configuration>\n     <system.net>\n         <defaultProxy>\n-            <proxy proxyaddress=\"<PROXY ADDRESS HERE>:<PORT HERE>\" bypassonlocal=\"True\" usesystemdefault=\"True\"/>\n+            <proxy proxyaddress=\"<https://PROXY ADDRESS HERE>:<PORT HERE>\" bypassonlocal=\"True\" usesystemdefault=\"True\"/>\n         </defaultProxy>\n     </system.net>\n     <startup>\n",
+      "baseCommitSha": "2093c400b783de552966b54e94d8b8d166801d38",
+      "commitSha": "434bbb98ce18128d526bb774839c278e33a3e984",
+      "commitMessage": "Update proxy address format in configuration",
+      "commitAuthor": "Michel Bulgado",
+      "commitDate": "2026-04-03T18:47:29-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/autopilot-hybrid-connector-proxy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/autopilot-hybrid-connector-proxy",
+      "firstSeenAt": "2026-04-03T22:47:29.000Z",
+      "eventId": "intune-docs:434bbb98ce18128d526bb774839c278e33a3e984:modified:autopilot/autopilot-hybrid-connector-proxy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update proxy address format in configuration",
+        "summary": "Updated Microsoft Intune documentation in autopilot/autopilot-hybrid-connector-proxy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/teamviewer-integration.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 126,
+      "changes": 126,
+      "patch": "diff --git a/intune/intune-service/fundamentals/teamviewer-integration.md b/intune/intune-service/fundamentals/teamviewer-integration.md\ndeleted file mode 100644\nindex e6eba37251..0000000000\n--- a/intune/intune-service/fundamentals/teamviewer-integration.md\n+++ /dev/null\n@@ -1,128 +0,0 @@\n----\n-title: Use the TeamViewer integration in Microsoft Intune \n-description: Learn how to use the TeamViewer integration in Microsoft Intune to initiate remote assistance sessions for managed devices.\n-author: lenewsad\n-ms.author: lanewsad\n-ms.date: 04/07/2026\n-ms.topic: how-to\n-ms.collection:\n-- M365-identity-device-management\n----\n-\n-# Use the TeamViewer integration in Microsoft Intune  \n-\n-> [!IMPORTANT]\n-> A new TeamViewer remote assistance experience is available in Intune. This article describes the new integration. If you’re using the previous TeamViewer connector, see [Use TeamViewer to remotely administer Intune devices](teamviewer-support.md).  \n-\n-Devices managed by Microsoft Intune can be administered remotely using TeamViewer, a third-party remote assistance solution that you purchase separately. This article describes how to configure the new TeamViewer connector in the Intune admin center, how to start a remote assistance session on a managed device using TeamViewer, and what data Intune shares with TeamViewer on behalf of your tenant to enable the remote assistance experience.  \n-\n-This feature applies to:  \n-\n-- All Android Device Enrollment options: BYOD, COSU, COBO, COPE, AOSP and DA.\n-- iOS/iPadOS\n-- macOS\n-- Windows\n-\n-## TeamViewer license and privacy terms\n-\n-- [TeamViewer End User License Agreement (EULA)](https://www.teamviewer.com/en/legal/eula/)\n-- [TeamViewer Privacy Terms](https://www.teamviewer.com/en/legal/privacy-and-cookies/)\n-\n-An eligible TeamViewer license is required in order to use the TeamViewer integration. Visit the [TeamViewer Integration web page](https://www.teamviewer.com/en/integrations/microsoft-intune/) or contact the TeamViewer sales team for more information about required licenses.  \n-\n-> [!NOTE]\n-> TeamViewer is not supported on GCC or GCC High environments.\n-\n-## Prerequisites\n-\n-Before you configure the TeamViewer connector in Intune, make sure the following requirements are met:\n-\n-- **Intune administrator license:**  \n-  The administrator configuring the TeamViewer connector must have an Intune license. You can give administrators access to Microsoft Intune without them requiring an Intune license. For more information, see [Unlicensed admins](../../fundamentals/licensing/unlicensed-admins.md).\n-\n-- **Intune roles and permissions:**  \n-  Users must be assigned the Remote assistance connectors/Read and Remote assistance connectors/Update permissions (or the Intune Administrator or Global Administrator role) in the Intune admin center to onboard TeamViewer. For more information, see [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md).\n-\n-- **TeamViewer account and license:**  \n-  A licensed [TeamViewer](https://www.teamviewer.com/) account. Only some TeamViewer licenses support integration with Intune. For more information, see the [TeamViewer Intune Integration overview](https://www.teamviewer.com/integrations/microsoft-intune/)(opens the Teamviewer website).  \n-\n-The integration supports connections to TeamViewer Managed Devices that have been managed by your TeamViewer company with an installed TeamViewer Host or Full Client. Any connection settings, policies or TeamViewer Conditional Access rules you have configured will also apply to connections started from the integration. For more information, see [Getting Started with Intune Integration](https://www.teamviewer.com/link/?url=178709)(opens the Teamviewer website).\n-\n->[!TIP]\n-> To ensure a seamless setup, you can configure Intune Sync in your TeamViewer company settings to match your Intune and TeamViewer device group setups. For more information, see [TeamViewer Intune Device Sync](https://www.teamviewer.com/link/?url=737977)(opens the Teamviewer website).  \n-\n->[!TIP]\n-> To get the best experience while using the integration, we recommend you enable single sign-on (SSO) between TeamViewer and Microsoft Entra identity provider.  \n-\n-## Configure the TeamViewer connector\n-\n-To enable remote assistance through TeamViewer, an Intune administrator must configure the TeamViewer connector in the Intune admin center. This connector establishes the connection between your Intune tenant and your TeamViewer environment.  \n-\n-### Before you begin  \n-\n-- Ensure you are signed in with an account that has permissions and confirm that your organization has an active TeamViewer license that supports the new Microsoft Intune integration.  \n-- Users with **Remote assistance connectors / Read** permission can view the connector status.\n-- Users with **Remote assistance connectors / Read** and **Remote Tasks/Offer Remote assistance** permissions can view the connector status and initiate TeamViewer sessions.\n-- Users with **Remote assistance connectors / Read** and **Remote assistance connectors / Update** permissions can view and modify the connector configuration.\n-- If a user has **Read** permission without **Update**, they can still view the connector, but they may not edit any configurations.\n-- These permissions allow you to delegate connector management and session initiation without granting full administrative access to Intune.\n-- If your tenant previously used the older TeamViewer connector, see [Migration from the previous TeamViewer connector](#migration-from-the-previous-teamviewer-connector).\n-\n-### Step-by-step configuration\n-\n-1. Sign in to the Intune admin center with an account that has permissions.\n-2. Navigate to the TeamViewer connector by selecting **Tenant administration > Connectors and tokens > TeamViewer connector**.\n-   > [!NOTE]\n-   > The new TeamViewer connector is named **TeamViewer connector** and the previous one has changed to **TeamViewer connector (old)**.\n-3. On the TeamViewer connector page, flip the **Turn on TeamViewer connector** toggle to **On**. This toggle enables TeamViewer as a remote assistance option for your tenant.\n-4. Review the [Data shared with TeamViewer](#data-shared-with-teamviewer) section later in this article to understand the data that will be sent to TeamViewer when this connector is enabled.\n-5. When the toggle is enabled, configure the TeamViewer base URL. It is automatically prefilled with `https://web.teamviewer.com/`, which is the correct choice for most companies. If your organization uses a specific TeamViewer region, enter the appropriate subdomain of the URL. This URL determines which TeamViewer environment Intune launches when a helpdesk user starts a remote assistance session.\n-6. Select **Save** to apply the configuration. When the configuration is saved successfully, a confirmation message appears and the connector status is updated.\n-\n-After the TeamViewer connector is enabled and saved:  \n-  - When authorized users select **New remote assistance session** on a device, TeamViewer is available as an option.  \n-  - Intune uses the configured TeamViewer URL each time it launches a session.  \n-  - Configuration changes and session launches are recorded in Intune audit logs for administrative visibility.  \n-\n-## Remotely administer a device using TeamViewer\n-\n-Once the TeamViewer connector is configured, authorized support personnel can initiate a remote assistance session to an Intune managed device through the Intune admin center. Session launches are recorded in the Intune audit logs.\n-\n-1. In the Microsoft Intune admin center, go to **Devices > All devices**.\n-2. Select a device and choose **New Remote Assistance Session**.\n-3. Select **TeamViewer**, and then select **Continue**.\n-4. Intune opens a new browser tab and loads the TeamViewer URL with device identifiers.\n-5. From this point on, TeamViewer handles ownership of experience including authentication and session management. Complete the steps as prompted.  \n-6. Close the TeamViewer window to end the session.    \n-\n-## End user experience\n-\n-When a support technician starts a remote assistance session via Intune and TeamViewer, the connection is established using the access policies, such as the Conditional Access rules, device policies, and access control settings, defined in your TeamViewer organizational settings.  \n-\n-## Data shared with TeamViewer\n-\n-This TeamViewer integration requires Intune to exchange a limited set of data with the TeamViewer service on behalf of your tenant. This data sharing is strictly to enable the remote assistance sessions that you initiate.\n-\n-### During session creation\n-\n-When a helpdesk agent launches a new remote assistance session to a device, Intune passes specific device identification data to TeamViewer as query parameters in the session URL which includes the base URL you configured for TeamViewer.\n-\n-| Data element              | Description                                                                                 |\n-|---------------------------|---------------------------------------------------------------------------------------------|\n-| Microsoft Entra Device ID | A tenant unique identifier for the device, used by TeamViewer to look up the device record. |\n-| Device Name               | The device name of the Intune registered device, used as a fallback if Entra Device ID is not available. |\n-\n-## Migration from the previous TeamViewer connector\n-\n-If you previously configured the TeamViewer connection in Intune, the existing connector has been renamed **TeamViewer connector (old)**. A new connector is now available as **TeamViewer connector**, which must be set up to enable the new experience.\n-\n-If both connectors are enabled, helpdesk agents will see two TeamViewer options when starting a remote assistance session: **TeamViewer (old)** for the existing experience and **TeamViewer** for the new experience.\n-\n-## Where to get help\n-\n-Microsoft Intune supports the setup of TeamViewer Remote assistance from the Intune admin center. After a remote assistance session is launched the experience is owned and supported by TeamViewer.\n-\n-## Next steps\n-\n-- Learn about Remote Help.  \n-\n",
+      "baseCommitSha": "1e2697d112a5ee243ce68d23eb1597e3eb33db75",
+      "commitSha": "424a1befda638106e52a266fb3c3f2f12156c7a7",
+      "commitMessage": "fix filename",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-03T16:04:34-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/teamviewer-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/teamviewer-integration",
+      "firstSeenAt": "2026-04-03T20:04:34.000Z",
+      "eventId": "intune-docs:424a1befda638106e52a266fb3c3f2f12156c7a7:removed:intune/intune-service/fundamentals/teamviewer-integration.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "fix filename",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/fundamentals/teamviewer-integration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 9,
+    "totalFiles": 11,
+    "authors": [
+      "Brent Dunsire",
+      "Jon",
+      "Laura Newsad",
+      "Michel Bulgado",
+      "Nicholas S. White"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 8 updated, and 1 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/intune-service",
+        "summary": "Added Microsoft Intune documentation in intune/intune-service/fundamentals/teamviewer-integration.md. Added Microsoft Intune documentation in intune/intune-service/fundamentals/team-viewer-integration.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baselines.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Mic",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/teamviewer-integration.md",
+          "intune/intune-service/fundamentals/team-viewer-integration.md",
+          "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+          "intune/intune-service/protect/security-baselines.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/fundamentals/in-development.md",
+          "intune/intune-service/fundamentals/team-viewer-integration.md",
+          "intune/intune-service/fundamentals/teamviewer-integration.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Windows Autopilot",
+        "summary": "Updated Microsoft Intune documentation in autopilot/autopilot-hybrid-connector-proxy.md.",
+        "sourceFiles": [
+          "autopilot/autopilot-hybrid-connector-proxy.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/intune-service",
+        "detail": "Added Microsoft Intune documentation in intune/intune-service/fundamentals/teamviewer-integration.md. Added Microsoft Intune documentation in intune/intune-service/fundamentals/team-viewer-integration.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baselines.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Mic"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Windows Autopilot",
+        "detail": "Updated Microsoft Intune documentation in autopilot/autopilot-hybrid-connector-proxy.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/whats-new/in-development.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/whats-new/in-development.md b/intune/whats-new/in-development.md\nindex 967431ceff..f4e12b21e0 100644\n--- a/intune/whats-new/in-development.md\n+++ b/intune/whats-new/in-development.md\n@@ -276,7 +276,7 @@ Microsoft Intune will introduce client-driven compliance evaluation for Windows\n >\n > - Windows\n \n-### Controlled Configuration for Microsoft Defender antivirus settings<!-- 35378858 -->\n+### Controlled Configuration for Microsoft Defender antivirus settings<!-- 26715847 -->\n \n Microsoft Intune is bringing Controlled Configuration (CC) to public preview for Microsoft Defender antivirus settings. CC introduces a unified approach to endpoint security by making Intune and Microsoft 365 Defender the single source of truth for antivirus and related security settings.\n \n",
+      "baseCommitSha": "3169abe115364b403d4d336271f6d172fcca7b3e",
+      "commitSha": "903db1b7f900c53f85e373ca5fe79b3bb60a4af9",
+      "commitMessage": "Minor edit to trackign ADO",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-01T07:11:34-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
+      "firstSeenAt": "2026-06-01T14:11:34.000Z",
+      "eventId": "intune-docs:903db1b7f900c53f85e373ca5fe79b3bb60a4af9:modified:intune/whats-new/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Minor edit to trackign ADO",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex 3614d0ddb7..2490fcf636 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -1,7 +1,7 @@\n ---\n title: \"Collect Device Hardware Info With the Properties Catalog\"\n description: \"Use the properties catalog in Microsoft Intune to collect device hardware info like BIOS version, TPM status, and disk details on managed Windows devices. Get deeper visibility into your device inventory and troubleshoot issues.\"\n-ms.date: 05/28/2026\n+ms.date: 06/01/2026\n ms.topic: how-to\n ms.collection:\n - M365-identity-device-management\n@@ -137,6 +137,11 @@ Use the following steps to view the collected device inventory information:\n \n ## What you need to know\n \n+- **Local AI Agent** is a new category that helps you discover local AI agents, like OpenClaw, running on your Windows devices. After deploy this policy and start collecting data, you can:\n+\n+  - Use [Device Query](../advanced-analytics/device-query-multiple-devices.md) to view devices with a Local AI Agent.\n+  - Use the [Local AI Agent Baseline - OpenClaw (Preview)](../device-security/security-baselines/ref-openclaw-settings.md) to block users from using OpenClaw.\n+\n - You can stop (delete) the collection of properties only at the category level. To stop collecting properties, go to the **properties catalog** profile, and remove the collection for every property in the category.\n \n   If you delete a properties catalog policy, you can see the last-collected data in Device Inventory for up to 28 days.\n",
+      "baseCommitSha": "ee442d43ee5031ac2e44113afa687660939cd880",
+      "commitSha": "d47cb310707ea945e67b73dea8f9478cac9a6f26",
+      "commitMessage": "Local AI resources",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-01T16:36:20-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "firstSeenAt": "2026-06-01T20:36:20.000Z",
+      "eventId": "intune-docs:d47cb310707ea945e67b73dea8f9478cac9a6f26:modified:intune/device-configuration/collect-device-properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Local AI resources",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex 90ba14003d..04aa885a65 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -22,9 +22,6 @@ For example, you can:\n - Collect battery health information to help monitor device performance and lifespan.\n - Retrieve network adapter configurations to troubleshoot connectivity issues.\n \n-> [!TIP]\n-> After you identify devices with local AI agents installed, you can deploy the [Local AI Agent Baseline - OpenClaw (Preview)](../device-security/security-baselines/ref-openclaw-settings.md) security baseline to block common execution paths used by those agents.\n-\n Use this information to get deeper visibility into your device inventory, including detailed hardware and system information.\n \n This article shows you how to configure a properties catalog policy, view the data collected by the policy, and lists the available properties. After you create a profile, assign or deploy that profile to your Windows devices.\n@@ -140,7 +137,7 @@ Use the following steps to view the collected device inventory information:\n \n ## What you need to know\n \n-- **Local AI Agent** is a new category that helps you discover local AI agents, like OpenClaw, running on your Windows devices. After deploy this policy and start collecting data, you can:\n+- **Local AI Agent** helps you discover local AI agents, like OpenClaw, running on your Windows devices. After deploy the properties catalog policy and start collecting data, you can:\n \n   - Use [Device Query](../advanced-analytics/device-query-multiple-devices.md) to view devices with a Local AI Agent.\n   - Use the [Local AI Agent Baseline - OpenClaw (Preview)](../device-security/security-baselines/ref-openclaw-settings.md) to block users from using OpenClaw.\n",
+      "baseCommitSha": "72dd95ed7d8f8e70ab99682c84dd654057aedcc6",
+      "commitSha": "a722697894dae5ead19644bd98596e3a9d04e56f",
+      "commitMessage": "More Local AI Agent info",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-01T16:42:27-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "firstSeenAt": "2026-06-01T20:42:27.000Z",
+      "eventId": "intune-docs:a722697894dae5ead19644bd98596e3a9d04e56f:modified:intune/device-configuration/collect-device-properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "More Local AI Agent info",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md b/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md\nindex 8e36f29894..2569c44094 100644\n--- a/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md\n+++ b/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md\n@@ -1,7 +1,7 @@\n ---\n title: Add Platform SSO policy to ADE Profile on macOS devices\n description: Add a settings catalog platform single sign-on (PSSO) policy to an Automated Device Enrollment (ADE) profile and configure it to run during Setup Assistant with modern authentication on macOS devices.\n-ms.date: 05/18/2026\n+ms.date: 06/01/2026\n ms.topic: how-to\n appliesto:\n - ✅ macOS\n",
+      "baseCommitSha": "eccd65c47bac6835f266ac254cabb18c8c1a8fcc",
+      "commitSha": "68e4762bde6033ca9cf3d290cd1c4ecc6938445f",
+      "commitMessage": "Change ms.date to 06/01/2026",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-01T17:58:20-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment",
+      "firstSeenAt": "2026-06-01T21:58:20.000Z",
+      "eventId": "intune-docs:68e4762bde6033ca9cf3d290cd1c4ecc6938445f:modified:intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Change ms.date to 06/01/2026",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md b/intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md\nindex bbf6ef0573..7f1d1596bd 100644\n--- a/intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md\n+++ b/intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md\n@@ -1,7 +1,7 @@\n ---\n title: Configure Recovery Lock using the settings catalog\n description: Add or create settings using the settings catalog to configure Recovery Lock on macOS devices. Use Recovery Lock to help protect your macOS devices against unauthorized reinstallation and wiping. Using Microsoft Intune, you can configure Recovery Lock settings, and deploy these settings to macOS devices in your organization.\n-ms.date: 05/05/2026\n+ms.date: 06/01/2026\n ms.topic: how-to\n ms.reviewer: beflamm\n ms.collection:\n@@ -10,9 +10,6 @@ ms.collection:\n \n # Configure Recovery Lock on macOS devices in Microsoft Intune\n \n-> [!NOTE]\n-> This feature is gradually rolling out and may not yet be available in your tenant. Full availability is expected by mid-May 2026.\n-\n Recovery Lock helps protect your macOS devices against unauthorized reinstallation and wiping. When you add a Recovery Lock policy, Intune automatically generates a strong, random password and sets it on the device.\n \n When you configure this feature:\n",
+      "baseCommitSha": "63cbe48fcd04e6f57d832f2a8c45f468d59fcb09",
+      "commitSha": "1492c5b366e87d7f894866ec6beecfafbdcfb792",
+      "commitMessage": "removing note",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-01T19:08:38-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/configure-recovery-lock-macos",
+      "firstSeenAt": "2026-06-01T23:08:38.000Z",
+      "eventId": "intune-docs:1492c5b366e87d7f894866ec6beecfafbdcfb792:modified:intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "removing note",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-account-service-access.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 11,
+      "changes": 19,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-account-service-access.md b/intune/device-enrollment/apple/setup-account-service-access.md\nindex adae061f17..1f11133781 100644\n--- a/intune/device-enrollment/apple/setup-account-service-access.md\n+++ b/intune/device-enrollment/apple/setup-account-service-access.md\n@@ -1,7 +1,7 @@\n ---\n title: Configure Apple account service access\n description: Use Apple access management settings to control how Apple accounts are used on organization‑owned devices managed by Microsoft Intune.  \n-ms.date: 04/29/2026  \n+ms.date: 06/01/2026\n ms.topic: how-to\n ms.reviewer: beflamm\n ms.collection:\n@@ -11,9 +11,6 @@ ms.collection:\n \n # Configure service access for Apple accounts\n \n-> [!NOTE]\n-> This feature is gradually rolling out and might not yet be available in your tenant. Full availability is expected by mid-May 2026.\n-\n You can use Apple access management settings in Apple Business or Apple School Manager to control how Apple accounts are used on organization-owned devices. These settings define which devices users can sign in to with Apple accounts and which Apple apps and services are available.   \n \n ## Prerequisites  \n@@ -65,7 +62,7 @@ To configure service access for Apple accounts, ensure your environment meets th\n \n ## Configure service access  \n \n-Service access settings are configured in Apple Business or Apple School Manager. Microsoft Intune doesn’t configure these settings directly. Instead, Intune issues a management token that Apple uses during device activation to confirm the device’s Intune assignment.  \n+Service access settings are configured in Apple Business or Apple School Manager. Microsoft Intune doesn't configure these settings directly. Instead, Intune issues a management token that Apple uses during device activation to confirm the device's Intune assignment.  \n \n ### Available settings  \n \n@@ -99,18 +96,18 @@ Service access for Apple accounts is defined and enforced across Apple and Micro\n 1. Microsoft Intune enforces the service access requirements on enrolled devices during device check-in and Apple account sign-in.\n 1. If a device no longer meets the configured requirements, Apple automatically signs the user out of affected Apple services.  \n \n-These controls help ensure that managed Apple accounts are used only on devices that meet your organization’s access requirements.  \n+These controls help ensure that managed Apple accounts are used only on devices that meet your organization's access requirements.  \n \n If a user is having trouble signing in to a device with their personal Apple account, see [Apple support](https://support.apple.com/en-us/122725) (opens Apple Support site).  \n \n-### What it doesn’t do  \n+### What it doesn't do  \n \n-Configuring service access for Apple accounts doesn’t change how devices enroll in Microsoft Intune. Specifically, this configuration- \n+Configuring service access for Apple accounts doesn't change how devices enroll in Microsoft Intune. Specifically, this configuration- \n \n-- Doesn’t configure enrollment settings in the Intune admin center. Service access is configured in Apple Business or Apple School Manager, not in Intune.\n+- Doesn't configure enrollment settings in the Intune admin center. Service access is configured in Apple Business or Apple School Manager, not in Intune.\n \n-- Doesn’t replace device enrollment. Devices must still be enrolled in Intune using an Apple-supported enrollment method that results in a managed (or supervised) device.  \n+- Doesn't replace device enrollment. Devices must still be enrolled in Intune using an Apple-supported enrollment method that results in a managed (or supervised) device.  \n \n - Doesn't determine whether a device is marked as corporate or personal in Intune. Device ownership is determined by the enrollment method and corporate identifiers.  \n \n-- Doesn’t provide per-service configuration controls in Intune. Apple defines which apps and services (such as iCloud features, FaceTime, or Messages) are available to managed Apple accounts.  \n+- Doesn't provide per-service configuration controls in Intune. Apple defines which apps and services (such as iCloud features, FaceTime, or Messages) are available to managed Apple accounts.  \n",
+      "baseCommitSha": "63cbe48fcd04e6f57d832f2a8c45f468d59fcb09",
+      "commitSha": "1492c5b366e87d7f894866ec6beecfafbdcfb792",
+      "commitMessage": "removing note",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-01T19:08:38-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/setup-account-service-access.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-account-service-access",
+      "firstSeenAt": "2026-06-01T23:08:38.000Z",
+      "eventId": "intune-docs:1492c5b366e87d7f894866ec6beecfafbdcfb792:modified:intune/device-enrollment/apple/setup-account-service-access.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "removing note",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-account-service-access.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 6,
+      "changes": 6,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex cfdce2271b..394da0ce5d 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -324,9 +324,6 @@ For more information, see [Add an Android line-of-business app to Microsoft Intu\n >\n > - Android Enterprise\n \n-> [!NOTE]\n-> This feature is gradually rolling out and may not yet be available in your tenant. Full availability is expected by mid-May 2026.\n-\n #### Newly available protected apps for Intune<!-- 36921208, 36933292 -->\n \n The following protected apps are now available for Microsoft Intune:\n@@ -425,9 +422,6 @@ The Recovery Lock password can be viewed in the per-setting status report > **Pa\n >\n > - macOS\n \n-> [!NOTE]\n-> This feature is gradually rolling out and may not yet be available in your tenant. Full availability is expected by mid-May 2026.\n-\n #### New supported OEMConfig app for Android Enterprise <!-- 36423115 -->\n \n The following OEMConfig app is available in Intune for Android Enterprise:\n",
+      "baseCommitSha": "63cbe48fcd04e6f57d832f2a8c45f468d59fcb09",
+      "commitSha": "1492c5b366e87d7f894866ec6beecfafbdcfb792",
+      "commitMessage": "removing note",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-01T19:08:38-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-06-01T23:08:38.000Z",
+      "eventId": "intune-docs:1492c5b366e87d7f894866ec6beecfafbdcfb792:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "removing note",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 5,
+    "totalFiles": 7,
+    "authors": [
+      "Brent Dunsire",
+      "Mandi Ohlinger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md. Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/in-development.md",
+          "intune/whats-new/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md. Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md.",
+        "sourceFiles": [
+          "intune/device-configuration/collect-device-properties.md",
+          "intune/device-configuration/collect-device-properties.md",
+          "intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md",
+          "intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-account-service-access.md.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-account-service-access.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md. Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment.md. Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/configure-recovery-lock-macos.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-account-service-access.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

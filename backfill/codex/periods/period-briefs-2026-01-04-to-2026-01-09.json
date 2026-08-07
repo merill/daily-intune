@@ -1,0 +1,240 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "week",
+      "key": "2025-12-29",
+      "summary": {
+        "headline": "Cloud-native Windows endpoint starter guidance was simplified",
+        "overview": "This partial week recorded one documentation-only change. The cloud-native Windows endpoint tutorial removed its comparison with Windows in cloud configuration and its embedded Windows 10 support notice, leaving a more direct setup path for the tutorial.",
+        "adminImpact": "If your Windows onboarding material points teams to this tutorial, check that local runbooks still distinguish your custom cloud-native build from any standardized Windows cloud configuration approach. No tenant setting or deployed policy changed.",
+        "keyChanges": [
+          {
+            "title": "Cloud-native Windows endpoint tutorial removes legacy orientation content",
+            "detail": "The guide no longer compares its five-phase tutorial with Windows in cloud configuration and no longer carries the included Windows 10 support notice. The practical setup phases remain, but the introductory framing is leaner.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-04-cloud-native-windows-endpoints-01"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-04",
+      "summary": {
+        "headline": "Cloud-native Windows endpoint starter guidance was simplified",
+        "overview": "The only recorded change removes introductory material from the cloud-native Windows endpoint tutorial: its comparison with Windows in cloud configuration and the embedded Windows 10 support notice. This is a documentation refinement rather than a service or policy change.",
+        "adminImpact": "Review internal links and onboarding guides that use this tutorial, especially where they explain when to choose a custom cloud-native configuration versus Windows in cloud configuration. Existing device configurations are unaffected.",
+        "keyChanges": [
+          {
+            "title": "Cloud-native Windows endpoint tutorial removes legacy orientation content",
+            "detail": "The guide no longer compares its five-phase tutorial with Windows in cloud configuration and no longer carries the included Windows 10 support notice. The practical setup phases remain, but the introductory framing is leaner.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-04-cloud-native-windows-endpoints-01"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-05",
+      "summary": {
+        "headline": "New driver and Hotpatch guidance sharpens Windows update planning",
+        "overview": "Windows update management dominates the day. New Intune guidance explains driver update approvals and a separate quality update policy introduces Hotpatch deployment requirements, while related update and co-management documentation was refreshed.",
+        "adminImpact": "For driver-update pilots, decide whether recommended drivers should be automatically approved or reviewed manually, and validate Autopatch licensing before assignment. For Hotpatch, confirm Windows 11 Enterprise 24H2-or-later eligibility, baseline currency, VBS, and the additional CHPE handling required for Arm64 devices.",
+        "keyChanges": [
+          {
+            "title": "Windows Driver Update Management policy guidance added",
+            "detail": "The new guide describes automatic approval of recommended drivers, manual approval of every driver, and per-driver pause or reapproval. It also makes clear that only approved, newer drivers install and that the policy relies on Intune and Windows Autopatch.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-05-learn-about-windows-driver-updates-policy-for-windows-devices-in-intune-01"
+          },
+          {
+            "title": "Windows quality update policy documents Hotpatch prerequisites",
+            "detail": "The new policy guide positions Hotpatch as an Autopatch-enabled way to install monthly security updates without a restart. It documents the Windows 11 Enterprise 24H2 baseline, VBS, and Arm64 CHPE requirements, and notes that ineligible devices receive the normal cumulative update.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-05-windows-quality-update-policy-02"
+          },
+          {
+            "title": "Intune roadmap adds management and assignment-filter signals",
+            "detail": "The in-development guidance adds a planned Lenovo Device Orchestration portal link, Android settings-catalog filtering by management mode, Apple declarative device management assignment filters, and more managed-app filter values for Android and iOS/iPadOS.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-05-in-development-06"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-01-05",
+      "summary": {
+        "headline": "Windows update policy guidance expands from drivers to reporting and rollout",
+        "overview": "The week recorded 165 changes, led by a substantial Windows update documentation refresh. New and revised material covers driver update approvals, Hotpatch, feature-update policy behavior and reporting, shared Autopatch prerequisites, plus the retirement implications for MDT and Configuration Manager.",
+        "adminImpact": "Treat the documentation changes as a policy-design review: verify Autopatch entitlement, telemetry, Windows Update connectivity, and device join state before deploying feature, quality, or driver policies. Use pilot rings for drivers and feature updates, avoid custom update rings on Autopatch-managed devices, and schedule removal of MDT task sequence dependencies.",
+        "keyChanges": [
+          {
+            "title": "Windows Driver Update Management receives policy and FAQ coverage",
+            "detail": "The new driver-update content explains approvals, pauses, policy overlap, and operational limitations. Assignment filters, Autopilot deployment, and policy-based rollback are not supported, making staged deployment rings and monitoring important safeguards.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-05-learn-about-windows-driver-updates-policy-for-windows-devices-in-intune-01"
+          },
+          {
+            "title": "Feature-update reporting is tied more directly to diagnostic data",
+            "detail": "The report guidance now calls out the tenant setting to share Windows diagnostic data with Intune and requires Required-level-or-higher diagnostic data to report the full feature-update lifecycle from offer through install, restart, rollback, and cancellation states.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-06-feature-updates-reports-23"
+          },
+          {
+            "title": "MDT retirement is reiterated for Configuration Manager administrators",
+            "detail": "The release notes state that MDT integration and standalone MDT are no longer supported. Administrators should remove MDT task sequence steps and then the integration itself to prevent task sequence corruption and modification failures; Windows Autopilot and supported Configuration Manager OSD remain the stated alternatives.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-06-release-notes-07"
+          },
+          {
+            "title": "Endpoint Privilege Management adds Azure Virtual Desktop support",
+            "detail": "EPM documentation lists Azure Virtual Desktop single-session virtual machines as supported for onboarding, alongside Windows 365. This extends elevation-policy planning to supported single-session AVD environments.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-01-06-epm-frequently-asked-questions-10"
+          },
+          {
+            "title": "Managed Home Screen RBAC permissions are announced for February",
+            "detail": "The Message Center announcement says School Administrator and Help Desk Operator roles will receive TemporarilySuspendManagedHomeScreen and RestoreManagedHomeScreen permissions. Existing role holders should be reviewed before the new capabilities become available.",
+            "product": "Intune",
+            "sourceId": "MC1213781"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-06",
+      "summary": {
+        "headline": "Driver controls, update reporting, and AVD elevation support come into focus",
+        "overview": "The day adds practical boundaries for Windows driver update management, clarifies the diagnostic-data dependency for feature-update reporting, and updates EPM support information for Azure Virtual Desktop. A Message Center post also previews new Managed Home Screen permissions in built-in roles.",
+        "adminImpact": "Pilot driver updates through rings and avoid overlapping driver policies: assignment filters, Autopilot use, and policy-based rollback are not available. Enable the required diagnostic-data configuration before relying on update reports, assess EPM policies on supported single-session AVD, and review School Administrator and Help Desk Operator assignments ahead of the Managed Home Screen permission change.",
+        "keyChanges": [
+          {
+            "title": "Driver update FAQ defines operational guardrails",
+            "detail": "The new FAQ confirms that driver policies do not support assignment filters or Windows Autopilot, do not provide rollback, and are clearer when a device receives one policy. It recommends staged rings, monitoring, and pausing updates where early-ring issues appear.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-06-learn-about-windows-driver-updates-policy-for-windows-devices-in-intune-01"
+          },
+          {
+            "title": "Feature-update reports emphasize diagnostic data prerequisites",
+            "detail": "The reporting documentation now explicitly requires sharing Windows diagnostic data with Intune at Required level or higher to show full device status and event reporting for feature updates.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-06-feature-updates-reports-23"
+          },
+          {
+            "title": "EPM supports Azure Virtual Desktop single-session VMs",
+            "detail": "Endpoint Privilege Management support information now includes Azure Virtual Desktop single-session virtual machines, enabling EPM onboarding and elevation-policy planning for that supported VDI configuration.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-01-06-epm-frequently-asked-questions-10"
+          },
+          {
+            "title": "Managed Home Screen permissions are planned for built-in roles",
+            "detail": "School Administrator and Help Desk Operator will receive permissions to temporarily suspend and restore Managed Home Screen in the February release. The announcement recommends reviewing role assignments and documentation, though no immediate action is required.",
+            "product": "Intune",
+            "sourceId": "MC1213781"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-07",
+      "summary": {
+        "headline": "Windows driver update prerequisites are standardized across the documentation",
+        "overview": "The day’s 40 changes are led by a reorganization of Windows driver update guidance. The documentation now presents its policy, licensing, platform, telemetry, reporting, cloud, and RBAC conditions more consistently, while Enterprise App Catalog guidance clarifies customer responsibility for catalogued apps.",
+        "adminImpact": "Compare active driver-update policies with the documented prerequisites: Intune Plan 1, a Windows license with Autopatch entitlement, supported Windows editions, diagnostic data, and public-cloud availability. Keep LTSC on update-ring management and do not assume catalogued third-party apps carry Microsoft assurances of compliance, authenticity, or integrity.",
+        "keyChanges": [
+          {
+            "title": "Driver update management documentation consolidates prerequisites",
+            "detail": "The refreshed overview explains that driver policies use Intune and Windows Autopatch, require supported licensing and device configuration, require diagnostic data for reporting, and are not available in GCC High or DoD. It directs administrators to policy configuration and reporting guidance.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-07-learn-about-windows-driver-updates-policy-for-windows-devices-in-intune-01"
+          },
+          {
+            "title": "Driver update prerequisite sections move to shared requirement content",
+            "detail": "The main driver update article is restructured around reusable licensing, platform, device-configuration, tenant, and RBAC prerequisites. It reiterates that LTSC is not supported for driver, feature, or expedited quality updates and should use update rings instead.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-07-driver-updates-10"
+          },
+          {
+            "title": "Enterprise App Catalog guidance clarifies customer assurance responsibilities",
+            "detail": "The Enterprise App Management documentation now explicitly says Microsoft does not assert compliance, authorization, authenticity, or integrity for apps distributed through Intune. It also says manual validation for catalog updates can take up to seven days.",
+            "product": "Enterprise App Management",
+            "sourceId": "doc-2026-01-07-microsoft-intune-enterprise-application-management-38"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-08",
+      "summary": {
+        "headline": "AVD elevation support and MDT retirement guidance stand out in update documentation",
+        "overview": "The day’s documentation refresh reorganizes Windows update prerequisites around the shared Autopatch model, explicitly adds EPM support information for single-session Azure Virtual Desktop, and reinforces the action required after Microsoft Deployment Toolkit retirement.",
+        "adminImpact": "For Windows update policies, confirm the common Autopatch prerequisites and preserve update-ring management for unsupported scenarios. Teams that still use MDT should plan to remove MDT task sequence steps and integration. EPM teams can evaluate single-session AVD, but should keep the scope to the documented supported configuration.",
+        "keyChanges": [
+          {
+            "title": "Configuration Manager documentation reinforces MDT retirement action",
+            "detail": "The removed-and-deprecated features page links to MDT retirement guidance and reiterates that MDT integration with Configuration Manager and standalone MDT are no longer supported. Removing MDT task sequence steps before the integration is intended to prevent corruption and task-sequence modification failures.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-08-removed-and-deprecated-cmfeatures-01"
+          },
+          {
+            "title": "EPM support is documented for Azure Virtual Desktop single-session VMs",
+            "detail": "The in-development guidance says EPM elevation policies will work for users on Azure Virtual Desktop single-session virtual machines, extending the stated virtual-desktop support alongside the EPM Intune Suite capability.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-01-08-in-development-29"
+          },
+          {
+            "title": "Windows update documentation aligns shared Autopatch prerequisites",
+            "detail": "The Windows update index makes feature, quality, and driver update policies explicitly share the Windows Autopatch orchestration layer. It calls out Autopatch entitlement, Required diagnostic data, Microsoft Account Sign-In Assistant availability, and the lack of support for Entra-registered devices in those policy types.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-08-index-18"
+          },
+          {
+            "title": "Driver update guidance is reorganized around approvals and prerequisites",
+            "detail": "The revised article separates approval controls from shared prerequisite content and makes policy configuration the next step, improving the operational path from eligibility validation through driver approval.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-08-driver-updates-20"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-09",
+      "summary": {
+        "headline": "Windows update policy guidance makes rollout choices and prerequisites explicit",
+        "overview": "New feature and quality update policy guidance describes the choices administrators make between required and optional deployments, Hotpatch readiness, and expedited-update compatibility. The day’s broader MTD changes are largely documentation maintenance, while the material Windows update additions are operationally significant.",
+        "adminImpact": "Decide whether a feature update should require installation or let users opt in, and communicate optional deployments because users must select them in Windows Update. Before using Hotpatch or expedited updates, validate Autopatch-related prerequisites, remove conflicting Group Policy settings, and verify Update Health Tools on devices earlier than Windows 11 24H2.",
+        "keyChanges": [
+          {
+            "title": "Feature update policies gain required-versus-optional rollout guidance",
+            "detail": "The new guide explains that a policy can hold a device to a chosen Windows version, expose the update as required or optional, and use rollout options for timing. Optional updates require Windows Autopatch licensing and need user action; changing between optional and required affects only devices that have not progressed too far into installation.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-09-windows-feature-update-policies-02"
+          },
+          {
+            "title": "Quality update policy lists Hotpatch and expedite compatibility checks",
+            "detail": "The new policy checklist points administrators to quality-update prerequisites and warns that preview builds, some update-ring choices, and Group Policy values such as WSUS location, Automatic Updates, feature deferral, and Disable Dual Scan can interfere with expedited deployment.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-09-windows-quality-updates-policy-01"
+          },
+          {
+            "title": "Expedited update guidance separates prerequisites from deployment behavior",
+            "detail": "The updated documentation moves shared network, tenant, platform, device-configuration, and RBAC requirements into common content. It specifies that Update Health Tools remain necessary before Windows 11 24H2, while expedited policies still override quality deferrals for urgent servicing rather than normal monthly management.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-09-expedite-updates-04"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/whats-new/in-development.md",
+      "status": "modified",
+      "additions": 63,
+      "deletions": 0,
+      "changes": 63,
+      "patch": "diff --git a/intune/whats-new/in-development.md b/intune/whats-new/in-development.md\nindex b6a2e84de7..4c4832ea3a 100644\n--- a/intune/whats-new/in-development.md\n+++ b/intune/whats-new/in-development.md\n@@ -64,6 +64,69 @@ The Multiple Managed Accounts (MMA) feature for Intune mobile application manage\n \n ## Device configuration\n \n+### Use DDM to manage Apple Intelligence settings for devices running 26.4 and later<!-- 37011037 -->\n+\n+With the release of 26.4, Apple deprecated the following intelligence related settings in the MDM restrictions payload. To manage these settings, use the [DDM configurations that were released in March 2026](#new-updates-to-the-apple-settings-catalog-).\n+\n+In the [settings catalog](../configuration/settings-catalog.md), the following restrictions are now deprecated:\n+\n+**Restrictions**:\n+\n+- Allow Apple Intelligence Report\n+- Allow Assistant\n+- Allow Assistant User Generated Content\n+- Allow Assistant While Locked\n+- Allow Auto Correction\n+- Allow Continuous Path Keyboard\n+- Allow Definition Lookup\n+- Allow Dictation\n+- Allowed External Intelligence Workspace IDs\n+- Allow External Intelligence Integrations\n+- Allow External Intelligence Integrations Sign In\n+- Allow Genmoji\n+- Allow Image Playground\n+- Allow Image Wand\n+- Allow Keyboard Shortcuts\n+- Allow Mail Smart Replies\n+- Allow Mail Summary\n+- Allow Notes Transcription\n+- Allow Notes Transcription Summary\n+- Allow Personalized Handwriting Results\n+- Allow Predictive Keyboard\n+- Allow Safari Summary\n+- Allow Spell Check\n+- Allow Visual Intelligence Summary\n+- Allow Writing Tools\n+- Force Assistant Profanity Filter\n+- Force On Device Only Dictation\n+- Force On Device Only Translation\n+\n+In the device restrictions template, the following settings are deprecated:\n+\n+**Built-in apps**:\n+\n+- Block Siri\n+- Block Siri while device is locked\n+- Block Siri for dictation\n+- Block Siri for translation\n+- Require Siri profanity filters\n+- Block user-generated content in Siri\n+\n+**Keyboard and dictionary**:\n+\n+- Block word definition lookup\n+- Block predictive keyboards\n+- Block auto-correction\n+- Block spell check\n+- Block keyboard shortcuts\n+- Block dictation\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - iOS/iPadOS\n+> - macOS\n+\n ### Disable MAC address randomization on macOS Wi-Fi profiles<!-- 8457343 -->\n \n On macOS devices, the **Disable MAC address randomization** setting will be available for Wi-Fi profiles. You'll be able to use this setting to disable MAC address randomization on managed macOS devices.\n",
+      "baseCommitSha": "f9b4dae299fcd731d832f2443ce8cbed24cc400d",
+      "commitSha": "715eca71afa6d63d0d0ae04f8bdcde84f24724d5",
+      "commitMessage": "Add 37011037 (Apple Intelligence DDM) to 2605 ID staging",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-05-07T12:02:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
+      "firstSeenAt": "2026-05-07T16:02:31.000Z",
+      "eventId": "intune-docs:715eca71afa6d63d0d0ae04f8bdcde84f24724d5:modified:intune/whats-new/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add 37011037 (Apple Intelligence DDM) to 2605 ID staging",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/licensing/unlicensed-admins.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/intune/fundamentals/licensing/unlicensed-admins.md b/intune/fundamentals/licensing/unlicensed-admins.md\nindex 93212bc85d..d0bf3e9e11 100644\n--- a/intune/fundamentals/licensing/unlicensed-admins.md\n+++ b/intune/fundamentals/licensing/unlicensed-admins.md\n@@ -32,9 +32,10 @@ Whether you need to enable this setting depends on when your tenant was created:\n :::row-end:::\n \n > [!IMPORTANT]\n-> - Intune supports up to 350 unlicensed admins per security group. If more than 350 administrators are needed for a role assignment, you can use multiple security groups.\n-> - Members of nested security groups aren't included in the unlicensed admins feature. If you prefer to retain nested security groups, admins in those nested groups still require an Intune license even when unlicensed admins setting is enabled.\n-> - It can take up to 48 hours for access changes to take effect.\n+> - Intune supports up to 1000 unlicensed admins per security group. If more than 1000 administrators are needed for a role assignment, you can use multiple security groups.\n+- Members of nested security groups aren't included in the unlicensed admins feature. If you prefer to retain nested security groups, admins in those nested groups still require an Intune license even when unlicensed admins setting is enabled.\n+- It can take up to 48 hours for access changes to take effect.\n+\n \n ## Enable the setting for pre-July 2021 tenants\n \n",
+      "baseCommitSha": "d616f0d5e6c5fd2904f03c813fe156f205a1eb4c",
+      "commitSha": "653c3cd33c1d4eb7bca733770e00b9819e21f9ad",
+      "commitMessage": "Learn Editor: Update unlicensed-admins.md",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-05-07T09:10:49-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/licensing/unlicensed-admins.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/licensing/unlicensed-admins",
+      "firstSeenAt": "2026-05-07T16:10:49.000Z",
+      "eventId": "intune-docs:653c3cd33c1d4eb7bca733770e00b9819e21f9ad:modified:intune/fundamentals/licensing/unlicensed-admins.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update unlicensed-admins.md",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/licensing/unlicensed-admins.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/in-development.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 63,
+      "changes": 63,
+      "patch": "diff --git a/intune/whats-new/in-development.md b/intune/whats-new/in-development.md\nindex 4c4832ea3a..b6a2e84de7 100644\n--- a/intune/whats-new/in-development.md\n+++ b/intune/whats-new/in-development.md\n@@ -64,69 +64,6 @@ The Multiple Managed Accounts (MMA) feature for Intune mobile application manage\n \n ## Device configuration\n \n-### Use DDM to manage Apple Intelligence settings for devices running 26.4 and later<!-- 37011037 -->\n-\n-With the release of 26.4, Apple deprecated the following intelligence related settings in the MDM restrictions payload. To manage these settings, use the [DDM configurations that were released in March 2026](#new-updates-to-the-apple-settings-catalog-).\n-\n-In the [settings catalog](../configuration/settings-catalog.md), the following restrictions are now deprecated:\n-\n-**Restrictions**:\n-\n-- Allow Apple Intelligence Report\n-- Allow Assistant\n-- Allow Assistant User Generated Content\n-- Allow Assistant While Locked\n-- Allow Auto Correction\n-- Allow Continuous Path Keyboard\n-- Allow Definition Lookup\n-- Allow Dictation\n-- Allowed External Intelligence Workspace IDs\n-- Allow External Intelligence Integrations\n-- Allow External Intelligence Integrations Sign In\n-- Allow Genmoji\n-- Allow Image Playground\n-- Allow Image Wand\n-- Allow Keyboard Shortcuts\n-- Allow Mail Smart Replies\n-- Allow Mail Summary\n-- Allow Notes Transcription\n-- Allow Notes Transcription Summary\n-- Allow Personalized Handwriting Results\n-- Allow Predictive Keyboard\n-- Allow Safari Summary\n-- Allow Spell Check\n-- Allow Visual Intelligence Summary\n-- Allow Writing Tools\n-- Force Assistant Profanity Filter\n-- Force On Device Only Dictation\n-- Force On Device Only Translation\n-\n-In the device restrictions template, the following settings are deprecated:\n-\n-**Built-in apps**:\n-\n-- Block Siri\n-- Block Siri while device is locked\n-- Block Siri for dictation\n-- Block Siri for translation\n-- Require Siri profanity filters\n-- Block user-generated content in Siri\n-\n-**Keyboard and dictionary**:\n-\n-- Block word definition lookup\n-- Block predictive keyboards\n-- Block auto-correction\n-- Block spell check\n-- Block keyboard shortcuts\n-- Block dictation\n-\n-> [!div class=\"checklist\"]\n-> Applies to:\n->\n-> - iOS/iPadOS\n-> - macOS\n-\n ### Disable MAC address randomization on macOS Wi-Fi profiles<!-- 8457343 -->\n \n On macOS devices, the **Disable MAC address randomization** setting will be available for Wi-Fi profiles. You'll be able to use this setting to disable MAC address randomization on managed macOS devices.\n",
+      "baseCommitSha": "715eca71afa6d63d0d0ae04f8bdcde84f24724d5",
+      "commitSha": "650f445e360eaa66cf0e7e562b3468560c135056",
+      "commitMessage": "Revert \"Add 37011037 (Apple Intelligence DDM) to 2605 ID staging\"",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-05-07T12:20:36-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
+      "firstSeenAt": "2026-05-07T16:20:36.000Z",
+      "eventId": "intune-docs:650f445e360eaa66cf0e7e562b3468560c135056:modified:intune/whats-new/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert \"Add 37011037 (Apple Intelligence DDM) to 2605 ID staging\"",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/compliance/create-policy.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-security/compliance/create-policy.md b/intune/device-security/compliance/create-policy.md\nindex 61b8f3ee01..439afc3685 100644\n--- a/intune/device-security/compliance/create-policy.md\n+++ b/intune/device-security/compliance/create-policy.md\n@@ -185,6 +185,9 @@ When a device has multiple compliance policies, then the highest severity level\n \n For example, a device has three compliance policies assigned to it: one Unknown status (severity = 1), one Compliant status (severity = 3), and one InGracePeriod status (severity = 4). The InGracePeriod status has the highest severity level. So, all three policies have the InGracePeriod compliance status.\n \n+> [!IMPORTANT]\n+> Discovery script output is limited to 2048 characters. If the output exceeds this limit, it may be truncated, resulting in invalid JSON and error 65009 during compliance evaluation. To avoid this, keep outputs concise or split large rule sets across multiple policies.\n+\n ## Next steps\n \n [Monitor your policies](./monitor-policy.md).\n",
+      "baseCommitSha": "c2e1f1333a0f56191314fb51202100f2a468f422",
+      "commitSha": "d6b96879fa6f6ccec10a12b8e3a9f270b8d35eaa",
+      "commitMessage": "Clarify discovery script output character limit",
+      "commitAuthor": "Ileana Wu",
+      "commitDate": "2026-05-07T14:41:05-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/compliance/create-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/create-policy",
+      "firstSeenAt": "2026-05-07T18:41:05.000Z",
+      "eventId": "intune-docs:d6b96879fa6f6ccec10a12b8e3a9f270b8d35eaa:modified:intune/device-security/compliance/create-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify discovery script output character limit",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/compliance/create-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "status": "modified",
+      "additions": 38,
+      "deletions": 25,
+      "changes": 63,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wifi-settings-apple.md b/intune/device-configuration/templates/ref-wifi-settings-apple.md\nindex c237b8a90e..b08bb55419 100644\n--- a/intune/device-configuration/templates/ref-wifi-settings-apple.md\n+++ b/intune/device-configuration/templates/ref-wifi-settings-apple.md\n@@ -1,9 +1,9 @@\n ---\n-title: Configure WiFi settings for Apple devices in Microsoft Intune\n+title: \"Configure Wi-Fi Settings for Apple Devices in Intune\"\n description: Add or create a Wi-Fi configuration profile on iOS/iPadOS and macOS devices using Wi-Fi configuration settings in Microsoft Intune. Configure the connection details, authentication methods, SSIDs, security types, and proxy settings.\n-ms.date: 02/09/2026\n+ms.date: 05/25/2026\n ms.topic: article\n-ms.reviewer: beflamm\n+ms.reviewer: wicale\n ms.collection:\n - M365-identity-device-management\n zone_pivot_groups: platforms-apple\n@@ -11,11 +11,11 @@ zone_pivot_groups: platforms-apple\n \n # Add Wi-Fi settings to Apple devices in Microsoft Intune\n \n-You can create a profile with specific WiFi settings, and then deploy this profile to your iOS/iPadOS and macOS devices using Intune. As part of your mobile device management (MDM) solution, use these settings to authenticate your network, add a PKCS (Public Key Cryptography Standards) or SCEP (Simple Certificate Enrollment Protocol) certificate, configure a proxy, and more.\n+You can create a profile with specific Wi-Fi settings, and then deploy this profile to your iOS/iPadOS and macOS devices by using Intune. As part of your mobile device management (MDM) solution, use these settings to authenticate your network, add a PKCS (Public Key Cryptography Standards) or SCEP (Simple Certificate Enrollment Protocol) certificate, configure a proxy, and more.\n \n-These Wi-Fi settings are separated in to two categories: Basic settings and Enterprise settings.\n+These Wi-Fi settings are separated into two categories: **Basic settings** and **Enterprise settings**.\n \n-This article describes the settings you can configure.\n+This article describes the settings you can configure. To learn more about Wi-Fi profiles in Intune, see [Wi-Fi device configuration profile](wi-fi-settings-configure.md).\n \n ## Prerequisites\n \n@@ -78,9 +78,7 @@ Basic or personal profiles use WPA/WPA2 to secure the Wi-Fi connection on device\n \n     For more information on PAC files, go to [Proxy Auto-Configuration (PAC) file](https://developer.mozilla.org/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file) (opens a non-Microsoft site).\n \n-::: zone pivot=\"ios-ipados\"\n-\n-- **Disable MAC address randomization**: Starting with iOS/iPadOS 14, devices present a randomized MAC address instead of the physical MAC address when connecting to a network. Using randomized MAC addresses is recommended for privacy, as it's harder to track a device by its MAC address. However, randomized MAC addresses break functionality that relies on a static MAC address, including network access control (NAC).\n+- **Disable MAC address randomization**: Devices present a randomized MAC address instead of the physical MAC address when connecting to a network. Using randomized MAC addresses is recommended for privacy, as it's harder to track a device by its MAC address. However, randomized MAC addresses break functionality that relies on a static MAC address, including network access control (NAC).\n \n   Your options:\n \n@@ -89,10 +87,19 @@ Basic or personal profiles use WPA/WPA2 to secure the Wi-Fi connection on device\n   - **No**: Enables MAC address randomization on devices. Users can't turn it off. When devices connect to a new network, devices present a randomized MAC address, instead of the physical MAC address.\n \n   This setting applies to:\n+\n+  ::: zone pivot=\"ios-ipados\"\n+  \n   - iOS 14.0 and newer\n   - iPadOS 14.0 and newer\n \n-::: zone-end\n+  ::: zone-end\n+\n+  ::: zone pivot=\"macos\"\n+\n+  - macOS 15 and newer\n+\n+  ::: zone-end\n \n ## Enterprise profiles\n \n@@ -143,16 +150,16 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n   - **EAP-TLS**: Also enter:\n \n-    - **Certificate server names**: **Add** one or more common names used in the certificates issued by your trusted certificate authority (CA) to your wireless network access servers. For example, add `mywirelessserver.contoso.com` or `mywirelessserver`. When you enter this information, you can bypass the dynamic trust window displayed on user's devices when they connect to this Wi-Fi network. If you have multiple Radius servers with the same DNS suffix in their fully qualified domain name, then you can enter a wildcard suffix. For example, you can enter `*.contoso.com`.\n-    - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, then you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n+    - **Certificate server names**: **Add** one or more common names used in the certificates issued by your trusted certificate authority (CA) to your wireless network access servers. For example, add `mywirelessserver.contoso.com` or `mywirelessserver`. When you enter this information, you can bypass the dynamic trust window displayed on user's devices when they connect to this Wi-Fi network. If you have multiple Radius servers with the same DNS suffix in their fully qualified domain name, enter a wildcard suffix. For example, you can enter `*.contoso.com`.\n+    - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n \n     ::: zone pivot=\"ios-ipados\"\n \n     - **Authentication method**: Select the authentication method used by your device clients. Your options:\n \n-      - **Derived credential**: Use a certificate that is derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, go to [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n+      - **Derived credential**: Use a certificate that's derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, see [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n \n-      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection.\n+            - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n@@ -160,7 +167,7 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n     ::: zone pivot=\"macos\"\n \n-    - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you selected the user channel, your certificate options are limited to user certificate profiles. If you selected the device channel, you have both user and device certificate profiles to choose from. However, we recommend always selecting the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n \n     - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n@@ -169,13 +176,13 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n   - **EAP-TTLS**: Also enter:\n \n     - **Certificate server names**: **Add** one or more common names used in the certificates issued by your trusted certificate authority (CA) to your wireless network access servers. For example, add `mywirelessserver.contoso.com` or `mywirelessserver`. When you enter this information, you can bypass the dynamic trust window displayed on user's devices when they connect to this Wi-Fi network.\n-    - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, then you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n+    - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n \n     - **Authentication method**: Select the authentication method used by your device clients. Your options:\n \n       ::: zone pivot=\"ios-ipados\"\n \n-      - **Derived credential**: Use a certificate that is derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, go to [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n+      - **Derived credential**: Use a certificate that's derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, see [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n \n       ::: zone-end\n \n@@ -184,7 +191,7 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n           Your options: **Unencrypted password (PAP)**, **Challenge Handshake Authentication Protocol (CHAP)**, **Microsoft CHAP (MS-CHAP)**, or **Microsoft CHAP Version 2 (MS-CHAP v2)**\n \n-      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection.\n+            - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n@@ -193,19 +200,19 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n   - **PEAP**: Also enter:\n \n     - **Certificate server names**: **Add** one or more common names used in the certificates issued by your trusted certificate authority (CA) to your wireless network access servers. For example, add `mywirelessserver.contoso.com` or `mywirelessserver`. When you enter this information, you can bypass the dynamic trust window displayed on user's devices when they connect to this Wi-Fi network.\n-    - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, then you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n+    - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n \n     - **Authentication method**: Select the authentication method used by your device clients. Your options:\n \n       ::: zone pivot=\"ios-ipados\"\n \n-      - **Derived credential**: Use a certificate that is derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, go to [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n+      - **Derived credential**: Use a certificate that's derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, see [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n \n       ::: zone-end\n \n       - **Username and Password**: Prompt the user for a user name and password to authenticate the connection.\n \n-      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection.\n+            - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n@@ -217,9 +224,7 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n     For more information on PAC files, go to [Proxy Auto-Configuration (PAC) file](https://developer.mozilla.org/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file) (opens a non-Microsoft site).\n \n-::: zone pivot=\"ios-ipados\"\n-\n-- **Disable MAC address randomization**: Starting with iOS/iPadOS 14, devices present a randomized MAC address instead of the physical MAC address when connecting to a network. Using randomized MAC addresses is recommended for privacy, as it's harder to track a device by its MAC address. Randomized MAC addresses also break functionality that relies on a static MAC address, including network access control (NAC).\n+- **Disable MAC address randomization**: Devices present a randomized MAC address instead of the physical MAC address when connecting to a network. Using randomized MAC addresses is recommended for privacy, as it's harder to track a device by its MAC address. Randomized MAC addresses also break functionality that relies on a static MAC address, including network access control (NAC).\n \n   Your options:\n \n@@ -229,10 +234,18 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n   This setting applies to:\n \n+  ::: zone pivot=\"ios-ipados\"\n+\n   - iOS 14.0 and newer\n   - iPadOS 14.0 and newer\n \n-::: zone-end\n+  ::: zone-end\n+\n+  ::: zone pivot=\"macos\"\n+\n+  - macOS 15 and newer\n+\n+  ::: zone-end\n \n ## Related articles\n \n",
+      "baseCommitSha": "62d8458010c2189a6bb5118ea15abdaeb66cff63",
+      "commitSha": "c3987a1eeeae29647e6bc8a72e212ff6cd0fcee8",
+      "commitMessage": "2605 release",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-07T18:18:08-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wifi-settings-apple",
+      "firstSeenAt": "2026-05-07T22:18:08.000Z",
+      "eventId": "intune-docs:c3987a1eeeae29647e6bc8a72e212ff6cd0fcee8:modified:intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605 release",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wifi-settings-apple.md b/intune/device-configuration/templates/ref-wifi-settings-apple.md\nindex b08bb55419..4d8cde275c 100644\n--- a/intune/device-configuration/templates/ref-wifi-settings-apple.md\n+++ b/intune/device-configuration/templates/ref-wifi-settings-apple.md\n@@ -15,7 +15,7 @@ You can create a profile with specific Wi-Fi settings, and then deploy this prof\n \n These Wi-Fi settings are separated into two categories: **Basic settings** and **Enterprise settings**.\n \n-This article describes the settings you can configure. To learn more about Wi-Fi profiles in Intune, see [Wi-Fi device configuration profile](wi-fi-settings-configure.md).\n+This article describes the settings you can configure. To learn more about Wi-Fi profiles in Intune, see [Wi-Fi device configuration profile](configure-wifi.md).\n \n ## Prerequisites\n \n@@ -159,7 +159,7 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n       - **Derived credential**: Use a certificate that's derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, see [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n \n-            - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n+        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n@@ -167,9 +167,9 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n     ::: zone pivot=\"macos\"\n \n-        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n \n-    - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n+      - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n     ::: zone-end\n \n@@ -191,7 +191,7 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n           Your options: **Unencrypted password (PAP)**, **Challenge Handshake Authentication Protocol (CHAP)**, **Microsoft CHAP (MS-CHAP)**, or **Microsoft CHAP Version 2 (MS-CHAP v2)**\n \n-            - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n+          - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n",
+      "baseCommitSha": "c3987a1eeeae29647e6bc8a72e212ff6cd0fcee8",
+      "commitSha": "1d5c571867ae5af74f0d6b251d9eb895c3be0a70",
+      "commitMessage": "spacing",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-07T18:30:22-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wifi-settings-apple",
+      "firstSeenAt": "2026-05-07T22:30:22.000Z",
+      "eventId": "intune-docs:1d5c571867ae5af74f0d6b251d9eb895c3be0a70:modified:intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "spacing",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wifi-settings-apple.md b/intune/device-configuration/templates/ref-wifi-settings-apple.md\nindex 4d8cde275c..ca843e9aa5 100644\n--- a/intune/device-configuration/templates/ref-wifi-settings-apple.md\n+++ b/intune/device-configuration/templates/ref-wifi-settings-apple.md\n@@ -167,9 +167,9 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n     ::: zone pivot=\"macos\"\n \n-      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n \n-      - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n+        - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n     ::: zone-end\n \n@@ -212,7 +212,7 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n       - **Username and Password**: Prompt the user for a user name and password to authenticate the connection.\n \n-            - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n+        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n",
+      "baseCommitSha": "1d5c571867ae5af74f0d6b251d9eb895c3be0a70",
+      "commitSha": "89e17401e5c8ccfbdcc15d8ab6cebfbf0da78c21",
+      "commitMessage": "more spacing",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-07T18:42:03-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wifi-settings-apple",
+      "firstSeenAt": "2026-05-07T22:42:03.000Z",
+      "eventId": "intune-docs:89e17401e5c8ccfbdcc15d8ab6cebfbf0da78c21:modified:intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "more spacing",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wifi-settings-apple.md b/intune/device-configuration/templates/ref-wifi-settings-apple.md\nindex ca843e9aa5..c3fb2e9db5 100644\n--- a/intune/device-configuration/templates/ref-wifi-settings-apple.md\n+++ b/intune/device-configuration/templates/ref-wifi-settings-apple.md\n@@ -167,9 +167,9 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n     ::: zone pivot=\"macos\"\n \n-        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n \n-        - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n+      - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n     ::: zone-end\n \n",
+      "baseCommitSha": "89e17401e5c8ccfbdcc15d8ab6cebfbf0da78c21",
+      "commitSha": "a16c28bd81ef8fcb27c3b0a8e51bc8504d1722ec",
+      "commitMessage": "z",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-07T18:48:17-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wifi-settings-apple",
+      "firstSeenAt": "2026-05-07T22:48:17.000Z",
+      "eventId": "intune-docs:a16c28bd81ef8fcb27c3b0a8e51bc8504d1722ec:modified:intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "z",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wifi-settings-apple.md b/intune/device-configuration/templates/ref-wifi-settings-apple.md\nindex c3fb2e9db5..4cbe9b08ac 100644\n--- a/intune/device-configuration/templates/ref-wifi-settings-apple.md\n+++ b/intune/device-configuration/templates/ref-wifi-settings-apple.md\n@@ -153,21 +153,21 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n     - **Certificate server names**: **Add** one or more common names used in the certificates issued by your trusted certificate authority (CA) to your wireless network access servers. For example, add `mywirelessserver.contoso.com` or `mywirelessserver`. When you enter this information, you can bypass the dynamic trust window displayed on user's devices when they connect to this Wi-Fi network. If you have multiple Radius servers with the same DNS suffix in their fully qualified domain name, enter a wildcard suffix. For example, you can enter `*.contoso.com`.\n     - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, you don't need to include a root certificate. This certificate allows the client to trust the wireless network access server's certificate.\n \n-    ::: zone pivot=\"ios-ipados\"\n-\n-    - **Authentication method**: Select the authentication method used by your device clients. Your options:\n-\n-      - **Derived credential**: Use a certificate that's derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, see [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n+    ::: zone pivot=\"macos\"\n \n-        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n+      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n     ::: zone-end\n \n-    ::: zone pivot=\"macos\"\n+    ::: zone pivot=\"ios-ipados\"\n \n-      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+    - **Authentication method**: Select the authentication method used by your device clients. Your options:\n+\n+      - **Derived credential**: Use a certificate that's derived from a user's smart card. If no derived credential issuer is configured, Intune prompts you to add one. For more information, see [Use derived credentials in Microsoft Intune](../../device-security/certificates/derived-credentials.md).\n+\n+        - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection.\n \n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n",
+      "baseCommitSha": "a16c28bd81ef8fcb27c3b0a8e51bc8504d1722ec",
+      "commitSha": "e9af1bbb533ccdde87dc6ad3b7970cf6cb18044c",
+      "commitMessage": "spacing",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-07T18:53:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wifi-settings-apple",
+      "firstSeenAt": "2026-05-07T22:53:30.000Z",
+      "eventId": "intune-docs:e9af1bbb533ccdde87dc6ad3b7970cf6cb18044c:modified:intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "spacing",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wifi-settings-apple.md b/intune/device-configuration/templates/ref-wifi-settings-apple.md\nindex 4cbe9b08ac..efe7fb5249 100644\n--- a/intune/device-configuration/templates/ref-wifi-settings-apple.md\n+++ b/intune/device-configuration/templates/ref-wifi-settings-apple.md\n@@ -155,9 +155,9 @@ Enterprise profiles use Extensible Authentication Protocol (EAP) to authenticate\n \n     ::: zone pivot=\"macos\"\n \n-      - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+    - **Certificates**: Select the SCEP or PKCS client certificate profile that is also deployed to the device. This certificate is the identity that the device presents to the server to authenticate the connection. Choose the certificates that align with your deployment channel selection. If you select the user channel, your certificate options are limited to user certificate profiles. If you select the device channel, you have both user and device certificate profiles to choose from. However, always select the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n \n-      - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n+    - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n     ::: zone-end\n \n",
+      "baseCommitSha": "e9af1bbb533ccdde87dc6ad3b7970cf6cb18044c",
+      "commitSha": "bdbf3895b6b57d15967b2b2db9961ef473d62edd",
+      "commitMessage": "pivots",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-07T19:18:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wifi-settings-apple",
+      "firstSeenAt": "2026-05-07T23:18:31.000Z",
+      "eventId": "intune-docs:bdbf3895b6b57d15967b2b2db9961ef473d62edd:modified:intune/device-configuration/templates/ref-wifi-settings-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "pivots",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 10,
+    "authors": [
+      "Brent Dunsire",
+      "Ileana Wu",
+      "Mandi Ohlinger",
+      "Nicholas S. White"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md. Updated Microsoft Intune documentation in intune/whats-new/in-development.md.",
+        "sourceFiles": [
+          "intune/whats-new/in-development.md",
+          "intune/whats-new/in-development.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/licensing/unlicensed-admins.md.",
+        "sourceFiles": [
+          "intune/fundamentals/licensing/unlicensed-admins.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/compliance/create-policy.md.",
+        "sourceFiles": [
+          "intune/device-security/compliance/create-policy.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md.",
+        "sourceFiles": [
+          "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+          "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+          "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+          "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+          "intune/device-configuration/templates/ref-wifi-settings-apple.md",
+          "intune/device-configuration/templates/ref-wifi-settings-apple.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/in-development.md. Updated Microsoft Intune documentation in intune/whats-new/in-development.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/licensing/unlicensed-admins.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/compliance/create-policy.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wifi-settings-apple.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

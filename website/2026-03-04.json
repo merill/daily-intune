@@ -1,0 +1,315 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md b/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md\nindex 2f730e6fd9..2cb3d53ab7 100644\n--- a/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md\n+++ b/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md\n@@ -93,7 +93,7 @@ This task list provides an overview. For more specific information, go to [Apple\n     - You want to automatically install the **Company Portal** app during enrollment. If your company uses the Volume Purchase Program (VPP), you can automatically install the **Company Portal** app during enrollment without user Apple IDs.\n     - You want users to use the device, even when the Company Portal app isn't installed.\n \n-    - Select the **Setup Assistant (legacy)** when you can't use *Setup Assistant with modern authentication* and:\n+  - Select the **Setup Assistant (legacy)** when you can't use *Setup Assistant with modern authentication* and:\n \n     - You want to wipe the device.\n     - You don't want to use modern authentication features, like MFA.\n",
+      "baseCommitSha": "3b10047bda6e89fe53b294ef7d201d7a913b1ae5",
+      "commitSha": "a22ac7b155d3ae6a0152a8d74b23b7a85e8d89cb",
+      "commitMessage": "Update deployment-guide-enrollment-ios-ipados.md",
+      "commitAuthor": "gilbertand",
+      "commitDate": "2026-03-04T18:22:01+11:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados",
+      "firstSeenAt": "2026-03-04T07:22:01.000Z",
+      "eventId": "intune-docs:a22ac7b155d3ae6a0152a8d74b23b7a85e8d89cb:modified:intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update deployment-guide-enrollment-ios-ipados.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/microsoft-tunnel-upgrade.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 0,
+      "changes": 15,
+      "patch": "diff --git a/intune/intune-service/protect/microsoft-tunnel-upgrade.md b/intune/intune-service/protect/microsoft-tunnel-upgrade.md\nindex 664947af83..619e1b327c 100644\n--- a/intune/intune-service/protect/microsoft-tunnel-upgrade.md\n+++ b/intune/intune-service/protect/microsoft-tunnel-upgrade.md\n@@ -130,6 +130,21 @@ After an update releases, it rolls out to tenants over the following days. This\n >\n > Container releases take place in stages. If you notice that your container images aren't the most recent, please be assured that they will be updated and delivered within the following week.\n \n+### March 2, 2026 \n+\n+Version Number: 20260129.1\n+\n+Image hash values:\n+\n+- **agentImageDigest**:  sha256:abbdcd854aa5ac376aed32c828e4c84917e776a701855cd1e3febed18a3e4dae\n+- **serverImageDigest**: sha256:ad57d6a7ffe21f64fc1577713063ae9b180914cf65bc70b4e49be21299cfc1d3\n+\n+Changes in this release:\n+- Minor bug fixes\n+- Diagnostic improvements\n+- Updated base container images and security packages\n+\n+  \n ### February 5, 2026 \n \n Version Number: 20251219.1-01\n",
+      "baseCommitSha": "a680dea3d2bdb22f0066a061b72ec101537a5494",
+      "commitSha": "6aaae07cb277de5114c274573c8c3774adee1587",
+      "commitMessage": "March Container Release",
+      "commitAuthor": "Oluchi",
+      "commitDate": "2026-03-04T07:15:37-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/microsoft-tunnel-upgrade.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-tunnel-upgrade",
+      "firstSeenAt": "2026-03-04T15:15:37.000Z",
+      "eventId": "intune-docs:6aaae07cb277de5114c274573c8c3774adee1587:modified:intune/intune-service/protect/microsoft-tunnel-upgrade.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "March Container Release",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-upgrade.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 6f575ec84b..ee1dccf3c1 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -100,14 +100,16 @@ There are new settings in the Settings Catalog. To see these settings, in the [M\n **AirPlay**:\n \n - Device Name\n+\n **Microsoft Defender**:\n \n - The Microsoft Defender category is updated with new settings. Learn more about available macOS Defender settings at [Microsoft Defender - Policies](/defender-endpoint/mac-preferences).\n \n-Applies to:\n-\n-- iOS/iPadOS\n-- macOS\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - iOS/iPadOS\n+> - macOS\n \n ### Device management\n \n",
+      "baseCommitSha": "a680dea3d2bdb22f0066a061b72ec101537a5494",
+      "commitSha": "2ec5174b4663b3148684a9957d279310633adeba",
+      "commitMessage": "formatting",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-04T10:38:56-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-03-04T15:38:56.000Z",
+      "eventId": "intune-docs:2ec5174b4663b3148684a9957d279310633adeba:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "formatting",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/intune-endpoints.md",
+      "status": "modified",
+      "additions": 26,
+      "deletions": 14,
+      "changes": 40,
+      "patch": "diff --git a/intune/intune-service/fundamentals/intune-endpoints.md b/intune/intune-service/fundamentals/intune-endpoints.md\nindex a6fa29b1b8..44e638fc82 100644\n--- a/intune/intune-service/fundamentals/intune-endpoints.md\n+++ b/intune/intune-service/fundamentals/intune-endpoints.md\n@@ -439,16 +439,6 @@ euprodimedatasec.azureedge.net\n naprodimedatahotfix.azureedge.net\n naprodimedatapri.azureedge.net\n naprodimedatasec.azureedge.net\n-swda01-mscdn.azureedge.net\n-swda02-mscdn.azureedge.net\n-swdb01-mscdn.azureedge.net\n-swdb02-mscdn.azureedge.net\n-swdc01-mscdn.azureedge.net\n-swdc02-mscdn.azureedge.net\n-swdd01-mscdn.azureedge.net\n-swdd02-mscdn.azureedge.net\n-swdin01-mscdn.azureedge.net\n-swdin02-mscdn.azureedge.net\n *.notify.windows.com\n *.wns.windows.com\n ekcert.spserv.microsoft.com\n@@ -488,12 +478,34 @@ intunemaape9.neu.attest.azure.net\n *.gov.teams.microsoft.us\n remoteassistanceweb.usgov.communication.azure.us\n config.edge.skype.com\n-contentauthassetscdn-prod.azureedge.net\n-contentauthassetscdn-prodeur.azureedge.net\n-contentauthrafcontentcdn-prod.azureedge.net\n-contentauthrafcontentcdn-prodeur.azureedge.net\n fd.api.orgmsg.microsoft.com\n ris.prod.api.personalization.ideas.microsoft.com\n+*.powershellgallery.com\n+cdn.oneget.org\n+go.microsoft.com\n+aka.ms\n+displaycatalog.mp.microsoft.com\n+purchase.md.mp.microsoft.com\n+licensing.mp.microsoft.com\n+storeedgefd.dsx.mp.microsoft.com\n+*.events.data.microsoft.com\n+*.delivery.mp.microsoft.com\n+enterpriseregistration.windows.net\n+certauth.enterpriseregistration.windows.net\n+login.microsoftonline.com\n+graph.windows.net\n+config.office.com\n+ecs.office.com\n+aadcdn.msauth.net\n+aadcdn.msftauth.net\n+browser.pipe.aria.microsoft.com\n+teams.microsoft.com\n+login.live.com\n+lgmsapeweu.blob.core.windows.net\n+lgmsapewus2.blob.core.windows.net\n+lgmsapesea.blob.core.windows.net\n+lgmsapeaus.blob.core.windows.net\n+lgmsapeind.blob.core.windows.net\n \n ```\n \n",
+      "baseCommitSha": "ccbb631de513fcea234ddcc4cf09d155308e521f",
+      "commitSha": "fcda607f0b7a592f7cbc65fe8609522a7a12c96f",
+      "commitMessage": "Update Intune endpoints by removing and adding entries",
+      "commitAuthor": "Hafiza Farzami",
+      "commitDate": "2026-03-04T10:52:13-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/intune-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-endpoints",
+      "firstSeenAt": "2026-03-04T18:52:13.000Z",
+      "eventId": "intune-docs:fcda607f0b7a592f7cbc65fe8609522a7a12c96f:modified:intune/intune-service/fundamentals/intune-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update Intune endpoints by removing and adding entries",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/compare.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/compare.md b/autopilot/device-preparation/compare.md\nindex 59eda39f3f..624c70cc8c 100644\n--- a/autopilot/device-preparation/compare.md\n+++ b/autopilot/device-preparation/compare.md\n@@ -21,7 +21,7 @@ appliesto:\n | Join types supported | <ul><li>Microsoft Entra join.</li></ul> | <ul><li>Microsoft Entra join.</li><li>Microsoft Entra hybrid join.</li></ul> |\n |Device registration required? | No. | Yes. |\n | What do admins need to configure? | <ul><li>Windows Autopilot device preparation policy.</li><li>Device security group with **Intune Provisioning Client** as owner.</li></ul> | <ul><li>Windows Autopilot deployment profile.</li><li>Enrollment Status Page (ESP).</li></ul> |\n-| What configurations can be delivered during provisioning? | <ul><li>Device-based only during the out-of-box experience (OOBE).</li><li>Up to 10 essential applications (line-of-business (LOB), Win32, Microsoft Store, Microsoft 365).</li><li>Up to 10 essential PowerShell scripts.</li></ul> | <ul><li>Device-based during device ESP.</li><li>User-based during user ESP.</li><li>Up to [100 applications](/mem/intune-service/enrollment/windows-enrollment-status#block-access-to-a-device-until-a-specific-application-is-installed).</li></ul> |\n+| What configurations can be delivered during provisioning? | <ul><li>Device-based only during the out-of-box experience (OOBE).</li><li>Up to 25 essential applications (line-of-business (LOB), Win32, Microsoft Store, Microsoft 365).</li><li>Up to 10 essential PowerShell scripts.</li></ul> | <ul><li>Device-based during device ESP.</li><li>User-based during user ESP.</li><li>Up to [100 applications](/mem/intune-service/enrollment/windows-enrollment-status#block-access-to-a-device-until-a-specific-application-is-installed).</li></ul> |\n | Reporting & troubleshooting |  Windows Autopilot device preparation deployment report:<ul><li>Shows all Windows Autopilot device preparation deployments.</li><li>More data available.</li><li>Near real-time.</li></ul> | Windows Autopilot deployment report:<ul><li>Only shows Windows Autopilot registered devices.</li><li>Not real-time.</li></ul> |\n | Supports LOB and Win32 applications in same deployment? | Yes. | No. |\n | Supported versions of Windows | <ul><li>Windows 11, version 24H2 or later.</li><li>Windows 11, version 23H2 with [KB5035942](https://support.microsoft.com/topic/march-26-2024-kb5035942-os-builds-22621-3374-and-22631-3374-preview-3ad9affc-1a91-4fcb-8f98-1fe3be91d8df) or later.</li><li> Windows 11, version 22H2 with [KB5035942](https://support.microsoft.com/topic/march-26-2024-kb5035942-os-builds-22621-3374-and-22631-3374-preview-3ad9affc-1a91-4fcb-8f98-1fe3be91d8df) or later.</li></ul> | <ul><li>All [currently supported](/windows/release-health/supported-versions-windows-client#windows-11-supported-versions) versions of Windows 11 General Availability Channel.</li><li>All [currently supported](/windows/release-health/supported-versions-windows-client#windows-10-supported-versions) versions of Windows 10 General Availability Channel.</li></ul> |\n",
+      "baseCommitSha": "ddb8ce4705acaad677a230cbb01c6a25ca8eed85",
+      "commitSha": "6809f2ca97e081d1e54f93d7b612d1f0c0cece25",
+      "commitMessage": "Update provisioning configurations and application limits",
+      "commitAuthor": "Arnab Mitra",
+      "commitDate": "2026-03-04T12:56:51-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/compare.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/compare",
+      "firstSeenAt": "2026-03-04T18:56:51.000Z",
+      "eventId": "intune-docs:6809f2ca97e081d1e54f93d7b612d1f0c0cece25:modified:autopilot/device-preparation/compare.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update provisioning configurations and application limits",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/compare.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 53,
+      "deletions": 1,
+      "changes": 54,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex ee1dccf3c1..178fcc9bc7 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -3,7 +3,7 @@ title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n author: brenduns\n ms.author: brenduns\n-ms.date: 03/02/2026\n+ms.date: 03/04/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -57,6 +57,58 @@ You can use RSS to be notified when this page is updated. For more information,\n \n -->\n \n+## Week of March 4, 2026\n+\n+### Device configuration\n+\n+#### New settings in the Windows settings catalog <!-- 36822089 -->\n+\n+There are new settings in the Windows settings catalog. To see and configure these settings in Intune, create a Windows settings catalog profile (**Devices > Configuration profiles > Create profile > Windows 10 and later > Settings catalog**).\n+\n+The new policies include:\n+\n+**Microsoft Edge**:\n+\n+- **Control whether an informational webpage for Edge for Business is shown in the new tab after major browser updates**: When **Enabled** or not configured, users with Microsoft Entra ID profiles see an informational page about new Edge for Business features after major browser updates. When **Disabled**, the informational page isn't shown to users.\n+\n+  This policy:\n+\n+  - Applies only to Microsoft Entra ID profiles. It doesn't apply to Microsoft account (MSA) profiles.\n+  - Is available starting in Microsoft Edge version 144, which allows you to configure the setting before any version 145 changes.\n+\n+- **Enable Silent Printing**: When **Enabled**, Microsoft Edge automatically closes the print preview window and prints to the default printer using its default settings. If the default printer is **Save as PDF**, the file is saved to the user's Downloads folder. When **Disabled** or not configured, silent printing is disabled. The print preview window stays open, and the user must choose the print settings as usual.\n+\n+**Microsoft Edge > Content settings**:\n+\n+- **Allow precise geolocation on these sites**: When **Enabled**, enter a list of URL patterns for sites that are allowed to access the user's high-accuracy geolocation without prompting for permission. When **Disabled** or not configured, the default geolocation setting applies to all sites (if configured) or the user's personal setting is used.\n+\n+  For information about valid URL patterns and examples, see [Filter formats for URL list-based policies](/deployedge/edge-learnmmore-url-list-filter%20format). Wildcards (*) are supported.\n+\n+- **Block geolocation on these sites**: When **Enabled**, enter a list of URL patterns for sites that are blocked from requesting or accessing the user's geolocation. These sites can't prompt the user for location permissions. When **Disabled** or not configured, the default geolocation setting applies to all sites (if configured) or the user's personal browser setting is used.\n+\n+  For information about valid URL patterns and examples, see [Filter formats for URL list-based policies](/deployedge/edge-learnmmore-url-list-filter%20format). Wildcards (*) are supported.\n+\n+**Windows Backup and Restore**:\n+\n+- **Enable Windows Restore**: Choose to enable Windows Restore. When enabled, the restore experience is shown during the Windows setup (OOBE). It allows a user to restore their backed‑up Windows settings from the cloud to a new or reset device. It restores the user experience settings and configuration preferences. It's not a full system image.\n+\n+  Your options:\n+\n+  - Windows Restore Not Configured\n+  - Windows Restore Enabled\n+\n+  This policy:\n+\n+  - Was previously for Windows Insiders and is now generally available (GA).\n+  - Uses the [WindowsBackupAndRestore CSP](/windows/client-management/mdm/windowsbackupandrestore-csp).\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+To learn more about the settings catalog, see [Use the Intune settings catalog to configure settings](../configuration/settings-catalog.md).\n+\n ## Week of March 2, 2026 (Service release 2602)\n \n ### App management\n",
+      "baseCommitSha": "c8bede5d92dc0cb5aa65fd57f0d78a804191cabd",
+      "commitSha": "e6582ea148131f08cdbdc851a4c9a7a6e0218068",
+      "commitMessage": "36822089 - 2603 OOB: Windows settings",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-04T15:07:18-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-03-04T20:07:18.000Z",
+      "eventId": "intune-docs:e6582ea148131f08cdbdc851a4c9a7a6e0218068:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "36822089 - 2603 OOB: Windows settings",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md b/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\nindex 6a67d96557..c26d845aea 100644\n--- a/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\n+++ b/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\n@@ -1,7 +1,7 @@\n ---\n title: How to update the Company Portal app\n description: Get the latest version of the Company Portal app on Android, iOS, macOS, and Windows devices.\n-ms.date: 09/30/2025\n+ms.date: 03/04/2026\n ms.reviewer: priyar\n ---\n \n@@ -42,7 +42,7 @@ After you install the updates, run a status check on your device in Company Port\n 3. Select **Check Status**.\n \n > [!NOTE]\n-> The minimum supported version of the Company Portal app for iOS/iPadOS is v5.2311.1. If you're running an older version, you'll be prompted to update the Company Portal app when you sign in.\n+> The minimum supported version of the Company Portal app for iOS/iPadOS is v5.2509.2. If you're running an older version, you'll be prompted to update the Company Portal app when you sign in.\n \n ## Update on macOS device\n \n",
+      "baseCommitSha": "c8bede5d92dc0cb5aa65fd57f0d78a804191cabd",
+      "commitSha": "f121886a8dbb1e2914a7217f446987d9943d6370",
+      "commitMessage": "Update Company Portal app version date and notes",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-04T16:07:40-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app",
+      "firstSeenAt": "2026-03-04T21:07:40.000Z",
+      "eventId": "intune-docs:f121886a8dbb1e2914a7217f446987d9943d6370:modified:intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update Company Portal app version date and notes",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/configuration/android-oem-configuration-overview.md",
+      "status": "modified",
+      "additions": 28,
+      "deletions": 8,
+      "changes": 36,
+      "patch": "diff --git a/intune/intune-service/configuration/android-oem-configuration-overview.md b/intune/intune-service/configuration/android-oem-configuration-overview.md\nindex 90662dab4c..da3794f42a 100644\n--- a/intune/intune-service/configuration/android-oem-configuration-overview.md\n+++ b/intune/intune-service/configuration/android-oem-configuration-overview.md\n@@ -3,7 +3,7 @@ title: Use OEMConfig on Android Enterprise devices in Microsoft Intune\n description: Use Microsoft Intune to manage and use devices running Android Enterprise with OEMConfig. See all the steps, including an overview, see the prerequisites, create the configuration profile in Intune, and see a list of supported OEMConfig apps.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 01/26/2026\n+ms.date: 03/24/2026\n ms.topic: how-to\n ms.reviewer: akritis\n ms.collection:\n@@ -82,14 +82,33 @@ When using OEMConfig, be familiar with the following information:\n \n To use OEMConfig on your devices, you need the following requirements:\n \n-- The Android Enterprise devices must be MDM enrolled in Intune.\n-- To create the Intune profile, the Intune admin needs the following role-based access (RBAC) permissions in Intune:\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../../includes/requirements/platform.md)]\n \n-  - **Mobile apps**\n-  - **Device Configurations**\n-  - **Android Enterprise** > **Read**\n-\n-  These permissions are required because OEMConfig profiles use managed app configurations to manage device configurations. You can create a [custom role](../fundamentals/create-custom-role.md) that only includes these permissions.\n+:::column-end:::\n+:::column span=\"3\":::\n+> This feature supports the following platforms:\n+>\n+> - Android Enterprise\n+> - Devices must be MDM enrolled in Intune.\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> To create the Intune profile, the Intune admin needs the following role-based access (RBAC) permissions in Intune:\n+>\n+> - **Mobile apps**\n+> - **Device Configurations**\n+> - **Android Enterprise** > **Read**\n+>\n+> - These permissions are required because OEMConfig profiles use managed app configurations to manage device configurations. You can create a [custom role](../fundamentals/create-custom-role.md) that only includes these permissions.\n+:::column-end:::\n+:::row-end:::\n \n ## Step 1 - Get the OEMConfig app\n \n@@ -227,6 +246,7 @@ Intune supports the following OEMConfig apps:\n | HMDGlobal - 5.3 | com.hmdglobal.app.oemconfig.n5_3 |\n | HMDGlobal - OEMConfig | com.hmdglobal.app.oemconfig |\n | imotion | com.iwaylink.oemconfig | |\n+| Inventus | com.inventus.oemconfig.gen |\n | Janam | com.oemconfig.janam | |\n | Kyocera | jp.kyocera.enterprisedeviceconfig |  |\n | Lenovo | com.lenovo.oemconfig.rel | |\n",
+      "baseCommitSha": "c8bede5d92dc0cb5aa65fd57f0d78a804191cabd",
+      "commitSha": "323d28fb08a16c8908054070156cfb2ae8a479b2",
+      "commitMessage": "36423115 - 2603: Added OEMConfig app",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-04T17:03:23-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/configuration/android-oem-configuration-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/configuration/android-oem-configuration-overview",
+      "firstSeenAt": "2026-03-04T22:03:23.000Z",
+      "eventId": "intune-docs:323d28fb08a16c8908054070156cfb2ae8a479b2:modified:intune/intune-service/configuration/android-oem-configuration-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "36423115 - 2603: Added OEMConfig app",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/android-oem-configuration-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/configuration/android-oem-configuration-overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/configuration/android-oem-configuration-overview.md b/intune/intune-service/configuration/android-oem-configuration-overview.md\nindex da3794f42a..b5737750cc 100644\n--- a/intune/intune-service/configuration/android-oem-configuration-overview.md\n+++ b/intune/intune-service/configuration/android-oem-configuration-overview.md\n@@ -106,7 +106,7 @@ To use OEMConfig on your devices, you need the following requirements:\n > - **Device Configurations**\n > - **Android Enterprise** > **Read**\n >\n-> - These permissions are required because OEMConfig profiles use managed app configurations to manage device configurations. You can create a [custom role](../fundamentals/create-custom-role.md) that only includes these permissions.\n+> These permissions are required because OEMConfig profiles use managed app configurations to manage device configurations. You can create a [custom role](../fundamentals/create-custom-role.md) that only includes these permissions.\n :::column-end:::\n :::row-end:::\n \n",
+      "baseCommitSha": "323d28fb08a16c8908054070156cfb2ae8a479b2",
+      "commitSha": "f319f4e98ad14fa93af6de55697116a7351b5b37",
+      "commitMessage": "Fix formatting in OEMConfig permissions section",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-04T17:07:04-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/configuration/android-oem-configuration-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/configuration/android-oem-configuration-overview",
+      "firstSeenAt": "2026-03-04T22:07:04.000Z",
+      "eventId": "intune-docs:f319f4e98ad14fa93af6de55697116a7351b5b37:modified:intune/intune-service/configuration/android-oem-configuration-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix formatting in OEMConfig permissions section",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/android-oem-configuration-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2509/36495448.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 90,
+      "changes": 90,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36495448.md b/intune/configmgr/hotfix/2509/36495448.md\ndeleted file mode 100644\nindex 6e92fd6c28..0000000000\n--- a/intune/configmgr/hotfix/2509/36495448.md\n+++ /dev/null\n@@ -1,92 +0,0 @@\n----\n-title: Software update management client fix for Microsoft Configuration Manager\n-titleSuffix: Configuration Manager\n-description: SUM Client update for Configuration Manager\n-ms.date: 02/23/2026\n-ms.subservice: core-infra\n-ms.service: configuration-manager\n-ms.topic: reference\n-ms.assetid: ec969e9b-501e-416b-9b4c-39de23d968b1\n-author: bhuney\n-ms.author: brianhun\n-manager: dougeby\n----\n-\n-# Software update management client fix for Microsoft Configuration Manager versions 2503 and 2509\n-\n-*Applies to: Configuration Manager (current branch, versions 2503 and 2509)*\n-## Summary of KB36495448\n-\n-An update is available to fix an issue with software updates when third-party updates are used in a co-managed environment.\n-\n-In Configuration Manager versions 2503 (with Update rollup 32851084 installed) and 2509, Windows Update scan source policies are unintentionally modified on co-managed devices when third-party updates are enabled.\n-The Configuration Manager client can create an incomplete (partial) scan source policy configuration.\n-\n-The partial scan causes devices that should receive Feature Updates (FU) or Quality Updates (QU) from Microsoft Intune or Windows Update for Business (WUfB) to instead obtain those updates from WSUS/Configuration Manager.\n-\n-This update corrects the issue by ensuring that Configuration Manager no longer sets or modifies Windows Update scan source policies on co managed devices.\n-\n-## Issue details\n-When a device is both co-managed by Microsoft Intune and third-party updates are enabled via ConfigMgr, the client set only two Windows Update scan source policy values:\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\UseUpdateClassPolicySource = 1\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForOtherUpdates = 1\n-\n-However, the following related policy values aren't set, and are removed if they existed:\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForDriverUpdates\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForFeatureUpdates\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForQualityUpdates\n-\n-When only some values are present, the Windows Update Agent can assume all categories should follow the same scan source.\n-As a result, Feature Updates and Quality Updates intended to come from Microsoft Intune/ WUfB are instead redirected to WSUS/ ConfigMgr, even though the environment was configured for Intune-managed updates.\n-\n-## Post hotfix behavior\n-After applying this hotfix, Configuration Manager will no longer set any of the following values on co-managed devices after installing this update: \n-\n-* UseUpdateClassPolicySource\n-* SetPolicyDrivenUpdateSourceFor* (Feature, Quality, Driver, Other)\n-\n-Existing devices that were placed into a partial policy state by previous builds have those incomplete values cleaned up once.\n-\n-Third-party updates deployed from WSUS/ConfigMgr aren't affected by this change because they don't rely on Windows Update scan source policies. Customers fully control scan source behavior; if organizations wish to control Windows Update scan source policies, they should do so explicitly using:\n-\n-•\tGroup Policy, or\n-\n-•\tIntune policy configuration service provider for WUfB\n- \n-Environments using only Configuration Manager (without co-management) or only Microsoft Intune/ WUfB aren't affected.\n-\n-\n-## Update information for Microsoft  Configuration Manager\n-The following hotfix to resolve this problem is available for download from the Microsoft Download Center:\n-\n-[KB36495448](https://aka.ms/KB36495448_Payload)\n-\n-After you download the hotfix, see the following documentation for installation instructions:\n-\n-[Use the Update Registration Tool to import hotfixes to Configuration Manager](../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)\n-\n-#### Prerequisites\n-To apply this hotfix, you must be using Configuration Manager, versions 2503 (with Update rollup 32851084 installed) and 2509.\n-\n-#### Restart information\n-This update doesn't initiate a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset).\n-\n-### Other installation information\n-After you install this update on a primary site, preexisting secondary sites must be manually updated. To update a secondary site in the Configuration Manager console, select **Administration** > **Site Configuration** > **Sites** >  **Recover Secondary Site**, and then select the secondary site. The primary site then reinstalls that secondary site by using the updated files. Configurations and settings for the secondary site aren't affected by this reinstallation. The new, upgraded, and reinstalled secondary sites under that primary site automatically receive this update.\n-\n-Run the following SQL Server command on the site database to check whether the update version of a secondary site matches that of its parent primary site:\n-   ```sql\n-   select dbo.fnGetSecondarySiteCMUpdateStatus ('SiteCode_of_secondary_site')\n-   ```\n-If the value 1 is returned, the site is up to date, with all the hotfixes applied on its parent primary site.\n-\n-If the value 0 is returned, the site hasn't yet installed all the fixes that are applied to the primary site, and you should use the **Recover Secondary Site** option to update the secondary site.\n-\n-## Hotfix replacement information\n-This hotfix doesn't replace any previously released hotfix.\n-\n-## File information\n-File information is available in the downloadable [KB36495448_FileList.txt](https://aka.ms/KB36495448_FileList) text file.\n-\n-## Release history\n-- February 23, 2026: Initial hotfix release\n",
+      "baseCommitSha": "a680dea3d2bdb22f0066a061b72ec101537a5494",
+      "commitSha": "cd2bda132f82436a059b447ad09641c3ae64b9b3",
+      "commitMessage": "cleanup old kb",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-03-04T09:43:17-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36495448.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36495448",
+      "firstSeenAt": "2026-03-04T15:43:17.000Z",
+      "eventId": "intune-docs:cd2bda132f82436a059b447ad09641c3ae64b9b3:removed:intune/configmgr/hotfix/2509/36495448.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "cleanup old kb",
+        "summary": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2509/36495448.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 10,
+    "authors": [
+      "Arnab Mitra",
+      "Hafiza Farzami",
+      "Laura Newsad",
+      "Mandi Ohlinger",
+      "Oluchi",
+      "gilbertand",
+      "sccmavenger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 9 updated, and 1 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-upgrade.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/configura",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+          "intune/intune-service/protect/microsoft-tunnel-upgrade.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/fundamentals/intune-endpoints.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+          "intune/intune-service/configuration/android-oem-configuration-overview.md",
+          "intune/intune-service/configuration/android-oem-configuration-overview.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/compare.md.",
+        "sourceFiles": [
+          "autopilot/device-preparation/compare.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/configmgr",
+        "summary": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2509/36495448.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2509/36495448.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-upgrade.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/configura"
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/compare.md."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/configmgr",
+        "detail": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2509/36495448.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

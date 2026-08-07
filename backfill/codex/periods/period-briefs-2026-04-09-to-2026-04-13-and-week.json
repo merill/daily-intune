@@ -1,0 +1,141 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-04-09",
+      "summary": {
+        "headline": "Cloud PKI deployment models and macOS update-policy guidance are added",
+        "overview": "New Intune documentation covers Cloud PKI deployment models and managing macOS software updates with policies, while existing Security Copilot vulnerability-remediation, Remote Help, and cloud-attach references are refreshed.",
+        "adminImpact": "PKI administrators should compare the new deployment-model guidance with their certificate strategy. Apple management teams should review the current macOS software-update policy material before changing servicing configurations.",
+        "keyChanges": [
+          {
+            "title": "Cloud PKI deployment models guidance is added",
+            "detail": "Microsoft published a new reference covering deployment models for Microsoft Intune Cloud PKI.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-04-09-deployment-models-for-microsoft-intune-cloud-pki-12"
+          },
+          {
+            "title": "macOS software-update policy guidance is added",
+            "detail": "New documentation covers using Microsoft Intune policies to manage macOS software updates.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-09-use-microsoft-intune-policies-to-manage-macos-software-updates-36"
+          },
+          {
+            "title": "Vulnerability Remediation Agent management guidance is updated",
+            "detail": "The Security Copilot documentation for managing the Vulnerability Remediation Agent was revised.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-04-09-manage-vulnerability-remediation-agent-175"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-10",
+      "summary": {
+        "headline": "Edge app protection and enterprise app catalog guidance are added",
+        "overview": "The day introduces an app-protection-policy step for Microsoft Edge for Business and a guide to adding Enterprise App Catalog apps to Intune. Documentation for Autopilot device preparation, co-management enrollment, and Remote Help deployment also changes.",
+        "adminImpact": "Teams deploying Edge for Business data protection should assess the new policy guidance before rollout. App-management owners can use the Enterprise App Catalog reference to plan packaging and deployment workflows.",
+        "keyChanges": [
+          {
+            "title": "Edge for Business app-protection-policy guidance is added",
+            "detail": "Microsoft added step-two guidance for creating app protection policies for Microsoft Edge for Business.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-10-step-2-create-app-protection-policies-for-microsoft-edge-for-business-93"
+          },
+          {
+            "title": "Enterprise App Catalog app guidance is added",
+            "detail": "New documentation describes adding an Enterprise App Catalog app to Microsoft Intune.",
+            "product": "Enterprise App Management",
+            "sourceId": "doc-2026-04-10-add-an-enterprise-app-catalog-app-to-microsoft-intune-26"
+          },
+          {
+            "title": "Remote Help deployment guidance is updated",
+            "detail": "The Intune documentation for Remote Help deployment was updated.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-04-10-remote-help-deploy-175"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-11",
+      "summary": {
+        "headline": "Passwordless authentication guidance is refreshed",
+        "overview": "The archive contains two updates to the Intune passwordless documentation, including the passwordless authentication reference.",
+        "adminImpact": "Use the current passwordless reference when validating deployment instructions or end-user support material.",
+        "keyChanges": [
+          {
+            "title": "Passwordless authentication documentation is updated",
+            "detail": "Microsoft updated the Intune passwordless authentication guidance.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-11-passwordless-authentication-with-microsoft-intune-02"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-04-06",
+      "summary": {
+        "headline": "The week adds policy, PKI, enrollment, and Security Copilot agent guidance",
+        "overview": "A very high-volume week introduces Edge for Business app-protection policy guidance, Cloud PKI deployment models, Windows enrollment material, and continued Security Copilot vulnerability-remediation updates.",
+        "adminImpact": "Prioritize review of the new policy and Cloud PKI materials where related deployments are planned. Use the refreshed Copilot agent guidance to validate security-operations ownership and the Windows enrollment guide to update onboarding procedures.",
+        "keyChanges": [
+          {
+            "title": "Edge for Business app-protection-policy guidance is added",
+            "detail": "Microsoft published a new step for creating app protection policies for Microsoft Edge for Business.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-10-step-2-create-app-protection-policies-for-microsoft-edge-for-business-93"
+          },
+          {
+            "title": "Cloud PKI deployment models guidance is added",
+            "detail": "New documentation explains deployment models for Intune Cloud PKI.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-04-09-deployment-models-for-microsoft-intune-cloud-pki-12"
+          },
+          {
+            "title": "Windows device enrollment guide is added",
+            "detail": "Microsoft published an Intune guide for Windows device enrollment.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-08-windows-device-enrollment-guide-for-microsoft-intune-203"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-13",
+      "summary": {
+        "headline": "Group Policy migration guidance is added alongside device-management updates",
+        "overview": "The day introduces Microsoft guidance for migrating imported Group Policy settings to an Intune policy, with updates to Configuration Manager feature lifecycle material, DFCI management, education device apps, and multi-device queries.",
+        "adminImpact": "Administrators transitioning Group Policy imports should use the new migration guide to review their conversion plan. Also check updated DFCI and device-query documentation before related operational work.",
+        "keyChanges": [
+          {
+            "title": "Imported Group Policy migration guidance is added",
+            "detail": "Microsoft added documentation for migrating an imported Group Policy to a policy in Microsoft Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-13-migrate-your-imported-group-policy-to-a-policy-in-microsoft-intune-06"
+          },
+          {
+            "title": "DFCI management guidance is updated",
+            "detail": "The Windows Autopilot documentation for DFCI management was revised.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-13-dfci-management-92"
+          },
+          {
+            "title": "Multiple-device query guidance is updated",
+            "detail": "The Intune Advanced Analytics reference for querying multiple devices was updated.",
+            "product": "Advanced Analytics",
+            "sourceId": "doc-2026-04-13-device-query-multiple-devices-96"
+          }
+        ]
+      }
+    }
+  ]
+}

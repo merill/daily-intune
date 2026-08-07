@@ -1,0 +1,197 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-security/microsoft-defender/configure-web-protection-android.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-security/microsoft-defender/configure-web-protection-android.md b/intune/device-security/microsoft-defender/configure-web-protection-android.md\nindex 2dc6673761..bd4f9d239c 100644\n--- a/intune/device-security/microsoft-defender/configure-web-protection-android.md\n+++ b/intune/device-security/microsoft-defender/configure-web-protection-android.md\n@@ -1,7 +1,7 @@\n ---\n title: Configure Defender for Endpoint Web protection on Android devices in Microsoft Intune\n description: Use Intune policy to manage Microsoft Defender for Endpoint web protection settings on Android devices managed by Microsoft Intune.\n-ms.date: 08/22/2024\n+ms.date: 05/22/2026\n ms.topic: how-to\n ms.reviewer: aanavath\n ms.collection:\n@@ -32,7 +32,6 @@ With Intune device configuration policy, you can turn off all or part of the web\n - Samsung Internet\n - Firefox\n - Brave\n-- Tor\n - Browser Leopard\n - DuckDuckGo\n - Dolphin\n",
+      "baseCommitSha": "a7a4f6d537361fcc8dbff4d1a2ddb300db2eb675",
+      "commitSha": "4eee1b03b91b966b35a312ed1fbdc70ce2472e13",
+      "commitMessage": "Removed Tor browser from list of browsers browsers supported with Defender loopback VPN User story 577744",
+      "commitAuthor": "Paul Inbar",
+      "commitDate": "2026-05-22T12:22:07+03:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-defender/configure-web-protection-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-defender/configure-web-protection-android",
+      "firstSeenAt": "2026-05-22T09:22:07.000Z",
+      "eventId": "intune-docs:4eee1b03b91b966b35a312ed1fbdc70ce2472e13:modified:intune/device-security/microsoft-defender/configure-web-protection-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed Tor browser from list of browsers browsers supported with Defender loopback VPN User story 577744",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-defender/configure-web-protection-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/tutorial-automated-ios.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/apple/tutorial-automated-ios.md b/intune/device-enrollment/apple/tutorial-automated-ios.md\nindex da1fc736b9..d1dc298f58 100644\n--- a/intune/device-enrollment/apple/tutorial-automated-ios.md\n+++ b/intune/device-enrollment/apple/tutorial-automated-ios.md\n@@ -50,7 +50,7 @@ Create an MDM server profile for Microsoft Intune in Apple Business. The token y\n \n ## Step 2: Assign devices\n \n-While you're in Apple Business, assign devices to your new MDM server (*TestMDMServer* or whatever you named it). For details and instructions, see [Assign, reassign, or unassign devices in Apple Business](https://support.apple.com/guide/apple-business-manager/axmf500c0851/web)(opens Apple Business User Guide). When you're done assigning devices, continue to [Step 3: Upload MDM server token](tutorial-automated-ios.md#step-3-upload-mdm-server-token).\n+While you're in Apple Business, assign devices to your new MDM server (*TestMDMServer* or whatever you named it). For details and instructions, see [Assign, reassign, or unassign devices in Apple Business](https://support.apple.com/guide/business/link-to-an-external-device-management-service-axm1c1be359d/1/web/1)(opens Apple Business User Guide). When you're done assigning devices, continue to [Step 3: Upload MDM server token](tutorial-automated-ios.md#step-3-upload-mdm-server-token).\n \n ## Step 3: Upload MDM server token\n Return to the Microsoft Intune admin center to upload the MDM server token to Intune. After you upload the token, Microsoft Intune can sync and enroll iOS/iPadOS devices assigned to *TestMDMServer*.\n",
+      "baseCommitSha": "a7a4f6d537361fcc8dbff4d1a2ddb300db2eb675",
+      "commitSha": "e210458a202c7755f25c0dea51243c6a89c543df",
+      "commitMessage": "Update link for assigning devices in Apple Business",
+      "commitAuthor": "Arnab Biswas [MSFT]",
+      "commitDate": "2026-05-22T10:42:14-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/tutorial-automated-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/tutorial-automated-ios",
+      "firstSeenAt": "2026-05-22T14:42:14.000Z",
+      "eventId": "intune-docs:e210458a202c7755f25c0dea51243c6a89c543df:modified:intune/device-enrollment/apple/tutorial-automated-ios.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update link for assigning devices in Apple Business",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/tutorial-automated-ios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/cloud-pki/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/cloud-pki/index.md b/intune/cloud-pki/index.md\nindex 4610d539e1..82efbfd171 100644\n--- a/intune/cloud-pki/index.md\n+++ b/intune/cloud-pki/index.md\n@@ -150,7 +150,7 @@ A5. The signed certificate is delivered to the Intune MDM-enrolled device.\n \n You can try out the Microsoft Cloud PKI feature in the Intune admin center during a trial period. Available trials include:\n \n-- [Microsoft Intune Suite trial](https://www.microsoft.com/security/business/microsoft-intune-pricing)\n+- [Microsoft Intune Suite trial](https://aka.ms/MicrosoftIntunePricing)\n - [Standalone Cloud PKI trial](../fundamentals/advanced-capabilities.md)\n \n During the trial period, you can create up to six CAs in your tenant. Cloud PKI CAs created during the trial use software-backed keys, and use `System.Security.Cryptography.RSA` to generate and sign the keys. You can continue to use the CAs after purchasing a Cloud PKI license. However, the keys remain software-backed, and can't be converted to HSM backed keys. The Microsoft Intune service managed CA keys. No Azure subscription is required for Azure HSM capabilities.\n",
+      "baseCommitSha": "a7a4f6d537361fcc8dbff4d1a2ddb300db2eb675",
+      "commitSha": "8d40a0ad66a1300e5db3a2b3368e5c54f4f03af6",
+      "commitMessage": "aka.ms for licensing pages (#20275)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-05-22T14:53:44-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/cloud-pki/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/cloud-pki/index",
+      "firstSeenAt": "2026-05-22T18:53:44.000Z",
+      "eventId": "intune-docs:8d40a0ad66a1300e5db3a2b3368e5c54f4f03af6:modified:intune/cloud-pki/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "aka.ms for licensing pages (#20275)",
+        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/advanced-capabilities.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/advanced-capabilities.md b/intune/fundamentals/advanced-capabilities.md\nindex 60a1ba641c..3fad2d016e 100644\n--- a/intune/fundamentals/advanced-capabilities.md\n+++ b/intune/fundamentals/advanced-capabilities.md\n@@ -83,7 +83,7 @@ Intune offers the following advanced capabilities:\n \n ## Intune plans and advanced capabilities\n \n-Advanced capabilities are available through Microsoft Intune Plan 2, the Microsoft Intune Suite, and select Microsoft 365 bundles. For what's included in each plan, current pricing, and how to buy, see [Microsoft Intune plans and pricing](https://www.microsoft.com/security/business/microsoft-intune-pricing).\n+Advanced capabilities are available through Microsoft Intune Plan 2, the Microsoft Intune Suite, and select Microsoft 365 bundles. For what's included in each plan, current pricing, and how to buy, see [Microsoft Intune plans and pricing](https://aka.ms/MicrosoftIntunePricing).\n \n For licensing concepts and admin-access requirements, see [Microsoft Intune licensing](licensing.md).\n \n",
+      "baseCommitSha": "a7a4f6d537361fcc8dbff4d1a2ddb300db2eb675",
+      "commitSha": "8d40a0ad66a1300e5db3a2b3368e5c54f4f03af6",
+      "commitMessage": "aka.ms for licensing pages (#20275)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-05-22T14:53:44-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/advanced-capabilities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/advanced-capabilities",
+      "firstSeenAt": "2026-05-22T18:53:44.000Z",
+      "eventId": "intune-docs:8d40a0ad66a1300e5db3a2b3368e5c54f4f03af6:modified:intune/fundamentals/advanced-capabilities.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "aka.ms for licensing pages (#20275)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/advanced-capabilities.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/licensing.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/fundamentals/licensing.md b/intune/fundamentals/licensing.md\nindex b35f815efb..ef20ae568d 100644\n--- a/intune/fundamentals/licensing.md\n+++ b/intune/fundamentals/licensing.md\n@@ -26,14 +26,14 @@ Intune capabilities are organized into three plans. The Intune documentation and\n \n Most organizations get Intune as part of a Microsoft 365 bundle (such as Microsoft 365 E3, E5, or E7) rather than buying these plans directly. For what each bundle includes, current pricing, and how to buy, see:\n \n-- [Microsoft Intune plans and pricing](https://www.microsoft.com/security/business/microsoft-intune-pricing)\n+- [Microsoft Intune plans and pricing](https://aka.ms/MicrosoftIntunePricing)\n - [Licensing options available with Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)\n \n Administrators don't always need an Intune license. For more information, see [Unlicensed admin access](#unlicensed-admin-access).\n \n ## License requirements\n \n-An Intune license is required for any user or device that benefits directly or indirectly from the Microsoft Intune service, including access through a [Microsoft API](/legal/microsoft-apis/terms-of-use). Intune is included only with the licenses listed on the [Microsoft Intune plans and pricing](https://www.microsoft.com/security/business/microsoft-intune-pricing) page.\n+An Intune license is required for any user or device that benefits directly or indirectly from the Microsoft Intune service, including access through a [Microsoft API](/legal/microsoft-apis/terms-of-use). Intune is included only with the licenses listed on the [Microsoft Intune plans and pricing](https://aka.ms/MicrosoftIntunePricing) page.\n \n ## Microsoft Intune for Education\n \n",
+      "baseCommitSha": "a7a4f6d537361fcc8dbff4d1a2ddb300db2eb675",
+      "commitSha": "8d40a0ad66a1300e5db3a2b3368e5c54f4f03af6",
+      "commitMessage": "aka.ms for licensing pages (#20275)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-05-22T14:53:44-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/licensing.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/licensing",
+      "firstSeenAt": "2026-05-22T18:53:44.000Z",
+      "eventId": "intune-docs:8d40a0ad66a1300e5db3a2b3368e5c54f4f03af6:modified:intune/fundamentals/licensing.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "aka.ms for licensing pages (#20275)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/licensing.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 5,
+    "authors": [
+      "Arnab Biswas [MSFT]",
+      "Paolo Matarazzo",
+      "Paul Inbar"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-defender/configure-web-protection-android.md.",
+        "sourceFiles": [
+          "intune/device-security/microsoft-defender/configure-web-protection-android.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/tutorial-automated-ios.md.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/tutorial-automated-ios.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/cloud-pki",
+        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/index.md.",
+        "sourceFiles": [
+          "intune/cloud-pki/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/advanced-capabilities.md. Updated Microsoft Intune documentation in intune/fundamentals/licensing.md.",
+        "sourceFiles": [
+          "intune/fundamentals/advanced-capabilities.md",
+          "intune/fundamentals/licensing.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/microsoft-defender/configure-web-protection-android.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/tutorial-automated-ios.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/cloud-pki",
+        "detail": "Updated Microsoft Intune documentation in intune/cloud-pki/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/advanced-capabilities.md. Updated Microsoft Intune documentation in intune/fundamentals/licensing.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

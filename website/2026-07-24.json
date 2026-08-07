@@ -1,0 +1,624 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/fundamentals/choose-targeting-method.md",
+      "status": "added",
+      "additions": 201,
+      "deletions": 0,
+      "changes": 201,
+      "patch": "diff --git a/intune/fundamentals/choose-targeting-method.md b/intune/fundamentals/choose-targeting-method.md\nnew file mode 100644\nindex 0000000000..c65806bf70\n--- /dev/null\n+++ b/intune/fundamentals/choose-targeting-method.md\n@@ -0,0 +1,201 @@\n+---\n+title: Choose the right targeting method in Microsoft Intune\n+description: Learn when to use assignment filters, dynamic groups, static groups, virtual groups, and enrollment time grouping for device and user targeting in Microsoft Intune.\n+author: matt-call\n+ms.author: mattcall\n+ms.date: 06/30/2026\n+ms.topic: concept-article\n+ms.reviewer: mattcall\n+ms.collection:\n+- M365-identity-device-management\n+---\n+\n+# Choose the right targeting method in Microsoft Intune\n+\n+Microsoft Intune supports several methods for targeting devices and users with policies and apps. Each method has different strengths, evaluation characteristics, and use cases. Choosing the right method — or combination of methods — helps ensure policies and apps reach the right devices at the right time.\n+\n+This article describes the available targeting constructs and helps you choose the right approach for your environment.\n+\n+## Key concepts\n+\n+Before choosing a targeting method, understand the principles that guide effective targeting in Intune:\n+\n+| Principle | Description |\n+|---|---|\n+| **Start broad, refine narrow** | Instead of building many narrow groups to match each policy, start with the broadest applicable audience and use assignment filters to refine which devices receive the policy. This strategy reduces group sprawl and simplifies management. |\n+| **Groups define scope, filters define targeting** | Groups answer *\"who is the audience?\"*. Assignment filters answer *\"which devices in that audience actually receive this policy?\"* Combining both concerns into groups alone leads to many nearly-identical groups that are difficult to manage. |\n+| **One group, many policies** | You don't need a 1:1 relationship between groups and policies. A single broad group can serve multiple policy assignments. Applicability of the workload or assignment filters can ensure the policies only go to applicable users and devices. |\n+| **Group membership is identity, not policy intent** | Groups should describe *what a device is* or *what a user is* in a way that's meaningful across your organization — not *what policy it should get*. If only Intune reads a group, evaluate whether an assignment filter can replace the group. |\n+| **Evaluate at check-in vs. evaluate on change** | Groups and filters use different evaluation models. Group membership is processed when device or user attributes change reflecting the current state of the directory. Filters evaluate at every device check-in against the device's properties at that moment. Choose based on whether you need membership that other services can read (groups) or precise, check-in-time targeting for Intune (filters). |\n+\n+## Targeting methods overview\n+\n+Intune targeting is built on two layers: **group types** that define *who* or *what* is in scope, and **Intune targeting features** that refine *how* and *when* policies reach those devices.\n+\n+### Group types\n+\n+| Group type | What it does | Best for |\n+|---|---|---|\n+| **Virtual groups** | Built-in *All users* and *All devices* groups maintained by Intune | Broad policies that apply to everyone or every device |\n+| **Static groups** | Manually managed security groups with fixed membership | Fixed, known sets of users or devices that don't change frequently |\n+| **Dynamic groups** | Groups with rule-based membership evaluated by Microsoft Entra ID | Cross-workload targeting (Conditional Access, licensing), Autopilot, user-based grouping |\n+\n+Static and dynamic groups are Microsoft Entra security groups — any service that consumes group membership (Conditional Access, licensing, SharePoint, Exchange) can use them. Virtual groups are Intune-managed and always current without requiring additional processing.\n+\n+### Intune targeting features\n+\n+| Construct | What it does | Best for |\n+|---|---|---|\n+| **Assignment filters** | Intune-evaluated rules applied on top of group assignments | Device property targeting for Intune policies — evaluated at check-in without depending on group membership processing |\n+| **Enrollment time grouping** | Adds devices to a security group during enrollment | Fast group-based policy delivery during enrollment without waiting for dynamic group membership processing |\n+\n+These are unique to Intune. Assignment filters and enrollment time grouping extend what you can do with groups — they don't replace groups, but they solve specific gaps in speed and precision that groups alone can't address.\n+\n+## Group types\n+\n+### Virtual groups\n+\n+Intune provides built-in virtual groups for *All users* and *All devices*. These groups are always current — they don't require processing to update membership.\n+\n+Virtual groups are most effective when combined with Intune targeting features:\n+\n+- **Virtual group + assignment filter** — Assign a policy to *All devices*, then apply a filter to narrow scope to specific device properties (like OS type, manufacturer, or ownership). The filter evaluates at check-in without depending on group membership processing.\n+\n+**Use when:**\n+\n+- A policy or app should reach all users or all devices\n+- You want a broad target that you refine with assignment filters to achieve precise device-level targeting\n+\n+### Static groups\n+\n+Static security groups have manually managed membership. An administrator adds or removes members directly.\n+\n+Static groups can also be combined with Intune targeting features:\n+\n+- **Static group + assignment filter** — Assign a policy to a static group (like a department or pilot ring), then apply a filter to further narrow which devices in that group receive the policy.\n+- **Static group + enrollment time grouping** — Use a static group as the target for enrollment time grouping. Devices are added to the group during enrollment, enabling fast policy delivery on first check-in.\n+\n+**Use when:**\n+\n+- You have a fixed set of users or devices (like a pilot group or executive team)\n+- You need group membership for cross-workload scenarios but the population is small and stable\n+\n+### Dynamic groups\n+\n+Dynamic groups use rule-based membership that's evaluated and updated by Microsoft Entra ID. They're the standard mechanism for organizing users and devices across the Microsoft 365 ecosystem — any service that reads group membership (Conditional Access, licensing, SharePoint, Exchange) consumes dynamic groups.\n+\n+After a device enrolls or a user attribute changes, the group membership requires additional processing before the change is reflected.\n+\n+**Use when:**\n+\n+- **Cross-workload scenarios** — Conditional Access policies, group-based licensing, SharePoint access, Exchange Online policies, or any Microsoft 365 service that requires group membership\n+- **Autopilot targeting** — Autopilot deployment profiles must be assigned to groups. Devices must be group members before enrollment begins\n+- **User-based grouping** — Grouping users by department, location, job title, or other user attributes\n+\n+> [!NOTE]\n+> If your dynamic device group is only consumed by Intune (not Conditional Access, licensing, or other services), evaluate whether an assignment filter can achieve the same targeting. Filters support many of the same device properties — including `enrollmentProfileName` — and evaluate at check-in without depending on group membership processing.\n+\n+Dynamic groups can also be combined with assignment filters:\n+\n+- **Dynamic group + assignment filter** — Assign a policy to a dynamic group, then apply a filter to further refine which devices in that group receive the policy. approach is useful when the group serves cross-workload purposes but you need more precise Intune targeting within the group.\n+\n+  **Example:** Your organization uses a dynamic group for all corporate-owned Windows devices because Conditional Access policies require that group membership. Within Intune, you assign a configuration profile to that group and apply an assignment filter to target only devices running Windows 11 24H2 or later. The group handles Conditional Access scope, while the filter handles Intune-specific version targeting — without creating a second group.\n+\n+**Best practices for dynamic groups:**\n+\n+- **Keep rules simple** — Use direct property comparisons with `-eq` or `-startsWith` and a small number of conditions. Simpler rules evaluate faster and are easier to troubleshoot.\n+- **Avoid `memberOf`** — Transitive group lookups add significant processing complexity and are a common source of unexpected membership results.\n+- **Audit attribute write permissions** — If a dynamic group controls access to sensitive resources (Conditional Access, licensing), the security of that access depends on who can modify the attributes referenced in the rule.\n+- **Ensure devices have clean, accurate attributes** — Dynamic group membership depends on the properties written to the device object. Stale or missing values lead to unexpected membership.\n+\n+For detailed guidance on rule syntax and writing efficient rules, go to:\n+\n+- [Manage rules for dynamic membership groups in Microsoft Entra ID](/entra/identity/users/groups-dynamic-membership)\n+- [Create simpler and faster rules for dynamic membership groups](/entra/identity/users/groups-dynamic-rule-more-efficient)\n+- [Understand and manage dynamic group processing](/entra/identity/users/manage-dynamic-group#optimize-rule-efficiency)\n+\n+## Intune targeting features\n+\n+### Assignment filters\n+\n+Assignment filters are Intune-evaluated rules that refine which devices receive a policy or app. Filters are applied on top of a group assignment and evaluate device properties directly at check-in without depending on group membership processing.\n+\n+**Use when:**\n+\n+- You're targeting **Intune policies or apps** based on device properties (OS version, manufacturer, model, ownership, device category)\n+- You want evaluation **directly at device check-in** without requiring group membership processing\n+- You want to combine broad group assignments (like *All devices*) with precise device-level targeting\n+- You want to **include or exclude** specific devices from a policy assigned to a broad group\n+\n+**Common scenarios:**\n+\n+- Deploy a compliance policy to all corporate-owned Windows devices\n+- Exclude a specific device manufacturer from a configuration profile\n+- Target devices running a specific OS version for an app deployment\n+- Narrow a policy assigned to *All devices* to only iOS devices owned by the organization\n+\n+> [!NOTE]\n+> Assignment filters are not a replacement for groups in every scenario. Filters can't be used for:\n+> - **Autopilot profile assignment** — devices must be group members before enrollment begins\n+> - **Conditional Access, licensing, or SharePoint** — these services require Entra group membership\n+> - **Workloads that don't support filters** — verify filter support for your specific policy or app type before designing around it\n+\n+### Enrollment time grouping\n+\n+Enrollment time grouping adds devices to a specified security group during enrollment rather than after. This feature allows apps and policies assigned to that group to be delivered earlier in the enrollment flow — in many cases on the first check-in — without waiting for group membership to process. Actual delivery timing depends on the workload, platform, assignment type, and enrollment method.\n+\n+**Use when:**\n+\n+- You need group membership to be available during enrollment for fast policy delivery\n+- You're using [enrollment methods that support enrollment time grouping](../device-enrollment/setup-time-grouping.md#requirements)\n+- You need the group for cross-workload scenarios (like Conditional Access) and also need fast enrollment-time delivery\n+\n+**Don't use when:**\n+\n+- An assignment filter can achieve the same targeting — if the policy is Intune-only and you're targeting based on device properties available at check-in (OS, manufacturer, ownership), a filter is simpler and doesn't require group management\n+- You don't need the group for any other purpose — enrollment time grouping creates real Entra security group memberships that persist after enrollment. If no other service reads that group, you're adding management overhead without benefit\n+- The enrollment method doesn't support it — only specific enrollment flows support enrollment time grouping. Verify your enrollment method is in the [supported list](../device-enrollment/setup-time-grouping.md#requirements) before designing around it\n+\n+For more information, go to [Enrollment time grouping in Microsoft Intune](../device-enrollment/setup-time-grouping.md).\n+\n+## Choosing the right approach\n+\n+For most Intune environments, the best approach combines multiple methods:\n+\n+1. **Start with broad groups** — Use virtual groups, static groups, or dynamic groups as your base assignment targets. Choose the broadest appropriate base group for your organization — but account for each group type's evaluation timing and cross-workload requirements.\n+2. **Refine targeting based on device attributes** — Use assignment filters when the policy is Intune-only. Use dynamic groups when the attribute-based membership is needed across workloads (Conditional Access, licensing, Autopilot).\n+3. **Use enrollment time grouping** to remove the wait for group membership processing during enrollment, so policies are delivered on the first check-in.\n+\n+> [!CAUTION]\n+> Broad assignments are powerful but carry risk. Before assigning high-impact policies to *All devices* with a filter, validate the filter against a pilot group first. A misconfigured or deleted filter on a broad assignment can affect every device in scope. Use staged rollout rings and monitor assignment reporting before expanding to production.\n+\n+### When a dynamic group can become a filter\n+\n+If you have dynamic device groups that use simple property rules and are only consumed by Intune — not Conditional Access, licensing, or other services — you can simplify your targeting by replacing those groups with assignment filters. The intent isn't about removing all dynamic groups. It's about removing unnecessary group processing overhead for groups that don't serve cross-workload purposes.\n+\n+The following table shows common dynamic group rules and their equivalent assignment filter syntax:\n+\n+| Dynamic group rule | Equivalent assignment filter | Notes |\n+|---|---|---|\n+| `device.deviceOSType -eq \"Windows\"` | `operatingSystemSKU -eq \"Windows\"` | OS type targeting |\n+| `device.deviceManufacturer -eq \"Microsoft\"` | `manufacturer -eq \"Microsoft Corporation\"` | Manufacturer targeting |\n+| `device.deviceModel -startsWith \"Surface\"` | `model -startsWith \"Surface\"` | Model targeting |\n+| `device.deviceOwnership -eq \"Company\"` | `deviceOwnership -eq \"Corporate\"` | Ownership targeting |\n+| `device.deviceCategory -eq \"Engineering\"` | `deviceCategory -eq \"Engineering\"` | Device category targeting |\n+\n+> [!NOTE]\n+> Property names and values may differ slightly between dynamic group rules and assignment filter syntax. Verify the exact property names and supported values in [Supported device properties when creating filters](./filters/ref-device-properties.md).\n+\n+> [!IMPORTANT]\n+> Don't remove dynamic groups that are used by services outside of Intune (Conditional Access, licensing, SharePoint). Those services can't consume assignment filters — they require group membership. Only simplify groups that exist solely for Intune policy targeting.\n+\n+> [!TIP]\n+> Targeting decisions also impact performance — especially in large environments. For guidance on group reuse, avoiding common anti-patterns, and understanding sync behavior, go to [Performance recommendations for grouping, targeting, and filtering](./filters/performance-recommendations.md).\n+\n+## Related articles\n+\n+- [Use assignment filters to assign your apps, policies, and profiles in Microsoft Intune](./filters/overview.md)\n+- [Supported device properties when creating filters](./filters/ref-device-properties.md)\n+- [Performance recommendations for grouping, targeting, and filtering](./filters/performance-recommendations.md)\n+- [Use groups to organize users and devices for Microsoft Intune](./tenant-administration/add-groups.md)\n+- [Enrollment time grouping in Microsoft Intune](../device-enrollment/setup-time-grouping.md)\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/choose-targeting-method.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/choose-targeting-method",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:added:intune/fundamentals/choose-targeting-method.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Added Microsoft Intune documentation in intune/fundamentals/choose-targeting-method.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/android/setup-samsung-knox.md",
+      "status": "added",
+      "additions": 237,
+      "deletions": 0,
+      "changes": 237,
+      "patch": "diff --git a/intune/device-updates/android/setup-samsung-knox.md b/intune/device-updates/android/setup-samsung-knox.md\nnew file mode 100644\nindex 0000000000..9b20b525a0\n--- /dev/null\n+++ b/intune/device-updates/android/setup-samsung-knox.md\n@@ -0,0 +1,237 @@\n+---\n+title: Integrate Samsung Knox E-FOTA with Microsoft Intune\n+description: Learn how to integrate Samsung Knox E-FOTA with Microsoft Intune to register Samsung devices, configure firmware updates, and monitor campaigns.\n+ms.date: 07/24/2026\n+ms.topic: how-to\n+ms.reviewer: grwilso\n+ai-usage: ai-generated\n+ms.custom: msecd-doc-authoring-1017\n+---\n+\n+# Samsung Knox E-FOTA integration with Microsoft Intune\n+\n+Samsung Knox E-FOTA (Firmware Over-the-Air) lets IT administrators remotely deploy firmware updates to corporate-owned Samsung devices. Administrators can select firmware versions and schedule downloads and installations to reduce device downtime. After registration, firmware deployments don't require user interaction.\n+\n+The Microsoft Intune integration brings Knox E-FOTA capabilities into the admin center. Before you begin, review the device, network, licensing, role, tenant, and cloud prerequisites. With this integration, you can:\n+\n+- Launch, manage, and monitor firmware update campaigns for Samsung devices from the admin center.\n+- Lock devices to a specific operating system (OS) version or selected firmware.\n+- Schedule download and install windows to minimize device downtime.\n+\n+## Prerequisites\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../../includes/requirements/platform.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+> Samsung Knox E-FOTA updates are supported on Android Enterprise devices enrolled in Intune. This support includes the following enrollment types:\n+> - Android Enterprise corporate-owned dedicated (COSU)\n+> - Android Enterprise corporate-owned fully managed (COBO)\n+> - Android Enterprise corporate-owned with a work profile (COPE)\n+>\n+> For information about which devices are supported by Samsung Knox, see [Devices Secured by Knox].\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [network-connectivity](../../includes/requirements/network-connectivity.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+> For information about service ports and endpoints used by Samsung Knox, see [Samsung Knox firewall exceptions].\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [licensing](../../includes/requirements/licensing.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+\n+> You need a Samsung Knox E-FOTA license to use the service. For more information, see [Samsung Knox E-FOTA].\n+>\n+> You also need at least a Microsoft 365 E3 plan to use the service.\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+\n+> The required permissions depend on the task.\n+>\n+> ---\n+>\n+> To **set up the Samsung connector**, sign in with an account assigned the [Intune Administrator] role.\n+>\n+> You also need a *Samsung Knox administrator* account to connect Intune to Samsung Knox E-FOTA. For more information, see [Manage admins].\n+>\n+> If your organization uses [Microsoft Entra Privileged Identity Management (PIM)], activate the Intune Administrator role only when you configure the connector.\n+>\n+> ---\n+>\n+> To configure devices and manage Samsung Knox E-FOTA deployments, use an account with at least the following permissions:\n+> - [Android FOTA] (to register devices with Samsung Knox E-FOTA and manage their firmware updates)\n+> - [Mobile apps] (to deploy the required apps to the devices)\n+> - [Device configurations] (to configure the devices by using an OEM configuration template)\n+\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [tenant-configuration](../../includes/requirements/tenant-configuration.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+> You must configure Managed Google Play for your tenant. For setup instructions, see [Set up Managed Google Play](../../device-enrollment/android/connect-managed-google-play.md).\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [cloud](../../includes/requirements/cloud.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+\n+> Samsung Knox E-FOTA updates are supported in the public cloud.\n+:::column-end:::\n+:::row-end:::\n+\n+## Process overview\n+\n+The process for using Samsung Knox E-FOTA through Intune is as follows:\n+\n+1. [Set up the Samsung connector](#set-up-the-samsung-connector).\n+1. [Deploy the required apps to the devices](#deploy-the-required-apps-to-the-devices).\n+1. [Configure the devices by using an OEM configuration template](#configure-the-devices-by-using-an-oem-configuration-template).\n+1. [Sync devices with Samsung](#sync-devices-with-samsung).\n+1. [Complete device registration](#complete-device-registration).\n+\n+After the devices are registered with Samsung, you can create an E-FOTA deployment to manage firmware updates for the devices.\n+\n+### :::image type=\"icon\" source=\"media/setup-samsung-knox/connector.svg\" border=\"false\":::&nbsp;Set up the Samsung connector\n+\n+In the Microsoft Intune admin center, link Intune and Samsung Knox E-FOTA by creating a connector. The connector allows Intune to communicate with Samsung Knox E-FOTA and manage firmware updates for eligible Samsung devices.\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **[Tenant administration]** > **[Connectors and tokens]** > **[Firmware over-the-air update]**.\n+1. Select **Samsung**.\n+1. Select **Connect**, and then select **Connect** again to confirm. The Samsung Knox E-FOTA portal opens. Sign in with a Samsung Knox administrator account and authorize the connection.\n+1. After the connection is established, you're redirected to the Intune admin center. The connector is listed as **Connected**.\n+\n+### :::image type=\"icon\" source=\"media/setup-samsung-knox/app.svg\" border=\"false\":::&nbsp;Deploy the required apps to the devices\n+\n+Samsung Knox requires the following apps on each device to enroll it in the E-FOTA service:\n+\n+- **Knox E-FOTA** (`com.samsung.android.knox.efota`)\n+- **Knox Service Plugin** (`com.samsung.android.knox.kpu`)\n+\n+Add both apps to your tenant through Managed Google Play. Assign the apps as **Required** to the security groups that contain the Samsung devices you want to register. Intune then deploys the apps to those devices.\n+\n+For more information, see [Add and assign Managed Google Play apps to Android Enterprise devices](../../app-management/deployment/add-managed-google-play.md).\n+\n+### :::image type=\"icon\" source=\"media/setup-samsung-knox/configure.svg\" border=\"false\":::&nbsp;Configure the devices by using an OEM configuration template\n+\n+To manage firmware updates through the E-FOTA service, configure the devices by using an OEM configuration template.\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **Devices** > **Configuration**.\n+1. Under **Policies**, select **Create**.\n+1. In **Create profile**, use the following settings and select **Create**:\n+   - **Platform**: Android Enterprise\n+   - **Profile type**: Templates\n+   - **Template name**: OEMConfig\n+1. Under **Configuration settings**, select:\n+   - **Enable device policy controls**: true\n+   - **Enable firmware controls**: true\n+   - **Enable E-FOTA client installation & launch**: true\n+1. Assign the device configuration to the same security group that contains the devices you registered with Samsung.\n+1. Select **Next**.\n+\n+### :::image type=\"icon\" source=\"media/setup-samsung-knox/registration.svg\" border=\"false\":::&nbsp;Sync devices with Samsung\n+\n+To manage firmware updates for Samsung devices with Intune, register the devices with Samsung Knox E-FOTA. Assign the security groups that contain these devices to the Samsung connector.\n+\n+To register the devices with Samsung:\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **[Tenant administration]** > **[Connectors and tokens]** > **[Firmware over-the-air update]**.\n+1. Select **Samsung** to open the Samsung Knox E-FOTA connector setup.\n+1. Select **Add groups**, and then select the security groups that contain the Samsung devices to manage by using E-FOTA.\n+1. Select **Register**.\n+1. The devices are uploaded to Samsung. Use the Samsung Knox administrator account to view them in the Knox Admin Portal.\n+\n+### :::image type=\"icon\" source=\"media/setup-samsung-knox/registration-complete.svg\" border=\"false\":::&nbsp;Complete device registration\n+\n+On each targeted Samsung device, open the **Knox E-FOTA** app. A device user must accept the terms and conditions to complete registration with Samsung Knox E-FOTA.\n+\n+## Create an E-FOTA update campaign\n+\n+After you register the devices with Samsung Knox E-FOTA, you can create a deployment to manage the firmware updates for the devices you registered. Samsung Knox E-FOTA deployments are also called *campaigns*.\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **Devices** > **Android** > **Manage updates** > **Android FOTA deployments**.\n+1. Select **Create**.\n+1. In the **Create deployment - Basics** pane, select the device model, sales code, CSC, and firmware version.\n+1. In the **Create deployment - Settings** pane, configure the **deployment schedule**, **installation schedule**, and **device condition**.\n+1. Assign the deployment to the group of devices you registered with Samsung.\n+1. On the **Monitor** tab, review the campaign summary and status. From the summary, you can edit, cancel, or delete the campaign and open the campaign report. Status data from Samsung refreshes every hour.\n+\n+You can also review the campaign in the Knox Admin Portal. After you assign the campaign, verify its status on a targeted Samsung device in the Knox E-FOTA app.\n+\n+## Device registration status report\n+\n+You can view the device registration status for devices registered with Samsung Knox E-FOTA in the Intune admin center. The report refreshes every hour with device status from Samsung.\n+\n+To view the device registration status report:\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **[Tenant administration]** > **[Connectors and tokens]** > **[Firmware over-the-air update]**.\n+1. Select **Samsung**.\n+1. Select the **Monitor** tab to view the device registration status report.\n+1. To view the list of devices registered with Samsung, select **View devices**. The device registration status report shows the following information for each device:\n+   - **Device name**\n+   - **Registration status**\n+   - **Status detail**\n+   - **Last status update (UTC)**\n+\n+## Disconnect the Samsung connector\n+\n+To disconnect the Samsung connector, follow these steps:\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **[Tenant administration]** > **[Connectors and tokens]** > **[Firmware over-the-air update]**.\n+1. Select **Samsung**.\n+1. Select **Disconnect** and confirm the disconnection. This action disconnects your Intune tenant from Samsung Knox E-FOTA.\n+\n+<a name='related-content'></a>\n+\n+## Next step\n+\n+- [Samsung Knox E-FOTA documentation](https://docs.samsungknox.com/admin/knox-efota/)\n+\n+<!--links-->\n+\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n+[Tenant administration]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminMenu/~/tenantStatus\n+[Connectors and tokens]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminMenu/~/connectorsAndTokens\n+[Firmware over-the-air update]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/~/fotaUpdate\n+[Intune Administrator]: /entra/identity/role-based-access-control/permissions-reference#intune-administrator\n+[Microsoft Entra Privileged Identity Management (PIM)]: /entra/id-governance/privileged-identity-management/pim-configure\n+\n+[Android FOTA]: /intune/fundamentals/role-based-access-control/create-custom-role#android-fota\n+[Device configurations]: /intune/fundamentals/role-based-access-control/create-custom-role#device-configurations\n+[Mobile apps]: /intune/fundamentals/role-based-access-control/create-custom-role#mobile-apps\n+\n+<!-- Samsung Knox links -->\n+[Devices Secured by Knox]: https://www.samsungknox.com/knox-platform/supported-devices\n+[Samsung Knox E-FOTA]: https://docs.samsungknox.com/admin/knox-efota/\n+[Samsung Knox firewall exceptions]: https://docs.samsungknox.com/admin/knox-admin-portal/get-started/samsung-knox-firewall-exceptions/#knox-e-fota\n+[Manage admins]: https://docs.samsungknox.com/admin/knox-admin-portal/how-to-guides/admins-and-roles/manage-admins/\n",
+      "baseCommitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitSha": "23712a701a1b92eb2bb938f20f216e14ba0e7c21",
+      "commitMessage": "[2607] [6515233] Samsung Knox E-FOTA (#20526)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-24T15:42:10-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/android/setup-samsung-knox.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/android/setup-samsung-knox",
+      "firstSeenAt": "2026-07-24T22:42:10.000Z",
+      "eventId": "intune-docs:23712a701a1b92eb2bb938f20f216e14ba0e7c21:added:intune/device-updates/android/setup-samsung-knox.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "[2607] [6515233] Samsung Knox E-FOTA (#20526)",
+        "summary": "Added Microsoft Intune documentation in intune/device-updates/android/setup-samsung-knox.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/epm/troubleshoot-known-issues.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "patch": "diff --git a/intune/epm/troubleshoot-known-issues.md b/intune/epm/troubleshoot-known-issues.md\nindex e86a9183ce..3c36a484b0 100644\n--- a/intune/epm/troubleshoot-known-issues.md\n+++ b/intune/epm/troubleshoot-known-issues.md\n@@ -82,3 +82,9 @@ EPM checks the certificate expiry date to ensure it hasn't passed before allowin\n On devcies that run a Windows version earlier than 24H2 with the April 2025 update, the **Run with elevated access** option is not always successfully added to the file context menu after a successful installation of the EPM Agent. This issue is resolved for devices that run a later version of Windows.\n \n **Workaround:** To resolve this issue on a device that can't update to Windows version 24H2 with the Aril 2025 update or later, run the package *EpmShellExtension.msix* located in *C:\\Program Files\\Microsoft EPM Agent\\EPMShellExtension* to manually install the EPM shell extension to the file context menu.\n+\n+### EPM roles do not support scope tags.\n+\n+The built-in role \"Endpoint Privilege Manager\" and the custom role \"Endpoint Privilege Management Policy Authoring\" do not support scope tags. \n+\n+**Workaround:** To restrict an administrator's view permissions using scope tags, you must grant permissions that include \"Read\" for \"Device configurations.\"\n",
+      "baseCommitSha": "f230fad96ecebd76afe6772d168056673f7c5945",
+      "commitSha": "5c850b7f56d853bef57e600542102c22e6cc8bee",
+      "commitMessage": "Update known issues and workarounds for EPM roles (#20571)",
+      "commitAuthor": "ayumishimada",
+      "commitDate": "2026-07-25T04:20:28+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/epm/troubleshoot-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/epm/troubleshoot-known-issues",
+      "firstSeenAt": "2026-07-24T19:20:28.000Z",
+      "eventId": "intune-docs:5c850b7f56d853bef57e600542102c22e6cc8bee:modified:intune/epm/troubleshoot-known-issues.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update known issues and workarounds for EPM roles (#20571)",
+        "summary": "Updated Microsoft Intune documentation in intune/epm/troubleshoot-known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/blackberry.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/blackberry.md b/intune/device-security/mobile-threat-defense/blackberry.md\nindex edb2981dc4..1202a82f0b 100644\n--- a/intune/device-security/mobile-threat-defense/blackberry.md\n+++ b/intune/device-security/mobile-threat-defense/blackberry.md\n@@ -11,7 +11,7 @@ You can control mobile device access to corporate resources using Conditional Ac\n \n You can configure Conditional Access policies based on a BlackBerry Protect risk assessment, enabled through Intune device compliance policies for enrolled devices. You can set up your policies to allow or block noncompliant devices from accessing corporate resources based on detected threats. For unenrolled devices, you can use app protection policies to enforce a block or selective wipe based on detected threats.\n \n-For more information about how to integrate BlackBerry UES with Microsoft Intune, see the [BlackBerry UES documentation](https://docs.blackberry.com/en/unified-endpoint-security/blackberry-ues).\n+For more information about how to integrate BlackBerry UES with Microsoft Intune, see the [BlackBerry UES documentation](https://www.blackberry.com/en/secure-communications/blackberry-uem).\n \n ## Supported platforms\n \n",
+      "baseCommitSha": "5c850b7f56d853bef57e600542102c22e6cc8bee",
+      "commitSha": "e5798271693c5db75fc70627cd3c81b6f713c396",
+      "commitMessage": "2026_06 - Fix monthly broken links (#20428)",
+      "commitAuthor": "Bowen Yang",
+      "commitDate": "2026-07-24T12:22:14-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/blackberry.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/blackberry",
+      "firstSeenAt": "2026-07-24T19:22:14.000Z",
+      "eventId": "intune-docs:e5798271693c5db75fc70627cd3c81b6f713c396:modified:intune/device-security/mobile-threat-defense/blackberry.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2026_06 - Fix monthly broken links (#20428)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/blackberry.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/setup-blackberry.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/setup-blackberry.md b/intune/device-security/mobile-threat-defense/setup-blackberry.md\nindex 11df12eaee..5e8a14be9c 100644\n--- a/intune/device-security/mobile-threat-defense/setup-blackberry.md\n+++ b/intune/device-security/mobile-threat-defense/setup-blackberry.md\n@@ -7,7 +7,7 @@ ms.topic: how-to\n \n # Connect BlackBerry Protect Mobile MTD connector in Microsoft Intune\n \n-Connect the BlackBerry Protect Mobile MTD connector to monitor and mitigate device risk levels on Intune-managed devices. BlackBerry Protect Mobile (powered by Cylance AI) works by reporting device risk levels to Microsoft Intune. Intune then uses that information to enforce the appropriate app configuration and risk assessment policies. For more information about BlackBerry Protect Mobile, see [Key features of BlackBerry Protect Mobile](https://docs.blackberry.com/en/unified-endpoint-security/blackberry-ues/how-do-i/integrate-ces-with-mdm) (opens BlackBerry UES docs).\n+Connect the BlackBerry Protect Mobile MTD connector to monitor and mitigate device risk levels on Intune-managed devices. BlackBerry Protect Mobile (powered by Cylance AI) works by reporting device risk levels to Microsoft Intune. Intune then uses that information to enforce the appropriate app configuration and risk assessment policies. For more information about BlackBerry Protect Mobile, see [Key features of BlackBerry Protect Mobile](https://www.blackberry.com/en/secure-communications/blackberry-uem) (opens BlackBerry UES docs).\n \n This article describes the requirements and steps to connect the MTD connector in your tenant.\n \n@@ -55,7 +55,7 @@ For more information about consent and Microsoft Entra applications, see [Introd\n 5. Select **Add**.\n 6. For **Select the Mobile Threat Defense connector to setup,** choose **CylancePROTECT Mobile**.\n 7. Select **Open the CylancePROTECT Mobile admin console**. Keep the Microsoft Intune admin center tab open for later.\n-8. Sign in with your Microsoft Entra account, and then follow the instructions in [Integrating UES with Intune to respond to mobile threats](https://docs.blackberry.com/en/unified-endpoint-security/blackberry-ues/setup/setup/Setting-up-BlackBerry-Protect/Integrating-EMM-to-respond-to-mobile-threats) (opens BlackBerry UES docs) to complete setup.\n+8. Sign in with your Microsoft Entra account, and then follow the instructions in [Integrating UES with Intune to respond to mobile threats](https://www.blackberry.com/en/secure-communications/blackberry-uem) (opens BlackBerry UES docs) to complete setup.\n 9. After you finish setup in the UES management console, return to your tab in the Microsoft Intune admin center.\n 10. Under **MDM Compliance Policy Settings**, turn on the following settings:\n     - **Connect Android devices to BlackBerry Protect Mobile**\n@@ -69,4 +69,4 @@ For more information about consent and Microsoft Entra applications, see [Introd\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "5c850b7f56d853bef57e600542102c22e6cc8bee",
+      "commitSha": "e5798271693c5db75fc70627cd3c81b6f713c396",
+      "commitMessage": "2026_06 - Fix monthly broken links (#20428)",
+      "commitAuthor": "Bowen Yang",
+      "commitDate": "2026-07-24T12:22:14-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/setup-blackberry.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-blackberry",
+      "firstSeenAt": "2026-07-24T19:22:14.000Z",
+      "eventId": "intune-docs:e5798271693c5db75fc70627cd3c81b6f713c396:modified:intune/device-security/mobile-threat-defense/setup-blackberry.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2026_06 - Fix monthly broken links (#20428)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/setup-blackberry.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/multi-admin-approval.md b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\nindex d91c007571..38e3e22222 100644\n--- a/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n+++ b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n@@ -13,7 +13,7 @@ ms.collection:\n \n # Use access policies to require multi admin approval\n \n-To help protect against a compromised administrative account, use Microsoft Intune *access policies* to require that a second administrative account approves a change before the change is applied. This capability is known as Multi Admin Approval.\n+To help protect against a compromised administrative account, use Microsoft Intune Multi admin approval *access policies* to require that a second administrative account approves a change before the change is applied. This capability is known as Multi Admin Approval.\n \n By using Multi Admin Approval, you can configure access policies that protect specific configurations, like Apps or Scripts for devices. Access policies specify what is protected and which group of accounts can approve changes to those resources.\n \n@@ -184,4 +184,4 @@ You can cancel a request before it's approved by selecting it from the **My requ\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "e5798271693c5db75fc70627cd3c81b6f713c396",
+      "commitSha": "f1bd3ef4473ec0143b30edea38df9f34749fbe2c",
+      "commitMessage": "Update Multi Admin Approval description for clarity (#20460)",
+      "commitAuthor": "shmokash",
+      "commitDate": "2026-07-24T12:24:21-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/multi-admin-approval",
+      "firstSeenAt": "2026-07-24T19:24:21.000Z",
+      "eventId": "intune-docs:f1bd3ef4473ec0143b30edea38df9f34749fbe2c:modified:intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update Multi Admin Approval description for clarity (#20460)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/manage-devices-tokens-apple.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 8,
+      "changes": 18,
+      "patch": "diff --git a/intune/device-enrollment/apple/manage-devices-tokens-apple.md b/intune/device-enrollment/apple/manage-devices-tokens-apple.md\nindex e4f711268c..5b11868381 100644\n--- a/intune/device-enrollment/apple/manage-devices-tokens-apple.md\n+++ b/intune/device-enrollment/apple/manage-devices-tokens-apple.md\n@@ -11,7 +11,7 @@ ai-usage: ai-assisted\n Use this article to sync Apple mobile devices with Apple Business, manage your enrollment tokens, and distribute devices to users.\n \n > [!NOTE]\n-> The steps in this article are the same whether you're using Apple Business or Apple School Manager. For brevity, this article refers to *Apple Business* only, except where clarification is necessary.  \n+> The steps in this article are similar whether you're using Apple Business or Apple School Manager. For brevity, this article refers to *Apple Business* only, except where clarification is necessary.  \n \n This article applies to:  \n - iOS/iPadOS\n@@ -22,8 +22,8 @@ This article applies to:\n \n Syncing refreshes existing device status and imports new devices assigned to the Apple MDM server. After creating a token, sync Intune with Apple to see your managed devices in the Microsoft Intune admin center.\n \n-1. In the [Microsoft Intune admin center], go to **Devices** > **Enrollment**.\n-1. Select the **Apple mobile** tab.\n+1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Devices** > **Enrollment**.\n+1. Select the **Apple** tab.\n 1. Under **Bulk Enrollment Methods**, select **Enrollment program tokens**.\n 1. Select a token from the list.\n 1. Select **Devices** > **Sync**.\n@@ -54,15 +54,17 @@ Complete these steps to re-enroll a device that already went through automated d\n ## Renew your token\n \n 1. Go to [Apple Business](http://business.apple.com) and sign in with an account that has an Administrator or Device Enrollment Manager role.\n-1. Select **Settings**. Under **MDM Servers**, select the MDM server associated with the token file you want to renew.\n-1. Select **Download Token**.\n+1. Select the **Devices** tab in Apple Business, or go to your account profile > **Preferences** in Apple School Manager.\n+1. Go to **Management Services** in Apple Business, or go to **Your MDM servers** in Apple School Manager.\n+1. Select the device management servivce in Apple Business, or MDM server in Apple School Manager associated with the token file you want to renew.\n+1. Select **Download Token** (this is found under the ... Actions menu in the top right in Apple Business).\n \n    > [!NOTE]\n    > Don't select **Download Token** unless you intend to renew the token. Doing so invalidates the token currently in use by Intune. If you already downloaded the token, complete the remaining steps to finish the renewal.\n \n 1. After downloading the token, go to the [Microsoft Intune admin center].\n 1. Go to **Devices** > **Enrollment**.\n-1. Select the **Apple mobile** tab.\n+1. Select the **Apple** tab.\n 1. Under **Bulk Enrollment Methods**, select **Enrollment program tokens**.\n 1. Select the token you want to renew.\n 1. Select **Renew token**. Enter the **Apple ID** used to create the original token.\n@@ -88,8 +90,8 @@ You can delete an enrollment program token from Intune as long as:\n \n To delete an enrollment program token:\n \n-1. In the [Microsoft Intune admin center], go to **Devices** > **Enrollment**.\n-1. Select the **Apple mobile** tab.\n+1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Devices** > **Enrollment**.\n+1. Select the **Apple** tab.\n 1. Under **Bulk Enrollment Methods**, select **Enrollment program tokens**.\n 1. Select the token, and then select **Devices**.\n 1. Delete all devices assigned to the token.\n",
+      "baseCommitSha": "f1bd3ef4473ec0143b30edea38df9f34749fbe2c",
+      "commitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitMessage": "Updated renewal steps for Apple Business (#20414)",
+      "commitAuthor": "Ben Watt",
+      "commitDate": "2026-07-24T20:28:11+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/manage-devices-tokens-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/manage-devices-tokens-apple",
+      "firstSeenAt": "2026-07-24T19:28:11.000Z",
+      "eventId": "intune-docs:e52175063935bda09093f1581f709e52c490ff5b:modified:intune/device-enrollment/apple/manage-devices-tokens-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updated renewal steps for Apple Business (#20414)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/manage-devices-tokens-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/assign-groups.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/app-management/deployment/assign-groups.md b/intune/app-management/deployment/assign-groups.md\nindex 6e0df68f55..152288dde8 100644\n--- a/intune/app-management/deployment/assign-groups.md\n+++ b/intune/app-management/deployment/assign-groups.md\n@@ -204,6 +204,9 @@ Default values for the setting are prepopulated for new assignments as follows:\n \n To learn more about monitoring app assignments, see [How to monitor apps](../monitor-assignments.md).\n \n+## Related content\n+\n+- [Choose the right targeting method in Microsoft Intune](../../fundamentals/choose-targeting-method.md)\n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/assign-groups.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/assign-groups",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/app-management/deployment/assign-groups.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/assign-groups.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/assign-device-profile.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 1,
+      "changes": 9,
+      "patch": "diff --git a/intune/device-configuration/assign-device-profile.md b/intune/device-configuration/assign-device-profile.md\nindex 87b6b5625d..61c4247954 100644\n--- a/intune/device-configuration/assign-device-profile.md\n+++ b/intune/device-configuration/assign-device-profile.md\n@@ -1,7 +1,7 @@\n ---\n title: Assign device profiles in Microsoft Intune\n description: Use the Microsoft Intune admin center to assign device configuration profiles and policies to users and devices. Learn how to exclude groups from a profile assignment in Microsoft Intune.\n-ms.date: 05/19/2026\n+ms.date: 06/10/2026\n ms.update-cycle: 180-days\n ms.topic: how-to\n ms.reviewer: gokarthi\n@@ -177,6 +177,11 @@ When you assign your policies and policies, apply the following general principl\n \n   > [!TIP]\n   > If your dynamic device group rule targets properties like OS type, manufacturer, model, ownership, or device category, consider using an [assignment filter](../fundamentals/filters/overview.md) instead. Filters evaluate device properties directly at check-in without depending on group membership processing. For guidance, go to [Performance recommendations for grouping, targeting, and filtering](../fundamentals/filters/performance-recommendations.md).\n+  >\n+  > If you continue to use dynamic groups, optimize your rules for efficiency. For more information, go to:\n+  >\n+  > - [Create simpler and faster rules for dynamic membership groups](/entra/identity/users/groups-dynamic-rule-more-efficient)\n+  > - [Understand and manage dynamic group processing](/entra/identity/users/manage-dynamic-group#optimize-rule-efficiency)\n \n   For example, you want policies assigned to devices as soon as they enroll. In this latency-sensitive situation, create an [assignment filter](../fundamentals/filters/overview.md) to target the devices you want, and assign the policy with this assignment filter to user groups. Don't assign to device groups.\n \n@@ -215,6 +220,8 @@ Use the following matrix to understand support for excluding groups:\n \n ## Related articles\n \n+- [Choose the right targeting method in Microsoft Intune](../fundamentals/choose-targeting-method.md)\n+- [Monitor device profiles](./monitor-device-profile.md) for guidance on monitoring your policies, and the devices running your policies.\n See [monitor device profiles](./monitor-device-profile.md) for guidance on monitoring your policies, and the devices running your policies.\n \n <!--links-->\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/assign-device-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/assign-device-profile",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/device-configuration/assign-device-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/assign-device-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 2,
+      "changes": 11,
+      "patch": "diff --git a/intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md b/intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md\nindex d2c2e7b3ae..64b5a309e6 100644\n--- a/intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md\n+++ b/intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md\n@@ -1,7 +1,7 @@\n ---\n title: Walkthrough-Create a settings catalog policy\n description: This tutorial or walkthrough steps through creating and comparing an on-premises Administrative Templates (ADMX) Group Policy and Microsoft Intune cloud-based settings catalog policy. It shows similar settings in on-premises and the Intune settings catalog to create and manage policies for Office, Windows, and Microsoft Edge on Windows 10/11 client devices.\n-ms.date: 05/19/2026\n+ms.date: 06/10/2026\n ms.topic: tutorial\n ms.reviewer: mayurjadhav\n ms.collection:\n@@ -173,6 +173,8 @@ In these next steps, you create security groups, and add users to these groups.\n \n   - [Understand and manage dynamic group processing in Microsoft Entra ID](/entra/identity/users/manage-dynamic-group)\n   - [Manage rules for dynamic membership groups in Microsoft Entra ID](/entra/identity/users/groups-dynamic-membership)\n+  - [Create simpler and faster rules for dynamic membership groups](/entra/identity/users/groups-dynamic-rule-more-efficient)\n+  - [Optimize rule efficiency](/entra/identity/users/manage-dynamic-group#optimize-rule-efficiency)\n \n - For Intune-only device targeting based on properties like OS type or manufacturer, consider using [assignment filters](../../fundamentals/filters/overview.md) instead of dynamic device groups. Filters evaluate at check-in without depending on group membership processing, and can simplify your targeting architecture. Dynamic groups remain necessary for cross-workload scenarios (Conditional Access, licensing) and user-based grouping. For more information, go to [Performance recommendations for grouping, targeting, and filtering in large Microsoft Intune environments](../../fundamentals/filters/performance-recommendations.md).\n \n@@ -360,9 +362,14 @@ When no longer needed, you can:\n \n ## Summary\n \n+In this tutorial, you got more familiar with the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), used the query builder to create dynamic groups, and created settings catalog policies in Intune to configure different settings. You also compared using ADMX templates on-premises and in the cloud with Intune.\n+\n+## Related content\n+\n+- [Choose the right targeting method in Microsoft Intune](../../fundamentals/choose-targeting-method.md)\n In this tutorial, you got more familiar with the [Microsoft Intune admin center], used the query builder to create dynamic groups, and created settings catalog policies in Intune to configure different settings. You also compared using ADMX templates on-premises and in the cloud with Intune.\n \n <!--links-->\n \n [Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n-[Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/tutorial-group-policy-migration",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/filters/overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/fundamentals/filters/overview.md b/intune/fundamentals/filters/overview.md\nindex 90351dc20f..f9a2da4140 100644\n--- a/intune/fundamentals/filters/overview.md\n+++ b/intune/fundamentals/filters/overview.md\n@@ -74,7 +74,7 @@ If you're deciding between assignment filters and dynamic groups for device targ\n - **Use assignment filters** when you're targeting Intune policies or apps based on device properties (OS, model, manufacturer, ownership, category). Filters evaluate at check-in with no further evaluation delay.\n - **Use dynamic groups** when you need cross-workload targeting (Conditional Access, licensing), Autopilot profile assignment, or user-based grouping.\n \n-Many organizations use both: dynamic groups for cross-workload scenarios and assignment filters for Intune-specific device targeting.\n+Many organizations use both: dynamic groups for cross-workload scenarios and assignment filters for Intune-specific device targeting. For guidance on all available targeting methods, go to [Choose the right targeting method in Microsoft Intune](../choose-targeting-method.md).\n \n > [!NOTE]\n > Because assignment filters don't require group membership processing, policy targeting isn't affected by group size, rule complexity, or membership evaluation timing. For performance recommendations when working with groups and filters, go to [Performance recommendations for grouping, targeting, and filtering in large Microsoft Intune environments](./performance-recommendations.md).\n@@ -282,6 +282,7 @@ After you create an assignment filter, you can change or update it.\n \n ## Related content\n \n+- [Choose the right targeting method in Microsoft Intune](../choose-targeting-method.md)\n - [Device properties, operators, and rule editing when creating assignment filters](ref-device-properties.md)\n - [Supported workloads when creating assignment filters](ref-supported-workloads.md)\n - [Assignment filter performance recommendations](performance-recommendations.md)\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/filters/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/filters/overview",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/fundamentals/filters/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/filters/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/filters/performance-recommendations.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "changes": 20,
+      "patch": "diff --git a/intune/fundamentals/filters/performance-recommendations.md b/intune/fundamentals/filters/performance-recommendations.md\nindex e1b2d57579..46a3c31693 100644\n--- a/intune/fundamentals/filters/performance-recommendations.md\n+++ b/intune/fundamentals/filters/performance-recommendations.md\n@@ -1,7 +1,7 @@\n ---\n title: Assignment Filter Performance Tips for Intune\n description: Optimize Microsoft Intune performance with assignment filters. Learn to use virtual groups, reuse groups, and apply filters effectively. Improve policy deployment speed with incremental group changes, and use assignment filters to include and exclude.\n-ms.date: 05/19/2026\n+ms.date: 06/30/2026\n ms.topic: article\n ms.reviewer: mattcall\n ---\n@@ -144,6 +144,19 @@ Consider migrating dynamic device groups to assignment filters when:\n > [!NOTE]\n > Dynamic groups remain necessary for Autopilot profile targeting, cross-workload scenarios (Conditional Access, licensing), and user-based grouping. For guidance on dynamic groups, go to [Create simpler, more efficient rules for dynamic groups in Microsoft Entra ID](/azure/active-directory/enterprise-users/groups-dynamic-rule-more-efficient).\n \n+### Avoid `memberOf` in dynamic group rules\n+\n+| DO | DON'T |\n+| --- | --- |\n+| :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: Use direct property comparisons (`-eq`, `-startsWith`, `-in`) in dynamic group rules. | :::image type=\"icon\" source=\"../../media/icons/16/error.svg\" border=\"false\"::: Don't use the `memberOf` operator in dynamic group rules for Intune targeting. |\n+\n+The `memberOf` operator triggers transitive group membership lookups, which adds significant processing complexity. In large environments, `memberOf`-based rules can cause long evaluation times and produce unexpected membership results due to the recursive nature of the lookup.\n+\n+If you need to target devices based on their membership in another group, evaluate whether the scenario can be redesigned using a direct device property or an assignment filter. For example, instead of `device.memberOf -any (group.objectId -in ['<groupId>'])`, consider whether the devices share a common attribute (like enrollment profile name, device category, or manufacturer) that can be used in a simpler rule or filter.\n+\n+> [!NOTE]\n+> For more information on optimizing rules for dynamic groups, see [Optimize rule efficiency](/entra/identity/users/manage-dynamic-group#optimize-rule-efficiency).\n+\n ## Summary\n \n When creating and managing assignments in Intune, incorporate some of these recommendations. Use groups or virtual groups, and apply assignment filters to help refine the targeting scope. Keep the best practices in mind:\n@@ -152,9 +165,14 @@ When creating and managing assignments in Intune, incorporate some of these reco\n - To optimize your targeting, reuse groups as much as possible.\n - Take care when making large nesting changes to Intune groups. Intune needs to process all these changes and calculate effective changes for all the members of all the groups impacted by that change.\n - Intune doesn't support mixed group exclusions. So, use assignment filters to dynamically include and exclude devices in addition to group or virtual group assignments.\n+- Use assignment filters instead of dynamic device groups when the group is only consumed by Intune.\n+- Avoid `memberOf` in dynamic group rules. Use direct property comparisons instead.\n+\n+For guidance on choosing between targeting methods (virtual groups, static groups, dynamic groups, assignment filters, and enrollment time grouping), go to [Choose the right targeting method in Microsoft Intune](../choose-targeting-method.md).\n \n ## Related articles\n \n+- [Choose the right targeting method in Microsoft Intune](../choose-targeting-method.md)\n - [Use filters when assigning your apps, policies, and profiles](overview.md)\n - [Supported device properties when creating filters](ref-device-properties.md)\n - [Supported workloads when creating filters](ref-supported-workloads.md)\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/filters/performance-recommendations.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/filters/performance-recommendations",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/fundamentals/filters/performance-recommendations.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/filters/performance-recommendations.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/planning-guide.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/fundamentals/planning-guide.md b/intune/fundamentals/planning-guide.md\nindex 9c18233602..b76a2c50ec 100644\n--- a/intune/fundamentals/planning-guide.md\n+++ b/intune/fundamentals/planning-guide.md\n@@ -604,6 +604,7 @@ The community-based [Intune forum](https://social.technet.microsoft.com/Forums/h\n \n ## Related articles\n \n+- [Choose the right targeting method in Microsoft Intune](choose-targeting-method.md)\n - [Migration guide: Set up or move to Microsoft Intune](setup-migration.md)\n - [Get started with your Microsoft Intune deployment](get-started.md)\n - [Protection and configuration levels](protection-configuration-levels.md)\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/planning-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/planning-guide",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/fundamentals/planning-guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/planning-guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/scale-guidelines.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/intune/fundamentals/scale-guidelines.md b/intune/fundamentals/scale-guidelines.md\nindex 4c92bbc025..8ed747eff4 100644\n--- a/intune/fundamentals/scale-guidelines.md\n+++ b/intune/fundamentals/scale-guidelines.md\n@@ -288,3 +288,7 @@ For more information, see [Device categories](../device-management/create-device\n - The Central team should create as many common endpoint analytics baselines as they need to support the variance of the Local admins.\n - If possible, local admins shouldn't create their own Endpoint Analytics baselines. When you delegate to a large number of administrators, the total number of objects might become large and difficult to manage. The best practice varies per feature area.\n - For more information, see [Configure settings in endpoint analytics](../endpoint-analytics/configure.md).\n+\n+## Related content\n+\n+- [Choose the right targeting method in Microsoft Intune](choose-targeting-method.md)\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/scale-guidelines.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/scale-guidelines",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/fundamentals/scale-guidelines.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/scale-guidelines.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/tenant-administration/add-groups.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "patch": "diff --git a/intune/fundamentals/tenant-administration/add-groups.md b/intune/fundamentals/tenant-administration/add-groups.md\nindex dd9899ae7e..6508859464 100644\n--- a/intune/fundamentals/tenant-administration/add-groups.md\n+++ b/intune/fundamentals/tenant-administration/add-groups.md\n@@ -60,6 +60,7 @@ For example, you might deploy an Intune compliance policy to the *all devices* g\n > Dynamic groups remain the right choice when you need cross-workload targeting (Conditional Access, licensing), Autopilot profile assignment, or user-based grouping.\n >\n > For more information, see:\n+> - [Choose the right targeting method in Microsoft Intune](../choose-targeting-method.md)\n > - [Use filters when assigning your apps, policies, and profiles in Microsoft Intune](../filters/overview.md)\n > - [Performance recommendations for Grouping, Targeting, and Filtering in large Microsoft Intune environments](../filters/performance-recommendations.md)\n \n@@ -106,7 +107,11 @@ To create groups in the Microsoft Intune admin center:\n         > [!IMPORTANT]\n         > To use Dynamic User groups, you must have a [Microsoft Entra ID P1 license for each user](/entra/identity/users/groups-dynamic-membership#license-requirements) that is a member of the dynamic group.\n \n-      - **Dynamic Device** - With this membership type, select **Add dynamic query** and then configure the dynamic membership rules. For guidance, see [Manage rules for dynamic membership groups in Microsoft Entra ID](/entra/identity/users/groups-dynamic-membership).\n+      - **Dynamic Device** - With this membership type, select **Add dynamic query** and then configure the dynamic membership rules. For guidance, go to:\n+\n+        - [Manage rules for dynamic membership groups in Microsoft Entra ID](/entra/identity/users/groups-dynamic-membership)\n+        - [Create simpler and faster rules for dynamic membership groups](/entra/identity/users/groups-dynamic-rule-more-efficient)\n+        - [Understand and manage dynamic group processing](/entra/identity/users/manage-dynamic-group#optimize-rule-efficiency)\n \n         > [!TIP]\n         > No specific Entra ID license is required for members of dynamic device groups.\n@@ -144,6 +149,7 @@ Use the following steps to delete an existing group:\n \n ## Related content\n \n+- [Choose the right targeting method in Microsoft Intune](../choose-targeting-method.md)\n - [Assign users licenses to Intune](../assign-licenses.md)\n - [Assign Microsoft Intune roles to groups of users for role-based access control](../role-based-access-control/assign-role.md)\n \n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/tenant-administration/add-groups.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/tenant-administration/add-groups",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/fundamentals/tenant-administration/add-groups.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/tenant-administration/add-groups.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/cloud-native-endpoints/planning-guide.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/intune/solutions/cloud-native-endpoints/planning-guide.md b/intune/solutions/cloud-native-endpoints/planning-guide.md\nindex 69d26c2b5b..ecf23d1e9b 100644\n--- a/intune/solutions/cloud-native-endpoints/planning-guide.md\n+++ b/intune/solutions/cloud-native-endpoints/planning-guide.md\n@@ -480,3 +480,7 @@ For more information on Windows Autopilot, go to:\n 4. [Concept: Cloud-native endpoints and on-premises resources](on-premises-resources.md)\n 5. 🡺 **High level planning guide** (*You are here*)\n 6. [Known issues and important information](troubleshoot.md)\n+\n+## Related content\n+\n+- [Choose the right targeting method in Microsoft Intune](../../fundamentals/choose-targeting-method.md)\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/cloud-native-endpoints/planning-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/cloud-native-endpoints/planning-guide",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/solutions/cloud-native-endpoints/planning-guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/planning-guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md b/intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md\nindex dc9705ab4a..5c4683efae 100644\n--- a/intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md\n+++ b/intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md\n@@ -174,8 +174,12 @@ ________________________________________________________\n > [!div class=\"nextstepaction\"]\n > [Next: Set up Microsoft Entra ID >](setup-entra-id.md)\n \n+## Related content\n+\n+- [Choose the right targeting method in Microsoft Intune](../../../fundamentals/choose-targeting-method.md)\n+\n <!-- Reference links in article -->\n \n [EDU-1]: /intune-education/create-groups\n [EDU-2]: /intune-education/edit-groups-intune-for-edu\n-[EDU-3]: /intune-education/edit-groups-intune-for-edu#edit-dynamic-group-rules\n\\ No newline at end of file\n+[EDU-3]: /intune-education/edit-groups-intune-for-edu#edit-dynamic-group-rules\n",
+      "baseCommitSha": "e52175063935bda09093f1581f709e52c490ff5b",
+      "commitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitMessage": "Targeting Method choice docs (#20268)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-07-24T15:50:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/education/tutorial-school-deployment/grouping-and-targeting",
+      "firstSeenAt": "2026-07-24T19:50:10.000Z",
+      "eventId": "intune-docs:d91f4fab34f9a33f76a86219c86ee7e74aee1177:modified:intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Targeting Method choice docs (#20268)",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/android/manage-fota.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/intune/device-updates/android/manage-fota.md b/intune/device-updates/android/manage-fota.md\nindex e27a92b166..91ff763ea3 100644\n--- a/intune/device-updates/android/manage-fota.md\n+++ b/intune/device-updates/android/manage-fota.md\n@@ -1,10 +1,12 @@\n ---\n title: Manage Android FOTA updates with Microsoft Intune\n description: Use Microsoft Intune to manage firmware updates on Android devices. A FOTA update can include software and security patches, feature updates, and other changes to the device's firmware.\n-ms.date: 05/12/2026\n+ms.date: 07/23/2026\n ms.topic: how-to\n ms.reviewer: jieyan\n ms.subservice: suite\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1017\n ---\n \n # Manage Firmware Over-the-Air updates on Android\n@@ -25,7 +27,7 @@ In the context of FOTA, a *deployment* is an update policy that includes instruc\n > FOTA updates are supported on Android Enterprise devices enrolled in Intune. This includes the following enrollment types:\n > - Android Enterprise corporate-owned dedicated (COSU)\n > - Android Enterprise corporate-owned fully managed (COBO)\n-> - Android Enterprise corporate-owned work profile (COPE)\n+> - Android Enterprise corporate-owned with a work profile (COPE)\n :::column-end:::\n :::row-end:::\n \n@@ -57,8 +59,8 @@ Manufacturer-specific FOTA support might offer more controls beyond what device\n \n Intune supports FOTA update management for supported devices from the following manufacturers:\n \n+- **Samsung**: For Samsung devices, see [Samsung Knox E-FOTA integration with Microsoft Intune](setup-samsung-knox.md).\n - **Zebra**: For Zebra devices, see [LifeGuard Over-the-Air Integration with Microsoft Intune](setup-zebra-lifeguard.md).\n-- **Samsung**: For Samsung devices, see [E-FOTA Update Management with Microsoft Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/samsung-e-fota-update-management-with-microsoft-endpoint-manager/ba-p/2002552).\n \n ### Use device restrictions profiles to manage FOTA updates\n \n",
+      "baseCommitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitSha": "23712a701a1b92eb2bb938f20f216e14ba0e7c21",
+      "commitMessage": "[2607] [6515233] Samsung Knox E-FOTA (#20526)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-24T15:42:10-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/android/manage-fota.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/android/manage-fota",
+      "firstSeenAt": "2026-07-24T22:42:10.000Z",
+      "eventId": "intune-docs:23712a701a1b92eb2bb938f20f216e14ba0e7c21:modified:intune/device-updates/android/manage-fota.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607] [6515233] Samsung Knox E-FOTA (#20526)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/android/manage-fota.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/android/setup-zebra-lifeguard.md",
+      "status": "modified",
+      "additions": 27,
+      "deletions": 16,
+      "changes": 43,
+      "patch": "diff --git a/intune/device-updates/android/setup-zebra-lifeguard.md b/intune/device-updates/android/setup-zebra-lifeguard.md\nindex b54cd5c292..8192e791b8 100644\n--- a/intune/device-updates/android/setup-zebra-lifeguard.md\n+++ b/intune/device-updates/android/setup-zebra-lifeguard.md\n@@ -1,10 +1,12 @@\n ---\n title: Zebra LifeGuard Over-the-Air Integration with Microsoft Intune\n description: Use Microsoft Intune to manage firmware updates for supported Zebra devices.\n-ms.date: 08/01/2024\n+ms.date: 07/23/2026\n ms.topic: how-to\n ms.reviewer: jieyan\n ms.subservice: suite\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1017\n ---\n \n # Zebra LifeGuard Over-the-Air Integration with Microsoft Intune\n@@ -48,9 +50,9 @@ Intune manages the creation, management, and monitoring of these deployments thr\n :::column-end:::\n :::column span=\"3\":::\n \n->You must have access to all appropriate Zebra licenses and entitlements to use the LG OTA service. For more information, contact Zebra support or see the [Zebra LifeGuard FAQ](https://techdocs.zebra.com/lifeguard/faq/).\n->\n >[!INCLUDE [additional-licensing-plan2](../../includes/licensing/additional-licensing-plan2.md)]\n+>\n+>You must have access to all appropriate Zebra licenses and entitlements to use the LG OTA service. For more information, contact Zebra support or see the [Zebra LifeGuard FAQ](https://techdocs.zebra.com/lifeguard/faq/).\n :::column-end:::\n :::row-end:::\n \n@@ -60,9 +62,9 @@ Intune manages the creation, management, and monitoring of these deployments thr\n \n :::column-end:::\n :::column span=\"3\":::\n->Administrators must have all the required RBAC (role-based access control) permissions:\n->  - Mobile Apps (to create and deploy app configuration profiles)\n->  - Android FOTA (to manage firmware OTA updates)\n+>Administrators need the following role-based access control (RBAC) permissions:\n+>  - [Mobile apps] (to create and deploy app configuration profiles)\n+>  - [Android FOTA] (to manage firmware OTA updates)\n :::column-end:::\n :::row-end:::\n \n@@ -94,7 +96,7 @@ Intune manages the creation, management, and monitoring of these deployments thr\n \n The process for using LG OTA via Intune is as follows:\n \n-1. [Set up Zebra connector](#step-1-set-up-zebra-connector).\n+1. [Set up the Zebra connector](#step-1-set-up-zebra-connector).\n 1. [Enroll devices with Zebra LG OTA service](#step-2-enroll-devices-with-zebra-lg-ota-service).\n     - [Approve and deploy required apps for your tenant](#2a-approve-and-deploy-required-apps-for-your-tenant).\n     - [Create app configuration policy](#2b-create-app-configuration-policy).\n@@ -105,7 +107,9 @@ The process for using LG OTA via Intune is as follows:\n \n You must enroll devices separately with the Zebra LG OTA service before devices can be updated. We recommend that you identify the devices to use with LG OTA, and create a group containing only those devices, to make the enrollment process easier.\n \n-## Step 1: Set up Zebra Connector\n+<a name='step-1-set-up-zebra-connector'></a>\n+\n+## Step 1: Set up the Zebra connector\n \n In the Microsoft Intune admin center, you can link Intune and Zebra.\n \n@@ -281,13 +285,9 @@ Reporting displays information for eligible devices only and is currently refres\n Each deployment displays details related to:\n \n - **Deployment status**: The status of the deployment. For more information, see the following table.\n-\n - **Completed devices**: The number of eligible devices where the update is completed.\n-\n - **Failed devices**: The number of devices where the update failed.\n-\n - **Total devices**: The total number of eligible devices targeted.\n-\n - **Release**: The associated firmware release.\n \n The status of a deployment is different from the status of individual devices in the deployment. For example, if you create a deployment that targets two devices and only one is successfully updated, the deployment is considered *Completed*. However, it shows one device as failed and one as successful.\n@@ -316,11 +316,22 @@ By selecting the **More (…)** menu next to a deployment, or by selecting the d\n   - Code NOTAPPLICABLE: the device isn't enrolled with the LG OTA service, or not eligible for this update\n   - Numeric error code. For example, 4009. Contact Zebra support for more details on next steps.\n \n-## Disconnecting Zebra connector\n+<a name='disconnecting-zebra-connector'></a>\n+\n+## Disconnect the Zebra connector\n \n-1. Go to **Tenant admin** > **Connectors and tokens** > **Firmware over-the-air**.\n-2. Select **Disconnect** and confirm the disconnection. This disconnects your Intune tenant from Zebra and existing deployments will not be affected.\n+To disconnect the Zebra connector:\n+\n+1. Sign in to the [Microsoft Intune admin center].\n+1. Select **[Tenant administration]** > **[Connectors and tokens]** > **[Firmware over-the-air update]**.\n+1. Select **Disconnect** and confirm the disconnection. This disconnects your Intune tenant from Zebra. Existing deployments aren't affected.\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n+[Tenant administration]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminMenu/~/tenantStatus\n+[Connectors and tokens]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminMenu/~/connectorsAndTokens\n+[Firmware over-the-air update]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/~/fotaUpdate\n+\n+[Android FOTA]: /intune/fundamentals/role-based-access-control/create-custom-role#android-fota\n+[Mobile apps]: /intune/fundamentals/role-based-access-control/create-custom-role#mobile-apps\n",
+      "baseCommitSha": "d91f4fab34f9a33f76a86219c86ee7e74aee1177",
+      "commitSha": "23712a701a1b92eb2bb938f20f216e14ba0e7c21",
+      "commitMessage": "[2607] [6515233] Samsung Knox E-FOTA (#20526)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-24T15:42:10-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/android/setup-zebra-lifeguard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/android/setup-zebra-lifeguard",
+      "firstSeenAt": "2026-07-24T22:42:10.000Z",
+      "eventId": "intune-docs:23712a701a1b92eb2bb938f20f216e14ba0e7c21:modified:intune/device-updates/android/setup-zebra-lifeguard.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2607] [6515233] Samsung Knox E-FOTA (#20526)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/android/setup-zebra-lifeguard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/configuration/configure-company-portal.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/app-management/configuration/configure-company-portal.md b/intune/app-management/configuration/configure-company-portal.md\nindex f736f87eca..fb7b3e63e5 100644\n--- a/intune/app-management/configuration/configure-company-portal.md\n+++ b/intune/app-management/configuration/configure-company-portal.md\n@@ -3,6 +3,7 @@ title: How to Configure the Intune Company Portal Apps, Company Portal Website,\n description: Learn how you can configure the Intune Company Portal apps, Company Portal website, and Intune app.\n ms.date: 10/02/2025\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: abstarr\n ms.collection:\n - M365-identity-device-management\n@@ -18,6 +19,8 @@ The Company Portal apps, Company Portal website, and Intune app on Android are w\n >\n > The minimum supported version of the iOS Company Portal app is v5.2311.1. If users are running an older version, they're prompted for an update at sign in.\n \n+[!INCLUDE [android-intune-app-version-support](../../intune-service/includes/android-intune-app-version-support.md)]\n+\n ## Customizing the user experience\n \n By customizing the end-user experience, you help provide a familiar and helpful experience for your end users. To configure these customizations, sign in as an [Intune administrator](../../fundamentals/role-based-access-control/ref-built-in-roles.md) with sufficient permissions. Navigate to the [Microsoft Intune admin center] and select **Tenant Administration** > **Customization**. Here you edit the default policy or create up to 25 user group targeted policies. Targeting policies to device groups isn't supported. These settings apply to the Company Portal apps, Company Portal website, and Intune app on Android.\n",
+      "baseCommitSha": "23712a701a1b92eb2bb938f20f216e14ba0e7c21",
+      "commitSha": "3b5c315dcd35e6f95a86ed912bc28051553285e2",
+      "commitMessage": "Recover Intune Android app version notice (#20564)",
+      "commitAuthor": "Marsh Macy",
+      "commitDate": "2026-07-24T16:04:28-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/configuration/configure-company-portal.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-company-portal",
+      "firstSeenAt": "2026-07-24T23:04:28.000Z",
+      "eventId": "intune-docs:3b5c315dcd35e6f95a86ed912bc28051553285e2:modified:intune/app-management/configuration/configure-company-portal.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Recover Intune Android app version notice (#20564)",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/configure-company-portal.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 7,
+    "totalFiles": 20,
+    "authors": [
+      "Ben Watt",
+      "Bowen Yang",
+      "Marsh Macy",
+      "Matt Call",
+      "ayumishimada",
+      "shmokash"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 18 updated, and 0 removed Microsoft Intune documentation files across 8 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/fundamentals",
+        "summary": "Added Microsoft Intune documentation in intune/fundamentals/choose-targeting-method.md. Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md. Updated Microsoft Intune documentation in intune/fundamentals/filters/overview.md. Updated Microsoft Intune documentation in intune/fundamentals/filters/performance-recommendations.md. Updated Microsoft Intune documentation in intune/fundamentals/planning-guide.md. Updated Microsoft Intune documentation in intune/fundamentals/scale-guidelines.md. Updated Microsoft Intune documentation in intune/fundamentals/tenant-administration/add-groups.md.",
+        "sourceFiles": [
+          "intune/fundamentals/choose-targeting-method.md",
+          "intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+          "intune/fundamentals/filters/overview.md",
+          "intune/fundamentals/filters/performance-recommendations.md",
+          "intune/fundamentals/planning-guide.md",
+          "intune/fundamentals/scale-guidelines.md",
+          "intune/fundamentals/tenant-administration/add-groups.md"
+        ]
+      },
+      {
+        "category": "New documentation",
+        "title": "intune/device-updates",
+        "summary": "Added Microsoft Intune documentation in intune/device-updates/android/setup-samsung-knox.md. Updated Microsoft Intune documentation in intune/device-updates/android/manage-fota.md. Updated Microsoft Intune documentation in intune/device-updates/android/setup-zebra-lifeguard.md.",
+        "sourceFiles": [
+          "intune/device-updates/android/setup-samsung-knox.md",
+          "intune/device-updates/android/manage-fota.md",
+          "intune/device-updates/android/setup-zebra-lifeguard.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/epm",
+        "summary": "Updated Microsoft Intune documentation in intune/epm/troubleshoot-known-issues.md.",
+        "sourceFiles": [
+          "intune/epm/troubleshoot-known-issues.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/blackberry.md. Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/setup-blackberry.md.",
+        "sourceFiles": [
+          "intune/device-security/mobile-threat-defense/blackberry.md",
+          "intune/device-security/mobile-threat-defense/setup-blackberry.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/manage-devices-tokens-apple.md.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/manage-devices-tokens-apple.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/deployment/assign-groups.md. Updated Microsoft Intune documentation in intune/app-management/configuration/configure-company-portal.md.",
+        "sourceFiles": [
+          "intune/app-management/deployment/assign-groups.md",
+          "intune/app-management/configuration/configure-company-portal.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/assign-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md.",
+        "sourceFiles": [
+          "intune/device-configuration/assign-device-profile.md",
+          "intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/planning-guide.md. Updated Microsoft Intune documentation in intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md.",
+        "sourceFiles": [
+          "intune/solutions/cloud-native-endpoints/planning-guide.md",
+          "intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/fundamentals",
+        "detail": "Added Microsoft Intune documentation in intune/fundamentals/choose-targeting-method.md. Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md. Updated Microsoft Intune documentation in intune/fundamentals/filters/overview.md. Updated Microsoft Intune documentation in intune/fundamentals/filters/performance-recommendations.md. Updated Microsoft Intune documentation in intune/fundamentals/planning-guide.md. Updated Microsoft Intune documentation in intune/fundamentals/scale-guidelines.md. Updated Microsoft Intune documentation in intune/fundamentals/tenant-administration/add-groups.md."
+      },
+      {
+        "category": "New documentation",
+        "headline": "intune/device-updates",
+        "detail": "Added Microsoft Intune documentation in intune/device-updates/android/setup-samsung-knox.md. Updated Microsoft Intune documentation in intune/device-updates/android/manage-fota.md. Updated Microsoft Intune documentation in intune/device-updates/android/setup-zebra-lifeguard.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/epm",
+        "detail": "Updated Microsoft Intune documentation in intune/epm/troubleshoot-known-issues.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/blackberry.md. Updated Microsoft Intune documentation in intune/device-security/mobile-threat-defense/setup-blackberry.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/manage-devices-tokens-apple.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "Updated Microsoft Intune documentation in intune/app-management/deployment/assign-groups.md. Updated Microsoft Intune documentation in intune/app-management/configuration/configure-company-portal.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/assign-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/settings-catalog/tutorial-group-policy-migration.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/planning-guide.md. Updated Microsoft Intune documentation in intune/solutions/education/tutorial-school-deployment/grouping-and-targeting.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-03-25",
+      "summary": {
+        "headline": "Passwordless guidance receives a concentrated documentation refresh",
+        "overview": "The 25 March archive is dominated by updates to Intune passwordless documentation. The source diff records a broad set of maintenance changes rather than a separately announced product rollout.",
+        "adminImpact": "Teams using Intune passwordless capabilities should recheck the current guidance before updating rollout communications or support runbooks, especially if they rely on steps copied from older documentation.",
+        "keyChanges": [
+          {
+            "title": "Passwordless documentation is refreshed",
+            "detail": "The Intune passwordless guidance was updated repeatedly in this publication set, signalling that its current configuration and deployment guidance should be treated as the authoritative reference.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-25-passwordless-23"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-03-26",
+      "summary": {
+        "headline": "Data Warehouse migration planning and policy-management guidance become actionable",
+        "overview": "This was a high-volume documentation day with new settings-catalog migration guidance, a co-management workload update, and two Message Center notices. The notices add both a Security Copilot entitlement timeline and a material Intune Data Warehouse infrastructure change.",
+        "adminImpact": "Data Warehouse users should plan to preserve required historical data and move reporting integrations to the supported OData feed ahead of the expected mid-June update. Separately, assess the Security Copilot rollout and validate settings-catalog migration guidance before changing production policy workflows.",
+        "keyChanges": [
+          {
+            "title": "Intune Data Warehouse infrastructure update requires preparation",
+            "detail": "Microsoft expects the mid-June 2026 update to retain roughly 30 days of historical data, refresh surrogate keys, change licensing definitions, and retire the beta Power BI connector in favor of the OData feed in the Intune admin center.",
+            "product": "Intune",
+            "sourceId": "MC1188216"
+          },
+          {
+            "title": "Settings catalog policy migration walkthrough is added",
+            "detail": "New guidance describes creating a settings catalog policy as part of Group Policy migration work, giving administrators a current reference for that transition.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-26-walkthrough-create-a-settings-catalog-policy-08"
+          },
+          {
+            "title": "Security Copilot inclusion notice has an April-to-June rollout window",
+            "detail": "The Message Center notice states that Microsoft 365 E5 customers will receive Security Copilot through a phased rollout from 20 April to 30 June 2026, with included Security Compute Units and core features; advanced capabilities can carry additional costs.",
+            "product": "Security Copilot",
+            "sourceId": "MC1261596"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-03-27",
+      "summary": {
+        "headline": "Windows Autopilot device preparation and update-management guidance are refreshed",
+        "overview": "The day’s changes concentrate on Windows Autopilot device preparation, including its release notes and known issues, alongside Windows update-management and hotpatch documentation.",
+        "adminImpact": "Administrators with Autopilot device-preparation deployments should review the updated release notes and known issues before expanding pilots. Windows servicing owners should also validate any operational guidance built around hotpatch or Intune update management.",
+        "keyChanges": [
+          {
+            "title": "Autopilot device preparation release notes are updated",
+            "detail": "Microsoft refreshed the What’s new guidance for Windows Autopilot device preparation.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-03-27-what-s-new-in-windows-autopilot-device-preparation-20"
+          },
+          {
+            "title": "Autopilot device preparation known issues are updated",
+            "detail": "The known-issues reference for Windows Autopilot device preparation was revised, providing a current source for rollout risk checks.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-03-27-windows-autopilot-device-preparation-known-issues-19"
+          },
+          {
+            "title": "Hotpatch guidance is refreshed",
+            "detail": "The Intune documentation for hotpatch Windows quality updates was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-27-hotpatch-for-windows-quality-updates-12"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-03-28",
+      "summary": {
+        "headline": "Create Compliance Policy guidance is updated",
+        "overview": "A single Intune documentation update was published for creating compliance policies.",
+        "adminImpact": "Use the refreshed reference when creating or revising compliance policies, particularly where internal implementation guidance links to this Microsoft Learn article.",
+        "keyChanges": [
+          {
+            "title": "Compliance policy creation guidance is refreshed",
+            "detail": "Microsoft updated the Intune documentation for creating a compliance policy.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-28-create-compliance-policy-01"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-03-23",
+      "summary": {
+        "headline": "March 23 week combines reporting-migration planning with Autopilot and policy guidance",
+        "overview": "The week contains substantial Intune documentation churn and two relevant Message Center notices. Its most consequential items are the expected Data Warehouse infrastructure update, settings-catalog migration guidance, and refreshed Windows Autopilot device-preparation references.",
+        "adminImpact": "Prioritize Data Warehouse retention and connector-transition planning. Then use the newly refreshed policy-migration and Autopilot material to validate upcoming configuration work and deployment pilots.",
+        "keyChanges": [
+          {
+            "title": "Data Warehouse consumers need a migration and retention plan",
+            "detail": "The announced infrastructure update is expected to reduce retained history to about 30 days, refresh surrogate keys, alter licensing definitions, and discontinue the beta Power BI connector in favor of the OData feed.",
+            "product": "Intune",
+            "sourceId": "MC1188216"
+          },
+          {
+            "title": "Settings catalog migration guidance is newly available",
+            "detail": "A new walkthrough covers creation of a settings catalog policy for Group Policy migration work.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-26-walkthrough-create-a-settings-catalog-policy-08"
+          },
+          {
+            "title": "Autopilot device preparation references are refreshed",
+            "detail": "Microsoft updated the Windows Autopilot device-preparation release notes, providing the current change reference for deployment teams.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-03-27-what-s-new-in-windows-autopilot-device-preparation-20"
+          }
+        ]
+      }
+    }
+  ]
+}

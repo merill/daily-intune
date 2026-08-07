@@ -1,0 +1,198 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "modified",
+      "additions": 37,
+      "deletions": 0,
+      "changes": 37,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nindex 9d88806f76..1241a3c289 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -69,6 +69,43 @@ The Configuration Manager console In-App Feedback feature is updated to support\n - The deprecated Asset Intelligence synchronization point site role is removed from the site roles selection UI.\n - The Software Update Health Troubleshooting Dashboard is hidden in this release due to performance issues in large environments.\n \n+## New requirements\n+\n+### Management point requires internet access for Microsoft Entra token validation\n+\n+Starting in version 2603, the management point uses Microsoft Identity Service Essentials (MISE) for Microsoft Entra token validation. This change requires the management point server to have internet access. In previous versions, the management point could function without internet access.\n+\n+This requirement applies to environments that meet the following conditions:\n+\n+- The site is configured to support Microsoft Entra joined users and devices\n+- Clients authenticate using Microsoft Entra tokens, typically through a cloud management gateway (CMG)\n+\n+> [!NOTE]\n+> Environments that only use on-premises Active Directory authentication without Microsoft Entra integration aren't affected by this requirement.\n+\n+#### Identify the issue\n+\n+If the management point server can't reach the required endpoints, the `CCM_STS_ManagedBase.log` on the management point logs a `MiseAuthenticationTicketProviderException` with an underlying network error. Look for the `SocketException` or `HttpRequestException` that indicates a network connectivity failure, for example:\n+\n+```text\n+Microsoft.Identity.ServiceEssentials.Exceptions.MiseAuthenticationTicketProviderException: MISE12034: AuthenticationTicketProvider Name:AuthenticationTicketProvider\n+System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it\n+```\n+\n+> [!IMPORTANT]\n+> The `MISE12034` exception can also appear for other reasons. This section specifically addresses the case where the underlying exception indicates a network connectivity problem, such as `SocketException`, `HttpRequestException`, or a connection timeout. Verify that the error message points to a network access issue before applying the resolution below.\n+\n+#### Resolution: Allow access to Azure authentication endpoints\n+\n+Ensure that the management point server can connect to Microsoft Entra authentication endpoints in the system context. Allow the following URLs through the proxy and firewall:\n+\n+- `https://login.microsoftonline.com`\n+- `https://sts.windows.net`\n+\n+If the management point server uses a proxy, configure the proxy at the system level. For more information, see [Management point proxy configuration](../network/proxy-server-support.md#management-point).\n+\n+For a full list of required endpoints, see [Management point internet access requirements](../network/internet-endpoints.md#management-point).\n+\n ## Next steps\n \n As of May 27, 2026, version 2603 is globally available for all customers to install.\n",
+      "baseCommitSha": "360885ffdca25253e7646de161829a997db12c02",
+      "commitSha": "4cc690360d287c8c4d01e8c05f4c65662eaf20b6",
+      "commitMessage": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-06-12T03:36:23-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-06-12T10:36:23.000Z",
+      "eventId": "intune-docs:4cc690360d287c8c4d01e8c05f4c65662eaf20b6:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/network/internet-endpoints.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "changes": 20,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/network/internet-endpoints.md b/intune/configmgr/core/plan-design/network/internet-endpoints.md\nindex 7a8059543a..55dc7def6b 100644\n--- a/intune/configmgr/core/plan-design/network/internet-endpoints.md\n+++ b/intune/configmgr/core/plan-design/network/internet-endpoints.md\n@@ -1,7 +1,7 @@\n ---\n title: Internet access requirements\n description: Learn about the internet endpoints to allow for full functionality of Configuration Manager features.\n-ms.date: 04/08/2022\n+ms.date: 06/08/2026\n ms.subservice: core-infra\n ms.topic: reference\n ms.collection: tier3\n@@ -123,6 +123,24 @@ For more information on the cloud management gateway (CMG), see [Plan for CMG](.\n \n [!INCLUDE [Internet endpoints for cloud services](includes/internet-endpoints-cloud-services.md)]\n \n+## Management point\n+\n+<!--Starting in version 2603-->Starting in version 2603, the management point requires internet access to validate Microsoft Entra tokens using Microsoft Identity Service Essentials (MISE). This requirement applies to environments that support Microsoft Entra joined users and devices, especially when using a cloud management gateway (CMG).\n+\n+Allow the management point server to access the following endpoints:\n+\n+**Azure public cloud:**\n+\n+- `https://login.microsoftonline.com`\n+- `https://sts.windows.net`\n+\n+**Azure US Government cloud:**\n+\n+- `https://login.microsoftonline.us`\n+- `https://sts.windows.net`\n+\n+For more information, see [Management point requires internet access for Microsoft Entra token validation](../changes/whats-new-in-version-2603.md#management-point-requires-internet-access-for-microsoft-entra-token-validation).\n+\n ## Software updates\n \n Allow the active software update point to access the following endpoints so that WSUS and Automatic Updates can communicate with the Microsoft Update cloud service:\n",
+      "baseCommitSha": "360885ffdca25253e7646de161829a997db12c02",
+      "commitSha": "4cc690360d287c8c4d01e8c05f4c65662eaf20b6",
+      "commitMessage": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-06-12T03:36:23-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/network/internet-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/network/internet-endpoints",
+      "firstSeenAt": "2026-06-12T10:36:23.000Z",
+      "eventId": "intune-docs:4cc690360d287c8c4d01e8c05f4c65662eaf20b6:modified:intune/configmgr/core/plan-design/network/internet-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/internet-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/network/proxy-server-support.md",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 1,
+      "changes": 31,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/network/proxy-server-support.md b/intune/configmgr/core/plan-design/network/proxy-server-support.md\nindex 21ccc03e75..d50541ac3f 100644\n--- a/intune/configmgr/core/plan-design/network/proxy-server-support.md\n+++ b/intune/configmgr/core/plan-design/network/proxy-server-support.md\n@@ -1,7 +1,7 @@\n ---\n title: Proxy server support\n description: Learn how Configuration Manager systems use proxy servers.\n-ms.date: 04/12/2022\n+ms.date: 06/08/2026\n ms.subservice: core-infra\n ms.topic: how-to\n ms.collection: tier3\n@@ -63,6 +63,35 @@ If you enable a Configuration Manager distribution point for Microsoft Connected\n \n This site system role connects to an Exchange Server. It uses a proxy server configuration on the computer that hosts the Exchange Server connector.\n \n+### Management point\n+\n+<!--Starting in version 2603-->Starting in version 2603, the management point uses Microsoft Identity Service Essentials (MISE) for Microsoft Entra token validation. In environments that support Microsoft Entra joined users and devices, the management point server requires internet access to connect to Microsoft Entra authentication endpoints.\n+\n+> [!IMPORTANT]\n+> The proxy configured in the [site system properties](#configure-the-proxy-for-a-site-system-server) doesn't apply to MISE token validation. You must configure the proxy at the system level on the management point server.\n+\n+To configure the proxy, run the following command at an elevated command prompt on the management point server:\n+\n+```cmd\n+netsh winhttp set proxy <proxyservername>:<portnumber>\n+```\n+\n+Replace `<proxyservername>` with the fully qualified domain name of the proxy server. Replace `<portnumber>` with the port number for the proxy server. For example, `proxy.domain.example.com:80`.\n+\n+To verify the current proxy configuration:\n+\n+```cmd\n+netsh winhttp show proxy\n+```\n+\n+To remove the proxy configuration and configure direct access to the internet:\n+\n+```cmd\n+netsh winhttp reset proxy\n+```\n+\n+For more information about this requirement and troubleshooting, see [Management point requires internet access for Microsoft Entra token validation](../changes/whats-new-in-version-2603.md#management-point-requires-internet-access-for-microsoft-entra-token-validation).\n+\n ### Service connection point\n \n This site system role connects to the Configuration Manager cloud service to download version updates for Configuration Manager. It uses a proxy server that's configured on the computer that hosts the service connection point.\n",
+      "baseCommitSha": "360885ffdca25253e7646de161829a997db12c02",
+      "commitSha": "4cc690360d287c8c4d01e8c05f4c65662eaf20b6",
+      "commitMessage": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-06-12T03:36:23-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/network/proxy-server-support.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/network/proxy-server-support",
+      "firstSeenAt": "2026-06-12T10:36:23.000Z",
+      "eventId": "intune-docs:4cc690360d287c8c4d01e8c05f4c65662eaf20b6:modified:intune/configmgr/core/plan-design/network/proxy-server-support.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/proxy-server-support.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37426535.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37426535.md b/intune/configmgr/hotfix/2603/37426535.md\nindex 139d0f998c..9564074c35 100644\n--- a/intune/configmgr/hotfix/2603/37426535.md\n+++ b/intune/configmgr/hotfix/2603/37426535.md\n@@ -29,6 +29,9 @@ Release version 2603 of Configuration Manager current branch contains fixes and\n <!-- 37150494 -->\n - This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA). For more information, see [KB 37447175](../2503/37447175.md).\n \n+<!-- MISE MP internet access -->\n+- The management point now uses Microsoft Identity Service Essentials (MISE) for Microsoft Entra token validation. In environments that support Microsoft Entra joined users and devices, the management point server requires internet access to reach Azure authentication endpoints. For more information, see [Management point requires internet access for Microsoft Entra token validation](../../core/plan-design/changes/whats-new-in-version-2603.md#management-point-requires-internet-access-for-microsoft-entra-token-validation).\n+\n <!-- 34826316 -->\n - An internal service required for device compliance checks will be deprecated in October 2026. Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune. To prevent this issue, apply this update before October 2026.\n \n",
+      "baseCommitSha": "360885ffdca25253e7646de161829a997db12c02",
+      "commitSha": "4cc690360d287c8c4d01e8c05f4c65662eaf20b6",
+      "commitMessage": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-06-12T03:36:23-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37426535.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37426535",
+      "firstSeenAt": "2026-06-12T10:36:23.000Z",
+      "eventId": "intune-docs:4cc690360d287c8c4d01e8c05f4c65662eaf20b6:modified:intune/configmgr/hotfix/2603/37426535.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add MP internet access requirement for Entra token validation in 2603 (#20354)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/upgrade.md",
+      "status": "modified",
+      "additions": 35,
+      "deletions": 12,
+      "changes": 47,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/upgrade.md b/intune/device-security/microsoft-tunnel/upgrade.md\nindex 18bb0479a0..a7dcc70d81 100644\n--- a/intune/device-security/microsoft-tunnel/upgrade.md\n+++ b/intune/device-security/microsoft-tunnel/upgrade.md\n@@ -1,8 +1,9 @@\n ---\n title: Upgrade the Microsoft Tunnel Gateway server software\n description: Understand how Microsoft Tunnel Gateway upgrades to new versions of the tunnel software for Microsoft Intune.\n-ms.date: 05/05/2026\n+ms.date: 06/11/2026\n ms.topic: how-to\n+ai-usage: ai-assisted\n ms.reviewer: ochukwunyere\n ms.collection:\n - M365-identity-device-management\n@@ -128,7 +129,20 @@ After an update releases, it rolls out to tenants over the following days. This\n >\n > Container releases take place in stages. If you notice that your container images aren't the most recent, please be assured that they will be updated and delivered within the following week.\n \n-### May 13, 2026 \n+### May 27, 2026\n+\n+Version Number: 20260527.1\n+\n+Image hash values:\n+\n+- **agentImageDigest**:  sha256:1a814670dd9848ddb3ee7831fefa39f195f854c7e03c825b9fb9e4631544940f\n+- **serverImageDigest**: sha256:89242bab502fe0b49023a48fc0a8ef20b9ca6ef0336b852aa8166fd7b542a590\n+\n+Changes in this release:\n+\n+- Package and security updates\n+\n+### May 13, 2026\n \n Version Number: 20260513.1\n \n@@ -138,9 +152,10 @@ Image hash values:\n - **serverImageDigest**: sha256:a27cd376fbdcdfe54aeaa0f0b662f59da6630faa0a28856c7170feaf8def5d18\n \n Changes in this release:\n+\n - Package and security updates\n \n-### May 7, 2026 \n+### May 7, 2026\n \n Version Number: 20260507.2\n \n@@ -150,9 +165,10 @@ Image hash values:\n - **serverImageDigest**: sha256:f53affd23ba2fa9fc5fbcc0d1446c7a1437541b6bacfe246d62aa8ce34c1e3a6\n \n Changes in this release:\n+\n - Package updates\n \n-### March 30, 2026 \n+### March 30, 2026\n \n Version Number: 20260330.1\n \n@@ -162,9 +178,10 @@ Image hash values:\n - **serverImageDigest**: sha256:dd62c292528e8e5aa4e7b84418efa42fd3830ec0db40467947cde8125aa17d7e\n \n Changes in this release:\n+\n - Major bug fixes  \n   \n-### February 5, 2026 \n+### February 5, 2026\n \n Version Number: 20251219.1-01\n \n@@ -174,9 +191,13 @@ Image hash values:\n - **serverImageDigest**: sha256:34aee0978f7cb991d2c6baa5adc27b052e54d6cb0d73b637cccd0d565addf619\n \n Changes in this release:\n+\n - Minor bug fixes  \n \n-### November 26, 2025 \n+<!-- Archive of past releases that are older than 6 months. \n+Update versions were first made available with the Sept 15, 2025 update.\n+\n+### November 26, 2025\n \n Version Number: 20251126.1\n \n@@ -186,7 +207,8 @@ Image hash values:\n - **serverImageDigest**: sha256:3c8bb39920694f6be510801f49ea61faa297d7df8b8618c1c49374f69fcf9cb2\n \n Changes in this release:\n-- Minor bug fixes   \n+\n+- Minor bug fixes\n \n ### November 12, 2025\n \n@@ -198,10 +220,10 @@ Image hash values:\n - **serverImageDigest**: sha256:8a59825275e41555a9ee3bf8e6e38f5db07dac953a8bd067673330ed536e1432\n \n Changes in this release:\n+\n - Package updates to resolve CVEs\n - Bug fixes to address server health banner on UX issue \n \n-\n ### October 29, 2025\n \n Version Number: 20251028.1\n@@ -212,9 +234,9 @@ Image hash values:\n - **serverImageDigest**: sha256:a8f1d5c7d734516e40ee3c2ead88d785ad25c5886ded095ce6dc74cf62b9916f\n \n Changes in this release:\n+\n - Contains various package updates and a major bugfix for the UI\n \n-  \n ### October 7, 2025\n \n Version Number: 20250815.1\n@@ -225,6 +247,7 @@ Image hash values:\n - **serverImageDigest**: sha256:6772cfe5f32a741864732254b26b40b13d8544294d739cc9dc79b964e433f069\n \n Changes in this release:\n+\n - Minor bug fixes\n \n ### Sept 15, 2025\n@@ -237,6 +260,7 @@ Image hash values:\n - **serverImageDigest**: sha256:44685069ca08ea6f6781d9d35eff4a616c93fb5aa985b7f05dff4700887b698c\n \n Changes in this release:\n+\n - Minor bug fixes\n \n ### July 21, 2025\n@@ -247,6 +271,7 @@ Image hash values:\n - **serverImageDigest**: sha256:6c235570c7a8741cb6fc95823f04b8163ae11229e9a4b9c170993b03b4e17ddd\n \n Changes in this release:\n+\n - Minor bug fixes\n \n ### July 1, 2025\n@@ -257,15 +282,13 @@ Image hash values:\n - **serverImageDigest**: sha256:9d666fb8d363b978f50978c2cfb427cf6851102cd7db1a1a7e75a50420c22277\n \n Changes in this release:\n+\n - Minor bug fixes\n \n ## Related content\n \n [Reference for Microsoft Tunnel](./ref-file-commands.md)\n \n-<!-- Archive of past releases that are older than 6 months. \n-Update versions were first made available with the Sept 15, 2025 update.\n-\n ### May 21, 2025\n \n Image hash values:\n",
+      "baseCommitSha": "4cc690360d287c8c4d01e8c05f4c65662eaf20b6",
+      "commitSha": "6b38c88de468b809851ce92e72681b95b4bff88a",
+      "commitMessage": "Intune - CP > MS Tunnel image update - late May (2606) (#20372)",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-12T06:56:49-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/upgrade.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/upgrade",
+      "firstSeenAt": "2026-06-12T13:56:49.000Z",
+      "eventId": "intune-docs:6b38c88de468b809851ce92e72681b95b4bff88a:modified:intune/device-security/microsoft-tunnel/upgrade.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Intune - CP > MS Tunnel image update - late May (2606) (#20372)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/upgrade.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md b/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\nindex a612081eaa..0e2056b7b9 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\n@@ -191,7 +191,7 @@ The following table identifies the recommended compatibility levels for Configur\n \n |SQL Server version | Supported compatibility levels | Recommended level |\n |----------------|--------------------|--------|\n-| SQL Server 2025 | 160, 150, 140, 130 | 160 |\n+| SQL Server 2025 | 170, 160, 150, 140, 130, 120, 110 | 170 |\n | SQL Server 2022 | 160 (since version 2603), 150, 140, 130, 120, 110 | 150 |\n | SQL Server 2019 | 150, 140, 130, 120, 110 | 150 |\n | SQL Server 2017 | 140, 130, 120, 110 | 140 |\n",
+      "baseCommitSha": "c91ef85237aa6c8f67c6b1e99622debb13095394",
+      "commitSha": "5c7bb393dba5d0820b4f049eded943ad97f0337a",
+      "commitMessage": "Update SQL Server 2025 compatibility levels (170-110, recommended 170)",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-12T08:24:07-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions",
+      "firstSeenAt": "2026-06-12T15:24:07.000Z",
+      "eventId": "intune-docs:5c7bb393dba5d0820b4f049eded943ad97f0337a:modified:intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update SQL Server 2025 compatibility levels (170-110, recommended 170)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 6,
+    "authors": [
+      "Brent Dunsire",
+      "QianDong Ni",
+      "QianDong Ni (Doc)"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/internet-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/proxy-server-support.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/core/plan-design/network/internet-endpoints.md",
+          "intune/configmgr/core/plan-design/network/proxy-server-support.md",
+          "intune/configmgr/hotfix/2603/37426535.md",
+          "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/upgrade.md.",
+        "sourceFiles": [
+          "intune/device-security/microsoft-tunnel/upgrade.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/internet-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/network/proxy-server-support.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/upgrade.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

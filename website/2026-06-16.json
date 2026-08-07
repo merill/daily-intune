@@ -1,0 +1,198 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/device-security/security-update-status-dashboard.md",
+      "status": "added",
+      "additions": 160,
+      "deletions": 0,
+      "changes": 160,
+      "patch": "diff --git a/intune/device-security/security-update-status-dashboard.md b/intune/device-security/security-update-status-dashboard.md\nnew file mode 100644\nindex 0000000000..0fd4ca23df\n--- /dev/null\n+++ b/intune/device-security/security-update-status-dashboard.md\n@@ -0,0 +1,160 @@\n+---\n+title: Security update status dashboard\n+description: Learn how the Security update status dashboard helps administrators assess update risk, investigate gaps, and prioritize remediation across supported workloads.\n+author: sccmavenger\n+ms.author: dannygu\n+ms.reviewer: paoloma\n+ms.service: microsoft-intune\n+ms.topic: concept-article\n+ms.date: 06/15/2026\n+---\n+\n+# Security update status dashboard\n+\n+The Security update status dashboard provides a fleet-wide view of security update currency across Windows client devices, Windows Server devices, and Microsoft 365 Apps. It helps administrators assess exposure, identify where segments of their fleet are not current on required security updates, and prioritize remediation across workloads based on relative risk.\n+\n+At a high level, the dashboard answers one core question: **Where am I at risk?** It gives a concise summary of update posture. Use it as a starting point for triage and situational awareness, not for root-cause analysis.\n+\n+:::image type=\"content\" source=\"media/security-update-status-dashboard/dashboard.png\" lightbox=\"media/security-update-status-dashboard/dashboard.png\" alt-text=\"Screenshot of the Security update status dashboard showing Windows client, Windows Server, and M365 applications compliance tiles.\" border=\"false\":::\n+\n+## Prerequisites\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [cloud](../includes/requirements/cloud.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+> This feature is supported in the public cloud environment only.\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [rbac](../includes/requirements/rbac.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+\n+>To view the dashboard, use an account with at least the permission [Organization/Read] in Intune role-based access control. Grant this access through a built-in Intune role or through a [custom role].\n+\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [data-sources](../includes/requirements/data-sources.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> The dashboard can draw from multiple Microsoft management and reporting systems to provide a unified view of update posture across workloads. Depending on the workload, sources can include Microsoft Intune, Microsoft Configuration Manager through tenant attach, Microsoft Defender for Endpoint, the Microsoft 365 Apps admin center, and supporting application or device telemetry.\n+> \n+> Source-specific prerequisites apply and vary by workload:\n+> \n+> - **Windows clients:**\n+>   - **Intune-managed devices:** Intune enrollment and the required reporting path for update data.\n+>   - **Configuration Manager-managed devices:** Co-management or another supported cloud-connected reporting configuration.\n+> - **Microsoft 365 Apps:** Onboard to the Microsoft 365 Apps admin center, with the required inventory and service connectivity enabled.\n+> - **Windows Server:** A supported cloud-connected path, such as tenant attach or MDE related onboarding.\n+>\n+> Validate requirements per workload before relying on the dashboard for operational decisions.\n+\n+:::column-end:::\n+:::row-end:::\n+\n+## How to access the dashboard\n+\n+1. In the [Microsoft Intune admin center], select [**Devices**] > [**Monitor**].\n+1. Select [Security update status] to open the dashboard.\n+\n+## What the dashboard shows\n+\n+The dashboard is organized around workload tiles that summarize update status and risk across major product areas. The primary workloads are Windows client, Windows Server, and Microsoft 365 Apps.\n+\n+- Risk level, such as **Current**, **Exposed**, or **Critical**\n+- Status distribution across device states\n+- Total device count\n+- Last updated timestamp for the report data shown in the tile, reflecting the dashboard refresh that occurs every six hours\n+- A breakdown of device state categories\n+- An action entry point, such as **Get current**, to initiate update actions and remediation\n+\n+Color-coding is used to quickly communicate status: green indicates *Current*, orange indicates *Exposed*, red indicates *Critical*, and gray indicates an unknown or inactive state. Devices that don't check in for 90 days or more appear outside the primary status calculation so that stale data doesn't distort active risk reporting.\n+\n+## Status definitions\n+\n+The dashboard groups devices into status categories that represent how current these devices are relative to expected security update baselines.\n+\n+|Icon|Risk level | Description |\n+|:-:|--|--|\n+|![check-icon] | **Current**| Devices have the latest applicable security update installed, or are on the previous update within the short grace period immediately after a new release. |\n+|![caution-icon] | **Exposed**| Devices are behind the latest applicable security update and moved beyond the initial grace period. In general, this status begins after roughly the first three days following a newly applicable update release. |\n+|![error-icon] | **Critical**| Devices are missing required updates long enough to represent materially higher risk. In general, devices that remain behind for a week or longer can move into this state, and unsupported versions are also treated as critical risk. |\n+|![question-icon] | **Unknown build**| The reported device version can't be mapped to a known supported release or update baseline. |\n+|![circle-icon] | **Not checked in (90+ days)** | The device didn't report recently and is excluded from primary risk calculations to keep the dashboard focused on active fleet posture.|\n+\n+After a newly released security update becomes applicable, devices on the previous update may remain classified as *Current* for a short period so the dashboard reflects normal deployment propagation instead of immediately treating the entire fleet as newly at risk.\n+\n+## Risk levels\n+\n+Use the distribution of devices across *Current*, *Exposed*, and *Critical* states to determine an overall risk level for each workload. This level isn't tracked in the dashboard and should be defined by the organization and its security posture to inform prioritization. These levels provide a fast, high-signal indicator of where administrators should focus first.\n+\n+- **Low risk:** At least 85% of devices are *Current*.\n+- **Medium risk:** 51% to 84% of devices are *Current*.\n+- **High risk:** 50% or fewer devices are *Current*.\n+\n+Risk level simplifies prioritization; it doesn't replace deeper investigation. A medium- or high-risk tile should lead to follow-up reporting that explains which devices are affected, why they're behind, and whether the cause is deployment timing, reporting latency, onboarding gaps, or unsupported versions.\n+\n+## Why Windows Autopatch reporting matters\n+\n+The dashboard shows where risk exists, but additional reporting often explains why devices are behind and what remediation path is most appropriate. Devices can appear as Exposed or Critical for several reasons beyond simply missing an update: a device might not be targeted by the intended policy, might be delayed by deployment settings, or might not be reporting as expected.\n+\n+Windows Autopatch reporting helps administrators move from a summary of risk to a clearer view of policy alignment, coverage, and update management status. For supporting guidance, see:\n+\n+- [Windows Autopatch update readiness overview]\n+- [Windows Autopatch management status report]\n+- [Windows quality and feature update reports overview]\n+\n+Devices can also appear as Exposed or Critical during an active phased rollout. The dashboard reflects exposure based on update currency, not whether your deployment schedule is proceeding as planned. Rollout rings and staged deployment strategies aren't modeled directly in the dashboard state.\n+\n+## Example workflow\n+\n+To investigate and reduce risk surfaced by the dashboard:\n+\n+1. Review the Security update status dashboard and identify the workload with the highest risk.\n+1. Open Windows Autopatch or Intune reporting to investigate the affected device populations.\n+1. Review quality update, feature update, or app update compliance details.\n+1. Analyze policy targeting and assignment coverage.\n+1. Adjust update policies or remediation steps as needed.\n+1. Return to the dashboard to confirm that device currency improves as remediation continues.\n+\n+## Limitations\n+\n+- The dashboard reflects supported Microsoft workloads and doesn't include third-party update visibility.\n+- The dashboard is a snapshot view of current posture. It doesn't model rollout rings or staged deployment logic directly.\n+- You can't remediate from the dashboard. Use the underlying management tools, such as Intune or Configuration Manager.\n+- The dashboard doesn't provide historical trend tracking.\n+- The dashboard is an aggregate estate view and might not honor every filtering expectation used in other reporting experiences.\n+\n+## Related content\n+\n+- [Overview of the Security Update Status and Vulnerabilities in the Microsoft 365 Apps admin center](/microsoft-365-apps/admin-center/security-update-status)\n+- [View software update status for Microsoft 365 Apps installations](/microsoft-365-apps/updates/software-update-status)\n+- [Windows Autopatch management status report]\n+- [Software updates for Configuration Manager tenant attach](../configmgr/tenant-attach/software-updates.md)\n+\n+<!--links-->\n+\n+[Organization/Read]: /intune/fundamentals/role-based-access-control/create-custom-role#organization\n+[custom role]: /intune/fundamentals/role-based-access-control/create-custom-role\n+\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n+[**Devices**]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/overview\n+[**Monitor**]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/monitor\n+[Security update status]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_ManagedDevices/SecurityUpdateStatus.ReactView\n+[Windows Autopatch update readiness overview]: /windows/deployment/windows-autopatch/monitor/windows-autopatch-update-readiness-overview\n+[Windows Autopatch management status report]: /windows/deployment/windows-autopatch/monitor/windows-autopatch-management-status-report\n+[Windows quality and feature update reports overview]: /windows/deployment/windows-autopatch/monitor/windows-autopatch-windows-quality-and-feature-update-reports-overview\n+[check-icon]: ../media/icons/16/check.svg\n+[error-icon]: ../media/icons/16/error.svg\n+[caution-icon]: ../media/icons/16/caution.svg\n+[question-icon]: ../media/icons/16/question.svg\n+[circle-icon]: ../media/icons/16/circle.svg\n\\ No newline at end of file\n",
+      "baseCommitSha": "cfee0acf0c1c8122b3ada25f12f55eadb9a91ebb",
+      "commitSha": "b1b48c3e9650f3ee9e453ff22ccde33c0fba1150",
+      "commitMessage": "🆕 Security update status dashboard (#20311)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-06-16T06:59:01-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/security-update-status-dashboard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-update-status-dashboard",
+      "firstSeenAt": "2026-06-16T10:59:01.000Z",
+      "eventId": "intune-docs:b1b48c3e9650f3ee9e453ff22ccde33c0fba1150:added:intune/device-security/security-update-status-dashboard.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "🆕 Security update status dashboard (#20311)",
+        "summary": "Added Microsoft Intune documentation in intune/device-security/security-update-status-dashboard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/38232642.md",
+      "status": "added",
+      "additions": 44,
+      "deletions": 0,
+      "changes": 44,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38232642.md b/intune/configmgr/hotfix/2603/38232642.md\nnew file mode 100644\nindex 0000000000..2afaae8549\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2603/38232642.md\n@@ -0,0 +1,44 @@\n+---\n+title: Security update for Microsoft Configuration Manager Console Extension\n+description: Security update for importing console extensions\n+ms.date: 06/02/2026\n+ms.subservice: core-infra\n+ms.topic: reference\n+---\n+\n+# Security update for Microsoft Configuration Manager Console Extension\n+\n+*Applies to: Configuration Manager (current branch, version 2603, and versions 2509 and 2503 with update rollup installed)*\n+\n+## Summary of KB38232642\n+\n+An update is available that enhances security in Configuration Manager for importing console extensions.\n+\n+> [!NOTE]\n+> This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n+\n+### Update information for Microsoft Configuration Manager current branch\n+\n+This update is available in the Updates and Servicing node of the Configuration Manager console for version 2603 directly, and for version 2503 with the following update rollup installed:\n+\n+- KB [32851084](../../hotfix/2503/32851084.md): Update rollup for Microsoft Configuration Manager current branch, version 2503\n+\n+### Restart information\n+\n+This update doesn't require a computer restart or a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) after installation.\n+\n+## File information\n+\n+File information is available in the following downloadable text files.\n+\n+[KB38232642_2503_FileList.txt](https://aka.ms/KB38232642_2503_FileList)\n+\n+[KB38232642_2603_FileList.txt](https://aka.ms/KB38232642_2603_FileList)\n+\n+## Release history\n+\n+- June 2026: Initial hotfix release\n+\n+## References\n+\n+- [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n",
+      "baseCommitSha": "b1b48c3e9650f3ee9e453ff22ccde33c0fba1150",
+      "commitSha": "3f0faa73b687ce0157f8c88d3a5afca06fa9d903",
+      "commitMessage": "Add KB 37864613: Security update for importing console extensions (#20335)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-06-16T14:01:29-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/38232642.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38232642",
+      "firstSeenAt": "2026-06-16T21:01:29.000Z",
+      "eventId": "intune-docs:3f0faa73b687ce0157f8c88d3a5afca06fa9d903:added:intune/configmgr/hotfix/2603/38232642.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Add KB 37864613: Security update for importing console extensions (#20335)",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/cloud-pki/renew-ca.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/cloud-pki/renew-ca.md b/intune/cloud-pki/renew-ca.md\nindex 8ba77f6aae..45efd0ae96 100644\n--- a/intune/cloud-pki/renew-ca.md\n+++ b/intune/cloud-pki/renew-ca.md\n@@ -25,7 +25,7 @@ To renew a certificate authority in Cloud PKI, ensure you meet the following pre\n :::column-end:::\n :::column span=\"3\":::\n \n-> To renew a certificate authority,, use an account with at least the following [Cloud PKI permissions]:\n+> To renew a certificate authority, use an account with at least the following [Cloud PKI permissions]:\n >\n > - **Read CAs**\n > - **Create certificate authorities (CAs)**\n@@ -243,7 +243,7 @@ A certification authority is eligible for renewal when it is halfway to expirati\n \n |Icon|Renewal banner | Description |\n |:-:|--|--|\n-|![info-icon] | **Halfway to expiration**| Certification authority is halfway to expiration. This marks the midpoint of the certificate authority's lifecycle. Review your renewal plan based on your organization's PKI policy.\" |\n+|![info-icon] | **Halfway to expiration**| Certification authority is halfway to expiration. This marks the midpoint of the certificate authority's lifecycle. Review your renewal plan based on your organization's PKI policy. |\n |![error-icon]| **6 months remaining**| Certification authority expires in 6 months. Renew now to ensure certificate issuance continues for SCEP, Wi-Fi, VPN, and email. |\n |![error-icon]| **90 days**| Certification authority expires in 90 days. Renew now to ensure certificate issuance continues for SCEP, Wi-Fi, VPN, and email. |\n |![error-icon]| **30 days**| Certification authority expires in 30 days. Without renewal, new certificate issuance could fail. Existing certificates stay valid until they expire. Renew now to maintain device certificate delivery. |\n",
+      "baseCommitSha": "cfee0acf0c1c8122b3ada25f12f55eadb9a91ebb",
+      "commitSha": "b1b48c3e9650f3ee9e453ff22ccde33c0fba1150",
+      "commitMessage": "🆕 Security update status dashboard (#20311)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-06-16T06:59:01-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/cloud-pki/renew-ca.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/cloud-pki/renew-ca",
+      "firstSeenAt": "2026-06-16T10:59:01.000Z",
+      "eventId": "intune-docs:b1b48c3e9650f3ee9e453ff22ccde33c0fba1150:modified:intune/cloud-pki/renew-ca.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "🆕 Security update status dashboard (#20311)",
+        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/37864969.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/37864969.md b/intune/configmgr/hotfix/2509/37864969.md\nindex affe0b9247..136ee0220e 100644\n--- a/intune/configmgr/hotfix/2509/37864969.md\n+++ b/intune/configmgr/hotfix/2509/37864969.md\n@@ -65,6 +65,10 @@ For more information on changes in Configuration Manager version 2509, see:\n \n    This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA). For more information, see [KB 37447175](../2503/37447175.md).\n \n+- **Security update for importing console extensions**\n+\n+   This update enhances security in Configuration Manager for importing console extensions. For more information, see [KB 38232642](../2603/38232642.md).\n+\n - **Offline feedback submission fails due to authentication library version mismatch**\n \n    The standalone tool UploadOfflineFeedback.exe fails with a System.IO.FileLoadException due to a Microsoft.Identity.Client version mismatch. This issue was originally addressed in [KB 36419072](../2509/36419072.md).\n@@ -80,11 +84,13 @@ The following issues are new in this update rollup and weren't included in [KB 3\n - Offline feedback submission fails due to authentication library version mismatch. For more information, see [KB 36419072](../2509/36419072.md).\n - Co-managed clients with third party update catalogs receive updates from incorrect source. For more information, see [KB 36495448](../2509/36495448.md).\n - Cloud Management Gateway virtual machine scale set image updated to remove end-of-life .NET 6. For more information, see [KB 37942646](../2603/37942646.md).\n+- Security update for importing console extensions. For more information, see [KB 38232642](../2603/38232642.md).\n \n ## Hotfixes that are included in this update\n \n - [KB 37172183](../2503/37172183.md): Software Center compliance check fails with GET_TOKEN_FROM_STS_ERROR in co-managed environments\n - [KB 37447175](../2503/37447175.md): Security update to harden access to Network Access Account information\n+- [KB 38232642](../2603/38232642.md): Security update for importing console extensions\n - [KB 37942646](../2603/37942646.md): CMG virtual machine scale set image update\n - [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n - [KB 36495448](../2509/36495448.md): Co-management and third party update scan source fix for Configuration Manager\n",
+      "baseCommitSha": "b1b48c3e9650f3ee9e453ff22ccde33c0fba1150",
+      "commitSha": "3f0faa73b687ce0157f8c88d3a5afca06fa9d903",
+      "commitMessage": "Add KB 37864613: Security update for importing console extensions (#20335)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-06-16T14:01:29-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/37864969.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/37864969",
+      "firstSeenAt": "2026-06-16T21:01:29.000Z",
+      "eventId": "intune-docs:3f0faa73b687ce0157f8c88d3a5afca06fa9d903:modified:intune/configmgr/hotfix/2509/37864969.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add KB 37864613: Security update for importing console extensions (#20335)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 38,
+      "deletions": 1,
+      "changes": 39,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 1f2c930fe7..38c2ad2be9 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n-ms.date: 06/08/2026\n+ms.date: 06/16/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -49,6 +49,43 @@ You can use RSS to be notified when this page is updated. For more information,\n \n -->\n \n+## Week of June 15, 2026:\n+\n+### Device management\n+\n+#### Improvements to the new Intune single device page (public preview) <!-- 38223856 -->\n+\n+In the Intune admin center, the **Devices** > **All Devices** > select a device page is redesigned and available for you to preview. This feature was available in the [2604 service release](#preview-the-new-device-page-in-the-intune-admin-center-public-preview).\n+\n+After the initial 2604 release, we made the following improvements:\n+\n+- After you select one of the following device actions, you can temporarily view passcodes and PINs in the **Device action status** table:\n+\n+  - Reset passcode\n+  - Recover passcode\n+  - Remote Lock\n+  - Rotate BitLocker Keys\n+\n+- Updates to Device actions:\n+\n+  - Device actions work as expected when [multi admin approval](../fundamentals/role-based-access-control/multi-admin-approval.md) policies are enabled.\n+  - Device actions for supervised iOS devices are available when the action is supported.\n+  - Admins can enable and disable **Lost mode**.\n+\n+- Updates to navigation:\n+\n+  - Tools and reports have been moved to the left navigation menu.\n+  - The monitor tab is now the default landing tab.\n+\n+- In the **Essentials** section:\n+\n+  - The **Copy** button and the **User** and **Compliance** links are available.\n+  - Supervised iOS devices show a badge to help identify these devices.\n+\n+- When preview is disabled, the feedback pane shows the correct text.\n+- Comanagement information is available.\n+- Admins can remove the primary user from an Azure domain joined device.\n+\n ## Week of June 8, 2026 (Service release 2605)\n \n ### App management\n",
+      "baseCommitSha": "3f0faa73b687ce0157f8c88d3a5afca06fa9d903",
+      "commitSha": "0fe26247487c711f876ed02c71508a935b105cd0",
+      "commitMessage": "38223856 - Updates to admin center Devices page (#20397)",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-16T18:57:10-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-06-16T22:57:10.000Z",
+      "eventId": "intune-docs:0fe26247487c711f876ed02c71508a935b105cd0:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "38223856 - Updates to admin center Devices page (#20397)",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 5,
+    "authors": [
+      "Mandi Ohlinger",
+      "Paolo Matarazzo",
+      "QianDong Ni (Doc)"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 3 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/device-security",
+        "summary": "Added Microsoft Intune documentation in intune/device-security/security-update-status-dashboard.md.",
+        "sourceFiles": [
+          "intune/device-security/security-update-status-dashboard.md"
+        ]
+      },
+      {
+        "category": "New documentation",
+        "title": "intune/configmgr",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2603/38232642.md",
+          "intune/configmgr/hotfix/2509/37864969.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/cloud-pki",
+        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "sourceFiles": [
+          "intune/cloud-pki/renew-ca.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/device-security",
+        "detail": "Added Microsoft Intune documentation in intune/device-security/security-update-status-dashboard.md."
+      },
+      {
+        "category": "New documentation",
+        "headline": "intune/configmgr",
+        "detail": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/cloud-pki",
+        "detail": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

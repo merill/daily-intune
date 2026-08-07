@@ -1,0 +1,59 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 1,
+      "changes": 24,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 097394e138..0692ea6d7b 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n-ms.date: 04/07/2026\n+ms.date: 04/27/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -53,6 +53,28 @@ You can use RSS to be notified when this page is updated. For more information,\n ### Tenant administration\n \n -->\n+\n+## Week of April 27, 2026  \n+\n+### Device management\n+\n+#### New remote actions to suspend and restore Managed Home Screen on Android devices<!-- 10741483-->\n+\n+Intune has two new remote actions that allow admins to temporarily suspend and restore Managed Home Screen (MHS) on Android devices. These actions let users exit MHS and access the device's default launcher for a defined period—without removing policies or requiring a PIN.\n+\n+When the specified duration expires, or when the *restore managed home screen action* is triggered, MHS automatically re‑locks the device into the kiosk experience. This helps maintain security while reducing disruption during troubleshooting or short‑term use outside of MHS.\n+\n+To learn more, see:\n+\n+- [Suspend Managed Home Screen](../device-management/actions/suspend-managed-home-screen.md)\n+- [Restore Managed Home Screen](../device-management/actions/restore-managed-home-screen.md)\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Android Enterprise corporate-owned Fully Managed (COBO)\n+> - Android Enterprise corporate-owned Dedicated (COSU)\n+\n ## Week of April 20, 2026  \n \n ### Device security  \n",
+      "baseCommitSha": "1ebebae7eda882c68ea0ca2adbd43019c7c970cd",
+      "commitSha": "9317fb159eb549f85004615c6ce89ad4613eeff9",
+      "commitMessage": "Added 2604 OOB - 10741483",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-26T08:57:38-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-04-26T12:57:38.000Z",
+      "eventId": "intune-docs:9317fb159eb549f85004615c6ce89ad4613eeff9:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added 2604 OOB - 10741483",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

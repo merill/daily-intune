@@ -1,0 +1,228 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-01-26",
+      "summary": {
+        "headline": "Cloud PKI receives a standalone operational documentation set",
+        "overview": "Eight new Cloud PKI articles establish a dedicated documentation area for architecture, deployment models, CA configuration, bring-your-own CA, monitoring, audit logs, and deletion. The content largely relocates and modernizes existing guidance, but it makes certificate-service planning much easier to navigate.",
+        "adminImpact": "Use the new Cloud PKI paths as the canonical source for certificate-service runbooks. Before deploying BYOCA, validate the CA hierarchy, tenant role permissions, supported EKUs, root/issuing CA design, SCEP profiles, and required Intune endpoints. Update any bookmarks that still point to the former protection-area Cloud PKI paths.",
+        "keyChanges": [
+          {
+            "title": "Cloud PKI adds a documented bring-your-own CA model",
+            "detail": "The BYOCA guide describes creating a Cloud PKI issuing CA anchored to an on-premises or private CA, including the certificate-signing-request process, CA permissions, root-source selection, EKU restrictions, and SCEP profile follow-up.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-26-bring-your-own-certificate-authority-with-cloud-pki-02"
+          },
+          {
+            "title": "Cloud PKI root and issuing CA configuration is moved to dedicated guidance",
+            "detail": "The new configuration article explains how a tenant root CA becomes the trust anchor for issuing CAs, including selectable validity periods, EKU constraints, subject attributes, and the relationship between root-CA and issuing-CA capabilities.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-26-configure-microsoft-cloud-pki-root-and-issuing-ca-for-microsoft-intune-03"
+          },
+          {
+            "title": "Cloud PKI deployment models are catalogued in a new guide",
+            "detail": "A dedicated deployment-model reference now helps administrators distinguish Microsoft-managed and bring-your-own-root CA designs before creating certificate profiles and issuing CAs.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-26-deployment-models-for-microsoft-intune-cloud-pki-05"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-27",
+      "summary": {
+        "headline": "App protection, enrollment, and tenant guidance receive maintenance updates",
+        "overview": "The day’s 14 changes are primarily documentation maintenance across app-protection monitoring, Windows enrollment, service description, and tenant sign-up material. No new platform capability or immediate configuration change is evidenced in the tracked updates.",
+        "adminImpact": "No emergency tenant action is indicated. Use the refreshed documentation when updating onboarding or app-protection monitoring runbooks, but treat this as a maintenance release rather than a policy-change event.",
+        "keyChanges": [
+          {
+            "title": "App protection policy monitoring guidance is refreshed",
+            "detail": "The monitoring article receives a small documentation update, keeping the current reference for reviewing app protection policy status and troubleshooting results.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-27-how-to-monitor-app-protection-policies-01"
+          },
+          {
+            "title": "Windows enrollment guidance is updated",
+            "detail": "The Windows enrollment article is revised as part of a broader onboarding documentation refresh, so administrators should prefer its current steps when maintaining enrollment runbooks.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-27-windows-enroll-09"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-28",
+      "summary": {
+        "headline": "Configuration Manager developer and reference pages undergo a broad maintenance pass",
+        "overview": "All 92 tracked changes are Configuration Manager documentation updates, heavily concentrated in SDK, WMI, migration, software-update, hierarchy, and log-file reference material. The evidence shows a bulk reference and publishing cleanup rather than a newly announced Configuration Manager feature.",
+        "adminImpact": "No tenant-wide change is indicated. Configuration Manager developers and automation owners should use the refreshed reference pages when validating scripts, WMI calls, migration logic, and software-update integrations, but no rollout or policy change is required solely because of this documentation pass.",
+        "keyChanges": [
+          {
+            "title": "Configuration Manager migration API reference is refreshed",
+            "detail": "Migration mapping methods such as CheckDecommissionState, CleanupHierarchyData, Decommission, and ExcludeAndInclude are among the revised reference pages, providing updated source material for custom migration tooling.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-28-checkdecommissionstate-method-57"
+          },
+          {
+            "title": "Software-update WMI reference content is included in the maintenance set",
+            "detail": "The update includes classes and methods used to inspect update compliance, deployment, source, package, and synchronization state, reinforcing the current reference base for scripted Configuration Manager operations.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-28-sms-updatecompliancestatus-class-79"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-29",
+      "summary": {
+        "headline": "Defender integration steps and Configuration Manager SQL requirements are clarified",
+        "overview": "A large revision to the Defender for Endpoint–Intune integration guide makes the portal connection and onboarding process more explicit. Configuration Manager SQL Server requirements are also consolidated into a clearer set of server and database settings, alongside routine app-management documentation maintenance.",
+        "adminImpact": "Validate the Defender connection from Intune before reconfiguring it: if it already reports Enabled, move directly to onboarding or policy work. For Configuration Manager SQL maintenance, do not alter the documented required database settings without Microsoft support; compare support and recovery procedures against the new consolidated configuration table.",
+        "keyChanges": [
+          {
+            "title": "Defender for Endpoint connection instructions are reorganized around connection status",
+            "detail": "The refreshed guide begins by checking Endpoint security > Microsoft Defender for Endpoint in Intune, then directs unconnected tenants to enable Microsoft Intune connection in Defender XDR Settings > Endpoints > General > Advanced features. It also clarifies the current portal navigation and onboarding references.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-29-configure-microsoft-defender-for-endpoint-with-intune-and-onboard-devices-01"
+          },
+          {
+            "title": "Configuration Manager SQL Server requirements are consolidated",
+            "detail": "The revised support guide lists required server and database configurations—such as CLR, nested triggers, change tracking, Service Broker, snapshot settings, ANSI settings, and TRUSTWORTHY—and says not to alter them unless Microsoft support instructs otherwise.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-29-support-for-sql-server-versions-07"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-30",
+      "summary": {
+        "headline": "End-of-month updates are largely reference and link maintenance",
+        "overview": "The 21 changes include small updates to Edge management, Configuration Manager SQL support and prerequisite checklists, RBAC, device scopes, Autopilot device preparation, and remote-action documentation. Managed Home Screen action pages are removed from their standalone locations, continuing the recent documentation reorganization.",
+        "adminImpact": "No immediate service action is evidenced. Refresh support links for Managed Home Screen and Windows update-package deployment, and use the current RBAC, device-scope, and Configuration Manager prerequisite documentation during planned maintenance rather than treating the updates as a feature rollout.",
+        "keyChanges": [
+          {
+            "title": "Microsoft Edge management documentation is refreshed",
+            "detail": "The Edge management guide receives an update as part of the app-management documentation maintenance set, providing the current reference for Intune administrators managing Microsoft Edge.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-30-manage-microsoft-edge-01"
+          },
+          {
+            "title": "Configuration Manager SQL Server support documentation is updated",
+            "detail": "The SQL Server support reference is revised alongside prerequisite and update-installation checklists, making it the preferred source when planning Configuration Manager database or version maintenance.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-30-support-for-sql-server-versions-04"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-31",
+      "summary": {
+        "headline": "Cloud PKI CA expiration now has a concrete replacement runbook",
+        "overview": "New Cloud PKI guidance explains how to avoid certificate-issuance disruption when an issuing CA approaches expiration. Endpoint Privilege Management documentation also makes the child-process elevation choices and their security implications more explicit.",
+        "adminImpact": "Treat CA expiration as a customer-managed continuity task: create a replacement issuing CA with matching root source, EKUs, and key sizes, then replace the SCEP URI in every affected profile. Do not add a second URI and do not assume changing the URI reissues certificates. For EPM, review child-process settings and avoid broad rules around shells or script engines.",
+        "keyChanges": [
+          {
+            "title": "Cloud PKI CA expiration guidance requires replacement CA and SCEP profile updates",
+            "detail": "If an issuing CA expires, profiles using it cannot issue new certificates, risking Wi-Fi, VPN, email, corporate-resource, and certificate-authentication failures. Microsoft says administrators must create a new issuing CA and replace the old SCEP URI in each affected profile; Microsoft cannot do this automatically.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-31-cloud-pki-ca-expiration-01"
+          },
+          {
+            "title": "EPM explains child-process elevation behavior and the safer default",
+            "detail": "Elevation rules can require each child process to meet its own rule, deny all child elevation, or allow children to inherit elevation. The documentation warns that inherited elevation skips child rule and deny-rule evaluation, and recommends avoiding broad rules for shells and script engines.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-01-31-epm-elevation-rules-02"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-01-26",
+      "summary": {
+        "headline": "Cloud PKI lifecycle planning is the week’s operational priority",
+        "overview": "The week recorded 205 changes, including a substantial standalone Cloud PKI documentation set and a new CA-expiration recovery guide. The remaining volume is mostly Configuration Manager reference maintenance, Defender integration clarification, and routine app-management updates.",
+        "adminImpact": "Cloud PKI administrators should validate BYOCA design and build a CA-expiration playbook now, before certificate issuance is at risk. Configuration Manager teams should use the updated SQL requirement table and developer references during planned maintenance; the bulk reference edits do not by themselves require a deployment change.",
+        "keyChanges": [
+          {
+            "title": "Cloud PKI BYOCA and deployment guidance is consolidated",
+            "detail": "New documentation covers Cloud PKI architecture, deployment models, Microsoft-managed root and issuing CAs, BYOCA issuing CAs, monitoring, audit logs, and deletion. The BYOCA model anchors an Intune Cloud PKI issuing CA to a private or on-premises CA.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-26-bring-your-own-certificate-authority-with-cloud-pki-02"
+          },
+          {
+            "title": "CA expiration gets an explicit service-continuity procedure",
+            "detail": "Administrators must replace an expiring issuing CA and update affected SCEP profiles to its single new SCEP URI. Failure to act stops new certificate issuance after expiry and can interrupt network access and certificate-based authentication.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-31-cloud-pki-ca-expiration-01"
+          },
+          {
+            "title": "Defender for Endpoint integration guide clarifies portal connection work",
+            "detail": "The updated runbook uses Intune connection status as the starting decision, then directs administrators to enable Microsoft Intune connection in Defender XDR only when the services are not already connected.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-29-configure-microsoft-defender-for-endpoint-with-intune-and-onboard-devices-01"
+          },
+          {
+            "title": "Configuration Manager reference maintenance is extensive but non-feature-bearing",
+            "detail": "A broad SDK, WMI, migration, software-update, and hierarchy documentation pass refreshes the reference surface for developers and operators without an indicated new Configuration Manager service capability.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-28-checkdecommissionstate-method-57"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "month",
+      "key": "2026-01",
+      "summary": {
+        "headline": "January reset the Windows servicing playbook and surfaced key 2026 migration deadlines",
+        "overview": "January recorded 666 changes and four Message Center announcements. The month rebuilt Windows servicing guidance around focused driver, feature, quality, Hotpatch, expedited-update, update-ring, report, and rollout-policy pages. It also established Cloud PKI operational guidance, documented CA-expiration recovery, expanded EPM support and rule clarity, and announced upcoming changes to Conditional Access, Intune guided scenarios, and Defender for Android personal profiles.",
+        "adminImpact": "Prioritize four workstreams: refresh Windows servicing runbooks and pilots using the focused policy guides; migrate Conditional Access policies away from Require approved client app before June; plan the March changes to guided scenarios and Defender Android personal-profile coverage; and establish a tested Cloud PKI CA-replacement process before any issuing CA approaches expiration. Also remove remaining MDT task-sequence dependencies and review local Autopilot Reset policy conflicts.",
+        "keyChanges": [
+          {
+            "title": "Windows update management documentation shifts to focused policy guides",
+            "detail": "The month introduces or reorganizes separate guidance for driver updates, feature updates, quality updates, Hotpatch, expedited updates, update rings, reports, and rollout options. The material clarifies shared Autopatch prerequisites and recommends staged operational control instead of overlapping policy patterns.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-15-manage-windows-driver-update-policies-01"
+          },
+          {
+            "title": "Configuration Manager administrators are reminded to remove retired MDT integration",
+            "detail": "MDT integration and standalone MDT are no longer supported. Documentation directs teams to remove MDT task-sequence steps before removing the integration, to prevent task-sequence corruption and modification failures.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-08-removed-and-deprecated-cmfeatures-01"
+          },
+          {
+            "title": "Cloud PKI gains BYOCA, deployment, and expiration guidance",
+            "detail": "The new documentation set covers building and operating Cloud PKI, including a BYOCA issuing CA anchored to a private CA. A CA-expiration guide later makes the customer-managed replacement and SCEP-profile update procedure explicit.",
+            "product": "Cloud PKI",
+            "sourceId": "doc-2026-01-26-bring-your-own-certificate-authority-with-cloud-pki-02"
+          },
+          {
+            "title": "Three announced deadlines require roadmap attention",
+            "detail": "Require approved client app retires from Conditional Access in June 2026; most Intune guided scenarios leave the admin center in March; and Defender for Android ends enrolled personal-profile protection in March while retaining corporate work-profile focus.",
+            "product": "Intune",
+            "sourceId": "MC1220751"
+          },
+          {
+            "title": "Endpoint operations gain new control and safety guidance",
+            "detail": "The month adds suspend and restore actions for Managed Home Screen, lists EPM support for single-session AVD, clarifies EPM child-process elevation risk, and documents a local Autopilot Reset failure caused by a local-account network-deny policy.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-01-31-epm-elevation-rules-02"
+          }
+        ]
+      }
+    }
+  ]
+}

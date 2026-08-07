@@ -1,0 +1,372 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/app-management/protection/mam-without-enrollment.md",
+      "status": "added",
+      "additions": 85,
+      "deletions": 0,
+      "changes": 85,
+      "patch": "diff --git a/intune/app-management/protection/mam-without-enrollment.md b/intune/app-management/protection/mam-without-enrollment.md\nnew file mode 100644\nindex 0000000000..7d646a1bb0\n--- /dev/null\n+++ b/intune/app-management/protection/mam-without-enrollment.md\n@@ -0,0 +1,85 @@\n+---\n+title: Mobile Application Management (MAM) for unenrolled devices in Microsoft Intune\n+description: Use mobile application management without enrollment to deploy apps, and protect organization data within the apps. Get an overview of the administrator and end user tasks for this enrollment option.\n+author: MandiOhlinger\n+ms.author: mandia\n+ms.date: 04/22/2024\n+ms.topic: article\n+ms.collection:\n+- M365-identity-device-management\n+---\n+\n+# Deployment guide: Mobile Application Management (MAM) for unenrolled devices in Microsoft Intune\n+\n+MAM for unenrolled devices uses app configuration profiles to deploy or configure apps on devices without enrolling the device. When combined with app protection policies, you can protect data within an app.\n+\n+MAM for unenrolled devices is commonly used for personal or bring your own devices (BYOD). Or, used for enrolled devices that need extra security. MAM is an option for users who don't enroll their personal devices, but still need access to organization email, Teams meetings, and more.\n+\n+MAM is available on the following platforms:\n+\n+- Android\n+- iOS/iPadOS\n+- Windows\n+\n+This article provides recommendations on when to use MAM. It also includes an overview of the administrator and user tasks. For more specific information on MAM, go to:\n+\n+- [Microsoft Intune app management](../overview.md)\n+- [Data protection for Windows MAM](./enable-mam-windows.md)\n+\n+> [!TIP]\n+> [!INCLUDE [tips-guidance-plan-deploy-guides](../../device-enrollment/includes/tips-guidance-plan-deploy-guides.md)]\n+\n+## Before you begin\n+\n+For an overview, including any Intune-specific prerequisites, see [Deployment guidance: Enroll devices in Microsoft Intune](../../device-enrollment/guide.md).\n+\n+## MAM\n+\n+Use for personal or bring your own devices (BYOD). Or, use on organization-owned devices that need specific app configuration, or extra app security.\n+\n+| Feature | Use this enrollment option when |\n+| --- | --- |\n+| You want to configure specific apps, and control access to these apps, such as Outlook or Microsoft Teams. | ✅ |\n+| Devices are personal or BYOD. | ✅ |\n+| You have new or existing devices. | ✅ |\n+| Need to manage a few devices, or a large number of devices (bulk enrollment). | ✅ |\n+| Devices are associated with a single user. | ✅ |\n+| Devices are managed by another MDM provider. | ✅ |\n+| You use the device enrollment manager (DEM) account. | ✅ |\n+| Devices are owned by the organization or school. |  ❌ <br/><br/> Not recommended as the *only* enrollment method for organization-owned devices. Organization-owned devices should be enrolled and managed by Intune. If you want extra security for specific apps, then use MDM enrollment and MAM together. |\n+| Devices are user-less, such as kiosk, or dedicated device. | ❌ <br/><br/>Typically, user-less or shared devices are organization-owned. These devices should be enrolled and managed by Intune. |\n+\n+### MAM administrator tasks\n+\n+This task list provides an overview. For more specific information, see [Microsoft Intune app management](../overview.md).\n+\n+- Be sure your devices are [supported](../../fundamentals/ref-supported-platforms.md).\n+\n+- In the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), [add your apps](../ref-protected-apps.md) or [configure your apps](../configuration/overview.md). When the apps are on the device, the apps are considered \"managed\" by Intune. After you add or configure the app, create an [app protection policy](./ref-settings-ios.md). For example, create a policy that allows or blocks features within the app, such as copy and paste.\n+\n+- Tell users how to get different apps. For example, you can:\n+\n+  - Direct users to the Company Portal web site at `portal.manage.microsoft.com`. When they sign in with their organization credentials, they see a list of apps, including required apps. They can get apps from this site.\n+  - Have users download and install the Company Portal app from the app store. Once authenticated, users can install apps, including required apps.\n+\n+### MAM end user tasks\n+\n+The specific tasks depend on how you tell users to install the apps.\n+\n+- To install the apps, users can:\n+\n+  - Go to the app store, and download the Company Portal app. Open the Company Portal app, and sign in with their organization credentials (`user@contoso.com`). The Company Portal app authenticates the user. Users see a list of available apps, including required apps.\n+  - Go to the Company Portal web site at `portal.manage.microsoft.com`, and sign in with their organization credentials (`user@contoso.com`). After users sign in, they see a list of available apps, including required apps.\n+  - Go to the app store, and download the apps they need. This option is for users who don't want to use the Company Portal app or web site. End users might also have to buy the app.\n+\n+- After the app is installed, they open the app, and are prompted to sign in with their organization credentials (`user@contoso.com`). When users sign in, they might have to restart the app. After the restart, the app data is \"managed\" by Intune.\n+\n+- Some platforms can require specific apps to install other apps, such as Outlook or Teams. For example, on iOS devices, users must install a broker app, such as the Microsoft Authenticator app. On Android devices, users must install the Company Portal app.\n+\n+## Related articles\n+\n+- [Android enrollment guide](../../device-enrollment/android/guide.md)\n+- [iOS/iPadOS enrollment guide](../../device-enrollment/apple/guide-ios-ipados.md)\n+- [Linux enrollment guide](../../device-enrollment/guide-linux.md)\n+- [macOS enrollment guide](../../device-enrollment/apple/guide-macos.md)\n+- [Windows enrollment guide](../../device-enrollment/windows/guide.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/protection/mam-without-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/protection/mam-without-enrollment",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:added:intune/app-management/protection/mam-without-enrollment.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "updates",
+        "summary": "Added Microsoft Intune documentation in intune/app-management/protection/mam-without-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-updates/windows/configure-driver-update-policy.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-updates/windows/configure-driver-update-policy.md b/intune/device-updates/windows/configure-driver-update-policy.md\nindex 64d3add5f2..edce00ee39 100644\n--- a/intune/device-updates/windows/configure-driver-update-policy.md\n+++ b/intune/device-updates/windows/configure-driver-update-policy.md\n@@ -34,7 +34,7 @@ For general guidance on planning update deployments, see [Create a deployment pl\n Windows driver update policies let you control which driver updates are allowed to install on managed devices. You can choose between automatic approval of recommended drivers or require manual review for every update.\n \n > [!NOTE]\n-> Windows driver update policies do not consider about CHID targeting drivers even if these are displayed as recommended driver. Recommended driver means the latest version for it. If the user updates to the CHID targeting driver, it must receive the driver update from Windows Update.\n+> Windows driver update policies don’t enforce Computer Hardware ID (CHID) targeting defined by OEMs, even when those drivers are listed as recommended. As a result, managed devices can receive newer recommended driver versions instead of CHID-targeted drivers.\n \n ### Automatic approval of recommended drivers\n \n",
+      "baseCommitSha": "a880e2ca2a62b7480fe842aa4dd802f79c605887",
+      "commitSha": "e57c24e8f88b45d2b49f580784832463d0a9c022",
+      "commitMessage": "Update note on Windows driver update policies",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T07:44:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/configure-driver-update-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/configure-driver-update-policy",
+      "firstSeenAt": "2026-04-24T11:44:30.000Z",
+      "eventId": "intune-docs:e57c24e8f88b45d2b49f580784832463d0a9c022:modified:intune/device-updates/windows/configure-driver-update-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update note on Windows driver update policies",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/configure-driver-update-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/app-management/configuration/configure-company-portal.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/app-management/configuration/configure-company-portal.md b/intune/app-management/configuration/configure-company-portal.md\nindex e3554efdcc..c146e07674 100644\n--- a/intune/app-management/configuration/configure-company-portal.md\n+++ b/intune/app-management/configuration/configure-company-portal.md\n@@ -98,7 +98,7 @@ Support for the device enrollment setting requires end users have these Company\n >\n > These settings do apply to Android devices configured with [Samsung Knox Mobile Enrollment](../../device-enrollment/android/setup-samsung-knox-mobile.md) (KME). If a device is configured for KME and device enrollment is set to Unavailable, the device doesn't enroll during the out of box flow.\n >\n-> For the Android Company Portal app, Intune detects if the user's device is set up for [app protection policies without enrollment](../../device-enrollment/mam-without-enrollment.md). In this case, the user doesn't get prompted to enroll in the Company Portal. This behavior happens even if you configure the device enrollment setting to prompt enrollment. This behavior applies to all Android device types except Surface Duo devices.\n+> For the Android Company Portal app, Intune detects if the user's device is set up for [app protection policies without enrollment](../protection/mam-without-enrollment.md). In this case, the user doesn't get prompted to enroll in the Company Portal. This behavior happens even if you configure the device enrollment setting to prompt enrollment. This behavior applies to all Android device types except Surface Duo devices.\n \n |    Device enrollment   options    |    Description    |    Checklist prompts    |    Notification    |    Device details status    |    App visibility (for an app that requires enrollment)    |\n |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------|--------------------|-----------------------------|--------------------------------------------------------------------|\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/configuration/configure-company-portal.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-company-portal",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/app-management/configuration/configure-company-portal.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/configuration/configure-company-portal.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/android/guide.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/android/guide.md b/intune/device-enrollment/android/guide.md\nindex 876adee1af..e956dc4f5e 100644\n--- a/intune/device-enrollment/android/guide.md\n+++ b/intune/device-enrollment/android/guide.md\n@@ -287,7 +287,7 @@ Microsoft recommends:\n \n ## Related articles\n \n-- [MAM](../mam-without-enrollment.md)\n+- [MAM](../../app-management/protection/mam-without-enrollment.md)\n - [iOS/iPadOS enrollment guide](../apple/guide-ios-ipados.md)\n - [Linux enrollment guide](../guide-linux.md)\n - [macOS enrollment guide](../apple/guide-macos.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/android/guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/guide",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/android/guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/android/guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/android/migrate-to-application-management.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/android/migrate-to-application-management.md b/intune/device-enrollment/android/migrate-to-application-management.md\nindex 8ffde9b91e..dcb76e32b0 100644\n--- a/intune/device-enrollment/android/migrate-to-application-management.md\n+++ b/intune/device-enrollment/android/migrate-to-application-management.md\n@@ -131,4 +131,4 @@ This section describes how to fix issues encountered when switching from Android\n * [Intune app protection policies overview](../../app-management/protection/overview.md)\n * [App management capabilities by platform](../../app-management/overview.md#app-management-capabilities-by-platform)\n * [Troubleshooting app protection policy user issues](/troubleshoot/mem/intune/app-protection-policies/troubleshoot-mam)\n-* [Deployment guide: Mobile Application Management (MAM) for unenrolled devices in Microsoft Intune](../mam-without-enrollment.md#mam)\n\\ No newline at end of file\n+* [Deployment guide: Mobile Application Management (MAM) for unenrolled devices in Microsoft Intune](../../app-management/protection/mam-without-enrollment.md#mam)\n\\ No newline at end of file\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/android/migrate-to-application-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/migrate-to-application-management",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/android/migrate-to-application-management.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/android/migrate-to-application-management.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/guide-ios-ipados.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-enrollment/apple/guide-ios-ipados.md b/intune/device-enrollment/apple/guide-ios-ipados.md\nindex fa00b5c1fe..e54a210794 100644\n--- a/intune/device-enrollment/apple/guide-ios-ipados.md\n+++ b/intune/device-enrollment/apple/guide-ios-ipados.md\n@@ -54,7 +54,7 @@ For more specific information on this enrollment type, go to:\n | Need to enroll a few devices, or a large number of devices (bulk enrollment). | ✅ |\n | Devices are associated with a single user. | ✅ |\n | Devices are user-less, such as kiosk or dedicated device. | ✅ |\n-| Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. Applications on BYOD or personal devices can be managed using [MAM](../mam-without-enrollment.md) (opens another Microsoft article), or [User and Device enrollment](#byod-user-and-device-enrollment) (in this article). |\n+| Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. Applications on BYOD or personal devices can be managed using [MAM](../../app-management/protection/mam-without-enrollment.md) (opens another Microsoft article), or [User and Device enrollment](#byod-user-and-device-enrollment) (in this article). |\n | You have existing devices. | ❌ <br/><br/>Existing devices should be enrolled using [Apple Configurator](#apple-configurator-enrollment) (in this article). |\n | Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users must unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specific apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n | You use the device enrollment manager (DEM) account. | ❌ <br/><br/> The DEM account isn't supported. |\n@@ -230,7 +230,7 @@ For more specific information on this enrollment type, go to [Apple Configurator\n | Need to enroll a few devices, or a large number of devices (bulk enrollment). | ✅ <br/><br/> If you have a large number of devices, then this method takes some time. |\n | Devices are associated with a single user. | ✅ |\n | Devices are user-less, such as kiosk or dedicated device. | ✅ |\n-| Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. Applications on BYOD or personal devices can be managed using [MAM](../mam-without-enrollment.md) (opens another Microsoft article), or [User and Device enrollment](#byod-user-and-device-enrollment) (in this article). |\n+| Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. Applications on BYOD or personal devices can be managed using [MAM](../../app-management/protection/mam-without-enrollment.md) (opens another Microsoft article), or [User and Device enrollment](#byod-user-and-device-enrollment) (in this article). |\n | Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users need to unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specific apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n | You use the device enrollment manager (DEM) account. | ❌ <br/><br/> The DEM account isn't supported. |\n \n@@ -434,7 +434,7 @@ For more information about the user experience, go to [Prepare employees for enr\n \n ## Related articles\n \n-- [MAM](../mam-without-enrollment.md)\n+- [MAM](../../app-management/protection/mam-without-enrollment.md)\n - [Android enrollment guide](../android/guide.md)\n - [Linux enrollment guide](../guide-linux.md)\n - [macOS enrollment guide](guide-macos.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/guide-ios-ipados.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/guide-ios-ipados",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/apple/guide-ios-ipados.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/guide-ios-ipados.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/guide-macos.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-enrollment/apple/guide-macos.md b/intune/device-enrollment/apple/guide-macos.md\nindex 7567981878..61f2323676 100644\n--- a/intune/device-enrollment/apple/guide-macos.md\n+++ b/intune/device-enrollment/apple/guide-macos.md\n@@ -199,7 +199,7 @@ For more specific information on this enrollment type, go to [Use Direct Enrollm\n | Need to enroll a few devices, or a large number of devices (bulk enrollment). | ✅ <br/><br/> If you have a large number of devices, then this method takes some time. |\n | Devices are associated with a single user. | ❌ <br/><br/> Not recommended. Devices that need user affinity should be enrolled using [Automated device enrollment (ADE)](#automated-device-enrollment-ade-supervised). |\n | Devices are user-less, such as kiosk or dedicated device. | ✅ |\n-| Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. BYOD or personal devices should be enrolled using [MAM](../mam-without-enrollment.md) (opens another Microsoft article), or [BYOD: Device enrollment](#byod-device-enrollment) (in this article). |\n+| Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. BYOD or personal devices should be enrolled using [MAM](../../app-management/protection/mam-without-enrollment.md) (opens another Microsoft article), or [BYOD: Device enrollment](#byod-device-enrollment) (in this article). |\n | Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users need to unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specifics apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n | You use the device enrollment manager (DEM) account. | ❌ <br/><br/> The DEM account isn't supported. |\n \n@@ -228,7 +228,7 @@ For more information on this enrollment option, and its prerequisites, go to [ma\n \n ## Related articles\n \n-- [MAM](../mam-without-enrollment.md)\n+- [MAM](../../app-management/protection/mam-without-enrollment.md)\n - [Android enrollment guide](../android/guide.md)\n - [iOS/iPadOS enrollment guide](guide-ios-ipados.md)\n - [Linux enrollment guide](../guide-linux.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/guide-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/guide-macos",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/apple/guide-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/guide-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/guide-linux.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/guide-linux.md b/intune/device-enrollment/guide-linux.md\nindex 4668cbe719..f762433a93 100644\n--- a/intune/device-enrollment/guide-linux.md\n+++ b/intune/device-enrollment/guide-linux.md\n@@ -70,7 +70,7 @@ For more information about Linux device management, see:\n \n For more device enrollment guides, see:  \n \n-- [MAM](./mam-without-enrollment.md)\n+- [MAM](../app-management/protection/mam-without-enrollment.md)\n - [Android enrollment guide](android/guide.md)\n - [iOS/iPadOS enrollment guide](apple/guide-ios-ipados.md)\n - [macOS enrollment guide](apple/guide-macos.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/guide-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/guide-linux",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/guide-linux.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/guide-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/guide.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-enrollment/guide.md b/intune/device-enrollment/guide.md\nindex 2651e3752e..e66d344a56 100644\n--- a/intune/device-enrollment/guide.md\n+++ b/intune/device-enrollment/guide.md\n@@ -121,7 +121,7 @@ On the platforms that don't require a factory reset, when these devices enroll i\n \n There's an enrollment guide for every platform. Choose your scenario, and get started:\n \n-- [Application management without enrollment](./mam-without-enrollment.md)\n+- [Application management without enrollment](../app-management/protection/mam-without-enrollment.md)\n - [Android](android/guide.md)\n - [iOS/iPadOS](apple/guide-ios-ipados.md)\n - [Linux](guide-linux.md)\n@@ -159,7 +159,7 @@ The MDM certificate renews automatically as long as enrolled devices are communi\n \n For platform-specific enrollment guidance, go to:\n \n-- [Application Management without enrollment](./mam-without-enrollment.md)\n+- [Application Management without enrollment](../app-management/protection/mam-without-enrollment.md)\n - [Android enrollment guide](android/guide.md)\n - [iOS/iPadOS enrollment guide](apple/guide-ios-ipados.md)\n - [Linux enrollment guide](guide-linux.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/guide",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/windows/guide.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/windows/guide.md b/intune/device-enrollment/windows/guide.md\nindex 973e8120a3..0a19c666e4 100644\n--- a/intune/device-enrollment/windows/guide.md\n+++ b/intune/device-enrollment/windows/guide.md\n@@ -368,7 +368,7 @@ Configuration Manager can randomize the enrollment, so enrollment might not occu\n \n ## Related articles\n \n-- [MAM without enrollment](../mam-without-enrollment.md)\n+- [MAM without enrollment](../../app-management/protection/mam-without-enrollment.md)\n - [Android enrollment guide](../android/guide.md)\n - [iOS/iPadOS enrollment guide](../apple/guide-ios-ipados.md)\n - [Linux enrollment guide](../guide-linux.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/windows/guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/windows/guide",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-enrollment/windows/guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/windows/guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/mam-android.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/mam-android.md b/intune/device-security/microsoft-tunnel/mam-android.md\nindex b8ac6b65b0..66c848c968 100644\n--- a/intune/device-security/microsoft-tunnel/mam-android.md\n+++ b/intune/device-security/microsoft-tunnel/mam-android.md\n@@ -20,7 +20,7 @@ Applies to:\n \n - Android Enterprise\n \n-To extend your existing [Microsoft Tunnel configuration](./install.md) to support [MAM](../../device-enrollment/mam-without-enrollment.md), create and deploy three profiles that configure this support on your unenrolled devices:\n+To extend your existing [Microsoft Tunnel configuration](./install.md) to support [MAM](../../app-management/protection/mam-without-enrollment.md), create and deploy three profiles that configure this support on your unenrolled devices:\n \n - App configuration policy for Microsoft Defender. This policy configures Microsoft Defender for Endpoint on a device as the VPN tunnel client app.\n - App configuration policy for Microsoft Edge. This policy configures Microsoft Edge to support identity-switch, which automatically connects and disconnects the VPN tunnel when switching from a Microsoft \"Work or school\" account to a Microsoft \"personal account\" in Microsoft Edge.\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/mam-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/mam-android",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:modified:intune/device-security/microsoft-tunnel/mam-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/mam-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/device-enrollment/mam-without-enrollment.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 83,
+      "changes": 83,
+      "patch": "diff --git a/intune/device-enrollment/mam-without-enrollment.md b/intune/device-enrollment/mam-without-enrollment.md\ndeleted file mode 100644\nindex eaa867674d..0000000000\n--- a/intune/device-enrollment/mam-without-enrollment.md\n+++ /dev/null\n@@ -1,85 +0,0 @@\n----\n-title: Mobile Application Management (MAM) for unenrolled devices in Microsoft Intune\n-description: Use mobile application management without enrollment to deploy apps, and protect organization data within the apps. Get an overview of the administrator and end user tasks for this enrollment option.\n-author: MandiOhlinger\n-ms.author: mandia\n-ms.date: 04/22/2024\n-ms.topic: article\n-ms.collection:\n-- M365-identity-device-management\n----\n-\n-# Deployment guide: Mobile Application Management (MAM) for unenrolled devices in Microsoft Intune\n-\n-MAM for unenrolled devices uses app configuration profiles to deploy or configure apps on devices without enrolling the device. When combined with app protection policies, you can protect data within an app.\n-\n-MAM for unenrolled devices is commonly used for personal or bring your own devices (BYOD). Or, used for enrolled devices that need extra security. MAM is an option for users who don't enroll their personal devices, but still need access to organization email, Teams meetings, and more.\n-\n-MAM is available on the following platforms:\n-\n-- Android\n-- iOS/iPadOS\n-- Windows\n-\n-This article provides recommendations on when to use MAM. It also includes an overview of the administrator and user tasks. For more specific information on MAM, go to:\n-\n-- [Microsoft Intune app management](../app-management/overview.md)\n-- [Data protection for Windows MAM](../app-management/protection/enable-mam-windows.md)\n-\n-> [!TIP]\n-> [!INCLUDE [tips-guidance-plan-deploy-guides](../device-enrollment/includes/tips-guidance-plan-deploy-guides.md)]\n-\n-## Before you begin\n-\n-For an overview, including any Intune-specific prerequisites, see [Deployment guidance: Enroll devices in Microsoft Intune](../device-enrollment/guide.md).\n-\n-## MAM\n-\n-Use for personal or bring your own devices (BYOD). Or, use on organization-owned devices that need specific app configuration, or extra app security.\n-\n-| Feature | Use this enrollment option when |\n-| --- | --- |\n-| You want to configure specific apps, and control access to these apps, such as Outlook or Microsoft Teams. | ✅ |\n-| Devices are personal or BYOD. | ✅ |\n-| You have new or existing devices. | ✅ |\n-| Need to manage a few devices, or a large number of devices (bulk enrollment). | ✅ |\n-| Devices are associated with a single user. | ✅ |\n-| Devices are managed by another MDM provider. | ✅ |\n-| You use the device enrollment manager (DEM) account. | ✅ |\n-| Devices are owned by the organization or school. |  ❌ <br/><br/> Not recommended as the *only* enrollment method for organization-owned devices. Organization-owned devices should be enrolled and managed by Intune. If you want extra security for specific apps, then use MDM enrollment and MAM together. |\n-| Devices are user-less, such as kiosk, or dedicated device. | ❌ <br/><br/>Typically, user-less or shared devices are organization-owned. These devices should be enrolled and managed by Intune. |\n-\n-### MAM administrator tasks\n-\n-This task list provides an overview. For more specific information, see [Microsoft Intune app management](../app-management/overview.md).\n-\n-- Be sure your devices are [supported](../fundamentals/ref-supported-platforms.md).\n-\n-- In the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), [add your apps](../app-management/ref-protected-apps.md) or [configure your apps](../app-management/configuration/overview.md). When the apps are on the device, the apps are considered \"managed\" by Intune. After you add or configure the app, create an [app protection policy](../app-management/protection/ref-settings-ios.md). For example, create a policy that allows or blocks features within the app, such as copy and paste.\n-\n-- Tell users how to get different apps. For example, you can:\n-\n-  - Direct users to the Company Portal web site at `portal.manage.microsoft.com`. When they sign in with their organization credentials, they see a list of apps, including required apps. They can get apps from this site.\n-  - Have users download and install the Company Portal app from the app store. Once authenticated, users can install apps, including required apps.\n-\n-### MAM end user tasks\n-\n-The specific tasks depend on how you tell users to install the apps.\n-\n-- To install the apps, users can:\n-\n-  - Go to the app store, and download the Company Portal app. Open the Company Portal app, and sign in with their organization credentials (`user@contoso.com`). The Company Portal app authenticates the user. Users see a list of available apps, including required apps.\n-  - Go to the Company Portal web site at `portal.manage.microsoft.com`, and sign in with their organization credentials (`user@contoso.com`). After users sign in, they see a list of available apps, including required apps.\n-  - Go to the app store, and download the apps they need. This option is for users who don't want to use the Company Portal app or web site. End users might also have to buy the app.\n-\n-- After the app is installed, they open the app, and are prompted to sign in with their organization credentials (`user@contoso.com`). When users sign in, they might have to restart the app. After the restart, the app data is \"managed\" by Intune.\n-\n-- Some platforms can require specific apps to install other apps, such as Outlook or Teams. For example, on iOS devices, users must install a broker app, such as the Microsoft Authenticator app. On Android devices, users must install the Company Portal app.\n-\n-## Related articles\n-\n-- [Android enrollment guide](../device-enrollment/android/guide.md)\n-- [iOS/iPadOS enrollment guide](../device-enrollment/apple/guide-ios-ipados.md)\n-- [Linux enrollment guide](../device-enrollment/guide-linux.md)\n-- [macOS enrollment guide](../device-enrollment/apple/guide-macos.md)\n-- [Windows enrollment guide](../device-enrollment/windows/guide.md)\n",
+      "baseCommitSha": "6b7eee1c6bd3e4c82a187bc7408d9dc4368917d6",
+      "commitSha": "0b63e08c9eb8711e53496d845b24edc915093f81",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-24T14:29:49-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/mam-without-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/mam-without-enrollment",
+      "firstSeenAt": "2026-04-24T18:29:49.000Z",
+      "eventId": "intune-docs:0b63e08c9eb8711e53496d845b24edc915093f81:removed:intune/device-enrollment/mam-without-enrollment.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "updates",
+        "summary": "Removed Microsoft Intune documentation in intune/device-enrollment/mam-without-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 12,
+    "authors": [
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 10 updated, and 1 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/app-management",
+        "summary": "Added Microsoft Intune documentation in intune/app-management/protection/mam-without-enrollment.md. Updated Microsoft Intune documentation in intune/app-management/configuration/configure-company-portal.md.",
+        "sourceFiles": [
+          "intune/app-management/protection/mam-without-enrollment.md",
+          "intune/app-management/configuration/configure-company-portal.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/configure-driver-update-policy.md.",
+        "sourceFiles": [
+          "intune/device-updates/windows/configure-driver-update-policy.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/android/guide.md. Updated Microsoft Intune documentation in intune/device-enrollment/android/migrate-to-application-management.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/guide-ios-ipados.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/guide-macos.md. Updated Microsoft Intune documentation in intune/device-enrollment/guide-linux.md. Updated Microsoft Intune documentation in intune/device-enrollment/guide.md. Updated Microsoft Intune documentation in intune/device-enrollment/windows/guide.md. Removed Microsoft Intune documentation in intune/device-enrollment/mam-wit",
+        "sourceFiles": [
+          "intune/device-enrollment/android/guide.md",
+          "intune/device-enrollment/android/migrate-to-application-management.md",
+          "intune/device-enrollment/apple/guide-ios-ipados.md",
+          "intune/device-enrollment/apple/guide-macos.md",
+          "intune/device-enrollment/guide-linux.md",
+          "intune/device-enrollment/guide.md",
+          "intune/device-enrollment/windows/guide.md",
+          "intune/device-enrollment/mam-without-enrollment.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/mam-android.md.",
+        "sourceFiles": [
+          "intune/device-security/microsoft-tunnel/mam-android.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/app-management",
+        "detail": "Added Microsoft Intune documentation in intune/app-management/protection/mam-without-enrollment.md. Updated Microsoft Intune documentation in intune/app-management/configuration/configure-company-portal.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-updates",
+        "detail": "Updated Microsoft Intune documentation in intune/device-updates/windows/configure-driver-update-policy.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/android/guide.md. Updated Microsoft Intune documentation in intune/device-enrollment/android/migrate-to-application-management.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/guide-ios-ipados.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/guide-macos.md. Updated Microsoft Intune documentation in intune/device-enrollment/guide-linux.md. Updated Microsoft Intune documentation in intune/device-enrollment/guide.md. Updated Microsoft Intune documentation in intune/device-enrollment/windows/guide.md. Removed Microsoft Intune documentation in intune/device-enrollment/mam-wit"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/microsoft-tunnel/mam-android.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

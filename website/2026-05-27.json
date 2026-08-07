@@ -1,0 +1,224 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md b/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md\nindex bb88f1044b..84e8b02649 100644\n--- a/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md\n+++ b/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md\n@@ -180,7 +180,7 @@ When you select **Import** from the _Server app_ window, it opens the _Import ap\n - **Client ID**: The **Application (client) ID** value of the app registration. The format is a standard GUID.\n - **Secret Key**: Copy the secret key when you register the app in Microsoft Entra ID and create the secret key.\n - **Secret Key Expiry**: Specify the same date as from the Azure portal.\n-- **App ID URI**: The value is the **Application ID URI** of the app registration entry in the Microsoft Entra admin center. The format is similar to `https://ConfigMgrService`.\n+- **App ID URI**: The value is the **Application ID URI** of the app registration entry in the Microsoft Entra admin center. The format is similar to `https://contoso.onmicrosoft.com/ConfigMgrService`.\n \n After entering the information, select **Verify**. Then select **OK** to close the _Import apps_ window.\n \n",
+      "baseCommitSha": "d5379bbea3f94cd67aa0839e860037abc82e7f3a",
+      "commitSha": "86e6a38416ea8e5d2d4b729376cc8455e3cc2a00",
+      "commitMessage": "Update sample URI to show recommended formatting (#3875)",
+      "commitAuthor": "imakeitworkAZ",
+      "commitDate": "2026-05-27T04:57:13-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps",
+      "firstSeenAt": "2026-05-27T09:57:13.000Z",
+      "eventId": "intune-docs:86e6a38416ea8e5d2d4b729376cc8455e3cc2a00:modified:intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update sample URI to show recommended formatting (#3875)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\nindex 7521bda6c6..a1a1173e25 100644\n--- a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n+++ b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n@@ -145,6 +145,9 @@ The following table lists the minimum firewall rules required for this deploymen\n | `SiteServer` (site server) | ↔ | `DMZ-MP` (management point) | TCP | 445 | SMB (file transfer) |\n | `DMZ-MP` (management point) | → | `SQLServer` (site database) | TCP | 1433 | SQL Server (MP database connection) |\n \n+> [!TIP]\n+> If your SQL Server uses a named instance or a non-default port, update the SQL Server row in the table accordingly. For more information about all ports that Configuration Manager uses, see [Ports used in Configuration Manager](../../../plan-design/network/configure-firewalls-ports-domains.md).\n+\n The following connections are required so the management point can authenticate to domain controllers in the CORP forest, and vice versa. DNS ports aren't included.\n \n | Source | Direction | Destination | Protocol | Port | Purpose |\n@@ -155,13 +158,13 @@ The following connections are required so the management point can authenticate\n | `DMZ-MP` (management point) | → | `DC.corp.contoso.com` (CORP Domain Controller) | TCP | 88 | Kerberos authentication |\n \n > [!TIP]\n-> If your SQL Server uses a named instance or a non-default port, update the SQL Server row in the table accordingly. For more information about all ports that Configuration Manager uses, see [Ports used in Configuration Manager](../../../plan-design/network/configure-firewalls-ports-domains.md).\n+> Both the site server and the management point must be able to locate a Kerberos Key Distribution Center (KDC) in the other domain. To do this, each server must be able to resolve DNS SRV records such as `_kerberos._tcp.dc._msdcs.corp.contoso.com` and `_kerberos._tcp.dc._msdcs.branch.fabrikam.com`.\n \n ## <a name=\"BKMK_mp_step4\"></a> Step 4: Install management point prerequisites on DMZ-MP\n \n Before you add the management point role, install the required Windows features and supporting components on `DMZ-MP`. For the complete and current list, see [Site and site system prerequisites](../../../plan-design/configs/site-and-site-system-prerequisites.md#management-point).\n \n-For this example, prepare `DMZ-MP` with these Windows Roles and Features:\n+For this example, prepare `DMZ-MP` with these Windows roles and features:\n \n - **Web Server (IIS)** role and auto-selected features.\n - **.NET Framework 3.5** feature.\n",
+      "baseCommitSha": "394dced8286f8dfae1aeccfa7b9dd17b5fb8ac66",
+      "commitSha": "51b835f9b99ec0b27fa9fc7144dec85ae2b6f28f",
+      "commitMessage": "Minor tips at networking area",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-05-27T16:10:10+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment",
+      "firstSeenAt": "2026-05-27T15:10:10.000Z",
+      "eventId": "intune-docs:51b835f9b99ec0b27fa9fc7144dec85ae2b6f28f:modified:intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Minor tips at networking area",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 21,
+      "changes": 40,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\nindex a1a1173e25..09e3c00a3b 100644\n--- a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n+++ b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n@@ -89,7 +89,7 @@ Use two dedicated user accounts. Configure both accounts with non-expiring passw\n \n 5. Close **Active Directory Users and Computers**.\n \n-### To add the installation account to the local Administrators group on `DMZ-MP`\n+### To add the installation account to the local Administrators group on management point server\n \n 1. Sign in to `DMZ-MP` using a local or domain administrator account.\n \n@@ -160,7 +160,7 @@ The following connections are required so the management point can authenticate\n > [!TIP]\n > Both the site server and the management point must be able to locate a Kerberos Key Distribution Center (KDC) in the other domain. To do this, each server must be able to resolve DNS SRV records such as `_kerberos._tcp.dc._msdcs.corp.contoso.com` and `_kerberos._tcp.dc._msdcs.branch.fabrikam.com`.\n \n-## <a name=\"BKMK_mp_step4\"></a> Step 4: Install management point prerequisites on DMZ-MP\n+## <a name=\"BKMK_mp_step4\"></a> Step 4: Install prerequisites on management point server\n \n Before you add the management point role, install the required Windows features and supporting components on `DMZ-MP`. For the complete and current list, see [Site and site system prerequisites](../../../plan-design/configs/site-and-site-system-prerequisites.md#management-point).\n \n@@ -172,17 +172,7 @@ For this example, prepare `DMZ-MP` with these Windows roles and features:\n - **IIS Server Extension** (in **Background Intelligent Transfer Service (BITS)**). Select the feature and all automatically selected options.\n - **Web Server (IIS)** role services: **Windows Authentication**, **ISAPI Extensions**, **IIS 6 Metabase Compatibility**, and **IIS 6 WMI Compatibility**\n \n-> [!NOTE]\n-> .NET Framework 3.5 isn't installed by default, and on modern Windows Server versions the feature payload is removed from the base OS image.\n->\n-> For offline environments, you can install .NET Framework 3.5 by using either method:\n->\n-> - **PowerShell**: Mount Windows Server installation media and run `Install-WindowsFeature Net-Framework-Core -Source D:\\sources\\sxs` (replace `D:` with your media drive).\n-> - **Add Roles and Features Wizard**: In **Server Manager** > **Add Roles and Features**, select **.NET Framework 3.5 Features**. On **Confirm installation selections**, choose **Specify an alternate source path** and enter `D:\\sources\\sxs`.\n->\n-> Use installation media that matches the same Windows Server version as `DMZ-MP`. For more information, see [Enable .NET Framework 3.5 by using the Add Roles and Features Wizard](/windows-hardware/manufacture/desktop/enable-net-framework-35-by-using-the-add-roles-and-features-wizard) and [Enable .NET Framework 3.5 by using PowerShell](/windows-hardware/manufacture/desktop/enable-net-framework-35-by-using-windows-powershell).\n-\n-### To install the required Windows features on DMZ-MP\n+### To install the required Windows features\n \n 1. Sign in to `DMZ-MP` using a local or domain administrator account.\n \n@@ -194,9 +184,19 @@ For this example, prepare `DMZ-MP` with these Windows roles and features:\n    Install-WindowsFeature NET-Framework-Features, NET-Framework-Core, BITS, BITS-IIS-Ext, Web-Server, Web-WebServer, Web-Common-Http, Web-Default-Doc, Web-Dir-Browsing, Web-Http-Errors, Web-Static-Content, Web-Health, Web-Http-Logging, Web-Log-Libraries, Web-Request-Monitor, Web-Http-Tracing, Web-Performance, Web-Stat-Compression, Web-Security, Web-Filtering, Web-Windows-Auth, Web-App-Dev, Web-ISAPI-Ext, Web-Http-Redirect, Web-Mgmt-Tools, Web-Mgmt-Console, Web-Mgmt-Compat, Web-Metabase, Web-WMI -IncludeManagementTools\n    ```\n \n+> [!NOTE]\n+> The .NET Framework 3.5 feature payload is removed from the base OS image on modern Windows Server versions.\n+>\n+> For offline environments, you can install .NET Framework 3.5 by using either method:\n+>\n+> - **PowerShell**: Mount Windows Server installation media and run `Install-WindowsFeature Net-Framework-Core -Source D:\\sources\\sxs` (replace `D:` with your media drive).\n+> - **Add Roles and Features Wizard**: In **Server Manager** > **Add Roles and Features**, select **.NET Framework 3.5 Features**. On **Confirm installation selections**, choose **Specify an alternate source path** and enter `D:\\sources\\sxs`.\n+>\n+> Use installation media that matches the same Windows Server version as `DMZ-MP`. For more information, see [Enable .NET Framework 3.5 by using the Add Roles and Features Wizard](/windows-hardware/manufacture/desktop/enable-net-framework-35-by-using-the-add-roles-and-features-wizard) and [Enable .NET Framework 3.5 by using PowerShell](/windows-hardware/manufacture/desktop/enable-net-framework-35-by-using-windows-powershell).\n+\n 4. Restart `DMZ-MP` if Windows prompts for a restart.\n \n-## <a name=\"BKMK_mp_step5\"></a> Step 5: Install the management point role on DMZ-MP\n+## <a name=\"BKMK_mp_step5\"></a> Step 5: Install the management point role\n \n This procedure installs the management point role on `DMZ-MP` by using the **Create Site System Server** wizard. The wizard lets you specify the cross-forest accounts and settings required by the role.\n \n@@ -250,14 +250,12 @@ After the wizard finishes, verify that the management point installed successful\n \n 1. In the Configuration Manager console, go to the **Monitoring** workspace. Expand **System Status**, and then choose **Component Status**.\n \n-2. Look for the **SMS_MP_CONTROL_MANAGER** component on `DMZ-MP.branch.fabrikam.com`. In the **Status** column, confirm that the status is **OK**.\n+2. Locate the **SMS_MP_CONTROL_MANAGER** component on `DMZ-MP.branch.fabrikam.com`. In the **Status** column, confirm that the status is **OK**.\n \n    > [!NOTE]\n-   > It can take up to 30 minutes after the wizard closes for the management point to appear as healthy. If the status shows **Warning** or **Critical**, check the log files as described below.\n-\n-3. In the **Administration** workspace, expand **Site Configuration** > **Servers and Site System Roles**, and then choose **DMZ-MP.branch.fabrikam.com**.\n+   > It can take up to 30 minutes after the wizard closes for the management point to appear healthy. If the status is **Warning** or **Critical**, right-click the component, choose **Show Messages** > **All**, and review the failure details. Then review the log files described below.\n \n-4. In the lower pane, confirm that the **Management point** role is listed and that the **Status** is **OK**.\n+3. Repeat the check for the **SMS_MP_FILE_DISPATCH_MANAGER** component.\n \n ### To verify the management point installation by reviewing log files\n \n@@ -267,7 +265,7 @@ After the wizard finishes, verify that the management point installed successful\n \n 3. Review the following log files on `DMZ-MP` for messages related to management point installation and configuration:\n \n-   | Log file | Location on DMZ-MP | What to look for |\n+   | Log file | Location on `DMZ-MP` | What to look for |\n    |----------|------------------|-----------------|\n    | `MPSetup.log` | `\\SMS\\Logs` | High-level prerequisite and MP installation messages: in particular, `CcmSetup`, `msoledbsql.msi`, IIS-ASPNET45 feature and `mp.msi`. |\n    | `MPMSI.log` | `\\SMS\\Logs` | Details about MP installation and MSI rollback state. If installation fails with error `1603`, search this file for the detailed error message. |\n@@ -276,7 +274,7 @@ After the wizard finishes, verify that the management point installed successful\n \n 4. After the MP is installed, the `SMS_CCM` folder should appear on the same drive as `SMS`. This folder might not appear if the client was installed before the management point. In that case, review the `CCM\\Logs` folder for the installed client. Then review the following log files on `DMZ-MP` for messages related to management point communication with the site server and site database:\n \n-   | Log file | Location on DMZ-MP | What to look for |\n+   | Log file | Location on `DMZ-MP` | What to look for |\n    |----------|------------------|-----------------|\n    | `MpControl.log` | `\\SMS\\Logs` | Regular Management Point and User Service availability checks. The successful check resembles `Call to HttpSendRequestSync succeeded for port 443 with status code 200, text: OK`. |\n    | `BGBServer.log` | `\\SMS\\Logs` | Client Notification (fast channel) server reporting. Typical entries include the number of connected clients, such as `Total online clients: 100 (TCP: 99 HTTP: 1)~~`. |\n",
+      "baseCommitSha": "51b835f9b99ec0b27fa9fc7144dec85ae2b6f28f",
+      "commitSha": "f83f7e5365ac9530d407324095b3a1f116b55219",
+      "commitMessage": "Polishing touches at headers and console verification",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-05-27T17:39:55+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment",
+      "firstSeenAt": "2026-05-27T16:39:55.000Z",
+      "eventId": "intune-docs:f83f7e5365ac9530d407324095b3a1f116b55219:modified:intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Polishing touches at headers and console verification",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\nindex 09e3c00a3b..ee58361ed6 100644\n--- a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n+++ b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n@@ -302,6 +302,7 @@ After the wizard finishes, verify that the management point installed successful\n \n - [Add site system roles](add-site-system-roles.md)\n - [Install site system roles](install-site-system-roles.md)\n+- [Site and site system prerequisites for Configuration Manager](../../../plan-design/configs/site-and-site-system-prerequisites.md)\n - [Communications across Active Directory forests](../../../plan-design/hierarchy/communications-between-endpoints.md#Plan_Com_X-Forest)\n - [Accounts used in Configuration Manager](../../../plan-design/hierarchy/accounts.md)\n - [PKI certificate requirements for Configuration Manager](../../../plan-design/network/pki-certificate-requirements.md)\n",
+      "baseCommitSha": "f83f7e5365ac9530d407324095b3a1f116b55219",
+      "commitSha": "77fe736302ca143831d752f0db0092483d574e4d",
+      "commitMessage": "Adding the link for MP Prerequisites",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-05-27T17:46:30+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment",
+      "firstSeenAt": "2026-05-27T16:46:30.000Z",
+      "eventId": "intune-docs:77fe736302ca143831d752f0db0092483d574e4d:modified:intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding the link for MP Prerequisites",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\nindex ee58361ed6..b3abeb1288 100644\n--- a/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n+++ b/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md\n@@ -294,7 +294,7 @@ After the wizard finishes, verify that the management point installed successful\n \n 2. Review `%Windir%\\CCMSetup\\Logs\\CCMSetup.log` to confirm the successful installation.\n \n-3. Review `\\SMS_CCM\\Logs\\ClientIDManagerStartup.log` to confirm successful client registration. Look for messages similar to `[RegTask] - Client is registered. Server assigned ClientID is GUID:0B1F5036-9CE1-41A1-B417-063582728464. Approval status 1`.\n+3. Review `\\SMS_CCM\\Logs\\ClientIDManagerStartup.log` to confirm successful client registration. Look for messages similar to `[RegTask] - Client is registered. Server assigned ClientID is GUID:00000000-0000-0000-0000-000000000000. Approval status 1`.\n \n 4. Verify that the client appears in the Configuration Manager console and shows an **Online** icon. Add the **Management Point** column to the console view to confirm that the client is assigned to `DMZ-MP.branch.fabrikam.com`.\n \n",
+      "baseCommitSha": "77fe736302ca143831d752f0db0092483d574e4d",
+      "commitSha": "aadca7634032632f8e411cd7f3a271b8f9419cb6",
+      "commitMessage": "Sanitizing the client GUID",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-05-27T17:51:42+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/example-management-point-deployment",
+      "firstSeenAt": "2026-05-27T16:51:42.000Z",
+      "eventId": "intune-docs:aadca7634032632f8e411cd7f3a271b8f9419cb6:modified:intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sanitizing the client GUID",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md b/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md\nindex b7c636047d..7d49827481 100644\n--- a/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md\n+++ b/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md\n@@ -46,7 +46,10 @@ To upgrade a server, use the upgrade procedures provided by the OS you're upgrad\n Use the steps in this section for any of the upgrade scenarios listed above.\n \n > [!IMPORTANT]\n-> All site systems that run the Software Update Point (SUP) role must use the same version of Windows Server to communicate correctly during synchronization. This requirement also applies to Central Administration sites and primary site servers that don’t host the SUP role but have the WSUS Administration Tools installed to communicate with a remote SUP.\n+> Upgrade software update points (SUPs) from the top-level site downward. Older WSUS versions can synchronize from newer WSUS versions, but newer WSUS versions can't synchronize from older WSUS versions.\n+> If you have multiple SUPs in the same site, use this order:\n+> 1. If the site server doesn't host a SUP, upgrade the site server only after you upgrade all other SUPs in the hierarchy.\n+> 1. If the site server hosts a SUP, upgrade all SUPs as quickly as possible. Synchronization fails for any SUP in the site that isn't running the same version as the SUP on the site server.\n \n #### Before upgrade\n \n",
+      "baseCommitSha": "d935f1858bfad88b606cb17137dd21f0564018f3",
+      "commitSha": "b18821af1b454f9adb13af5b0fa4332b07a9a919",
+      "commitMessage": "Learn Editor: Update upgrade-on-premises-infrastructure.md",
+      "commitAuthor": "Jon",
+      "commitDate": "2026-05-27T15:08:32-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure",
+      "firstSeenAt": "2026-05-27T20:08:32.000Z",
+      "eventId": "intune-docs:b18821af1b454f9adb13af5b0fa4332b07a9a919:modified:intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update upgrade-on-premises-infrastructure.md",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/governance/integrate-azure-monitor.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/intune/governance/integrate-azure-monitor.md b/intune/governance/integrate-azure-monitor.md\nindex 2d639b9037..394ebc87f8 100644\n--- a/intune/governance/integrate-azure-monitor.md\n+++ b/intune/governance/integrate-azure-monitor.md\n@@ -193,6 +193,11 @@ After the action:\n - The Intune **Audit Logs** and **Operational Logs** are sent immediately from Intune to Azure Monitor services.\n - The Intune **Device Compliance Organizational Logs** and **Intune Devices report** data can take up to 48 hours to be sent to Azure Monitor services. Intune sends this data to Azure Monitor services once every 24 hours and this export can happen anytime within each 24-hour period.\n \n+> [!NOTE]\n+> Intune doesn't guarantee that Device Compliance Organizational Logs or Intune Devices report data will be exported or available at a specific time of day. These exports can occur anytime within each 24-hour export period and remain subject to the documented delivery window. As Microsoft improves the export pipeline, the observed completion time might change.\n+>\n+>If you depend on exported Intune data for reports, dashboards, or automation, use a consumption schedule that accounts for variable export timing rather than relying on a previously observed completion time.\n+\n When Azure Monitor services receive the data, it typically shows in the Azure Monitor service within 30 minutes.\n \n ### What happens if an administrator changes the retention period of a diagnostic setting?\n",
+      "baseCommitSha": "86e6a38416ea8e5d2d4b729376cc8455e3cc2a00",
+      "commitSha": "12433d65b7466abc2ae2de3d67173ba234be5c1b",
+      "commitMessage": "Update Azure Monitor integration notes for Intune",
+      "commitAuthor": "Daniel Gerrity",
+      "commitDate": "2026-05-27T14:30:00-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/governance/integrate-azure-monitor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/governance/integrate-azure-monitor",
+      "firstSeenAt": "2026-05-27T21:30:00.000Z",
+      "eventId": "intune-docs:12433d65b7466abc2ae2de3d67173ba234be5c1b:modified:intune/governance/integrate-azure-monitor.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update Azure Monitor integration notes for Intune",
+        "summary": "Updated Microsoft Intune documentation in intune/governance/integrate-azure-monitor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 7,
+    "totalFiles": 7,
+    "authors": [
+      "Daniel Gerrity",
+      "Jon",
+      "Pavel Yurenev",
+      "imakeitworkAZ"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/s",
+        "sourceFiles": [
+          "intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+          "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+          "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+          "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+          "intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md",
+          "intune/configmgr/core/servers/manage/upgrade-on-premises-infrastructure.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/governance",
+        "summary": "Updated Microsoft Intune documentation in intune/governance/integrate-azure-monitor.md.",
+        "sourceFiles": [
+          "intune/governance/integrate-azure-monitor.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/example-management-point-deployment.md. Updated Microsoft Intune documentation in intune/configmgr/core/s"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/governance",
+        "detail": "Updated Microsoft Intune documentation in intune/governance/integrate-azure-monitor.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

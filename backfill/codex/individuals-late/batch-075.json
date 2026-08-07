@@ -1,0 +1,58 @@
+{
+  "worker": "individuals-late",
+  "kind": "individuals",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "medium",
+  "items": [
+    {
+      "date": "2026-05-04",
+      "eventId": "intune-docs:f781cbf002c15c8f2a2480de415c1a212d4a69c4:modified:intune/configmgr/hotfix/2603/37426535.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Configuration Manager 2603 terminology clarified",
+        "summary": "Uses “Azure Virtual Machine Scale Set,” “Arm64,” and “nonfunctional” terminology in release notes while retaining the documented 2603 fixes.",
+        "adminImpact": "No deployment change; use the current terminology when assessing the listed 2603 fixes."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:acd7200af7b9255de4e63be9ea01f3ce4409683f:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "CMGv2 metric guidance names Azure Virtual Machine Scale Sets",
+        "summary": "Expands the CMGv2 acronym in the outbound-traffic alert and Total Outbound data metric description to Azure Virtual Machine Scale Sets.",
+        "adminImpact": "Use the expanded Azure Virtual Machine Scale Sets term when validating CMGv2 metric coverage."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:acd7200af7b9255de4e63be9ea01f3ce4409683f:modified:intune/configmgr/hotfix/2603/37426535.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Configuration Manager 2603 hotfix lists reformatted",
+        "summary": "Converts numbered Notes, included hotfixes, and dependency changes into bullet lists; the listed KBs and dependencies remain the same.",
+        "adminImpact": "No installation requirement changed; consult the list of included KBs and dependencies when planning 2603."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/full-scan.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Full scan navigation now links directly to Devices and All devices",
+        "summary": "The Full scan procedure replaces indirect portal references with direct Intune admin center links for Devices and All devices, and direct role links for Help Desk Operator, Endpoint Security Manager, and custom roles.",
+        "adminImpact": "No scan permission changed; operators still need Remote tasks/Windows defender plus device visibility permissions."
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "eventId": "intune-docs:92a96cbc124b743f5b450e564015f9a99f039c2c:modified:intune/device-management/actions/index.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Device-action navigation links now target specific admin-center pages",
+        "summary": "The device-action overview adds direct links for All devices, Device actions, Devices, and Bulk device actions instead of generic portal destinations.",
+        "adminImpact": "Use the direct navigation links when initiating, monitoring, or bulk-running device actions."
+      }
+    }
+  ]
+}

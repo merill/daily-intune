@@ -1,0 +1,153 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-04-14",
+      "summary": {
+        "headline": "Android AOSP compliance and EPM standard-user transition guidance are added",
+        "overview": "A large documentation release adds Android Open Source Project compliance settings, a guide for moving users from local administrator to standard user with Endpoint Privilege Management, and endpoint-security firewall settings for Configuration Manager devices.",
+        "adminImpact": "Android AOSP administrators should review the new compliance-settings reference before policy work. Endpoint-security teams should assess the EPM transition guidance and Configuration Manager firewall settings alongside existing privileged-access and tenant-attach designs.",
+        "keyChanges": [
+          {
+            "title": "Android AOSP compliance settings guidance is added",
+            "detail": "Microsoft published an Intune reference for Android (AOSP) compliance settings.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-14-android-aosp-compliance-settings-in-microsoft-intune-76"
+          },
+          {
+            "title": "EPM administrator-to-standard-user transition guidance is added",
+            "detail": "New documentation describes using Endpoint Privilege Management to transition users from administrator to standard user.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-04-14-use-endpoint-privilege-management-to-transition-users-from-administrator-to-standard-user-178"
+          },
+          {
+            "title": "Tenant-attach firewall settings reference is added",
+            "detail": "Microsoft added endpoint-security firewall settings documentation for Configuration Manager devices.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-14-intune-endpoint-security-firewall-settings-for-configuration-manager-devices-61"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-15",
+      "summary": {
+        "headline": "Remote Help deployment and tenant-attach firewall references are added",
+        "overview": "The April 15 release adds a Remote Help deployment guide and Configuration Manager firewall settings material, with updates to compliance-policy monitoring, Security Copilot, and reusable settings groups.",
+        "adminImpact": "Support teams should compare the new Remote Help deployment guide with current rollout instructions. Co-management teams should review the new firewall-settings reference before revising endpoint-security policy for Configuration Manager devices.",
+        "keyChanges": [
+          {
+            "title": "Remote Help deployment guidance is added",
+            "detail": "Microsoft added documentation for deploying Remote Help with Microsoft Intune.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-04-15-deploy-remote-help-with-microsoft-intune-118"
+          },
+          {
+            "title": "Tenant-attach firewall settings reference is added",
+            "detail": "A new Intune endpoint-security firewall settings reference was added for Configuration Manager devices.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-15-intune-endpoint-security-firewall-settings-for-configuration-manager-devices-21"
+          },
+          {
+            "title": "Compliance-policy monitoring guidance is updated",
+            "detail": "Microsoft revised the Intune documentation for monitoring a compliance policy.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-15-monitor-policy-826"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-16",
+      "summary": {
+        "headline": "Remote Help and Enterprise App Catalog materials are added",
+        "overview": "New documentation describes using Remote Help to assist authenticated users and adding an Enterprise App Catalog app to Intune. Updates also cover compliance monitoring, the Vulnerability Remediation Agent, and the Intune data platform schema.",
+        "adminImpact": "Update remote-support onboarding and operator guidance using the new Remote Help reference. App-management teams can use the Enterprise App Catalog documentation to validate their app intake and deployment process.",
+        "keyChanges": [
+          {
+            "title": "Authenticated-user Remote Help guidance is added",
+            "detail": "Microsoft added guidance for using Remote Help to assist users authenticated by the organization.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-04-16-use-remote-help-to-assist-users-authenticated-by-your-organization-06"
+          },
+          {
+            "title": "Enterprise App Catalog app guidance is added",
+            "detail": "New documentation covers adding an Enterprise App Catalog app to Microsoft Intune.",
+            "product": "Enterprise App Management",
+            "sourceId": "doc-2026-04-16-add-an-enterprise-app-catalog-app-to-microsoft-intune-01"
+          },
+          {
+            "title": "Compliance-results monitoring guidance is updated",
+            "detail": "The Intune documentation for monitoring device compliance policy results was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-16-monitor-results-of-your-device-compliance-policies-in-microsoft-intune-256"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-17",
+      "summary": {
+        "headline": "Compliance monitoring, BitLocker encryption, and education enrollment references are updated",
+        "overview": "Documentation updates focus on compliance monitoring, Windows BitLocker encryption, Configuration Manager feature lifecycle, and education enrollment planning. The Security Copilot agents requirements reference is removed.",
+        "adminImpact": "Check refreshed compliance and encryption instructions before operational changes. Security Copilot users should update any links to the removed requirements page and follow the current agent documentation set instead.",
+        "keyChanges": [
+          {
+            "title": "Compliance-policy monitoring guidance is refreshed",
+            "detail": "Microsoft updated the Intune documentation for monitoring a compliance policy.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-17-monitor-policy-90"
+          },
+          {
+            "title": "BitLocker encryption guidance is updated",
+            "detail": "The Intune documentation for encrypting Windows devices with BitLocker was revised.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-17-encrypt-bitlocker-windows-36"
+          },
+          {
+            "title": "Security Copilot agent requirements page is removed",
+            "detail": "The Security Copilot agents requirements documentation page was removed.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-04-17-ref-requirements-91"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-04-13",
+      "summary": {
+        "headline": "The week adds AOSP compliance, EPM transition, and tenant-attach firewall guidance",
+        "overview": "The week’s major additions are Android AOSP compliance settings, Endpoint Privilege Management guidance for standard-user transitions, and endpoint-security firewall settings for Configuration Manager devices. Security Copilot and compliance-management references also receive updates.",
+        "adminImpact": "Review the new Android and EPM guidance as potential inputs to compliance and least-privilege programs. Co-management teams should use the current tenant-attach firewall reference before changing policy assignments.",
+        "keyChanges": [
+          {
+            "title": "Android AOSP compliance settings guidance is added",
+            "detail": "Microsoft added an Intune reference for Android (AOSP) compliance settings.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-14-android-aosp-compliance-settings-in-microsoft-intune-76"
+          },
+          {
+            "title": "EPM administrator-to-standard-user transition guidance is added",
+            "detail": "New guidance covers transitioning users from administrator to standard user with Endpoint Privilege Management.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-04-14-use-endpoint-privilege-management-to-transition-users-from-administrator-to-standard-user-178"
+          },
+          {
+            "title": "Tenant-attach firewall settings reference is added",
+            "detail": "Microsoft added endpoint-security firewall settings documentation for Configuration Manager devices.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-15-intune-endpoint-security-firewall-settings-for-configuration-manager-devices-21"
+          }
+        ]
+      }
+    }
+  ]
+}

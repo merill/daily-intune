@@ -1,0 +1,212 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md b/intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md\nindex b26e07bcf7..fa1b05d042 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md\n@@ -34,7 +34,7 @@ For example, you use Microsoft Hyper-V Server 2016 to host a VM that runs Window\n \n Each virtual computer needs the same or greater hardware and software requirements that you would use for a physical Configuration Manager computer.\n \n-To validate that Configuration Manager supports your virtualization environment, use the Server Virtualization Validation Program. It includes an online Virtualization Program Support Policy Wizard. For more information, see [Windows Server Virtualization Validation Program](https://www.windowsservercatalog.com/svvp.aspx).\n+To validate that Configuration Manager supports your virtualization environment, use the Server Virtualization Validation Program. It includes an online Virtualization Program Support Policy Wizard. For more information, see [Windows Server Virtualization Validation Program](https://www.windowsservercatalog.com/svvp/program-home).\n \n Configuration Manager can't manage VMs if they're offline. The Configuration Manager client on the host computer can't manage an offline VM image. For example, it can't install software updates or collect hardware inventory.\n \n",
+      "baseCommitSha": "ae1413d2e30eb25284d03c38513f4c13c8fd8b91",
+      "commitSha": "fd38cb74116f741315cc1b6a68b605e576cb1d06",
+      "commitMessage": "Learn Editor: Update support-for-virtualization-environments.md",
+      "commitAuthor": "Jon",
+      "commitDate": "2026-06-02T08:40:34-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-virtualization-environments",
+      "firstSeenAt": "2026-06-02T13:40:34.000Z",
+      "eventId": "intune-docs:fd38cb74116f741315cc1b6a68b605e576cb1d06:modified:intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update support-for-virtualization-environments.md",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md b/intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md\nindex df1afcc9e5..faa57a85f3 100644\n--- a/intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md\n+++ b/intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md\n@@ -11,7 +11,7 @@ ms.collection: tier3\n \n *Applies to: Configuration Manager (current branch)*\n \n-Configuration Manager collects diagnostics and usage data about itself, which is used by Microsoft to improve the installation experience, quality, and security of future releases.\n+Configuration Manager collects diagnostics and usage data about itself, which is used by Microsoft to improve the installation experience, quality, and security of future releases. With version 2509, no further changes or updates are planned for diagnostic and usage data collection.\n \n Each Configuration Manager hierarchy enables diagnostics and usage data. It consists of SQL Server queries that run on a weekly basis on each primary site and at the central administration site (CAS). When the hierarchy uses a CAS, child primary sites replicate their data to that CAS. At the top-level site of your hierarchy, the [service connection point](../../servers/deploy/configure/about-the-service-connection-point.md) submits this information when it checks for updates. If the service connection point is in offline mode, you transfer the information by using the [service connection tool](../../servers/manage/use-the-service-connection-tool.md).\n \n",
+      "baseCommitSha": "ae1413d2e30eb25284d03c38513f4c13c8fd8b91",
+      "commitSha": "de3eb8008e49ada42af610faece83c4434b08cfb",
+      "commitMessage": "telemetry capture update",
+      "commitAuthor": "Brian Huneycutt",
+      "commitDate": "2026-06-02T12:17:20-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data",
+      "firstSeenAt": "2026-06-02T16:17:20.000Z",
+      "eventId": "intune-docs:de3eb8008e49ada42af610faece83c4434b08cfb:modified:intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "telemetry capture update",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/diagnostics/levels-overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/diagnostics/levels-overview.md b/intune/configmgr/core/plan-design/diagnostics/levels-overview.md\nindex fa2d6e5acd..5dcbd9bfd5 100644\n--- a/intune/configmgr/core/plan-design/diagnostics/levels-overview.md\n+++ b/intune/configmgr/core/plan-design/diagnostics/levels-overview.md\n@@ -58,6 +58,8 @@ The following articles detail the specific data that Configuration Manager colle\n - [Diagnostic and usage data for 2503](levels-of-diagnostic-usage-data-collection-2503.md)\n - [Diagnostic and usage data for 2409](levels-of-diagnostic-usage-data-collection-2409.md)\n \n+With version 2509, no further version-specific changes are planned to the collection of diagnostic usage data. \n+\n ## Next steps\n \n Next, learn about the diagnostics and usage data that Configuration Manager collects for its tools:\n",
+      "baseCommitSha": "ae1413d2e30eb25284d03c38513f4c13c8fd8b91",
+      "commitSha": "de3eb8008e49ada42af610faece83c4434b08cfb",
+      "commitMessage": "telemetry capture update",
+      "commitAuthor": "Brian Huneycutt",
+      "commitDate": "2026-06-02T12:17:20-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/diagnostics/levels-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/diagnostics/levels-overview",
+      "firstSeenAt": "2026-06-02T16:17:20.000Z",
+      "eventId": "intune-docs:de3eb8008e49ada42af610faece83c4434b08cfb:modified:intune/configmgr/core/plan-design/diagnostics/levels-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "telemetry capture update",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/diagnostics/levels-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 33,
+      "changes": 41,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/multi-admin-approval.md b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\nindex 8d9dba83a0..384658a4b5 100644\n--- a/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n+++ b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n@@ -1,7 +1,7 @@\n ---\n title: Use Multi Admin Approval in Intune\n description: Configure Multi Admin Approval to protect your tenant against the use of compromised administrative accounts in Intune.\n-ms.date: 05/26/2026\n+ms.date: 04/27/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n ms.reviewer: davidra\n@@ -19,11 +19,6 @@ By using Multi Admin Approval, you can configure access policies that protect sp\n \n When you use any account in the tenant to make a change to a resource that's protected by an access policy, Intune doesn't apply the change until a different account explicitly approves it. Only administrators who are members of an approval group that an access protection policy assigns a protected resource to can approve changes. Approvers can also reject change requests.\n \n-MAA enforcement applies to both interactive (delegated) admin actions and application-authenticated (app-auth) API calls made through the Microsoft Graph API. If your organization uses service principals, automation scripts, or third-party applications to manage Intune resources via the Microsoft Graph API, those calls are also intercepted by MAA when the target resource is protected by an access policy. For details on how to update your automation to work with MAA, see [Use Multi Admin Approval with the Microsoft Graph API](multi-admin-approval-graph-api.md). To exclude specific apps from enforcement, see [Exclude enterprise applications from an access policy](#exclude-enterprise-applications-from-an-access-policy).\n-\n-> [!TIP]\n-> MAA enforcement on API calls made by automation applies only to tenants that already have MAA access policies configured. It doesn't enable MAA or change any tenant's enrollment.\n-\n Intune supports access policies for the following resources:\n \n - Apps – Applies to [app deployments](../../app-management/deployment/index.md), but doesn't apply to app protection policies.  \n@@ -62,24 +57,24 @@ To create and manage access policies, use an account with one of the following o\n   | *Update access policy* | Modify existing MAA access policies |\n   | *Delete access policy* | Remove MAA access policies |\n \n-- Intune Administrator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) (also known as **Intune Service Administrator**): This Microsoft Entra role provides full read/write access to Intune. Because it's a [privileged role](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center), Microsoft recommends using a least-privileged custom Intune role for routine access policy management instead of this role. To learn more, see [Microsoft Entra built-in roles - Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator).\n+- **Intune Administrator** [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) (also known as **Intune Service Administrator**): This Microsoft Entra role provides full read/write access to Intune. Because it's a [privileged role](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center), Microsoft recommends using a least-privileged custom Intune role for routine access policy management instead of this role. To learn more, see [Microsoft Entra built-in roles - Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator).\n \n ### Role 2: Approver\n \n To approve or reject MAA requests submitted by other admins, an account must meet all of the following requirements:\n \n 1. **Approver group membership**: The account must be a member of the approver group that's assigned to the access policy for the specific resource type.\n-1. **Intune role permission**: The approver account must have the resource-specific *Read* permission for the policy type they're approving. For example, to approve a request for a device delete action, the approver must have *ManagedDevices/Read*. For a full list of available permissions, see [Custom role permissions](create-custom-role.md#custom-role-permissions).\n-1. **RBAC role assignment for the group**: The approver security group itself must be added as a member group to at least one Intune role assignment. If the approver group isn't added to a role assignment, approver group members are removed from the group periodically.\n+2. **Intune role permission**: The account must have the resource-specific Read permissions for the policy type they are approving. \n+3. **RBAC role assignment for the group**: The approver security group itself must be added as a member group to at least one Intune role assignment. If the approver group isn't added to a role assignment, approver group members are removed from the group periodically.\n \n    > [!IMPORTANT]\n    > The approver group has two requirements:\n    > - It must be a **security group**. Distribution lists, Microsoft 365 groups, and mail-enabled security groups aren't supported and silently fail to resolve approver membership.\n-   > - It must be directly assigned to an RBAC role in Intune as a member group. Intune role permissions held by individual members, whether through other groups or direct user assignments, don't satisfy this requirement.\n+   > - It must be directly assigned to an Intune role as a member group. Intune role permissions held by individual members, whether through other groups or direct user assignments, don't satisfy this requirement.\n \n ### Role 3: Change requestor\n \n-To submit change requests and complete approved changes for protected resources, an administrator needs the standard Intune RBAC permissions for the specific action they're performing. The same account performs both steps - submitting the initial request and selecting **Complete** after approval by another admin. For example, *MobileApps/Create* to create an app, or *RemoteTasks/Wipe* to wipe a device.\n+To submit change requests and complete approved changes for protected resources, an administrator needs the standard Intune RBAC permissions for the specific action they're performing. The same account performs both steps — submitting the initial request and selecting **Complete** after approval by another admin. For example, *MobileApps/Create* to create an app, or *RemoteTasks/Wipe* to wipe a device.\n \n > [!NOTE]  \n > - An administrator can't approve their own requests, even if they're a member of the approver group. A different administrator must approve the request.\n@@ -100,7 +95,7 @@ After a change is submitted, an *approver* can navigate to the **All requests**\n \n ### Change Review Agent suggestions in Multi Admin Approval\n \n-When the [Change Review Agent](../../copilot/agents/change-review-agent.md) is set up and has completed a run, the **My requests** and **All requests** tabs display an **Agent Response** column for PowerShell script requests. When a suggestion is available, you can select it to open and complete the Change Review Agent's approval workflow for that request without leaving the Multi Admin Approval node.\n+When the [Change Review Agent](../../copilot/agents/change-review-agent.md) is set up and has completed a run, the **My requests** and **All requests** tabs display an **Agent Response** column for Windows PowerShell script requests. When a suggestion is available, you can select it to open and complete the Change Review Agent's approval workflow for that request without leaving the Multi Admin Approval node.\n \n Change Review Agent suggestions continue to be available in the [agent's primary experience](../../copilot/agents/manage-change-review-agent.md) as well. For more information about the agent, see [Change Review Agent overview](../../copilot/agents/change-review-agent.md).\n \n@@ -116,31 +111,12 @@ If a request isn't processed further within 3 days, it becomes **Expired**, and\n \n 1. On *Approvers*, select **Add groups** and then select a group as the group of approvers for this policy. More complex configurations that exclude groups aren't supported.\n \n-1. On *Exclusions*, optionally select **Add enterprise applications** to exclude specific enterprise applications that use app-auth tokens from MAA enforcement for this policy. Excluded applications can modify protected resources without going through the approval workflow. For more information, see [Exclude enterprise applications from an access policy](#exclude-enterprise-applications-from-an-access-policy).\n-\n-1. On *Review + submit for approval*, review the policy summary including the basics, approvers, and any exclusions. Enter a *Business justification*, and then select **Submit for approval**.\n+1. On *Review + Create*, review, and then save your changes.\n \n 1. Next, use a separate administrative account with **Approval for Multi Admin Approval** permission to sign in to the admin center to review and approve the new access policy.\n \n 1. Sign back in to the admin center with the first admin account that created the access policy, view the policy, and finalize it by selecting **Complete**. After Intune applies this policy, configurations for the protected profile type require multiple admin approvals.\n \n-### Exclude enterprise applications from an access policy\n-\n-When you create or edit an access policy, you can exclude specific enterprise applications from MAA enforcement for that policy. Excluded applications can modify the protected resource type without going through the approval workflow.\n-\n-> [!IMPORTANT]\n-> Exclusions apply only to app-auth (application-authenticated) calls. Calls made with delegated authentication are always subject to MAA enforcement, even if the application is excluded.\n-\n-> [!WARNING]\n-> Excluding an application bypasses MAA protection for the affected resource type. Each exclusion creates a gap in your approval workflow that could be exploited if the excluded application is compromised. Only exclude applications when necessary, and review your exclusion list regularly to remove entries that are no longer needed.\n-\n-Keep the following details in mind:\n-\n-- **Per-policy scope** — Each exclusion applies only to the access policy where it's configured. An exclusion in one access policy doesn't affect other policies or workloads.\n-- **Limit** — App exclusions are capped at 50 applications per access policy.\n-- **Approval required** — Adding, removing, or modifying exclusions requires approval by a second administrator, just like other access policy changes.\n-- **Audit logging** — All add, remove, and modify actions on the exclusion list are captured in the Intune audit log.\n-\n ## Submit a request\n \n To submit a request when Multi Admin Approval is enabled, use your normal process to create or edit a resource.\n@@ -204,5 +180,4 @@ You can cancel a request before it's approved by selecting it from the **My requ\n \n ## Related content\n \n-- [Use Multi Admin Approval with the Microsoft Graph API](multi-admin-approval-graph-api.md)\n - Manage [role-based access control](../role-based-access-control/overview.md)\n",
+      "baseCommitSha": "3169abe115364b403d4d336271f6d172fcca7b3e",
+      "commitSha": "585ba1793b1512370ae327a6d1744d5917603fe6",
+      "commitMessage": "Revert MAA app-auth enforcement (ADO 37629074)",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-02T09:47:35-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/multi-admin-approval",
+      "firstSeenAt": "2026-06-02T16:47:35.000Z",
+      "eventId": "intune-docs:585ba1793b1512370ae327a6d1744d5917603fe6:modified:intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert MAA app-auth enforcement (ADO 37629074)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 1bdb7dee50..49cb85098a 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -282,6 +282,7 @@ Device query supports the following entities. To learn more about what propertie\n - `Device Storage`\n - `Disk Drive`\n - `Encryptable Volume`\n+- `Local AI Agent`\n - `Logical Drive`\n - `Memory Info`\n - `Network Adapter`\n@@ -385,6 +386,7 @@ Cpu\n - Referencing a variable that was generated by an aggregation function without explicitly naming it can cause a query to fail. Explicitly naming the variable allows the query to succeed. For example:\n   - The query `Device | summarize dcount(DeviceId) | order by dcount_DeviceId` fails.\n   - The query `Device | summarize DCountDeviceIdRename = dcount(DeviceId) | order by DCountDeviceIdRename` succeeds.\n+  - NL2KQL assistance for the \"Local AI Agent\" entity is currently unsupported.\n \n \n <!--Role links-->\n@@ -394,4 +396,4 @@ Cpu\n \n [Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n [**Device query**]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/DeviceQuery\n-[**Devices**]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/overview\n\\ No newline at end of file\n+[**Devices**]: https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/overview\n",
+      "baseCommitSha": "acac33c57f87df38a830c10a363384d14ded782f",
+      "commitSha": "e01c63a7976c13b341e0a2c134822c2af723f433",
+      "commitMessage": "Update for Local AI agent and NL2KQL support info (#20314)",
+      "commitAuthor": "Abby Starr",
+      "commitDate": "2026-06-02T15:23:01-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-06-02T19:23:01.000Z",
+      "eventId": "intune-docs:e01c63a7976c13b341e0a2c134822c2af723f433:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update for Local AI agent and NL2KQL support info (#20314)",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 159,
+      "changes": 159,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md b/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md\ndeleted file mode 100644\nindex 0a889dfa04..0000000000\n--- a/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md\n+++ /dev/null\n@@ -1,161 +0,0 @@\n----\n-title: Use Multi Admin Approval with the Microsoft Graph API\n-description: Learn how to update your automation scripts and applications to work with Multi Admin Approval enforcement on app-authenticated API calls in Microsoft Intune.\n-ms.date: 05/26/2026\n-ms.topic: how-to\n-ai-usage: ai-assisted\n-ms.reviewer: davidra\n-\n-ms.collection:\n-- M365-identity-device-management\n----\n-\n-# Use Multi Admin Approval with the Microsoft Graph API\n-\n-Multi Admin Approval (MAA) enforces approval workflows on application-authenticated (app-auth) API calls made through the Microsoft Graph API. If your organization uses service principals, automation scripts, or third-party applications to manage Intune resources, those calls are intercepted by MAA when the target resource is protected by an [access policy](multi-admin-approval.md).\n-\n-This article explains how to update your automation to work with the MAA approval workflow, and how to exclude specific applications from enforcement when a code change isn't immediately feasible.\n-\n-> [!IMPORTANT]\n-> MAA is opt-in per workload for every tenant. This enforcement applies only to tenants that have MAA access policies configured. It doesn't automatically enable MAA or change which tenants have MAA. For more information about configuring access policies, see [Use access policies to require multi admin approval](multi-admin-approval.md).\n-\n-## What changes for app-auth calls\n-\n-Previously, only interactive (delegated) admin actions were subject to MAA approval workflows. With this change, automated and scripted calls that use app-only tokens are also intercepted by MAA when the target resource is protected by an access policy.\n-\n-If your application makes API calls to MAA-protected resources using app-auth and doesn't include the required approval headers, the call returns an HTTP 403 error. The response body indicates that the operation requires Multi Admin Approval.\n-\n-### Affected resource types\n-\n-MAA access policies can protect the following resource types. If your app-auth calls target any of these resources and an access policy is active, your automation is affected:\n-\n-- Apps\n-- Compliance policies\n-- Configuration policies\n-- Device actions\n-- Role-based access control\n-- Scripts\n-- Tenant Configuration\n-\n-MAA only applies to operations that modify protected resources (POST, PATCH, PUT, DELETE). Read-only operations (GET) aren't affected.\n-\n-## Prerequisites\n-\n-- An [app registration](/entra/identity-platform/quickstart-register-app) with the required Microsoft Graph application permissions for the Intune resources your app manages (for example, `DeviceManagementApps.ReadWrite.All`).\n-- MAA access policies configured for the relevant workloads. For more information, see [Create an access policy](multi-admin-approval.md#create-an-access-policy).\n-- A separate admin account that's a member of the approver group for the access policy. Applications can't approve or reject MAA requests — only interactive admin accounts can approve requests.\n-\n-## Step 1: Submit a request with a justification header\n-\n-When MAA is enabled, include a justification header with your request. The `x-msft-approval-justification` header value must be Base64-encoded.\n-\n-The following example creates a PowerShell script resource in Intune and includes the required justification header:\n-\n-```http\n-POST https://graph.microsoft.com/beta/deviceManagement/deviceManagementScripts\n-Content-Type: application/json\n-x-msft-approval-justification: YXBwIG9ubHkgdGVzdA==\n-\n-{\n-  \"displayName\": \"My Test Script\",\n-  \"description\": \"Testing MAA with app-only token\",\n-  \"scriptContent\": \"V3JpdGUtT3V0cHV0ICJIZWxsbyBXb3JsZCI=\",\n-  \"runAsAccount\": \"system\",\n-  \"fileName\": \"TestScript.ps1\",\n-  \"roleScopeTagIds\": [\"0\"]\n-}\n-```\n-\n-> [!TIP]\n-> The `x-msft-approval-justification` value is Base64-encoded. For example, `YXBwIG9ubHkgdGVzdA==` decodes to `app only test`. Encode your own justification string before sending.\n-\n-Without the justification header, the request fails with an error indicating that the `x-msft-approval-justification` header is required.\n-\n-## Step 2: Handle the approval response\n-\n-The request returns an HTTP 403 error with an `ApprovalRequired` error code. This 403 response is expected and doesn't indicate a permissions problem — it's how MAA signals that the request was received and is now waiting for approval. The response includes an `x-msft-approval-code` header that you need for the remaining steps.\n-\n-Example response:\n-\n-```json\n-{\n-  \"error\": {\n-    \"code\": \"ApprovalRequired\",\n-    \"message\": \"Approval Required. Request Approval using the request ID returned as part of the x-msft-approval-code response header. x-msft-approval-code: aabb1234-5678-9012-abcd-ef0123456789\"\n-  }\n-}\n-```\n-\n-Extract the `x-msft-approval-code` value from the response. You need it in Step 4 after the request is approved.\n-\n-## Step 3: Wait for approval\n-\n-At this point, the approval request must be reviewed and approved by another administrator in the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431). Applications can't approve or reject MAA requests — only interactive admin accounts can approve them.\n-\n-You can query the approval request status at any time by using the approval code:\n-\n-```http\n-GET https://graph.microsoft.com/beta/deviceManagement/operationApprovalRequests?$filter=requestId eq 'aabb1234-5678-9012-abcd-ef0123456789'\n-```\n-\n-The `status` field indicates the current state of the request. Common values include `needsApproval`, `approved`, `rejected`, and `cancelled`. Wait until the status changes to `approved` before proceeding.\n-\n-## Step 4: Resubmit with the approval code\n-\n-After the request is approved, resubmit the original request. Replace the justification header with the `x-msft-approval-code` header and use the approval code from Step 2:\n-\n-```http\n-POST https://graph.microsoft.com/beta/deviceManagement/deviceManagementScripts\n-Content-Type: application/json\n-x-msft-approval-code: aabb1234-5678-9012-abcd-ef0123456789\n-\n-{\n-  \"displayName\": \"My Test Script\",\n-  \"description\": \"Testing MAA with app-only token\",\n-  \"scriptContent\": \"V3JpdGUtT3V0cHV0ICJIZWxsbyBXb3JsZCI=\",\n-  \"runAsAccount\": \"system\",\n-  \"fileName\": \"TestScript.ps1\",\n-  \"roleScopeTagIds\": [\"0\"]\n-}\n-```\n-\n-The request completes successfully and the resource is created.\n-\n-## Exclude an application from MAA enforcement\n-\n-If you can't immediately update your application to include the approval workflow, you can exclude it from MAA enforcement in the access policy. To configure an exclusion, edit the access policy for the workload your app calls and add the application on the **Exclusions** tab. A second administrator must approve the change before the exclusion takes effect.\n-\n-Exclusions apply only to app-auth (application-authenticated) calls made by the excluded service principal. Interactive (delegated) admin actions on the same protected resources still require MAA approval.\n-\n-For more information about exclusions, including scope, limits, and security considerations, see [Exclude enterprise applications from an access policy](multi-admin-approval.md#exclude-enterprise-applications-from-an-access-policy).\n-\n-## Monitor MAA activity for app-auth calls\n-\n-MAA-related events — including approve, block, pass, exclusion add, and exclusion remove — are recorded in the existing Intune audit log. Use the standard [audit log](../../governance/monitor-audit-logs.md) and Graph API export to see which app-auth calls are going through MAA and how they're being handled.\n-\n-## Frequently asked questions\n-\n-### Why are my automation scripts failing?\n-\n-If your automation calls Microsoft Graph and targets resources protected by an MAA access policy, those calls are intercepted by the MAA approval workflow regardless of whether the script uses delegated or app-only authentication. Update your scripts to include the justification and approval headers described in this article. If your script uses app-only tokens (client-credentials flow), you can also [exclude the application](#exclude-an-application-from-maa-enforcement) from the access policy.\n-\n-### Does MAA affect read-only API calls?\n-\n-No. MAA only applies to operations that modify protected resources (POST, PATCH, PUT, DELETE). GET requests aren't affected.\n-\n-### Can an application approve its own MAA requests?\n-\n-No. Applications can't approve or reject MAA requests. A separate interactive admin account that's a member of the approver group must approve the request in the Microsoft Intune admin center.\n-\n-### How do I check if my tenant has MAA enabled?\n-\n-In the Microsoft Intune admin center, go to **Tenant administration** > **Multi Admin Approval** > **Access policies**. If there are active access policies listed, MAA is enabled for those workloads.\n-\n-### Can I turn off MAA to stop the enforcement?\n-\n-MAA access policies can be managed by administrators with the appropriate permissions. However, Microsoft strongly recommends keeping MAA enabled as a security best practice.\n-\n-## Related content\n-\n-- [Use access policies to require multi admin approval](multi-admin-approval.md)\n-- [Audit logs for Intune activities](../../governance/monitor-audit-logs.md)\n",
+      "baseCommitSha": "3169abe115364b403d4d336271f6d172fcca7b3e",
+      "commitSha": "585ba1793b1512370ae327a6d1744d5917603fe6",
+      "commitMessage": "Revert MAA app-auth enforcement (ADO 37629074)",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-02T09:47:35-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api",
+      "firstSeenAt": "2026-06-02T16:47:35.000Z",
+      "eventId": "intune-docs:585ba1793b1512370ae327a6d1744d5917603fe6:removed:intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Revert MAA app-auth enforcement (ADO 37629074)",
+        "summary": "Removed Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 6,
+    "authors": [
+      "Abby Starr",
+      "Brent Dunsire",
+      "Brian Huneycutt",
+      "Jon"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 1 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/diagnostics/levels-overview.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md",
+          "intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md",
+          "intune/configmgr/core/plan-design/diagnostics/levels-overview.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md. Removed Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md.",
+        "sourceFiles": [
+          "intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+          "intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "sourceFiles": [
+          "intune/advanced-analytics/device-query-multiple-devices.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-virtualization-environments.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/diagnostics/diagnostics-and-usage-data.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/diagnostics/levels-overview.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval.md. Removed Microsoft Intune documentation in intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

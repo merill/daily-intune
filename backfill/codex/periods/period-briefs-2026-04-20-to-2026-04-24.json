@@ -1,0 +1,153 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-04-20",
+      "summary": {
+        "headline": "Frontline-worker device management guidance is added with app-control and agent updates",
+        "overview": "New getting-started material covers frontline-worker device management. The release also updates app control, macOS LAPS setup, the Security Copilot Change Review Agent, and the Intune data platform schema.",
+        "adminImpact": "Frontline-device program owners should use the new guide to evaluate their management baseline. Security operations teams using the Change Review Agent should review its updated usage documentation.",
+        "keyChanges": [
+          {
+            "title": "Frontline-worker device management guide is added",
+            "detail": "Microsoft added getting-started guidance for frontline-worker device management.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-20-get-started-with-frontline-worker-flw-device-management-08"
+          },
+          {
+            "title": "Change Review Agent guidance is updated",
+            "detail": "The documentation for using the Security Copilot Change Review Agent was revised.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-04-20-use-the-change-review-agent-49"
+          },
+          {
+            "title": "App Control guidance is updated",
+            "detail": "The Intune endpoint-security documentation for managing App Control was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-20-manage-app-control-19"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-21",
+      "summary": {
+        "headline": "Apple Automated Device Enrollment guidance is added as retire and EPM material evolves",
+        "overview": "The day adds an overview of Apple Automated Device Enrollment for iOS and iPadOS in Intune, alongside updates to the device retire action, EPM support approvals, Configuration Manager remote actions, and the Change Review Agent.",
+        "adminImpact": "Apple enrollment teams should use the new overview to validate their Automated Device Enrollment design. Endpoint operations should also review updated retire and EPM support-approval guidance before procedural changes.",
+        "keyChanges": [
+          {
+            "title": "Apple Automated Device Enrollment overview is added",
+            "detail": "Microsoft published an overview of Apple Automated Device Enrollment for iOS and iPadOS in Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-21-overview-of-apple-automated-device-enrollment-for-ios-ipados-in-intune-15"
+          },
+          {
+            "title": "Device retire action guidance is updated",
+            "detail": "The Intune documentation for the device retire action was revised.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-21-device-action-retire-106"
+          },
+          {
+            "title": "EPM support-approvals guidance is updated",
+            "detail": "Microsoft updated the Endpoint Privilege Management reference for managing support approvals.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-04-21-manage-support-approvals-27"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-22",
+      "summary": {
+        "headline": "Compliance policy and custom settings guidance is refreshed",
+        "overview": "Documentation for creating compliance policies, defining custom JSON, and configuring custom compliance settings was updated. A Configuration Manager application-deployment technical reference was removed.",
+        "adminImpact": "Compliance-policy owners should consult the refreshed creation and custom-settings references before implementation changes. Update any Configuration Manager bookmarks that point to the removed application-deployment technical reference.",
+        "keyChanges": [
+          {
+            "title": "Compliance policy creation guidance is updated",
+            "detail": "Microsoft revised the Intune documentation for creating a compliance policy.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-22-create-policy-67"
+          },
+          {
+            "title": "Custom JSON compliance guidance is updated",
+            "detail": "The Intune documentation for creating custom JSON compliance settings was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-22-create-custom-json-66"
+          },
+          {
+            "title": "Application deployment technical reference is removed",
+            "detail": "The Configuration Manager app-deployment technical reference was removed.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-04-22-app-deployment-technical-reference-78"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-23",
+      "summary": {
+        "headline": "Data-protection overview is added alongside Edge policy and endpoint-security updates",
+        "overview": "The release introduces an Intune overview for protecting data and devices, updates Edge for Business app-protection policy guidance, and refreshes endpoint-security and policy-management references.",
+        "adminImpact": "Use the new data-protection overview as a current entry point for security architecture discussions. Teams deploying Edge for Business protection should validate their policy work against the updated step guidance.",
+        "keyChanges": [
+          {
+            "title": "Intune data-protection overview is added",
+            "detail": "Microsoft added an overview for protecting data and devices with Microsoft Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-23-protect-data-and-devices-with-microsoft-intune-01"
+          },
+          {
+            "title": "Edge for Business app-protection policy guidance is updated",
+            "detail": "The documentation for creating app protection policies for Microsoft Edge for Business was revised.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-23-step-2-create-app-protection-policies-for-microsoft-edge-for-business-19"
+          },
+          {
+            "title": "Endpoint-security policy guidance is updated",
+            "detail": "The Intune endpoint-security policies documentation was updated.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-04-23-endpoint-security-policies-13"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-24",
+      "summary": {
+        "headline": "Unenrolled-device MAM guidance is added with Android and Apple enrollment updates",
+        "overview": "Microsoft added a guide for Mobile Application Management on unenrolled devices, while Android MAM, Android application-management migration, and iOS/iPadOS enrollment documentation were updated.",
+        "adminImpact": "App-protection teams should assess the new unenrolled-device MAM guidance before revising BYOD controls. Android and Apple enrollment owners should recheck the refreshed migration and enrollment guides.",
+        "keyChanges": [
+          {
+            "title": "Unenrolled-device MAM guidance is added",
+            "detail": "Microsoft added documentation for Mobile Application Management on unenrolled devices in Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-24-mobile-application-management-mam-for-unenrolled-devices-in-microsoft-intune-01"
+          },
+          {
+            "title": "Android application-management migration guidance is updated",
+            "detail": "The Intune documentation for migrating Android devices to application management was revised.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-24-migrate-to-application-management-05"
+          },
+          {
+            "title": "iOS and iPadOS enrollment guide is updated",
+            "detail": "Microsoft updated the Intune enrollment guide for iOS and iPadOS.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-24-guide-ios-ipados-06"
+          }
+        ]
+      }
+    }
+  ]
+}

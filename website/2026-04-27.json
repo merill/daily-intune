@@ -1,0 +1,563 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "added",
+      "additions": 84,
+      "deletions": 0,
+      "changes": 84,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nnew file mode 100644\nindex 0000000000..56c64444fe\n--- /dev/null\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -0,0 +1,84 @@\n+---\n+title: What's new in version 2603\n+description: Get details about changes and new capabilities introduced in version 2603 of Configuration Manager current branch.\n+ms.date: 04/27/2026\n+ms.subservice: core-infra\n+ms.topic: whats-new\n+ms.collection: tier3\n+---\n+\n+# What's new in version 2603 of Configuration Manager current branch\n+\n+*Applies to: Configuration Manager (current branch)*\n+\n+Update 2603 for Configuration Manager current branch is available as an in-console update. Apply this update on sites that run version 2409 or later.\n+\n+Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n+\n+To take full advantage of new Configuration Manager changes, after you update the site, also update clients to the latest version. New functionality appears in the Configuration Manager console when you update the site and console, but the complete scenario isn't functional until the client version is also the latest.\n+\n+## General enhancements\n+\n+As part of Microsoft's Secure Future Initiative (SFI) the 2603 version of Configuration Manager continues to focus on security, quality, and infrastructure modernization. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center/security/secure-future-initiative).\n+For a list of significant customer-reported issues resolved in this release, see the [Summary of changes in Configuration Manager version 2603](../../../hotfix/2603/37426535.md) knowledge base article.\n+\n+### Security improvements for Network Access Account\n+\n+This update enhances security by improving access controls for the Network Access Account (NAA). Access to NAA information is now restricted to supported OSD media task sequence scenarios by enforcing additional permission requirements and removing legacy access paths to reduce exposure and align with least privilege principles. For more information, see [KB 37447175](../../../hotfix/2503/37447175.md).\n+\n+### Weak ciphers disabled on Cloud Management Gateway\n+\n+Weak DHE (Diffie-Hellman Ephemeral) cipher suites are now disabled on Cloud Management Gateway (CMG) instances. Only TLS 1.3 (AES_256_GCM, AES_128_GCM) and TLS 1.2 ECDHE ciphers remain enabled, improving the security posture of CMG connections.\n+\n+Additionally, the `EnableCertPaddingCheck` registry keys are now set by default on CMG Virtual Machine Scale Set instances to mitigate CVE-2013-3900 (WinVerifyTrust Signature Validation Vulnerability).\n+\n+### SQL Server Native Client dependency removed\n+\n+All Configuration Manager components and site roles are updated to remove the dependency on the deprecated SQL Server Native Client (sqlncli.msi). Customers can now safely uninstall sqlncli from site systems. The product no longer includes sqlncli.msi in its redistributables.\n+\n+### SQL Server Management Objects updated\n+\n+The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2016 versions (SMO 17).\n+\n+### PKI certificate support for site system-to-SQL Server communication\n+\n+Added support and testing for PKI certificates used in site system-to-SQL Server communication. This includes proper handling of certificate trust, private key access, and BitLocker Management portal registry thumbprint configuration.\n+\n+### ARM64 support improvements\n+\n+- The `Import-CMDriver` PowerShell cmdlet now correctly includes ARM64 platform support when importing drivers from INF files. Previously, ARM64 was filtered out from the Supported Platforms list.\n+- Client push installation (CcmSetup) no longer fails with error code `0x80070643` on Windows 11 ARM64 devices when upgrading from ConfigMgr 2403 or 2503.\n+\n+### Cloud Management Gateway improvements\n+\n+- The `New-CMCloudManagementGateway` PowerShell cmdlet now allows combining the `-IsUsingExistingGroup $true` parameter with `-ServerAppClientId`, enabling automated CMG deployment into existing Azure resource groups without requiring interactive credentials.\n+- CMG deployment error handling is improved to capture and display detailed Azure error response information when Attribute-Based Access Control (ABAC) conditions block role assignments.\n+- The CMG outbound traffic alert and \"Total Outbound data\" metric now work correctly for CMGv2 (VMSS-based) deployments.\n+\n+### Updated Feedback experience\n+\n+The Configuration Manager console In-App Feedback feature is updated to support the new OCV Feedback SDK with authenticated submissions. Both authenticated and offline feedback submission modes are supported.\n+\n+### Deprecated and removed features\n+\n+- An internal service required for device compliance checks will be deprecated in October 2026. Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune. To prevent this issue, apply this update before October 2026.\n+- The deprecated Asset Intelligence synchronization point site role is removed from the site roles selection UI.\n+- The Software Update Health Troubleshooting Dashboard is hidden in this release due to performance issues in large environments.\n+\n+## Next steps\n+\n+<!-- As of MM DD, YYYY, version 2603 is globally available for all customers to install. -->\n+\n+When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md).\n+\n+> [!TIP]\n+> To install a new site, use a baseline version of Configuration Manager.\n+>\n+> Learn more about:\n+>\n+> - [Installing new sites](../../servers/deploy/install/installing-sites.md)\n+> - [Baseline and update versions](../../servers/manage/updates.md#bkmk_Baselines)\n+\n+For known significant issues, see the [Release notes](../../servers/deploy/install/release-notes.md).\n+\n+After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n",
+      "baseCommitSha": "6ec4a2f1d00f50468bc274317f50efd2b0e22604",
+      "commitSha": "bc5caeb054aa29bab0226d5a61c9bd1634be1d67",
+      "commitMessage": "Add documentation for Configuration Manager version 2603 updates and changes",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:31:41-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-04-27T18:31:41.000Z",
+      "eventId": "intune-docs:bc5caeb054aa29bab0226d5a61c9bd1634be1d67:added:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Add documentation for Configuration Manager version 2603 updates and changes",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37426535.md",
+      "status": "added",
+      "additions": 156,
+      "deletions": 0,
+      "changes": 156,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37426535.md b/intune/configmgr/hotfix/2603/37426535.md\nnew file mode 100644\nindex 0000000000..11fa24661f\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2603/37426535.md\n@@ -0,0 +1,156 @@\n+---\n+title: Summary of changes in Configuration Manager current branch, version 2603\n+description: Article listing changes in Configuration Manager current branch, version 2603\n+ms.date: 04/27/2026\n+ms.subservice: core-infra\n+ms.topic: reference\n+ms.collection: tier3\n+---\n+\n+# Summary of changes in Configuration Manager current branch, version 2603\n+\n+*Applies to: Configuration Manager (current branch, version 2603)*\n+\n+## Summary of KB37426535\n+\n+Release version 2603 of Configuration Manager current branch contains fixes and feature improvements. The \"Issues that are fixed\" list isn't inclusive of all changes. Instead, it highlights changes the product development team believes are most relevant to the broad Configuration Manager customer base. These changes were made in response to direct customer feedback about product issues and improvements.\n+\n+##### Notes\n+\n+1. Version 2603 is available as an in-console update that can be installed at the top-tier site in a hierarchy.\n+2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2603.md).\n+3. For more information about the changes that are included in version 2603, see [What's new in version 2603 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-in-version-2603.md).\n+4. This release contains all of the fixes summarized in the following article.\n+\n+    KB [35877153](../2509/35877153.md): Summary of changes in Configuration Manager current branch, version 2509\n+\n+## Issues that are fixed\n+\n+<!-- 37150494 -->\n+- This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA). For more information, see [KB 37447175](../2503/37447175.md).\n+\n+<!-- 34826316 -->\n+- An internal service required for device compliance checks will be deprecated in October 2026. Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune. To prevent this issue, apply this update before October 2026.\n+\n+<!-- 14678533 -->\n+- Microsoft Connected Cache (MCC) setup fails with ReturnCode 13631517 on distribution points where a proxy server is configured in the Site System Properties. The proxy rejects the HTTP request because the connectivity test used relative-form URLs instead of the absolute-form required by proxies per HTTP RFC specifications.\n+\n+<!-- 15910591 -->\n+- Added support and testing for PKI certificates used in site system-to-SQL Server communication. This includes proper handling of certificate trust, private key access, and BitLocker Management portal registry thumbprint configuration.\n+\n+<!-- 16414967 -->\n+- All ConfigMgr components and site roles are updated to remove the dependency on the deprecated SQL Server Native Client (sqlncli.msi). Customers can now safely uninstall sqlncli from site systems. The product no longer includes sqlncli.msi in its redistributables.\n+\n+<!-- 16730478 -->\n+- The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2016 versions (SMO 17).\n+\n+<!-- 16981234 -->\n+- The Orchestration Group member reset function now also resets the `RequestSent` registry key (`HKLM\\SOFTWARE\\Microsoft\\CCM\\Orchestration\\RequestSent`), preventing clients from being stuck in a state where they perpetually wait for an orchestration lock and are unable to install updates.\n+\n+<!-- 17607738 -->\n+- The stored procedure `spCanDisableLEDBAT` can produce a \"Subquery returned more than 1 value\" error in WSUSCtrl.log when one distribution point server name is a substring of another DP server name. The LIKE pattern now uses proper delimiters to ensure exact server name matching.\n+\n+<!-- 25003287 -->\n+- The `EnableCertPaddingCheck` registry keys are now set by default on Cloud Management Gateway (CMG) Virtual Machine Scale Set instances to mitigate CVE-2013-3900 (WinVerifyTrust Signature Validation Vulnerability).\n+\n+<!-- 26692640 -->\n+- The prerequisite check for Network Access Account (NAA) is updated to acknowledge documented scenarios where NAA is still required, such as the Request State Store task sequence step and Apply OS Image with direct DP access.\n+\n+<!-- 27384591 -->\n+- Deprecated Management Insights entries for the retired Upgrade Readiness / Desktop Analytics service are removed from the Cloud Services category.\n+\n+<!-- 28636070 -->\n+- The Windows Defender Antivirus (WDAV) reporting for tenant-attached ConfigMgr clients no longer incorrectly shows 'True' in the 'Signature Update Overdue' field when clients have up-to-date signature definitions.\n+\n+<!-- 28741480 -->\n+- A race condition in Orchestration Groups is fixed that previously caused sequencing settings to be ignored, allowing multiple servers to install updates and reboot simultaneously instead of one at a time as configured.\n+\n+<!-- 30068061 -->\n+- Antimalware policy path exclusion validation is confirmed to correctly enforce that wildcards cannot be used in the server name portion of UNC paths, consistent with Microsoft Defender for Endpoint documentation.\n+\n+<!-- 30350302 -->\n+- The Software Update Health Troubleshooting Dashboard is hidden in this release due to severe performance issues in large environments. The `vSMS_SUAutoRemediation` SQL view could accumulate tens of millions of rows, causing console freezes and excessive SQL Server load.\n+\n+<!-- 30635232 -->\n+- The `New-CMCloudManagementGateway` PowerShell cmdlet now allows combining the `-IsUsingExistingGroup $true` parameter with `-ServerAppClientId`, enabling automated CMG deployment into existing Azure resource groups without requiring interactive credentials.\n+\n+<!-- 30809803 -->\n+- Build and Capture task sequences on Windows 11 24H2 (November/December 2024 media) no longer produce a \"Why did my PC restart\" error dialog during deployment of the captured image.\n+\n+<!-- 31521707 -->\n+- The misleading Network Access Account (NAA) requirement warning in the Distribution Points tab of the Task Sequence deployment wizard is updated to accurately reflect when NAA is actually required.\n+\n+<!-- 33747268 -->\n+- Site upgrades no longer fail on SQL Server Always On Availability Group environments due to the `UpgradeDatabase` function incorrectly attempting to set SINGLE_USER mode on a database participating in an availability group.\n+\n+<!-- 33921861 -->\n+- The CMG outbound traffic alert and \"Total Outbound data\" metric now work correctly for CMGv2 (VMSS-based) deployments. Previously, network-out usage metrics were not collected for VMSS deployments.\n+\n+<!-- 33922858, 33943623 -->\n+- Windows 10 IoT Enterprise LTSC 2021 devices are no longer incorrectly reported as 'not supported' or 'end of life' in Management Insights and the Product Lifecycle dashboard. The lifecycle matching logic now correctly distinguishes IoT LTSC editions from standard Windows 10 version 21H2 editions.\n+\n+<!-- 35407602 -->\n+- The BitLocker Management HelpDesk portal's \"Recovery Audit Report\" now loads correctly when SQL Server Reporting Services (SSRS) is installed in a non-English language. The report name is no longer inadvertently translated.\n+\n+<!-- 35657638 -->\n+- When creating a script with a Boolean parameter and a default value of `True`, the checkbox state now correctly matches the actual value passed to the script at execution time.\n+\n+<!-- 35882565 -->\n+- The ConfigMgr console In-App Feedback feature is updated to support the new OCV Feedback SDK with authenticated submissions. Both authenticated and offline feedback submission modes are supported.\n+\n+<!-- 35987882 -->\n+- Windows Update scan source registry settings are no longer incorrectly modified on co-managed devices when third-party updates are enabled, preventing Feature Updates and Quality Updates intended for Microsoft Intune/WUfB from being redirected to WSUS/Configuration Manager.\n+\n+<!-- 35991397 -->\n+- CMPivot queries through the AdminService no longer fail with a 400 Bad Request error due to a query parsing issue in the KustoParser. Previously, CMPivot would fall back to the SMS Provider path requiring additional Script Read permissions.\n+\n+<!-- 36105114 -->\n+- Weak DHE (Diffie-Hellman Ephemeral) cipher suites are disabled on Cloud Management Gateway (CMG) instances. Only TLS 1.3 (AES_256_GCM, AES_128_GCM) and TLS 1.2 ECDHE ciphers remain enabled.\n+\n+<!-- 36180037 -->\n+- The \"All Application deployments (advanced or basic)\" reports no longer return duplicate results when viewing detailed error or unknown deployment states. Previously, each result was multiplied by the number of deployment collections.\n+\n+<!-- 36340856 -->\n+- The deprecated \"Asset Intelligence synchronization point\" site role is removed from the site roles selection UI, preventing inadvertent installation of this non-functional role.\n+\n+<!-- 36390361 -->\n+- The `Import-CMDriver` PowerShell cmdlet now correctly includes ARM64 platform support when importing drivers from INF files. Previously, ARM64 was filtered out from the Supported Platforms list.\n+\n+<!-- 36429425 -->\n+- Applications with OS requirements (such as \"All x64 Windows 11 and higher Clients\") no longer fail during OSD with a 404 error when the client attempts to download the OS requirement policy definition after upgrading to a new version.\n+\n+<!-- 36589578 -->\n+- An informational notice is added to the Schedule Updates Wizard to inform administrators that offline servicing (applying software updates to OS images) does not work on all Windows platforms.\n+\n+<!-- 36703540 -->\n+- The `System.Linq.Dynamic.Core` library used by the AdminService component is updated from version 1.0.20.0 to version 1.7.1, resolving CVE-2023-32571 (Dynamic LINQ injection remote code execution vulnerability).\n+\n+<!-- 36806323 -->\n+- CMG deployment no longer fails with an `InvalidTemplateDeployment` error when Azure security policies are applied to the subscription. The VMSS SKU capacity field in the ARM template is now correctly defined as an integer instead of a string.\n+\n+<!-- 36816292 -->\n+- Software update synchronization no longer re-imports previously declined Surface firmware driver updates on every sync cycle. This resolves sync delays of several hours in environments with many declined drivers.\n+\n+<!-- 36984694 -->\n+- CMG deployment error handling is improved to capture and display detailed Azure error response information when Attribute-Based Access Control (ABAC) conditions block role assignments. Previously, only a generic 403 Forbidden error was shown.\n+\n+<!-- 37049155 -->\n+- Client push installation (CcmSetup) no longer fails with error code 0x80070643 on Windows 11 ARM64 devices when upgrading from ConfigMgr 2403 or 2503. The failure was caused by the upgrade process attempting to uninstall a 32-bit Management Point Provider component not compatible with ARM64 architecture.\n+\n+<!-- 37348867 -->\n+- Intune Endpoint Detection and Response (EDR) policies now apply correctly on ConfigMgr clients via tenant attach (non-co-managed). This is a regression fix for an issue introduced in ConfigMgr 2503.\n+\n+## Hotfixes that are included in this update\n+\n+1. KB [35877153](../2509/35877153.md): Summary of changes in Configuration Manager current branch, version 2509\n+2. KB [33247081](../2509/33247081.md): Microsoft Connected Cache update for Configuration Manager\n+3. KB [36419072](../2509/36419072.md): Feedback for Configuration Manager\n+4. KB [36495448](../2509/36495448.md): Software update management client fix for Configuration Manager versions 2503 and 2509\n+5. KB [37447175](../2503/37447175.md): Security update for Microsoft Configuration Manager\n+6. KB [37172183](../2503/37172183.md): Software Center client fix for Configuration Manager\n+\n+## Dependency changes\n+\n+1. The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated to the 2016 versions (SMO 17).\n+2. The SQL Server Native Client (sqlncli.msi) dependency is removed from all ConfigMgr components and site roles.\n+3. The `System.Linq.Dynamic.Core` library is updated to version 1.7.1 for the AdminService component.\n",
+      "baseCommitSha": "6ec4a2f1d00f50468bc274317f50efd2b0e22604",
+      "commitSha": "bc5caeb054aa29bab0226d5a61c9bd1634be1d67",
+      "commitMessage": "Add documentation for Configuration Manager version 2603 updates and changes",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:31:41-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37426535.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37426535",
+      "firstSeenAt": "2026-04-27T18:31:41.000Z",
+      "eventId": "intune-docs:bc5caeb054aa29bab0226d5a61c9bd1634be1d67:added:intune/configmgr/hotfix/2603/37426535.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Add documentation for Configuration Manager version 2603 updates and changes",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "added",
+      "additions": 84,
+      "deletions": 0,
+      "changes": 84,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nnew file mode 100644\nindex 0000000000..56c64444fe\n--- /dev/null\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -0,0 +1,84 @@\n+---\n+title: What's new in version 2603\n+description: Get details about changes and new capabilities introduced in version 2603 of Configuration Manager current branch.\n+ms.date: 04/27/2026\n+ms.subservice: core-infra\n+ms.topic: whats-new\n+ms.collection: tier3\n+---\n+\n+# What's new in version 2603 of Configuration Manager current branch\n+\n+*Applies to: Configuration Manager (current branch)*\n+\n+Update 2603 for Configuration Manager current branch is available as an in-console update. Apply this update on sites that run version 2409 or later.\n+\n+Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n+\n+To take full advantage of new Configuration Manager changes, after you update the site, also update clients to the latest version. New functionality appears in the Configuration Manager console when you update the site and console, but the complete scenario isn't functional until the client version is also the latest.\n+\n+## General enhancements\n+\n+As part of Microsoft's Secure Future Initiative (SFI) the 2603 version of Configuration Manager continues to focus on security, quality, and infrastructure modernization. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center/security/secure-future-initiative).\n+For a list of significant customer-reported issues resolved in this release, see the [Summary of changes in Configuration Manager version 2603](../../../hotfix/2603/37426535.md) knowledge base article.\n+\n+### Security improvements for Network Access Account\n+\n+This update enhances security by improving access controls for the Network Access Account (NAA). Access to NAA information is now restricted to supported OSD media task sequence scenarios by enforcing additional permission requirements and removing legacy access paths to reduce exposure and align with least privilege principles. For more information, see [KB 37447175](../../../hotfix/2503/37447175.md).\n+\n+### Weak ciphers disabled on Cloud Management Gateway\n+\n+Weak DHE (Diffie-Hellman Ephemeral) cipher suites are now disabled on Cloud Management Gateway (CMG) instances. Only TLS 1.3 (AES_256_GCM, AES_128_GCM) and TLS 1.2 ECDHE ciphers remain enabled, improving the security posture of CMG connections.\n+\n+Additionally, the `EnableCertPaddingCheck` registry keys are now set by default on CMG Virtual Machine Scale Set instances to mitigate CVE-2013-3900 (WinVerifyTrust Signature Validation Vulnerability).\n+\n+### SQL Server Native Client dependency removed\n+\n+All Configuration Manager components and site roles are updated to remove the dependency on the deprecated SQL Server Native Client (sqlncli.msi). Customers can now safely uninstall sqlncli from site systems. The product no longer includes sqlncli.msi in its redistributables.\n+\n+### SQL Server Management Objects updated\n+\n+The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2016 versions (SMO 17).\n+\n+### PKI certificate support for site system-to-SQL Server communication\n+\n+Added support and testing for PKI certificates used in site system-to-SQL Server communication. This includes proper handling of certificate trust, private key access, and BitLocker Management portal registry thumbprint configuration.\n+\n+### ARM64 support improvements\n+\n+- The `Import-CMDriver` PowerShell cmdlet now correctly includes ARM64 platform support when importing drivers from INF files. Previously, ARM64 was filtered out from the Supported Platforms list.\n+- Client push installation (CcmSetup) no longer fails with error code `0x80070643` on Windows 11 ARM64 devices when upgrading from ConfigMgr 2403 or 2503.\n+\n+### Cloud Management Gateway improvements\n+\n+- The `New-CMCloudManagementGateway` PowerShell cmdlet now allows combining the `-IsUsingExistingGroup $true` parameter with `-ServerAppClientId`, enabling automated CMG deployment into existing Azure resource groups without requiring interactive credentials.\n+- CMG deployment error handling is improved to capture and display detailed Azure error response information when Attribute-Based Access Control (ABAC) conditions block role assignments.\n+- The CMG outbound traffic alert and \"Total Outbound data\" metric now work correctly for CMGv2 (VMSS-based) deployments.\n+\n+### Updated Feedback experience\n+\n+The Configuration Manager console In-App Feedback feature is updated to support the new OCV Feedback SDK with authenticated submissions. Both authenticated and offline feedback submission modes are supported.\n+\n+### Deprecated and removed features\n+\n+- An internal service required for device compliance checks will be deprecated in October 2026. Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune. To prevent this issue, apply this update before October 2026.\n+- The deprecated Asset Intelligence synchronization point site role is removed from the site roles selection UI.\n+- The Software Update Health Troubleshooting Dashboard is hidden in this release due to performance issues in large environments.\n+\n+## Next steps\n+\n+<!-- As of MM DD, YYYY, version 2603 is globally available for all customers to install. -->\n+\n+When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md).\n+\n+> [!TIP]\n+> To install a new site, use a baseline version of Configuration Manager.\n+>\n+> Learn more about:\n+>\n+> - [Installing new sites](../../servers/deploy/install/installing-sites.md)\n+> - [Baseline and update versions](../../servers/manage/updates.md#bkmk_Baselines)\n+\n+For known significant issues, see the [Release notes](../../servers/deploy/install/release-notes.md).\n+\n+After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n",
+      "baseCommitSha": "09eee4142876e6d29e149d3615093da6916fe281",
+      "commitSha": "39288a47f46b8e9475923901b43c544dea29358e",
+      "commitMessage": "Add documentation for Configuration Manager version 2603 updates and changes",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:31:41-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-04-27T18:31:41.000Z",
+      "eventId": "intune-docs:39288a47f46b8e9475923901b43c544dea29358e:added:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Add documentation for Configuration Manager version 2603 updates and changes",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37426535.md",
+      "status": "added",
+      "additions": 156,
+      "deletions": 0,
+      "changes": 156,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37426535.md b/intune/configmgr/hotfix/2603/37426535.md\nnew file mode 100644\nindex 0000000000..11fa24661f\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2603/37426535.md\n@@ -0,0 +1,156 @@\n+---\n+title: Summary of changes in Configuration Manager current branch, version 2603\n+description: Article listing changes in Configuration Manager current branch, version 2603\n+ms.date: 04/27/2026\n+ms.subservice: core-infra\n+ms.topic: reference\n+ms.collection: tier3\n+---\n+\n+# Summary of changes in Configuration Manager current branch, version 2603\n+\n+*Applies to: Configuration Manager (current branch, version 2603)*\n+\n+## Summary of KB37426535\n+\n+Release version 2603 of Configuration Manager current branch contains fixes and feature improvements. The \"Issues that are fixed\" list isn't inclusive of all changes. Instead, it highlights changes the product development team believes are most relevant to the broad Configuration Manager customer base. These changes were made in response to direct customer feedback about product issues and improvements.\n+\n+##### Notes\n+\n+1. Version 2603 is available as an in-console update that can be installed at the top-tier site in a hierarchy.\n+2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2603.md).\n+3. For more information about the changes that are included in version 2603, see [What's new in version 2603 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-in-version-2603.md).\n+4. This release contains all of the fixes summarized in the following article.\n+\n+    KB [35877153](../2509/35877153.md): Summary of changes in Configuration Manager current branch, version 2509\n+\n+## Issues that are fixed\n+\n+<!-- 37150494 -->\n+- This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA). For more information, see [KB 37447175](../2503/37447175.md).\n+\n+<!-- 34826316 -->\n+- An internal service required for device compliance checks will be deprecated in October 2026. Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune. To prevent this issue, apply this update before October 2026.\n+\n+<!-- 14678533 -->\n+- Microsoft Connected Cache (MCC) setup fails with ReturnCode 13631517 on distribution points where a proxy server is configured in the Site System Properties. The proxy rejects the HTTP request because the connectivity test used relative-form URLs instead of the absolute-form required by proxies per HTTP RFC specifications.\n+\n+<!-- 15910591 -->\n+- Added support and testing for PKI certificates used in site system-to-SQL Server communication. This includes proper handling of certificate trust, private key access, and BitLocker Management portal registry thumbprint configuration.\n+\n+<!-- 16414967 -->\n+- All ConfigMgr components and site roles are updated to remove the dependency on the deprecated SQL Server Native Client (sqlncli.msi). Customers can now safely uninstall sqlncli from site systems. The product no longer includes sqlncli.msi in its redistributables.\n+\n+<!-- 16730478 -->\n+- The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2016 versions (SMO 17).\n+\n+<!-- 16981234 -->\n+- The Orchestration Group member reset function now also resets the `RequestSent` registry key (`HKLM\\SOFTWARE\\Microsoft\\CCM\\Orchestration\\RequestSent`), preventing clients from being stuck in a state where they perpetually wait for an orchestration lock and are unable to install updates.\n+\n+<!-- 17607738 -->\n+- The stored procedure `spCanDisableLEDBAT` can produce a \"Subquery returned more than 1 value\" error in WSUSCtrl.log when one distribution point server name is a substring of another DP server name. The LIKE pattern now uses proper delimiters to ensure exact server name matching.\n+\n+<!-- 25003287 -->\n+- The `EnableCertPaddingCheck` registry keys are now set by default on Cloud Management Gateway (CMG) Virtual Machine Scale Set instances to mitigate CVE-2013-3900 (WinVerifyTrust Signature Validation Vulnerability).\n+\n+<!-- 26692640 -->\n+- The prerequisite check for Network Access Account (NAA) is updated to acknowledge documented scenarios where NAA is still required, such as the Request State Store task sequence step and Apply OS Image with direct DP access.\n+\n+<!-- 27384591 -->\n+- Deprecated Management Insights entries for the retired Upgrade Readiness / Desktop Analytics service are removed from the Cloud Services category.\n+\n+<!-- 28636070 -->\n+- The Windows Defender Antivirus (WDAV) reporting for tenant-attached ConfigMgr clients no longer incorrectly shows 'True' in the 'Signature Update Overdue' field when clients have up-to-date signature definitions.\n+\n+<!-- 28741480 -->\n+- A race condition in Orchestration Groups is fixed that previously caused sequencing settings to be ignored, allowing multiple servers to install updates and reboot simultaneously instead of one at a time as configured.\n+\n+<!-- 30068061 -->\n+- Antimalware policy path exclusion validation is confirmed to correctly enforce that wildcards cannot be used in the server name portion of UNC paths, consistent with Microsoft Defender for Endpoint documentation.\n+\n+<!-- 30350302 -->\n+- The Software Update Health Troubleshooting Dashboard is hidden in this release due to severe performance issues in large environments. The `vSMS_SUAutoRemediation` SQL view could accumulate tens of millions of rows, causing console freezes and excessive SQL Server load.\n+\n+<!-- 30635232 -->\n+- The `New-CMCloudManagementGateway` PowerShell cmdlet now allows combining the `-IsUsingExistingGroup $true` parameter with `-ServerAppClientId`, enabling automated CMG deployment into existing Azure resource groups without requiring interactive credentials.\n+\n+<!-- 30809803 -->\n+- Build and Capture task sequences on Windows 11 24H2 (November/December 2024 media) no longer produce a \"Why did my PC restart\" error dialog during deployment of the captured image.\n+\n+<!-- 31521707 -->\n+- The misleading Network Access Account (NAA) requirement warning in the Distribution Points tab of the Task Sequence deployment wizard is updated to accurately reflect when NAA is actually required.\n+\n+<!-- 33747268 -->\n+- Site upgrades no longer fail on SQL Server Always On Availability Group environments due to the `UpgradeDatabase` function incorrectly attempting to set SINGLE_USER mode on a database participating in an availability group.\n+\n+<!-- 33921861 -->\n+- The CMG outbound traffic alert and \"Total Outbound data\" metric now work correctly for CMGv2 (VMSS-based) deployments. Previously, network-out usage metrics were not collected for VMSS deployments.\n+\n+<!-- 33922858, 33943623 -->\n+- Windows 10 IoT Enterprise LTSC 2021 devices are no longer incorrectly reported as 'not supported' or 'end of life' in Management Insights and the Product Lifecycle dashboard. The lifecycle matching logic now correctly distinguishes IoT LTSC editions from standard Windows 10 version 21H2 editions.\n+\n+<!-- 35407602 -->\n+- The BitLocker Management HelpDesk portal's \"Recovery Audit Report\" now loads correctly when SQL Server Reporting Services (SSRS) is installed in a non-English language. The report name is no longer inadvertently translated.\n+\n+<!-- 35657638 -->\n+- When creating a script with a Boolean parameter and a default value of `True`, the checkbox state now correctly matches the actual value passed to the script at execution time.\n+\n+<!-- 35882565 -->\n+- The ConfigMgr console In-App Feedback feature is updated to support the new OCV Feedback SDK with authenticated submissions. Both authenticated and offline feedback submission modes are supported.\n+\n+<!-- 35987882 -->\n+- Windows Update scan source registry settings are no longer incorrectly modified on co-managed devices when third-party updates are enabled, preventing Feature Updates and Quality Updates intended for Microsoft Intune/WUfB from being redirected to WSUS/Configuration Manager.\n+\n+<!-- 35991397 -->\n+- CMPivot queries through the AdminService no longer fail with a 400 Bad Request error due to a query parsing issue in the KustoParser. Previously, CMPivot would fall back to the SMS Provider path requiring additional Script Read permissions.\n+\n+<!-- 36105114 -->\n+- Weak DHE (Diffie-Hellman Ephemeral) cipher suites are disabled on Cloud Management Gateway (CMG) instances. Only TLS 1.3 (AES_256_GCM, AES_128_GCM) and TLS 1.2 ECDHE ciphers remain enabled.\n+\n+<!-- 36180037 -->\n+- The \"All Application deployments (advanced or basic)\" reports no longer return duplicate results when viewing detailed error or unknown deployment states. Previously, each result was multiplied by the number of deployment collections.\n+\n+<!-- 36340856 -->\n+- The deprecated \"Asset Intelligence synchronization point\" site role is removed from the site roles selection UI, preventing inadvertent installation of this non-functional role.\n+\n+<!-- 36390361 -->\n+- The `Import-CMDriver` PowerShell cmdlet now correctly includes ARM64 platform support when importing drivers from INF files. Previously, ARM64 was filtered out from the Supported Platforms list.\n+\n+<!-- 36429425 -->\n+- Applications with OS requirements (such as \"All x64 Windows 11 and higher Clients\") no longer fail during OSD with a 404 error when the client attempts to download the OS requirement policy definition after upgrading to a new version.\n+\n+<!-- 36589578 -->\n+- An informational notice is added to the Schedule Updates Wizard to inform administrators that offline servicing (applying software updates to OS images) does not work on all Windows platforms.\n+\n+<!-- 36703540 -->\n+- The `System.Linq.Dynamic.Core` library used by the AdminService component is updated from version 1.0.20.0 to version 1.7.1, resolving CVE-2023-32571 (Dynamic LINQ injection remote code execution vulnerability).\n+\n+<!-- 36806323 -->\n+- CMG deployment no longer fails with an `InvalidTemplateDeployment` error when Azure security policies are applied to the subscription. The VMSS SKU capacity field in the ARM template is now correctly defined as an integer instead of a string.\n+\n+<!-- 36816292 -->\n+- Software update synchronization no longer re-imports previously declined Surface firmware driver updates on every sync cycle. This resolves sync delays of several hours in environments with many declined drivers.\n+\n+<!-- 36984694 -->\n+- CMG deployment error handling is improved to capture and display detailed Azure error response information when Attribute-Based Access Control (ABAC) conditions block role assignments. Previously, only a generic 403 Forbidden error was shown.\n+\n+<!-- 37049155 -->\n+- Client push installation (CcmSetup) no longer fails with error code 0x80070643 on Windows 11 ARM64 devices when upgrading from ConfigMgr 2403 or 2503. The failure was caused by the upgrade process attempting to uninstall a 32-bit Management Point Provider component not compatible with ARM64 architecture.\n+\n+<!-- 37348867 -->\n+- Intune Endpoint Detection and Response (EDR) policies now apply correctly on ConfigMgr clients via tenant attach (non-co-managed). This is a regression fix for an issue introduced in ConfigMgr 2503.\n+\n+## Hotfixes that are included in this update\n+\n+1. KB [35877153](../2509/35877153.md): Summary of changes in Configuration Manager current branch, version 2509\n+2. KB [33247081](../2509/33247081.md): Microsoft Connected Cache update for Configuration Manager\n+3. KB [36419072](../2509/36419072.md): Feedback for Configuration Manager\n+4. KB [36495448](../2509/36495448.md): Software update management client fix for Configuration Manager versions 2503 and 2509\n+5. KB [37447175](../2503/37447175.md): Security update for Microsoft Configuration Manager\n+6. KB [37172183](../2503/37172183.md): Software Center client fix for Configuration Manager\n+\n+## Dependency changes\n+\n+1. The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated to the 2016 versions (SMO 17).\n+2. The SQL Server Native Client (sqlncli.msi) dependency is removed from all ConfigMgr components and site roles.\n+3. The `System.Linq.Dynamic.Core` library is updated to version 1.7.1 for the AdminService component.\n",
+      "baseCommitSha": "09eee4142876e6d29e149d3615093da6916fe281",
+      "commitSha": "39288a47f46b8e9475923901b43c544dea29358e",
+      "commitMessage": "Add documentation for Configuration Manager version 2603 updates and changes",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:31:41-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37426535.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37426535",
+      "firstSeenAt": "2026-04-27T18:31:41.000Z",
+      "eventId": "intune-docs:39288a47f46b8e9475923901b43c544dea29358e:added:intune/configmgr/hotfix/2603/37426535.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Add documentation for Configuration Manager version 2603 updates and changes",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 1,
+      "changes": 9,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 097394e138..ec876964cb 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n-ms.date: 04/07/2026\n+ms.date: 04/27/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -53,6 +53,13 @@ You can use RSS to be notified when this page is updated. For more information,\n ### Tenant administration\n \n -->\n+## Week of April 27, 2026 \n+\n+### Device management  \n+\n+#### Support for Ubuntu 26.04 LTS<!-- 36899679 -->\n+Microsoft Intune now supports Ubuntu 26.04 LTS. Support for Ubuntu 22.04 LTS ends in August 2026. Devices already enrolled on Ubuntu 22.04 remain enrolled, but you should notify users to upgrade to a supported Ubuntu version. You can identify devices running Ubuntu 22.04 in the Intune admin center by going to **Devices** > **All devices**, filtering by **Linux**, and adding the **OS version** column. For more information, see [Enroll Linux desktop devices in Microsoft Intune](../device-enrollment/guide-linux.md).  \n+\n ## Week of April 20, 2026  \n \n ### Device security  \n",
+      "baseCommitSha": "f9fd94ac9f3d380d9b3f581849f0ff1d4c7268c9",
+      "commitSha": "05f472853990633548cf69fa2368a1b6b786afc8",
+      "commitMessage": "add whats new",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-27T11:57:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-04-27T15:57:30.000Z",
+      "eventId": "intune-docs:05f472853990633548cf69fa2368a1b6b786afc8:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "add whats new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nindex 56c64444fe..96e93e73bc 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -13,7 +13,7 @@ ms.collection: tier3\n \n Update 2603 for Configuration Manager current branch is available as an in-console update. Apply this update on sites that run version 2409 or later.\n \n-Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n+Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2509.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2509.md#post-update-checklist).\n \n To take full advantage of new Configuration Manager changes, after you update the site, also update clients to the latest version. New functionality appears in the Configuration Manager console when you update the site and console, but the complete scenario isn't functional until the client version is also the latest.\n \n@@ -69,7 +69,7 @@ The Configuration Manager console In-App Feedback feature is updated to support\n \n <!-- As of MM DD, YYYY, version 2603 is globally available for all customers to install. -->\n \n-When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md).\n+When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2509.md).\n \n > [!TIP]\n > To install a new site, use a baseline version of Configuration Manager.\n@@ -81,4 +81,4 @@ When you're ready to install this version, see [Installing updates for Configura\n \n For known significant issues, see the [Release notes](../../servers/deploy/install/release-notes.md).\n \n-After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n+After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2509.md#post-update-checklist).\n",
+      "baseCommitSha": "bc5caeb054aa29bab0226d5a61c9bd1634be1d67",
+      "commitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitMessage": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:52:01-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-04-27T18:52:01.000Z",
+      "eventId": "intune-docs:c3589a1a79eba1c60454de1761c84385c5ed7d1b:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37426535.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37426535.md b/intune/configmgr/hotfix/2603/37426535.md\nindex 11fa24661f..85d717c3c2 100644\n--- a/intune/configmgr/hotfix/2603/37426535.md\n+++ b/intune/configmgr/hotfix/2603/37426535.md\n@@ -18,7 +18,7 @@ Release version 2603 of Configuration Manager current branch contains fixes and\n ##### Notes\n \n 1. Version 2603 is available as an in-console update that can be installed at the top-tier site in a hierarchy.\n-2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2603.md).\n+2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2509.md).\n 3. For more information about the changes that are included in version 2603, see [What's new in version 2603 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-in-version-2603.md).\n 4. This release contains all of the fixes summarized in the following article.\n \n",
+      "baseCommitSha": "bc5caeb054aa29bab0226d5a61c9bd1634be1d67",
+      "commitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitMessage": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:52:01-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37426535.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37426535",
+      "firstSeenAt": "2026-04-27T18:52:01.000Z",
+      "eventId": "intune-docs:c3589a1a79eba1c60454de1761c84385c5ed7d1b:modified:intune/configmgr/hotfix/2603/37426535.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 1,
+      "changes": 19,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 097394e138..888c017666 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n-ms.date: 04/07/2026\n+ms.date: 04/27/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -53,6 +53,23 @@ You can use RSS to be notified when this page is updated. For more information,\n ### Tenant administration\n \n -->\n+\n+## Week of April 27, 2026  \n+\n+### Device security  \n+\n+#### Autopatch update risk visibility report<!--37672980-->\n+\n+The *Autopatch update risk visibility* report extends the *security update status* dashboard with granular insight into patch compliance and risk across your managed devices. It classifies devices as *Current*, *Exposed*, or *Critical* and highlights policies contributing to risk, so you can identify and remediate issues faster.\n+ \n+For more information, see [Protect your estate: Reassess your Windows update policies](https://techcommunity.microsoft.com/category/windows/blog/windows-itpro-blog).\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+\n ## Week of April 20, 2026  \n \n ### Device security  \n",
+      "baseCommitSha": "1ebebae7eda882c68ea0ca2adbd43019c7c970cd",
+      "commitSha": "c3fc49263bf44977c68729b3f625e7f044de9a28",
+      "commitMessage": "37672980",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-27T15:26:38-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-04-27T19:26:38.000Z",
+      "eventId": "intune-docs:c3fc49263bf44977c68729b3f625e7f044de9a28:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "37672980",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 888c017666..3653c729fd 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -62,7 +62,7 @@ You can use RSS to be notified when this page is updated. For more information,\n \n The *Autopatch update risk visibility* report extends the *security update status* dashboard with granular insight into patch compliance and risk across your managed devices. It classifies devices as *Current*, *Exposed*, or *Critical* and highlights policies contributing to risk, so you can identify and remediate issues faster.\n  \n-For more information, see [Protect your estate: Reassess your Windows update policies](https://techcommunity.microsoft.com/category/windows/blog/windows-itpro-blog).\n+For more information, see [Protect your estate: Reassess your Windows update policies](https://aka.ms/ReassessProtect).\n \n > [!div class=\"checklist\"]\n > Applies to:\n",
+      "baseCommitSha": "8a9c62d3ec4e187450a4b7e2a6091461ad8a4b2a",
+      "commitSha": "98164beba1a8968b1fbbbc763370dc6feaa8a43c",
+      "commitMessage": "aka.ms update",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-27T17:37:29-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-04-27T21:37:29.000Z",
+      "eventId": "intune-docs:98164beba1a8968b1fbbbc763370dc6feaa8a43c:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "aka.ms update",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2503/37172183.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/37172183.md b/intune/configmgr/hotfix/2503/37172183.md\nindex 4736378a8e..24a05fb98d 100644\n--- a/intune/configmgr/hotfix/2503/37172183.md\n+++ b/intune/configmgr/hotfix/2503/37172183.md\n@@ -12,7 +12,11 @@ ms.topic: reference\n \n ## Summary of KB37172183\n \n-An update is available to resolve an issue where device compliance checks from Software Center fail with the following error in co-managed environments where the Compliance workload is set to Intune.\n+An internal service required for device compliance checks will be deprecated in October 2026.\n+\n+Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune.\n+\n+To prevent this issue, apply this update before October 2026.\n \n ````text\n GET_TOKEN_FROM_STS_ERROR : FFFFFFFF80004003\n",
+      "baseCommitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitMessage": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T16:56:09-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/37172183.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/37172183",
+      "firstSeenAt": "2026-04-27T21:56:09.000Z",
+      "eventId": "intune-docs:940851325e21c8b3c2aacb6624196682b9b54692:modified:intune/configmgr/hotfix/2503/37172183.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2503/37172183.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2503/37447175.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/37447175.md b/intune/configmgr/hotfix/2503/37447175.md\nindex 58dc625113..6fc3206c10 100644\n--- a/intune/configmgr/hotfix/2503/37447175.md\n+++ b/intune/configmgr/hotfix/2503/37447175.md\n@@ -12,7 +12,7 @@ ms.topic: reference\n \n ## Summary of KB37447175\n \n-An update is available to harden the security of the Configuration Manager environment. Access to Network Access Account (NAA) information is now restricted to supported OSD media task sequence scenarios by enforcing additional permission requirements and removing legacy access paths to reduce exposure and align with least privilege principles.\n+This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA).\n \n > [!NOTE]\n > This same update is included with upcoming Microsoft Configuration Manager current branch, version 2603, and in the hotfix rollup for version 2509. A separate out of band hotfix is not required for versions 2509 and 2603.\n",
+      "baseCommitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitMessage": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T16:56:09-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/37447175.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/37447175",
+      "firstSeenAt": "2026-04-27T21:56:09.000Z",
+      "eventId": "intune-docs:940851325e21c8b3c2aacb6624196682b9b54692:modified:intune/configmgr/hotfix/2503/37447175.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2503/37447175.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/33247081.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/33247081.md b/intune/configmgr/hotfix/2509/33247081.md\nindex 9e59d11c6b..42a532046d 100644\n--- a/intune/configmgr/hotfix/2509/33247081.md\n+++ b/intune/configmgr/hotfix/2509/33247081.md\n@@ -14,7 +14,6 @@ ms.collection: tier3\n \n An update is available to resolve the following issues with Configuration Manager current branch, version 2409, 2503, and 2509.\n \n-- Customers may not be able to install the Microsoft Connected Cache (MCC) behind a proxy servers that require absolute URLs (URLs that contain the server name and requested resource path) and not relative URLs (URLs that contain only the path to the requested resource). This change complies with HTTP [RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1, section 5.1.2](https://datatracker.ietf.org/doc/html/rfc2616#section-5.1.2) and [RFC 7230 - Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing, section 5.3.2](https://datatracker.ietf.org/doc/html/rfc7230#section-5.3.2).\n - Organizations can now configure their Configuration Manager distribution point cache nodes to deliver content over HTTPS. This enhancement enables Connected Cache to support secure delivery of Intune-managed Win32 applications which will require delivery via HTTPS in the future and, for the first time, Microsoft Teams content. All other content types will continue to be delivered via HTTP.\n To establish a secure HTTPS connection, Connected Cache distribution point cache nodes must present a valid TLS certificate to client devices. Unlike the process required to enable HTTPS delivery on Microsoft Connected Cache for Enterprise and Education, customers must use their PKI to generate the necessary certificates to be used for content delivery.\n - Office content delivery (including updates and installations) OCDI compliant CDN endpoints have been added to the supported hostnames, including but not limited to: \n",
+      "baseCommitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitMessage": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T16:56:09-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/33247081.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/33247081",
+      "firstSeenAt": "2026-04-27T21:56:09.000Z",
+      "eventId": "intune-docs:940851325e21c8b3c2aacb6624196682b9b54692:modified:intune/configmgr/hotfix/2509/33247081.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/36949461.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36949461.md b/intune/configmgr/hotfix/2509/36949461.md\nindex 6027632162..1327a0f34b 100644\n--- a/intune/configmgr/hotfix/2509/36949461.md\n+++ b/intune/configmgr/hotfix/2509/36949461.md\n@@ -12,7 +12,8 @@ ms.topic: reference\n \n ## Summary of KB36949461\n \n-This article describes issues that are fixed in the update rollup for Microsoft Configuration Manager current branch, version 2509. This update applies both to customers who opted in through a PowerShell script to the early update ring deployment, and customers who installed the globally available release.\n+This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA).\n+\n \n For more information on changes in Configuration Manager version 2509, see:\n \n",
+      "baseCommitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitMessage": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T16:56:09-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36949461.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36949461",
+      "firstSeenAt": "2026-04-27T21:56:09.000Z",
+      "eventId": "intune-docs:940851325e21c8b3c2aacb6624196682b9b54692:modified:intune/configmgr/hotfix/2509/36949461.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/collect-diagnostics.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/device-management/actions/collect-diagnostics.md b/intune/device-management/actions/collect-diagnostics.md\nindex 01dabc108f..5bce1e297a 100644\n--- a/intune/device-management/actions/collect-diagnostics.md\n+++ b/intune/device-management/actions/collect-diagnostics.md\n@@ -66,6 +66,7 @@ The *collect diagnostics* action lets you collect and download managed device di\n > - East Asia: `lgmsapesea.blob.core.windows.net`\n > - Australia: `lgmsapeaus.blob.core.windows.net`\n > - India: `lgmsapeind.blob.core.windows.net`\n+> - Switzerland: `lgmsapeswiss.blob.core.windows.net`\n > \n > Devices must be online and able to communicate with the service during diagnostics.\n \n",
+      "baseCommitSha": "3cba52698f73925b772259b888529be21bf7fa35",
+      "commitSha": "e264ad48232119ccd1a0d2a1cfe5919dda84ad5a",
+      "commitMessage": "Add Switzerland blob storage endpoint for diagnostics",
+      "commitAuthor": "mackie1604",
+      "commitDate": "2026-04-27T17:57:58-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/collect-diagnostics.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/collect-diagnostics",
+      "firstSeenAt": "2026-04-27T22:57:58.000Z",
+      "eventId": "intune-docs:e264ad48232119ccd1a0d2a1cfe5919dda84ad5a:modified:intune/device-management/actions/collect-diagnostics.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add Switzerland blob storage endpoint for diagnostics",
+        "summary": "Updated Microsoft Intune documentation in intune/device-management/actions/collect-diagnostics.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2503/37172183.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/37172183.md b/intune/configmgr/hotfix/2503/37172183.md\nindex 24a05fb98d..d4e5966e46 100644\n--- a/intune/configmgr/hotfix/2503/37172183.md\n+++ b/intune/configmgr/hotfix/2503/37172183.md\n@@ -72,15 +72,15 @@ The following major components are updated to the versions specified:\n \n | Component | Version |\n |---|---|\n-| Client (2409) | 5.0.9132.xxxx |\n-| Client (2503) | 5.0.9135.xxxx |\n+| Client (2409) | 5.0.9132.1038 |\n+| Client (2503) | 5.0.9135.1024 |\n \n ## File information\n \n File information is available in the following downloadable files.\n \n-- [KB37172183_2409_FileList.txt](https://aka.ms/KB37172183_2409_FileList)\n-- [KB37172183_2503_FileList.txt](https://aka.ms/KB37172183_2503_FileList)\n+- [KB37172183_2409_FileList.txt](https://aka.ms/KB37172183)\n+- [KB37172183_2503_FileList.txt](https://aka.ms/KB37172183_2503)\n \n ## Release history\n \n",
+      "baseCommitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitSha": "2c7e2db488b4ec595a5785182ab68b5164df9883",
+      "commitMessage": "Update version numbers and file links in hotfix documentation for Configuration Manager 2409, 2503, and 2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T17:58:20-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/37172183.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/37172183",
+      "firstSeenAt": "2026-04-27T22:58:20.000Z",
+      "eventId": "intune-docs:2c7e2db488b4ec595a5785182ab68b5164df9883:modified:intune/configmgr/hotfix/2503/37172183.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update version numbers and file links in hotfix documentation for Configuration Manager 2409, 2503, and 2509",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2503/37172183.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2503/37447175.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/37447175.md b/intune/configmgr/hotfix/2503/37447175.md\nindex 6fc3206c10..0b794d6fde 100644\n--- a/intune/configmgr/hotfix/2503/37447175.md\n+++ b/intune/configmgr/hotfix/2503/37447175.md\n@@ -51,15 +51,15 @@ The SMS Provider (smsprov.dll) is updated to the following versions.\n \n | Component | Version |\n |---|---|\n-| SMS Provider (2409) | 5.00.9132.xxxx |\n-| SMS Provider (2503) | 5.00.9135.xxxx |\n+| SMS Provider (2409) | 5.00.9132.1041 |\n+| SMS Provider (2503) | 5.00.9135.1025 |\n \n ## File information\n \n File information is available in the following downloadable files.\n \n-- [KB37447175_2409_FileList.txt](https://aka.ms/KB37447175_2409_FileList)\n-- [KB37447175_2503_FileList.txt](https://aka.ms/KB37447175_2503_FileList)\n+- [KB37447175_2409_FileList.txt](https://aka.ms/KB37447175_2409)\n+- [KB37447175_2503_FileList.txt](https://aka.ms/KB37447175_2503)\n \n ## Release history\n \n",
+      "baseCommitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitSha": "2c7e2db488b4ec595a5785182ab68b5164df9883",
+      "commitMessage": "Update version numbers and file links in hotfix documentation for Configuration Manager 2409, 2503, and 2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T17:58:20-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/37447175.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/37447175",
+      "firstSeenAt": "2026-04-27T22:58:20.000Z",
+      "eventId": "intune-docs:2c7e2db488b4ec595a5785182ab68b5164df9883:modified:intune/configmgr/hotfix/2503/37447175.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update version numbers and file links in hotfix documentation for Configuration Manager 2409, 2503, and 2509",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2503/37447175.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/36949461.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36949461.md b/intune/configmgr/hotfix/2509/36949461.md\nindex 1327a0f34b..66509e0661 100644\n--- a/intune/configmgr/hotfix/2509/36949461.md\n+++ b/intune/configmgr/hotfix/2509/36949461.md\n@@ -102,12 +102,12 @@ The following major components are updated to the versions specified:\n \n | Component | Version |\n |---|---|\n-| Configuration Manager console | 5.2509.xxxx.xxxx |\n-| Client | 5.0.9140.xxxx |\n+| Configuration Manager console | 5.2509.9141.1030 |\n+| Client | 5.0.9141.1030 |\n \n ## File information\n \n-File information for the release is available in the downloadable [KB36949461_FileList.txt](https://aka.ms/KB36949461_FileList) text file.\n+File information for the release is available in the downloadable [KB36949461_FileList.txt](https://aka.ms/KB36949461_2509) text file.\n \n ## Release history \n \n",
+      "baseCommitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitSha": "2c7e2db488b4ec595a5785182ab68b5164df9883",
+      "commitMessage": "Update version numbers and file links in hotfix documentation for Configuration Manager 2409, 2503, and 2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T17:58:20-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36949461.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36949461",
+      "firstSeenAt": "2026-04-27T22:58:20.000Z",
+      "eventId": "intune-docs:2c7e2db488b4ec595a5785182ab68b5164df9883:modified:intune/configmgr/hotfix/2509/36949461.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update version numbers and file links in hotfix documentation for Configuration Manager 2409, 2503, and 2509",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36949461.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nindex 56c64444fe..96e93e73bc 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -13,7 +13,7 @@ ms.collection: tier3\n \n Update 2603 for Configuration Manager current branch is available as an in-console update. Apply this update on sites that run version 2409 or later.\n \n-Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n+Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2509.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2509.md#post-update-checklist).\n \n To take full advantage of new Configuration Manager changes, after you update the site, also update clients to the latest version. New functionality appears in the Configuration Manager console when you update the site and console, but the complete scenario isn't functional until the client version is also the latest.\n \n@@ -69,7 +69,7 @@ The Configuration Manager console In-App Feedback feature is updated to support\n \n <!-- As of MM DD, YYYY, version 2603 is globally available for all customers to install. -->\n \n-When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2603.md).\n+When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2509.md).\n \n > [!TIP]\n > To install a new site, use a baseline version of Configuration Manager.\n@@ -81,4 +81,4 @@ When you're ready to install this version, see [Installing updates for Configura\n \n For known significant issues, see the [Release notes](../../servers/deploy/install/release-notes.md).\n \n-After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2603.md#post-update-checklist).\n+After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2509.md#post-update-checklist).\n",
+      "baseCommitSha": "39288a47f46b8e9475923901b43c544dea29358e",
+      "commitSha": "ed33dd4b89bb17f1ec05bfb27f3ac3deb17bb7b5",
+      "commitMessage": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:52:01-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-04-27T18:52:01.000Z",
+      "eventId": "intune-docs:ed33dd4b89bb17f1ec05bfb27f3ac3deb17bb7b5:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37426535.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37426535.md b/intune/configmgr/hotfix/2603/37426535.md\nindex 11fa24661f..85d717c3c2 100644\n--- a/intune/configmgr/hotfix/2603/37426535.md\n+++ b/intune/configmgr/hotfix/2603/37426535.md\n@@ -18,7 +18,7 @@ Release version 2603 of Configuration Manager current branch contains fixes and\n ##### Notes\n \n 1. Version 2603 is available as an in-console update that can be installed at the top-tier site in a hierarchy.\n-2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2603.md).\n+2. For installation information, see [Checklist for installing update 2603 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2509.md).\n 3. For more information about the changes that are included in version 2603, see [What's new in version 2603 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-in-version-2603.md).\n 4. This release contains all of the fixes summarized in the following article.\n \n",
+      "baseCommitSha": "39288a47f46b8e9475923901b43c544dea29358e",
+      "commitSha": "ed33dd4b89bb17f1ec05bfb27f3ac3deb17bb7b5",
+      "commitMessage": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T13:52:01-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37426535.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37426535",
+      "firstSeenAt": "2026-04-27T18:52:01.000Z",
+      "eventId": "intune-docs:ed33dd4b89bb17f1ec05bfb27f3ac3deb17bb7b5:modified:intune/configmgr/hotfix/2603/37426535.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update checklist links for Configuration Manager version 2603 and remove outdated references",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 82,
+      "changes": 82,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\ndeleted file mode 100644\nindex 96e93e73bc..0000000000\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ /dev/null\n@@ -1,84 +0,0 @@\n----\n-title: What's new in version 2603\n-description: Get details about changes and new capabilities introduced in version 2603 of Configuration Manager current branch.\n-ms.date: 04/27/2026\n-ms.subservice: core-infra\n-ms.topic: whats-new\n-ms.collection: tier3\n----\n-\n-# What's new in version 2603 of Configuration Manager current branch\n-\n-*Applies to: Configuration Manager (current branch)*\n-\n-Update 2603 for Configuration Manager current branch is available as an in-console update. Apply this update on sites that run version 2409 or later.\n-\n-Always review the latest checklist for installing this update. For more information, see [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2509.md). After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2509.md#post-update-checklist).\n-\n-To take full advantage of new Configuration Manager changes, after you update the site, also update clients to the latest version. New functionality appears in the Configuration Manager console when you update the site and console, but the complete scenario isn't functional until the client version is also the latest.\n-\n-## General enhancements\n-\n-As part of Microsoft's Secure Future Initiative (SFI) the 2603 version of Configuration Manager continues to focus on security, quality, and infrastructure modernization. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center/security/secure-future-initiative).\n-For a list of significant customer-reported issues resolved in this release, see the [Summary of changes in Configuration Manager version 2603](../../../hotfix/2603/37426535.md) knowledge base article.\n-\n-### Security improvements for Network Access Account\n-\n-This update enhances security by improving access controls for the Network Access Account (NAA). Access to NAA information is now restricted to supported OSD media task sequence scenarios by enforcing additional permission requirements and removing legacy access paths to reduce exposure and align with least privilege principles. For more information, see [KB 37447175](../../../hotfix/2503/37447175.md).\n-\n-### Weak ciphers disabled on Cloud Management Gateway\n-\n-Weak DHE (Diffie-Hellman Ephemeral) cipher suites are now disabled on Cloud Management Gateway (CMG) instances. Only TLS 1.3 (AES_256_GCM, AES_128_GCM) and TLS 1.2 ECDHE ciphers remain enabled, improving the security posture of CMG connections.\n-\n-Additionally, the `EnableCertPaddingCheck` registry keys are now set by default on CMG Virtual Machine Scale Set instances to mitigate CVE-2013-3900 (WinVerifyTrust Signature Validation Vulnerability).\n-\n-### SQL Server Native Client dependency removed\n-\n-All Configuration Manager components and site roles are updated to remove the dependency on the deprecated SQL Server Native Client (sqlncli.msi). Customers can now safely uninstall sqlncli from site systems. The product no longer includes sqlncli.msi in its redistributables.\n-\n-### SQL Server Management Objects updated\n-\n-The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2016 versions (SMO 17).\n-\n-### PKI certificate support for site system-to-SQL Server communication\n-\n-Added support and testing for PKI certificates used in site system-to-SQL Server communication. This includes proper handling of certificate trust, private key access, and BitLocker Management portal registry thumbprint configuration.\n-\n-### ARM64 support improvements\n-\n-- The `Import-CMDriver` PowerShell cmdlet now correctly includes ARM64 platform support when importing drivers from INF files. Previously, ARM64 was filtered out from the Supported Platforms list.\n-- Client push installation (CcmSetup) no longer fails with error code `0x80070643` on Windows 11 ARM64 devices when upgrading from ConfigMgr 2403 or 2503.\n-\n-### Cloud Management Gateway improvements\n-\n-- The `New-CMCloudManagementGateway` PowerShell cmdlet now allows combining the `-IsUsingExistingGroup $true` parameter with `-ServerAppClientId`, enabling automated CMG deployment into existing Azure resource groups without requiring interactive credentials.\n-- CMG deployment error handling is improved to capture and display detailed Azure error response information when Attribute-Based Access Control (ABAC) conditions block role assignments.\n-- The CMG outbound traffic alert and \"Total Outbound data\" metric now work correctly for CMGv2 (VMSS-based) deployments.\n-\n-### Updated Feedback experience\n-\n-The Configuration Manager console In-App Feedback feature is updated to support the new OCV Feedback SDK with authenticated submissions. Both authenticated and offline feedback submission modes are supported.\n-\n-### Deprecated and removed features\n-\n-- An internal service required for device compliance checks will be deprecated in October 2026. Following the deprecation, compliance checks in Software Center may fail in co-managed environments where the Compliance workload is managed by Intune. To prevent this issue, apply this update before October 2026.\n-- The deprecated Asset Intelligence synchronization point site role is removed from the site roles selection UI.\n-- The Software Update Health Troubleshooting Dashboard is hidden in this release due to performance issues in large environments.\n-\n-## Next steps\n-\n-<!-- As of MM DD, YYYY, version 2603 is globally available for all customers to install. -->\n-\n-When you're ready to install this version, see [Installing updates for Configuration Manager](../../servers/manage/updates.md) and [Checklist for installing update 2603](../../servers/manage/checklist-for-installing-update-2509.md).\n-\n-> [!TIP]\n-> To install a new site, use a baseline version of Configuration Manager.\n->\n-> Learn more about:\n->\n-> - [Installing new sites](../../servers/deploy/install/installing-sites.md)\n-> - [Baseline and update versions](../../servers/manage/updates.md#bkmk_Baselines)\n-\n-For known significant issues, see the [Release notes](../../servers/deploy/install/release-notes.md).\n-\n-After you update a site, also review the [Post-update checklist](../../servers/manage/checklist-for-installing-update-2509.md#post-update-checklist).\n",
+      "baseCommitSha": "c3589a1a79eba1c60454de1761c84385c5ed7d1b",
+      "commitSha": "940851325e21c8b3c2aacb6624196682b9b54692",
+      "commitMessage": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-04-27T16:56:09-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "firstSeenAt": "2026-04-27T21:56:09.000Z",
+      "eventId": "intune-docs:940851325e21c8b3c2aacb6624196682b9b54692:removed:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Update documentation for Configuration Manager version 2503 and 2509, including deprecation notices and security enhancements",
+        "summary": "Removed Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 20,
+    "authors": [
+      "Laura Newsad",
+      "Paolo Matarazzo",
+      "mackie1604",
+      "sccmavenger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 4 new, 15 updated, and 1 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/configmgr",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Added Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2503/37172183.md. Updated Microsoft Intune docum",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/hotfix/2603/37426535.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/hotfix/2603/37426535.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/hotfix/2603/37426535.md",
+          "intune/configmgr/hotfix/2503/37172183.md",
+          "intune/configmgr/hotfix/2503/37447175.md",
+          "intune/configmgr/hotfix/2509/33247081.md",
+          "intune/configmgr/hotfix/2509/36949461.md",
+          "intune/configmgr/hotfix/2503/37172183.md",
+          "intune/configmgr/hotfix/2503/37447175.md",
+          "intune/configmgr/hotfix/2509/36949461.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/hotfix/2603/37426535.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md. Updated Microsoft Intune documentation in intune/whats-new/index.md. Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md",
+          "intune/whats-new/index.md",
+          "intune/whats-new/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-management",
+        "summary": "Updated Microsoft Intune documentation in intune/device-management/actions/collect-diagnostics.md.",
+        "sourceFiles": [
+          "intune/device-management/actions/collect-diagnostics.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/configmgr",
+        "detail": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Added Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37426535.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2503/37172183.md. Updated Microsoft Intune docum"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md. Updated Microsoft Intune documentation in intune/whats-new/index.md. Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-management",
+        "detail": "Updated Microsoft Intune documentation in intune/device-management/actions/collect-diagnostics.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/intune/intune-service/configuration/device-profile-troubleshoot.md b/intune/intune-service/configuration/device-profile-troubleshoot.md\nindex 542c1b9a2b..ffa1fdf793 100644\n--- a/intune/intune-service/configuration/device-profile-troubleshoot.md\n+++ b/intune/intune-service/configuration/device-profile-troubleshoot.md\n@@ -176,6 +176,11 @@ For more information on dynamic groups, go to:\n - [Performance recommendations when using Intune to group, target, and filter](../fundamentals/filters-performance-recommendations.md)\n - [Dynamic membership rules for groups in Microsoft Entra ID](/azure/active-directory/enterprise-users/groups-dynamic-membership)\n \n+## I unassigned a device compliance policy from a device, but it is still showing under Device Compliance policies in the Intune admin console\n+\n+When a compliance policy is unassigned from a device its associated user, that policy will continue to show in the Intune admin console as being assigned until the device syncs with the Intune service (with the specific associated user). This is by design, because the policy will continue to be in effect on the device until the Intune service is able to sync with the device.\n+\n+\n ## \"The sync could not be initiated (0x80072f9a)\" error\n \n On Windows devices, when trying to sync in the **Settings** app > **Accounts** > **Access work or school**, you might see a `The sync could not be initiated (0x80072f9a)` error.\n",
+      "baseCommitSha": "2ba8ff66c4c535952e64bcbc888bdbb8cd2b77c0",
+      "commitSha": "75232daabd0b69e337824cc8c44b71e2073378b3",
+      "commitMessage": "Clarify behavior of unassigned compliance policies",
+      "commitAuthor": "Ileana Wu",
+      "commitDate": "2026-03-11T14:08:08-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-profile-troubleshoot",
+      "firstSeenAt": "2026-03-11T18:08:08.000Z",
+      "eventId": "intune-docs:75232daabd0b69e337824cc8c44b71e2073378b3:modified:intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify behavior of unassigned compliance policies",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 3,
+      "changes": 12,
+      "patch": "diff --git a/intune/intune-service/configuration/device-profile-troubleshoot.md b/intune/intune-service/configuration/device-profile-troubleshoot.md\nindex ffa1fdf793..400c8cff42 100644\n--- a/intune/intune-service/configuration/device-profile-troubleshoot.md\n+++ b/intune/intune-service/configuration/device-profile-troubleshoot.md\n@@ -3,7 +3,7 @@ title: Questions with policies and profiles in Microsoft Intune\n description: Common questions, answers, and scenarios with device policies and profiles in Microsoft Intune. Learn more about profile changes not applying to users or devices, how long it takes for new policies to deploy, which settings apply when there are conflicts, what happens when you delete or remove a profile, and more.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 10/20/2025\n+ms.date: 03/11/2025\n ms.update-cycle: 180-days\n ms.topic: troubleshooting\n ms.reviewer:\n@@ -176,10 +176,16 @@ For more information on dynamic groups, go to:\n - [Performance recommendations when using Intune to group, target, and filter](../fundamentals/filters-performance-recommendations.md)\n - [Dynamic membership rules for groups in Microsoft Entra ID](/azure/active-directory/enterprise-users/groups-dynamic-membership)\n \n-## I unassigned a device compliance policy from a device, but it is still showing under Device Compliance policies in the Intune admin console\n+## Unassigned device compliance policy still assigned and enforced\n \n-When a compliance policy is unassigned from a device its associated user, that policy will continue to show in the Intune admin console as being assigned until the device syncs with the Intune service (with the specific associated user). This is by design, because the policy will continue to be in effect on the device until the Intune service is able to sync with the device.\n+When you unassign a compliance policy from a device with an associated user, the policy continues to be assigned and enforced until the device syncs with the Intune service. This behavior is by design.\n \n+You can manually sync the device.\n+\n+To learn more, see:\n+\n+- [Policy refresh intervals](#policy-refresh-intervals) (this article)\n+- [Remote device action: sync](../remote-actions/device-sync.md)\n \n ## \"The sync could not be initiated (0x80072f9a)\" error\n \n",
+      "baseCommitSha": "75232daabd0b69e337824cc8c44b71e2073378b3",
+      "commitSha": "59c32e8401928e3f63f6a25a7a23ba5ec61dc6ae",
+      "commitMessage": "Update date and clarify compliance policy behavior",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-11T14:29:07-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-profile-troubleshoot",
+      "firstSeenAt": "2026-03-11T18:29:07.000Z",
+      "eventId": "intune-docs:59c32e8401928e3f63f6a25a7a23ba5ec61dc6ae:modified:intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update date and clarify compliance policy behavior",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/configuration/device-profile-troubleshoot.md b/intune/intune-service/configuration/device-profile-troubleshoot.md\nindex 400c8cff42..f644afed09 100644\n--- a/intune/intune-service/configuration/device-profile-troubleshoot.md\n+++ b/intune/intune-service/configuration/device-profile-troubleshoot.md\n@@ -3,7 +3,7 @@ title: Questions with policies and profiles in Microsoft Intune\n description: Common questions, answers, and scenarios with device policies and profiles in Microsoft Intune. Learn more about profile changes not applying to users or devices, how long it takes for new policies to deploy, which settings apply when there are conflicts, what happens when you delete or remove a profile, and more.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 03/11/2025\n+ms.date: 03/11/2026\n ms.update-cycle: 180-days\n ms.topic: troubleshooting\n ms.reviewer:\n@@ -180,7 +180,7 @@ For more information on dynamic groups, go to:\n \n When you unassign a compliance policy from a device with an associated user, the policy continues to be assigned and enforced until the device syncs with the Intune service. This behavior is by design.\n \n-You can manually sync the device.\n+You can also manually sync the device.\n \n To learn more, see:\n \n",
+      "baseCommitSha": "59c32e8401928e3f63f6a25a7a23ba5ec61dc6ae",
+      "commitSha": "d600fed975b2de0f094737f8a1efda6603ce5161",
+      "commitMessage": "Update date and wording in troubleshooting document",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-11T14:48:58-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-profile-troubleshoot",
+      "firstSeenAt": "2026-03-11T18:48:58.000Z",
+      "eventId": "intune-docs:d600fed975b2de0f094737f8a1efda6603ce5161:modified:intune/intune-service/configuration/device-profile-troubleshoot.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update date and wording in troubleshooting document",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/understand/supported-configurations-for-ltsb.md b/intune/configmgr/core/understand/supported-configurations-for-ltsb.md\nindex c086f4cf7b..0ed6df481e 100644\n--- a/intune/configmgr/core/understand/supported-configurations-for-ltsb.md\n+++ b/intune/configmgr/core/understand/supported-configurations-for-ltsb.md\n@@ -122,7 +122,7 @@ The LTSB supports the following versions of SQL Server to host the site database\n **Supported versions:**\n \n - SQL Server 2016: Standard, Enterprise\n-   - Note: SQL Server 2016 ESU licenses will continue to be supported for use with Configuration Manager LTSB\n+   - Configuration Manager LTSB will continue to be supported when the site database is hosted SQL Server 2016 ESU licensed servers.\n - SQL Server 2014 SP2: Standard, Enterprise\n - SQL Server 2014 SP1: Standard, Enterprise\n - SQL Server 2012 SP3: Standard, Enterprise\n",
+      "baseCommitSha": "65847668efdbbe4f5a4146b3d6bcf50cc333c8b4",
+      "commitSha": "d1946106f625a9afa5278dc53f03fd52df83f6ed",
+      "commitMessage": "Update SQL Server 2016 support note for LTSB",
+      "commitAuthor": "Tomohiko Kaji",
+      "commitDate": "2026-03-12T08:53:55+09:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/understand/supported-configurations-for-ltsb",
+      "firstSeenAt": "2026-03-11T23:53:55.000Z",
+      "eventId": "intune-docs:d1946106f625a9afa5278dc53f03fd52df83f6ed:modified:intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update SQL Server 2016 support note for LTSB",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/understand/supported-configurations-for-ltsb.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 4,
+    "authors": [
+      "Ileana Wu",
+      "Mandi Ohlinger",
+      "Tomohiko Kaji"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md.",
+        "sourceFiles": [
+          "intune/intune-service/configuration/device-profile-troubleshoot.md",
+          "intune/intune-service/configuration/device-profile-troubleshoot.md",
+          "intune/intune-service/configuration/device-profile-troubleshoot.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/understand/supported-configurations-for-ltsb.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/understand/supported-configurations-for-ltsb.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-troubleshoot.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/understand/supported-configurations-for-ltsb.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

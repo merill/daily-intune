@@ -1,0 +1,463 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md b/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\nindex 20d021c841..cc2594b592 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\n@@ -58,7 +58,7 @@ To help keep your organization's data and devices secure, create different polic\n In your baseline, at a minimum, include the following security policies:\n \n - Install antivirus (AV) software and regularly scan for malware.\n-- Use detection and response\n+- Use detection and response.\n - Turn on the firewall.\n - Install software updates regularly.\n - Create a strong PIN or password policy.\n",
+      "baseCommitSha": "23f0c42430931d092c2efdcd6d480232986bdab8",
+      "commitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitMessage": "maa",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-17T20:34:00-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-configuration-profile",
+      "firstSeenAt": "2026-03-18T00:34:00.000Z",
+      "eventId": "intune-docs:24160cbc6a860036b481745a1172b46c74ae1fd3:modified:intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "maa",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "status": "modified",
+      "additions": 53,
+      "deletions": 35,
+      "changes": 88,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-setup.md b/intune/intune-service/fundamentals/deployment-plan-setup.md\nindex dcdf216b94..9b3411303f 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-setup.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-setup.md\n@@ -3,7 +3,7 @@ title : Set up Intune\n description: Step 1 for deploying or setting up Intune. The starting point is to review supported configurations, sign up for the trial, configure the custom domain name, add users and groups to Intune, assign licenses to users, manage roles, grant admin permissions, and set the MDM authority.\n author: paolomatarazzo\n ms.author: paoloma\n-ms.date: 04/07/2025\n+ms.date: 03/17/2026\n ms.topic: install-set-up-deploy\n ms.collection:\n - M365-identity-device-management\n@@ -17,13 +17,13 @@ The first step when deploying Microsoft Intune is to set up your Intune environm\n \n :::image type=\"content\" source=\"./media/deployment-plan-setup/deployment-plan-setup-intune.png\" alt-text=\"Diagram that shows getting started with Intune with step 1, which is setting up Microsoft Intune.\":::\n \n-This article takes you through each step in the process of setting up Microsoft Intune. This article also provides the choices and considerations you need to make when setting up an endpoint-management solution such as Intune.\n+This article takes you through each step in the process of setting up Microsoft Intune. It also provides the choices and considerations you need to make when setting up an endpoint-management solution such as Intune.\n \n-The purpose of this article is to help you get a better understanding of Intune's supported configurations. After reviewing the article, you should be able to sign up for the [Microsoft Intune's free trial](try-intune-overview.md), add end users, define user groups, assign licenses to users, and set up the other needed settings to begin using Microsoft Intune. All the steps provided in the article help you to add and manage devices and apps using Intune.\n+The purpose of this article is to help you get a better understanding of Intune's supported configurations. After reviewing the article, you should be able to sign up for the [Microsoft Intune free trial](try-intune-overview.md), add end users, define user groups, assign licenses to users, and set up the other needed settings to begin using Microsoft Intune. All the steps provided in the article help you add and manage devices and apps by using Intune.\n \n ## Prerequisites\n \n-Before you begin setting up Microsoft Intune, review the [Planning guide](intune-planning-guide.md). The planning guide helps you to plan your move or migration to Intune.\n+Before you begin setting up Microsoft Intune, review the [Planning guide](intune-planning-guide.md). The planning guide helps you plan your move or migration to Intune.\n \n The planning guide also helps you address these areas:\n \n@@ -42,12 +42,12 @@ Before you begin setting up Microsoft Intune, you should:\n - Review the device platforms and operating systems that Intune supports.\n - Review which web browsers are supported when accessing Intune using Microsoft Intune admin center.\n - Get familiar with the network bandwidth requirements to perform installations and updates using Intune.\n-- Review Network endpoints for IP addresses and port settings needed for proxy settings in your Microsoft Intune deployments.[Network Endpoints](intune-endpoints.md)\n+- Review [Network endpoints](intune-endpoints.md) for IP addresses and port settings needed for proxy settings in your Microsoft Intune deployments.\n \n-For guidance and need-to-know information before you start, go to [Supported configurations](supported-devices-browsers.md).\n+For guidance and need-to-know information, see [Supported configurations](supported-devices-browsers.md).\n \n > [!TIP]\n-> By default, all device platforms can enroll in Intune. If you want to prevent specific platforms, then create a restriction. For more information, go to [Create a device platform restriction](../enrollment/create-device-platform-restrictions.md).\n+> By default, all device platforms can enroll in Intune. If you want to prevent specific platforms, create a restriction. For more information, see [Create a device platform restriction](../enrollment/create-device-platform-restrictions.md).\n \n ## 2 - Sign up for Microsoft Intune\n \n@@ -55,29 +55,29 @@ For guidance and need-to-know information before you start, go to [Supported con\n \n Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n \n-Before you sign up for Intune, determine whether you already have a Microsoft Online Services account, Enterprise Agreement, or equivalent volume licensing agreement. A Microsoft volume licensing agreement or other Microsoft cloud services subscription like Microsoft 365 usually includes a work or school account.\n+Before you sign up for Intune, determine whether you already have a Microsoft Online Services account, Enterprise Agreement, or equivalent volume licensing agreement. A Microsoft volume licensing agreement or other Microsoft cloud services subscription, such as Microsoft 365, usually includes a work or school account.\n \n If you already have a work or school account, **sign in** with that account and add Intune to your subscription. Otherwise, you can **sign up** for a new account to use Intune for your organization.\n \n-For guidance, go to [Sign in to Intune](account-sign-up.md).\n+For guidance, see [Sign in to Intune](account-sign-up.md).\n \n ## 3 - Configure a custom domain name for your Intune tenant\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with configuring a custom domain name for your Intune tenant**\n \n-When your organization signs up for Microsoft Intune, you're given an initial domain name hosted in Microsoft Entra ID that looks like *your-domain.onmicrosoft.com*.\n+When your organization signs up for Microsoft Intune, you get an initial domain name hosted in Microsoft Entra ID that looks like *your-domain.onmicrosoft.com*.\n \n-The *onmicrosoft.com* suffix is assigned to all accounts added to subscriptions.\n+Microsoft assigns the *onmicrosoft.com* suffix to all accounts added to subscriptions.\n \n-You can **optionally** configure your organization's custom domain in Intune, such as `contoso.com`. If you don't add your domain account, then for example, `contoso.onmicrosoft.com` may be used.\n+You can **optionally** configure your organization's custom domain in Intune, such as `contoso.com`. If you don't add your domain account, then for example, `contoso.onmicrosoft.com` might be used.\n \n - Set DNS registration to connect your company's domain name with Intune. When you connect your company's domain name with Intune, users experience a familiar domain when connecting to Intune and using resources.\n \n - If you're simply evaluating Intune using the free trial, you can skip this step.\n \n-- If you're moving to Microsoft 365 from an Office 365 subscription, your domain may already be in Microsoft Entra ID. Intune uses the same Microsoft Entra ID, and can use your existing domain.\n+- If you're moving to Microsoft 365 from an Office 365 subscription, your domain might already be in Microsoft Entra ID. Intune uses the same Microsoft Entra ID, and can use your existing domain.\n \n-For guidance, go to [Configure domain name](custom-domain-name-configure.md).\n+For guidance, see [Configure domain name](custom-domain-name-configure.md).\n \n ## 4 - Add users to Intune\n \n@@ -85,11 +85,11 @@ For guidance, go to [Configure domain name](custom-domain-name-configure.md).\n \n Users are stored in Microsoft Entra ID, which is also included with Microsoft 365. Microsoft Entra ID controls access to resources, and authenticates users.\n \n-You can add users, or connect Active Directory to sync with Intune. This step is **required** unless your devices are \"userless\" kiosk devices.\n+You can add users or connect Active Directory to sync with Intune. This step is **required** unless your devices are \"userless\" kiosk devices.\n \n-For guidance, go to [Add users](users-add.md).\n+For guidance, see [Add users](users-add.md).\n \n-The people in your organization each need a user account before they can sign in and access Microsoft Intune. To create user accounts, you can add users to Intune. Once added, you can grant permissions and assign licenses to users. Then later, you can assign different types of policies to users to help and protect them.\n+Each person in your organization needs a user account before they can sign in and access Microsoft Intune. To create user accounts, add users to Intune. Once added, you can grant permissions and assign licenses to users. Later, you can assign different types of policies to users to help and protect them.\n \n As an administrator, you can add users individually or in bulk to Intune.\n \n@@ -99,7 +99,7 @@ You must be a Microsoft Entra [License Administrator](/entra/identity/role-based\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with adding groups to Intune**\n \n-Add groups to assign apps, settings, and other resources. For some guidance, go to [Add groups](groups-add.md).\n+Add groups to assign apps, settings, and other resources. For guidance, see [Add groups](groups-add.md).\n \n Intune uses Microsoft Entra groups to organize and manage devices and users. As an Intune admin, you can set up groups to suit your organizational needs. For instance, you can create groups to organize users or devices by geographic location, department, or hardware characteristics. Also, you can use groups to manage tasks at scale. For example, you can set policies for many users or deploy apps to a set of devices based on groups.\n \n@@ -109,58 +109,76 @@ Intune is available with different subscriptions, including as a stand-alone ser\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Determine your license needs**\n \n-Microsoft Intune is available for different organization sizes and needs; from a simple-to-use management experience for schools and small businesses, to a more advanced functionality required by enterprise customers. An admin must have a license assigned to them to administer Intune (unless you selected to allow unlicensed admins).\n+Microsoft Intune is available for different organization sizes and needs. It offers a simple-to-use management experience for schools and small businesses, and more advanced functionality required by enterprise customers. An admin must have a license assigned to them to administer Intune (unless you select to allow unlicensed admins).\n \n-For guidance, go to [Microsoft Intune licensing](../../fundamentals/licensing/index.md).\n+For guidance, see [Microsoft Intune licensing](../../fundamentals/licensing/index.md).\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with assigning licenses to users**\n \n-Whether you added users one at a time or all at once, you must assign each user an Intune license before users can enroll their devices in Intune. The [Microsoft Intune's free trial](try-intune-overview.md) provides 25 Intune licenses. For a list of licenses, see Licenses that include Intune.\n+Whether you add users one at a time or all at once, you must assign each user an Intune license before users can enroll their devices in Intune. The [Microsoft Intune's free trial](try-intune-overview.md) provides 25 Intune licenses. For a list of licenses, see Licenses that include Intune.\n Give users permission to use Intune. Each user or userless device requires an Intune license to access the service.\n \n-For guidance, go to [Assign licenses](../../fundamentals/licensing/assign-licenses.md).\n+For guidance, see [Assign licenses](../../fundamentals/licensing/assign-licenses.md).\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Unlicensed admins**\n \n You can give administrators access to Microsoft Intune without them requiring an Intune license. This feature applies to any administrator, including Intune administrators, Microsoft Entra administrators, and so on.\n \n-For guidance, go to [Unlicensed admins](../../fundamentals/licensing/unlicensed-admins.md).\n+For guidance, see [Unlicensed admins](../../fundamentals/licensing/unlicensed-admins.md).\n \n-## 7 - Manage Roles and grant admin permissions for Intune\n+## 7 - Manage roles and grant admin permissions for Intune\n \n-After you add users to your Intune tenant, we recommend that you create your administrative team.\n+After you add users to your Intune tenant, create your administrative team.\n \n-Microsoft Intune includes a set of admin roles that you can assign to users in your organization using the Microsoft Intune admin center. Each admin role maps to common business functions and gives people in your organization permissions to do specific tasks in the admin centers.\n+Microsoft Intune uses role-based access control (RBAC) to manage administrative access. It includes built-in roles that have predefined permissions to complete admin-specific tasks, like managing apps and creating policies. For more granular control, you can create custom roles that only include the exact set of permissions you need.\n+\n+Scope tags work with roles to limit which Intune objects, like devices, policies, and apps, are visible to an admin. By using roles and scope tags together, you can implement least-privilege access and support distributed IT administration across teams or regions.\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with managing roles**\n \n-1. You can use role-based access control(RBAC) to manage who has access to your organization's resources and what they can do with those resources. For guidance, go to [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md).\n+1. Assign the built-in roles to the admins in your organization. For example, assign the Policy and Profile manager role to the admins that create and manage enrollment policies.\n+\n+    For guidance, see:\n+\n+    - [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md)\n+    - [Built-in role permissions for Microsoft Intune](role-based-access-control-reference.md)\n+\n+2. Create your own custom roles with the exact set of permissions you need. Custom roles let you define a precise set of permissions when built-in roles don't meet your requirements, or you want to implement least-privilege access.\n+\n+    For guidance, see:\n+\n+    - [Create a custom role in Intune](create-custom-role.md)\n+    - [Built-in role permissions for Microsoft Intune](role-based-access-control-reference.md)\n+\n+3. Assign roles to your admin team based on their responsibilities. Role assignments determine what admins can see and modify in Intune. For guidance, see [Assign a role to an Intune user](assign-role.md).\n+\n+4. Use scope tags to limit visibility of Intune objects. Scope tags control which objects admins can see. Roles control what actions they can take on those objects. Using RBAC together with scope tags helps ensure admins only have access to the resources they're responsible for.\n \n-2. You can assign roles to your Intune users and limit what they can see and change. For guidance, go to [Assign a role to an Intune user](assign-role.md).\n+    For guidance, see [Use role-based access control (RBAC) and scope tags for distributed IT](scope-tags.md).\n \n-3. You can use both the built-in and custom roles. Built-in roles cover some common Intune scenarios. You can create your own custom roles with the exact set of permissions you need. For guidance, go to [Create a custom role in Intune](create-custom-role.md).\n+5. Configure Multi Admin Approvals. To help protect against a compromised administrative account, this feature requires that a second administrative account must approve a change before the change is applied. It adds an extra layer of security by ensuring that high-impact changes, like wiping or deleting devices, require approval from multiple administrators.\n \n-4. You can use role-based access control and scope tags to make sure that the right admins have the correct access and visibility to the required Intune objects. Roles determine what access admins have to which objects. Scope tags determine which objects admins can see. For guidance, go to [Use role-based access control (RBAC) and scope tags for distributed IT](scope-tags.md).\n+    For guidance, see [Configure Multi Admin Approvals](multi-admin-approvals.md).\n \n ## 8 - Set the mobile device management authority\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with MDM authority**\n \n-The mobile device management (MDM) authority setting determines how you manage your devices. By default, the Intune free trial sets your MDM authority to Intune. As an IT admin, you must set an MDM authority before users can enroll devices for management. With the MDM authority set, you can start enrolling devices.\n+The mobile device management (MDM) authority setting determines how you manage your devices. By default, the Intune free trial sets your MDM authority to Intune. As an IT admin, you must set an MDM authority before users can enroll devices for management. When you set the MDM authority, you can start enrolling devices.\n \n-If you're changing your tenant to support Intune, then you need to change your MDM authority configuration.\n+If you're changing your tenant to support Intune, change your MDM authority configuration.\n \n-For guidance, go to [Set the mobile device management authority](mdm-authority-set.md).\n+For guidance, see [Set the mobile device management authority](mdm-authority-set.md).\n \n ## 9 - Customize the Intune company portal\n \n-The Company Portal apps, Company Portal website, and Intune app on Android are where users access company data and can do common tasks. Common task may include enrolling devices, installing apps, and locating information (such as for assistance from your IT department).\n+The Company Portal apps, Company Portal website, and Intune app on Android are where users access company data and can do common tasks. Common tasks include enrolling devices, installing apps, and locating information (such as for assistance from your IT department).\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with configuring the company portal**\n \n Customize the Intune Company Portal that users use to enroll devices and install apps. These settings appear in both the Company Portal app and the Intune Company Portal website. You can also customize the Company Portal app so it includes your organization details.\n \n-For guidance, go to [Configure the company portal](../apps/company-portal-app.md).\n+For guidance, see [Configure the company portal](../apps/company-portal-app.md).\n \n ## Follow the minimum recommended baseline policies\n \n",
+      "baseCommitSha": "23f0c42430931d092c2efdcd6d480232986bdab8",
+      "commitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitMessage": "maa",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-17T20:34:00-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-setup",
+      "firstSeenAt": "2026-03-18T00:34:00.000Z",
+      "eventId": "intune-docs:24160cbc6a860036b481745a1172b46c74ae1fd3:modified:intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "maa",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md b/intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md\nindex bc55cae6f4..fb38a0f2c3 100644\n--- a/intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md\n+++ b/intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md\n@@ -39,7 +39,7 @@ You can use Windows Firewall policies to perform the following tasks:\n \n 1. On the **Profile Settings** page of the wizard, configure the following settings for each network profile:\n \n-       > [!NOTE]\n+    > [!NOTE]\n     >  For more information about network profiles, see the Windows documentation.\n \n    - **Enable Windows Firewall**\n",
+      "baseCommitSha": "e8f64da2907aa4c7f946a4b33a42c45a72d567eb",
+      "commitSha": "59f668060be6456f303fcb353385979d71e56052",
+      "commitMessage": "Fixed spacing",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-18T11:59:26-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/protect/deploy-use/create-windows-firewall-policies",
+      "firstSeenAt": "2026-03-18T15:59:26.000Z",
+      "eventId": "intune-docs:59f668060be6456f303fcb353385979d71e56052:modified:intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixed spacing",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/endpoint-security-asr-policy.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/protect/endpoint-security-asr-policy.md b/intune/intune-service/protect/endpoint-security-asr-policy.md\nindex 511cbee5cc..d1f6f82026 100644\n--- a/intune/intune-service/protect/endpoint-security-asr-policy.md\n+++ b/intune/intune-service/protect/endpoint-security-asr-policy.md\n@@ -59,6 +59,9 @@ The available profiles for attack surface reduction policy depend on the platfor\n \n To create an attack surface reduction policy, see [Create an endpoint security policy](/intune/intune-service/protect/endpoint-security-policy#create-an-endpoint-security-policy). When prompted during policy creation, select the **Windows** platform, and then select the profile you want to configure.\n \n+> [!NOTE]\n+> Most attack surface reduction profiles use the Settings Catalog format. The **Application control** profile is an exception — it remains in the older template-based format. See the [Application control](#application-control) profile entry for details.\n+\n ### Devices managed by Intune\n \n **Platform: Windows**:\n",
+      "baseCommitSha": "d267e63ff1a2b308a0a549cecdfd08d6ecb8a692",
+      "commitSha": "fa112a3f7068713958b0a2e33dea94c8d2f57a5d",
+      "commitMessage": "Note",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-18T09:04:35-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/endpoint-security-asr-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-policy",
+      "firstSeenAt": "2026-03-18T16:04:35.000Z",
+      "eventId": "intune-docs:fa112a3f7068713958b0a2e33dea94c8d2f57a5d:modified:intune/intune-service/protect/endpoint-security-asr-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Note",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/endpoint-security-asr-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/scope-tags.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/fundamentals/scope-tags.md b/intune/intune-service/fundamentals/scope-tags.md\nindex 9e40fd53e3..7146b7a4f2 100644\n--- a/intune/intune-service/fundamentals/scope-tags.md\n+++ b/intune/intune-service/fundamentals/scope-tags.md\n@@ -114,11 +114,11 @@ If this isn't the access you intended, use the [Permissions Assessment Report](#\n \n ### Scoped permissions (opt-in public preview)\n \n-The **Scoped permissions** setting gives you precise control over what each admin can actually do within each scope tag. Rather than having Intune silently merge permissions across role assignments, each assignment's permissions stay contained to its own scope. Admins get exactly the access you intended, no more.\n+Available as an opt-in public preview, you can use the **Scoped permissions** setting to gain precise control over what each admin can actually do within each scope tag. Rather than having Intune silently merge permissions across role assignments, each assignment's permissions stay contained to its own scope. Admins get exactly the access you intended, no more.\n \n-When enabled, each role assignment's permissions apply only within its own scope tag context. In the same example, *App Admins* members would have read-only access to Mobile Apps tagged *Headquarters* and full permissions for Mobile Apps tagged *Regional Office*, exactly as intended.\n+When scoped permissions are enabled, each role assignment's permissions apply only within its own scope tag context. In the same example, *App Admins* members would have read-only access to Mobile Apps tagged *Headquarters* and full permissions for Mobile Apps tagged *Regional Office*, exactly as intended.\n \n-Before enabling this setting, use the [Permissions Assessment Report](#permissions-assessment-report) to preview exactly how permissions will change for each affected admin in your tenant. The report is available at **Tenant administration** > **Roles** > **Settings** and can be run as many times as needed.\n+Enabling **scoped permissions** is a one-time tenant action that cannot be undone. Before enabling this setting, use the [Permissions Assessment Report](#permissions-assessment-report) to preview exactly how permissions will change for each affected admin in your tenant. The report is available at **Tenant administration** > **Roles** > **Settings** and can be run as many times as needed.\n \n To enable Scoped permissions, go to **Tenant administration** > **Roles** > **Settings** and turn on the **Scoped permissions** toggle, using an account with one of the following roles:\n \n",
+      "baseCommitSha": "6ec6bff6e4c233032c4b8dd0b4cba94c6570b1d4",
+      "commitSha": "55cee16323b5c8115555fa3cc8c4106a6c0cffc8",
+      "commitMessage": "Reinforce one-time action in the actual section for the opt-in preivew.",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-18T09:15:16-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/scope-tags.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/scope-tags",
+      "firstSeenAt": "2026-03-18T16:15:16.000Z",
+      "eventId": "intune-docs:55cee16323b5c8115555fa3cc8c4106a6c0cffc8:modified:intune/intune-service/fundamentals/scope-tags.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Reinforce one-time action in the actual section for the opt-in preivew.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/scope-tags.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md b/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\nindex c26d845aea..cb0f5544e7 100644\n--- a/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\n+++ b/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md\n@@ -82,6 +82,9 @@ To view available app updates on devices running Windows:\n \n Optionally, turn on automatic updates to ensure that you don't miss updates. For more information, see [Turn on automatic app updates](https://support.microsoft.com/windows/turn-on-automatic-app-updates-70634d32-4657-dc76-632b-66048978e51b). Your organization can disable automatic app updates on devices used for work, so this option might be unavailable.\n \n+> [!NOTE]\n+> The minimum supported version of the Company Portal app for Windows is **11.1.254.0**. If you're running an older version, update as soon as possible to avoid loss of functionality.\n+\n ## Next steps\n \n Still need help? Contact your IT support person. For contact information, check the [Company Portal website](https://go.microsoft.com/fwlink/?linkid=2010980).\n",
+      "baseCommitSha": "9e36b4dce0d47bec1973cda49317f86ec84fdc04",
+      "commitSha": "fec10db30bb4d367c24297df86a11c439e5b1d35",
+      "commitMessage": "Learn Editor: Update install-a-new-version-of-the-company-portal-app.md",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-03-18T13:56:53-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app",
+      "firstSeenAt": "2026-03-18T17:56:53.000Z",
+      "eventId": "intune-docs:fec10db30bb4d367c24297df86a11c439e5b1d35:modified:intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update install-a-new-version-of-the-company-portal-app.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/remote-help-use.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/fundamentals/remote-help-use.md b/intune/intune-service/fundamentals/remote-help-use.md\nindex a669168deb..1bc9b7c013 100644\n--- a/intune/intune-service/fundamentals/remote-help-use.md\n+++ b/intune/intune-service/fundamentals/remote-help-use.md\n@@ -277,6 +277,9 @@ Remote Help displays a warning if the sharer's device isn't enrolled in Microsof\n > [!NOTE]\n > On Android 13 devices, the device unlock UI (the PIN entry pad, or the pattern dot grid) can't be shown remotely. To unlock the device, you can still use keyboard input to enter a passcode. Android added this feature as a security measure to protect the end user from a passcode or unlock pattern being captured if the device is unlocked while screen sharing.  \n \n+> [!NOTE]\n+> On Samsung devices running Android 15, you might notice minor visual latency during a Remote Help session. In some scenarios, portions of the screen may appear to refresh with a slight delay. This behavior doesn’t affect session connectivity.\n+\n ### [:::image type=\"icon\" source=\"../media/icons/webapp.svg\"::: **Windows or macOS from the web app**](#tab/helperwebapp)\n \n 1. Sign in to <a href=\"https://aka.ms/rhh\" target=\"_blank\"><u>https://aka.ms/rhh</u></a>.\n",
+      "baseCommitSha": "9e36b4dce0d47bec1973cda49317f86ec84fdc04",
+      "commitSha": "8ad88d243030a1250dbca448925cb963cbe813e1",
+      "commitMessage": "Update Remote Help notes for Android devices",
+      "commitAuthor": "Kara Wang",
+      "commitDate": "2026-03-18T14:06:58-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/remote-help-use.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remote-help-use",
+      "firstSeenAt": "2026-03-18T18:06:58.000Z",
+      "eventId": "intune-docs:8ad88d243030a1250dbca448925cb963cbe813e1:modified:intune/intune-service/fundamentals/remote-help-use.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update Remote Help notes for Android devices",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-use.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 11,
+      "changes": 29,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 7f3994a88a..91efca5043 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -9,7 +9,7 @@ ms.topic: how-to\n \n [!INCLUDE [intune-add-on-note](../intune-service/includes/intune-add-on-note.md)]\n \n-Device query for multiple devices allows you to gain comprehensive insights about your entire fleet of devices using Kusto Query Language (KQL) to query across collected inventory data for your devices.\n+Use Device query for multiple devices in Microsoft Intune to run Kusto Query Language (KQL) queries across device inventory data and identify trends across your managed fleet. This article explains prerequisites, how to create and run queries in the Intune admin center, how to work with results, and which operators, functions, and properties are supported.\n \n ## Before you begin\n \n@@ -43,7 +43,7 @@ Additional prerequisites for device query for multiple devices:\n :::column span=\"3\":::\n > Device query for multiple devices supports devices that are:\n >\n-> - Managed by Intune and marked as corporate owned\n+> - Managed by Intune and marked as corporate owned.\n > - Windows devices must have a [properties catalog policy](../intune-service/configuration/properties-catalog.md) deployed to them to collect inventory data.\\\n >   For iOS/iPadOS, Android, and macOS, data is automatically collected and a separate properties catalog policy doesn't need to be deployed.\n :::column-end:::\n@@ -67,23 +67,30 @@ Additional prerequisites for device query for multiple devices:\n ## Use device query for multiple devices\n \n 1. In the [Microsoft Intune admin center][INT-AC], select **Devices** > **Device query**.\n-1. Input a query in the query box using the supported properties and supported operators.\n+1. Enter a query in the query box by using the supported properties and operators.\n 1. Select **Run** to execute the query.\n-1. Results are displayed in the **Results** tab area.\n-   - To run part of a query or a single query when multiple queries are in the window, highlight the query you want to run and select **Run**. Only the highlighted query runs.\n+1. View the results in the **Results** tab.\n+   - To run part of a query or a single query when multiple queries are present, highlight the query you want to run and select **Run**. Only the highlighted query runs.\n \n-You can expand the view on the left side to see all the properties that can be queried. Select any one to populate into your query. You can select and drag the edges of both the left side and the query window to make any adjustments.\n+You can expand the view on the left side to see all available properties that you can query. Select a property to insert it into your query. You can also resize the left pane and the query window to adjust the layout.\n \n-After running a query, select **Export** to save results to a .CSV file. You have the option to export all columns in the query result or just the columns you select. You can export up to 50,000 results to a file.\n-\n-For more information on Kusto Query Language, see [Learn more about Kusto Query Language](/azure/data-explorer/kusto/query/).\n+For more information about Kusto Query Language (KQL), see [Learn more about Kusto Query Language](/azure/data-explorer/kusto/query/).\n \n > [!TIP]\n-> Use Copilot in Intune to generate KQL queries for device query using natural language requests. To learn more, see [Query with Copilot in device query](../intune-service/copilot/copilot-intune-overview.md#-use-copilot-to-create-kql-queries-to-get-device-details).\n+> Use Copilot in Intune to generate KQL queries for device query by using natural language requests. To learn more, see [Query with Copilot in device query](../intune-service/copilot/copilot-intune-overview.md#-use-copilot-to-create-kql-queries-to-get-device-details).\n+\n+### Query results and actions\n+\n+After you run a query, results appear in the **Results** tab. You can interact with the results in several ways:\n+\n+- When a query returns **50 items or fewer**, you can search across all rows in the results and apply filters by using column headers.\n+- Create Microsoft Entra security groups directly from a query's results by selecting **Add all items to a group**. This action helps you target specific devices with Microsoft Entra Conditional Access policies or Microsoft Intune policies.\n+- Select **Export** to save results to a .csv file. You can export all columns or only selected columns. You can export up to **50,000** results to a file.\n+\n \n ## Sample queries\n \n-To help you get started, some sample queries are provided in this section. To access the sample queries, expand the **example queries** section under the Getting started page, and select the one you want to add to the query window. The following section shows the list of sample queries.\n+To help you get started, this section provides some sample queries. To access the sample queries, expand the **example queries** section under the **Getting started** page, and select the query you want to add to the query window. The following section shows the list of sample queries.\n \n ### Top processors by Core Count\n \n",
+      "baseCommitSha": "9e36b4dce0d47bec1973cda49317f86ec84fdc04",
+      "commitSha": "6358038952507420806269b25bfdfbc5a8ebd4e2",
+      "commitMessage": "32041372",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-18T15:00:47-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-03-18T19:00:47.000Z",
+      "eventId": "intune-docs:6358038952507420806269b25bfdfbc5a8ebd4e2:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "32041372",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/china-endpoints.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/china-endpoints.md b/intune/intune-service/fundamentals/china-endpoints.md\nindex 53e5f3a3e7..3f8d4434c6 100644\n--- a/intune/intune-service/fundamentals/china-endpoints.md\n+++ b/intune/intune-service/fundamentals/china-endpoints.md\n@@ -44,7 +44,7 @@ If you're using Intune to deploy PowerShell scripts or Win32 apps, you also need\n \n |Azure Scale Unit (ASU) | Storage name | CDN |\n | --- | --- |--- |\n-|CNPASU01 | sovereignprodimedatapri<br>sovereignprodimedatasec<br>sovereignprodimedatahotfix | imeswdsc-afd-pri.manage.microsoft.com<br>imeswdsc-afd-sec.manage.microsoft.com<br>imeswdsc-afd-hotfix.manage.microsoft.com<br>sovereignprodimedatapri.azureedge.net<br>sovereignprodimedatasec.azureedge.net<br>sovereignprodimedatahotfix.azureedge.net<br>(Starting March 2025, azureedge.net domains will migrate to manage.microsoft.com) |\n+|CNPASU01 | sovereignprodimedatapri<br>sovereignprodimedatasec<br>sovereignprodimedatahotfix | imeswdsc-afd-pri.manage.microsoft.com<br>imeswdsc-afd-sec.manage.microsoft.com<br>imeswdsc-afd-hotfix.manage.microsoft.com |\n \n ## Network requirements for macOS app and script deployments\n \n@@ -52,7 +52,7 @@ If you're using Intune to deploy apps or scripts on macOS, you also need to gran\n \n |Azure Scale Unit (ASU) | Storage Name | CDN |\n | --- | --- |--- |\n-|CNPASU01| macsidecarap<br>macsidecarprodap |macsidecarap.manage.microsoft.com<br>macsidecarprodap.azureedge.net<br>(Starting March 2025, azureedge.net domains will migrate to manage.microsoft.com) |\n+|CNPASU01| macsidecarap<br>macsidecarprodap |macsidecarap.manage.microsoft.com |\n \n ## Partner service endpoints\n \n",
+      "baseCommitSha": "6c890a6dfa0023221fe2afd3be96332d99d5d7ee",
+      "commitSha": "bb68d93577d750d9ad1e6bbe1b287b88247c4913",
+      "commitMessage": "Update China endpoints documentation",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-03-18T12:06:15-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/china-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/china-endpoints",
+      "firstSeenAt": "2026-03-18T19:06:15.000Z",
+      "eventId": "intune-docs:bb68d93577d750d9ad1e6bbe1b287b88247c4913:modified:intune/intune-service/fundamentals/china-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update China endpoints documentation",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/china-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/intune-us-government-endpoints.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/intune-us-government-endpoints.md b/intune/intune-service/fundamentals/intune-us-government-endpoints.md\nindex 6039a8c650..839c865ce5 100644\n--- a/intune/intune-service/fundamentals/intune-us-government-endpoints.md\n+++ b/intune/intune-service/fundamentals/intune-us-government-endpoints.md\n@@ -53,7 +53,7 @@ If you're using Intune to deploy PowerShell scripts or Win32 apps, you also need\n \n |Azure Scale Unit (ASU) | Storage name | CDN |\n | --- | --- |--- |\n-| FXPASU01 | sovereignprodimedatapri<br>sovereignprodimedatasec<br>sovereignprodimedatahotfix | imeswdsc-afd-pri.manage.microsoft.com<br>imeswdsc-afd-sec.manage.microsoft.com<br>imeswdsc-afd-hotfix.manage.microsoft.com<br>sovereignprodimedatapri.azureedge.net<br>sovereignprodimedatasec.azureedge.net<br>sovereignprodimedatahotfix.azureedge.net<br><br>Starting March 2025, `azureedge.net` domains will migrate to `manage.microsoft.com`. |\n+| FXPASU01 | sovereignprodimedatapri<br>sovereignprodimedatasec<br>sovereignprodimedatahotfix | imeswdsc-afd-pri.manage.microsoft.com<br>imeswdsc-afd-sec.manage.microsoft.com<br>imeswdsc-afd-hotfix.manage.microsoft.com |\n \n For diagnostic data used to monitor the health of the client side components:\n \n",
+      "baseCommitSha": "6c890a6dfa0023221fe2afd3be96332d99d5d7ee",
+      "commitSha": "8158344397aa71dd8cd5aa879af06f986c4d7615",
+      "commitMessage": "Update CDN information for FXPASU01",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-03-18T12:14:58-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/intune-us-government-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-us-government-endpoints",
+      "firstSeenAt": "2026-03-18T19:14:58.000Z",
+      "eventId": "intune-docs:8158344397aa71dd8cd5aa879af06f986c4d7615:modified:intune/intune-service/fundamentals/intune-us-government-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update CDN information for FXPASU01",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-us-government-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/microsoft-defender-integrate.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 16,
+      "changes": 29,
+      "patch": "diff --git a/intune/intune-service/protect/microsoft-defender-integrate.md b/intune/intune-service/protect/microsoft-defender-integrate.md\nindex 21fe47ec1f..b7ed69c45a 100644\n--- a/intune/intune-service/protect/microsoft-defender-integrate.md\n+++ b/intune/intune-service/protect/microsoft-defender-integrate.md\n@@ -66,20 +66,15 @@ This one-time setup per tenant establishes the service-to-service connection tha\n \n    :::image type=\"content\" source=\"./media/microsoft-defender-integrate/open-microsoft-defender.png\" alt-text=\"Screen shot that shows the patch to open the Microsoft Defender Security Center.\":::\n \n-3. **Enable the connection in Microsoft Defender portal:**\n+3. **Enable the connection in Microsoft Defender portal:** In the [Microsoft Defender portal](https://security.microsoft.com), go to **System** > **Settings** > **Endpoints** > **General** > **Advanced features**.\n \n-   1. Navigate to **Settings** > **Endpoints** > **General** > **Advanced features**.\n+   :::image type=\"content\" source=\"./media/microsoft-defender-integrate/defender-console-settings-endpoints.png\" alt-text=\"Screen shot of the Defender console showing the path to Settings and then Endpoints.\":::\n \n-      > [!TIP]\n-      > The location of **Settings** varies depending on your portal layout: **Settings** can appear as a top-level menu item, or you might need to navigate to **System** > **Settings**. If you can't locate **Endpoints**, verify you have the required permissions [listed in the prerequisites for this task](#connect-microsoft-defender-for-endpoint-to-intune).\n+   Locate **Microsoft Intune connection**, toggle it to **On**, and then select **Save preferences**.\n \n-      :::image type=\"content\" source=\"./media/microsoft-defender-integrate/defender-console-settings-endpoints.png\" alt-text=\"Screen shot of the Defender console showing the path to Settings and then Endpoints.\":::\n+   :::image type=\"content\" source=\"./media/microsoft-defender-integrate/intune-connection-toggle.png\" alt-text=\"Screen shot of the Microsoft Intune connection setting.\":::\n \n-   2. Locate **Microsoft Intune connection** and toggle it to **On**.\n-\n-      :::image type=\"content\" source=\"./media/microsoft-defender-integrate/intune-connection-toggle.png\" alt-text=\"Screen shot of the Microsoft Intune connection setting.\":::\n-\n-   3. Select **Save preferences**.\n+   For more information about this setting, see [Microsoft Intune connection](/defender-endpoint/advanced-features#microsoft-intune-connection) in the Defender for Endpoint documentation.\n \n 4. **Validation:** Return to the Intune admin center. The **Connection status** should now show **Enabled** (it can take up to 15 minutes to update). Services sync automatically every 24 hours, and you can adjust monitoring settings under **Endpoint security** > **Microsoft Defender for Endpoint** if needed.\n \n@@ -105,7 +100,7 @@ This one-time setup per tenant establishes the service-to-service connection tha\n    > When enabled, all applicable devices you currently manage with Intune, plus future enrollments, will be connected to Microsoft Defender for Endpoint for compliance evaluation.\n \n    > [!TIP]\n-   > **Additional iOS settings:** For iOS devices, Defender for Endpoint also supports settings that help provide Vulnerability Assessment of apps. You can enable **App Sync for iOS Devices** to allow metadata sharing for threat analysis (requires MDM enrollment), and configure **Send full application inventory data on personally owned iOS/iPadOS Devices** to control what app data is shared with Defender for Endpoint. For details, see [Configure vulnerability assessment of apps](/microsoft-365/security/defender-endpoint/ios-configure-features#configure-vulnerability-assessment-of-apps).\n+   > **Additional iOS settings:** For iOS devices, Defender for Endpoint also supports settings that help provide Vulnerability Assessment of apps. You can enable **App Sync for iOS Devices** to allow metadata sharing for threat analysis (requires MDM enrollment), and configure **Send full application inventory data on personally owned iOS/iPadOS Devices** to control what app data is shared with Defender for Endpoint. For details, see [Configure vulnerability assessment of apps](/defender-endpoint/ios-configure-features#configure-vulnerability-assessment-of-apps).\n \n    For more information, see [Mobile Threat Defense toggle options](../protect/mtd-connector-enable.md#mobile-threat-defense-toggle-options).\n \n@@ -145,7 +140,7 @@ After establishing the service-to-service connection, onboard your devices by pl\n \n With the service connection established, Intune automatically receives an onboarding configuration package from Microsoft Defender for Endpoint. This package enables:\n \n-- Communication with [Microsoft Defender for Endpoint services](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)\n+- Communication with [Microsoft Defender for Endpoint services](/defender-endpoint/microsoft-defender-endpoint)\n - File scanning and threat detection\n - Risk level reporting for compliance policies\n \n@@ -262,7 +257,7 @@ Unlike Windows devices, macOS requires manual configuration since Intune doesn't\n \n **Additional resources:**\n \n-- [Microsoft Defender for Endpoint for Mac](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-mac?view=o365-worldwide&preserve-view=true) - Complete feature documentation and release notes.\n+- [Microsoft Defender for Endpoint for Mac](/defender-endpoint/microsoft-defender-endpoint-mac) - Complete feature documentation and release notes.\n \n ### Onboard Android devices\n \n@@ -270,7 +265,7 @@ Unlike Windows devices, macOS requires manual configuration since Intune doesn't\n \n #### Android onboarding quick start\n \n-1. **Deploy the app**: Follow [Microsoft Defender for Endpoint for Android](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-android) prerequisites and onboarding instructions.\n+1. **Deploy the app**: Follow the [Microsoft Defender for Endpoint for Android](/defender-endpoint/android-intune) deployment guide for Intune-managed devices.\n 2. **Configure web protection**: Use [Microsoft Defender for Endpoint web protection](../protect/microsoft-defender-configure-android.md) policies for additional security.\n 3. **Verify onboarding**: Confirm device registration in Microsoft Defender XDR portal.\n \n@@ -344,7 +339,7 @@ Unlike Windows devices, macOS requires manual configuration since Intune doesn't\n \n ### Steps to create the policy\n \n-1. **Navigate to compliance policies:** In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), select **Devices** > **Compliance** > **Policies** tab > **Create policy**.\n+1. **Navigate to compliance policies:** In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), select **Devices** > exapnd *Manage devices* and select **Compliance** > **Policies** tab > **Create policy**.\n \n 2. **Select platform:** Choose your target platform:\n    - **Android device administrator** (limited support)\n@@ -355,13 +350,15 @@ Unlike Windows devices, macOS requires manual configuration since Intune doesn't\n    > [!IMPORTANT]\n    > [!INCLUDE [windows-10-support](../includes/windows-10-support.md)]\n \n+   If necessary, select a Profile type, like *Windows 10/11 compliance policy* for the Windows platform.\n+\n 3. **Configure basics:**\n    - **Name**: Enter a descriptive name (for example, \"MDE Risk Level - Windows Devices\")\n    - **Description**: Optional details about the policy purpose\n \n 4. **Set risk threshold:** On the **Compliance settings** tab, expand **Microsoft Defender for Endpoint** and configure **Require the device to be at or under the machine risk score**:\n \n-   **Risk level options** ([determined by Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/alerts-queue)):\n+   **Risk level options** (determined by Microsoft Defender for Endpoint):\n \n    - **Clear (Most Secure)**:\n      - **Allows**: No threats\n",
+      "baseCommitSha": "fa112a3f7068713958b0a2e33dea94c8d2f57a5d",
+      "commitSha": "3b074cf13f475ccf5558b16308b8d2eb241d799e",
+      "commitMessage": "procedure and link fixes",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-18T14:35:45-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/microsoft-defender-integrate.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-defender-integrate",
+      "firstSeenAt": "2026-03-18T21:35:45.000Z",
+      "eventId": "intune-docs:3b074cf13f475ccf5558b16308b8d2eb241d799e:modified:intune/intune-service/protect/microsoft-defender-integrate.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "procedure and link fixes",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-defender-integrate.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-guide-enroll.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-guide-enroll.md b/intune/intune-service/fundamentals/deployment-guide-enroll.md\nindex 962bc4bdad..c87d3a5e09 100644\n--- a/intune/intune-service/fundamentals/deployment-guide-enroll.md\n+++ b/intune/intune-service/fundamentals/deployment-guide-enroll.md\n@@ -225,8 +225,10 @@ Additional enrollment guides are available throughout the Microsoft Intune docum\n \n ## Next steps\n \n+This article is part of a five-step series that describes how to deploy Microsoft Intune. The series includes the following articles, in order:\n+\n 1. [Set up Microsoft Intune](deployment-plan-setup.md)\n 2. [Add, configure, and protect apps](deployment-plan-protect-apps.md)\n 3. [Plan for compliance policies](deployment-plan-compliance-policies.md)\n 4. [Create device configuration profiles](deployment-plan-configuration-profile.md)\n-5. 🡺 **Enroll devices** (*You are here*)\n+5. 🡺 **Enroll devices** (this article)\n",
+      "baseCommitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitSha": "4d87646b9e2c9bb09e58559f43193901f90ed157",
+      "commitMessage": "final",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-18T18:27:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-guide-enroll.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-guide-enroll",
+      "firstSeenAt": "2026-03-18T22:27:04.000Z",
+      "eventId": "intune-docs:4d87646b9e2c9bb09e58559f43193901f90ed157:modified:intune/intune-service/fundamentals/deployment-guide-enroll.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enroll.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-compliance-policies.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-compliance-policies.md b/intune/intune-service/fundamentals/deployment-plan-compliance-policies.md\nindex 48f350e881..27257923e9 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-compliance-policies.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-compliance-policies.md\n@@ -247,8 +247,10 @@ We recommend using the following settings in your enhanced device compliance pol\n \n ## Follow the minimum recommended baseline policies\n \n+This article is part of a five-step series that describes how to deploy Microsoft Intune. The series includes the following articles, in order:\n+\n 1. [Set up Microsoft Intune](deployment-plan-setup.md)\n 2. [Add, configure, and protect apps](deployment-plan-protect-apps.md)\n-3. 🡺 **Plan for compliance policies** (*You are here*)\n+3. 🡺 **Plan for compliance policies** (this article)\n 4. [Configure device features](deployment-plan-configuration-profile.md)\n 5. [Enroll devices](deployment-guide-enroll.md)\n",
+      "baseCommitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitSha": "4d87646b9e2c9bb09e58559f43193901f90ed157",
+      "commitMessage": "final",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-18T18:27:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-compliance-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-compliance-policies",
+      "firstSeenAt": "2026-03-18T22:27:04.000Z",
+      "eventId": "intune-docs:4d87646b9e2c9bb09e58559f43193901f90ed157:modified:intune/intune-service/fundamentals/deployment-plan-compliance-policies.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-compliance-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 5,
+      "changes": 12,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md b/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\nindex cc2594b592..e8ae1de38b 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\n@@ -3,7 +3,7 @@ title: Configure security, email, VPN, and Wi-Fi device configuration profiles\n description: Step 4 to deploy device configuration profiles as part of the minimum set of policies for your devices using Microsoft Intune. The starting point is to enable the firewall, install AV, scan for malware, install software updates, create a strong PIN policy, and create email, VPN, and Wi-Fi device configuration profiles.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 03/17/2026\n+ms.date: 03/18/2026\n ms.topic: how-to\n ms.collection:\n - M365-identity-device-management\n@@ -80,7 +80,7 @@ Your policy options:\n | Android Enterprise | - [Mobile threat defense partner](../protect/mobile-threat-defense.md) </br>- [Microsoft Defender for Endpoint](/defender-endpoint/mtd) |\n | iOS/iPadOS | - [Mobile threat defense partner](../protect/mobile-threat-defense.md) </br>- [Microsoft Defender for Endpoint](/defender-endpoint/mtd) |\n | macOS | - [Intune Endpoint Security antivirus profile](../protect/endpoint-security-antivirus-policy.md) (Microsoft Defender for Endpoint) |\n-| Windows client | - [Intune security baselines](../protect/security-baselines.md) (recommended)</br>- [Intune Endpoint Security antivirus profile](../protect/endpoint-security-antivirus-policy.md) (Microsoft Defender for Endpoint) </br>- Mobile threat defense partner ?? |\n+| Windows client | - [Intune security baselines](../protect/security-baselines.md) (recommended)</br>- [Intune Endpoint Security antivirus profile](../protect/endpoint-security-antivirus-policy.md) (Microsoft Defender for Endpoint) |\n \n ### Detection and response\n \n@@ -95,7 +95,7 @@ Your policy options:\n | Android Enterprise | - [Mobile threat defense partner](../protect/mobile-threat-defense.md)</br>- [Microsoft Defender for Endpoint](/defender-endpoint/mtd) |\n | iOS/iPadOS | - [Mobile threat defense partner](../protect/mobile-threat-defense.md)</br>- [Microsoft Defender for Endpoint](/defender-endpoint/mtd) |\n | macOS | [Intune endpoint detection and response profile](../protect/endpoint-security-edr-policy.md) (Microsoft Defender for Endpoint) |\n-| Windows client | - [Intune security baselines](../protect/security-baselines.md) (recommended)</br>- [Intune endpoint detection and response profile](../protect/endpoint-security-edr-policy.md) (Microsoft Defender for Endpoint) </br>- Mobile threat defense partner ?? |\n+| Windows client | - [Intune security baselines](../protect/security-baselines.md) (recommended)</br>- [Intune endpoint detection and response profile](../protect/endpoint-security-edr-policy.md) (Microsoft Defender for Endpoint) |\n \n ### Firewall\n \n@@ -110,7 +110,7 @@ Your policy options:\n | Android Enterprise | [Mobile threat defense partner](../protect/mobile-threat-defense.md) |\n | iOS/iPadOS | [Mobile threat defense partner](../protect/mobile-threat-defense.md) |\n | macOS | [Intune Endpoint Security firewall profile](../protect/endpoint-security-firewall-policy.md) (Microsoft Defender for Endpoint) |\n-| Windows client | - [Intune security baselines](../protect/security-baselines.md) (recommended)</br>- [Intune Endpoint Security firewall profile](../protect/endpoint-security-firewall-policy.md) (Microsoft Defender for Endpoint) </br>- Mobile threat defense partner ??|\n+| Windows client | - [Intune security baselines](../protect/security-baselines.md) (recommended)</br>- [Intune Endpoint Security firewall profile](../protect/endpoint-security-firewall-policy.md) (Microsoft Defender for Endpoint) |\n \n ### Password policy\n \n@@ -564,8 +564,10 @@ This level expands on what you configured in levels 1 and 2. It adds extra secur\n \n ## Follow the minimum recommended baseline policies\n \n+This article is part of a five-step series that describes how to deploy Microsoft Intune. The series includes the following articles, in order:\n+\n 1. [Set up Microsoft Intune](deployment-plan-setup.md)\n 2. [Add, configure, and protect apps](deployment-plan-protect-apps.md)\n 3. [Plan for compliance policies](deployment-plan-compliance-policies.md)\n-4. 🡺 **Configure device features** (*You are here*)\n+4. 🡺 **Configure device features** (this article)\n 5. [Enroll devices](deployment-guide-enroll.md)\n",
+      "baseCommitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitSha": "4d87646b9e2c9bb09e58559f43193901f90ed157",
+      "commitMessage": "final",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-18T18:27:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-configuration-profile",
+      "firstSeenAt": "2026-03-18T22:27:04.000Z",
+      "eventId": "intune-docs:4d87646b9e2c9bb09e58559f43193901f90ed157:modified:intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-protect-apps.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-protect-apps.md b/intune/intune-service/fundamentals/deployment-plan-protect-apps.md\nindex 8cfc42bbb4..d7e7f790ca 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-protect-apps.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-protect-apps.md\n@@ -280,8 +280,10 @@ The following list provides the end-user requirements to use app protection poli\n \n ## Follow the minimum recommended baseline policies\n \n+This article is part of a five-step series that describes how to deploy Microsoft Intune. The series includes the following articles, in order:\n+\n 1. [Set up Microsoft Intune](deployment-plan-setup.md)\n-2. 🡺 **Add, configure, and protect apps** (*You are here*)\n+2. 🡺 **Add, configure, and protect apps** (this article)\n 3. [Plan for compliance policies](deployment-plan-compliance-policies.md)\n 4. [Configure device features](deployment-plan-configuration-profile.md)\n 5. [Enroll devices](deployment-guide-enroll.md)\n",
+      "baseCommitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitSha": "4d87646b9e2c9bb09e58559f43193901f90ed157",
+      "commitMessage": "final",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-18T18:27:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-protect-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-protect-apps",
+      "firstSeenAt": "2026-03-18T22:27:04.000Z",
+      "eventId": "intune-docs:4d87646b9e2c9bb09e58559f43193901f90ed157:modified:intune/intune-service/fundamentals/deployment-plan-protect-apps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-protect-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 14,
+      "changes": 30,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-setup.md b/intune/intune-service/fundamentals/deployment-plan-setup.md\nindex 9b3411303f..72fd6e1701 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-setup.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-setup.md\n@@ -3,7 +3,7 @@ title : Set up Intune\n description: Step 1 for deploying or setting up Intune. The starting point is to review supported configurations, sign up for the trial, configure the custom domain name, add users and groups to Intune, assign licenses to users, manage roles, grant admin permissions, and set the MDM authority.\n author: paolomatarazzo\n ms.author: paoloma\n-ms.date: 03/17/2026\n+ms.date: 03/18/2026\n ms.topic: install-set-up-deploy\n ms.collection:\n - M365-identity-device-management\n@@ -136,29 +136,29 @@ Scope tags work with roles to limit which Intune objects, like devices, policies\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Get started with managing roles**\n \n-1. Assign the built-in roles to the admins in your organization. For example, assign the Policy and Profile manager role to the admins that create and manage enrollment policies.\n+1. Assign the built-in roles to the admins based on their responsibilities. For example, assign the **Policy and Profile manager** role to the admins that create and manage enrollment policies. Role assignments determine what admins can see and modify in Intune.\n \n     For guidance, see:\n \n-    - [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md)\n-    - [Built-in role permissions for Microsoft Intune](role-based-access-control-reference.md)\n+    - [Role-based access control (RBAC) with Intune](role-based-access-control.md)\n+    - [Built-in role permissions for Intune](role-based-access-control-reference.md)\n+    - [Assign a role in Intune](assign-role.md)\n \n-2. Create your own custom roles with the exact set of permissions you need. Custom roles let you define a precise set of permissions when built-in roles don't meet your requirements, or you want to implement least-privilege access.\n+2. Create your own custom roles with the exact set of permissions you need, and then assign to the admins based on their responsibilities. Custom roles let you define a precise set of permissions when built-in roles don't meet your requirements, or you want to implement least-privilege access. For example, you can create a custom role that only has permissions to create and update device compliance policies.\n \n     For guidance, see:\n \n     - [Create a custom role in Intune](create-custom-role.md)\n-    - [Built-in role permissions for Microsoft Intune](role-based-access-control-reference.md)\n+    - [Built-in role permissions for Intune](role-based-access-control-reference.md)\n+    - [Assign a role in Intune](assign-role.md)\n \n-3. Assign roles to your admin team based on their responsibilities. Role assignments determine what admins can see and modify in Intune. For guidance, see [Assign a role to an Intune user](assign-role.md).\n-\n-4. Use scope tags to limit visibility of Intune objects. Scope tags control which objects admins can see. Roles control what actions they can take on those objects. Using RBAC together with scope tags helps ensure admins only have access to the resources they're responsible for.\n+3. Use scope tags to limit visibility of Intune objects. Scope tags control which objects admins can see. Roles control what actions they can take on those objects. Using RBAC together with scope tags helps ensure admins only have access to the resources they're responsible for.\n \n     For guidance, see [Use role-based access control (RBAC) and scope tags for distributed IT](scope-tags.md).\n \n-5. Configure Multi Admin Approvals. To help protect against a compromised administrative account, this feature requires that a second administrative account must approve a change before the change is applied. It adds an extra layer of security by ensuring that high-impact changes, like wiping or deleting devices, require approval from multiple administrators.\n+4. Configure Multi Admin Approval. To help protect against a compromised administrative account, this feature requires that a second administrative account must approve a change before the change is applied. It adds an extra layer of security by ensuring that high-impact changes, like wiping or deleting devices, require approval from multiple administrators.\n \n-    For guidance, see [Configure Multi Admin Approvals](multi-admin-approvals.md).\n+    For guidance, see [Configure Multi Admin Approval](multi-admin-approval.md).\n \n ## 8 - Set the mobile device management authority\n \n@@ -182,8 +182,10 @@ For guidance, see [Configure the company portal](../apps/company-portal-app.md).\n \n ## Follow the minimum recommended baseline policies\n \n-1. 🡺 **Set up Microsoft Intune** (*You are here*)\n+This article is part of a five-step series that describes how to deploy Microsoft Intune. The series includes the following articles, in order:\n+\n+1. 🡺 **Set up Microsoft Intune** (this article)\n 2. [Add, configure, and protect apps](deployment-plan-protect-apps.md)\n-3. [Plan for compliance policies](deployment-plan-compliance-policies.md)\n-4. [Configure device features](deployment-plan-configuration-profile.md)\n+3. [Create compliance policies](deployment-plan-compliance-policies.md)\n+4. [Configure device features and settings](deployment-plan-configuration-profile.md)\n 5. [Enroll devices](deployment-guide-enroll.md)\n",
+      "baseCommitSha": "24160cbc6a860036b481745a1172b46c74ae1fd3",
+      "commitSha": "4d87646b9e2c9bb09e58559f43193901f90ed157",
+      "commitMessage": "final",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-18T18:27:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-setup",
+      "firstSeenAt": "2026-03-18T22:27:04.000Z",
+      "eventId": "intune-docs:4d87646b9e2c9bb09e58559f43193901f90ed157:modified:intune/intune-service/fundamentals/deployment-plan-setup.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 11,
+    "totalFiles": 16,
+    "authors": [
+      "Albert Cabello Serrano",
+      "Brent Dunsire",
+      "Kara Wang",
+      "Maggie Dakeva",
+      "Mandi Ohlinger",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 16 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md. Updated Microsoft Intune documentation in intune/intune-service/protect/endpoint-security-asr-policy.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/scope-tags.md. Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-use.md. Updated Microsoft Intune documentation in intune/intune-se",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+          "intune/intune-service/fundamentals/deployment-plan-setup.md",
+          "intune/intune-service/protect/endpoint-security-asr-policy.md",
+          "intune/intune-service/fundamentals/scope-tags.md",
+          "intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md",
+          "intune/intune-service/fundamentals/remote-help-use.md",
+          "intune/intune-service/fundamentals/china-endpoints.md",
+          "intune/intune-service/fundamentals/intune-us-government-endpoints.md",
+          "intune/intune-service/protect/microsoft-defender-integrate.md",
+          "intune/intune-service/fundamentals/deployment-guide-enroll.md",
+          "intune/intune-service/fundamentals/deployment-plan-compliance-policies.md",
+          "intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+          "intune/intune-service/fundamentals/deployment-plan-protect-apps.md",
+          "intune/intune-service/fundamentals/deployment-plan-setup.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md.",
+        "sourceFiles": [
+          "intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "sourceFiles": [
+          "intune/advanced-analytics/device-query-multiple-devices.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-setup.md. Updated Microsoft Intune documentation in intune/intune-service/protect/endpoint-security-asr-policy.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/scope-tags.md. Updated Microsoft Intune documentation in intune/intune-service/user-help/install-a-new-version-of-the-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-use.md. Updated Microsoft Intune documentation in intune/intune-se"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/protect/deploy-use/create-windows-firewall-policies.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

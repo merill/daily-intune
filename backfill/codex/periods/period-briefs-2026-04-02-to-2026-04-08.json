@@ -1,0 +1,147 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-04-02",
+      "summary": {
+        "headline": "Remote device retirement guidance is added amid endpoint-management updates",
+        "overview": "The April 2 documentation set introduces a dedicated Intune remote device action for retiring devices, alongside updates to device query and in-development references covering Endpoint Privilege Management and Security Copilot.",
+        "adminImpact": "Endpoint operations teams should compare the new retire-action guidance with their offboarding procedures and confirm when to use retire versus other device actions. Analytics owners should also review the updated device-query reference.",
+        "keyChanges": [
+          {
+            "title": "Remote Device Action: Retire guidance is added",
+            "detail": "Microsoft published Intune documentation for retiring a device through a remote device action.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-02-remote-device-action-retire-23"
+          },
+          {
+            "title": "Device Query reference is updated",
+            "detail": "The Intune Advanced Analytics documentation for device query was revised.",
+            "product": "Advanced Analytics",
+            "sourceId": "doc-2026-04-02-device-query-40"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-03",
+      "summary": {
+        "headline": "Security baseline, TeamViewer integration, and Autopilot hybrid proxy documentation change",
+        "overview": "Updates include Intune security baseline material, a new TeamViewer integration article, the Windows Autopilot hybrid connector proxy, and Configuration Manager infrastructure upgrade guidance.",
+        "adminImpact": "Review baseline references before policy changes, assess the new TeamViewer integration material if that remote-support tool is in scope, and validate proxy or upgrade runbooks against the refreshed Autopilot and Configuration Manager guidance.",
+        "keyChanges": [
+          {
+            "title": "TeamViewer integration guidance is added",
+            "detail": "Microsoft added documentation for using the TeamViewer integration in Microsoft Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-03-use-the-teamviewer-integration-in-microsoft-intune-01"
+          },
+          {
+            "title": "Security baseline references are updated",
+            "detail": "The Intune MDM security baseline settings reference was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-03-security-baseline-settings-mdm-all-03"
+          },
+          {
+            "title": "Autopilot hybrid connector proxy guidance is refreshed",
+            "detail": "Microsoft updated the Windows Autopilot hybrid connector proxy documentation.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-03-autopilot-hybrid-connector-proxy-10"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-06",
+      "summary": {
+        "headline": "Endpoint security, app protection, and Autopilot Reset references receive broad updates",
+        "overview": "A high-volume documentation refresh spans endpoint-security device management, app protection policy, Autopilot Reset, Configuration Manager remote actions, and Remote Assist.",
+        "adminImpact": "Use the refreshed references to validate endpoint-security and app-protection implementation guidance. Organizations relying on Autopilot Reset, co-management remote actions, or Remote Help should review their runbooks for documentation changes.",
+        "keyChanges": [
+          {
+            "title": "Endpoint security device-management guidance is updated",
+            "detail": "Microsoft updated the Intune reference for managing devices with endpoint security.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-06-endpoint-security-manage-devices-61"
+          },
+          {
+            "title": "App protection policy guidance is refreshed",
+            "detail": "The Intune app protection policy documentation was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-06-app-protection-policy-21"
+          },
+          {
+            "title": "Autopilot Reset overview is updated",
+            "detail": "Microsoft revised the Windows Autopilot Reset overview.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-06-autopilot-reset-overview-11"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-07",
+      "summary": {
+        "headline": "Derived credentials guidance is added as device-management documentation is refreshed",
+        "overview": "The day introduces Intune guidance for derived credentials on mobile devices and includes broad updates across Configuration Manager, existing-device Autopilot, Remote Help deployment, and device scopes.",
+        "adminImpact": "Mobile security teams considering derived credentials should evaluate the new Intune guidance. Endpoint teams should also verify Autopilot existing-device and Remote Help deployment procedures against the refreshed documentation.",
+        "keyChanges": [
+          {
+            "title": "Derived credentials guidance for mobile devices is added",
+            "detail": "Microsoft published documentation for using derived credentials for mobile devices with Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-07-use-derived-credentials-for-mobile-devices-with-microsoft-intune-07"
+          },
+          {
+            "title": "Autopilot existing-device guidance is updated",
+            "detail": "The Windows Autopilot documentation for existing devices was revised.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-07-existing-devices-181"
+          },
+          {
+            "title": "Remote Help deployment guidance is updated",
+            "detail": "Microsoft refreshed the Intune documentation for deploying Remote Help.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-04-07-remote-help-deploy-152"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-08",
+      "summary": {
+        "headline": "Mobile threat defense and Windows enrollment guides are added in a large documentation release",
+        "overview": "The archive records a very large documentation change set, including new end-user instructions for installing a mobile threat defense app and a new Windows device enrollment guide, with related updates for Autopilot enrollment and Remote Help deployment.",
+        "adminImpact": "Review the new threat-defense and Windows enrollment material before updating onboarding guidance. Co-management and remote-support owners should revalidate Autopilot enrollment and Remote Help deployment documentation used in operations.",
+        "keyChanges": [
+          {
+            "title": "Mobile threat defense installation guidance is added",
+            "detail": "Microsoft added end-user documentation for installing a mobile threat defense app on a mobile device.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-08-install-mobile-threat-defense-app-on-your-mobile-device-125"
+          },
+          {
+            "title": "Windows device enrollment guide is added",
+            "detail": "A new Microsoft Intune guide for Windows device enrollment was published.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-08-windows-device-enrollment-guide-for-microsoft-intune-203"
+          },
+          {
+            "title": "Remote Help deployment guidance is updated",
+            "detail": "The Intune documentation for deploying Remote Help was revised.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-04-08-remote-help-deploy-392"
+          }
+        ]
+      }
+    }
+  ]
+}

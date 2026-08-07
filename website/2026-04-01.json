@@ -1,0 +1,275 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/in-development.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 27,
+      "changes": 27,
+      "patch": "diff --git a/intune/intune-service/fundamentals/in-development.md b/intune/intune-service/fundamentals/in-development.md\nindex 31b9a0cdcb..612f70ca73 100644\n--- a/intune/intune-service/fundamentals/in-development.md\n+++ b/intune/intune-service/fundamentals/in-development.md\n@@ -139,33 +139,6 @@ After the defined time elapses, or when the *restore managed home screen* action\n \n ## Device security\n \n-### New settings in the Windows settings catalog <!-- 34444997 -->\n-\n-There will be new maintenance window settings for OS, drivers, and updates in the Windows settings catalog. You'll be able configure the type of updates that should take place (Download, install, restart), start date, time, duration and repeat schedule.\n-\n-To see and configure these settings in Intune, create a Windows settings catalog profile (**Devices > Configuration profiles > Create profile > Windows 10 and later > Settings catalog**).\n-\n-The new policies will include:\n-\n-- Enable Maintenance windows (On/Off)\n-- Update action (Download, install, restart options)\n-- Start date\n-- Start time\n-- Duration (hours)\n-- Repeat schedule\n-- Weekly – Day selection\n-- Monthly – schedule type\n-- Monthly – Day of the month\n-- Monthly – Occurrence in month - Week\n-- Monthly – Occurrence in month - Day of the week\n-\n-> [!div class=\"checklist\"]\n-> Applies to:\n->\n-> - Windows\n-\n-To learn more about the settings catalog, see [Use the Intune settings catalog to configure settings](../../device-configuration/settings-catalog/index.md).\n-\n ### Intune security baseline for Windows 11 version 25H2 <!-- 34955665 -->\n \n We're working on an updated Windows security baseline for Windows 11, version 25H2, to reflect the latest Microsoft security recommendations for supported Windows devices. The update is expected to introduce changes such as new settings, updated default values, and the retirement of existing settings to align with current Windows security guidance.\n",
+      "baseCommitSha": "aca04204c561bbde57c4078828dd15f35ef4bcc3",
+      "commitSha": "d1d90a76fe2436815738417a29c90a188782b50b",
+      "commitMessage": "34444997 - Removed 34444997",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-31T21:20:40-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development",
+      "firstSeenAt": "2026-04-01T01:20:40.000Z",
+      "eventId": "intune-docs:d1d90a76fe2436815738417a29c90a188782b50b:modified:intune/intune-service/fundamentals/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "34444997 - Removed 34444997",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 2,
+      "changes": 23,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 8559c9e498..7e602788e3 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -63,7 +63,7 @@ You can use RSS to be notified when this page is updated. For more information,\n \n #### Declarative Device Management for Apple line-of-business apps on iOS/iPadOS<!-- 30457044 -->\n \n-Microsoft Intune now supports Apple Declarative Device Management (DDM) for required line-of-business apps on devices running iOS/iPadOS 18 and later. By changing the management type to DDM in App information, you can deploy and configure apps using Apple’s policy-based model, which improves delivery efficiency, provides real-time app status, and expands per-app options such as associated domains.\n+Microsoft Intune now supports Apple Declarative Device Management (DDM) for required line-of-business apps on devices running iOS/iPadOS 18 and later. By changing the management type to DDM in App information, you can deploy and configure apps using Apple's policy-based model, which improves delivery efficiency, provides real-time app status, and expands per-app options such as associated domains.\n \n > [!div class=\"checklist\"]\n > Applies to:\n@@ -111,7 +111,7 @@ The new policies include:\n \n - **Connectivity > Disable Cross Device Resume**: This feature lets Windows suggest continuing an activity users start on a device, like a phone, to a PC. IT admins can use this policy to turn off this feature and prevent users from continuing tasks, like browsing files or continuing to use supported apps that require linking between a phone and PC. \n \n-  When set to **CrossDeviceResume is Disabled**, the Windows device doesn't receive any CrossDeviceResume notification. Users won’t see any \"resume from your phone\" prompts. When you select **CrossDeviceResume is Enabled**, the Windows device does receive notification to resume activity from linked devices. If you don't configure this policy setting, the default behavior is that the CrossDeviceResume feature is turned on, which means users see the notification. Changes to this policy take effect on reboot.\n+  When set to **CrossDeviceResume is Disabled**, the Windows device doesn't receive any CrossDeviceResume notification. Users won't see any \"resume from your phone\" prompts. When you select **CrossDeviceResume is Enabled**, the Windows device does receive notification to resume activity from linked devices. If you don't configure this policy setting, the default behavior is that the CrossDeviceResume feature is turned on, which means users see the notification. Changes to this policy take effect on reboot.\n \n   This policy:\n \n@@ -254,6 +254,25 @@ Microsoft Intune supports Red Hat Enterprise Linux (RHEL) 9 LTS and RHEL 10 LTS.\n \n The Microsoft Intune app for Linux now uses the Microsoft Identity Broker on supported Ubuntu and Red Hat Enterprise Linux (RHEL) distributions. Broker version 2.0.2 and later introduces a major architectural change from the previous Java-based broker. This update enables new single sign-on (SSO) experiences using phish-resistant MFA, smart card authentication, and certificate-based authentication with Microsoft Entra ID. For more information, see [Enabling Phish-Resistant MFA (PRMFA) on Linux devices](/entra/identity/devices/sso-linux?tabs=debian-install%2Cdebian-update%2Cdebian-uninstall#enabling-phish-resistant-mfa-prmfa-on-linux-devices-preview).  \n \n+### Device security\n+\n+#### Hotpatching default enablement in Windows Autopatch<!--36869440-->\n+\n+Starting with the May 2026 Windows security update, hotpatch updates are enabled by default for all eligible devices managed through Windows Autopatch. Hotpatch updates install faster and require fewer restarts, helping devices get\n+secure sooner.\n+\n+If your organization isn't ready for this change, you can opt out using either of the following options:\n+\n+- **Tenant-level setting**: Opt out of hotpatch updates across all eligible devices in your tenant. This option becomes available April 1, 2026 in the Intune admin center.\n+- **Quality update policy**: Control hotpatch behavior for a specific group of devices. Hotpatch settings configured in a quality update policy override the tenant-level setting for devices assigned to that policy.\n+\n+Key dates:\n+\n+- **April 1, 2026**: Tenant-level opt-out setting available in the Intune admin center.\n+- **May 2026 security update**: Hotpatch updates enabled by default.\n+\n+For more information, see the Windows IT Pro Blog (https://aka.ms/HotpatchByDefault).\n+\n ### Intune apps\n \n #### Newly available protected apps for Intune <!-- 36620792, 36620880, 36621194, 36621352, 36627824 -->\n",
+      "baseCommitSha": "2e6a66b5566356d8999cb098129bb26a772ad342",
+      "commitSha": "235852632e875fdcf48c5522d00842b448affa3f",
+      "commitMessage": "added 36869440",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-01T08:18:37-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-04-01T12:18:37.000Z",
+      "eventId": "intune-docs:235852632e875fdcf48c5522d00842b448affa3f:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "added 36869440",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/expedite-policy.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-updates/windows/expedite-policy.md b/intune/device-updates/windows/expedite-policy.md\nindex be33881294..ab1fb52e7e 100644\n--- a/intune/device-updates/windows/expedite-policy.md\n+++ b/intune/device-updates/windows/expedite-policy.md\n@@ -28,7 +28,7 @@ Not all updates are eligible for expediting. Only supported Windows security upd\n >    \n >    For more information about these settings, see [Policy CSP Update](/windows/client-management/mdm/policy-csp-update).\n >\n-> - The following list of Group Policy settings can interfere with expedite policy. On devices where these settings were managed by Group Policies, restore them to their defaults (Not configured):\n+> - The following list of policy settings can interfere with expedite policy. On devices where these settings were managed by group policies, restore them to their defaults (Not configured):\n >    - **CorpWuURL** - Specify intranet Microsoft update service location.\n >    - **AutoUpdateCfg** - Configure Automatic Updates.\n >    - **DeferFeatureUpdates** - Select when Preview Builds and Feature Updates are received.\n@@ -99,7 +99,7 @@ Expedite policies don't affect how future quality updates are deployed. To manag\n    **Non-security expedited updates**: These are quality fixes released after the previous security (B) release. Admins can expedite installation of the latest applicable quality update on devices, without waiting for the deferral period.\n \n    - Updates without the word **SecurityUpdate** indicate that it is not a security update. Updates that include the letter **D** in their name identify updates that are released since the latest *patch Tuesday* security week. You might also see 2024.01 OOB Update (*out-of-band* patch releases). See [Windows monthly update explained](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-monthly-updates-explained/ba-p/3773544).\n-   - The drop-down list is updated to display the two most recent security updates, including if one is an out-of-band update. If the most recent non-security update is newer than the newest security update, then the non-security update is also included in the drop-down list. Two non-security releases also appear in the drop-down list only if the penultimate non-security release is an OOB update. Non-security updates only appear when no newer security update exists. Once a security update is released, no non-security updates (D or OOB) should appear in the drop-down list. If the latest released update is a non-security update, then the latest non-security update and penultimate non-security update both appear (only if that non-security update is OOB).\n+   - The drop‑down list displays the two most recent security updates, including OOB security updates. Non‑security updates appear only when no newer security update exists. When eligible, the drop‑down includes the latest non‑security update and the previous non‑security update only if it was released out of band (OOB). Once a security update is released, non‑security updates (D or OOB) are no longer shown in the drop‑down list.\n \n      > [!TIP]\n      > For more information, see the blog [Windows update servicing cadence - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/update-servicing-cadence/ba-p/222376).\n",
+      "baseCommitSha": "265998e7b428a4f9fdff161442e98a8f6bb11b3b",
+      "commitSha": "0a403fc6758d917253bc48a9fa461f35d06ec6d0",
+      "commitMessage": "updated behavior",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-01T09:17:35-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/expedite-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/expedite-policy",
+      "firstSeenAt": "2026-04-01T13:17:35.000Z",
+      "eventId": "intune-docs:0a403fc6758d917253bc48a9fa461f35d06ec6d0:modified:intune/device-updates/windows/expedite-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updated behavior",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/protect/security-baseline-settings-mdm-all.md b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\nindex b66cece733..e8b83e20e0 100644\n--- a/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n+++ b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n@@ -191,7 +191,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n \n - **Include command line in process creation events**\\\n   Baseline default: *Enabled*\\\n-  [Learn more](windows/client-management/mdm/policy-csp-admx-auditsettings?WT.mc_id=Portal-fx#includecmdline)\n+  [Learn more](/windows/client-management/mdm/policy-csp-admx-auditsettings?WT.mc_id=Portal-fx#includecmdline)\n   \n #### System > Credentials Delegation\n \n@@ -1336,7 +1336,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n   - **Block process creations originating from PSExec and WMI commands**\n     Baseline default: *Audit*\\\n-    [Learn more](https://learn.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n@@ -3220,7 +3220,7 @@ The settings in this baseline are taken from the Windows 11 **version 24H2** sec\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n   - **Block process creations originating from PSExec and WMI commands**\n     Baseline default: *Audit*\\\n-    [Learn more](https://learn.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n",
+      "baseCommitSha": "41a577231657cc8202b3cb562b11f53a89335772",
+      "commitSha": "441373f4ab51015affa997f4cea2593a230384a4",
+      "commitMessage": "Fixing links",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-01T08:01:20-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all",
+      "firstSeenAt": "2026-04-01T15:01:20.000Z",
+      "eventId": "intune-docs:441373f4ab51015affa997f4cea2593a230384a4:modified:intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixing links",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/protect/security-baseline-settings-mdm-all.md b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\nindex e8b83e20e0..64c3b67645 100644\n--- a/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n+++ b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n@@ -1858,7 +1858,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n \n - **Impersonate Client**\\\n   Baseline default: *Configured*\\\n-  Values: *Administrators* (*S-1-5-32-544), *Service* (*S-1-5-6), *Local Service* (*S-1-5-19), *Network Service* (*S-1-5-20), *Windows restricted services* (*S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229)\n+  Values: *Administrators* (*S-1-5-32-544), *Service* (*S-1-5-6), *Local Service* (*S-1-5-19), *Network Service* (*S-1-5-20), *Windows restricted services* (*S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229)\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#impersonateclient)\n \n - **Load Unload Device Drivers**\\\n",
+      "baseCommitSha": "441373f4ab51015affa997f4cea2593a230384a4",
+      "commitSha": "10283123e01cdaf5ad455a14002f6f654fd0e3dc",
+      "commitMessage": "Fixing links",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-04-01T08:02:08-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all",
+      "firstSeenAt": "2026-04-01T15:02:08.000Z",
+      "eventId": "intune-docs:10283123e01cdaf5ad455a14002f6f654fd0e3dc:modified:intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixing links",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 48caecd033..50b515e468 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -248,7 +248,7 @@ With this endpoint addition, we've also added a new [Intune Management Extension\n > - Windows  \n \n #### Support for Red Hat Enterprise Linux 9 and later<!-- 36124475 --> \n-Microsoft Intune supports Red Hat Enterprise Linux (RHEL) 9 LTS and RHEL 10 LTS. Support for RHEL 8 LTS has ended, but devices already enrolled on RHEL 8 remain enrolled. You can identify devices running RHEL 8 in the Intune admin center by going to Devices > All devices, filtering OS by Linux, and adding OS version columns. Notify users to upgrade their devices to a supported RHEL version.  For more information about enrolling Linux devices, see [Enrollment guide: Enroll Linux desktop devices in Microsoft Intune](deployment-guide-enrollment-linux.md).  \n+Microsoft Intune supports Red Hat Enterprise Linux (RHEL) 9 LTS and RHEL 10 LTS. Support for RHEL 8 LTS will end in July 2026. Devices already enrolled on RHEL 8 will remain enrolled. You can identify devices running RHEL 8 in the Intune admin center by going to Devices > All devices, filtering OS by Linux, and adding OS version columns. Notify users to upgrade their devices to a supported RHEL version.  For more information about enrolling Linux devices, see [Enrollment guide: Enroll Linux desktop devices in Microsoft Intune](deployment-guide-enrollment-linux.md).  \n \n #### Microsoft Intune app for Linux now supports the Microsoft Identity Broker<!-- 36124475 -->\n \n",
+      "baseCommitSha": "d480a096cec7a65e8f2c371c50d5b59596eeb003",
+      "commitSha": "99f9cd37d11e50e62560c02f68061233c44c4753",
+      "commitMessage": "PM updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-04-01T15:17:59-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-04-01T19:17:59.000Z",
+      "eventId": "intune-docs:99f9cd37d11e50e62560c02f68061233c44c4753:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "PM updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/macos-laps.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/enrollment/macos-laps.md b/intune/intune-service/enrollment/macos-laps.md\nindex 833452b4d7..7a6d786eb1 100644\n--- a/intune/intune-service/enrollment/macos-laps.md\n+++ b/intune/intune-service/enrollment/macos-laps.md\n@@ -1,7 +1,7 @@\n ---\n title: Set up local admin account creation and password management for macOS devices\n description: Set up macOS account configuration with LAPS through automatic device enrollment for macOS devices in Intune.\n-ms.date: 11/17/2025\n+ms.date: 04/01/2026\n ms.topic: how-to\n ms.reviewer: annovich\n ms.collection:\n@@ -42,7 +42,7 @@ The following are device requirements for the macOS local account configuration\n - Devices must enroll with Intune through a macOS ADE enrollment profile after a factory reset.\n \n > [!IMPORTANT]\n-> ADE enrollments initiated from terminal \"Sudo profiles renew\" are not supported for this feature.\n+> macOS LAPS supports ADE enrollments that occur as part of the initial device setup experience. Enrollment scenarios that re‑initiate ADE from an existing macOS installation (for example, by using the `profiles renew` command) aren’t supported.  \n \n ## Role-based access controls for macOS LAPS\n \n",
+      "baseCommitSha": "05767ed0f2ad0bf8933c5e234892c8e579c7ddd8",
+      "commitSha": "a91f2fd1c7ebba4a2845f6d0575df32f7717259a",
+      "commitMessage": "clarify ADE enrollment support for LAPS",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-01T15:55:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/macos-laps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/macos-laps",
+      "firstSeenAt": "2026-04-01T19:55:04.000Z",
+      "eventId": "intune-docs:a91f2fd1c7ebba4a2845f6d0575df32f7717259a:modified:intune/intune-service/enrollment/macos-laps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "clarify ADE enrollment support for LAPS",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/macos-laps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 50b515e468..06cb695fdb 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -247,8 +247,8 @@ With this endpoint addition, we've also added a new [Intune Management Extension\n >\n > - Windows  \n \n-#### Support for Red Hat Enterprise Linux 9 and later<!-- 36124475 --> \n-Microsoft Intune supports Red Hat Enterprise Linux (RHEL) 9 LTS and RHEL 10 LTS. Support for RHEL 8 LTS will end in July 2026. Devices already enrolled on RHEL 8 will remain enrolled. You can identify devices running RHEL 8 in the Intune admin center by going to Devices > All devices, filtering OS by Linux, and adding OS version columns. Notify users to upgrade their devices to a supported RHEL version.  For more information about enrolling Linux devices, see [Enrollment guide: Enroll Linux desktop devices in Microsoft Intune](deployment-guide-enrollment-linux.md).  \n+#### Support for Red Hat Enterprise Linux 9 and later<!-- 33087035 --> \n+Microsoft Intune supports Red Hat Enterprise Linux (RHEL) 9 LTS and RHEL 10 LTS. Support for RHEL 8 LTS will end in July 2026. Devices already enrolled on RHEL 8 will remain enrolled. You can identify devices running RHEL 8 in the Intune admin center by going to **Devices** > **All devices**, filtering OS by Linux, and adding OS version columns. Notify users to upgrade their devices to a supported RHEL version.  For more information about enrolling Linux devices, see [Enrollment guide: Enroll Linux desktop devices in Microsoft Intune](deployment-guide-enrollment-linux.md).  \n \n #### Microsoft Intune app for Linux now supports the Microsoft Identity Broker<!-- 36124475 -->\n \n@@ -839,7 +839,7 @@ You can hide or show 12 new Setup Assistant screens during automated device enro\n \n The screens you can skip during iOS/iPadOS enrollment, and the applicable versions, include:\n \n- - **App Store** (iOS/iPadOS 14.3+)\n+- **App Store** (iOS/iPadOS 14.3+)\n  - **Camera button** (iOS/iPadOS 18+)\n  - **Web content filtering** (iOS/iPadOS 18.2+)\n  - **Safety and handling** (iOS/iPadOS 18.4+)\n@@ -848,7 +848,7 @@ The screens you can skip during iOS/iPadOS enrollment, and the applicable versio\n \n The screens you can skip during macOS enrollment include:\n \n-   - **App Store** (macOS 11.1+)\n+- **App Store** (macOS 11.1+)\n    - **Get Started** (macOS 15+)\n    - **Software update** (macOS 15.4+)\n    - **Additional privacy settings** (macOS 26+)\n",
+      "baseCommitSha": "615205a2e90c2f465ed0f82e1496ce459a723aec",
+      "commitSha": "5d3a30857fa6aeb183fbce0297957a17f43db84d",
+      "commitMessage": "Learn Editor: Update whats-new.md",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-04-01T16:07:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-04-01T20:07:57.000Z",
+      "eventId": "intune-docs:5d3a30857fa6aeb183fbce0297957a17f43db84d:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update whats-new.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/scope-tags.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/scope-tags.md b/intune/intune-service/fundamentals/scope-tags.md\nindex 7146b7a4f2..2a76de02f8 100644\n--- a/intune/intune-service/fundamentals/scope-tags.md\n+++ b/intune/intune-service/fundamentals/scope-tags.md\n@@ -129,7 +129,7 @@ To enable Scoped permissions, go to **Tenant administration** > **Roles** > **Se\n \n Before enabling Scoped permissions, use the **Permissions Assessment Report** to preview exactly how permissions will change for each affected admin in your tenant. The report is available at **Tenant administration** > **Roles** > **Settings**, and can be run as often as needed, before or after enabling the setting.\n \n-The report shows each affected security group, the roles and scope tags involved, and a comparison of current (merged) permissions versus the permissions that would apply after Scoped permissions is enabled.\n+The report shows each affected security group, the roles and scope tags involved, and a comparison of current (merged) permissions versus the permissions that would apply after Scoped permissions is enabled.  Security groups with no members are not listed, and security groups with no unioned scope tags are not listed.\n \n To review the impact on your tenant and enable Scoped permissions:\n \n",
+      "baseCommitSha": "614a56a8c790791e5eb39a166a6801fe45e9c765",
+      "commitSha": "4afa53fffbbbefeabaf2020f48e502ec456a9a4c",
+      "commitMessage": "Update scope-tags.md with security group details",
+      "commitAuthor": "Dave Randall",
+      "commitDate": "2026-04-01T14:03:21-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/scope-tags.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/scope-tags",
+      "firstSeenAt": "2026-04-01T21:03:21.000Z",
+      "eventId": "intune-docs:4afa53fffbbbefeabaf2020f48e502ec456a9a4c:modified:intune/intune-service/fundamentals/scope-tags.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update scope-tags.md with security group details",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/scope-tags.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 9,
+    "totalFiles": 9,
+    "authors": [
+      "Brent Dunsire",
+      "Dave Randall",
+      "Laura Newsad",
+      "Mandi Ohlinger",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 9 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/macos-laps.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft I",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/in-development.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+          "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/enrollment/macos-laps.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/fundamentals/scope-tags.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md.",
+        "sourceFiles": [
+          "intune/device-updates/windows/expedite-policy.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/macos-laps.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft I"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-updates",
+        "detail": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

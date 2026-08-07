@@ -1,0 +1,84 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-configuration/monitor-device-profile.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 3,
+      "changes": 9,
+      "patch": "diff --git a/intune/device-configuration/monitor-device-profile.md b/intune/device-configuration/monitor-device-profile.md\nindex 444fc46968..aac1c71465 100644\n--- a/intune/device-configuration/monitor-device-profile.md\n+++ b/intune/device-configuration/monitor-device-profile.md\n@@ -79,8 +79,11 @@ After you create your device configuration policy, Intune provides reporting dat\n     :::image type=\"content\" source=\"./media/monitor-device-profile/per-setting-status.png\" alt-text=\"Screenshot that shows the per setting status report in Microsoft Intune and Intune admin center.\":::\n \n     This report shows the individual settings in the policy, and their status.\n+   \n+> [!IMPORTANT]\n+> Per-setting reporting is available for most Endpoint Security policies. For Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM, reporting is limited to policy-level status and doesn't include per-setting reporting statuses. To view per-setting status for Firewall Rules and ASR Rules policies, devices must be enrolled with [Defender for Endpoint security settings management](/intune/device-security/microsoft-defender/security-settings-management).\n \n-5. Go back to **Device and user check-in status** and select **View report**:\n+6. Go back to **Device and user check-in status** and select **View report**:\n \n     :::image type=\"content\" source=\"./media/monitor-device-profile/device-user-check-in-status-view-report.png\" alt-text=\"Screenshot that shows to select view report on a device configuration policy to get the device and user check-in status in Microsoft Intune and Intune admin center.\":::\n \n@@ -92,7 +95,7 @@ After you create your device configuration policy, Intune provides reporting dat\n \n     You can also select a specific device to get more details and use the filter column to see the assignment filter options.\n \n-6. Back in **Device and user check-in status**, the following property information for the specific policy is available for you to view and edit:\n+7. Back in **Device and user check-in status**, the following property information for the specific policy is available for you to view and edit:\n \n     - **Basics**: See the policy name and description.\n     - **Assignments**: See the users and groups that receive policy, and see any existing [filters](../fundamentals/filters/overview.md) in the policy.\n@@ -202,4 +205,4 @@ With your DFCI profile settings, you might see the following states:\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "60f176d556ec6afca2378b71c55824ce094f1884",
+      "commitSha": "a222e10df74d243ba274490695c97cf36a957ff6",
+      "commitMessage": "Clarify reporting limitations for policies (#5203)",
+      "commitAuthor": "juidaewo1",
+      "commitDate": "2026-08-06T09:11:49-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/monitor-device-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/monitor-device-profile",
+      "firstSeenAt": "2026-08-06T14:11:49.000Z",
+      "eventId": "intune-docs:a222e10df74d243ba274490695c97cf36a957ff6:modified:intune/device-configuration/monitor-device-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify reporting limitations for policies (#5203)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/monitor-device-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/endpoint-security/firewall.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-configuration/endpoint-security/firewall.md b/intune/device-configuration/endpoint-security/firewall.md\nindex 434a0c0604..1deed1b4a2 100644\n--- a/intune/device-configuration/endpoint-security/firewall.md\n+++ b/intune/device-configuration/endpoint-security/firewall.md\n@@ -132,6 +132,10 @@ This view provides:\n - An aggregate count of devices that have the firewall turned off.\n - A list of your Firewall policies, including the name, type, if it's assigned, and when it was last modified.\n \n+>  [!IMPORTANT]\n+> Per-setting reporting is available for most Endpoint Security policies. For Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM, reporting is limited to policy-level status and doesn't include per-setting reporting statuses. To view per-setting status for Firewall Rules and ASR Rules policies, devices must be enrolled with [Defender for Endpoint security settings management](/intune/device-security/microsoft-defender/security-settings-management).\n+\n+\n ### MDM devices running Windows with firewall off\n \n This report is located in the Endpoint security node. Open the [Microsoft Intune admin center], and then go to **Endpoint security** > **Firewall** > **MDM devices running Windows 10 or later with firewall off**.\n@@ -206,4 +210,4 @@ View details for the settings in the deprecated Firewall profiles for the deprec\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "a222e10df74d243ba274490695c97cf36a957ff6",
+      "commitSha": "9c11f35b40f70fd6f10526d944fe754bd42be4d7",
+      "commitMessage": "Update firewall.md with per-setting reporting note (#5202)",
+      "commitAuthor": "juidaewo1",
+      "commitDate": "2026-08-06T09:12:31-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/endpoint-security/firewall.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/endpoint-security/firewall",
+      "firstSeenAt": "2026-08-06T14:12:31.000Z",
+      "eventId": "intune-docs:9c11f35b40f70fd6f10526d944fe754bd42be4d7:modified:intune/device-configuration/endpoint-security/firewall.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update firewall.md with per-setting reporting note (#5202)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/firewall.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "juidaewo1"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/monitor-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/firewall.md.",
+        "sourceFiles": [
+          "intune/device-configuration/monitor-device-profile.md",
+          "intune/device-configuration/endpoint-security/firewall.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/monitor-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/firewall.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

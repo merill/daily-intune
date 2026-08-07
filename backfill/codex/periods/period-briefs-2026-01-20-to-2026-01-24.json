@@ -1,0 +1,188 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-01-20",
+      "summary": {
+        "headline": "Intune adds remote control to suspend or restore Managed Home Screen",
+        "overview": "Two new Android remote-action guides introduce the ability to temporarily suspend Managed Home Screen and restore it later. The accompanying Autopilot device-preparation update is a documentation-link correction, while the substantive change is the new frontline-device recovery and support control.",
+        "adminImpact": "For Android Enterprise corporate-owned fully managed and dedicated devices, confirm who should be able to bypass or reinstate the kiosk-style experience. Grant the dedicated Remote tasks permissions only to Help Desk Operator, School Administrator, or carefully scoped custom roles, and document when suspension is permitted.",
+        "keyChanges": [
+          {
+            "title": "Suspend Managed Home Screen becomes a remote device action",
+            "detail": "Administrators can temporarily disable Managed Home Screen on supported Android Enterprise corporate-owned fully managed and dedicated devices, returning users to the standard home screen and apps. The action requires the Temporarily Suspend Managed Home Screen remote-task permission.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-20-remote-device-action-suspend-managed-home-screen-02"
+          },
+          {
+            "title": "Restore Managed Home Screen becomes a companion remote action",
+            "detail": "Administrators can re-enable Managed Home Screen from the device overview after a suspension. Restoring returns the device to its managed-home-screen policies and restricted app and settings experience, using the Restore Managed Home Screen permission.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-20-remote-device-action-restore-managed-home-screen-01"
+          },
+          {
+            "title": "Autopilot device preparation clarifies its ESP independence",
+            "detail": "The device-preparation what’s-new page corrects the link to the monthly security-update explanation and reiterates that Windows Autopilot device preparation does not use Enrollment Status Page, so the ESP quality-update setting does not apply to it.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-01-20-whats-new-10"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-21",
+      "summary": {
+        "headline": "Managed Home Screen actions receive Graph links and support caveats",
+        "overview": "The new Managed Home Screen remote actions are polished with direct Microsoft Graph action references. Related guidance adds a clear warning that deploying standalone Windows update packages as Win32 apps is an as-is workaround, and notes that Android battery optimization can prevent Intune notifications from arriving.",
+        "adminImpact": "Use the documented Graph actions rather than guessing endpoint names when automating Managed Home Screen recovery. Do not treat an MSU-as-Win32 deployment as a standard patch-management pattern; use supported Windows update policy instead. If notifications appear unreliable on Android, validate battery-optimization treatment for Company Portal or the Intune app.",
+        "keyChanges": [
+          {
+            "title": "Managed Home Screen remote actions link to their Graph operations",
+            "detail": "The restore and suspend guides now point to the restoreManagedHomeScreen and temporarilySuspendManagedHomeScreen Graph actions, alongside the managedDevice resource, giving automation teams the canonical operation names.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-21-device-restore-managed-home-screen-07"
+          },
+          {
+            "title": "Win32 deployment of MSU packages is explicitly not recommended",
+            "detail": "The Windows update-package article continues to describe packaging an MSU as a Win32 app, but now labels the approach as as-is and not a recommended way to deploy updates.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-21-apps-win32-deploy-update-package-05"
+          },
+          {
+            "title": "Custom notification guidance calls out Android battery optimization",
+            "detail": "The documentation warns that device battery-optimization settings can prevent notification delivery and suggests disabling optimization for Company Portal or the Intune app where reliable notification delivery is required.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-21-custom-notifications-06"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-22",
+      "summary": {
+        "headline": "Migration planning and Conditional Access retirement create two 2026 action items",
+        "overview": "The updated Basic Mobility and Security migration guide makes license sequencing, policy replacement, and post-migration cleanup more concrete. Two Message Center notices add future deadlines: the Require approved client app Conditional Access control retires in June, and most Intune guided scenarios leave the admin center in March.",
+        "adminImpact": "Inventory Conditional Access policies that use Require approved client app and plan the transition to Require application protection policy before June 2026. For Basic Mobility and Security migrations, stage license assignment and replacement Intune policies carefully; Intune-licensed users can receive policies promptly, and old Basic Mobility and Security policies should be removed after migration. Preserve any guided-scenario documentation outside the product UI before March.",
+        "keyChanges": [
+          {
+            "title": "Basic Mobility and Security migration guidance emphasizes staged licensing and policy cleanup",
+            "detail": "The revised guide says assigning Intune licenses switches users to Intune management and prepares them for new policies. It recommends confirming license capacity, reviewing and deleting unneeded Basic Mobility and Security policies, reviewing group membership, replacing policies in Intune, and removing old policies so they cannot be assigned accidentally later.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-22-move-from-basic-mobility-and-security-to-intune-migration-guide-06"
+          },
+          {
+            "title": "Require approved client app retires from Conditional Access in June",
+            "detail": "Microsoft states that the Require approved client app control will retire in June 2026 and recommends Require application protection policy as the replacement. After retirement, the legacy control can no longer be enforced.",
+            "product": "Intune",
+            "sourceId": "MC1220751"
+          },
+          {
+            "title": "Most Intune guided scenarios are scheduled for removal in March",
+            "detail": "The Message Center announcement says all guided scenarios except Windows 365 Boot will be removed from the Intune admin center in March 2026. Existing configurations remain in place, but teams should use the alternative guidance for future setup and training.",
+            "product": "Intune",
+            "sourceId": "MC1162945"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-23",
+      "summary": {
+        "headline": "Intune migration and device-query docs clarify practical transition and query behavior",
+        "overview": "The Basic Mobility and Security migration guide receives further refinement, while Advanced Analytics documentation clarifies how the Device entity behaves in cross-device queries. Configuration Manager also updates the presentation guidance for high-impact task sequences in Software Center.",
+        "adminImpact": "Continue migration work in a staged order—licenses, policy mapping, groups, supported-device review, then replacement Intune policies—rather than assigning broad licenses before the target policies are ready. Query authors should review saved Kusto patterns that treat Device as a scalar and make property references explicit when filtering, sorting, or aggregating.",
+        "keyChanges": [
+          {
+            "title": "Migration guide further defines the Basic Mobility and Security transition sequence",
+            "detail": "The updated guide frames the move as a preparation, policy-mapping, and replacement effort. It calls out license capacity, old-policy cleanup, assignment-group review, device support, and the risk that already licensed users can receive Intune policy earlier than planned.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-23-move-from-basic-mobility-and-security-to-intune-migration-guide-01"
+          },
+          {
+            "title": "Advanced Analytics clarifies the Device entity in multi-device queries",
+            "detail": "The documentation explains that Device is an entity-type column rather than a scalar value. Query authors should reference a specific property for scalar operations, such as Device.DeviceName for ordering or filtering, and should explicitly name aggregated expressions that they later reference.",
+            "product": "Advanced Analytics",
+            "sourceId": "doc-2026-01-23-device-query-multiple-devices-10"
+          },
+          {
+            "title": "High-impact task sequences are described by their Software Center placement",
+            "detail": "Configuration Manager guidance clarifies that a deployment marked as a high-impact task sequence appears under the Operating Systems node in Software Center; without that designation it appears under Applications.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-01-23-high-impact-task-sequence-settings-04"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-24",
+      "summary": {
+        "headline": "Defender for Android personal-profile protection ends in March; device queries need a join update",
+        "overview": "A Message Center announcement says Microsoft Defender for Android will stop protecting personal profiles on enrolled devices in March 2026, retaining the corporate work-profile focus. The accompanying Advanced Analytics documentation changes also make an actionable query-compatibility correction for Device joins.",
+        "adminImpact": "Identify Android users and processes that expect Defender protection in enrolled personal profiles and adjust communications, security expectations, or enrollment design before March. Review saved Device Query scripts now: joins written as on Device.DeviceId must move to on Device or omit the clause when joining on the Device entity.",
+        "keyChanges": [
+          {
+            "title": "Defender for Android ends enrolled personal-profile protection in March",
+            "detail": "Microsoft will focus Defender for Android protection on corporate work profiles and end support for enrolled personal profiles by March 2026. The announcement says work profiles and unenrolled devices are not affected.",
+            "product": "Intune",
+            "sourceId": "MC1221927"
+          },
+          {
+            "title": "Device Query joins using Device.DeviceId are no longer supported",
+            "detail": "Advanced Analytics documentation says queries that join on Device.DeviceId should use on Device instead, or omit the on clause when joining on the Device entity. The update also reinforces using scalar device properties, such as serial number or OS version, in distinct, summarize, and order-by operations.",
+            "product": "Advanced Analytics",
+            "sourceId": "doc-2026-01-24-device-query-multiple-devices-01"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-01-19",
+      "summary": {
+        "headline": "App-protection retirement planning and frontline Android control define the week",
+        "overview": "The week recorded 63 changes and three Message Center announcements. The most consequential work is planning for the June retirement of Require approved client app, the March end of Defender for Android personal-profile protection, and the introduction of Managed Home Screen suspend and restore actions for corporate-owned Android devices. Migration and device-query guidance also becomes more operational.",
+        "adminImpact": "Create a Conditional Access migration plan before June and review Android security scope before March. Define role ownership and an escalation process for Managed Home Screen suspension, stage Basic Mobility and Security migrations around licensing and replacement policies, and update saved Advanced Analytics joins that use Device.DeviceId.",
+        "keyChanges": [
+          {
+            "title": "Conditional Access Require approved client app retirement is announced",
+            "detail": "The control retires in June 2026; Microsoft directs administrators to Require application protection policy as the equivalent successor. Policies that retain the old control will not be enforceable after retirement.",
+            "product": "Intune",
+            "sourceId": "MC1220751"
+          },
+          {
+            "title": "Managed Home Screen gains suspend and restore remote actions",
+            "detail": "Help Desk Operator, School Administrator, and appropriately scoped custom roles can suspend or restore Managed Home Screen on supported Android Enterprise corporate-owned fully managed and dedicated devices, with dedicated Remote tasks permissions.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-20-remote-device-action-suspend-managed-home-screen-02"
+          },
+          {
+            "title": "Basic Mobility and Security migration guidance is expanded",
+            "detail": "The migration guide emphasizes license assignment sequencing, policy mapping and replacement, group review, and removal of obsolete Basic Mobility and Security policy after users move to Intune.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-22-move-from-basic-mobility-and-security-to-intune-migration-guide-06"
+          },
+          {
+            "title": "Device Query scripts need an updated Device join pattern",
+            "detail": "The documentation deprecates joins using Device.DeviceId in favor of joining on Device or omitting the clause where the Device entity supplies the join context.",
+            "product": "Advanced Analytics",
+            "sourceId": "doc-2026-01-24-device-query-multiple-devices-01"
+          },
+          {
+            "title": "Defender for Android personal-profile protection end is announced",
+            "detail": "From March 2026, enrolled personal profiles are no longer protected by Defender for Android; corporate work profiles and unenrolled devices remain outside the stated impact.",
+            "product": "Intune",
+            "sourceId": "MC1221927"
+          }
+        ]
+      }
+    }
+  ]
+}

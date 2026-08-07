@@ -1,0 +1,661 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/cloud-configuration.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 190,
+      "changes": 196,
+      "patch": "diff --git a/intune/intune-service/fundamentals/cloud-configuration.md b/intune/intune-service/fundamentals/cloud-configuration.md\nindex ca0f8f70eb..0c292fdeba 100644\n--- a/intune/intune-service/fundamentals/cloud-configuration.md\n+++ b/intune/intune-service/fundamentals/cloud-configuration.md\n@@ -1,17 +1,17 @@\n ---\n-title: Use Windows cloud configuration in a guided scenario\n-description: Use a guided scenario to configure Windows 10/11 client devices in a cloud configuration in Microsoft Intune. Cloud config focuses on a simplified device experience for internet browsing and using Microsoft 365 apps, including Microsoft Teams.\n+title: Windows in cloud configuration\n+description: Use Windows in cloud configuration to turn Windows 10/11 client devices into cloud-optimized devices with Microsoft Intune. Cloud config focuses on a simplified device experience for internet browsing and using Microsoft 365 apps, including Microsoft Teams.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 08/19/2024\n-ms.topic: how-to\n+ms.date: 03/26/2026\n+ms.topic: overview\n ms.reviewer: royork\n ms.collection:\n - M365-identity-device-management\n - intune-scenario\n ---\n \n-# Guided scenario - Windows in cloud configuration\n+# Windows in cloud configuration\n \n Windows in cloud configuration is a Microsoft-recommended device configuration. You can turn any Windows Professional, Enterprise, and Education device into a cloud-optimized device.\n \n@@ -23,195 +23,11 @@ Cloud configuration is ideal for:\n \n Cloud config makes these devices easy to use, and secures these devices with Microsoft-recommended security features.\n \n-There are two ways to deploy cloud config:\n-\n-> [!IMPORTANT]\n-> The guided scenario for automatic deployment of Windows in cloud configuration is deprecated and being removed from the Intune admin center. Use the manual step-by-step setup guide to deploy cloud config.\n-\n-- **Step-by-step setup guide**: Use the [Windows client cloud config setup guide](cloud-configuration-setup-guide.md) to deploy cloud config yourself, including manually creating all the policies.\n-\n-With Windows in cloud configuration:\n-\n-- You can configure new devices, or reuse existing hardware.\n-- End users get an easy-to-use, and familiar Windows experience.\n-- Administrators get a uniform device configuration across devices, which makes management and troubleshooting easier.\n-- You can customize the names of your resources, so they're easy to see and monitor.\n+To deploy cloud config, use the [Windows client cloud config setup guide](cloud-configuration-setup-guide.md) to create all the policies.\n \n > [!TIP]\n > For a more comprehensive guide on Windows in cloud configuration, go to [Windows in cloud configuration](https://aka.ms/cloud-config).\n \n-## What this guided scenario does\n-\n-Using Microsoft Intune, you can use a guided scenario to deploy a cloud configuration. The guided scenario automatically creates all the resources you need, including:\n-\n-- Creates a new Microsoft Entra security group, or uses an existing Microsoft Entra security group.\n-- Deploys the Microsoft Edge and Microsoft Teams apps. For information on deploying these apps individually, go to:\n-  - [Add Microsoft Edge for Windows](../apps/apps-windows-edge.md)\n-  - [Add Microsoft 365 apps to Windows devices](../apps/apps-add-office365.md)\n-\n-- Creates a Windows security baseline policy with recommended security settings that are already configured.\n-\n-  For information about security baselines, and what they do, go to [Use security baselines to configure Windows client devices](../protect/security-baselines.md).\n-\n-- Creates a Windows Autopilot enrollment profile that automatically enrolls devices in Microsoft Intune.\n-\n-  For information on creating your own Windows Autopilot profile, go to [Configure Windows Autopilot profiles](/autopilot/profiles).\n-\n-- Turns on and configures the Windows Autopilot enrollment status page (ESP). This page shows users the enrollment progress.\n-\n-  For information about the ESP, go to [Set up the Enrollment Status Page](../enrollment/windows-enrollment-status.md).\n-\n-- Creates an administrative template that configures OneDrive with the Known Folder Move settings. With these settings, user files and data are automatically saved in OneDrive.\n-\n-  For information on this setting, go to [Redirect and move Windows known folders](/onedrive/redirect-known-folders).\n-\n-- Creates an administrative template that configures some SmartScreen settings in the Microsoft Edge app. For information on creating your own profile, go to [Configure Microsoft Edge policy settings](../configuration/administrative-templates-configure-edge.md).\n-\n-- Creates a compliance policy that monitors compliance and health. Users are allowed to use noncompliant devices, and access resources. If your organization blocks access to noncompliant devices, then create another compliance policy that blocks access, and assign it to the same group.\n-\n-  For information on the compliance settings you can configure on your own, go to [Windows client settings to mark devices as compliant or not compliant](../protect/compliance-policy-create-windows.md).\n-\n-- Deploys a Windows PowerShell script that removes built-in apps, and simplifies the Start menu.\n-\n-  For information about PowerShell scripts in Intune, go to [Use PowerShell scripts on Windows client devices](../apps/powershell-scripts.md).\n-\n-- Creates a Windows client update ring policy. This policy automatically updates the devices, including product updates, drivers, and Windows updates.\n-\n-  For information about update rings, and creating your policy, go to [Update rings for Windows client devices](../../device-updates/windows/update-rings.md).\n-\n-> [!TIP]\n-> This guided scenario creates all these resources for you, automatically. If you want create your own individual resources, and not use the guided scenario, you can. For the steps, go to the [cloud config overview and setup guide](https://aka.ms/CloudConfigGuide).\n-\n-## Prerequisites\n-\n-- Confirm your licenses. At a minimum, the account creating the guided scenario must have the following licenses:\n-\n-  - Microsoft Entra ID P1\n-  - Microsoft Intune\n-  - Microsoft Teams\n-  - OneDrive\n-  - Windows\n-\n-  All of these services are included with the Microsoft 365 E3 license. For more security options and features, use the Microsoft 365 E5 license. To help decide which license is right for your organization, go to [Transform your enterprise with Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans).\n-\n-- [Set the MDM authority to Intune](mdm-authority-set.md). The mobile device management (MDM) authority setting determines how you manage your devices. As an IT admin, you must set an MDM authority before users can enroll devices for management.\n-\n-- Enable automatic enrollment for Windows client devices. For information, go to:\n-\n-  - [Quickstart: Set up automatic enrollment for Windows client devices](../enrollment/quickstart-setup-auto-enrollment.md)\n-  - [Enable Windows automatic enrollment](../enrollment/windows-enroll.md#enable-windows-automatic-enrollment)\n-\n-- Sign in as the Intune Service Administrator Microsoft Entra role, also known as the Intune Administrator. For information on the roles that affect Intune, go to:\n-\n-  - [Intune Administrator - Microsoft Entra built-in role](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)\n-  - [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md)\n-\n-## Step 1 - Introduction\n-\n-Open the guided scenario:\n-\n-1. Open the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n-2. Select **Troubleshooting + support** > **Guided scenarios** > **Deploy Windows in cloud configuration** > **Start**.\n-3. In **Introduction**, select **Next**.\n-\n-## Step 2 - Basics\n-\n-Choose how your devices are named when they enroll, and choose the prefix of all the resources created.\n-\n-- **Autopilot device name template**: The cloud configuration guided scenario enrolls your devices in Windows Autopilot. When they enroll, you can optionally name your devices using a unique pattern that applies to all devices. Your options:\n-\n-  - **Apply device name template**: **No** doesn't create a template or pattern when naming your devices. The device will have the OEM name, such as `DESKTOP-`, followed by some random characters. Select **Yes** to create a unique pattern to name your devices. For example, enter `Contoso-%RAND:7%` to name all your devices **Contoso-** followed by seven random characters.\n-\n-    The names:\n-\n-    - Must be 15 characters or less.\n-    - Can include letters (a-z, A-Z), numbers (0-9), and hyphens.\n-    - Can't be only numbers, and can't include a blank space.\n-    - Can use the `%SERIAL%` macro to add a hardware-specific serial number.\n-    - Can use the `%RAND:x%` macro to add a random string of characters, where `x` equals the number of characters to add.\n-\n-- **Resource name prefix**: When you deploy the guided scenario, several resources are automatically created. To distinguish the items used in this deployment, add a prefix:\n-\n-  - **Enter a resource prefix name**: Enter some text that will be at the beginning of the items created. For example, enter `Windows cloud config`. All resources created are named something like **Windows cloud config Autopilot profile**, or **Windows cloud config compliance policy**.\n-\n-- **Resources to be created**: Select the default file format for the resources created by this guided scenario. Your options:\n-\n-  - **Office Open Document**: Creates the resources in Office Open Document format (ODF).\n-  - **Office Open XML**: Creates the resources in Office Open XML format, which is typically the recommended format.\n-\n-  Your settings look similar to the following image:\n-\n-  :::image type=\"content\" source=\"./media/cloud-configuration/guided-scenario-basics.png\" alt-text=\"Screenshot that shows how to configure the device name template and resource name prefix in a Windows cloud configuration guided scenario in Microsoft Intune.\" lightbox=\"./media/cloud-configuration/guided-scenario-basics.png\":::\n-\n-- Select **Next**.\n-\n-## Step 3 - Apps\n-\n-Select the apps you want to deploy to devices. Microsoft recommends you deploy the smallest number of apps as possible. The idea is to keep your cloud config devices simple, and easy to manage.​\n-\n-- **Cloud config defaults**: This guided scenario automatically includes the Microsoft Edge and Microsoft Teams apps. They can't be removed when creating the guided scenario. You can delete or uninstall these apps after the guided scenario finishes.\n-\n-  To remove the Microsoft Edge app, go to [Uninstall the app](../apps/apps-windows-edge.md#uninstall-the-app).\n-\n-- **Select additional M365 apps (optional)**: From the list, add other Microsoft 365 apps that you want on the devices. Remember, keep the list small, and only include apps your users need. The idea is to keep the devices simple.\n-\n-  > [!TIP]\n-  > To add apps not listed, or add line-of-business apps, complete this guided scenario. Then, in the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Apps**, and create a policy. Deploy the app policy to the same group that you deployed this cloud config guided scenario. For information on adding apps, go to [Add apps to Microsoft Intune](../apps/apps-add.md).\n-\n-- Select **Next**.\n-\n-## Step 4 - Assignments\n-\n-Select the groups that should receive this guided scenario, and all the resources it creates.\n-\n-- **Create new group**: Creates a new group, and deploys the guided scenario policies to this group. As devices are added to this group, they receive this guided scenario.\n-  - **Group name**: Enter the group name. For example, enter `Cloud configured devices`.\n-\n-- **Choose an existing group**: Select an existing group. You guided scenario policies are deployed to this group.\n-\n-- Select **Next**.\n-\n-## Step 5 - Review + deploy\n-\n-A summary of the settings and the values you configured are shown. You can go back to the other tabs, and change any values you added.\n-\n-Look at the following properties:\n-\n-- **Configurations to be made**: Expand this option to see all the resources that will be created, including the policies.\n-- **Deploy**: Select this option to save your changes, and deploy the guided scenario. The groups you added will receive the policies in this guided scenario.\n-\n-  As the resources are being created in the Intune admin center, the status is shown, similar to the following image:\n-\n-  :::image type=\"content\" source=\"./media/cloud-configuration/guided-scenario-deployment-status.png\" alt-text=\"Screenshot that shows how to review the Windows in cloud configuration guided scenario deployment status in Microsoft Intune.\":::\n-\n-If there's an error, then the guided scenario isn't deployed, and all changes are reverted. The [Cloud configuration overview and setup guide](https://aka.ms/CloudConfigGuide) is also a good resource.\n-\n-When it deploys successfully, you can use the monitoring and reporting features in the Intune admin center:\n-\n-- [Intune reports](reports.md)\n-- [Monitor device profiles](../configuration/device-profile-monitor.md)\n-- [Monitor security baselines and profiles](../protect/security-baselines-monitor.md)\n-\n-## What you need to know\n-\n-- You can complete the guided scenario before there are any devices in the group. When devices are added to the group, and have internet access, then they automatically start receiving the policies in this guided scenario.\n-\n-  You can also:\n-\n-  - Add preregistered Windows Autopilot devices to the group. Add them to the group before you enroll or apply any policies.\n-  - Add existing Windows client devices that are already enrolled. Microsoft recommends removing other apps and profiles targeted to these devices. After adding them to the group, reset the devices so they start fresh with just cloud config applied.\n-\n-  For information on the policy refresh times, go to [Common questions and answers with device policies in Microsoft Intune](../configuration/device-profile-troubleshoot.md#policy-refresh-intervals).\n-\n-- Microsoft recommends only assigning cloud config settings and apps. After this guided scenario deploys, then you can add any other required resources, such as certificates, VPN profiles, line-of-business apps, and more. Be sure to deploy these policies to the same group as this guided scenario. Remember, keep the list small, and only include resources your users need.\n-- Because of a OneDrive sync issue with shared devices, Microsoft doesn't recommend using Windows in cloud configuration with shared devices. Shared devices typically have multiple users that sign in and sign out.\n-- After the guided scenario is deployed, you can go to a policy, and see the settings and their configured values. You can change any of these settings to another value, if you like.\n-- To remove the guided scenario settings from devices, go to each policy created by the cloud config guided scenario. Configure the settings to **Not Configured**. Deploy each policy again to the same group as this guided scenario.\n-\n-  The next time the device checks in, the setting is no longer locked. Then, another policy or possibly the end can change the setting. It's possible the setting might have the same value set by the guided scenario.\n-\n-  Now, you can delete the individual items created by this guided scenario, including apps, policies, the Windows PowerShell script, and the group.\n-\n ## Related content\n \n - [Windows client cloud config step by step setup guide](cloud-configuration-setup-guide.md)\n",
+      "baseCommitSha": "d4d55d936cc986d0e4f7efbded24e4a46f0b95c0",
+      "commitSha": "15c2f642a9a288d377ad9ac710439158684c7f5e",
+      "commitMessage": "Strip guided scenario content from cloud-configuration.md",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-26T21:47:48-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/cloud-configuration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/cloud-configuration",
+      "firstSeenAt": "2026-03-27T01:47:48.000Z",
+      "eventId": "intune-docs:15c2f642a9a288d377ad9ac710439158684c7f5e:modified:intune/intune-service/fundamentals/cloud-configuration.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Strip guided scenario content from cloud-configuration.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/compatibility-reports.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-updates/windows/compatibility-reports.md b/intune/device-updates/windows/compatibility-reports.md\nindex 95b7ad4a1d..bca88f9105 100644\n--- a/intune/device-updates/windows/compatibility-reports.md\n+++ b/intune/device-updates/windows/compatibility-reports.md\n@@ -36,7 +36,7 @@ To use this report:\n > [!IMPORTANT]\n > The data in this report is made available on-demand only. You must configure the Target OS and Scope (Tags) settings, and then click **Generate report** for data to appear in the report.\n \n-[:::image type=\"content\" source=\"./images/compatibility-reports/device-readiness-report.png\" alt-text=\"Screen shot of the Windows feature update device readiness report.\" lightbox=\"./images/compatibility-reports/device-readiness-report.png\" border=\"false\":::](./images/compatibility-reports/device-readiness-report.png#lightbox)\n+[:::image type=\"content\" source=\"./media/compatibility-reports/device-readiness-report.png\" alt-text=\"Screen shot of the Windows feature update device readiness report.\" lightbox=\"./media/compatibility-reports/device-readiness-report.png\" border=\"false\":::](./media/compatibility-reports/device-readiness-report.png#lightbox)\n \n \n >[!NOTE]\n@@ -86,7 +86,7 @@ To use this report:\n    - Optionally select **Asset type** and **Risk status** to refine the report.\n    - Select **Generate report**. This process can take several minutes. You're notified when report generation is complete.\n \n-[:::image type=\"content\" source=\"./images/compatibility-reports/compatibility-risks-report.png\" alt-text=\"Screen shot of the Windows feature update compatibility risks report.\" lightbox=\"./images/compatibility-reports/compatibility-risks-report.png\" border=\"false\":::](./images/compatibility-reports/compatibility-risks-report.png#lightbox)\n+[:::image type=\"content\" source=\"./media/compatibility-reports/compatibility-risks-report.png\" alt-text=\"Screen shot of the Windows feature update compatibility risks report.\" lightbox=\"./media/compatibility-reports/compatibility-risks-report.png\" border=\"false\":::](./media/compatibility-reports/compatibility-risks-report.png#lightbox)\n \n \n > [!NOTE]\n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/compatibility-reports.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/compatibility-reports",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/compatibility-reports.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/driver-update-policy.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-updates/windows/driver-update-policy.md b/intune/device-updates/windows/driver-update-policy.md\nindex abd1dab044..a6e41e6e4d 100644\n--- a/intune/device-updates/windows/driver-update-policy.md\n+++ b/intune/device-updates/windows/driver-update-policy.md\n@@ -125,7 +125,7 @@ To look for policies that have new driver updates pending a review:\n 1. Select the **Driver updates** tab\n 1. In the list of Windows driver update policies, review the **Drivers to review** column for entries that indicate there are new updates that have been added to the policy that you might want to review and approve for deployment. In the following screen capture of the *Driver updates* page, two policies have new driver updates. One displays *1 to review* while another displays that it has *3 to review*:\n \n-   :::image type=\"content\" source=\"./images/driver-update-policy/drivers-to-review.png\" alt-text=\"A screen capture that shows policies that have new drivers to review.\" lightbox=\"./images/driver-update-policy/drivers-to-review.png\":::\n+   :::image type=\"content\" source=\"./media/driver-update-policy/drivers-to-review.png\" alt-text=\"A screen capture that shows policies that have new drivers to review.\" lightbox=\"./media/driver-update-policy/drivers-to-review.png\":::\n \n    The two policies that have new driver updates won't deploy those new updates until an admin explicitly approves them. You can also review the other policies that haven't received new updates should you seek to modify the approved updates for those policies.\n \n@@ -163,13 +163,13 @@ The driver list is divided into two tabs:\n \n In the following screen capture, we've opened the policy named*Test Manual* and selected the **Recommended drivers** tab:\n \n-:::image type=\"content\" source=\"./images/driver-update-policy/recommended-drivers.png \" alt-text=\"A screen capture that shows the recommended drivers tab of a policy.\" lightbox=\"./images/driver-update-policy/recommended-drivers.png\":::\n+:::image type=\"content\" source=\"./media/driver-update-policy/recommended-drivers.png \" alt-text=\"A screen capture that shows the recommended drivers tab of a policy.\" lightbox=\"./media/driver-update-policy/recommended-drivers.png\":::\n \n This policy requires manual approval, and currently has three driver updates that are pending review.\n \n For comparison, the following screen capture shows the contents of the *Other drivers* tab for this same policy.\n \n-:::image type=\"content\" source=\"./images/driver-update-policy/other-drivers.png \" alt-text=\"A screen capture that shows the other drivers tab of a policy.\" lightbox=\"./images/driver-update-policy/other-drivers.png\":::\n+:::image type=\"content\" source=\"./media/driver-update-policy/other-drivers.png \" alt-text=\"A screen capture that shows the other drivers tab of a policy.\" lightbox=\"./media/driver-update-policy/other-drivers.png\":::\n \n Each driver list displays the following details for updates in the policy. Most of the following details are based on information obtained from the driver update from the OEM or driver manufacturer:\n \n@@ -197,7 +197,7 @@ While viewing a policy [driver list](#identify-policies-with-newly-added-driver-\n \n Select the update from the driver list to open its *Manage driver* pane. In the following screen capture, we've selected the first driver update. That driver's *Manage driver* pane is open on the right side.\n \n-:::image type=\"content\" source=\"./images/driver-update-policy/manage-driver-pane.png\" alt-text=\"A screen capture that shows the Manage driver pane.\" lightbox=\"./images/driver-update-policy/manage-driver-pane.png\":::\n+:::image type=\"content\" source=\"./media/driver-update-policy/manage-driver-pane.png\" alt-text=\"A screen capture that shows the Manage driver pane.\" lightbox=\"./media/driver-update-policy/manage-driver-pane.png\":::\n \n On the *Manage driver* pane, you can:\n \n@@ -269,7 +269,7 @@ Bulk driver updates allow the user to approve, pause, or decline multiple driver\n 1. Select the **Driver updates** tab, and select an existing policy. If you need to create a new policy, see [Create Windows driver update policies](#create-windows-driver-update-policies).\n 1. In the Driver Updates page, select **Bulk actions**.\n \n-    :::image type=\"content\" source=\"./images/driver-update-policy/bulk-actions.png\" alt-text=\"A screen capture that shows the bulk actions button.\" lightbox=\"./images/driver-update-policy/bulk-actions.png\":::\n+    :::image type=\"content\" source=\"./media/driver-update-policy/bulk-actions.png\" alt-text=\"A screen capture that shows the bulk actions button.\" lightbox=\"./media/driver-update-policy/bulk-actions.png\":::\n \n 1. In the **Select action** tab, select one of the actions from the **Driver actions** drop-down list; *Approve*, *Pause* or *Decline* multiple drivers.\n 1. If you select an action that needs further information, for example, if you select *Approve*, then you also need to select the start date using **Make available in Windows update**. Select **Next**.\n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/driver-update-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/driver-update-policy",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/driver-update-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/driver-updates-reports.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-updates/windows/driver-updates-reports.md b/intune/device-updates/windows/driver-updates-reports.md\nindex ca4b2f9e87..a198ca85a3 100644\n--- a/intune/device-updates/windows/driver-updates-reports.md\n+++ b/intune/device-updates/windows/driver-updates-reports.md\n@@ -33,7 +33,7 @@ To access the Windows Driver updates summary report:\n \n 1. In the [Microsoft Intune admin center][INT-AC], select **Reports** > **Windows Updates**.\n 1. Select the **Summary** tab and find the **Windows Driver updates** section:\n-   :::image type=\"content\" source=\"./images/reports/report-driver-updates-summary.png\" alt-text=\"Screen capture of the Windows Driver Updates summary page.\" lightbox=\"./images/reports/report-driver-updates-summary.png\":::\n+   :::image type=\"content\" source=\"./media/driver-updates-reports/report-driver-updates-summary.png\" alt-text=\"Screen capture of the Windows Driver Updates summary page.\" lightbox=\"./media/driver-updates-reports/report-driver-updates-summary.png\":::\n \n This report shows the status of driver updates for each policy. It displays the number of devices that are up-to-date (*Success*), failed (*Error*), paused (*Paused*), etc. for the driver updates in that policy. However, each device is only represented once in a single status column, based on the worst status across all of the updates that apply to that device.\n \n@@ -61,7 +61,7 @@ To access the Windows Driver updates report:\n \n In the following screen capture, the report shows details for the driver update *Microsoft: APPLIANCES: 1.0.0.1*.\n \n-:::image type=\"content\" source=\"./images/reports/report-driver-updates-drivers.png\" alt-text=\"Screen capture of the Windows Driver updates report.\" lightbox=\"./images/reports/report-driver-updates-drivers.png\":::\n+:::image type=\"content\" source=\"./media/driver-updates-reports/report-driver-updates-drivers.png\" alt-text=\"Screen capture of the Windows Driver updates report.\" lightbox=\"./media/driver-updates-reports/report-driver-updates-drivers.png\":::\n \n To change the focus of this report to a different driver:\n \n@@ -71,7 +71,7 @@ To change the focus of this report to a different driver:\n \n In the following screen capture, only four drivers remain applicable to devices with driver update policies, and those four updates are different versions of the same driver update.\n \n-:::image type=\"content\" source=\"./images/reports/report-driver-updates-pane.png\" alt-text=\"Screen capture of Driver Updates pane of a driver update policy.\" lightbox=\"./images/reports/report-driver-updates-pane.png\":::\n+:::image type=\"content\" source=\"./media/driver-updates-reports/report-driver-updates-pane.png\" alt-text=\"Screen capture of Driver Updates pane of a driver update policy.\" lightbox=\"./media/driver-updates-reports/report-driver-updates-pane.png\":::\n \n ### Column details\n \n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/driver-updates-reports.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/driver-updates-reports",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/driver-updates-reports.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/driver-updates.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-updates/windows/driver-updates.md b/intune/device-updates/windows/driver-updates.md\nindex ad391689fe..078b9e147c 100644\n--- a/intune/device-updates/windows/driver-updates.md\n+++ b/intune/device-updates/windows/driver-updates.md\n@@ -28,7 +28,7 @@ Driver update policies support **automatic or manual approval workflows**, allow\n \n The following diagram illustrates the high‑level architecture for managing Windows driver updates by using Microsoft Intune and Windows Autopatch.\n \n-:::image type=\"content\" source=\"./images/autopatch-ds.png\" alt-text=\"A conceptual diagram of Windows driver update management.\" lightbox=\"./images/autopatch-ds.png\" border=\"false\":::\n+:::image type=\"content\" source=\"./media/driver-updates/autopatch-ds.png\" alt-text=\"A conceptual diagram of Windows driver update management.\" lightbox=\"./media/driver-updates/autopatch-ds.png\" border=\"false\":::\n \n 1. **Microsoft Intune** provides device identity, assignment, and driver update approval information. Intune sends policy settings, approved drivers, and pause commands to Windows Autopatch.\n 1. **Windows Autopatch** uses this information to configure Windows Update behavior for managed devices and to coordinate driver update deployment.\n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/driver-updates.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/driver-updates",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/driver-updates.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/feature-updates-reports.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-updates/windows/feature-updates-reports.md b/intune/device-updates/windows/feature-updates-reports.md\nindex 90a32a5e55..5daf8fd92d 100644\n--- a/intune/device-updates/windows/feature-updates-reports.md\n+++ b/intune/device-updates/windows/feature-updates-reports.md\n@@ -40,12 +40,12 @@ To access the report:\n \n 1. In the [Microsoft Intune admin center][INT-AC], select **Reports** > **Windows Updates**. The default view displays the **Summary** tab:\n      > [!div class=\"mx-imgBorder\"]\n-     > ![Enable data collection for Intune](./images/reports/windows-updates-summary.png)\n+     > ![Enable data collection for Intune](./media/feature-updates-reports/windows-updates-summary.png)\n 1. Select **Windows Feature Update Report**.\n    - Select on **Select a feature update profile**, select a profile, and then **Generate report**.\n    - Select **Update status** and **Ownership** to refine the report.\n      > [!div class=\"mx-imgBorder\"]\n-     > ![Review ownership](./images/reports/windows-feature-updates-by-policy.png)\n+     > ![Review ownership](./media/feature-updates-reports/windows-feature-updates-by-policy.png)\n \n    The following list identifies the columns that are available in the view:\n    - **Devices**: The name of the device.\n@@ -121,7 +121,7 @@ To access the report:\n    - The initial view displays a per-profile summary of how many devices have alerts for each of your profiles with the version of Windows that the profile targets:\n \n      > [!div class=\"mx-imgBorder\"]\n-     > ![Per-profile view](./images/reports/update-failures-summary.png)\n+     > ![Per-profile view](./media/feature-updates-reports/update-failures-summary.png)\n \n    - Selecting a profile opens a dedicated view that contains all active Alerts for that profile.\n \n@@ -129,11 +129,11 @@ To access the report:\n \n      - Select an *Alert Message* to open a pane that displays more details for that alert:\n        > [!div class=\"mx-imgBorder\"]\n-       > ![Alert message details](./images/reports/alert-message-details.png)\n+       > ![Alert message details](./media/feature-updates-reports/alert-message-details.png)\n \n      - Select the device name to open the Device page:\n        > [!div class=\"mx-imgBorder\"]\n-       > ![View the device page](./images/reports/device-details.png)\n+       > ![View the device page](./media/feature-updates-reports/device-details.png)\n \n The following list identifies Alert Messages, and suggested remediation actions:\n \n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/feature-updates-reports.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/feature-updates-reports",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/feature-updates-reports.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-reports.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/index.md",
+      "status": "modified",
+      "additions": 34,
+      "deletions": 15,
+      "changes": 49,
+      "patch": "diff --git a/intune/device-updates/windows/index.md b/intune/device-updates/windows/index.md\nindex 6014b70469..70006ede00 100644\n--- a/intune/device-updates/windows/index.md\n+++ b/intune/device-updates/windows/index.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Update Management Overview\n description: Learn how to manage Windows updates with Intune. Control update settings, define rollout strategies, and ensure consistent device security across your organization.\n-ms.date: 01/14/2026\n+ms.date: 03/27/2026\n ms.topic: overview\n ---\n \n@@ -17,7 +17,7 @@ This overview explains how Intune manages Windows updates, the policy types avai\n - Define update rings to control rollout timing and reduce risk.\n - Prevent devices from installing new feature versions until you're ready, while still applying security and quality updates.\n \n-Intune stores only the policy assignments, not the updates themselves. When you save a policy, Intune sends configuration details to Windows Update, which determines which updates to offer. Devices download updates directly from Windows Update.\n+Intune stores only the policy assignments, not the updates themselves. When you save a policy, Intune sends configuration details to Windows Autopatch, which determines which updates are approved for deployment. Devices download approved updates directly from Windows Update, installing and applying those changes in accordance with Windows Update client policies.\n \n ## Windows update management capabilities\n \n@@ -60,13 +60,24 @@ The following policy types help you manage Windows updates in Intune:\n >> [Learn more](feature-updates.md)\n :::column-end:::\n \n+:::row:::\n+:::column:::\n+#### Hotpatch security updates \n+\n+>**:::image type=\"icon\" source=\"icons/feature-update.svg\" border=\"false\":::** \n+>\n+> Secures devices more quickly by delivering eligible security patches without a reboot. Rebootless updates are the default way monthly Windows security updates are delivered.\n+>> [!div class=\"nextstepaction\"]\n+>> [Learn more](/windows/deployment/windows-autopatch/manage/windows-autopatch-hotpatch-updates)\n+:::column-end:::\n+\n :::column:::\n #### Quality update policy\n \n >**:::image type=\"icon\" source=\"icons/quality-update.svg\" border=\"false\":::**\n >\n >Delivers monthly cumulative updates for security and reliability. Supports:\n-> - **Hotpatch**: Apply eligible security patches without a reboot to reduce downtime.\n+> - **Hotpatch**: Control if eligible devices receive security patches without a reboot.\n > - **Expedite policies**: Push critical security updates immediately by overriding deferral settings.\n >\n >> [!div class=\"nextstepaction\"]\n@@ -91,24 +102,32 @@ The following policy types help you manage Windows updates in Intune:\n \n ## Windows Autopatch\n \n-Windows Autopatch is a managed cloud service integrated with Microsoft Intune that helps keep Windows devices up to date and protected.\n+Windows Autopatch controls which Windows Update content is approved for deployment to Windows devices, keeping them up to date and secure. If a device isn't targeted by an Autopatch policy for a given content type, then all the latest content from Windows Update is deployed. \n \n-Autopatch uses feature update policies, quality update policies, and driver update policies as its policy surface. These policy types are built on the same cloud orchestration service that powers Windows Autopatch and are also available in Intune for admins who want to manage updates without enrolling devices in Autopatch.\n+Microsoft Intune leverages Windows Autopatch to enable the management of feature updates, quality updates, and driver updates. To enable those workflows, there is a policy for each of those content types.  \n \n-Autopatch adds service-managed capabilities such as dynamic device grouping, phased rollouts, health monitoring, and reporting. For eligible Windows editions, it also enables cloud-powered update scenarios like hotpatch and expedited updates with minimal manual configuration.\n+When a device is assigned to a policy, it is enrolled in Autopatch for that content type, and only approved content is deployed to that device.  Administrators can approve updates in a policy either automatically or manually, depending on what works best for their organization. \n \n-Update ring policies are used in Intune to configure Windows Update behavior such as deferrals, deadlines, and restart settings. For Autopatch‑enrolled devices, update rings may be created and managed by the service to implement rollout cadence.\n+Beyond policy, there are several other powerful Intune features powered by Autopatch:  \n+1. Autopatch Groups enable dynamic device grouping, gradual rollouts of updates, as well as multi-policy creation and edit flows.  \n+1. Autopatch reports provide deep insight into update readiness, compliance, and alerts.  \n+1. For eligible Windows editions, it also enables cloud-powered update scenarios like hotpatch and expedited updates with minimal manual configuration. \n \n-The following table compares how update management differs when you use Autopatch and manual Intune configuration:\n+The following table compares how update management differs when you use Autopatch Groups and manual Autopatch configuration:\n \n-| **Feature** | **When NOT using Autopatch** | **When using Autopatch** |\n+| **Feature** | **When using Autopatch Policies** | **When using Autopatch Groups** |\n |--|--|--|\n-| **Update coordination** | You control scheduling, deferrals, and rollout manually using Intune policies. | Autopatch orchestrates updates using service-managed policies and rollout logic. |\n-| **Update ring policy** | You configure update ring policies in Intune to control deferrals, deadlines, and restart behavior. | Autopatch may create and manage update ring policies to control rollout cadence and restart behavior. Admins shouldn't assign custom update ring policies to Autopatch-managed devices. |\n-| **Feature update policy** | You use feature update policies to lock or schedule OS versions. | Autopatch manages version targeting and rollout automatically. |\n-| **Quality update policy** | You configure quality update policies, expedited updates, and hotpatch settings manually. | Autopatch manages monthly patches, expedites critical updates, and applies hotpatch automatically for eligible devices. |\n-| **Driver update policy** | You use driver update policies to review and approve drivers manually. | Autopatch manages driver approvals and scheduling automatically. |\n+| **Update coordination** | Manually distribute devices into Entra Groups to assign update policies. | Automate distribution of devices into multiple Entra Groups based on your preferences. Pin specific groups to the start or end of a deployment.  |\n+| **Update ring policy** | You configure update ring policies in Intune to control deferrals, deadlines, and restart behavior. |You configure multiple update rings simultaneously to get a full picture of deferrals, deadlines, and restart behavior across the entire release.<br><br>Autopatch Groups have optional presets that provide recommended settings for common use cases. |\n+| **Feature update policy** | You use feature update policies to lock or schedule OS versions. | You set the minimum feature update version for all devices in an Autopatch Group. You schedule gradual feature update rollouts when you want to upgrade. |\n+| **Quality update policy** | You configure quality update policies, expedited updates, and hotpatch settings manually. | You configure quality update policies, expedited updates, and hotpatch settings manually. |\n+| **Driver update policy** | You use driver update policies to review and approve drivers either manually or automatically for all assigned devices. | Review and approve drivers either manually or automatically, starting a gradual rollout to all devices in the Autopatch Group. |\n+\n+### Service Defaults \n+\n+Windows Autopatch enables hotpatch security updates by default to help secure devices faster. This default behavior applies to all eligible devices in Microsoft Intune. Applying security fixes without waiting for a restart can get organizations to 90% compliance in half the time.  \n \n+You can opt out of hotpatch security updates at any time for either your whole tenant or groups devices with quality update policies.  \n \n > [!div class=\"nextstepaction\"]\n > [Learn more about Windows Autopatch](/windows/deployment/windows-autopatch/overview/windows-autopatch-overview)\n@@ -123,7 +142,7 @@ Each policy type has specific prerequisites, detailed in their respective docume\n   > For Entra registered devices, update management remains limited to Windows Update client policies and update ring policies.\n - Devices must have access to Microsoft update endpoints.\n \n-Feature update policies, quality update policies, and driver update policies use the same cloud orchestration layer as Windows Autopatch. Autopatch automates these policies, but when you configure them manually in Intune, you're still calling the same backend service—so the requirements don't change. Because they share this service, the prerequisites are the same across these three policy types:\n+Feature update policies, quality update policies, and driver update policies are orchestrated by Windows Autopatch. The prerequisites are the same across these three policy types:\n \n - **Licensing**: A Windows license that includes the [Autopatch entitlement](/windows/deployment/windows-autopatch/prepare/windows-autopatch-prerequisites#licenses-and-entitlements).\n \n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/index",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/quality-updates-reports.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-updates/windows/quality-updates-reports.md b/intune/device-updates/windows/quality-updates-reports.md\nindex 7fc36a110f..43156eeaf6 100644\n--- a/intune/device-updates/windows/quality-updates-reports.md\n+++ b/intune/device-updates/windows/quality-updates-reports.md\n@@ -32,7 +32,7 @@ Select a tab to learn more about each report.\n The report displays the distribution of devices against different quality updates for the selected scope. It shows the counts of devices corresponding to the displayed quality updates.\\\n Select one or more scope tags from the drop-down list to generate the report. The drop-down list shows all the scope tags the user has access to, based on the user's assigned scope tags.\n \n-:::image type=\"content\" source=\"./images/reports/windows-quality-updates-page1.png\" alt-text=\"Screen capture of the Windows quality update distribution report.\" lightbox=\"./images/reports/windows-quality-updates-page1.png\":::\n+:::image type=\"content\" source=\"./media/quality-updates-reports/windows-quality-updates-page1.png\" alt-text=\"Screen capture of the Windows quality update distribution report.\" lightbox=\"./media/quality-updates-reports/windows-quality-updates-page1.png\":::\n \n The report shows the number of devices under each QU level corresponding to the current month and the last 3 months from the day of reporting. The top rows typically represent the last three months, followed by other device data distributions.\n \n@@ -58,7 +58,7 @@ All QUs from this page are hyperlinked:\n \n The report provides the distribution of devices against Windows feature releases. The distribution of devices that are eligible to receive the selected quality update shown based on the Windows feature versions that are generally available. The report aids IT administrators in making informed decisions for devices and managing devices that need attention.\n \n-:::image type=\"content\" source=\"./images/reports/windows-quality-updates-page2.png\" alt-text=\"Screen capture of the Windows quality update distribution per feature version.\" lightbox=\"./images/reports/windows-quality-updates-page2.png\":::\n+:::image type=\"content\" source=\"./media/quality-updates-reports/windows-quality-updates-page2.png\" alt-text=\"Screen capture of the Windows quality update distribution per feature version.\" lightbox=\"./media/quality-updates-reports/windows-quality-updates-page2.png\":::\n \n The stacked chart displays the counts of devices that are up to date, those that need updates, and those for which the chosen quality update does not apply. Together, these counts make up the total Windows devices that Intune manages, including co-managed devices.\n \n@@ -83,7 +83,7 @@ When you select any device count, the *Windows quality update device version* re\n The report presents a list of devices based on the selections from the previous 2 reports. The  criteria that you selected in the previous reports are displayed at the top of the page.\\\n The report offers sortable columns and search options, along with an export feature allowing high volume data to be downloaded in CSV format.\n \n-:::image type=\"content\" source=\"./images/reports/windows-quality-updates-page3.png\" alt-text=\"Screen capture of the Windows quality update device version.\" lightbox=\"./images/reports/windows-quality-updates-page3.png\":::\n+:::image type=\"content\" source=\"./media/quality-updates-reports/windows-quality-updates-page3.png\" alt-text=\"Screen capture of the Windows quality update device version.\" lightbox=\"./media/quality-updates-reports/windows-quality-updates-page3.png\":::\n \n **Column details**:\n \n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/quality-updates-reports.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/quality-updates-reports",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/quality-updates-reports.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-reports.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/update-rings-reports.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-updates/windows/update-rings-reports.md b/intune/device-updates/windows/update-rings-reports.md\nindex f2d4336670..a395619a53 100644\n--- a/intune/device-updates/windows/update-rings-reports.md\n+++ b/intune/device-updates/windows/update-rings-reports.md\n@@ -17,7 +17,7 @@ To access update ring policies reports:\n 1. Select the **Update rings** tab\n 1. Select an update ring policy:\n \n-   :::image type=\"content\" source=\"./images/update-rings.png\" alt-text=\"Screen capture of the default view for update ring policy.\" lightbox=\"./images/update-rings.png\":::\n+   :::image type=\"content\" source=\"./media/shared/update-rings.png\" alt-text=\"Screen capture of the default view for update ring policy.\" lightbox=\"./media/shared/update-rings.png\":::\n \n On the policy page view:\n \n@@ -35,7 +35,7 @@ On the policy page view:\n   - Check-in status\n   - Last report modification time\n \n-  :::image type=\"content\" source=\"./images/reports/report-view-details.png\" alt-text=\"Screen capture that shows details available from the View report action.\":::\n+  :::image type=\"content\" source=\"./media/update-rings-reports/report-view-details.png\" alt-text=\"Screen capture that shows details available from the View report action.\":::\n \n   From this report view, you can select a device to drill in to view the list of the settings in the policy, and the status of the selected device for each of those settings. Additional drill-in is available by selecting a setting to open the *Setting details*. The *Setting details* display the name of the setting, the devices status (State) for that setting, and a list of profiles that manage the setting and that are assigned to the device. This is useful to help identify the source of a settings conflict.\n \n@@ -45,7 +45,7 @@ On the policy page view:\n \n     For this report, you can select one or more status details you are interested in, and then select *Generate report* to update the view with only that information. In this following image, we have generated a report that displays only the devices that were successfully assigned this policy:\n \n-    :::image type=\"content\" source=\"./images/reports/successful-assignment-view.png\" alt-text=\"Image of the results of the Assignment status report.\":::\n+    :::image type=\"content\" source=\"./media/update-rings-reports/successful-assignment-view.png\" alt-text=\"Image of the results of the Assignment status report.\":::\n \n     This report supports drilling in to view the list of settings, with subsequent drill-in as seen in for the full report view available from the *View report* button.\n \n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/update-rings-reports.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/update-rings-reports",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/update-rings-reports.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-reports.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/update-rings.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-updates/windows/update-rings.md b/intune/device-updates/windows/update-rings.md\nindex 75b7b16b9c..1312549118 100644\n--- a/intune/device-updates/windows/update-rings.md\n+++ b/intune/device-updates/windows/update-rings.md\n@@ -92,7 +92,7 @@ In Microsoft Intune, update rings are configured through **update ring policies*\n 1. In the [Microsoft Intune admin center][INT-AC], select **Devices** > **By platform** > **Windows** > **Manage updates** > **Windows updates**\n 1. Select the **Update rings** tab and select the ring policy that you want to manage. Intune displays details similar to the following for the selected policy:\n \n-   :::image type=\"content\" source=\"./images/update-rings.png\" alt-text=\"Screen capture of the default view for Update ring policy.\" lightbox=\"./images/update-rings.png\":::\n+   :::image type=\"content\" source=\"./media/shared/update-rings.png\" alt-text=\"Screen capture of the default view for Update ring policy.\" lightbox=\"./media/shared/update-rings.png\":::\n \n This view includes:\n \n",
+      "baseCommitSha": "eb3cac4f4854022ef67c2c624542221f7a1bde11",
+      "commitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitMessage": "Changes to images an index.md to add links to Windows Autopatch content.",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T08:20:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/update-rings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/update-rings",
+      "firstSeenAt": "2026-03-27T12:20:41.000Z",
+      "eventId": "intune-docs:9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3:modified:intune/device-updates/windows/update-rings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Changes to images an index.md to add links to Windows Autopatch content.",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/index.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 14,
+      "changes": 24,
+      "patch": "diff --git a/intune/device-updates/windows/index.md b/intune/device-updates/windows/index.md\nindex 70006ede00..e809cbe116 100644\n--- a/intune/device-updates/windows/index.md\n+++ b/intune/device-updates/windows/index.md\n@@ -59,18 +59,6 @@ The following policy types help you manage Windows updates in Intune:\n >> [!div class=\"nextstepaction\"]\n >> [Learn more](feature-updates.md)\n :::column-end:::\n-\n-:::row:::\n-:::column:::\n-#### Hotpatch security updates \n-\n->**:::image type=\"icon\" source=\"icons/feature-update.svg\" border=\"false\":::** \n->\n-> Secures devices more quickly by delivering eligible security patches without a reboot. Rebootless updates are the default way monthly Windows security updates are delivered.\n->> [!div class=\"nextstepaction\"]\n->> [Learn more](/windows/deployment/windows-autopatch/manage/windows-autopatch-hotpatch-updates)\n-:::column-end:::\n-\n :::column:::\n #### Quality update policy\n \n@@ -85,8 +73,18 @@ The following policy types help you manage Windows updates in Intune:\n :::column-end:::\n :::row-end:::\n \n+\n :::row:::\n :::column:::\n+#### Hotpatch security updates \n+\n+>**:::image type=\"icon\" source=\"icons/quality-update.svg\" border=\"false\":::** \n+>\n+> Secures devices more quickly by delivering eligible security patches without a reboot. Rebootless updates are the default way monthly Windows security updates are delivered.\n+>> [!div class=\"nextstepaction\"]\n+>> [Learn more](/windows/deployment/windows-autopatch/manage/windows-autopatch-hotpatch-updates)\n+:::column-end:::\n+:::column:::\n #### Driver update policy\n \n **:::image type=\"icon\" source=\"icons/driver-update.svg\" border=\"false\":::** \n@@ -96,8 +94,6 @@ The following policy types help you manage Windows updates in Intune:\n >> [!div class=\"nextstepaction\"]\n >> [Learn more](feature-updates.md)\n :::column-end:::\n-:::column:::\n-:::column-end:::\n :::row-end:::\n \n ## Windows Autopatch\n",
+      "baseCommitSha": "9264eb3bb0e2546ccdbb760b0356a2082cc5cfa3",
+      "commitSha": "ea4fd25f334a9bfdbe8653c3fed0f0755a95b0f1",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T09:01:59-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/index",
+      "firstSeenAt": "2026-03-27T13:01:59.000Z",
+      "eventId": "intune-docs:ea4fd25f334a9bfdbe8653c3fed0f0755a95b0f1:modified:intune/device-updates/windows/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/hotpatch.md",
+      "status": "modified",
+      "additions": 70,
+      "deletions": 9,
+      "changes": 79,
+      "patch": "diff --git a/intune/device-updates/windows/hotpatch.md b/intune/device-updates/windows/hotpatch.md\nindex bd99f96088..79a6a0601c 100644\n--- a/intune/device-updates/windows/hotpatch.md\n+++ b/intune/device-updates/windows/hotpatch.md\n@@ -8,13 +8,17 @@ ms.topic: how-to\n \n # Hotpatch for Windows quality updates\n \n-Windows quality update policies in Microsoft Intune support **hotpatch**, a deployment capability designed to reduce device downtime and user disruption. Hotpatch applies eligible **Monthly B security updates** so that they take effect without requiring an immediate device restart.\n+With hotpatch updates, you can quickly take measures to help protect your organization from the evolving landscape of cyberattacks, while minimizing user disruptions. Hotpatch updates are *Monthly B release* security updates that install and take effect without requiring you to restart the device. By minimizing the need to restart, these updates help ensure faster compliance, making it easier for organizations to maintain security while keeping workflows uninterrupted. \n \n-Hotpatch is an extension of Windows Update and is managed through **Windows Autopatch** using quality update policies. When enabled, Autopatch orchestrates the deployment of hotpatch updates to eligible devices enrolled in the Autopatch quality update policy. This approach helps organizations maintain security compliance while minimizing workflow interruptions.\n+Hotpatch security updates are enabled by default for all eligible devices in Microsoft Intune. This approach helps organizations maintain security compliance while minimizing workflow interruptions.  \n+\n+You can configure if hotpatch is enabled for you devices using either a tenant level setting or quality update policies.  \n \n ### Key benefits\n \n+- **Faster Security**: Hotpatch security fixes take effect without requiring a restart, getting devices secure much more quickly.  \n - **Reduced disruption**: Hotpatch installs eligible security updates without requiring an immediate device restart, helping users stay productive.\n+- **Smaller payloads**: Hotpatch package size is significantly smaller than the standard cumulative updates. \n - **No changes to existing update rings**: Existing update ring configurations remain in effect and are honored alongside hotpatch configurations.\n - **Policy‑level visibility**: The hotpatch quality updates report provides a policy‑level view of update status for devices receiving hotpatch updates.\n \n@@ -36,10 +40,9 @@ Hotpatch has the same [prerequisites](quality-updates.md#prerequisites) as Windo\n >> [!NOTE]\n >> Devices might be temporarily ineligible because they don't have VBS enabled or aren't currently on the latest baseline release. To ensure that all your Windows devices are configured properly to be eligible for hotpatch updates, see [Troubleshoot hotpatch updates](/windows/deployment/windows-autopatch/manage/windows-autopatch-hotpatch-updates).\n >\n->**Arm 64 devices must disable compiled hybrid PE usage (CHPE) (Arm 64 CPU Only)**\n+> You can also find VBS status in [Autopatch alerts and remediation](/windows/deployment/windows-autopatch/monitor/alerts-remediations) with the alert *Hotpatch - VBS not running*. \n >\n-> > [!IMPORTANT]\n-> > Arm 64 device support is in public preview.\n+>**Arm 64 devices must disable compiled hybrid PE usage (CHPE) (Arm 64 CPU Only)**\n >\n > To ensure all the hotpatch updates are applied, you must set the **Compiled Hybrid Portable Executable** (CHPE) disable flag and restart the device to disable CHPE usage. You only need to set this flag one time. The registry setting remains applied through updates.\n >\n@@ -47,7 +50,7 @@ Hotpatch has the same [prerequisites](quality-updates.md#prerequisites) as Windo\n >\n > To disable CHPE, create and/or set the following DWORD registry key:\n >\n-> Path: `HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management DWORD key value: HotPatchRestrictions=1`\n+> Path: `HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management DWORD key value: HotPatchRestrictions=1`\n >\n > To learn more about CHPE, see [here](/windows/win32/winprog64/wow64-implementation-details)\n >\n@@ -80,6 +83,11 @@ For more information about the release calendar for hotpatch updates, see [Relea\n | 3 | July | August and September |\n | 4 | October | November and December |\n \n+During a hotpatch month, if a device has hotpatch updates enabled but isn't on the latest baseline update, the device will receive both the latest baseline update (restart required) and the latest hotpatch update.\n+\n+> [!NOTE]\n+> Upgrading a hotpatch enrolled device to the latest Windows version (e.g. upgrading from Windows 11 24H2 to Windows 11 25H2) during a baseline month keeps the device on the hotpatch cycle and the device keeps receiving the hotpatch updates seamlessly. However, upgrading a device to the latest Windows version in a hotpatch month switches the device to standard updates; you must restart the device to apply the update until the next baseline release. \n+\n ## Hotpatch on Windows 11 Enterprise or Windows Server 2025\n \n > [!NOTE]\n@@ -94,8 +102,23 @@ The calendar dates, eight hotpatch months, and four baseline months, planned eac\n \n ## Enroll devices to receive hotpatch updates\n \n-> [!NOTE]\n-> If you're using Autopatch groups and want your devices to receive hotpatch updates, you must create a hotpatch policy and assign devices to it. Turning on hotpatch updates doesn't change the deferral setting applied to devices within an Autopatch group.\n+You can enable hotpatch updates for your devices using a tenant level setting or quality update policies. The tenant level setting is the default setting applied to devices that aren't members of a quality update policy. If a device is assigned to a quality update policy, the hotpatch setting from that policy is the one applied.\n+\n+### Default hotpatch tenant setting \n+\n+The default tenant setting is only applied to devices that aren't members of a quality update policy.\n+\n+Windows Autopatch respects your configuration of quality update policies. If a device is assigned to one of those policies, the hotpatch setting from that policy is the one applied.  \n+\n+Configure the default hotpatch update behavior for your tenant as follows:\n+\n+1. In the [Microsoft Intune admin center][INT-AC], select **Tenant administration** > **Windows Autopatch** > **Tenant management**. \n+1. Select the **Tenant settings** tab. \n+1. Toggle the **When available, apply updates without restarting the device (\"hotpatch\")** setting to either **Allow** or **Block**.\n+\n+### Configure hotpatch using Quality Update policies.\n+\n+Windows Autopatch respects your configuration of the hotpatch setting in quality update policies. If a device is assigned to one of those policies, the hotpatch setting from that policy is the one applied not the tenant default setting.  \n \n To enroll devices to receive hotpatch updates:\n \n@@ -127,7 +150,45 @@ To access the report:\n \n 1. In the [Microsoft Intune admin center][INT-AC], select **Reports**\n 1. Under the **Windows Autopatch** section, select **Windows quality updates**\n-1. On the **Reports** tab, select **Hotpatch quality updates report**.\n+1. On the **Reports** tab, select **Hotpatch quality updates report**.\n+\n+## Troubleshoot hotpatch updates\n+\n+### Step 1: Verify the device is eligible for hotpatch updates and on a hotpatch baseline before the hotpatch update is installed \n+\n+Hotpatching follows the hotpatch release cycle. Review the prerequisites to ensure the device is eligible for hotpatch updates. For information on devices that don't meet the prerequisites, see Ineligible devices. \n+\n+For the latest release schedule, see the hotpatch release notes. For information on Windows update history, see Windows 11, version 24H2 update history. \n+\n+### Step 2: Verify the device has Virtualization-based security (VBS) turned on \n+\n+1. Select Start, and enter *System information* in the Search. \n+1. Select **System information** from the results. \n+1. Under **System summary**, under the Item column, find **Virtualization-based security**. \n+1. Under the **Value** column, ensure it states *Running*. \n+\n+### Step 3: Verify the device is properly configured to turn on hotpatch updates \n+\n+1. In Intune, review your configured policies within Autopatch to see which groups of devices are targeted with a hotpatch policy by going to the **Windows Update** > **Quality Updates** page. \n+1. Ensure the hotpatch update policy is set to **Allow**. \n+1. On the device, select **Start** > **Settings** > **Windows Update** > **Advanced options** > **Configured update policies** > find **Enable hotpatching when available**. This setting indicates that the device is enrolled in hotpatch updates as configured by Autopatch. \n+\n+### Step 4: Disable compiled hybrid PE usage (CHPE) (Arm64 CPU only) \n+\n+For more information, see [Arm 64 devices must disable compiled hybrid PE usage (CHPE) (Arm 64 CPU Only)](/windows/deployment/windows-autopatch/manage/windows-autopatch-hotpatch-updates). \n+\n+### Step 5: Use Event viewer to verify the device has hotpatch updates turned on \n+\n+1. Right-click on the Start menu, and select **Event viewer**. \n+1. Search for *AllowRebootlessUpdates* in the filter. If *AllowRebootlessUpdates* is set to `1`, the device is enrolled in the Autopatch update policy and has hotpatch updates turned on:\n+    `\"data\": { \"payload\": \"{\\\"Orchestrator\\\":{\\\"UpdatePolicy\\\":{\\\"Update/AllowRebootlessUpdates\\\":true}}}\", \"isEnrolled\": 1, \"isCached\": 1, \"vbsState\": 2,`\n+\n+### Step 6: Check Windows Logs for any hotpatch errors \n+\n+Hotpatch updates provide an inbox monitor service that checks for the health of the updates installed on the device. If the monitor service detects an error, the service logs an event in the Windows Application Logs. If there's a critical error, the device installs the standard (LCU) update to ensure the device is fully secure. \n+\n+1. Right-click on the Start menu, and select **Event viewer**. \n+1. Search for *hotpatch* in the filter to view the logs. \n \n <!-- admin center links -->\n \n",
+      "baseCommitSha": "ea4fd25f334a9bfdbe8653c3fed0f0755a95b0f1",
+      "commitSha": "30e58931c2c2319bd773a02a437fa85df0cb45d5",
+      "commitMessage": "Part 2",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T09:30:22-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/hotpatch.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/hotpatch",
+      "firstSeenAt": "2026-03-27T13:30:22.000Z",
+      "eventId": "intune-docs:30e58931c2c2319bd773a02a437fa85df0cb45d5:modified:intune/device-updates/windows/hotpatch.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Part 2",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/hotpatch.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-updates/windows/index.md b/intune/device-updates/windows/index.md\nindex e809cbe116..90ce49a2f4 100644\n--- a/intune/device-updates/windows/index.md\n+++ b/intune/device-updates/windows/index.md\n@@ -109,7 +109,7 @@ Beyond policy, there are several other powerful Intune features powered by Autop\n 1. Autopatch reports provide deep insight into update readiness, compliance, and alerts.  \n 1. For eligible Windows editions, it also enables cloud-powered update scenarios like hotpatch and expedited updates with minimal manual configuration. \n \n-The following table compares how update management differs when you use Autopatch Groups and manual Autopatch configuration:\n+The following table compares how update management differs when you use manual Autopatch configuration with policies and using Autopatch Groups:\n \n | **Feature** | **When using Autopatch Policies** | **When using Autopatch Groups** |\n |--|--|--|\n",
+      "baseCommitSha": "ea4fd25f334a9bfdbe8653c3fed0f0755a95b0f1",
+      "commitSha": "30e58931c2c2319bd773a02a437fa85df0cb45d5",
+      "commitMessage": "Part 2",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T09:30:22-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/index",
+      "firstSeenAt": "2026-03-27T13:30:22.000Z",
+      "eventId": "intune-docs:30e58931c2c2319bd773a02a437fa85df0cb45d5:modified:intune/device-updates/windows/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Part 2",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/passwordless.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 16,
+      "changes": 34,
+      "patch": "diff --git a/intune/solutions/passwordless.md b/intune/solutions/passwordless.md\nindex 58dbc25923..f0a8a146fe 100644\n--- a/intune/solutions/passwordless.md\n+++ b/intune/solutions/passwordless.md\n@@ -21,6 +21,8 @@ Passwordless authentication reduces phishing and credential theft by replacing p\n \n Microsoft Intune doesn't issue passwordless credentials. Instead, it prepares devices, apps, and user experiences so these passwordless methods work reliably at scale. Microsoft Entra ID is the identity authority that verifies credentials and enforces authentication and Conditional Access policies, while Microsoft Intune configures device settings, enforces compliance, and enables the platform capabilities those methods depend on. Together, Microsoft Entra ID and Microsoft Intune provide the identity foundation and device readiness required to adopt passwordless authentication across diverse platforms and form factors.\n \n+The passwordless experience varies by platform. On Windows, it commonly spans both device sign‑in and app access through SSO. On macOS, it centers on platform authentication and SSO into apps, rather than deep device‑bound identity. On iOS/iPadOS and Android, it more often focuses on app sign‑in, brokered authentication, and passkey behavior than on device sign‑in. Keep these distinctions in mind when evaluating platform requirements and planning deployment.\n+\n This article explains how Microsoft Intune supports a passwordless strategy from an administrator's perspective. For deployment details, follow the implementation links for each passwordless method.\n \n ## How Microsoft's passwordless solution works\n@@ -50,7 +52,7 @@ Microsoft's passwordless solution pairs Microsoft Entra ID for identity and sing\n    :::image type=\"icon\" source=\"media/passwordless/devices.svg\" border=\"false\":::\n    :::column-end:::\n    :::column span=\"3\":::\n-   **Platform capabilities** on Windows, macOS, iOS, and Android provide the device-bound experience, including biometrics, secure hardware (TPM, Secure Enclave), passkey support, and brokered single sign-on.\n+   **Platform capabilities** on Windows, macOS, iOS, and Android provide the device-bound experience, including biometrics, secure hardware (TPM on Windows, Secure Enclave on macOS), passkey support, and brokered single sign-on.\n    :::column-end:::\n :::row-end:::\n \n@@ -292,7 +294,7 @@ Depending on the passwordless methods you choose, your organization might need M\n \n | Capability                                   | License requirement                                          |\n |----------------------------------------------|--------------------------------------------------------------|\n-| Windows Hello                   | Microsoft Entra ID P1 (for Conditional Access enforcement)   |\n+| Windows Hello                                | Microsoft Entra ID P1 (for Conditional Access enforcement)   |\n | FIDO2 security keys                          | Microsoft Entra ID P1                                        |\n | Passkeys (device-bound and synced)           | Microsoft Entra ID P1                                        |\n | Microsoft Authenticator phone sign-in        | Microsoft Entra ID P1                                        |\n@@ -311,15 +313,15 @@ Depending on the passwordless methods you choose, your organization might need M\n \n The passwordless methods described in this article rely on specific platform capabilities that are only available in certain OS versions. The table below summarizes the platform requirements for each method:\n \n-| Method                                     | Windows                         | macOS                    | iOS/iPadOS               | Android     |\n-|--------------------------------------------|:-------------------------------:|:------------------------:|:------------------------:|:-----------:|\n-| **Windows Hello**                          | All *supported* Windows clients | —                        | —                        | —           |\n-| **FIDO2 security keys**                    | All *supported* Windows clients | —                        | —                        | —           |\n-| **Passkeys**                               | Windows 11                      | All *supported* versions | All *supported* versions | Android 14+ |\n+| Method                                               | Windows                         | macOS                    | iOS/iPadOS               | Android     |\n+|------------------------------------------------------|:-------------------------------:|:------------------------:|:------------------------:|:-----------:|\n+| **Windows Hello**                                    | All *supported* Windows clients | —                        | —                        | —           |\n+| **FIDO2 security keys**                              | All *supported* Windows clients | —                        | —                        | —           |\n+| **Passkeys**                                         | Windows 11                      | All *supported* versions | All *supported* versions | Android 14+ |\n | **Device-bound passkeys in Microsoft Authenticator** | —                               | —                        | All *supported* versions | Android 14+ |\n-| **Platform SSO (Secure Enclave)**          | —                               | All *supported* versions | —                        | —           |\n-| **Web sign-in (TAP at lock screen)**       | Windows 11                      | —                        | —                        | —           |\n-| **Microsoft Authenticator phone sign-in**  | —                               | —                        | All *supported* versions | Android 11+ |\n+| **Platform SSO (Secure Enclave)**                    | —                               | All *supported* versions | —                        | —           |\n+| **Web sign-in (TAP at lock screen)**                 | Windows 11                      | —                        | —                        | —           |\n+| **Microsoft Authenticator phone sign-in**            | —                               | —                        | All *supported* versions | Android 11+ |\n \n >[!NOTE]\n > \n@@ -481,17 +483,17 @@ Planning for recovery before you enforce passwordless is essential. A rollout th\n \n Passwordless often depends on the device being in the right state before users can rely on the experience. Readiness typically includes:\n \n-- Supported device platforms and versions.\n-- Device enrollment or registration.\n-- Required apps and brokers.\n-- Method-specific configuration profiles and identity prerequisites.\n+- [Supported device platforms and versions](../intune-service/fundamentals/supported-devices-browsers.md)\n+- [Device enrollment or registration](../intune-service/fundamentals/deployment-guide-enrollment.md)\n+- [Required apps and brokers](../intune-service/apps/apps-add.md)\n+- [Method-specific configuration profiles and identity prerequisites](../intune-service/configuration/device-profiles.md)\n \n ### Verification and ongoing operations\n \n To validate a passwordless deployment, common checkpoints include:\n \n-- Microsoft Entra sign-in logs.\n-- Microsoft Intune device and policy reporting.\n+- [Microsoft Entra sign-in logs](/entra/identity/monitoring-health/concept-sign-ins)\n+- [Microsoft Intune device and policy reporting](../intune-service/fundamentals/reports.md)\n - Platform-specific verification experiences for the passwordless method you deploy.\n \n ## User adoption and communication\n",
+      "baseCommitSha": "87515e247939be8f4c957765172bf4776c6b24a7",
+      "commitSha": "f5f66f2aa07fc45c3b224fd78ff6ca0118abbe31",
+      "commitMessage": "updates based on feedback",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-03-27T10:05:14-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/passwordless.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/passwordless",
+      "firstSeenAt": "2026-03-27T14:05:14.000Z",
+      "eventId": "intune-docs:f5f66f2aa07fc45c3b224fd78ff6ca0118abbe31:modified:intune/solutions/passwordless.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates based on feedback",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/developer/app-sdk-android-phase7.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/developer/app-sdk-android-phase7.md b/intune/intune-service/developer/app-sdk-android-phase7.md\nindex d8e803fc6e..25ffa00fda 100644\n--- a/intune/intune-service/developer/app-sdk-android-phase7.md\n+++ b/intune/intune-service/developer/app-sdk-android-phase7.md\n@@ -1,7 +1,7 @@\n ---\n title: Microsoft Intune App SDK for Android Developer Integration and Testing Guide - App Participation Features\n description: Understand App participation features when incorporating Intune mobile app management (MAM) into your Android app.\n-ms.date: 11/17/2025\n+ms.date: 03/27/2026\n ms.topic: reference\n ms.reviewer: jamiesil\n ms.collection:\n@@ -658,7 +658,7 @@ In the example, replace `R.style.AppTheme` with the style theme that the SDK sho\n If the application requires SSL/TLS certificates issued by an on-premises or private certificate authority to provide secure access to internal websites and applications, the Intune App SDK has added support for certificate trust management with the API classes [MAMTrustedRootCertsManager] and [MAMCertTrustWebViewClient].\n \n > [!NOTE]\n-> [MAMCertTrustWebViewClient] supports Android 10 or later.\n+> [MAMCertTrustWebViewClient] supports Android 11 or later.\n \n Trusted Root Certificates Management provides support for:\n \n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "c0a3b52d85a79cec145e8b2415862babbbcefc98",
+      "commitMessage": "revisions for MDE Deprcation of App support on Android 10",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-27T08:22:37-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/developer/app-sdk-android-phase7.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk-android-phase7",
+      "firstSeenAt": "2026-03-27T15:22:37.000Z",
+      "eventId": "intune-docs:c0a3b52d85a79cec145e8b2415862babbbcefc98:modified:intune/intune-service/developer/app-sdk-android-phase7.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "revisions for MDE Deprcation of App support on Android 10",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/developer/app-sdk-android-phase7.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/microsoft-tunnel-mam-android.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/protect/microsoft-tunnel-mam-android.md b/intune/intune-service/protect/microsoft-tunnel-mam-android.md\nindex dcaeed6519..309b831470 100644\n--- a/intune/intune-service/protect/microsoft-tunnel-mam-android.md\n+++ b/intune/intune-service/protect/microsoft-tunnel-mam-android.md\n@@ -3,7 +3,7 @@ title: Use Microsoft Tunnel VPN with Android devices that don't enroll with Micr\n description: Add support for Mobile Application Management (MAM) for Android to the Microsoft Tunnel Gateway. Tunnel support for MAM expands access to your organizational resources for devices that can't or haven't enrolled with Microsoft Intune\n author: brenduns\n ms.author: brenduns\n-ms.date: 03/04/2025\n+ms.date: 03/27/2026\n ms.topic: how-to\n ms.reviewer: ochukwunyere\n ms.subservice: suite\n@@ -232,7 +232,7 @@ If your application requires SSL/TLS certificates issued by an on-premises or pr\n   - PEM\n \n - **MAMCertTrustWebViewClient** supports:\n-  - Android 10 or higher\n+  - Android 11 or higher\n \n - **MAMTrustedRootCertsManager** supports:\n   - SSLContext\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "c0a3b52d85a79cec145e8b2415862babbbcefc98",
+      "commitMessage": "revisions for MDE Deprcation of App support on Android 10",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-27T08:22:37-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/microsoft-tunnel-mam-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-tunnel-mam-android",
+      "firstSeenAt": "2026-03-27T15:22:37.000Z",
+      "eventId": "intune-docs:c0a3b52d85a79cec145e8b2415862babbbcefc98:modified:intune/intune-service/protect/microsoft-tunnel-mam-android.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "revisions for MDE Deprcation of App support on Android 10",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-mam-android.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/microsoft-tunnel-overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/protect/microsoft-tunnel-overview.md b/intune/intune-service/protect/microsoft-tunnel-overview.md\nindex 84495ecf57..6238f2207b 100644\n--- a/intune/intune-service/protect/microsoft-tunnel-overview.md\n+++ b/intune/intune-service/protect/microsoft-tunnel-overview.md\n@@ -3,7 +3,7 @@ title: Learn about the Microsoft Tunnel VPN solution for Microsoft Intune\n description: Learn about the Microsoft Tunnel Gateway, a VPN server for Intune that runs on Linux. With Microsoft Tunnel, cloud-based devices you manage with Intune can reach your on-premises infrastructure.\n author: brenduns\n ms.author: brenduns\n-ms.date: 11/11/2025\n+ms.date: 03/27/2026\n ms.topic: article\n ms.reviewer: ochukwunyere\n ms.collection:\n@@ -45,7 +45,7 @@ Microsoft Tunnel Gateway installs onto a container that runs on a Linux server.\n - For iOS devices that have Microsoft Defender configured to support per-app VPNs and *TunnelOnly* mode set to *True*, users don’t need to open or sign-in to Microsoft Defender on their device for the Tunnel to be used. Instead, with the user signed-in to the Company Portal on the device or to any other app that uses multifactor authentication that has a valid token for access, the Tunnel per-app VPN is used automatically. *TunnelOnly* mode is supported for iOS/iPadOS, and disables the Defender functionality, leaving only the Tunnel capabilities.\n - Manual connections to the tunnel when a user launches the VPN and selects *Connect*.\n - On-demand VPN rules that allow use of the VPN when conditions are met for specific FQDNs or IP addresses. *(iOS/iPadOS)*\n-- Proxy support. *(iOS/iPadOS, Android 10+)*\n+- Proxy support. *(iOS/iPadOS, Android 11+)*\n - Android root detection. The Microsoft Defender client automatically blocks a device's access to Microsoft Tunnel if it identifies that the device is rooted.\n \n   When a device is identified as rooted, the client immediately marks the device's risk category as *High*, drops active Tunnel connections, and continues to block access until the device is determined to be compliant. The device user receives a notification about this status from the Defender client.\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "c0a3b52d85a79cec145e8b2415862babbbcefc98",
+      "commitMessage": "revisions for MDE Deprcation of App support on Android 10",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-27T08:22:37-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/microsoft-tunnel-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-tunnel-overview",
+      "firstSeenAt": "2026-03-27T15:22:37.000Z",
+      "eventId": "intune-docs:c0a3b52d85a79cec145e8b2415862babbbcefc98:modified:intune/intune-service/protect/microsoft-tunnel-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "revisions for MDE Deprcation of App support on Android 10",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 6,
+      "changes": 11,
+      "patch": "diff --git a/intune/intune-service/protect/microsoft-tunnel-prerequisites.md b/intune/intune-service/protect/microsoft-tunnel-prerequisites.md\nindex 8a3a850390..b9ce247189 100644\n--- a/intune/intune-service/protect/microsoft-tunnel-prerequisites.md\n+++ b/intune/intune-service/protect/microsoft-tunnel-prerequisites.md\n@@ -3,7 +3,7 @@ title: Prerequisites the Microsoft Tunnel VPN for Microsoft Intune\n description: Review the prerequisites for installation and use of the Microsoft Tunnel Gateway. These include Linux servers, network, and firewall configurations.\n author: brenduns\n ms.author: brenduns\n-ms.date: 04/15/2025\n+ms.date: 03/27/2026\n ms.topic: how-to\n ms.reviewer: ochukwunyere\n ms.collection:\n@@ -295,10 +295,6 @@ To access the security token service and Azure storage for logs, provide access\n \n You can use a proxy server with Microsoft Tunnel.\n \n-> [!NOTE]\n->\n-> Proxy server configurations are not supported with versions of Android prior to version 10. For more information, see [VpnService.Builder](https://developer.android.com/reference/android/net/VpnService.Builder#setHttpProxy%28android.net.ProxyInfo%29) in that Android developer documentation.\n-\n > [!NOTE]\n >\n > Make sure your Android LOB applications support direct proxy or Proxy Auto-Configuration (PAC) for both MDM and MAM.\n@@ -412,6 +408,9 @@ Devices must be enrolled to Intune to be supported with Microsoft Tunnel. Only t\n   > [!NOTE]\n   > *Android Enterprise dedicated* devices aren't supported by the Microsoft Tunnel.\n \n+> [!IMPORTANT]\n+> Support for Android 10 on Microsoft Tunnel ended March 31, 2026. Devices running Android 10 must upgrade to Android 11 or later to continue using Microsoft Tunnel.\n+\n All platforms support the following functionality:\n \n - Microsoft Entra authentication to the Tunnel using username and password.\n@@ -422,7 +421,7 @@ All platforms support the following functionality:\n \n Support for a Proxy is limited to the following platforms:\n \n-- Android 10 and later\n+- Android 11 and later\n - iOS/iPadOS\n \n ## Permissions\n",
+      "baseCommitSha": "c8a6623e79245b35102e3369fcc8971383518a1f",
+      "commitSha": "c0a3b52d85a79cec145e8b2415862babbbcefc98",
+      "commitMessage": "revisions for MDE Deprcation of App support on Android 10",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-27T08:22:37-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-tunnel-prerequisites",
+      "firstSeenAt": "2026-03-27T15:22:37.000Z",
+      "eventId": "intune-docs:c0a3b52d85a79cec145e8b2415862babbbcefc98:modified:intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "revisions for MDE Deprcation of App support on Android 10",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/known-issues.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/autopilot/device-preparation/known-issues.md b/autopilot/device-preparation/known-issues.md\nindex 5ba3b7ed54..b8060d6624 100644\n--- a/autopilot/device-preparation/known-issues.md\n+++ b/autopilot/device-preparation/known-issues.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation known issues\n description: Information regarding known issues that might occur during a Windows Autopilot device preparation deployment. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 02/05/2026\n+ms.date: 03/31/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: troubleshooting\n@@ -57,7 +57,7 @@ As a workaround, select the table header **Allowed Applications** or **Allowed S\n ### Win32, WinGet, and Enterprise App Catalog applications are skipped when Managed installer policy is enabled for the tenant\n \n Date added: *October 10, 2024*<br>\n-Date updated: *June 20, 2025*\n+Date updated: *March 31, 2026*\n \n When the [Managed installer policy](/mem/intune-service/protect/endpoint-security-app-control-policy#managed-installer) is **Active** for a tenant, Win32 apps, Microsoft Store, and Enterprise App Catalog apps aren't delivered during OOBE. The apps are instead installed after the device gets to the Desktop and the Managed installer policy is delivered. The [Windows Autopilot device preparation deployment status report](whats-new.md#windows-autopilot-device-preparation-deployment-status-report-available-in-the-monitor-tab-under-enrollment) reports the apps as **Skipped.**\n \n@@ -65,7 +65,9 @@ When the [Managed installer policy](/mem/intune-service/protect/endpoint-securit\n >\n > Managed installer policy is always enabled automatically for Education customers due to the requirements for [Windows 11 SE](/education/windows/tutorial-deploy-apps-winse/).\n \n-For more information, see [Known issue: Windows Autopilot device preparation with Win32 apps and managed installer policy](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-windows-autopilot-device-preparation-with-win32-apps/ba-p/4273286).\n+For more information, see [Known issue: Windows Autopilot device preparation with Win32 apps and managed installer policy](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-windows-autopilot-device-preparation-with-win32-apps/ba-p/4273286).  \n+\n+**This issue was resolved in March 2026.**\n \n ### Security group membership update failures might lead to non-compliant devices\n \n",
+      "baseCommitSha": "72d4fac324e6b2628b5bf65a737452cd88d2241d",
+      "commitSha": "e8a308ba5fd719f2aad5414c0a2a1d293d0dcc87",
+      "commitMessage": "2603 updates",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-27T11:38:43-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/known-issues",
+      "firstSeenAt": "2026-03-27T15:38:43.000Z",
+      "eventId": "intune-docs:e8a308ba5fd719f2aad5414c0a2a1d293d0dcc87:modified:autopilot/device-preparation/known-issues.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2603 updates",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex 8c3b6162b6..683a49f216 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Windows Autopilot device preparation\n description: News and resources about the latest updates of Windows Autopilot device preparation. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 01/30/2026\n+ms.date: 03/31/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: whats-new\n@@ -23,6 +23,12 @@ appliesto:\n >\n > For more information on using RSS for notifications, see [How to use the docs](/mem/use-docs#notifications) in the Intune documentation.  \n \n+## Managed installer policy support during Windows Autopilot device preparation<!-- 31776436 -->  \n+\n+Date added: *March 31, 2026*\n+\n+Microsoft Intune now supports the managed installer policy for apps during Windows Autopilot device preparation. The policy will be applied during the out-of-box experience (OOBE) before Win32, Microsoft Store, and Enterprise App Catalog apps install. These app types were previously skipped to prevent app installation conflicts and deployment failures. This update helps ensure supported apps install reliably during user-driven and automatic Autopilot scenarios.  \n+\n ## Admins can configure up to 25 apps to install during Autopilot device preparation \n \n Date added: *January 30, 2026*  \n",
+      "baseCommitSha": "72d4fac324e6b2628b5bf65a737452cd88d2241d",
+      "commitSha": "e8a308ba5fd719f2aad5414c0a2a1d293d0dcc87",
+      "commitMessage": "2603 updates",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-27T11:38:43-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-03-27T15:38:43.000Z",
+      "eventId": "intune-docs:e8a308ba5fd719f2aad5414c0a2a1d293d0dcc87:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2603 updates",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/protect/microsoft-tunnel-prerequisites.md b/intune/intune-service/protect/microsoft-tunnel-prerequisites.md\nindex b9ce247189..e8326fb36b 100644\n--- a/intune/intune-service/protect/microsoft-tunnel-prerequisites.md\n+++ b/intune/intune-service/protect/microsoft-tunnel-prerequisites.md\n@@ -408,8 +408,8 @@ Devices must be enrolled to Intune to be supported with Microsoft Tunnel. Only t\n   > [!NOTE]\n   > *Android Enterprise dedicated* devices aren't supported by the Microsoft Tunnel.\n \n-> [!IMPORTANT]\n-> Support for Android 10 on Microsoft Tunnel ended March 31, 2026. Devices running Android 10 must upgrade to Android 11 or later to continue using Microsoft Tunnel.\n+  > [!IMPORTANT]\n+  > Support for Android 10 on Microsoft Tunnel ended March 31, 2026. Devices running Android 10 must upgrade to Android 11 or later to continue using Microsoft Tunnel.\n \n All platforms support the following functionality:\n \n",
+      "baseCommitSha": "c0a3b52d85a79cec145e8b2415862babbbcefc98",
+      "commitSha": "51fd3dbeb4dc8c8f09f0cf3a07082d843810c354",
+      "commitMessage": "Minor edit formatting",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-27T08:42:21-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-tunnel-prerequisites",
+      "firstSeenAt": "2026-03-27T15:42:21.000Z",
+      "eventId": "intune-docs:51fd3dbeb4dc8c8f09f0cf3a07082d843810c354:modified:intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Minor edit formatting",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/governance/device-cleanup-rules.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/governance/device-cleanup-rules.md b/intune/governance/device-cleanup-rules.md\nindex 07ff8ad375..067838bdf0 100644\n--- a/intune/governance/device-cleanup-rules.md\n+++ b/intune/governance/device-cleanup-rules.md\n@@ -64,6 +64,9 @@ Device cleanup rules in Intune run on a schedule and automatically hide records\n \n     You can create one rule per platform. The rule applies to all devices in your organization with the platform you select.\n \n+> [!IMPORTANT]\n+> If both platform-specific and *All platforms* rules exist, the one with fewer days will be applied.\n+\n 1. Select **Next**.\n 1. In **Rule settings** > **Remove devices that haven't checked in for this many days**, enter a number between 30 and 270.\n \n@@ -94,4 +97,4 @@ The [Intune audit logs](../intune-service/fundamentals/monitor-audit-logs.md) sh\n [INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n [INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n [INT-R4]: /intune/intune-service/fundamentals/role-based-access-control-reference#endpoint-security-manager\n-[INT-RC]: /intune/intune-service/fundamentals/create-custom-role\n\\ No newline at end of file\n+[INT-RC]: /intune/intune-service/fundamentals/create-custom-role\n",
+      "baseCommitSha": "72d4fac324e6b2628b5bf65a737452cd88d2241d",
+      "commitSha": "5ee2bef303d2b08900bb8c5b42d7cec9177f893c",
+      "commitMessage": "Update device cleanup rules for clarity",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-03-27T09:10:50-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/governance/device-cleanup-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/governance/device-cleanup-rules",
+      "firstSeenAt": "2026-03-27T16:10:50.000Z",
+      "eventId": "intune-docs:5ee2bef303d2b08900bb8c5b42d7cec9177f893c:modified:intune/governance/device-cleanup-rules.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update device cleanup rules for clarity",
+        "summary": "Updated Microsoft Intune documentation in intune/governance/device-cleanup-rules.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/collect-diagnostics.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 3,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/remote-actions/collect-diagnostics.md b/intune/intune-service/remote-actions/collect-diagnostics.md\nindex d8e8a87292..8a0c51baf4 100644\n--- a/intune/intune-service/remote-actions/collect-diagnostics.md\n+++ b/intune/intune-service/remote-actions/collect-diagnostics.md\n@@ -204,14 +204,11 @@ This following list is the same order as the diagnostic zip. Each collection con\n |`HKLM\\SOFTWARE\\Microsoft\\PolicyManager\\current\\device\\DeviceHealthMonitoring`|\n |`HKLM\\SOFTWARE\\Microsoft\\IntuneManagementExtension`|\n |`HKLM\\SOFTWARE\\Microsoft\\SystemCertificates\\AuthRoot`|\n-|`HKLM\\SOFTWARE\\Microsoft\\Windows Advanced Threat Protection`|\n |`HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI`|\n |`HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings`|\n |`HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall`|\n |`HKLM\\SOFTWARE\\Microsoft\\DeviceInventory`|\n-|`HKLM\\SOFTWARE\\Policies`|\n |`HKLM\\SOFTWARE\\Policies\\Microsoft\\Cryptography\\Configuration\\SSL`|\n-|`HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Advanced Threat Protection`|\n |`HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall`|\n |`HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL`|\n |`HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\Mdm`|\n",
+      "baseCommitSha": "156759a0563522678669da4300e07648edf3b585",
+      "commitSha": "32546b4cdd706c59d8131bc758ff12624a723618",
+      "commitMessage": "Learn Editor: Update collect-diagnostics.md",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-27T14:48:59-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/collect-diagnostics.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/collect-diagnostics",
+      "firstSeenAt": "2026-03-27T18:48:59.000Z",
+      "eventId": "intune-docs:32546b4cdd706c59d8131bc758ff12624a723618:modified:intune/intune-service/remote-actions/collect-diagnostics.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update collect-diagnostics.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/collect-diagnostics.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 23,
+    "authors": [
+      "Albert Cabello Serrano",
+      "Brent Dunsire",
+      "Laura Newsad",
+      "Nicholas S. White",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 23 updated, and 0 removed Microsoft Intune documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration.md. Updated Microsoft Intune documentation in intune/intune-service/developer/app-sdk-android-phase7.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-mam-android.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-overview.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-prerequisites.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-prerequisites.md. Updated Microsoft Intune documentation in intune/intune-service/remote-action",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/cloud-configuration.md",
+          "intune/intune-service/developer/app-sdk-android-phase7.md",
+          "intune/intune-service/protect/microsoft-tunnel-mam-android.md",
+          "intune/intune-service/protect/microsoft-tunnel-overview.md",
+          "intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+          "intune/intune-service/protect/microsoft-tunnel-prerequisites.md",
+          "intune/intune-service/remote-actions/collect-diagnostics.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-reports.md. Updated Microsoft Intune document",
+        "sourceFiles": [
+          "intune/device-updates/windows/compatibility-reports.md",
+          "intune/device-updates/windows/driver-update-policy.md",
+          "intune/device-updates/windows/driver-updates-reports.md",
+          "intune/device-updates/windows/driver-updates.md",
+          "intune/device-updates/windows/feature-updates-reports.md",
+          "intune/device-updates/windows/index.md",
+          "intune/device-updates/windows/quality-updates-reports.md",
+          "intune/device-updates/windows/update-rings-reports.md",
+          "intune/device-updates/windows/update-rings.md",
+          "intune/device-updates/windows/index.md",
+          "intune/device-updates/windows/hotpatch.md",
+          "intune/device-updates/windows/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md.",
+        "sourceFiles": [
+          "intune/solutions/passwordless.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/known-issues.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/device-preparation/known-issues.md",
+          "autopilot/device-preparation/whats-new.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/governance",
+        "summary": "Updated Microsoft Intune documentation in intune/governance/device-cleanup-rules.md.",
+        "sourceFiles": [
+          "intune/governance/device-cleanup-rules.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration.md. Updated Microsoft Intune documentation in intune/intune-service/developer/app-sdk-android-phase7.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-mam-android.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-overview.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-prerequisites.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-prerequisites.md. Updated Microsoft Intune documentation in intune/intune-service/remote-action"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-updates",
+        "detail": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-reports.md. Updated Microsoft Intune document"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/known-issues.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/governance",
+        "detail": "Updated Microsoft Intune documentation in intune/governance/device-cleanup-rules.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

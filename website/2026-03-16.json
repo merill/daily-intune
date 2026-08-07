@@ -1,0 +1,323 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/multi-admin-approval.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/multi-admin-approval.md b/intune/intune-service/fundamentals/multi-admin-approval.md\nindex e239f4d394..3e5dceb16f 100644\n--- a/intune/intune-service/fundamentals/multi-admin-approval.md\n+++ b/intune/intune-service/fundamentals/multi-admin-approval.md\n@@ -104,7 +104,7 @@ You can cancel a request before it's approved by selecting it from the My reques\n \n - Plan to monitor the status of your requests through the *My requests* page of the *Multi Admin Approval* node in the Microsoft Intune admin center.\n \n-- When an approval is already pending for an object, a new request is can't be submitted for it.\n+- When an approval is already pending for an object, a new request can't be submitted for it.\n \n - All actions for a protected resource are protected, including but not limited to:\n   - Edit\n",
+      "baseCommitSha": "327b12d3aa9d4fc5614a928b33ee72904b62acdf",
+      "commitSha": "88d7145e4f8236bf6ef33eb82d468df072969c48",
+      "commitMessage": "Fix typo in multi-admin approval documentation",
+      "commitAuthor": "Paraskevas Petsanas",
+      "commitDate": "2026-03-16T13:38:06+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/multi-admin-approval.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/multi-admin-approval",
+      "firstSeenAt": "2026-03-16T11:38:06.000Z",
+      "eventId": "intune-docs:88d7145e4f8236bf6ef33eb82d468df072969c48:modified:intune/intune-service/fundamentals/multi-admin-approval.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix typo in multi-admin approval documentation",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/multi-admin-approval.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/36495448.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 7,
+      "changes": 8,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36495448.md b/intune/configmgr/hotfix/2509/36495448.md\nindex 6dd769c904..eca1f7b102 100644\n--- a/intune/configmgr/hotfix/2509/36495448.md\n+++ b/intune/configmgr/hotfix/2509/36495448.md\n@@ -1,15 +1,9 @@\n ---\n title: Software update management client fix for Microsoft Configuration Manager\n-titleSuffix: Configuration Manager\n description: SUM Client update for Configuration Manager\n ms.date: 3/5/2026\n ms.subservice: core-infra\n-ms.service: configuration-manager\n ms.topic: reference\n-ms.assetid: ec969e9b-501e-416b-9b4c-39de23d968b1\n-author: bhuney\n-ms.author: brianhun\n-manager: dougeby\n ---\n \n # Software update management client fix for Microsoft Configuration Manager versions 2503 and 2509\n@@ -80,4 +74,4 @@ File information is available in the downloadable\n [KB36495448_2509_FileList.txt](https://aka.ms/KB36495448_2509_FileList)\n \n ## Release history\n-- February 23, 2026: Initial hotfix release\n\\ No newline at end of file\n+- February 23, 2026: Initial hotfix release\n",
+      "baseCommitSha": "e9defb32911ba647be30e2f41f66d571940ecfae",
+      "commitSha": "1c70ef2ac45bb9fcd860fda1675b3d4fcbf8d5b3",
+      "commitMessage": "Removed metadata",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-16T12:13:00-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36495448.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36495448",
+      "firstSeenAt": "2026-03-16T16:13:00.000Z",
+      "eventId": "intune-docs:1c70ef2ac45bb9fcd860fda1675b3d4fcbf8d5b3:modified:intune/configmgr/hotfix/2509/36495448.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed metadata",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36495448.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/intune-management-extension.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/apps/intune-management-extension.md b/intune/intune-service/apps/intune-management-extension.md\nindex 69192d14d6..da033c27b6 100644\n--- a/intune/intune-service/apps/intune-management-extension.md\n+++ b/intune/intune-service/apps/intune-management-extension.md\n@@ -1,7 +1,7 @@\n ---\n title: Understand Microsoft Intune Management Extension\n description: Understand Microsoft Intune management extension for Windows.\n-ms.date: 03/02/2026\n+ms.date: 03/24/2026\n ms.topic: how-to\n ms.reviewer: bryanke\n ms.collection:\n@@ -168,6 +168,7 @@ Also, use the log file *AppWorkload.log* to troubleshoot and analyze Win32 app m\n | ClientHealth.log | Tracks the health of the Intune management extension. |\n | DeviceHealthMonitoring.log | Tracks the health of hardware readiness, device inventory, and other data collectors. |\n | HealthScripts.log | Tracks the health of remediations that run on a regular schedule. |\n+| NotificationInfra.log | Tracks notifications sent through the Microsoft real-time communication channel. |\n | Sensor.log | Tracks the health of the Endpoint analytics data collector, including boot performance, app reliability, and more. |\n | Win32AppInventory.log | Tracks the health of the app inventory collector. |\n \n",
+      "baseCommitSha": "01fe57215a200aa450590153a87ca4d6b2795073",
+      "commitSha": "648ac1951f296d442b3c4cf3767db6ff04fd2c67",
+      "commitMessage": "Adding endpoints, and log details for IME log.",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-16T10:39:34-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/intune-management-extension.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/intune-management-extension",
+      "firstSeenAt": "2026-03-16T17:39:34.000Z",
+      "eventId": "intune-docs:648ac1951f296d442b3c4cf3767db6ff04fd2c67:modified:intune/intune-service/apps/intune-management-extension.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding endpoints, and log details for IME log.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/intune-management-extension.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/intune-endpoints.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "patch": "diff --git a/intune/intune-service/fundamentals/intune-endpoints.md b/intune/intune-service/fundamentals/intune-endpoints.md\nindex a6fa29b1b8..47ad39fd16 100644\n--- a/intune/intune-service/fundamentals/intune-endpoints.md\n+++ b/intune/intune-service/fundamentals/intune-endpoints.md\n@@ -3,7 +3,7 @@ title: Network endpoints for Microsoft Intune\n description: Review endpoints for Intune. This page lists IP addresses and port settings needed for proxy settings in your Intune deployments.\n author: brenduns\n ms.author: brenduns\n-ms.date: 08/21/2025\n+ms.date: 03/24/2026\n ms.topic: reference\n ms.reviewer: angrobe\n ms.collection:\n@@ -156,7 +156,7 @@ In addition to configuring the network requirements listed in the following tabl\n \n | ID |Desc |Category |ER |Addresses |Ports|Notes|\n |----|-----|---------|---|----------|-----|-----|\n-181 | MEM - Remote Help Feature| Default<BR>Required | False |`*.support.services.microsoft.com`<BR>`remoteassistance.support.services.microsoft.com`<BR>`teams.microsoft.com`<BR>`remoteassistanceprodacs.communication.azure.com`<BR>`edge.skype.com`<BR>`aadcdn.msftauth.net`<BR>`aadcdn.msauth.net`<BR>`alcdn.msauth.net`<BR>`wcpstatic.microsoft.com`<BR>`*.aria.microsoft.com`<BR>`browser.pipe.aria.microsoft.com`<BR>`*.events.data.microsoft.com`<BR>`v10c.events.data.microsoft.com`<BR>`*.monitor.azure.com`<BR>`js.monitor.azure.com`<BR>`edge.microsoft.com`<BR>`*.trouter.communication.microsoft.com`<BR>`*.trouter.teams.microsoft.com`<BR>`*.trouter.communications.svc.cloud.microsoft`(starting around March 15th, 2026)<BR>`go-amer.trouter.communications.svc.cloud.microsoft`(starting around March 15th, 2026, only for NA, ROW customers)<BR>`go-apac.trouter.communications.svc.cloud.microsoft`(starting around March 15th, 2026, only for APAC customers)<BR>`go-eu.trouter.communications.svc.cloud.microsoft`(starting around March 15th, 2026, only for EU customers)<BR>`api.flightproxy.skype.com`<BR>`ecs.communication.microsoft.com`<BR>`remotehelp.microsoft.com`<BR>`remoteassistanceprodacseu.communication.azure.com`(this endpoint is only for EU customers)<BR> | **TCP:** 443 |\n+181 | MEM - Remote Help Feature| Default<BR>Required | False |`*.support.services.microsoft.com`<BR>`remoteassistance.support.services.microsoft.com`<BR>`teams.microsoft.com`<BR>`remoteassistanceprodacs.communication.azure.com`<BR>`edge.skype.com`<BR>`aadcdn.msftauth.net`<BR>`aadcdn.msauth.net`<BR>`alcdn.msauth.net`<BR>`wcpstatic.microsoft.com`<BR>`*.aria.microsoft.com`<BR>`browser.pipe.aria.microsoft.com`<BR>`*.events.data.microsoft.com`<BR>`v10c.events.data.microsoft.com`<BR>`*.monitor.azure.com`<BR>`js.monitor.azure.com`<BR>`edge.microsoft.com`<BR>`*.trouter.communication.microsoft.com`<BR>`*.trouter.teams.microsoft.com`<BR>`*.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-amer.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-apac.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-eu.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`api.flightproxy.skype.com`<BR>`ecs.communication.microsoft.com`<BR>`remotehelp.microsoft.com`<BR>`remoteassistanceprodacseu.communication.azure.com`(this endpoint is only for EU customers)<BR> | **TCP:** 443 |\n 187 | Dependency - Remote Help web pubsub | Default<BR>Required | False | `*.webpubsub.azure.com`<BR> `AMSUA0101-RemoteAssistService-pubsub.webpubsub.azure.com`<BR>| **TCP:** 443 |\n 188 | Remote Help Dependency for GCC customers| Default<BR>Required | False |`remoteassistanceweb-gcc.usgov.communication.azure.us`<BR>`gcc.remotehelp.microsoft.com`<BR>`gcc.relay.remotehelp.microsoft.com`<BR>`*.gov.teams.microsoft.us` | **TCP:** 443 |\n \n@@ -459,6 +459,9 @@ intunecdnpeasd.azureedge.net\n *.support.services.microsoft.com\n *.trouter.communication.microsoft.com\n *.trouter.communications.svc.cloud.microsoft\n+go-amer.trouter.communications.svc.cloud.microsoft\n+go-apac.trouter.communications.svc.cloud.microsoft\n+go-eu.trouter.communications.svc.cloud.microsoft\n *.trouter.teams.microsoft.com\n api.flightproxy.skype.com\n ecs.communication.microsoft.com\n",
+      "baseCommitSha": "01fe57215a200aa450590153a87ca4d6b2795073",
+      "commitSha": "648ac1951f296d442b3c4cf3767db6ff04fd2c67",
+      "commitMessage": "Adding endpoints, and log details for IME log.",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-16T10:39:34-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/intune-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-endpoints",
+      "firstSeenAt": "2026-03-16T17:39:34.000Z",
+      "eventId": "intune-docs:648ac1951f296d442b3c4cf3767db6ff04fd2c67:modified:intune/intune-service/fundamentals/intune-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding endpoints, and log details for IME log.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/intune-endpoints.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 4,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/intune-endpoints.md b/intune/intune-service/fundamentals/intune-endpoints.md\nindex 21698aeffb..ff8c75618c 100644\n--- a/intune/intune-service/fundamentals/intune-endpoints.md\n+++ b/intune/intune-service/fundamentals/intune-endpoints.md\n@@ -3,11 +3,7 @@ title: Network endpoints for Microsoft Intune\n description: Review endpoints for Intune. This page lists IP addresses and port settings needed for proxy settings in your Intune deployments.\n author: brenduns\n ms.author: brenduns\n-<<<<<<< HEAD\n ms.date: 03/24/2026\n-=======\n-ms.date: 03/05/2026\n->>>>>>> be7e2b6d19647019bcbb03d8cc802151a54e4f8c\n ms.topic: reference\n ms.reviewer: angrobe\n ms.collection:\n",
+      "baseCommitSha": "54ece55fc9b7210f63b7c8379a0f193b83df1c5f",
+      "commitSha": "56b07432e0ee39ba4448176d1f61f8a5d2296579",
+      "commitMessage": "Merge conflict resolved",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-16T11:38:16-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/intune-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-endpoints",
+      "firstSeenAt": "2026-03-16T18:38:16.000Z",
+      "eventId": "intune-docs:56b07432e0ee39ba4448176d1f61f8a5d2296579:modified:intune/intune-service/fundamentals/intune-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Merge conflict resolved",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/intune-endpoints.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/intune-endpoints.md b/intune/intune-service/fundamentals/intune-endpoints.md\nindex ff8c75618c..874109b5a2 100644\n--- a/intune/intune-service/fundamentals/intune-endpoints.md\n+++ b/intune/intune-service/fundamentals/intune-endpoints.md\n@@ -156,7 +156,7 @@ In addition to configuring the network requirements listed in the following tabl\n \n | ID |Desc |Category |ER |Addresses |Ports|Notes|\n |----|-----|---------|---|----------|-----|-----|\n-181 | MEM - Remote Help Feature| Default<BR>Required | False |`*.support.services.microsoft.com`<BR>`remoteassistance.support.services.microsoft.com`<BR>`teams.microsoft.com`<BR>`remoteassistanceprodacs.communication.azure.com`<BR>`edge.skype.com`<BR>`aadcdn.msftauth.net`<BR>`aadcdn.msauth.net`<BR>`alcdn.msauth.net`<BR>`wcpstatic.microsoft.com`<BR>`*.aria.microsoft.com`<BR>`browser.pipe.aria.microsoft.com`<BR>`*.events.data.microsoft.com`<BR>`v10c.events.data.microsoft.com`<BR>`*.monitor.azure.com`<BR>`js.monitor.azure.com`<BR>`edge.microsoft.com`<BR>`*.trouter.communication.microsoft.com`<BR>`*.trouter.teams.microsoft.com`<BR>`*.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-amer.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-apac.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-eu.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`api.flightproxy.skype.com`<BR>`ecs.communication.microsoft.com`<BR>`remotehelp.microsoft.com`<BR>`remoteassistanceprodacseu.communication.azure.com`(this endpoint is only for EU customers)<BR> | **TCP:** 443 |\n+181 | MEM - Remote Help Feature| Default<BR>Required | False |`*.support.services.microsoft.com`<BR>`remoteassistance.support.services.microsoft.com`<BR>`teams.microsoft.com`<BR>`remoteassistanceprodacs.communication.azure.com`<BR>`edge.skype.com`<BR>`aadcdn.msftauth.net`<BR>`aadcdn.msauth.net`<BR>`alcdn.msauth.net`<BR>`wcpstatic.microsoft.com`<BR>`*.aria.microsoft.com`<BR>`browser.pipe.aria.microsoft.com`<BR>`*.events.data.microsoft.com`<BR>`v10c.events.data.microsoft.com`<BR>`*.monitor.azure.com`<BR>`js.monitor.azure.com`<BR>`edge.microsoft.com`<BR>`*.trouter.communication.microsoft.com`<BR>`*.trouter.teams.microsoft.com`<BR>`*.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-amer.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026, only for NA, ROW customers)<BR>`go-apac.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026, only for APAC customers)<BR>`go-eu.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026, only for EU customers)<BR>`api.flightproxy.skype.com`<BR>`ecs.communication.microsoft.com`<BR>`remotehelp.microsoft.com`<BR>`remoteassistanceprodacseu.communication.azure.com`(this endpoint is only for EU customers)<BR> | **TCP:** 443 |\n 187 | Dependency - Remote Help web pubsub | Default<BR>Required | False | `*.webpubsub.azure.com`<BR> `AMSUA0101-RemoteAssistService-pubsub.webpubsub.azure.com`<BR>| **TCP:** 443 |\n 188 | Remote Help Dependency for GCC customers| Default<BR>Required | False |`remoteassistanceweb-gcc.usgov.communication.azure.us`<BR>`gcc.remotehelp.microsoft.com`<BR>`gcc.relay.remotehelp.microsoft.com`<BR>`*.gov.teams.microsoft.us` | **TCP:** 443 |\n \n",
+      "baseCommitSha": "56b07432e0ee39ba4448176d1f61f8a5d2296579",
+      "commitSha": "a19b4ec9529ff90aaa8594f5058cafe25bf0c9e5",
+      "commitMessage": "update/restore message region detial",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-16T12:02:06-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/intune-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-endpoints",
+      "firstSeenAt": "2026-03-16T19:02:06.000Z",
+      "eventId": "intune-docs:a19b4ec9529ff90aaa8594f5058cafe25bf0c9e5:modified:intune/intune-service/fundamentals/intune-endpoints.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "update/restore message region detial",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/in-development.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/in-development.md b/intune/intune-service/fundamentals/in-development.md\nindex d1263f530b..e21acd978c 100644\n--- a/intune/intune-service/fundamentals/in-development.md\n+++ b/intune/intune-service/fundamentals/in-development.md\n@@ -263,7 +263,7 @@ When this change takes effect, devices that are assigned this policy while manag\n \n ## Role-based access control\n \n-### Decoupling of Scope Tag permissions for Role-based access control<!-- 27067241 -->\n+### Decoupling of Scope Tag permissions for Role-based access control<!-- 37134761 -->\n \n Intune will soon provide a one-time action you can use to decouple permissions assigned through scope tags, making role-based access control (RBAC) more precise. Currently, permissions for the same resource in different roles but with different scope tags are merged, which can unintentionally grant admins broader access than intended. This change will improve security and clarity for organizations managing complex role assignments.\n \n",
+      "baseCommitSha": "3c21625957d4131c8a724294698fad2709cc6b0b",
+      "commitSha": "909004413e145614eaf090ce397582a7110a71d9",
+      "commitMessage": "Learn Editor: Update in-development.md",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-16T12:59:27-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development",
+      "firstSeenAt": "2026-03-16T19:59:27.000Z",
+      "eventId": "intune-docs:909004413e145614eaf090ce397582a7110a71d9:modified:intune/intune-service/fundamentals/in-development.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update in-development.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/mdt/properties.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/mdt/properties.md b/intune/configmgr/mdt/properties.md\nindex 77b0e10389..cf86033105 100644\n--- a/intune/configmgr/mdt/properties.md\n+++ b/intune/configmgr/mdt/properties.md\n@@ -4002,7 +4002,7 @@ Instead of generating a random recovery password, the **Enable BitLocker** task\n \n |**Example**|\n |-|\n-|`[Settings] Priority=Default  [Default] BDEInstallSuppress=NO BDEDriveLetter=S: BDEDriveSize=2000 OSDBitLockerMode=TPMKey OSDBitLockerCreateRecoveryPassword=AD OSDBitLockerRecoveryPassword=621280128854709621167486709731081433315062587367 OSDBitLockerStartupKeyDrive=C:`|\n+|`[Settings] Priority=Default  [Default] BDEInstallSuppress=NO BDEDriveLetter=S: BDEDriveSize=2000 OSDBitLockerMode=TPMKey OSDBitLockerCreateRecoveryPassword=AD OSDBitLockerRecoveryPassword=<48_digit_numerical_password>> OSDBitLockerStartupKeyDrive=C:`|\n \n ### OSDBitLockerStartupKey\n \n@@ -5994,8 +5994,8 @@ Specifies the users who will be assigned affinity with a specific device using t\n | CustomSettings.ini | ✅ | \\| |  |  |\n | MDT DB | ✅ | \\| | ZTI (Configuration Manager) | ✅ |\n \n-|     **Value**     |                                                                                                                                                                **Description**                                                                                                                                                                |\n-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n+| **Value**  |  **Description**   |\n+|---|---|\n | *user1, user2, ...* | The comma-separated list of users in *Domain\\User_Name* format that will be assigned affinity with the target device.<br><br> Note:<br><br> You can only use the NetBIOS domain name in this value, such as *Fabrikam\\Ken*. You cannot use the fully qualified domain name (fabrikam.com\\Ken) or the UPN notation (ken@fabrikam.com). |\n \n |**Example**|\n",
+      "baseCommitSha": "a438e2380cf780a1d76cd4b5fc6c58c28b074ed1",
+      "commitSha": "f5e37c4926302f150b9ac41c2919c21db8e5ce9d",
+      "commitMessage": "SFI - password",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-16T18:08:11-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/mdt/properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/mdt/properties",
+      "firstSeenAt": "2026-03-16T22:08:11.000Z",
+      "eventId": "intune-docs:f5e37c4926302f150b9ac41c2919c21db8e5ce9d:modified:intune/configmgr/mdt/properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "SFI - password",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/mdt/properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/mdt/samples-guide.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/configmgr/mdt/samples-guide.md b/intune/configmgr/mdt/samples-guide.md\nindex 9049f0ba35..2c16a97bac 100644\n--- a/intune/configmgr/mdt/samples-guide.md\n+++ b/intune/configmgr/mdt/samples-guide.md\n@@ -126,7 +126,7 @@ You can deploy Windows 8 applications using UDI like any other application that\n \n ## Managing MDT Using Windows PowerShell\n \n-You can manage MDT deployment shares using the Deployment Workbench and Windows PowerShell. MDT includes a Windows PowerShell™ snap-in—Microsoft.BDD.SnapIn—that must be loaded prior to using the MDT-specific features in Windows PowerShell. The MDT Windows PowerShell snap-in includes:\n+You can manage MDT deployment shares using the Deployment Workbench and Windows PowerShell. MDT includes a Windows PowerShell&trade; snap-in—Microsoft.BDD.SnapIn—that must be loaded prior to using the MDT-specific features in Windows PowerShell. The MDT Windows PowerShell snap-in includes:\n \n - A Windows PowerShell provider—MDTProvider—that provides access to the contents of a deployment share\n \n@@ -1110,7 +1110,7 @@ SkipDomainMembership=YES\n JoinDomain=DomainName\n DomainAdmin=Administrator\n DomainAdminDomain=DomainName\n-DomainAdminPassword=a_secure_password\n+DomainAdminPassword=<complex_password>\n \n SkipUserData=yes\n UserDataLocation=AUTO\n@@ -1145,7 +1145,7 @@ Applications001={a26c6358-8db9-4615-90ff-d4511dc2feff}\n Applications002={7e9d10a0-42ef-4a0a-9ee2-90eb2f4e4b98}\n UserID=Administrator\n UserDomain=DomainName\n-UserPassword=P@ssw0rd\n+UserPassword=<complex_password>\n \n SkipBitLocker=YES\n SkipSummary=YES\n@@ -1177,7 +1177,7 @@ SkipDomainMembership=YES\n JoinDomain=WOODGROVEBANK\n DomainAdmin=Administrator\n DomainAdminDomain=WOODGROVEBANK\n-DomainAdminPassword=P@ssw0rd\n+DomainAdminPassword=<complex_password>\n \n SkipUserData=Yes\n UserDataLocation=\\\\WDG-MDT-01\\UserData$\\Directory\\usmtdata\n",
+      "baseCommitSha": "a438e2380cf780a1d76cd4b5fc6c58c28b074ed1",
+      "commitSha": "f5e37c4926302f150b9ac41c2919c21db8e5ce9d",
+      "commitMessage": "SFI - password",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-16T18:08:11-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/mdt/samples-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/mdt/samples-guide",
+      "firstSeenAt": "2026-03-16T22:08:11.000Z",
+      "eventId": "intune-docs:f5e37c4926302f150b9ac41c2919c21db8e5ce9d:modified:intune/configmgr/mdt/samples-guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "SFI - password",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/mdt/samples-guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/mdt/udi-reference.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/mdt/udi-reference.md b/intune/configmgr/mdt/udi-reference.md\nindex bc8ad857f3..e0121ecf3f 100644\n--- a/intune/configmgr/mdt/udi-reference.md\n+++ b/intune/configmgr/mdt/udi-reference.md\n@@ -1417,7 +1417,7 @@ This task sequence variable specifies the password for the domain-based account\n \n |**Example**|\n |-|\n-|`OSDJoinPassword=P@ssw0rd10`|\n+|`OSDJoinPassword=<strong_password>`|\n \n ### OSDLocalAdminPassword\n \n@@ -1429,7 +1429,7 @@ This task sequence variable specifies the password for the Administrator local b\n \n |**Example**|\n |-|\n-|`OSDLocalAdminPassword=P@ssw0rd10`|\n+|`OSDLocalAdminPassword=<complex_password>`|\n \n ### OSDNetworkJoinType\n \n",
+      "baseCommitSha": "a438e2380cf780a1d76cd4b5fc6c58c28b074ed1",
+      "commitSha": "f5e37c4926302f150b9ac41c2919c21db8e5ce9d",
+      "commitMessage": "SFI - password",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-16T18:08:11-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/mdt/udi-reference.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/mdt/udi-reference",
+      "firstSeenAt": "2026-03-16T22:08:11.000Z",
+      "eventId": "intune-docs:f5e37c4926302f150b9ac41c2919c21db8e5ce9d:modified:intune/configmgr/mdt/udi-reference.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "SFI - password",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/mdt/udi-reference.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/mdt/samples-guide.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/intune/configmgr/mdt/samples-guide.md b/intune/configmgr/mdt/samples-guide.md\nindex 2c16a97bac..77841a1fbf 100644\n--- a/intune/configmgr/mdt/samples-guide.md\n+++ b/intune/configmgr/mdt/samples-guide.md\n@@ -1302,16 +1302,16 @@ cscript.exe \"%SCRIPTROOT%\\ZTIConnect.wsf\" /uncpath:unc_path\n \n 6. Complete the **Properties** tab of the new task using the following information:\n \n-   | **In this box** |                                                                **Do this**                                                                |\n-   |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|\n-   |    **Name**     |                         Type **Connect to server** (where server is the name of the server to which to connect).                          |\n-   | **Description** |                                       Type text that explains why the connection needs to be made.                                        |\n+   | **In this box** |  **Do this**   |\n+   |---|---|\n+   |    **Name**     | Type **Connect to server** (where server is the name of the server to which to connect).   |\n+   | **Description** | Type text that explains why the connection needs to be made.   |\n    |   **Command**   | Type **cscript.exe \"%SCRIPTROOT%\\ZTIConnect.wsf\" /uncpath:unc_path** (where *unc_path* is the UNC path to a shared folder on the server). |\n \n 7. Complete the **Options** tab of the new task using the following information. Unless specified, accept default values, and then select **OK**.\n \n    |**In this box** |**Do this** |\n-   |-|-|\n+   |---|---|\n    |**Success codes** |Type **0 3010**. (The ZTIConnect.wsf script returns these codes upon successful completion.)|\n    |**Conditions list box** |Add any conditions that might be necessary. (In most instances this task requires no conditions.)|\n \n@@ -1321,7 +1321,7 @@ cscript.exe \"%SCRIPTROOT%\\ZTIConnect.wsf\" /uncpath:unc_path\n \n Variations on model numbers and names can exist with virtually no difference in the driver set. These variations in model numbers and names can unnecessarily increase time spent making multiple database entries for a given model. The following procedure shows how to define a new property using a user exit function call that returns a substring of the model number.\n \n- **To create model aliases**\n+**To create model aliases**\n \n 1. Select **Start**, and then point to **All Programs**. Point to **Microsoft Deployment Toolkit**, and then select **Deployment Workbench**.\n \n",
+      "baseCommitSha": "f5e37c4926302f150b9ac41c2919c21db8e5ce9d",
+      "commitSha": "815d367ff6df991473327128760125204f083ac2",
+      "commitMessage": "spacing",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-16T19:02:01-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/mdt/samples-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/mdt/samples-guide",
+      "firstSeenAt": "2026-03-16T23:02:01.000Z",
+      "eventId": "intune-docs:815d367ff6df991473327128760125204f083ac2:modified:intune/configmgr/mdt/samples-guide.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "spacing",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/mdt/samples-guide.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 8,
+    "totalFiles": 11,
+    "authors": [
+      "Brent Dunsire",
+      "Mandi Ohlinger",
+      "Paraskevas Petsanas"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 11 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/multi-admin-approval.md. Updated Microsoft Intune documentation in intune/intune-service/apps/intune-management-extension.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/multi-admin-approval.md",
+          "intune/intune-service/apps/intune-management-extension.md",
+          "intune/intune-service/fundamentals/intune-endpoints.md",
+          "intune/intune-service/fundamentals/intune-endpoints.md",
+          "intune/intune-service/fundamentals/intune-endpoints.md",
+          "intune/intune-service/fundamentals/in-development.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36495448.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/properties.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/samples-guide.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/udi-reference.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/samples-guide.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2509/36495448.md",
+          "intune/configmgr/mdt/properties.md",
+          "intune/configmgr/mdt/samples-guide.md",
+          "intune/configmgr/mdt/udi-reference.md",
+          "intune/configmgr/mdt/samples-guide.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/multi-admin-approval.md. Updated Microsoft Intune documentation in intune/intune-service/apps/intune-management-extension.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/36495448.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/properties.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/samples-guide.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/udi-reference.md. Updated Microsoft Intune documentation in intune/configmgr/mdt/samples-guide.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

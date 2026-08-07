@@ -1,0 +1,194 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-01-12",
+      "summary": {
+        "headline": "Update ring controls receive a much clearer policy reference",
+        "overview": "The day’s 60 changes are concentrated in Windows update documentation. A new update-ring settings reference spells out the configuration choices for update delivery, restart behavior, and deadlines, while companion feature, quality, reporting, and Autopilot material is reorganized around the newer policy structure.",
+        "adminImpact": "Recheck production update rings against the new reference, particularly driver inclusion, deferral periods, automatic-install behavior, active hours, user pause and scan access, and deadline/grace-period settings. Education environments should note that the old Restart checks Skip behavior is intended for unattended cart devices, not one-to-one devices.",
+        "keyChanges": [
+          {
+            "title": "Update-ring policy settings get a comprehensive reference",
+            "detail": "The new reference maps update-ring settings to their Windows CSPs and explains controls for Microsoft product updates, drivers, feature and quality deferrals, Windows 11 upgrade, uninstall periods, Insider builds, notifications, restart behavior, and enforcement deadlines.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-12-update-rings-policy-settings-32"
+          },
+          {
+            "title": "Deadline and restart settings are framed as an end-user-experience choice",
+            "detail": "The guidance documents the available install modes and the interaction of active hours, feature and quality deadlines, grace periods, and automatic reboot before the deadline. It recommends enabling pre-deadline automatic reboot to reduce the chance of a forced restart during active hours.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-12-windows-update-settings-you-can-manage-with-intune-update-ring-policies-for-windows-devices-02"
+          },
+          {
+            "title": "Autopilot known issues are refreshed alongside the update-policy work",
+            "detail": "The Windows Autopilot known-issues documentation was updated as part of the broader refresh, giving administrators a current reference to consult before treating enrollment or reset behavior as a policy failure.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-01-12-known-issues-55"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-13",
+      "summary": {
+        "headline": "Hotpatch and expedited quality updates get their own operational playbooks",
+        "overview": "The Windows update documentation is further decomposed into focused guides for Hotpatch, expedited quality updates, driver-update policy, reporting, and quality-update management. The day also substantially refreshes the Defender for Endpoint–Intune compliance integration guidance.",
+        "adminImpact": "Use the dedicated Hotpatch and expedited-update guides when defining emergency servicing: Hotpatch is not a blanket replacement for standard quality-update planning, and expedited updates should be reserved for urgent releases. Revalidate the Defender connector and compliance-policy configuration against the refreshed integration instructions before troubleshooting compliance signals.",
+        "keyChanges": [
+          {
+            "title": "Hotpatch guidance is separated from general quality-update policy",
+            "detail": "A new guide presents Hotpatch as a distinct quality-update capability and groups its eligibility, deployment, and monitoring guidance with the Windows quality-update policy rather than leaving it embedded in broader update documentation.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-13-hotpatch-updates-with-windows-quality-updates-policies-01"
+          },
+          {
+            "title": "Expedited Windows quality updates receive dedicated guidance",
+            "detail": "The new expedite guide separates urgent quality-update deployment from normal servicing, making the policy’s scope, prerequisites, targeting, and reporting easier to use when responding to a security incident or out-of-band release.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-13-expedite-windows-quality-updates-51"
+          },
+          {
+            "title": "Defender for Endpoint compliance integration documentation is substantially revised",
+            "detail": "The refreshed integration guide consolidates how Intune uses the Defender for Endpoint connection for device-compliance evaluation and device onboarding, giving security and endpoint teams a single reference to validate their connector and policy design.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-13-integrate-microsoft-defender-for-endpoint-with-intune-for-device-compliance-53"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-14",
+      "summary": {
+        "headline": "Expedited-update policy and phased feature rollout guidance become more explicit",
+        "overview": "A new expedited-update policy guide anchors the day’s Windows servicing changes. Feature-update and rollout documentation is expanded, and Advanced Analytics device-query guidance is refreshed, producing a clearer operational path from urgent patching through controlled version deployment and investigation.",
+        "adminImpact": "Use the dedicated expedited policy only for urgent quality updates and retain normal update rings for routine patching. When staging feature releases, keep version targeting in feature-update policy and review rollout controls rather than relying on overlapping ring deferrals that can delay or block the offer.",
+        "keyChanges": [
+          {
+            "title": "Expedited quality update policy gets a dedicated configuration guide",
+            "detail": "The new guide isolates the setup and policy considerations for pushing an urgent Windows quality update, including the supporting prerequisites and operational constraints that distinguish expedited deployment from monthly servicing.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-14-expedite-policies-for-windows-quality-updates-01"
+          },
+          {
+            "title": "Feature update policy guidance is expanded",
+            "detail": "The revised feature-update guidance strengthens the separation between controlling Windows version through feature-update policy and using update rings for user-experience controls, helping administrators avoid conflicting deferral settings during a migration to policy-based targeting.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-14-manage-windows-feature-updates-policies-26"
+          },
+          {
+            "title": "Advanced Analytics device query documentation is refreshed",
+            "detail": "The multiple-device query guide receives a substantive update, keeping the investigation workflow current for teams using Advanced Analytics to collect and compare device information at scale.",
+            "product": "Advanced Analytics",
+            "sourceId": "doc-2026-01-14-device-query-for-multiple-devices-in-advanced-analytics-05"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-15",
+      "summary": {
+        "headline": "Windows update and Edge for Business guidance are reorganized into task-focused guides",
+        "overview": "The 55 changes are chiefly a documentation reorganization. Windows update policy material is renamed and split into discrete driver, feature, and update-ring guides, while the Microsoft Edge for Business data-security sequence receives new end-user-experience and troubleshooting steps and retires obsolete pages.",
+        "adminImpact": "Update bookmarks, help-desk procedures, and training links that point to the previous plural policy pages or Edge guide step numbers. The product capabilities are not presented as new, but the task-oriented locations should become the support baseline. Admins also gain a centralized view of Device Offboarding tasks alongside other Intune work.",
+        "keyChanges": [
+          {
+            "title": "Microsoft Edge for Business data-security troubleshooting is re-sequenced",
+            "detail": "A new troubleshooting step replaces the older end-of-sequence page as part of the Edge for Business data-security documentation refresh. The companion security-baseline and end-user-experience pages are retired or renumbered, so internal documentation should follow the new sequence.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-15-step-7-troubleshoot-microsoft-edge-for-business-data-security-05"
+          },
+          {
+            "title": "Windows driver, feature, and update-ring policies move to focused guides",
+            "detail": "New task-focused policy pages replace older plural-named documentation, separating configuration guidance for driver updates, feature updates, and update-ring settings. This is primarily an information-architecture change, but it changes the canonical links administrators should use.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-15-manage-windows-driver-update-policies-01"
+          },
+          {
+            "title": "Centralized Admin tasks now include Device Offboarding work",
+            "detail": "The Admin tasks documentation adds Device Offboarding tasks and points to their current admin-center location. The unified view is described as covering Device Offboarding, Endpoint Privilege Management, and other administrative work, governed by Organization Read permission.",
+            "product": "Endpoint Privilege Management",
+            "sourceId": "doc-2026-01-15-centrally-manage-admin-tasks-47"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-01-16",
+      "summary": {
+        "headline": "Autopilot Reset known issue is the key operational signal amid quickstart refreshes",
+        "overview": "Most of the day’s changes modernize Intune evaluation and quickstart material, including Android compliance and app-protection walkthroughs. The standout operational item is a newly documented Windows Autopilot Reset limitation when a local-account network-deny policy is applied.",
+        "adminImpact": "If technicians use a local administrator to initiate Autopilot Reset, test any policy that sets Deny access to this computer from the network for the Local account. Remove that setting for the account or exclude devices that need local Reset until the issue is resolved. The refreshed quickstarts also identify the least-privilege roles and prerequisites for common evaluation tasks.",
+        "keyChanges": [
+          {
+            "title": "Local Autopilot Reset can fail for local administrators under a network-deny policy",
+            "detail": "Microsoft documents that a local administrator cannot start local Windows Autopilot Reset when an Intune policy denies the Local account network access. The workaround is to remove the setting for that account or exclude reset-dependent devices, then allow the revised policy to sync.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-01-16-known-issues-26"
+          },
+          {
+            "title": "Android Enterprise password compliance quickstart adopts explicit prerequisites",
+            "detail": "The revised walkthrough separates licensing and RBAC requirements, uses the Policy and Profile Manager role, and makes policy assignment and Conditional Access follow-up clearer for a basic Android password-compliance deployment.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-16-create-a-password-compliance-policy-for-android-enterprise-11"
+          },
+          {
+            "title": "App protection quickstart clarifies role and user-group requirements",
+            "detail": "The updated app-protection walkthrough identifies the Application Manager role, prerequisite user, group, device, and app setup, and reiterates that app protection policies are assigned to user groups rather than device groups.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-16-create-and-assign-an-app-protection-policy-06"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-01-12",
+      "summary": {
+        "headline": "Windows servicing guidance is rebuilt around focused policies and staged operations",
+        "overview": "The week recorded 232 changes, dominated by a task-focused restructuring of Windows update documentation: update-ring settings, driver updates, feature updates, quality updates, Hotpatch, expedited updates, reports, and rollout options. Supporting changes refresh Edge for Business data-security guidance, Defender compliance integration, centralized admin tasks, and Autopilot known issues.",
+        "adminImpact": "Make the new focused policy guides the source of truth for Windows servicing runbooks. Validate update-ring deferrals and restart controls, use feature-update policy for version targeting, reserve expedited policies for emergencies, and stage Hotpatch or driver rollouts. Also address the documented local Autopilot Reset limitation before relying on local-admin reset procedures.",
+        "keyChanges": [
+          {
+            "title": "Update-ring settings are documented in a detailed new reference",
+            "detail": "The new reference covers delivery, driver, deferral, restart, notification, pause, scan-access, and deadline controls with CSP mappings. It turns update-ring configuration into a clearer review checklist for production policies.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-12-update-rings-policy-settings-32"
+          },
+          {
+            "title": "Hotpatch and expedited quality updates receive dedicated operational guidance",
+            "detail": "The week separates Hotpatch and expedited quality updates from general policy documentation, reinforcing that they have distinct eligibility, urgency, rollout, and monitoring considerations.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-13-hotpatch-updates-with-windows-quality-updates-policies-01"
+          },
+          {
+            "title": "Windows update policy content moves to task-specific pages",
+            "detail": "New driver-update, feature-update, and update-ring policy guides replace earlier broad pages, making the latest links and page names important for operational documentation and help-desk references.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-15-manage-windows-driver-update-policies-01"
+          },
+          {
+            "title": "Edge for Business data-security guidance is renumbered and consolidated",
+            "detail": "The documentation sequence gains a revised troubleshooting step and retires older security-baseline and end-user-experience pages, requiring any internally shared guide links to be checked.",
+            "product": "Intune",
+            "sourceId": "doc-2026-01-15-step-7-troubleshoot-microsoft-edge-for-business-data-security-05"
+          },
+          {
+            "title": "A local Autopilot Reset policy conflict is documented",
+            "detail": "A Deny access to this computer from the network setting for the Local account prevents local administrators from initiating Autopilot Reset. Exclude affected devices or remove the setting where that reset path is required.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-01-16-known-issues-26"
+          }
+        ]
+      }
+    }
+  ]
+}

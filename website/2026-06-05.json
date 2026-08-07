@@ -1,0 +1,84 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2509/37864969.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/37864969.md b/intune/configmgr/hotfix/2509/37864969.md\nindex ab3ad9ff1a..affe0b9247 100644\n--- a/intune/configmgr/hotfix/2509/37864969.md\n+++ b/intune/configmgr/hotfix/2509/37864969.md\n@@ -69,9 +69,9 @@ For more information on changes in Configuration Manager version 2509, see:\n \n    The standalone tool UploadOfflineFeedback.exe fails with a System.IO.FileLoadException due to a Microsoft.Identity.Client version mismatch. This issue was originally addressed in [KB 36419072](../2509/36419072.md).\n \n-- **Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6**\n+- **Cloud Management Gateway virtual machine scale set image updated to remove end-of-life .NET 6**\n \n-   The Cloud Management Gateway (CMG) Virtual Machine Scale Set (VMSS) image is updated to use a new SKU that doesn't include .NET 6, which has reached end of life. For more information, see [KB 37942646](../2603/37942646.md).\n+   The Cloud Management Gateway (CMG) virtual machine scale set image is updated to use a new SKU that doesn't include .NET 6, which has reached end of life. For more information, see [KB 37942646](../2603/37942646.md).\n \n ## Issues that are fixed in this update that aren't in KB 36949461\n \n@@ -79,13 +79,13 @@ The following issues are new in this update rollup and weren't included in [KB 3\n \n - Offline feedback submission fails due to authentication library version mismatch. For more information, see [KB 36419072](../2509/36419072.md).\n - Co-managed clients with third party update catalogs receive updates from incorrect source. For more information, see [KB 36495448](../2509/36495448.md).\n-- Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6. For more information, see [KB 37942646](../2603/37942646.md).\n+- Cloud Management Gateway virtual machine scale set image updated to remove end-of-life .NET 6. For more information, see [KB 37942646](../2603/37942646.md).\n \n ## Hotfixes that are included in this update\n \n - [KB 37172183](../2503/37172183.md): Software Center compliance check fails with GET_TOKEN_FROM_STS_ERROR in co-managed environments\n - [KB 37447175](../2503/37447175.md): Security update to harden access to Network Access Account information\n-- [KB 37942646](../2603/37942646.md): CMG update for VMSS image deprecation\n+- [KB 37942646](../2603/37942646.md): CMG virtual machine scale set image update\n - [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n - [KB 36495448](../2509/36495448.md): Co-management and third party update scan source fix for Configuration Manager\n \n",
+      "baseCommitSha": "df700b8c1042b011338efde3e4dbc75d5ed9b380",
+      "commitSha": "696a93e5fbb8133de69e1d4c71755627569d9cee",
+      "commitMessage": "Fix Acrolinx issues: spell out VMSS and add intro paragraph",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-05T07:40:37-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/37864969.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/37864969",
+      "firstSeenAt": "2026-06-05T14:40:37.000Z",
+      "eventId": "intune-docs:696a93e5fbb8133de69e1d4c71755627569d9cee:modified:intune/configmgr/hotfix/2509/37864969.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix Acrolinx issues: spell out VMSS and add intro paragraph",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37942646.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 5,
+      "changes": 12,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37942646.md b/intune/configmgr/hotfix/2603/37942646.md\nindex 4a8b8f3289..cfd8bfce95 100644\n--- a/intune/configmgr/hotfix/2603/37942646.md\n+++ b/intune/configmgr/hotfix/2603/37942646.md\n@@ -1,24 +1,26 @@\n ---\n-title: Cloud management gateway VMSS image update for Microsoft Configuration Manager\n-description: Cloud management gateway VMSS image update for Configuration Manager versions 2603, 2509, 2503, and 2409\n+title: Cloud management gateway virtual machine scale set image update for Microsoft Configuration Manager\n+description: Cloud management gateway virtual machine scale set image update for Configuration Manager versions 2603, 2509, 2503, and 2409\n ms.date: 06/02/2026\n ms.subservice: core-infra\n ms.topic: reference\n ---\n \n-# Cloud management gateway VMSS image update for Microsoft Configuration Manager\n+# Cloud management gateway virtual machine scale set image update for Microsoft Configuration Manager\n \n *Applies to: Configuration Manager (current branch, versions 2603 and 2509, and versions 2503 and 2409 with update rollup installed)*\n \n+This article describes an update to the cloud management gateway (CMG) virtual machine scale set image in Microsoft Configuration Manager.\n+\n ## Summary of KB37942646\n <!-- 37942646 -->\n An update is available to resolve the following issue for Configuration Manager customers using the cloud management gateway (CMG) component.\n \n-The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated. Cloud management gateway deployments that use Azure Virtual Machine Scale Sets (VMSS) reference these legacy images.\n+The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated. Cloud management gateway deployments that use Virtual Machine Scale Sets reference these legacy images.\n \n After the deprecation begins, the legacy images are no longer compliant or supported, and won't receive new OS patch updates via image refresh. Once enforcement begins in early 2027, new CMG deployments and reimaging operations that reference the legacy images fail.\n \n-This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that doesn't include the deprecated .NET 6 packages. For more information on the deprecation timeline and its effect, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37942646_IMGDep).\n+This update transitions the CMG virtual machine scale set to use the new Windows Server 2022 image offer (`windowsserver2022`) that doesn't include the deprecated .NET 6 packages. For more information on the deprecation timeline and its effect, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37942646_IMGDep).\n \n > [!NOTE]\n > This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix isn't required for version 2509.\n",
+      "baseCommitSha": "df700b8c1042b011338efde3e4dbc75d5ed9b380",
+      "commitSha": "696a93e5fbb8133de69e1d4c71755627569d9cee",
+      "commitMessage": "Fix Acrolinx issues: spell out VMSS and add intro paragraph",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-05T07:40:37-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37942646.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37942646",
+      "firstSeenAt": "2026-06-05T14:40:37.000Z",
+      "eventId": "intune-docs:696a93e5fbb8133de69e1d4c71755627569d9cee:modified:intune/configmgr/hotfix/2603/37942646.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix Acrolinx issues: spell out VMSS and add intro paragraph",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37942646.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "QianDong Ni"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37942646.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2509/37864969.md",
+          "intune/configmgr/hotfix/2603/37942646.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37942646.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,635 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "status": "added",
+      "additions": 64,
+      "deletions": 0,
+      "changes": 64,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\nnew file mode 100644\nindex 0000000000..d4b8e9dd44\n--- /dev/null\n+++ b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\n@@ -0,0 +1,64 @@\n+---\n+title: \"Remote Device Action: Restore Managed Home Screen\"\n+description: Learn how to restore the managed home screen with Microsoft Intune.\n+ms.date: 01/20/2026\n+ms.topic: how-to\n+---\n+\n+# Remote device action: restore managed home screen\n+\n+Intro\n+\n+## Prerequisites\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../../includes/requirements/platform.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+\n+> This remote action supports the following platforms:\n+> > - Android\n+\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> To run this remote action, use an account with at least one of the following roles:\n+>\n+> - [Help Desk Operator][INT-R1]\n+> - [School Administrator][INT-R2]\n+> - [Custom role][INT-RC] that includes:\n+>   - The permission ****\n+>   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n+:::column-end:::\n+:::row-end:::\n+\n+## How to restore the managed home screen from the Intune admin center\n+\n+1. In the [Microsoft Intune admin center][INT-AC], select **Devices** > [**All devices**][INT-ALLD].\n+1. From the devices list, select a device.\n+1. At the top of the device overview pane, find the row of remote action icons. Select **Restore managed home screen**.\n+\n+## User experience\n+\n+Once the managed home screen is restored, the device will enforce the managed home screen policies again, and the user will have access to the managed home screen and apps.\n+\n+## Reference links\n+\n+- Microsoft Graph API: [XYZ action][GRAPH-1]\n+\n+[INT-AC]: https://go.microsoft.com/fwlink/?linkid=2109431\n+[INT-ALLD]: https://go.microsoft.com/fwlink/?linkid=2333814\n+\n+[INT-RC]: /intune/intune-service/fundamentals/create-custom-role\n+[INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n+[INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n+\n+[GRAPH-1]: /graph/api/intune-devices-manageddevice-xyz\n\\ No newline at end of file\n",
+      "baseCommitSha": "d5ebf2793bc3e35900c0fe935947283c4ac9a6cf",
+      "commitSha": "fbf628fa196c5329f207343bde4ed87eb38f5695",
+      "commitMessage": "Initial file creation",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T11:08:19-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-restore-managed-home-screen",
+      "firstSeenAt": "2026-01-20T16:08:19.000Z",
+      "eventId": "intune-docs:fbf628fa196c5329f207343bde4ed87eb38f5695:added:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Initial file creation",
+        "summary": "Added Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "status": "added",
+      "additions": 64,
+      "deletions": 0,
+      "changes": 64,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\nnew file mode 100644\nindex 0000000000..24c46713b8\n--- /dev/null\n+++ b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\n@@ -0,0 +1,64 @@\n+---\n+title: \"Remote Device Action: Suspend Managed Home Screen\"\n+description: Learn how to suspend the managed home screen with Microsoft Intune.\n+ms.date: 01/20/2026\n+ms.topic: how-to\n+---\n+\n+# Remote device action: suspend managed home screen\n+\n+Intro\n+\n+## Prerequisites\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../../includes/requirements/platform.md)]\n+\n+:::column-end:::\n+:::column span=\"3\":::\n+\n+> This remote action supports the following platforms:\n+> > - Android\n+\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> To run this remote action, use an account with at least one of the following roles:\n+>\n+> - [Help Desk Operator][INT-R1]\n+> - [School Administrator][INT-R2]\n+> - [Custom role][INT-RC] that includes:\n+>   - The permission ****\n+>   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n+:::column-end:::\n+:::row-end:::\n+\n+## How to suspend the managed home screen from the Intune admin center\n+\n+1. In the [Microsoft Intune admin center][INT-AC], select **Devices** > [**All devices**][INT-ALLD].\n+1. From the devices list, select a device.\n+1. At the top of the device overview pane, find the row of remote action icons. Select **Suspend managed home screen**.\n+\n+## User experience\n+\n+Once the managed home screen is suspended, the device will no longer enforce the managed home screen policies, and the user will have access to the standard home screen and apps.\n+\n+## Reference links\n+\n+- Microsoft Graph API: [XYZ action][GRAPH-1]\n+\n+[INT-AC]: https://go.microsoft.com/fwlink/?linkid=2109431\n+[INT-ALLD]: https://go.microsoft.com/fwlink/?linkid=2333814\n+\n+[INT-RC]: /intune/intune-service/fundamentals/create-custom-role\n+[INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n+[INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n+\n+[GRAPH-1]: /graph/api/intune-devices-manageddevice-xyz\n\\ No newline at end of file\n",
+      "baseCommitSha": "d5ebf2793bc3e35900c0fe935947283c4ac9a6cf",
+      "commitSha": "fbf628fa196c5329f207343bde4ed87eb38f5695",
+      "commitMessage": "Initial file creation",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T11:08:19-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-suspend-managed-home-screen",
+      "firstSeenAt": "2026-01-20T16:08:19.000Z",
+      "eventId": "intune-docs:fbf628fa196c5329f207343bde4ed87eb38f5695:added:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Initial file creation",
+        "summary": "Added Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-updates/windows/driver-update-policy.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-updates/windows/driver-update-policy.md b/intune/device-updates/windows/driver-update-policy.md\nindex 2ec7af0451..abd1dab044 100644\n--- a/intune/device-updates/windows/driver-update-policy.md\n+++ b/intune/device-updates/windows/driver-update-policy.md\n@@ -1,12 +1,12 @@\n ---\n-title: Manage Windows Driver Update Policies\n+title: Configure Windows Driver Update Policies\n description: Learn how to create, approve, deploy, and pause Windows driver updates using Intune policies to keep Windows devices current and stable.\n ms.date: 01/13/2026\n ms.topic: how-to\n ms.reviewer: davguy; davidmeb; bryanke\n ---\n \n-# Manage Windows driver update policies\n+# Configure Windows driver update policies\n \n Use Microsoft Intune to create and manage Windows driver update policies for your devices. These policies let you view available driver updates for targeted devices, approve or pause individual updates, and send assignments to Windows Update, which installs updates based on your configuration.\n \n",
+      "baseCommitSha": "bb6e7336b0acf3aa8d829d987b2cd7a8f0486054",
+      "commitSha": "70080ae9e0f445b7704e7af9b51929fae181962e",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T07:45:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/driver-update-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/driver-update-policy",
+      "firstSeenAt": "2026-01-20T12:45:35.000Z",
+      "eventId": "intune-docs:70080ae9e0f445b7704e7af9b51929fae181962e:modified:intune/device-updates/windows/driver-update-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/feature-update-policy.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-updates/windows/feature-update-policy.md b/intune/device-updates/windows/feature-update-policy.md\nindex a3bd3ef3db..968e35a806 100644\n--- a/intune/device-updates/windows/feature-update-policy.md\n+++ b/intune/device-updates/windows/feature-update-policy.md\n@@ -1,12 +1,12 @@\n ---\n-title: Windows Feature Update Policies\n+title: Configure Windows Feature Update Policies\n description: Learn about Windows feature update polies and how to manage them in Microsoft Intune.\n ms.date: 01/14/2026\n ms.topic: how-to\n ms.reviewer: davidmeb; bryanke; davguy\n ---\n \n-# Manage Windows feature update policies\n+# Configure Windows feature update policies\n \n Feature update policies in Microsoft Intune specify which Windows version devices are eligible to install and keep that version enforced until the policy is changed or removed. Use these policies to target a specific Windows release or to upgrade devices to a newer version according to your deployment plan.\n \n@@ -118,7 +118,6 @@ To prevent this initial delay from impacting your co-managed devices:\n 1. Devices that have a state of *OfferReady* or later, are enrolled for feature updates and protected from updating to anything newer than the update you specified in step 3. See [Use the Windows feature updates (Organizational) report](feature-updates-reports.md#accessing-feature-updates-reports).\n 1. With devices enrolled for updates and protected, you can safely change the *Windows Update policies* workload from Configuration Manager to Intune. See, [Switch workloads to Intune](/configmgr/comanage/how-to-switch-workloads) in the co-management documentation.\n \n-\n ## Move from update ring deferrals to feature update policies\n \n When managing feature updates in Intune, you can control Windows version availability using either update ring deferrals or feature update policies. If you use feature update policies, Microsoft recommends that you stop using feature update deferrals in update ring policies.\n",
+      "baseCommitSha": "bb6e7336b0acf3aa8d829d987b2cd7a8f0486054",
+      "commitSha": "70080ae9e0f445b7704e7af9b51929fae181962e",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T07:45:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/feature-update-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/feature-update-policy",
+      "firstSeenAt": "2026-01-20T12:45:35.000Z",
+      "eventId": "intune-docs:70080ae9e0f445b7704e7af9b51929fae181962e:modified:intune/device-updates/windows/feature-update-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/quality-updates.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-updates/windows/quality-updates.md b/intune/device-updates/windows/quality-updates.md\nindex a7a88bf6b8..632d4232ba 100644\n--- a/intune/device-updates/windows/quality-updates.md\n+++ b/intune/device-updates/windows/quality-updates.md\n@@ -1,5 +1,5 @@\n ---\n-title: Windows Quality Update Policies\n+title: Manage Windows quality updates\n description: Learn how to manage Windows quality updates in Microsoft Intune using quality update policies, expedited updates, and hotpatch to keep devices secure and compliant.\n ms.date: 01/06/2026\n ms.reviewer: mobattul\n",
+      "baseCommitSha": "bb6e7336b0acf3aa8d829d987b2cd7a8f0486054",
+      "commitSha": "70080ae9e0f445b7704e7af9b51929fae181962e",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T07:45:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/quality-updates.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/quality-updates",
+      "firstSeenAt": "2026-01-20T12:45:35.000Z",
+      "eventId": "intune-docs:70080ae9e0f445b7704e7af9b51929fae181962e:modified:intune/device-updates/windows/quality-updates.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-updates/windows/update-rings.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-updates/windows/update-rings.md b/intune/device-updates/windows/update-rings.md\nindex 78f4427ccf..3f7d65aac3 100644\n--- a/intune/device-updates/windows/update-rings.md\n+++ b/intune/device-updates/windows/update-rings.md\n@@ -1,12 +1,12 @@\n ---\n-title: Windows Update Ring Policies\n+title: Manage Windows Update Ring Policies\n description: Learn about Windows Update ring policies for Windows devices, how to create and manage them, and improve update deployment.\n ms.date: 01/12/2026\n ms.topic: how-to\n ms.reviewer: davguy; davidmeb; bryanke\n ---\n \n-# Windows Update ring policies\n+# Manage Windows Update ring policies\n \n Windows update rings define how and when Windows updates are installed on devices. They control client‑side update behavior such as deferral periods, restart settings, deadlines, active hours, and user notifications. Update rings apply broadly to Windows updates and are commonly used to create deployment stages—for example, test, pilot, and production—by assigning different settings to different device groups.\n \n",
+      "baseCommitSha": "bb6e7336b0acf3aa8d829d987b2cd7a8f0486054",
+      "commitSha": "70080ae9e0f445b7704e7af9b51929fae181962e",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T07:45:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-updates/windows/update-rings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/windows/update-rings",
+      "firstSeenAt": "2026-01-20T12:45:35.000Z",
+      "eventId": "intune-docs:70080ae9e0f445b7704e7af9b51929fae181962e:modified:intune/device-updates/windows/update-rings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/index.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/remote-actions/index.md b/intune/intune-service/remote-actions/index.md\nindex e7e6717e92..eb12c824bb 100644\n--- a/intune/intune-service/remote-actions/index.md\n+++ b/intune/intune-service/remote-actions/index.md\n@@ -111,8 +111,10 @@ Select one of the following tabs to learn more about the available remote action\n | :::image type=\"icon\" source=\"icons/rename-device.svg\" border=\"false\"::: | [Rename device][RA-REN] | Changes the device name in Intune. |\n | :::image type=\"icon\" source=\"icons/reset-passcode.svg\" border=\"false\"::: | [Reset passcode][RA-PREST] | Resets the device passcode. |\n | :::image type=\"icon\" source=\"icons/restart.svg\" border=\"false\"::: | [Restart][RA-RESTART] | Restarts a device. |\n+| :::image type=\"icon\" source=\"icons/restore-managed-home-screen.svg\" border=\"false\"::: | [Restore managed home screen][RA-RMHS] | Restores the managed home screen on a device. |\n | :::image type=\"icon\" source=\"icons/retire.svg\" border=\"false\"::: | [Retire][RA-RETIRE] | Removes company data and settings from a device, and leaves personal data intact. |\n | :::image type=\"icon\" source=\"icons/send-custom-notification.svg\" border=\"false\"::: | [Send custom notification][RA-NOTIFY] | Sends a custom notification message to a device that can be viewed in the Company Portal app. |\n+| :::image type=\"icon\" source=\"icons/suspend-managed-home-screen.svg\" border=\"false\"::: | [Suspend managed home screen][RA-SMHS] | Suspends the managed home screen on a device. |\n | :::image type=\"icon\" source=\"icons/sync.svg\" border=\"false\"::: | [Sync][RA-SYNC] | Syncs a device with Intune to apply the latest policies and configurations. |\n | :::image type=\"icon\" source=\"icons/wipe.svg\" border=\"false\"::: | [Wipe][RA-WIPE] | Restores a device to its factory settings and removes all data and settings. |\n \n@@ -259,10 +261,12 @@ Remote device actions in Intune empower IT pros to manage devices efficiently an\n [RA-REN]: device-rename.md\n [RA-RESTART]: device-restart.md\n [RA-RETIRE]: device-retire.md\n+[RA-RMHS]: device-restore-managed-home-screen.md\n [RA-ROTLAP]: ../protect/windows-laps-policy.md#manually-rotate-passwords\n [RA-SCAN]: device-scan-defender.md\n [RA-SCANF]: device-full-scan.md\n [RA-SCANQ]: device-quick-scan.md\n+[RA-SMHS]: device-suspend-managed-home-screen.md \n [RA-SYNC]: device-sync.md\n [RA-TVIEW]: ../fundamentals/teamviewer-support.md\n [RA-WIPE]: device-wipe.md\n",
+      "baseCommitSha": "d5ebf2793bc3e35900c0fe935947283c4ac9a6cf",
+      "commitSha": "fbf628fa196c5329f207343bde4ed87eb38f5695",
+      "commitMessage": "Initial file creation",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T11:08:19-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/index",
+      "firstSeenAt": "2026-01-20T16:08:19.000Z",
+      "eventId": "intune-docs:fbf628fa196c5329f207343bde4ed87eb38f5695:modified:intune/intune-service/remote-actions/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Initial file creation",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\nindex d4b8e9dd44..09fe922c04 100644\n--- a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\n+++ b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\n@@ -19,7 +19,7 @@ Intro\n :::column span=\"3\":::\n \n > This remote action supports the following platforms:\n-> > - Android\n+> - Android\n \n :::column-end:::\n :::row-end:::\n",
+      "baseCommitSha": "fbf628fa196c5329f207343bde4ed87eb38f5695",
+      "commitSha": "ff2c19591413772dbc8baebb3faaa8ae069303d7",
+      "commitMessage": "toc",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T11:20:57-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-restore-managed-home-screen",
+      "firstSeenAt": "2026-01-20T16:20:57.000Z",
+      "eventId": "intune-docs:ff2c19591413772dbc8baebb3faaa8ae069303d7:modified:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "toc",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\nindex 24c46713b8..807c55ee45 100644\n--- a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\n+++ b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\n@@ -19,7 +19,7 @@ Intro\n :::column span=\"3\":::\n \n > This remote action supports the following platforms:\n-> > - Android\n+> - Android\n \n :::column-end:::\n :::row-end:::\n",
+      "baseCommitSha": "fbf628fa196c5329f207343bde4ed87eb38f5695",
+      "commitSha": "ff2c19591413772dbc8baebb3faaa8ae069303d7",
+      "commitMessage": "toc",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T11:20:57-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-suspend-managed-home-screen",
+      "firstSeenAt": "2026-01-20T16:20:57.000Z",
+      "eventId": "intune-docs:ff2c19591413772dbc8baebb3faaa8ae069303d7:modified:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "toc",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex d12f7084f3..b53eac7c38 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -46,7 +46,7 @@ Date updated: *September 9, 2025*\n \n [Monthly security update releases](/windows/deployment/update/release-cycle#monthly-security-update-release), also known as Windows quality updates, are installed during a Windows Autopilot device preparation deployment as part of the Windows out-of-box experience (OOBE). The monthly security update releases are installed after the device preparation page completes. These updates can't be disabled for Windows Autopilot device preparation deployments. Installation of monthly security update releases during OOBE normally adds 20-40 minutes to the provisioning process. Installation of monthly security update releases also might require restarts.\n \n-More details regarding automatic installation of monthly security update releases can be found in the article [Install Windows monthly security update releases](/intune/intune-service/enrollment/windows-enrollment-status#install-windows-monthly-security-update-releases). However, this article is in regards to using the Enrollment Status Page (ESP) with Windows Autopilot. Windows Autopilot device preparation doesn't use the ESP, so the **Install Windows quality updates (might restart the device)** setting mentioned in this article isn't applicable to Windows Autopilot device preparation.\n+More details regarding automatic installation of monthly security update releases can be found in the article [Install Windows monthly security update releases](/intune/intune-service/enrollment/windows-enrollment-status#windows-monthly-security-update-release-details). However, this article is in regards to using the Enrollment Status Page (ESP) with Windows Autopilot. Windows Autopilot device preparation doesn't use the ESP, so the **Install Windows quality updates (might restart the device)** setting mentioned in this article isn't applicable to Windows Autopilot device preparation.\n \n For more information, see [Get ready for Windows quality updates out of the box](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-ready-for-windows-quality-updates-out-of-the-box/4434498).  \n \n",
+      "baseCommitSha": "b6e396a2b3ddde77703b33530fcbf84e6a76b555",
+      "commitSha": "ed981aea3805a35e58d558518d1774f33ffe9a4c",
+      "commitMessage": "link and text updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T13:44:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-01-20T18:44:05.000Z",
+      "eventId": "intune-docs:ed981aea3805a35e58d558518d1774f33ffe9a4c:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "link and text updates",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/windows-enrollment-status.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/enrollment/windows-enrollment-status.md b/intune/intune-service/enrollment/windows-enrollment-status.md\nindex a6e387d707..fd226f18d1 100644\n--- a/intune/intune-service/enrollment/windows-enrollment-status.md\n+++ b/intune/intune-service/enrollment/windows-enrollment-status.md\n@@ -1,7 +1,7 @@\n ---\n title: Set up the Enrollment Status Page in the admin center copy\n description: Set up a greeting page for users signing in and enrolling Windows devices copy.\n-ms.date: 11/24/2025\n+ms.date: 01/20/2026\n ms.topic: how-to\n ms.reviewer: madakeva, davguy\n ms.collection:\n@@ -130,7 +130,7 @@ On Windows 11 versions with the `2025-06 D` quality update, the control that ena\n \n > [!NOTE]\n > The operating system control is included in the following `2025-06 D` operating system updates:\n-> \n+>\n > | OS version | KB article |\n > | --- | --- |\n > | Windows 11, version 25H2 | Automatically included |\n@@ -139,7 +139,7 @@ On Windows 11 versions with the `2025-06 D` quality update, the control that ena\n \n ### What you need to know\n \n-- The **Install Windows quality updates** Intune setting is available now. But, the OS doesn't enforce it yet. Enforcement is planned in the `2026-01 B` quality update.\n+- The **Install Windows quality updates** OS enforcement is included in the `2026-01 B` quality update.\n \n - The **Install Windows quality updates** Intune setting only installs monthly security update releases. It doesn't install the other types of updates listed at [Types of update releases](/windows/deployment/update/release-cycle#types-of-update-releases).\n \n",
+      "baseCommitSha": "b6e396a2b3ddde77703b33530fcbf84e6a76b555",
+      "commitSha": "ed981aea3805a35e58d558518d1774f33ffe9a4c",
+      "commitMessage": "link and text updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T13:44:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/windows-enrollment-status.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/windows-enrollment-status",
+      "firstSeenAt": "2026-01-20T18:44:05.000Z",
+      "eventId": "intune-docs:ed981aea3805a35e58d558518d1774f33ffe9a4c:modified:intune/intune-service/enrollment/windows-enrollment-status.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "link and text updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enrollment-status.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 5,
+      "changes": 11,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\nindex 09fe922c04..b3574b6de2 100644\n--- a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\n+++ b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\n@@ -7,7 +7,7 @@ ms.topic: how-to\n \n # Remote device action: restore managed home screen\n \n-Intro\n+The *restore managed home screen* remote action in Intune re-enables the managed home screen on a device that was previously suspended. When the managed home screen is restored, the device will enforce the managed home screen policies again, restricting access to only the apps and settings defined by those policies.\n \n ## Prerequisites\n \n@@ -19,7 +19,8 @@ Intro\n :::column span=\"3\":::\n \n > This remote action supports the following platforms:\n-> - Android\n+> - Android Enterprise corporate-owned Fully Managed (COBO)\n+> - Android Enterprise corporate-owned Dedicated (COSU)\n \n :::column-end:::\n :::row-end:::\n@@ -35,7 +36,7 @@ Intro\n > - [Help Desk Operator][INT-R1]\n > - [School Administrator][INT-R2]\n > - [Custom role][INT-RC] that includes:\n->   - The permission ****\n+>   - The permission **Remote tasks/Restore Managed Home Screen**\n >   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n :::column-end:::\n :::row-end:::\n@@ -52,7 +53,7 @@ Once the managed home screen is restored, the device will enforce the managed ho\n \n ## Reference links\n \n-- Microsoft Graph API: [XYZ action][GRAPH-1]\n+- Microsoft Graph API: [managedDevice resource type][GRAPH-1]\n \n [INT-AC]: https://go.microsoft.com/fwlink/?linkid=2109431\n [INT-ALLD]: https://go.microsoft.com/fwlink/?linkid=2333814\n@@ -61,4 +62,4 @@ Once the managed home screen is restored, the device will enforce the managed ho\n [INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n [INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n \n-[GRAPH-1]: /graph/api/intune-devices-manageddevice-xyz\n\\ No newline at end of file\n+[GRAPH-1]: /graph/api/intune-devices-manageddevice\n\\ No newline at end of file\n",
+      "baseCommitSha": "935043d4d54a01c0e3bcfb6e1fa5e3122e90edc9",
+      "commitSha": "047897a7a1a92e88724f21af9f7201384b22aac0",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T17:20:52-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-restore-managed-home-screen",
+      "firstSeenAt": "2026-01-20T22:20:52.000Z",
+      "eventId": "intune-docs:047897a7a1a92e88724f21af9f7201384b22aac0:modified:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 5,
+      "changes": 11,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\nindex 807c55ee45..88d53db03d 100644\n--- a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\n+++ b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\n@@ -7,7 +7,7 @@ ms.topic: how-to\n \n # Remote device action: suspend managed home screen\n \n-Intro\n+The *suspend managed home screen* remote action in Intune temporarily disables the managed home screen on a device. When the managed home screen is suspended, the device will no longer enforce the managed home screen policies, and the user will have access to the standard home screen and apps.\n \n ## Prerequisites\n \n@@ -19,7 +19,8 @@ Intro\n :::column span=\"3\":::\n \n > This remote action supports the following platforms:\n-> - Android\n+> - Android Enterprise corporate-owned Fully Managed (COBO)\n+> - Android Enterprise corporate-owned Dedicated (COSU)\n \n :::column-end:::\n :::row-end:::\n@@ -35,7 +36,7 @@ Intro\n > - [Help Desk Operator][INT-R1]\n > - [School Administrator][INT-R2]\n > - [Custom role][INT-RC] that includes:\n->   - The permission ****\n+>   - The permission **Remote tasks/Temporarily Suspend Managed Home Screen**\n >   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n :::column-end:::\n :::row-end:::\n@@ -52,7 +53,7 @@ Once the managed home screen is suspended, the device will no longer enforce the\n \n ## Reference links\n \n-- Microsoft Graph API: [XYZ action][GRAPH-1]\n+- Microsoft Graph API: [managedDevice resource type][GRAPH-1]\n \n [INT-AC]: https://go.microsoft.com/fwlink/?linkid=2109431\n [INT-ALLD]: https://go.microsoft.com/fwlink/?linkid=2333814\n@@ -61,4 +62,4 @@ Once the managed home screen is suspended, the device will no longer enforce the\n [INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n [INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n \n-[GRAPH-1]: /graph/api/intune-devices-manageddevice-xyz\n\\ No newline at end of file\n+[GRAPH-1]: /graph/api/intune-devices-manageddevice-TemporarilySuspendManagedHomeScreen\n\\ No newline at end of file\n",
+      "baseCommitSha": "935043d4d54a01c0e3bcfb6e1fa5e3122e90edc9",
+      "commitSha": "047897a7a1a92e88724f21af9f7201384b22aac0",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-20T17:20:52-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-suspend-managed-home-screen",
+      "firstSeenAt": "2026-01-20T22:20:52.000Z",
+      "eventId": "intune-docs:047897a7a1a92e88724f21af9f7201384b22aac0:modified:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/quickstart-add-assign-app.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 8,
+      "changes": 17,
+      "patch": "diff --git a/intune/intune-service/apps/quickstart-add-assign-app.md b/intune/intune-service/apps/quickstart-add-assign-app.md\nindex e2c10d63d1..b585ab0c5e 100644\n--- a/intune/intune-service/apps/quickstart-add-assign-app.md\n+++ b/intune/intune-service/apps/quickstart-add-assign-app.md\n@@ -1,7 +1,7 @@\n ---\n title: Add and Assign an App\n description: Learn how to add and assign apps to user groups in Microsoft Intune. Ensure your workforce has access to the apps they need.\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n ms.topic: how-to\n ms.reviewer: bryanke\n ms.collection:\n@@ -63,17 +63,17 @@ Use the following steps to add an app to Intune:\n 7. Select **Next** to display the **Review + create** page. Review the values and settings you entered for the app.\n 8. When you're done, select **Create** to add the app to Intune.\n \n-## Assign the app to a group\n+## Update the app assignment (optional)\n \n-After you add an app to Microsoft Intune, you can assign the app to more groups of users or devices.\n+After you add an app to Microsoft Intune, you can assign the app to more groups of users or devices at any time.\n \n-Use the following steps to assign an app to a group:\n+Use the following steps to update an app assignment:\n \n 1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) and select **Apps** > **All Apps**.\n 2. Select the app that you want to assign to a group.\n 3. Select **Properties**. Next to **Assignments**, select **Edit**.\n 4. Select **Add Group** under the **Required** section. The **Select group** pane is displayed.\n-5. Find the group that you need to add and choose **Select** at the bottom of the pane.\n+5. Find the group that you want to add and choose **Select** at the bottom of the pane.\n 6. Select **Review + save** > **Save** to assign the group.\n \n You now have assigned the app to another group.\n@@ -82,14 +82,15 @@ You now have assigned the app to another group.\n \n End users must install and use the Company Portal app to install an app made available by Intune. You, acting as an end user, can use the following steps to verify that the app is available to the user on Intune-enrolled devices.\n \n-1. Sign in to your enrolled Windows device.\n+1. Sign in to your enrolled Windows device. You can use the device you enrolled in [Step 5 - Enroll a Windows device in Microsoft Intune](../enrollment/quickstart-enroll-windows-device.md).\n \n     > [!IMPORTANT]\n-    > The device must be [enrolled in Intune](../enrollment/quickstart-enroll-windows-device.md). Also, you must sign in to the device by using an account in the group you assigned to the app.\n+    > - The device must be enrolled in Intune.\n+    > - You must sign in to the device with an account that belongs to the same group you assigned the app to.\n \n 2. From the **Start** menu, open the **Microsoft Store**. Then, find the **Company Portal** app and install it.\n 3. Launch the **Company Portal** app.\n-1. Select the app that you added to Intune. In this article, you added the **Microsoft 365 Apps** suite.\n+4. Select the app that you added to Intune. In this article, you added the **Microsoft 365 Apps** suite.\n \n     > [!NOTE]\n     > If you don't successfully assign any apps to the Intune user, you see the following message:\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/quickstart-add-assign-app.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/quickstart-add-assign-app",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/apps/quickstart-add-assign-app.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/quickstart-add-assign-app.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/quickstart-create-assign-app-policy.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/intune-service/apps/quickstart-create-assign-app-policy.md b/intune/intune-service/apps/quickstart-create-assign-app-policy.md\nindex 378aea33ad..8dd6f66c59 100644\n--- a/intune/intune-service/apps/quickstart-create-assign-app-policy.md\n+++ b/intune/intune-service/apps/quickstart-create-assign-app-policy.md\n@@ -2,7 +2,7 @@\n title: Create and Assign an App Protection Policy\n description: Learn how to create and assign an app protection policy in Microsoft Intune to protect your organization's data. Get step-by-step guidance.\n ms.topic: how-to\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n ms.reviewer: dagerrit\n ms.collection:\n - M365-identity-device-management\n@@ -66,15 +66,15 @@ Use the following steps to create an app protection policy:\n 6. Select **Allow Overrides** to set the Windows Information Protection mode. Selecting this option blocks enterprise data from leaving the protected app.\n 7. Select **Next** to display the **Advanced settings**.\n 8. Select **Next** to display the **Assignments**.\n-9. Select **Select groups to include**, select the group, and select **Select**.\n+9. Select **Select groups to include**, select the users group, and select **Select**.\n+\n+    You can only apply app protection policies to groups that contain users, not groups that contain devices.\n+\n 10. Select **Next** to display the **Review + create** step.\n 11. Select **Create** to create your policy.\n \n You see the app protection policy in Intune.\n \n-> [!NOTE]\n-> You can only apply app protection policies to groups that contain users, not groups that contain devices.\n-\n ## Next steps\n \n In this article, you created and assigned an app protection policy. Users of the app that have this policy assigned can't cut, copy, or paste any content between the assigned app and other unmanaged apps on the device. This type of protection helps protect your organization's data. For more information about app protection policies in Intune, see [What are app protection policies?](app-protection-policy.md)\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/quickstart-create-assign-app-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/quickstart-create-assign-app-policy",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/apps/quickstart-create-assign-app-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/quickstart-create-assign-app-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/configuration/quickstart-email-profile.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/intune/intune-service/configuration/quickstart-email-profile.md b/intune/intune-service/configuration/quickstart-email-profile.md\nindex e470274836..572d294daa 100644\n--- a/intune/intune-service/configuration/quickstart-email-profile.md\n+++ b/intune/intune-service/configuration/quickstart-email-profile.md\n@@ -3,7 +3,7 @@ title: Create an Email Device Profile for iOS/iPadOS Devices\n description: Learn how to create an email device profile in Microsoft Intune for iOS/iPadOS devices. Configure email settings to help users securely access organization email.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n ms.topic: how-to\n ms.reviewer: beflamm\n ms.collection:\n@@ -12,14 +12,12 @@ ms.collection:\n \n # Step 11 - Create an email device profile for iOS/iPadOS in Microsoft Intune\n \n-This article is part of a series that walks you through common Intune tasks. In this article, you create an email profile for iOS/iPadOS devices.\n-\n-The profile includes the required settings that allow a device to connect to your organization's email. Email device profiles help standardize settings across your devices. By using these profiles, end users can access organization email on their personal devices without any confusing setup.\n-\n-To help safeguard your email, use an email profile to determine if devices are compliant. Then, set up Conditional Access to allow only compliant devices access to email. For details about email profiles, see [How to configure email settings in Microsoft Intune](email-settings-configure.md).\n+In this article, you create an email profile for iOS/iPadOS devices. Email device profiles help standardize settings across your devices. By using these profiles, end users can access organization email on their personal devices without any confusing setup.\n \n [!INCLUDE [intune-evaluate](../includes/intune-evaluate.md)]\n \n+To help safeguard your email, you can create a compliance policy that sets rules on devices that connect to email. Then, set up Conditional Access to allow only compliant devices access to your email profiles. To learn more about email profiles, see [configure email settings in Microsoft Intune](email-settings-configure.md).\n+\n ## Prerequisites\n \n :::row:::\n@@ -43,6 +41,8 @@ To help safeguard your email, use an email profile to determine if devices are c\n \n ## Create an iOS/iPadOS email profile\n \n+The profile includes the required settings that allow a device to connect to your organization's email.\n+\n 1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n \n 2. Go to **Devices** > **Manage devices** > **Configuration** > **Create** > **New policy**:\n@@ -85,7 +85,7 @@ To help safeguard your email, use an email profile to determine if devices are c\n \n If you don't use this profile for other tutorials or testing, delete it:\n \n-1. In the Intune admin center, select **Devices** > **Manage devices** > **Configuration**.\n+1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), select **Devices** > **Manage devices** > **Configuration**.\n 2. Select the **iOS/iPadOS require work email** profile you created, and then select **Delete**.\n \n ## Next steps\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/configuration/quickstart-email-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/configuration/quickstart-email-profile",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/configuration/quickstart-email-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/quickstart-email-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/quickstart-enroll-windows-device.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/intune/intune-service/enrollment/quickstart-enroll-windows-device.md b/intune/intune-service/enrollment/quickstart-enroll-windows-device.md\nindex b7e5c006bc..eff39f25e3 100644\n--- a/intune/intune-service/enrollment/quickstart-enroll-windows-device.md\n+++ b/intune/intune-service/enrollment/quickstart-enroll-windows-device.md\n@@ -2,7 +2,7 @@\n title: Enroll a Windows device\n description: Learn how to enroll a Windows device into Microsoft Intune. Follow this step-by-step evaluation guide to test device enrollment and verify it in the Intune admin center.\n services: microsoft-intune\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n ms.topic: how-to\n ms.reviewer: maholdaa\n ms.collection:\n@@ -12,11 +12,11 @@ ms.collection:\n \n # Step 5 - Enroll a Windows device in Microsoft Intune\n \n-Employees and students who want remote access to work or school resources can enroll their devices into Microsoft Intune. Enrollment ensures that all devices trying to access data within your organization are secure and compliant with your policies and requirements. Upon enrollment, the device gets access to resources like work email, files, VPN, and Wi-Fi.\n+Enrollment ensures that all devices trying to access data within your organization are secure and compliant with your policies and requirements. Upon enrollment, the device gets access to resources like work email, files, VPN, and Wi-Fi. Employees and students who want remote access to work or school resources can also enroll their devices into Microsoft Intune.\n \n [!INCLUDE [intune-evaluate](../includes/intune-evaluate.md)]\n \n-In this task, you:\n+In this article, you:\n \n * Try out the device user experience by enrolling a device running Windows into Microsoft Intune.\n * Try out the admin user experience by verifying the enrollment in the Microsoft Intune admin center.\n@@ -55,7 +55,9 @@ In this task, you:\n \n ## Enroll device\n \n-1. In the Settings app, select **Accounts**.\n+These steps guide you through using the Settings app on a Windows device to enroll the device into Intune.\n+\n+1. On the device, open the Settings app, and select **Accounts**.\n \n 2. Select **Access work or school**.\n \n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/quickstart-enroll-windows-device.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-enroll-windows-device",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/enrollment/quickstart-enroll-windows-device.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/quickstart-enroll-windows-device.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md b/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md\nindex 5f093432aa..8c31cf338b 100644\n--- a/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md\n+++ b/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md\n@@ -3,7 +3,7 @@ title: Set up automatic enrollment in Intune\n description: Enable Intune automatic enrollment of Windows devices that join or register with your Microsoft Entra ID.\n services: microsoft-intune\n ms.topic: how-to\n-ms.date: 01/14/2026\n+ms.date: 01/20/2026\n ms.reviewer: maholdaa\n ms.collection:\n - M365-identity-device-management\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-setup-auto-enrollment",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "status": "modified",
+      "additions": 44,
+      "deletions": 26,
+      "changes": 70,
+      "patch": "diff --git a/intune/intune-service/fundamentals/free-trial-sign-up.md b/intune/intune-service/fundamentals/free-trial-sign-up.md\nindex 3144f1fb55..d4bde6ba84 100644\n--- a/intune/intune-service/fundamentals/free-trial-sign-up.md\n+++ b/intune/intune-service/fundamentals/free-trial-sign-up.md\n@@ -3,7 +3,7 @@ title: Sign Up for Microsoft Intune Free Trial Setup Guide\n description: Sign up for a Microsoft Intune free trial and configure your tenant. Learn the setup process, prerequisites, and how to configure domain names. Start evaluating Intune today.\n author: nicholasswhite\n ms.author: nwhite\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n ms.topic: how-to\n ms.reviewer: tycast\n ms.collection:\n@@ -13,12 +13,18 @@ ms.collection:\n \n # Step 1 - Sign up for a free trial and configure a Microsoft Intune tenant\n \n-Sign up for a Microsoft Intune free trial to evaluate mobile device management for your organization. In this article, you learn how to sign up for a free trial, create a new tenant, configure essential settings, and prepare your environment for testing.\n+Sign up for a Microsoft Intune free trial to evaluate mobile device management for your organization. In this article, you learn how to sign up for a free trial, create a new tenant, set up Intune, and prepare your environment for testing.\n \n [!INCLUDE [intune-evaluate](../includes/intune-evaluate.md)]\n \n When you complete the signup process, you automatically create a new tenant. A tenant is a dedicated instance of Microsoft Entra ID that hosts your Intune subscription. After creating the tenant, you can add users and groups, and assign licenses to users.\n \n+The free trial includes a Enterprise Mobility + Security (EMS) subscription, which includes Microsoft Entra ID P1 or P2 and Microsoft Intune. You also have access to the following admin centers, which are used by Intune admins:\n+\n+- **Microsoft Intune admin center** ([https://intune.microsoft.com](https://intune.microsoft.com/)) - Intune admins use this admin center. You can explore the [Intune features and capabilities](what-is-intune.md).\n+\n+- **Microsoft 365 admin center** ([https://admin.microsoft.com](https://admin.microsoft.com)) - Add and manage users, if you don't use Microsoft Entra ID for this task. You can also manage other aspects of your account, including billing and support.\n+\n ## Prerequisites\n \n Before you set up Microsoft Intune, review the following requirements:\n@@ -47,8 +53,6 @@ Before you set up Microsoft Intune, review the following requirements:\n \n The Intune trial is free for 30 days. If you have an existing work or school account, you can **sign in** with that account and add Intune to your subscription. Or, you can **sign up** for a new account. If you sign up for a new account, you can't combine the new account with an existing work or school account.\n \n-The account that creates the subscription is assigned the Microsoft Entra [Global Administrator role](/entra/identity/role-based-access-control/permissions-reference#global-administrator). This built-in role is a privileged Microsoft Entra role and has more permissions than needed for Intune.\n-\n To sign up for the Microsoft Intune free trial, use the following steps:\n \n 1. Go to the [Microsoft Intune Plan 1 Trial setup account page](https://go.microsoft.com/fwlink/?linkid=2019088).\n@@ -87,7 +91,9 @@ To sign up for the Microsoft Intune free trial, use the following steps:\n    > [!NOTE]\n    > If you select **Get Started**, the **Microsoft 365 admin center** opens. If you select **Manage your subscription**, you see **Your products** and can view details about your Microsoft Intune Trial subscription.\n \n-## Sign in to the Microsoft Intune admin center\n+You can also [confirm your free trial licenses](licenses.md#confirm-your-licenses).\n+\n+## Sign in to the Microsoft Intune admin center and create your admin team\n \n If you're not already signed in to the admin center, sign in now:\n \n@@ -101,11 +107,38 @@ To get the user ID, refer to the email message you received after signing up for\n > [!TIP]\n > When working with Microsoft Intune, you get better results by using a browser in regular mode, rather than private mode.\n \n+### Assign built-in roles to your admin team\n+\n+Intune uses role-based access control (RBAC) to manage permissions.\n+\n+The account that creates the subscription is assigned the Microsoft Entra [Global Administrator role](/entra/identity/role-based-access-control/permissions-reference#global-administrator). This built-in role is a privileged Microsoft Entra role and has more permissions than needed for most Intune tasks.\n+\n+There are built-in roles specifically created and used to manage Intune. Your goal is to use the least privilege role that can perform the necessary tasks. For this series of articles, the following built-in roles are needed:\n+\n+| Role | Description |\n+|---|---|\n+| **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** | A Microsoft Entra role that has full access to all features in Microsoft Intune. You can use this account to set up Intune. |\n+| **[Domain Name Administrator role](/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator)** | A Microsoft Entra role that can add and verify custom domain names in your tenant. This role is only used if you configure a custom domain name in this series, which is optional. |\n+| **[User Administrator](/entra/identity/role-based-access-control/permissions-reference#user-administrator)** | A Microsoft Entra role that can create and manage user accounts and groups in Intune and Microsoft 365. |\n+| **[Policy and Profile Manager](../fundamentals/role-based-access-control-reference.md#policy-and-profile-manager)** | An Intune role that can create and manage Intune policies. |\n+| **[Application Manager](../fundamentals/role-based-access-control-reference.md#application-manager)** | An Intune role that can add and manage apps in Intune. |\n+| **[Intune Role Administrator](../fundamentals/role-based-access-control-reference.md#intune-role-administrator)** | An Intune role that can create and manage custom roles and add users to Intune roles. |\n+| **[Global Administrator role](/entra/identity/role-based-access-control/permissions-reference#global-administrator)** | A Microsoft Entra role that sets up Automatic Enrollment for Windows devices. This role is only used once in this series. |\n+\n+If many admins are testing Intune, then assign their accounts to only the roles they need. For example, if an admin is only responsible for adding and managing apps, assign that admin only to the **Application Manager** role.\n+\n+We also suggest that you sign out of the Global Administrator role account and sign in with an account that's needed for the Intune task.\n+\n+For more information about Intune built-in roles, see:\n+\n+- [Role-based access control (RBAC) with Microsoft Intune](role-based-access-control.md)\n+- [Built-in role permissions for Microsoft Intune](role-based-access-control-reference.md)\n+\n ## Confirm the MDM authority\n \n By default, the Mobile Device Management (MDM) authority is set when you create your free trial. You can confirm that the MDM authority is set by using the following steps:\n \n-1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) as the **Intune Administrator** Microsoft Entra role\n 2. Select **Tenant administration**.\n 3. View the tenant details. The **MDM authority** should be set to **Microsoft Intune**.\n \n@@ -113,16 +146,15 @@ If you see an orange banner that states you didn't set the MDM authority, you ca\n \n ### Set the MDM authority to Intune\n \n-1. If the MDM authority isn't set, sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n+1. If the MDM authority isn't set, sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) as the **Intune Administrator** Microsoft Entra role.\n 2. Select the orange banner to open the **Mobile Device Management Authority** setting. The orange banner appears only if you didn't set the MDM authority.\n \n-    > [!NOTE]\n-    > If you set the MDM Authority, you see the MDM authority value on the **Tenant administration** pane. The orange banner appears only if you didn't set the MDM authority.\n-\n-   :::image type=\"content\" source=\"./media/free-trial-sign-up/choose-mdm-authority.png\" alt-text=\"Screenshot of the Microsoft Intune choose MDM Authority page.\" lightbox=\"./media/free-trial-sign-up/choose-mdm-authority.png\":::\n+    You can confirm the MDM Authority is set using the steps in [Confirm the MDM authority](#confirm-the-mdm-authority) (in this article).\n \n 3. If your MDM Authority isn't set, under **Choose MDM Authority**, set your MDM authority to **Intune MDM Authority**.\n \n+   :::image type=\"content\" source=\"./media/free-trial-sign-up/choose-mdm-authority.png\" alt-text=\"Screenshot of the Microsoft Intune choose MDM Authority page.\" lightbox=\"./media/free-trial-sign-up/choose-mdm-authority.png\":::\n+\n For more information about the MDM authority, see [Set the mobile device management authority](mdm-authority-set.md).\n \n ## Configure your custom domain name (optional)\n@@ -132,7 +164,7 @@ If your organization has its own custom domain that you want to use without **.o\n > [!IMPORTANT]\n > You can't rename or remove the initial **onmicrosoft.com** part of the domain name. However, you can add, verify, or remove *custom* domain names used with Intune to keep your business identity clear. For more information, see [Configure a custom domain name](custom-domain-name-configure.md).\n \n-1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with your administrator account.\n+1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) as the **Domain Name Administrator** Microsoft Entra role.\n \n 2. In the navigation pane, choose **Setup**.\n \n@@ -151,20 +183,6 @@ If your organization has its own custom domain that you want to use without **.o\n     > [!NOTE]\n     > For TXT record verification details, see [Create DNS records at any DNS hosting provider for Microsoft 365](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).\n \n-## Confirm your licenses\n-\n-When you sign up for the Intune free trial, you get a Microsoft Intune license. As part of this trial, you get a trial Enterprise Mobility + Security (EMS) subscription. An Enterprise Mobility + Security (EMS) subscription includes both Microsoft Entra ID P1 or P2 and Microsoft Intune.\n-\n-To confirm your Microsoft Entra ID P1 or P2 and Microsoft Intune licenses, see [Confirm your licenses](licenses.md#confirm-your-licenses).\n-\n-## Admin centers\n-\n-You use the following admin centers most often:\n-\n-- **Microsoft Intune admin center** ([https://intune.microsoft.com](https://intune.microsoft.com/)) - Intune admins use this admin center. You can explore the [Intune features and capabilities](what-is-intune.md).\n-\n-- **Microsoft 365 admin center** ([https://admin.microsoft.com](https://admin.microsoft.com)) - Add and manage users, if you don't use Microsoft Entra ID for this task. You can also manage other aspects of your account, including billing and support.\n-\n ## Next steps\n \n In this article, you created a free subscription to try Intune in a test environment. For more information about setting up Intune, see [Set up Intune](deployment-plan-setup.md).\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/free-trial-sign-up",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/fundamentals/free-trial-sign-up.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/quickstart-create-custom-role.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/intune-service/fundamentals/quickstart-create-custom-role.md b/intune/intune-service/fundamentals/quickstart-create-custom-role.md\nindex d08c0174a2..9a487400b8 100644\n--- a/intune/intune-service/fundamentals/quickstart-create-custom-role.md\n+++ b/intune/intune-service/fundamentals/quickstart-create-custom-role.md\n@@ -5,7 +5,7 @@ services: microsoft-intune\n author: brenduns\n ms.author: brenduns\n ms.topic: how-to\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n \n ms.collection:\n - M365-identity-device-management\n@@ -82,6 +82,9 @@ When you create a custom role, you can set permissions for a wide range of actio\n \n 5. On **Review + Create**, select *Create*. Intune creates the custom role, which now appears on the **Intune roles | All roles** page in the Intune admin center, with a **Type** of *Custom Intune role*.\n \n+> [!TIP]\n+> For a list of permissions by role, see [Role-based access control (RBAC) reference](role-based-access-control-reference.md).\n+\n ## Assign the role to a group\n \n 1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) and go to **Tenant administration** > **Roles** > **All roles**.\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/quickstart-create-custom-role.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/quickstart-create-custom-role",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/fundamentals/quickstart-create-custom-role.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-custom-role.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/quickstart-create-user.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 4,
+      "changes": 12,
+      "patch": "diff --git a/intune/intune-service/fundamentals/quickstart-create-user.md b/intune/intune-service/fundamentals/quickstart-create-user.md\nindex d74924e504..51e25afe29 100644\n--- a/intune/intune-service/fundamentals/quickstart-create-user.md\n+++ b/intune/intune-service/fundamentals/quickstart-create-user.md\n@@ -5,7 +5,7 @@ services: microsoft-intune\n author: paolomatarazzo\n ms.author: paoloma\n ms.topic: how-to\n-ms.date: 01/14/2026\n+ms.date: 01/20/2026\n ms.reviewer: jlynn\n ms.collection:\n - M365-identity-device-management\n@@ -13,7 +13,7 @@ ms.collection:\n \n # Step 2 - Create a user in Intune and assign the user a license\n \n-In this article, you create a user and then assign the user an Intune license. When you use Intune, each person you want to have access to company data must have their own user account. Intune admins can configure users later to manage access control.\n+In this article, you create a user and then assign the user an Intune license. When you use Intune, each person you want to have access to company data must have their own user account. To manage access control, Intune admins can configure users at any time.\n \n [!INCLUDE [intune-evaluate](../includes/intune-evaluate.md)]\n \n@@ -40,7 +40,9 @@ In this article, you create a user and then assign the user an Intune license. W\n \n ## Create a user\n \n-A user needs a user account to enroll in Intune device management. To create a new user:\n+A user needs a user account to enroll in Intune device management. You use this user account in other steps in this series.\n+\n+To create a new user:\n \n 1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), select **Users** > **All users** > **New user**:\n \n@@ -97,7 +99,9 @@ The following steps allow you to assign Intune licenses to multiple users all at\n \n ## Clean up resources\n \n-If you don't need this user anymore, you can delete the user.\n+You can continue using this user in other steps of this series. When finished with this series, you can delete the user.\n+\n+To delete the user:\n \n 1. In the [Microsoft 365 admin center](https://go.microsoft.com/fwlink/p/?LinkId=698854), select **Users** > **Active users**.\n 2. Select the user you want to delete > **Delete user** > **Close**.\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/quickstart-create-user.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/quickstart-create-user",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/fundamentals/quickstart-create-user.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/try-intune-overview.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/intune/intune-service/fundamentals/try-intune-overview.md b/intune/intune-service/fundamentals/try-intune-overview.md\nindex fb35038d59..f1737bff14 100644\n--- a/intune/intune-service/fundamentals/try-intune-overview.md\n+++ b/intune/intune-service/fundamentals/try-intune-overview.md\n@@ -3,7 +3,7 @@ title: Try Microsoft Intune for free\n description: Evaluate Microsoft Intune with a free trial. Step through common settings, enroll devices, create policies, and learn about cloud-based device management. Start your trial today.\n author: nicholasswhite\n ms.author: nwhite\n-ms.date: 01/13/2026\n+ms.date: 01/20/2026\n ms.topic: concept-article\n ms.reviewer: tycast\n ms.collection:\n@@ -23,10 +23,10 @@ To learn more about Intune, see [What is Microsoft Intune?](what-is-intune.md) a\n \n The following list includes recommended prerequisites when setting up Microsoft Intune:\n \n-- Available devices on [supported operating systems](supported-devices-browsers.md)\n-- Familiarity with [network endpoints for Microsoft Intune](intune-endpoints.md)\n-- An [app](../apps/apps-supported-intune-apps.md) that you can add to Intune, like a Microsoft 365 app\n-- Familiarity with [role-based access control (RBAC) in Intune](role-based-access-control.md)\n+- Use available devices on [supported operating systems](supported-devices-browsers.md)\n+- Be familiar with [network endpoints for Microsoft Intune](intune-endpoints.md)\n+- Have an [app](../apps/apps-supported-intune-apps.md) that you can add to Intune, like a Microsoft 365 app\n+- Be familiar with [role-based access control (RBAC) in Intune](role-based-access-control.md)\n \n ## Tasks in this series\n \n@@ -44,7 +44,7 @@ In these topics, you set up a test environment. Then, you step through common ta\n - [Step 10 - Create and assign custom roles](quickstart-create-custom-role.md)\n - [Step 11 - Create a device configuration profile](../configuration/quickstart-email-profile.md)\n \n-## Next step\n+## Get started\n \n > [!div class=\"nextstepaction\"]\n > [Step 1 - Set up the Microsoft Intune free trial](free-trial-sign-up.md)\n@@ -54,4 +54,4 @@ When you complete the setup, you have a new tenant that's ready to step through\n ## Learn more\n \n - [What is Microsoft Intune?](what-is-intune.md)\n-- [Introduction to Microsoft Intune training path](/training/modules/intro-to-endpoint-manager)\n+- [Training path - Introduction to Microsoft Intune](/training/modules/intro-to-endpoint-manager)\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/try-intune-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/try-intune-overview",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/fundamentals/try-intune-overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/try-intune-overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/quickstart-send-notification.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/protect/quickstart-send-notification.md b/intune/intune-service/protect/quickstart-send-notification.md\nindex 02f8a5aa9b..3640d5acae 100644\n--- a/intune/intune-service/protect/quickstart-send-notification.md\n+++ b/intune/intune-service/protect/quickstart-send-notification.md\n@@ -3,7 +3,7 @@ title: Send Email Notifications to Noncompliant Devices\n description: Learn how to create notification templates and send email alerts to users with noncompliant devices in Microsoft Intune. Configure actions for noncompliance.\n author: nicholasswhite\n ms.author: nwhite\n-ms.date: 01/15/2026\n+ms.date: 01/20/2026\n ms.topic: how-to\n ms.reviewer: tycast\n ms.collection:\n@@ -81,7 +81,7 @@ When you create a device compliance policy, Intune automatically creates an acti\n \n The following steps create a compliance policy for Windows devices:\n \n-1. In the Intune admin center, go to **Devices** > **Compliance**.\n+1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Devices** > **Compliance**.\n 2. On the **Policies** tab, choose **Create policy**.\n 3. Under **Platform**, select **Windows 10 and later**.\n 4. Select **Create**.\n",
+      "baseCommitSha": "3a60a062bb3f672f56e3de274b3898e3bc63f30c",
+      "commitSha": "a4de3011d50142a33eaf098cbd5e1893903c9a09",
+      "commitMessage": "updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-20T18:00:38-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/quickstart-send-notification.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/quickstart-send-notification",
+      "firstSeenAt": "2026-01-20T23:00:38.000Z",
+      "eventId": "intune-docs:a4de3011d50142a33eaf098cbd5e1893903c9a09:modified:intune/intune-service/protect/quickstart-send-notification.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/quickstart-send-notification.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 6,
+    "totalFiles": 23,
+    "authors": [
+      "Mandi Ohlinger",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 21 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/intune-service",
+        "summary": "Added Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Added Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enrollment-status.md. Updated Microsoft Intune documentation",
+        "sourceFiles": [
+          "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+          "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+          "intune/intune-service/remote-actions/index.md",
+          "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+          "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+          "intune/intune-service/enrollment/windows-enrollment-status.md",
+          "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+          "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+          "intune/intune-service/apps/quickstart-add-assign-app.md",
+          "intune/intune-service/apps/quickstart-create-assign-app-policy.md",
+          "intune/intune-service/configuration/quickstart-email-profile.md",
+          "intune/intune-service/enrollment/quickstart-enroll-windows-device.md",
+          "intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
+          "intune/intune-service/fundamentals/free-trial-sign-up.md",
+          "intune/intune-service/fundamentals/quickstart-create-custom-role.md",
+          "intune/intune-service/fundamentals/quickstart-create-user.md",
+          "intune/intune-service/fundamentals/try-intune-overview.md",
+          "intune/intune-service/protect/quickstart-send-notification.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md.",
+        "sourceFiles": [
+          "intune/device-updates/windows/driver-update-policy.md",
+          "intune/device-updates/windows/feature-update-policy.md",
+          "intune/device-updates/windows/quality-updates.md",
+          "intune/device-updates/windows/update-rings.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/device-preparation/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/intune-service",
+        "detail": "Added Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Added Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enrollment-status.md. Updated Microsoft Intune documentation"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-updates",
+        "detail": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

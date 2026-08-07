@@ -1,0 +1,160 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-management/actions/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-management/actions/index.md b/intune/device-management/actions/index.md\nindex 726de10426..2ec98113ba 100644\n--- a/intune/device-management/actions/index.md\n+++ b/intune/device-management/actions/index.md\n@@ -236,11 +236,9 @@ Device actions in Intune empower IT pros to manage devices efficiently and secur\n [Autopilot reset]: autopilot-reset.md\n [BitLocker key rotation]: rotate-bitlocker-keys.md\n [Collect diagnostics]: collect-diagnostics.md\n-[Delete]: /entra/identity/authentication/concept-authentication-passwordless\n [Delete]: delete.md\n [Deprovision]: deprovision.md\n [Disable Activation Lock]: disable-activation-lock.md\n-[Disable Activation Lock]: disable-activation-lock.md\n [Fresh Start]: fresh-start.md\n [Full Scan]: full-scan.md\n [Locate device]: locate.md\n@@ -320,4 +318,4 @@ Device actions in Intune empower IT pros to manage devices efficiently and secur\n [sync-icon]: icons/sync.svg\n [update-cellular-data-plan-icon]: icons/update-cellular-data-plan.svg\n [update-defender-security-intelligence-icon]: icons/update-defender-intelligence.svg\n-[wipe-icon]: icons/wipe.svg\n\\ No newline at end of file\n+[wipe-icon]: icons/wipe.svg\n",
+      "baseCommitSha": "026c34cb01e3e92b9028abf06396ce7a70c7d517",
+      "commitSha": "7728bc703300dd7060efa579bb0ad7a0e79d5cee",
+      "commitMessage": "Fix link for 'Delete' action in index.md (#5144) (#20409)",
+      "commitAuthor": "learn-build-service-prod[bot]",
+      "commitDate": "2026-06-18T20:02:54-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/index",
+      "firstSeenAt": "2026-06-19T00:02:54.000Z",
+      "eventId": "intune-docs:7728bc703300dd7060efa579bb0ad7a0e79d5cee:modified:intune/device-management/actions/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix link for 'Delete' action in index.md (#5144) (#20409)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-management/actions/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 7,
+      "changes": 27,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 23f1d89395..e12f26cfa3 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -1,9 +1,8 @@\n ---\n title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n-ms.date: 06/18/2026\n+ms.date: 06/19/2026\n ms.topic: whats-new\n-ms.reviewer: intuner\n ms.collection:\n - M365-identity-device-management\n ---\n@@ -51,15 +50,29 @@ You can use RSS to be notified when this page is updated. For more information,\n \n ## Week of June 15, 2026\n \n-### Device enrollment  \n+### App management\n+\n+#### Managed Win32 app content now requires HTTPS delivery <!-- 32909316 -->\n+\n+Intune now requires HTTPS delivery for managed Win32 app content. This change primarily affects organizations that use Microsoft Connected Cache and haven't configured their cache nodes for HTTPS delivery. Clients that previously pulled content from Connected Cache can still download Intune Win32 apps, but those requests bypass the cache nodes and fall back to the content delivery network (CDN). This behavior can increase internet traffic and bandwidth usage.\n+\n+For more information, see the blog post [How to enable HTTPS support for Microsoft Connected Cache for Enterprise and Education](https://techcommunity.microsoft.com/blog/intunecustomersuccess/how-to-enable-https-support-for-microsoft-connected-cache-for-enterprise-and-edu/4496173).\n+\n+For setup and validation guidance, see:\n+\n+- [HTTPS support for Microsoft Connected Cache overview](/windows/deployment/do/mcc-ent-https-overview)\n+- [HTTPS setup on Windows](/windows/deployment/do/mcc-ent-https-windows-guide)\n+- [HTTPS setup on Linux](/windows/deployment/do/mcc-ent-https-linux-guide)\n+\n+### Device enrollment\n \n #### Enrollment time grouping for new Apple ADE enrollment policies generally available<!-- 17474465, 28230551 -->\n \n-Enrollment time grouping is now generally available for Apple automated device enrollment (ADE) on iOS/iPadOS and macOS. With enrollment time grouping, you can identify a device’s Microsoft Entra security group during enrollment, so policies, apps, and settings can be applied earlier in the setup process.\n+Enrollment time grouping is now generally available for Apple automated device enrollment (ADE) on iOS/iPadOS and macOS. With enrollment time grouping, you can identify a device's Microsoft Entra security group during enrollment, so policies, apps, and settings can be applied earlier in the setup process.\n \n Enrollment time grouping is supported in new Apple ADE enrollment policies. For requirements and setup details, see [Set up enrollment time grouping](../device-enrollment/setup-time-grouping.md).  \n \n-### Device management  \n+### Device management\n \n #### Android Enterprise personally owned devices with a work profile uses Android Management API (AMAPI)<!-- 36840128 -->\n \n@@ -1156,8 +1169,8 @@ To use the Windows 11, version 25H2 security baseline, Intune admins can [create\n \n The following two settings aren't included in this baseline release and will be added in a future baseline update. Each change will be communicated to customers when available:\n \n-- **Disable Internet Explorer 11 launch via COM automation** – This setting isn't included at release due to a known issue. The Windows client team is addressing the issue, and the setting will be added in a future baseline update.\n-- **Configure NetBIOS settings** – This setting is pending availability in the Settings Catalog and will be added to the baseline in a future update.\n+- **Disable Internet Explorer 11 launch via COM automation** - This setting isn't included at release due to a known issue. The Windows client team is addressing the issue, and the setting will be added in a future baseline update.\n+- **Configure NetBIOS settings** - This setting is pending availability in the Settings Catalog and will be added to the baseline in a future update.\n \n We recommend carefully reviewing the settings in the new baseline before moving from a previous baseline version, especially if existing profiles include customizations.\n \n",
+      "baseCommitSha": "7728bc703300dd7060efa579bb0ad7a0e79d5cee",
+      "commitSha": "07c016beaff195663688c7fbd2803d08c41ada7c",
+      "commitMessage": "[2606] [32909316] [WN-OOB] MCC",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-06-19T08:03:51-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-06-19T12:03:51.000Z",
+      "eventId": "intune-docs:07c016beaff195663688c7fbd2803d08c41ada7c:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "[2606] [32909316] [WN-OOB] MCC",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/known-issues.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 2,
+      "changes": 18,
+      "patch": "diff --git a/autopilot/known-issues.md b/autopilot/known-issues.md\nindex d0cf8c26cb..bb93ebbd1e 100644\n--- a/autopilot/known-issues.md\n+++ b/autopilot/known-issues.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot known issues\n description: Be informed about known issues that might occur during Windows Autopilot deployment. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 02/10/2026\n+ms.date: 06/18/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: troubleshooting\n@@ -30,7 +30,21 @@ This article describes known issues that can often be resolved with configuratio\n >\n > For issues with Windows Autopilot with Co-management, see [Windows Autopilot with co-management](/intune/configmgr/comanage/autopilot-enrollment).\n \n-## Known issues\n+## Known issues  \n+\n+### ODJ Connector configuration fails with a SeLogonAsServicePrivilege error when using a bring-your-own gMSA   \n+\n+Date added: *June 18, 2026*\n+\n+When you configure the Intune Connector for Active Directory, also known as the Offline Domain Join (ODJ) Connector, with a bring-your-own group managed service account (gMSA), enrollment or configuration might fail. The connector UI or setup logs contain an entry similar to the following example, often surfaced as a `SeLogonAsServicePrivilegeMissing` configuration error:  \n+\n+`System.Security.Principal.WindowsIdentity.KerbS4ULogon(String upn, SafeAccessTokenHandle& safeTokenHandle)`  \n+\n+This error occurs when the *Log on as a service* privilege (`SeLogonAsServicePrivilege`) is assigned to the gMSA but hasn't yet propagated to the connector host when the pre-enrollment validation runs.  \n+\n+The issue is resolved in build 6.2604.2000.3, which adds the opt-in `<appSettings>` key `SkipByoMsaPrivilegeCheck`. When this key is set to `true` and a bring-your-own gMSA is configured, the connector skips the `SeLogonAsServicePrivilege` pre-check (and its KerbS4ULogon call), writes a trace line confirming the skip, and proceeds with configuration.  \n+\n+To use the workaround, install build 6.2604.2000.3 or later. Add the **SkipByoMsaPrivilegeCheck** key with `value=\"true\"` to the connector `<appSettings>`, and restart the configuration. The default value is `false`, so the pre-check continues to run unless you explicitly add the key.  \n \n ### Microsoft Entra hybrid join Autopilot deployments time out with error code 0x80004005\n \n",
+      "baseCommitSha": "07c016beaff195663688c7fbd2803d08c41ada7c",
+      "commitSha": "e5f7f74ba1b1b114f6648ac804c774b51eedb9d8",
+      "commitMessage": "Added WN and known issue",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-06-19T10:14:48-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/known-issues",
+      "firstSeenAt": "2026-06-19T14:14:48.000Z",
+      "eventId": "intune-docs:e5f7f74ba1b1b114f6648ac804c774b51eedb9d8:modified:autopilot/known-issues.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added WN and known issue",
+        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/whats-new.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 2,
+      "changes": 14,
+      "patch": "diff --git a/autopilot/whats-new.md b/autopilot/whats-new.md\nindex 9881a9ad92..8864a1b06b 100644\n--- a/autopilot/whats-new.md\n+++ b/autopilot/whats-new.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Windows Autopilot\n description: News and resources about the latest updates and past versions of Windows Autopilot. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 01/26/2026\n+ms.date: 06/18/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: whats-new\n@@ -22,7 +22,17 @@ appliesto:\n >\n > This example includes the `&locale=en-us` variable. The `locale` variable is required, but it can be changed to another supported locale. For example, `&locale=es-es`.\n >\n-> For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.\n+> For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.  \n+\n+## New Intune connector for Active Directory update available\n+\n+Date added: *June 18, 2026*   \n+\n+We’ve updated the Intune Connector for Active Directory, also known as the Offline Domain Join (ODJ) Connector. This update is included in build 6.2604.2000.3.  \n+\n+The ODJ Connector configuration wizard now supports an optional `<appSettings>` key, `SkipByoMsaPrivilegeCheck` (default: `false`). When a group managed service account (gMSA) is configured, setting this key to `true` skips the pre-enrollment validation for the *Log on as a service* privilege (`SeLogonAsServicePrivilege`), which internally performs a Kerberos S4U logon of the gMSA.  \n+\n+This change unblocks configuration in environments where the required permission is assigned but hasn’t yet propagated to the connector host. The default behavior is unchanged: validation continues to run unless the key is explicitly set to `true` when a gMSA is in use.  \n \n ## Enrollment Status Page support for installing Windows security updates during Windows OOBE\n \n",
+      "baseCommitSha": "07c016beaff195663688c7fbd2803d08c41ada7c",
+      "commitSha": "e5f7f74ba1b1b114f6648ac804c774b51eedb9d8",
+      "commitMessage": "Added WN and known issue",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-06-19T10:14:48-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/whats-new",
+      "firstSeenAt": "2026-06-19T14:14:48.000Z",
+      "eventId": "intune-docs:e5f7f74ba1b1b114f6648ac804c774b51eedb9d8:modified:autopilot/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added WN and known issue",
+        "summary": "Updated Microsoft Intune documentation in autopilot/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 4,
+    "authors": [
+      "Laura Newsad",
+      "Paolo Matarazzo",
+      "learn-build-service-prod[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/device-management",
+        "summary": "Updated Microsoft Intune documentation in intune/device-management/actions/index.md.",
+        "sourceFiles": [
+          "intune/device-management/actions/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Windows Autopilot",
+        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md. Updated Microsoft Intune documentation in autopilot/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/known-issues.md",
+          "autopilot/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/device-management",
+        "detail": "Updated Microsoft Intune documentation in intune/device-management/actions/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Windows Autopilot",
+        "detail": "Updated Microsoft Intune documentation in autopilot/known-issues.md. Updated Microsoft Intune documentation in autopilot/whats-new.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

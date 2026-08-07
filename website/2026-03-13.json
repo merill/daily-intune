@@ -1,0 +1,136 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex ab5a37f8d0..5c7a330f43 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -3,7 +3,7 @@ title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n author: brenduns\n ms.author: brenduns\n-ms.date: 03/05/2026\n+ms.date: 03/12/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -76,6 +76,9 @@ For more information about protected apps, see [Microsoft Intune protected apps]\n \n You can use assignment filters in policy assignments for DDM-based configurations, like software updates.\n \n+> [!NOTE]\n+> This feature is rolling out slowly and should be available for all customers by late March 2026.\n+\n To learn more about filters, see [Use assignment filters to assign your apps, policies, and profiles in Microsoft Intune](filters.md).\n \n > [!div class=\"checklist\"]\n",
+      "baseCommitSha": "f1aaeafd16fb12fcf9a3ff89844d5e0faaa589f3",
+      "commitSha": "67229ff7dab9a03ee9c7af48c06ea5d41cec7b98",
+      "commitMessage": "24298491: Added note",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-12T22:16:20-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-03-13T02:16:20.000Z",
+      "eventId": "intune-docs:67229ff7dab9a03ee9c7af48c06ea5d41cec7b98:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "24298491: Added note",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 11,
+      "changes": 22,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md b/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\nindex b305f6c6b4..0417483b9d 100644\n--- a/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\n+++ b/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md\n@@ -3,7 +3,7 @@ title: Configure security, email, VPN, and Wi-Fi device configuration profiles\n description: Step 4 to deploy device configuration profiles as part of the minimum set of policies for your devices using Microsoft Intune. The starting point is to enable the firewall, install AV, scan for malware, install software updates, create a strong PIN policy, and create email, VPN, and Wi-Fi device configuration profiles.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 02/25/2026\n+ms.date: 03/12/2026\n ms.topic: how-to\n \n \n@@ -73,7 +73,7 @@ For a more granular list of Windows settings and their recommended values, see [\n \n :::image type=\"icon\" source=\"../../media/icons/16/check.svg\" border=\"false\"::: **Install antivirus software and regularly scan for malware**\n \n-All devices should have antivirus software installed and be regularly scanned for malware. Intune integrates with third party partner mobile threat defense (MTD) services that provide AV and threat scanning. For macOS and Windows, antivirus and scanning are built in to Intune with Microsoft Defender for Endpoint.\n+All devices should have antivirus software installed and be regularly scanned for malware. Intune integrates with third party partner mobile threat defense (MTD) services that provide AV and threat scanning. Antivirus and scanning are built in to Intune with Microsoft Defender for Endpoint.\n \n Your policy options:\n \n@@ -184,7 +184,7 @@ Intune has built-in email settings for Android, iOS/iPadOS, and Windows client d\n \n On new devices, we recommended you deploy the email app during the enrollment process. When enrollment completes, then deploy the email device configuration policy.\n \n-If you have existing devices, then deploy the email app at any time, and deploy the email device configuration policy.\n+If you have existing devices, deploy the email app at any time. Then, deploy the email device configuration policy.\n \n #### Get started with email profiles\n \n@@ -347,39 +347,39 @@ Microsoft recommends the following level 2 security policies:\n \n   On iOS/iPadOS devices, you can use device restrictions policies and/or the settings catalog to set password rules:\n \n-  - [Device restrictions template > Password settings](../configuration/device-restrictions-apple.md)\n   - [Settings catalog](../configuration/settings-catalog.md) > Search for `Passcode`\n+  - [Device restrictions template > Password settings](../configuration/device-restrictions-apple.md)\n \n   # [macOS](#tab/macos-password)\n \n   On macOS devices, you can use device restrictions policies and/or the settings catalog to set password rules:\n \n-  - [Device restrictions template > Password settings](../configuration/device-restrictions-apple.md)\n   - [Settings catalog](../configuration/settings-catalog.md) > Search for `Passcode`\n+  - [Device restrictions template > Password settings](../configuration/device-restrictions-apple.md)\n \n   # [Windows](#tab/windows-password)\n \n   On Windows devices, you can use device restrictions policies and/or the settings catalog to set password rules:\n \n-  - [Device restrictions template > Password settings](../configuration/device-restrictions-windows-10.md#password)\n   - [Settings catalog](../configuration/settings-catalog.md) > Search for `Device lock`\n+  - [Device restrictions template > Password settings](../configuration/device-restrictions-windows-10.md#password)\n \n ---\n \n - Intune includes **hundreds of settings that can manage devices features** and settings, like disabling the built-in camera, controlling notifications, allowing bluetooth, blocking games, and more.\n \n-  You can use the [built-in templates](../configuration/device-profiles.md) or the [settings catalog](../configuration/settings-catalog.md) to see and configure the settings.\n-\n-  - **[Device restrictions templates](../configuration/device-restrictions-configure.md)** are logical groups of built-in settings that can control different parts of the devices, including security, hardware, data sharing, and more.\n+  You can use the [settings catalog](../configuration/settings-catalog.md) or the [built-in templates](../configuration/device-profiles.md) to see and configure the settings.\n \n-    You can use these templates on the following platforms:\n+  - **[Use the settings catalog](../configuration/settings-catalog.md)** to see and configure all the available settings. You can use the settings catalog on the following platforms:\n \n     - Android\n     - iOS/iPadOS\n     - macOS\n     - Windows\n \n-  - **[Use the settings catalog](../configuration/settings-catalog.md)** to see and configure all the available settings. You can use the settings catalog on the following platforms:\n+  - **[Device restrictions templates](../configuration/device-restrictions-configure.md)** are logical groups of built-in settings that can control different parts of the devices, including security, hardware, data sharing, and more.\n+\n+    You can use these templates on the following platforms:\n \n     - Android\n     - iOS/iPadOS\n",
+      "baseCommitSha": "167f222a29cdd8c2dff5ff7e1be9d627654a099b",
+      "commitSha": "502e5df11e8e598250698c9a968778c1786cd518",
+      "commitMessage": "review",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-03-12T22:18:56-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-plan-configuration-profile",
+      "firstSeenAt": "2026-03-13T02:18:56.000Z",
+      "eventId": "intune-docs:502e5df11e8e598250698c9a968778c1786cd518:modified:intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "review",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-guide-platform-linux.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-guide-platform-linux.md b/intune/intune-service/fundamentals/deployment-guide-platform-linux.md\nindex 02f84f4dfa..2b80e4ad36 100644\n--- a/intune/intune-service/fundamentals/deployment-guide-platform-linux.md\n+++ b/intune/intune-service/fundamentals/deployment-guide-platform-linux.md\n@@ -75,7 +75,7 @@ As an Intune administrator, you don't need to do anything to enable enrollment f\n | Task | Detail |\n | ---- | ------ |\n |[Install Microsoft Intune app for Linux](../user-help/microsoft-intune-app-linux.md)| Employees must install the Microsoft Intune app on their personal device for enrollment. This article describes how to install, update, and remove the Microsoft Intune app for Linux in the Terminal app. |\n-|[Install Microsoft Edge web browser)](https://www.microsoft.com/edge)| To access protected websites and files, employees must have Microsoft Edge web browser, version 102.*X* or later. After they enroll their device, employees can sign into Microsoft Edge with their work account and access websites and files.   |\n+|[Install Microsoft Edge web browser](https://www.microsoft.com/edge)| To access protected websites and files, employees must have Microsoft Edge web browser, version 102.*X* or later. After they enroll their device, employees can sign into Microsoft Edge with their work account and access websites and files.   |\n |[Enroll Linux device in Intune](../user-help/enroll-device-linux.md)| This article is for device users and describes how to enroll a device with the Microsoft Intune app, and includes system requirements, prerequisites, and next steps. During this step, Microsoft Intune registers the device with Microsoft Entra ID and creates a device record in Intune. After registration is complete, device compliance checks begin.  |\n |[Check device status and resolve compliance issues](../user-help/check-status-linux.md)| This article is for device users and describes how to resolve compliance issues in the Microsoft Intune app. Compliance checks happen during enrollment and thereafter when the device checks in with Intune. The Intune app notifies employees when they have a noncompliant setting on their device. Intune determines compliance and actions for noncompliance by using your device compliance and Conditional Access policies.  |\n \n",
+      "baseCommitSha": "445827c2d9146edc7650a6af58eeaf6ab12fa8e1",
+      "commitSha": "d89234dff333f5cdc1449b35dbc385c6635e8522",
+      "commitMessage": "Fix typo in Microsoft Edge installation link",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-13T11:37:05-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-guide-platform-linux.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-guide-platform-linux",
+      "firstSeenAt": "2026-03-13T15:37:05.000Z",
+      "eventId": "intune-docs:d89234dff333f5cdc1449b35dbc385c6635e8522:modified:intune/intune-service/fundamentals/deployment-guide-platform-linux.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix typo in Microsoft Edge installation link",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-platform-linux.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/role-based-access-control.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/role-based-access-control.md b/intune/intune-service/fundamentals/role-based-access-control.md\nindex 6dfe70b81a..31a291235b 100644\n--- a/intune/intune-service/fundamentals/role-based-access-control.md\n+++ b/intune/intune-service/fundamentals/role-based-access-control.md\n@@ -105,7 +105,7 @@ The **Intune Administrator** role is a built-in role in Microsoft Entra. It gran\n \n - Don't use the Intune Administrator role for day-to-day Intune administration.\n - Assign a [built-in Intune role](#rbac-roles) or a [custom role](create-custom-role.md) instead. These roles limit permissions to only what each task requires.\n-- When the Intune Administrator role is required, assign it only for the duration needed, and then remove it.\n+- When the Intune Administrator role is required, assign it only for the duration needed, and then remove it. Optionally, if you have Microsoft Entra ID with a P2 or Microsoft Entra ID Governance license, you can use [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-getting-started) (PIM) to provide time bound elevation for this role.\n \n **Enhanced Security Controls**:\n \n",
+      "baseCommitSha": "9abf24db280baa005047fcae7f4f4f547d07ba83",
+      "commitSha": "6f0e303c702062da25fc46918c21a7e5fe8f249d",
+      "commitMessage": "Enhance guidance on Intune Administrator role usage",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-13T14:46:59-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/role-based-access-control.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/role-based-access-control",
+      "firstSeenAt": "2026-03-13T21:46:59.000Z",
+      "eventId": "intune-docs:6f0e303c702062da25fc46918c21a7e5fe8f249d:modified:intune/intune-service/fundamentals/role-based-access-control.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Enhance guidance on Intune Administrator role usage",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 4,
+    "authors": [
+      "Brent Dunsire",
+      "Laura Newsad",
+      "Mandi Ohlinger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-platform-linux.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
+          "intune/intune-service/fundamentals/deployment-guide-platform-linux.md",
+          "intune/intune-service/fundamentals/role-based-access-control.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-platform-linux.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

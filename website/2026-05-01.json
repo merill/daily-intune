@@ -1,0 +1,255 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/solutions/edge-data-security/threat-defense-step-3.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/intune/solutions/edge-data-security/threat-defense-step-3.md b/intune/solutions/edge-data-security/threat-defense-step-3.md\nindex 7b906baf02..9454463b89 100644\n--- a/intune/solutions/edge-data-security/threat-defense-step-3.md\n+++ b/intune/solutions/edge-data-security/threat-defense-step-3.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 3. Integrate Mobile Threat Defense for App Protection Policy\n description: Step 3. Integrate Mobile Threat Defense signals with Microsoft Edge for Business app protection policies in Microsoft Intune.\n-ms.date: 01/26/2026\n+ms.date: 04/30/2026\n author: nicholasswhite\n ms.author: nwhite\n ms.topic: how-to\n@@ -113,8 +113,10 @@ Use the following steps to configure the MTD Connector.\n \n 5. Select **Create** to create the connector.\n \n-> [!IMPORTANT]\n-> The connector is now created. It's important to note that the **Connection status** remains **Unavailable** until the first App Protection Policy arrives to the user or the first MAM user is enrolled to your Intune tenant. For more information, see [Connector status](../../device-security/mobile-threat-defense/overview.md#connector-status).\n+6. From the connector list, select the **Windows Security Center** connector to open its edit view, turn on the **Connect Windows devices for MAM** toggle, and save your changes.\n+\n+> [!NOTE]\n+> The connector's **Connection status** is **Available** after creation, and changes to **Enabled** when you turn on the **Connect Windows devices for MAM** toggle. For more information about each state, see [Connector status](../../device-security/mobile-threat-defense/overview.md#connector-status).\n \n ## Next step\n \n",
+      "baseCommitSha": "cde4a1b3507a77855421adc57db6fd279ee62946",
+      "commitSha": "013d3eb2a44c45d888150eac1780cb3986009eb7",
+      "commitMessage": "574120 - Update MTD step 3 to reflect manual WSC connector enablement",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-30T21:17:04-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/edge-data-security/threat-defense-step-3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/edge-data-security/threat-defense-step-3",
+      "firstSeenAt": "2026-05-01T01:17:04.000Z",
+      "eventId": "intune-docs:013d3eb2a44c45d888150eac1780cb3986009eb7:modified:intune/solutions/edge-data-security/threat-defense-step-3.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Windows Security Center MTD connector now requires manual MAM enablement",
+        "summary": "The Edge data-security setup now instructs admins to open the Windows Security Center connector after creating it, enable Connect Windows devices for MAM, and save. It also changes the documented state from Unavailable after creation to Available, becoming Enabled after the toggle is turned on.",
+        "adminImpact": "After creating this connector, explicitly enable Connect Windows devices for MAM and verify the connector reports Enabled before relying on it for MAM.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md b/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md\nindex 61f4d2c8eb..6a35826b30 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md\n@@ -49,10 +49,10 @@ For applications to install and PowerShell scripts work successfully during a Wi\n The following types of applications are supported for use with Windows Autopilot device preparation:\n \n - [Line-of-business (LOB)](/intune/app-management/deployment/add-lob-windows).\n-- [Win32](/intune/app-management/deployment/win32-packaging).\n+- [Win32](/intune/app-management/deployment/create-win32-package).\n - [Microsoft Store](/intune/app-management/deployment/add-microsoft-store) - only Microsoft Store apps that support WinGet are supported.\n - [Microsoft 365](/intune/app-management/deployment/add-microsoft-365-windows).\n-- [Enterprise App Catalog](/intune/app-management/deployment/add-enterprise-catalog).\n+- [Enterprise App Catalog](/intune/app-management/deployment/add-enterprise-catalog-app).\n \n In addition, Windows Autopilot device preparation supports deploying both Win32 and line-of-business (LOB) applications in the same deployment.\n \n@@ -134,5 +134,5 @@ To assign the desired PowerShell scripts to the device group created for Windows\n - [Add apps to Microsoft Intune](/intune/app-management/deployment/index).\n - [Use PowerShell scripts on Windows devices in Intune](/intune/device-management/tools/management-extension-windows).\n - [Assign apps to groups with Microsoft Intune](/intune/app-management/deployment/assign-groups).\n-- [Win32 app management in Microsoft Intune](/intune/app-management/deployment/win32-overview).\n+- [Win32 app management in Microsoft Intune](/intune/app-management/deployment/win32).\n - [Add a Windows line-of-business app to Microsoft Intune](/intune/app-management/deployment/add-lob-windows).\n",
+      "baseCommitSha": "d10cc8cd093874f886cceffde5bc5a9126bf783a",
+      "commitSha": "6e53e2f814a6ada70f898a64eadee7586ee57c09",
+      "commitMessage": "update",
+      "commitAuthor": "OpenPublishing.Build",
+      "commitDate": "2026-05-01T05:28:04Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts",
+      "firstSeenAt": "2026-05-01T05:28:04.000Z",
+      "eventId": "intune-docs:6e53e2f814a6ada70f898a64eadee7586ee57c09:modified:autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated Autopilot device-preparation app documentation links",
+        "summary": "The automatic-mode tutorial replaces outdated links for Win32 packaging, Enterprise App Catalog apps, and the Win32 management overview with their current documentation destinations.",
+        "adminImpact": "No configuration change is described; use the updated links when preparing supported app assignments.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md b/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md\nindex 7c672ae93e..b885ccbca4 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md\n@@ -79,7 +79,7 @@ To create an automatic mode for Windows 365 Windows Autopilot device preparation\n       > The following types of applications are supported for use with Windows Autopilot device preparation:\n       >\n       > - [Line-of-business (LOB)](/intune/app-management/deployment/add-lob-windows).\n-      > - [Win32](/intune/app-management/deployment/win32-packaging).\n+      > - [Win32](/intune/app-management/deployment/create-win32-package).\n       > - [Microsoft Store](/intune/app-management/deployment/add-microsoft-store) - only Microsoft Store apps that support WinGet are supported.\n       > - [Microsoft 365](/intune/app-management/deployment/add-microsoft-365-windows).\n       >\n",
+      "baseCommitSha": "d10cc8cd093874f886cceffde5bc5a9126bf783a",
+      "commitSha": "6e53e2f814a6ada70f898a64eadee7586ee57c09",
+      "commitMessage": "update",
+      "commitAuthor": "OpenPublishing.Build",
+      "commitDate": "2026-05-01T05:28:04Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy",
+      "firstSeenAt": "2026-05-01T05:28:04.000Z",
+      "eventId": "intune-docs:6e53e2f814a6ada70f898a64eadee7586ee57c09:modified:autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated Win32 package link in automatic device-preparation policy tutorial",
+        "summary": "The Windows 365 Frontline shared-mode automatic policy tutorial now links to the current Win32 package creation article instead of the prior Win32 packaging path.",
+        "adminImpact": "No policy behavior changed; follow the current package-creation guidance when adding Win32 apps.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md\nindex cf5f6e50fb..6d85002bf1 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md\n@@ -52,10 +52,10 @@ For applications to install and PowerShell scripts work successfully during a Wi\n The following types of applications are supported for use with Windows Autopilot device preparation:\n \n - [Line-of-business (LOB)](/intune/app-management/deployment/add-lob-windows).\n-- [Win32](/intune/app-management/deployment/win32-packaging).\n+- [Win32](/intune/app-management/deployment/create-win32-package).\n - [Microsoft Store](/intune/app-management/deployment/add-microsoft-store) - only Microsoft Store apps that support WinGet are supported.\n - [Microsoft 365](/intune/app-management/deployment/add-microsoft-365-windows).\n-- [Enterprise App Catalog](/intune/app-management/deployment/add-enterprise-catalog).\n+- [Enterprise App Catalog](/intune/app-management/deployment/add-enterprise-catalog-app).\n \n In addition, Windows Autopilot device preparation supports deploying both Win32 and line-of-business (LOB) applications in the same deployment.\n \n@@ -137,6 +137,6 @@ To assign the desired PowerShell scripts to the device group created for Windows\n - [Add apps to Microsoft Intune](/intune/app-management/deployment/index).\n - [Use PowerShell scripts on Windows devices in Intune](/intune/device-management/tools/management-extension-windows).\n - [Assign apps to groups with Microsoft Intune](/intune/app-management/deployment/assign-groups).\n-- [Win32 app management in Microsoft Intune](/intune/app-management/deployment/win32-overview).\n+- [Win32 app management in Microsoft Intune](/intune/app-management/deployment/win32).\n - [Add a Windows line-of-business app to Microsoft Intune](/intune/app-management/deployment/add-lob-windows).\n-- [Add an Enterprise App Catalog app to Microsoft Intune](/intune/app-management/deployment/add-enterprise-catalog).\n+- [Add an Enterprise App Catalog app to Microsoft Intune](/intune/app-management/deployment/add-enterprise-catalog-app).\n",
+      "baseCommitSha": "d10cc8cd093874f886cceffde5bc5a9126bf783a",
+      "commitSha": "6e53e2f814a6ada70f898a64eadee7586ee57c09",
+      "commitMessage": "update",
+      "commitAuthor": "OpenPublishing.Build",
+      "commitDate": "2026-05-01T05:28:04Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts",
+      "firstSeenAt": "2026-05-01T05:28:04.000Z",
+      "eventId": "intune-docs:6e53e2f814a6ada70f898a64eadee7586ee57c09:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated user-driven device-preparation app guidance links",
+        "summary": "The Entra join user-driven tutorial refreshes links for Win32 package creation, Enterprise App Catalog app creation, and Win32 app management.",
+        "adminImpact": "No change to supported app types is stated; use the replacement links for current assignment instructions.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md\nindex e98b9537b6..177f6f80b2 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md\n@@ -128,10 +128,10 @@ In the **Configuration settings** page:\n     > The following types of applications are supported for use with Windows Autopilot device preparation:\n     >\n     > - [Line-of-business (LOB)](/intune/app-management/deployment/add-lob-windows).\n-    > - [Win32](/intune/app-management/deployment/win32-packaging).\n+    > - [Win32](/intune/app-management/deployment/create-win32-package).\n     > - [Microsoft Store](/intune/app-management/deployment/add-microsoft-store) - only Microsoft Store apps that support WinGet are supported.\n     > - [Microsoft 365](/intune/app-management/deployment/add-microsoft-365-windows).\n-    > - [Enterprise App Catalog](/intune/app-management/deployment/add-enterprise-catalog).\n+    > - [Enterprise App Catalog](/intune/app-management/deployment/add-enterprise-catalog-app).\n     >\n     > In addition, Windows Autopilot device preparation supports deploying both Win32 and line-of-business (LOB) applications in the same deployment.\n \n",
+      "baseCommitSha": "d10cc8cd093874f886cceffde5bc5a9126bf783a",
+      "commitSha": "6e53e2f814a6ada70f898a64eadee7586ee57c09",
+      "commitMessage": "update",
+      "commitAuthor": "OpenPublishing.Build",
+      "commitDate": "2026-05-01T05:28:04Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy",
+      "firstSeenAt": "2026-05-01T05:28:04.000Z",
+      "eventId": "intune-docs:6e53e2f814a6ada70f898a64eadee7586ee57c09:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated supported-app links in user-driven Autopilot policy tutorial",
+        "summary": "The user-driven Entra join policy tutorial changes its Win32 and Enterprise App Catalog references to the current package and catalog-app articles.",
+        "adminImpact": "No configuration change is described; use the updated references when selecting apps for device preparation.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex 08202f0ebd..e288e06abf 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -70,7 +70,7 @@ Date added: *June 26, 2025*\n \n Autopilot device preparation now supports Enterprise App Catalog apps. Microsoft Intune Enterprise App Management enables IT admins to easily manage applications from the Enterprise App Catalog. With Intune's 2506 release, you can now select apps from the Enterprise App Catalog in the device preparation policy. This allows you to ensure those apps are delivered before the user can access the desktop.\n \n-For related information, see [Add an Enterprise App Catalog app to Microsoft Intune](/intune/app-management/deployment/add-enterprise-catalog).\n+For related information, see [Add an Enterprise App Catalog app to Microsoft Intune](/intune/app-management/deployment/add-enterprise-catalog-app).\n \n ## Windows Autopilot device preparation in automatic mode for Windows 365 Frontline in shared mode is in public preview\n \n",
+      "baseCommitSha": "d10cc8cd093874f886cceffde5bc5a9126bf783a",
+      "commitSha": "6e53e2f814a6ada70f898a64eadee7586ee57c09",
+      "commitMessage": "update",
+      "commitAuthor": "OpenPublishing.Build",
+      "commitDate": "2026-05-01T05:28:04Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-05-01T05:28:04.000Z",
+      "eventId": "intune-docs:6e53e2f814a6ada70f898a64eadee7586ee57c09:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated Enterprise App Catalog reference in device-preparation release notes",
+        "summary": "The device-preparation What's New entry continues to describe Enterprise App Catalog support and now points to the renamed catalog-app creation article.",
+        "adminImpact": "No release behavior changed; update internal bookmarks to the current Enterprise App Catalog guidance.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    },
+    {
+      "filename": "autopilot/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/whats-new.md b/autopilot/whats-new.md\nindex 05156f13ee..9881a9ad92 100644\n--- a/autopilot/whats-new.md\n+++ b/autopilot/whats-new.md\n@@ -49,7 +49,7 @@ Date added: *June 26, 2025*\n \n Windows Autopilot now supports Enterprise App Catalog apps. Microsoft Intune Enterprise App Management enables IT admins to easily manage applications from the Enterprise App Catalog. With Intune's 2506 release, you can now select apps from the Enterprise App Catalog as blocking apps in the Enrollment status page (ESP) profile. This allows you to ensure those apps are delivered before the user can access the desktop.\n \n-For related information, see [Add an Enterprise App Catalog app to Microsoft Intune](/intune/app-management/deployment/add-enterprise-catalog).\n+For related information, see [Add an Enterprise App Catalog app to Microsoft Intune](/intune/app-management/deployment/add-enterprise-catalog-app).\n \n ## Updated build for the low privileged account for Intune Connector for Active Directory\n \n",
+      "baseCommitSha": "d10cc8cd093874f886cceffde5bc5a9126bf783a",
+      "commitSha": "6e53e2f814a6ada70f898a64eadee7586ee57c09",
+      "commitMessage": "update",
+      "commitAuthor": "OpenPublishing.Build",
+      "commitDate": "2026-05-01T05:28:04Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/whats-new",
+      "firstSeenAt": "2026-05-01T05:28:04.000Z",
+      "eventId": "intune-docs:6e53e2f814a6ada70f898a64eadee7586ee57c09:modified:autopilot/whats-new.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated Enterprise App Catalog reference in Autopilot release notes",
+        "summary": "The Autopilot What's New entry for Enterprise App Catalog blocking apps now links to the current catalog-app creation article.",
+        "adminImpact": "No enrollment-status-page behavior changed; use the updated link when configuring catalog apps.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:03:36.048Z"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 7,
+    "authors": [
+      "Nicholas S. White",
+      "OpenPublishing.Build"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/edge-data-security/threat-defense-step-3.md.",
+        "sourceFiles": [
+          "intune/solutions/edge-data-security/threat-defense-step-3.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+          "autopilot/device-preparation/whats-new.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "Windows Autopilot",
+        "summary": "Updated Microsoft Intune documentation in autopilot/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/edge-data-security/threat-defense-step-3.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "Windows Autopilot",
+        "detail": "Updated Microsoft Intune documentation in autopilot/whats-new.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

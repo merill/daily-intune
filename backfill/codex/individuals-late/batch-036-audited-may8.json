@@ -1,0 +1,258 @@
+{
+  "worker": "individuals-late",
+  "kind": "individuals",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "medium",
+  "items": [
+    {
+      "date": "2026-05-08",
+      "eventId": "intune-docs:9a0de0dd2cd12e626343e7d72491afb9b187856b:modified:intune/device-security/compliance/monitor-policy.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Compliance reporting language and dashboard steps corrected",
+        "summary": "Corrects reporting prose and renumbers the compliance-reporting option step; the Noncompliant devices report remains under Devices > Monitor.",
+        "adminImpact": "No reporting behavior changed; use Devices > Monitor for the Noncompliant devices report."
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "eventId": "intune-docs:9a0de0dd2cd12e626343e7d72491afb9b187856b:modified:intune/device-security/compliance/overview.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Compliance-policy and remediation wording corrected",
+        "summary": "Clarifies that the Company Portal retries check-in before issuing retire after 30 days or Lost contact; other edits are wording-only.",
+        "adminImpact": "Ensure users can re-enroll after a failed retry and resulting retire command."
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "eventId": "intune-docs:9a0de0dd2cd12e626343e7d72491afb9b187856b:modified:intune/device-security/compliance/ref-android-administrator-settings.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Android device-administrator compliance wording corrected",
+        "summary": "Changes Android support wording to “later,” corrects “device is reported,” and clarifies Google Mobile Services unavailable regions fail Play Protect evaluation.",
+        "adminImpact": "Account for Play Protect evaluation failures where Google Mobile Services is unavailable."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:2b94c3a6f1ee88218b98f9885b7e989adea527a0:modified:intune/app-management/deployment/add-lob-android.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Android LOB install-status known issues documented",
+        "summary": "Adds Known issues explaining direct Android Enterprise LOB apps install correctly while only Intune admin-center install-status reporting is affected.",
+        "adminImpact": "Do not treat the listed status-reporting issue as an installation failure; verify the app on-device."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:f9cf4cdfa8a47e8d9adbb2f04b866a67163fe8aa:modified:intune/device-security/mobile-threat-defense/create-compliance-policy.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "MTD highest threat level renamed Clear",
+        "summary": "Corrects the most secure MTD compliance threat level from Secured to Clear; devices with any threats remain noncompliant.",
+        "adminImpact": "Use Clear when configuring the strictest MTD compliance threshold."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:e09f99d79666502c565adc6564fad00522285465:modified:intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/fundamentals/role-based-access-control/multi-admin-approval.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:184d0aec17abceeb6420120300cc3442a1e32cb6:modified:autopilot/device-preparation/reporting-monitoring.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Autopilot deployment logs now auto-clean after 28 days",
+        "summary": "Adds that device-preparation deployment records created after feature introduction are automatically removed after 28 days; older Windows 365 records need one-time manual removal.",
+        "adminImpact": "Export needed history and manually clean pre-feature records so reports reflect current deployments."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:6feac7e4bf6c629eeb66b12d6dac6be30c52213a:modified:autopilot/device-preparation/whats-new.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Windows 365 automatic device preparation is generally available",
+        "summary": "Adds GA for automatic-mode device-preparation policies that provision Cloud PCs at creation; Windows 365 Reserve remains preview.",
+        "adminImpact": "Add device-preparation policies to Cloud PC provisioning policies and monitor the deployment report."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:9c6b0018af2f742d2a09359181175556a794d54a:modified:autopilot/device-preparation/whats-new.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Windows 365 automatic device preparation is generally available",
+        "summary": "Adds GA for automatic-mode device-preparation policies that provision Cloud PCs at creation; Windows 365 Reserve remains preview.",
+        "adminImpact": "Add device-preparation policies to Cloud PC provisioning policies and monitor the deployment report."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:446a5686ad22b1115ecdbd457e7cd0001c44d05a:modified:intune/configmgr/hotfix/2509/36949461.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/configmgr/hotfix/2509/36949461.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:4442e954d9d07f0efb907cf27cf4f835163790e6:modified:intune/configmgr/hotfix/2509/36949461.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/configmgr/hotfix/2509/36949461.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:5fe5e9d08052cfb3a3ff2fe63e17e37437a0f30c:modified:intune/device-security/microsoft-tunnel/upgrade.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Microsoft Tunnel May release version updated",
+        "summary": "Changes the Microsoft Tunnel release entry from May 1 version 20260407.1 to May 7 version 20260507.2.",
+        "adminImpact": "Validate Tunnel servers against the May 7 release version."
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "eventId": "intune-docs:a9f3e89795b25e96f8830761709b8d692fe331eb:modified:intune/device-configuration/settings-catalog/ref-android-settings.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/device-configuration/settings-catalog/ref-android-settings.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:638c2c37d7af718c2557536cfbde8e5d2566ff67:added:intune/device-security/conditional-access-integration/device-based-policies.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/device-security/conditional-access-integration/device-based-policies.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:aee059b3ff3d7065563f7f59aca6b5a95669cab7:modified:intune/configmgr/core/misc/pre-release-construction.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/configmgr/core/misc/pre-release-construction.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:aee059b3ff3d7065563f7f59aca6b5a95669cab7:modified:intune/configmgr/core/servers/manage/cmpivot-tsg.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/configmgr/core/servers/manage/cmpivot-tsg.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:aee059b3ff3d7065563f7f59aca6b5a95669cab7:modified:intune/configmgr/protect/deploy-use/troubleshoot-endpoint-client.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/configmgr/protect/deploy-use/troubleshoot-endpoint-client.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:2579c67c08dbfb3e324b7e5c727a566ee434462f:modified:intune/fundamentals/zero-trust.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/fundamentals/zero-trust.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:712a4d24e373bdca1958d69fee48ecf66d865658:modified:intune/device-security/compliance/configure-wsl.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/device-security/compliance/configure-wsl.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:712a4d24e373bdca1958d69fee48ecf66d865658:modified:intune/device-security/compliance/create-policy.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/device-security/compliance/create-policy.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:712a4d24e373bdca1958d69fee48ecf66d865658:modified:intune/device-security/compliance/monitor-policy.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Compliance reporting language and dashboard steps corrected",
+        "summary": "Corrects reporting prose and renumbers the compliance-reporting option step; the Noncompliant devices report remains under Devices > Monitor.",
+        "adminImpact": "No reporting behavior changed; use Devices > Monitor for the Noncompliant devices report."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:712a4d24e373bdca1958d69fee48ecf66d865658:modified:intune/device-security/compliance/ref-android-administrator-settings.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Android device-administrator compliance wording corrected",
+        "summary": "Changes Android support wording to “later,” corrects “device is reported,” and clarifies Google Mobile Services unavailable regions fail Play Protect evaluation.",
+        "adminImpact": "Account for Play Protect evaluation failures where Google Mobile Services is unavailable."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:712a4d24e373bdca1958d69fee48ecf66d865658:modified:intune/device-security/compliance/ref-android-enterprise-settings.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/device-security/compliance/ref-android-enterprise-settings.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:f9309cd3b1bd38eac329ced89d19ba91c8cfdacd:modified:intune/copilot/agents/manage-vulnerability-remediation-agent.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/copilot/agents/manage-vulnerability-remediation-agent.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "eventId": "intune-docs:f9309cd3b1bd38eac329ced89d19ba91c8cfdacd:modified:intune/copilot/agents/vulnerability-remediation-agent.md",
+      "summary": {
+        "category": "Documentation change",
+        "headline": "Article metadata or wording updated",
+        "summary": "Updates intune/copilot/agents/vulnerability-remediation-agent.md with the recorded local documentation patch.",
+        "adminImpact": "No product configuration change is described in this documentation edit."
+      }
+    }
+  ]
+}

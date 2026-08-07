@@ -1,0 +1,187 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-02-02",
+      "summary": {
+        "headline": "Custom RBAC guidance adds Admin tasks permissions and Android kiosk support is clarified",
+        "overview": "The day updates custom-role documentation and Managed Home Screen OEMConfig guidance. The material makes the permissions behind centralized administrative tasks more visible and extends two Managed Home Screen permissions to an additional supported Android management scenario.",
+        "adminImpact": "If you use custom roles, review whether operators who manage centralized Admin tasks need the new Create, Read, Update, or Delete permissions—do not grant them by default. For Managed Home Screen, validate Alarms & Reminders and Write Settings behavior on the documented Android device modes before changing OEMConfig permissions.",
+        "keyChanges": [
+          {
+            "title": "Custom roles can be scoped to centralized Admin tasks",
+            "detail": "The custom-role permission reference adds Admin tasks Create, Delete, Read, and Update operations, enabling least-privilege delegation for device-management administrative task creation, status updates, and review.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-02-create-custom-role-04"
+          },
+          {
+            "title": "Managed Home Screen OEMConfig permissions broaden documented support",
+            "detail": "The Android guidance now marks Alarms & Reminders and Write Settings permissions as supported for another Managed Home Screen device mode. These permissions underpin screensaver, automatic sign-out and relaunch, brightness, and rotation controls.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-02-oemconfig-managed-home-screen-permissions-android-02"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-02-03",
+      "summary": {
+        "headline": "RBAC and service documentation receive a consistency-focused refresh",
+        "overview": "The 12 changes refine Intune role, service-description, Android app-protection, and Edge-management documentation. The evidence is chiefly presentation and reference maintenance, following the previous day’s expansion of custom-role permission coverage.",
+        "adminImpact": "No immediate policy update is indicated. Use the current custom-role and built-in-role references when auditing delegated access, and refresh onboarding or Edge-management documentation from the updated sources.",
+        "keyChanges": [
+          {
+            "title": "Custom-role guidance is expanded and normalized",
+            "detail": "The custom-role article receives a substantial follow-up update after the permission-table changes, keeping the current documentation base for creating and reviewing least-privilege Intune roles.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-03-create-custom-role-09"
+          },
+          {
+            "title": "Intune service-description and Edge-management references are refreshed",
+            "detail": "The day includes service-description and Microsoft Edge-management documentation maintenance, providing updated reference material without an evidenced feature or enforcement change.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-03-microsoft-intune-service-description-01"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-02-04",
+      "summary": {
+        "headline": "Intune RBAC permission references are comprehensively reworked",
+        "overview": "The day’s 32 updates are dominated by a major custom-role and built-in-role-reference cleanup, plus a reorganization of what’s-new material. The content makes permission names, role behavior, Cloud PC role visibility, and administrative documentation more consistent.",
+        "adminImpact": "Use this refresh to audit custom roles against current resource-action names, especially Cloud PKI, Admin tasks, cloud-attached devices, remote tasks, and remote-assistance connectors. Do not infer new access from the documentation alone; compare role assignments and effective permissions in your tenant before changing delegation.",
+        "keyChanges": [
+          {
+            "title": "Custom-role permission reference is reorganized for clearer delegation",
+            "detail": "The revised table covers resource actions across Admin tasks, Android Enterprise, Android FOTA, Cloud PKI, cloud-attached devices, device configuration, and remote tasks. It also makes several permission descriptions and UI terminology more consistent.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-04-create-custom-role-29"
+          },
+          {
+            "title": "Built-in role reference clarifies Cloud PC role visibility",
+            "detail": "The role-reference guidance says that tenants with Windows 365 might see additional Cloud PC roles in the Intune admin center; those roles are not available by default and contain Intune permissions relevant to Cloud PC administration.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-04-role-based-access-control-reference-25"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-02-05",
+      "summary": {
+        "headline": "Autopilot documentation maintenance includes a resolved device-preparation issue",
+        "overview": "The 123 changes are a broad Autopilot and Intune documentation cleanup, much of it removing or moving small fragments across guides. The tangible operational signal is that an existing Windows Autopilot device-preparation known issue is now marked resolved in February 2026; Microsoft Tunnel also records a minor bug-fix release.",
+        "adminImpact": "Review the current device-preparation known-issues page before carrying forward prior workarounds, because the referenced issue is now resolved. Treat the large documentation count as a publishing and information-architecture event, not as 123 separate Autopilot feature changes. Tunnel administrators can schedule normal validation for the minor release rather than a special configuration project.",
+        "keyChanges": [
+          {
+            "title": "Windows Autopilot device-preparation known issue is marked resolved",
+            "detail": "The known-issues page updates its affected issue with a February 2026 resolution status, signaling that teams should retest the scenario and remove temporary mitigations only after confirming normal behavior in their environment.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-02-05-windows-autopilot-device-preparation-known-issues-123"
+          },
+          {
+            "title": "Microsoft Tunnel records a minor bug-fix release",
+            "detail": "The Tunnel upgrade history adds the February 5 image version and describes the release as minor bug fixes, with agent and server image hashes published for operational verification.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-05-in-development-117"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-02-06",
+      "summary": {
+        "headline": "Apple configuration guidance splits into focused custom, feature, restriction, VPN, and Wi-Fi references",
+        "overview": "Five new Apple-focused configuration references headline 75 changes: custom settings, device features, device restrictions, VPN, and Wi-Fi. The documentation consolidates iOS/iPadOS and macOS configuration information around clearer prerequisites and built-in-profile guidance, while Configuration Manager adds an important Software Update Point performance warning.",
+        "adminImpact": "Use the new Apple-specific pages to refresh device-profile runbooks. Prefer built-in Wi-Fi and certificate profiles for sensitive configuration rather than custom profiles, and verify platform and RBAC prerequisites before assignment. For Configuration Manager software update points, restrict synchronized products and categories to what you actually deploy to protect SUSDB and scan performance.",
+        "keyChanges": [
+          {
+            "title": "Custom Apple settings guidance recommends built-in profiles for sensitive configuration",
+            "detail": "The new custom-settings article describes importing iOS/iPadOS and macOS custom profiles, but directs administrators to check Settings catalog first and not to use custom profiles for sensitive Wi-Fi or authentication settings when built-in Wi-Fi and certificate profiles are available.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-06-add-custom-settings-to-apple-devices-in-microsoft-intune-01"
+          },
+          {
+            "title": "Apple device restriction settings receive a dedicated reference",
+            "detail": "The new reference centralizes iOS/iPadOS and macOS restriction settings, including data-transfer and app controls. It documents that certain Wi-Fi-dependent restrictions require the built-in Wi-Fi template rather than a custom profile.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-06-apple-device-restriction-settings-in-microsoft-intune-03"
+          },
+          {
+            "title": "Configuration Manager warns against over-selecting WSUS products and categories",
+            "detail": "Software Update Point guidance now warns that clients scan every update in SUSDB, whether deployed or not. It recommends synchronizing only relevant products and categories and explicitly calls out unsupported stand-alone WSUS items and legacy products to avoid.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-02-06-install-a-software-update-point-72"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-02-07",
+      "summary": {
+        "headline": "Remote Help monitoring adds a notification-policy troubleshooting signal",
+        "overview": "The single update adds a concrete diagnostic condition to Remote Help monitoring guidance: devices can block applications from using notifications. This is a narrow but useful troubleshooting addition.",
+        "adminImpact": "If Remote Help notifications are missing, inspect the Windows notification policy before treating the issue as a Remote Help service problem. Validate the Policy CSP Notifications setting that can disallow cloud notifications on the affected device.",
+        "keyChanges": [
+          {
+            "title": "Remote Help monitoring points to notification-blocking policy",
+            "detail": "The troubleshooting table now identifies a device policy that blocks apps from using notifications and links administrators to the Windows Policy CSP Notifications setting for the relevant remediation detail.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-02-07-remote-help-troubleshoot-monitor-01"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-02-02",
+      "summary": {
+        "headline": "Role delegation, Apple configuration references, and Autopilot maintenance shape the first February week",
+        "overview": "The week recorded 248 documentation changes. Its substantive themes are a comprehensive refresh of custom and built-in Intune role guidance, focused Apple configuration references, a resolved Autopilot device-preparation issue, and configuration-management guardrails for Software Update Point performance and Remote Help notifications.",
+        "adminImpact": "Audit custom role assignments against the refreshed permission surface, especially Admin tasks and Cloud PKI. Rebase Apple configuration runbooks on the new focused pages, use built-in templates for sensitive settings, and limit WSUS synchronization scope in Configuration Manager. Re-test any device-preparation workaround that the known-issues page marks resolved.",
+        "keyChanges": [
+          {
+            "title": "Intune RBAC documentation makes custom-role delegation easier to audit",
+            "detail": "Permission coverage is reorganized across Admin tasks, Android, Cloud PKI, cloud-attached devices, remote tasks, and more. The built-in reference also explains when additional Cloud PC roles can appear in eligible tenants.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-04-create-custom-role-29"
+          },
+          {
+            "title": "Apple configuration documentation is split into five focused references",
+            "detail": "New custom-settings, device-features, device-restrictions, VPN, and Wi-Fi articles provide a clearer Apple policy reference set and reinforce the use of built-in profiles for sensitive Wi-Fi and certificate scenarios.",
+            "product": "Intune",
+            "sourceId": "doc-2026-02-06-add-custom-settings-to-apple-devices-in-microsoft-intune-01"
+          },
+          {
+            "title": "Autopilot device-preparation known issue is resolved",
+            "detail": "A formerly listed device-preparation issue is now marked resolved in February 2026, so teams can retest the affected flow and retire their workaround after validation.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-02-05-windows-autopilot-device-preparation-known-issues-123"
+          },
+          {
+            "title": "Software Update Point guidance warns against unnecessary sync scope",
+            "detail": "Configuration Manager now explicitly warns that every update in SUSDB is scanned by clients, recommending only the products and categories needed for deployment to avoid a negative performance impact.",
+            "product": "Configuration Manager",
+            "sourceId": "doc-2026-02-06-install-a-software-update-point-72"
+          },
+          {
+            "title": "Remote Help monitoring includes notification-policy troubleshooting",
+            "detail": "The Remote Help guide identifies notification-blocking policy as a possible cause of missed notifications and points to the Windows notification Policy CSP.",
+            "product": "Remote Help",
+            "sourceId": "doc-2026-02-07-remote-help-troubleshoot-monitor-01"
+          }
+        ]
+      }
+    }
+  ]
+}

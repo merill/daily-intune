@@ -1,0 +1,59 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md b/intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md\nindex 7b679eca80..aa3a65c4c2 100644\n--- a/intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md\n+++ b/intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md\n@@ -73,6 +73,7 @@ Use the table in this section to troubleshoot common issues with Remote Help on\n   |-----------------------------------|-----------------------------------------------|\n   | The device meets the requirements for Remote Help | See [Plan Remote Help](remote-help-plan.md#supported-platforms) for details. |\n   | The device has network access to the required endpoints | See [Network endpoints for Remote Help](remote-help-plan.md#network-considerations) for details. |\n+  | The device has blocked applications from using notifications | See [Policy CSP - Notifications](/windows/client-management/mdm/policy-csp-notifications.md#disallowcloudnotification) for details. |\n   | The Intune Win32 app detection rule (if used) is correct | Incorrect version detection can cause Intune to think the app is already installed or never installed. See [Deploy Remote Help](remote-help-deploy.md) for details. |\n   | The device is in *do not disturb* mode | If the device is in *do not disturb* mode, notifications for Remote Help session requests won't be shown. Disable *don't disturb* mode and try again or ask the sharer to check their notifications pane. |\n \n",
+      "baseCommitSha": "594fa7e6b6f973e834e63449bb3dcdba6f272d3d",
+      "commitSha": "c8c4df5aa35df8dd0d4cea3807f36ed6b74e67b0",
+      "commitMessage": "Add troubleshooting step for blocked notifications",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-02-07T10:39:35-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remote-help-troubleshoot-monitor",
+      "firstSeenAt": "2026-02-07T18:39:35.000Z",
+      "eventId": "intune-docs:c8c4df5aa35df8dd0d4cea3807f36ed6b74e67b0:modified:intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add troubleshooting step for blocked notifications",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Albert Cabello Serrano"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md.",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,600 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/apps/manage-microsoft-edge.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 4,
+      "changes": 18,
+      "patch": "diff --git a/intune/intune-service/apps/manage-microsoft-edge.md b/intune/intune-service/apps/manage-microsoft-edge.md\nindex fccd7eed18..5f83fc1aab 100644\n--- a/intune/intune-service/apps/manage-microsoft-edge.md\n+++ b/intune/intune-service/apps/manage-microsoft-edge.md\n@@ -467,11 +467,19 @@ Organizations can configure a search provider for users. To configure a search p\n \n Copilot is available on Microsoft Edge for iOS and Android. Users can start Copilot by selecting the Copilot button in bottom bar.\n \n-There are three settings in **Settings**->**General**->**Copilot**.\n+If CopilotMode policy is off, there are settings in **Settings**->**Microsoft Services**->**Copilot**. \n \n-- **Show Copilot** – Control whether to show Bing button on bottom bar\n-- **Allow access to any web page or PDF** – Control whether to allow Copilot to access page content or PDF\n-- **Quick access on text selection** – Control whether to show quick chat panel when text on a webpage is selected\n+- **Show Copilot** – Control whether to show Copilot button on address bar\n+- **Allow Copilot to use page content** – Control whether to allow Copilot to access page content or PDF\n+\n+If CopilotMode policy is on, there are settings in **Settings**->**AI Innovations**->**Copilot**.\n+\n+- **Show Copilot** – Control whether to show Copilot button on address bar\n+- **Allow Copilot to use page content** – Control whether to allow Copilot to access page content or PDF\n+\n+And settings in **Settings**->**AI Innovations**->**Copilot Mode**.\n+\n+- **Enable Copilot prompts card** – Control whether to show Copilot prompts card in the NTP\n \n You can manage the settings for Copilot.\n \n@@ -479,6 +487,7 @@ You can manage the settings for Copilot.\n |:-----------|:-------------|\n |com.microsoft.intune.mam.managedbrowser.Chat |**true** (default) Users can see Copilot button in bottom bar. Setting **Show Copilot** is on by default and can be turned off by users <br>**false** Users can't see Copilot button in bottom bar. Setting **Show Copilot** is disabled and can't be turned on by users|\n |com.microsoft.intune.mam.managedbrowser.ChatPageContext |**true** (default) **Allow access to any web page or PDF** and **Quick access on text selection** can be turned on by users <br>**false** **Allow access to any web page or PDF** and **Quick access on text selection** are disabled and can't be turned on by users|\n+|com.microsoft.intune.mam.managedbrowser.CopilotMode |**true** (default) Copilot Mode features in the settings can be turned on by users <br>**false** Copilot Mode features in the settings are disabled and can't be turned on by users|\n \n ## Data protection app configuration scenarios\n \n@@ -749,6 +758,7 @@ As app configuration policies for managed devices needs device enrollment, any u\n |com.microsoft.intune.mam.managedbrowser.DefaultSearchProviderSearchURL | DefaultSearchProviderSearchURL|\n |com.microsoft.intune.mam.managedbrowser.Chat | EdgeCopilotEnabled |\n |com.microsoft.intune.mam.managedbrowser.ChatPageContext\t| EdgeChatPageContext|\n+|com.microsoft.intune.mam.managedbrowser.CopilotMode\t| CopilotMode |\n \n ## Deploy app configuration scenarios with Microsoft Intune\n \n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "fb0f9837682724874404247756500d25c0a9a73f",
+      "commitMessage": "Revise Copilot settings and management options",
+      "commitAuthor": "toniyang0820",
+      "commitDate": "2026-01-30T15:09:43+08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/manage-microsoft-edge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/manage-microsoft-edge",
+      "firstSeenAt": "2026-01-30T07:09:43.000Z",
+      "eventId": "intune-docs:fb0f9837682724874404247756500d25c0a9a73f:modified:intune/intune-service/apps/manage-microsoft-edge.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revise Copilot settings and management options",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/apps-supported-intune-apps.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/apps/apps-supported-intune-apps.md b/intune/intune-service/apps/apps-supported-intune-apps.md\nindex a069d95499..8ceb5d12f3 100644\n--- a/intune/intune-service/apps/apps-supported-intune-apps.md\n+++ b/intune/intune-service/apps/apps-supported-intune-apps.md\n@@ -1,7 +1,7 @@\n ---\n title: Supported Microsoft Intune Apps\n description: This article provides lists of support partner and Microsoft apps that are commonly used with Microsoft Intune.\n-ms.date: 01/28/2026\n+ms.date: 02/02/2026\n ms.topic: reference\n ms.reviewer: cdemello\n ms.collection:\n@@ -64,8 +64,6 @@ The below apps support the Core Intune App Protection Policy settings and are al\n |Microsoft Launcher|[Android](https://play.google.com/store/apps/details?id=com.microsoft.launcher)|✔|✔ see [Launcher app config](configure-microsoft-launcher.md)|✖|N/A|✖|✖|N/A|✖|\n |Microsoft Lens - PDF Scanner|[Android](https://play.google.com/store/apps/details?id=com.microsoft.office.officelens)|✔|No settings|✖|N/A|✖|✖|N/A|✖|\n |Microsoft Lens - PDF Scanner|[iOS](https://apps.apple.com/us/app/microsoft-lens-pdf-scanner/id975925059)|✔|No settings|✖|N/A|✖|✖|N/A|✖|\n-|Microsoft Lists|[iOS](https://apps.apple.com/us/app/microsoft-lists/id1530637363)|✔|No settings|✔|N/A|N/A|✔|✔|✖|\n-|Microsoft Lists|[Android](https://play.google.com/store/apps/)|✔|No settings|✖|N/A|N/A|✖|✖|✖|\n |Microsoft Loop|[iOS](https://apps.apple.com/us/app/microsoft-loop/id1637682491)|✔|No settings|✔|N/A|✖|N/A|N/A|✖|\n |Microsoft Loop|[Android](https://play.google.com/store/apps/details?id=com.microsoft.loop)|✔|No settings|✔|N/A|✖|N/A|N/A|✖|\n |Microsoft 365 Copilot|[Android](https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow)|✔|✔ see [Office app config](manage-microsoft-office.md)|✔|N/A|✖|✖|✔|✖|\n@@ -279,7 +277,7 @@ Apps table.\n | :::no-loc text=\"Talent.Exchange\"::: <p><img alt=\"Partner app - Talent.Exchange icon\" src=\"./media/apps-supported-intune-apps/icon-p-talentexchange.png\" width=\"100\"> | Talent.Exchange (TALEX) is a Mobile AI Copilot for staffing and resource management professionals. It's designed to:<ul><li>Increase speed of sourcing, screening, and processing of candidates and employees (based on use case).</li><li>Automatically generate skill-based supply inventory by expertise and proficiency levels.</li><li>Provide global market and competitor demand visibility to staffing professionals to increase their revenue and monetization.</li><li>Engage, communicate, and act on-the-go with candidates and colleagues.</li></ul><p>The TALEX mobile app takes staffing and resource management to the next level. It puts the power of domain AI directly into your hands, anytime and anywhere. In addition to being available as an integrated app interface for highly scalable enterprise applications, powerful app features can also operate in standalone mode. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.talent.exchange), [App Store link (iOS)](https://apps.apple.com/us/app/talent-exchange/id6468228155)  |\n | :::no-loc text=\"Tier1 for Intune\"::: <p><img alt=\"Partner app - Tier1 for Intune icon\" src=\"./media/apps-supported-intune-apps/icon-p-tier1.png\" width=\"100\"> | Tier1 for Intune enables client relationship management on the go. Users can review client details, access recent interactions, and manage opportunities from their mobile device. The app provides secure access to call reports, tasks, meetings, and key client data, including profiles, hierarchies, notes, and files. Users can also log interactions, create deals, and assign follow-up tasks directly from their phone or tablet. | [App Store link (iOS)](https://apps.apple.com/us/app/tier1-for-intune/id6741140824) |\n | :::no-loc text=\"Total Triage\"::: <p><img alt=\"Partner app - Total Triage icon\" src=\"./media/apps-supported-intune-apps/icon-p-total-triage.png\" width=\"100\"> | Total Triage by CareXM supports secure patient care coordination for healthcare teams. It provides intelligent call routing, HIPAA-compliant messaging, staff availability scheduling, call tracking, and real-time location mapping. The app helps reduce interruptions, improve staffing efficiency, and enhance patient outcomes while maintaining compliance with Intune app protection policies. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.totaltriage.totaltriage),<br>[App Store link (iOS)](https://apps.apple.com/us/app/total-triage/id1413517362) |\n-| :::no-loc text=\"Unique Moments\"::: <p><img alt=\"Partner app - Unique Moments icon\" src=\"./media/apps-supported-intune-apps/unique-icon.png\" width=\"100\"> | Unlock the power of data with Unique. With the Unique app, you can easily record your meetings whenever and wherever you choose. After a meeting, you can upload the recording into the Unique platform to add it to the deal room. No information is missed anymore.<p>Increase your revenue by improving client interactions and automating routine tasks. With Unique Moments you can record conversations, assign those conversations to deal/coaching rooms, and view deal/coaching rooms. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=ch.unique.moments), [App Store link (iOS)](https://apps.apple.com/ro/app/unique-moments/id1619761948) |\n+| :::no-loc text=\"Unique Moments\"::: <p><img alt=\"Partner app - Unique Moments icon\" src=\"./media/apps-supported-intune-apps/unique-icon.png\" width=\"100\"> | Unlock the power of data with Unique. With the Unique app, you can easily record your meetings whenever and wherever you choose. After a meeting, you can upload the recording into the Unique platform to add it to the deal room. No information is missed anymore.<p>Increase your revenue by improving client interactions and automating routine tasks. With Unique Moments you can record conversations, assign those conversations to deal/coaching rooms, and view deal/coaching rooms. | [Google Play link (Android)](https://play.google.com/store/apps), [App Store link (iOS)](https://apps.apple.com/ro/app) |\n | :::no-loc text=\"Varicent\"::: <p><img alt=\"Partner app - Varicent icon\" src=\"./media/apps-supported-intune-apps/icon-p-varicent.png\" width=\"100\"> | Varicent helps sellers understand which activities provide the best results. Reports, dashboards, and workflows help sales to understand:<ul><li>Achievement</li><li>Bonus</li><li>Commission</li><li>Credits</li><li>Disputes</li><li>Key Performance Indicators (KPIs)</li><li>Opportunity potential</li><li>Plan approval</li><li>Plan assignment</li><li>Quota</li><li>Ranking</li><li>Rewards</li><li>Territory</li><li>Transactional payout</li></ul><p>If you're an individual seller, manager, or leader, Varicent can help you understand the right information at the right time. Full views of charts, graphs, dashboards, and workflow execution (including information input) are right at your fingertips. Realize a better time-to-value for your go-to-market strategy with Varicent Sales Performance Management.<p>NOTE:<br>This application requires that you're a client of Varicent to utilize all features and functionalities and maximize seller performance. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.varicent), [App Store link (iOS)](https://apps.apple.com/app/varicent/id1534176581) |\n | :::no-loc text=\"Vault CRM\"::: <p><img alt=\"Partner app - Vault CRM icon\" src=\"./media/apps-supported-intune-apps/icon-p-vault-crm.png\" width=\"100\"> | Vault CRM is the global intelligent engagement solution for all field and office-based life sciences professionals who interact with healthcare professionals and organizations. Vault CRM offers tailored, role-based experiences for sales and medical organizations. It supports primary care, specialty care, medical science liaisons, key account managers, animal health, consumer health, and pharmacy sales. | [App Store link (iOS)](https://apps.apple.com/us/app/vault-crm/id6503404633) |\n | :::no-loc text=\"Vbrick Mobile\"::: <p><img alt=\"Partner app - Vbrick Mobile icon\" src=\"./media/apps-supported-intune-apps/icon-p-vbrickmobile.png\" width=\"100\"> | Customers using Vbrick Enterprise Video Platform (EVP) can upload and view on-demand videos using the Vbrick mobile app. Customers can use Microsoft Intune to manage access to the Vbrick mobile app. The Vbrick mobile app includes the following features:<ul><li>View a carousel of featured videos</li><li>Browse feeds of recommended and most recent content</li><li>Search for videos</li><li>Scan categories and channels to find videos of interest</li><li>Approved that Media Contributors can upload videos captured on your mobile device</li></ul><p>**NOTE**: The Vbrick app requires users to have an active account and email address in their company's cloud-hosted Vbrick tenant. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.vbrick.rev), [App Store link (iOS)](https://apps.apple.com/us/app/vbrick-mobile/id1630811585) |\n",
+      "baseCommitSha": "7f614d1c8debf51fe27f5460d31a499e8699d56d",
+      "commitSha": "ea3102dc3ce08dd5e2d1c3a7891026ef19bd1fc3",
+      "commitMessage": "36072132 - 2601: Remove MAM app Microsoft Lists",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-30T09:22:03-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/apps-supported-intune-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-supported-intune-apps",
+      "firstSeenAt": "2026-01-30T14:22:03.000Z",
+      "eventId": "intune-docs:ea3102dc3ce08dd5e2d1c3a7891026ef19bd1fc3:modified:intune/intune-service/apps/apps-supported-intune-apps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "36072132 - 2601: Remove MAM app Microsoft Lists",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/apps-supported-intune-apps.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/apps-supported-intune-apps.md b/intune/intune-service/apps/apps-supported-intune-apps.md\nindex 8ceb5d12f3..fbd324b294 100644\n--- a/intune/intune-service/apps/apps-supported-intune-apps.md\n+++ b/intune/intune-service/apps/apps-supported-intune-apps.md\n@@ -277,7 +277,7 @@ Apps table.\n | :::no-loc text=\"Talent.Exchange\"::: <p><img alt=\"Partner app - Talent.Exchange icon\" src=\"./media/apps-supported-intune-apps/icon-p-talentexchange.png\" width=\"100\"> | Talent.Exchange (TALEX) is a Mobile AI Copilot for staffing and resource management professionals. It's designed to:<ul><li>Increase speed of sourcing, screening, and processing of candidates and employees (based on use case).</li><li>Automatically generate skill-based supply inventory by expertise and proficiency levels.</li><li>Provide global market and competitor demand visibility to staffing professionals to increase their revenue and monetization.</li><li>Engage, communicate, and act on-the-go with candidates and colleagues.</li></ul><p>The TALEX mobile app takes staffing and resource management to the next level. It puts the power of domain AI directly into your hands, anytime and anywhere. In addition to being available as an integrated app interface for highly scalable enterprise applications, powerful app features can also operate in standalone mode. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.talent.exchange), [App Store link (iOS)](https://apps.apple.com/us/app/talent-exchange/id6468228155)  |\n | :::no-loc text=\"Tier1 for Intune\"::: <p><img alt=\"Partner app - Tier1 for Intune icon\" src=\"./media/apps-supported-intune-apps/icon-p-tier1.png\" width=\"100\"> | Tier1 for Intune enables client relationship management on the go. Users can review client details, access recent interactions, and manage opportunities from their mobile device. The app provides secure access to call reports, tasks, meetings, and key client data, including profiles, hierarchies, notes, and files. Users can also log interactions, create deals, and assign follow-up tasks directly from their phone or tablet. | [App Store link (iOS)](https://apps.apple.com/us/app/tier1-for-intune/id6741140824) |\n | :::no-loc text=\"Total Triage\"::: <p><img alt=\"Partner app - Total Triage icon\" src=\"./media/apps-supported-intune-apps/icon-p-total-triage.png\" width=\"100\"> | Total Triage by CareXM supports secure patient care coordination for healthcare teams. It provides intelligent call routing, HIPAA-compliant messaging, staff availability scheduling, call tracking, and real-time location mapping. The app helps reduce interruptions, improve staffing efficiency, and enhance patient outcomes while maintaining compliance with Intune app protection policies. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.totaltriage.totaltriage),<br>[App Store link (iOS)](https://apps.apple.com/us/app/total-triage/id1413517362) |\n-| :::no-loc text=\"Unique Moments\"::: <p><img alt=\"Partner app - Unique Moments icon\" src=\"./media/apps-supported-intune-apps/unique-icon.png\" width=\"100\"> | Unlock the power of data with Unique. With the Unique app, you can easily record your meetings whenever and wherever you choose. After a meeting, you can upload the recording into the Unique platform to add it to the deal room. No information is missed anymore.<p>Increase your revenue by improving client interactions and automating routine tasks. With Unique Moments you can record conversations, assign those conversations to deal/coaching rooms, and view deal/coaching rooms. | [Google Play link (Android)](https://play.google.com/store/apps), [App Store link (iOS)](https://apps.apple.com/ro/app) |\n+| :::no-loc text=\"Unique Moments\"::: <p><img alt=\"Partner app - Unique Moments icon\" src=\"./media/apps-supported-intune-apps/unique-icon.png\" width=\"100\"> | Unlock the power of data with Unique. With the Unique app, you can easily record your meetings whenever and wherever you choose. After a meeting, you can upload the recording into the Unique platform to add it to the deal room. No information is missed anymore.<p>Increase your revenue by improving client interactions and automating routine tasks. With Unique Moments you can record conversations, assign those conversations to deal/coaching rooms, and view deal/coaching rooms. | [Google Play link (Android)](https://play.google.com/store/apps), [App Store link (iOS)](https://apps.apple.com) |\n | :::no-loc text=\"Varicent\"::: <p><img alt=\"Partner app - Varicent icon\" src=\"./media/apps-supported-intune-apps/icon-p-varicent.png\" width=\"100\"> | Varicent helps sellers understand which activities provide the best results. Reports, dashboards, and workflows help sales to understand:<ul><li>Achievement</li><li>Bonus</li><li>Commission</li><li>Credits</li><li>Disputes</li><li>Key Performance Indicators (KPIs)</li><li>Opportunity potential</li><li>Plan approval</li><li>Plan assignment</li><li>Quota</li><li>Ranking</li><li>Rewards</li><li>Territory</li><li>Transactional payout</li></ul><p>If you're an individual seller, manager, or leader, Varicent can help you understand the right information at the right time. Full views of charts, graphs, dashboards, and workflow execution (including information input) are right at your fingertips. Realize a better time-to-value for your go-to-market strategy with Varicent Sales Performance Management.<p>NOTE:<br>This application requires that you're a client of Varicent to utilize all features and functionalities and maximize seller performance. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.varicent), [App Store link (iOS)](https://apps.apple.com/app/varicent/id1534176581) |\n | :::no-loc text=\"Vault CRM\"::: <p><img alt=\"Partner app - Vault CRM icon\" src=\"./media/apps-supported-intune-apps/icon-p-vault-crm.png\" width=\"100\"> | Vault CRM is the global intelligent engagement solution for all field and office-based life sciences professionals who interact with healthcare professionals and organizations. Vault CRM offers tailored, role-based experiences for sales and medical organizations. It supports primary care, specialty care, medical science liaisons, key account managers, animal health, consumer health, and pharmacy sales. | [App Store link (iOS)](https://apps.apple.com/us/app/vault-crm/id6503404633) |\n | :::no-loc text=\"Vbrick Mobile\"::: <p><img alt=\"Partner app - Vbrick Mobile icon\" src=\"./media/apps-supported-intune-apps/icon-p-vbrickmobile.png\" width=\"100\"> | Customers using Vbrick Enterprise Video Platform (EVP) can upload and view on-demand videos using the Vbrick mobile app. Customers can use Microsoft Intune to manage access to the Vbrick mobile app. The Vbrick mobile app includes the following features:<ul><li>View a carousel of featured videos</li><li>Browse feeds of recommended and most recent content</li><li>Search for videos</li><li>Scan categories and channels to find videos of interest</li><li>Approved that Media Contributors can upload videos captured on your mobile device</li></ul><p>**NOTE**: The Vbrick app requires users to have an active account and email address in their company's cloud-hosted Vbrick tenant. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.vbrick.rev), [App Store link (iOS)](https://apps.apple.com/us/app/vbrick-mobile/id1630811585) |\n",
+      "baseCommitSha": "ea3102dc3ce08dd5e2d1c3a7891026ef19bd1fc3",
+      "commitSha": "a9870180aa29e0e12c7345e19c1b60e5c674527d",
+      "commitMessage": "updated app path",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-30T09:29:07-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/apps-supported-intune-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-supported-intune-apps",
+      "firstSeenAt": "2026-01-30T14:29:07.000Z",
+      "eventId": "intune-docs:a9870180aa29e0e12c7345e19c1b60e5c674527d:modified:intune/intune-service/apps/apps-supported-intune-apps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updated app path",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 9,
+      "changes": 17,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md b/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\nindex 63683149b6..87561955f8 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\n@@ -48,7 +48,7 @@ The site database can use the default instance of a full installation of SQL Ser\n SQL Server must be located on the site server computer.\n \n > [!IMPORTANT]\n-> Upgrade SQL 2012 or 2014 Express, Standard, Enterprise edition to SQl 2016 or latest version. VC++ need to be upgraded to latest version on Secondary site [Download Latest Microsoft Visual C++ Redistributable Version](https://aka.ms/vs/17/release/vc_redist.x64.exe).\n+> Upgrade SQL 2012 or 2014 Express, Standard, Enterprise edition to SQl 2016 or latest version. Visual C++ Redistributable need to be upgraded to latest version on Secondary site: [Download Latest Microsoft Visual C++ Redistributable Version](https://aka.ms/vs/17/release/vc_redist.x64.exe).\n \n ### Limitations to support\n \n@@ -87,7 +87,6 @@ You can use this version of SQL Server for the following sites:\n - A primary site\n - A secondary site\n \n-\n ### SQL Server 2019: Standard, Enterprise\n \n You can use this version with cumulative update 5 (CU5) or later, as long as your cumulative update version is supported by the SQL Server lifecycle. CU5 is the minimum requirement for SQL Server 2019 as it resolves an issue with [scalar UDF inlining](/sql/relational-databases/user-defined-functions/scalar-udf-inlining).\n@@ -192,7 +191,7 @@ The following table identifies the recommended compatibility levels for Configur\n | SQL Server 2016 | 130, 120, 110 | 130 |\n <!--| SQL Server 2014 | 120, 110 | 110 |-->\n \n-To identify the SQL Server cardinality estimation compatibility level in use for your site database, run the following SQL query on the site database server:\n+To identify the compatibility level in use for your site database, run the following SQL query on the site database server:\n \n ```SQL\n SELECT name, compatibility_level FROM sys.databases\n@@ -228,17 +227,17 @@ Reserve memory for SQL Server by using SQL Server Management Studio. Set the **M\n   - For a primary site: Set a minimum of 8 GB.\n   - For a secondary site: Set a minimum of 4 GB.\n \n-### Other required SQL Server configurations\n+### Required SQL Server configurations\n \n-Configuration Manager sets the below SQL Server configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios.\n+Configuration Manager sets the below SQL Server configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios. Do not alter them unless instructed by Microsoft support.\n \n | Display name | Canonical name | Required value | More information link |\n |--------------|---------------|----------------|------------------|\n | CLR integration | `clr enabled` | True | [Introduction to SQL Server CLR Integration](/dotnet/framework/data/adonet/sql/introduction-to-sql-server-clr-integration). |\n-| Allow Triggers to Fire Others | `nested triggers` | True |[Configure the nested triggers server configuration option](/sql/database-engine/configure-windows/configure-the-nested-triggers-server-configuration-option). |\n-| Max Text Replication Size | `max text repl size (B)` | 2147483647 | See [Configure the max text repl size server configuration option](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option). |\n+| Allow Triggers to Fire Others | `nested triggers` | True | [Configure the nested triggers server configuration option](/sql/database-engine/configure-windows/configure-the-nested-triggers-server-configuration-option). |\n+| Max Text Replication Size | `max text repl size (B)` | 2147483647 | [Configure the max text repl size server configuration option](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option). |\n \n-### Other required database configurations\n+### Required database configurations\n \n Configuration Manager sets the below database configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios - as well as for SQL Always On configurations.\n \n@@ -260,7 +259,7 @@ Do not alter them unless instructed by Microsoft support. The [Support policies\n | Arithmetic Abort Enabled | `ARITHABORT` | True (ON) | [SET ARITHABORT](/sql/t-sql/statements/set-arithabort-transact-sql) |\n | Concatenate Null Yields Null | `CONCAT_NULL_YIELDS_NULL` | True (ON) | [SET CONCAT_NULL_YIELDS_NULL](/sql/t-sql/statements/set-concat-null-yields-null-transact-sql) |\n | Quoted Identifiers Enabled | `QUOTED_IDENTIFIER` | True (ON) | [SET QUOTED_IDENTIFIER](/sql/t-sql/statements/set-quoted-identifier-transact-sql) |\n-| Numeric Round-abort | `NUMERIC_ROUNDABORT` | FALSE (OFF) | [SET NUMERIC_ROUNDABORT](/sql/t-sql/statements/set-numeric-roundabort-transact-sql) |\n+| Numeric Round-abort | `NUMERIC_ROUNDABORT` | False (OFF) | [SET NUMERIC_ROUNDABORT](/sql/t-sql/statements/set-numeric-roundabort-transact-sql) |\n \n ## <a name=\"bkmk_optional\"></a> Optional configurations for SQL Server\n \n",
+      "baseCommitSha": "95e72ee51b17b9ab15ac2e8418c34915741f1fe2",
+      "commitSha": "19f13311c8a4675ed35788f6a54f4a31233986b4",
+      "commitMessage": "Minor fixes in Support for SQL Server page",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T14:44:51Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions",
+      "firstSeenAt": "2026-01-30T14:44:51.000Z",
+      "eventId": "intune-docs:19f13311c8a4675ed35788f6a54f4a31233986b4:modified:intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Minor fixes in Support for SQL Server page",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md b/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md\nindex 5f989cfed8..d004cd9ca0 100644\n--- a/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md\n+++ b/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md\n@@ -494,7 +494,7 @@ When using an availability group, replicas are in a healthy state.\n \n *Applies to: Site database server*\n \n-The SQL Server meets the minimum requirements for site upgrade. For more information, see required [SQL Server](../../../plan-design/configs/support-for-sql-server-versions.md#other-required-sql-server-configurations) and [Database](../../../plan-design/configs/support-for-sql-server-versions.md#other-required-database-configurations) configurations.\n+The SQL Server meets the minimum requirements for site upgrade. For more information, see required [SQL Server](../../../plan-design/configs/support-for-sql-server-versions.md#required-sql-server-configurations) and [Database](../../../plan-design/configs/support-for-sql-server-versions.md#required-database-configurations) configurations.\n \n ### SQL Server edition\n \n",
+      "baseCommitSha": "19f13311c8a4675ed35788f6a54f4a31233986b4",
+      "commitSha": "e5e231b7e18adf6a63d8d1b252837a5659d8c73c",
+      "commitMessage": "Link fix in prereq checks",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:27:25Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks",
+      "firstSeenAt": "2026-01-30T15:27:25.000Z",
+      "eventId": "intune-docs:e5e231b7e18adf6a63d8d1b252837a5659d8c73c:modified:intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Link fix in prereq checks",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md\nindex 9d02c9ce60..d1381e7119 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md\n@@ -76,7 +76,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.6.2 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitMessage": "Updating required .net versions across the checklists",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:36:47Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403",
+      "firstSeenAt": "2026-01-30T15:36:47.000Z",
+      "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updating required .net versions across the checklists",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md\nindex d34775e810..54af70d147 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md\n@@ -102,7 +102,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.6.2 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitMessage": "Updating required .net versions across the checklists",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:36:47Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409",
+      "firstSeenAt": "2026-01-30T15:36:47.000Z",
+      "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updating required .net versions across the checklists",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md\nindex 5e90b3a452..da97e2c3d4 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md\n@@ -102,7 +102,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.6.2 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitMessage": "Updating required .net versions across the checklists",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:36:47Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503",
+      "firstSeenAt": "2026-01-30T15:36:47.000Z",
+      "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updating required .net versions across the checklists",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md\nindex daf7e53ff0..e39c3f4ad6 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md\n@@ -102,7 +102,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.6.2 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitMessage": "Updating required .net versions across the checklists",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:36:47Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509",
+      "firstSeenAt": "2026-01-30T15:36:47.000Z",
+      "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updating required .net versions across the checklists",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md\nindex d1381e7119..b72475644b 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md\n@@ -76,7 +76,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8 on all site systems.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitSha": "3d373afda3ab0f12396f0cbd339950574f067233",
+      "commitMessage": "We do not require .NET 4.8 on clients - just 4.6.2.",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:50:29Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2403",
+      "firstSeenAt": "2026-01-30T15:50:29.000Z",
+      "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md\nindex 54af70d147..112c99caaa 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md\n@@ -102,7 +102,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8 on all site systems.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitSha": "3d373afda3ab0f12396f0cbd339950574f067233",
+      "commitMessage": "We do not require .NET 4.8 on clients - just 4.6.2.",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:50:29Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2409",
+      "firstSeenAt": "2026-01-30T15:50:29.000Z",
+      "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md\nindex da97e2c3d4..b59a96044a 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md\n@@ -102,7 +102,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8 on all site systems.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitSha": "3d373afda3ab0f12396f0cbd339950574f067233",
+      "commitMessage": "We do not require .NET 4.8 on clients - just 4.6.2.",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:50:29Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2503",
+      "firstSeenAt": "2026-01-30T15:50:29.000Z",
+      "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md\nindex e39c3f4ad6..6a852b4674 100644\n--- a/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md\n+++ b/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md\n@@ -102,7 +102,7 @@ For more information, see [Licensing and branches](../../understand/learn-more-e\n \n ### Review Microsoft .NET versions\n \n-Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, clients, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system.\n+Configuration Manager now requires Microsoft .NET Framework version 4.8 for site servers, specific site systems, and the console.<!--10402814--> Before you run setup to install or update the site, first update .NET and restart the system. If possible in your environment, install the latest version of .NET version 4.8 on all site systems.\n \n This installation can put the site system server into a reboot pending state and report errors to the Configuration Manager component status viewer. .NET applications on the server might experience random failures until you restart the server.\n \n",
+      "baseCommitSha": "3d15177f2fddd00d35d736ef46cfa2abf1304889",
+      "commitSha": "3d373afda3ab0f12396f0cbd339950574f067233",
+      "commitMessage": "We do not require .NET 4.8 on clients - just 4.6.2.",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-01-30T15:50:29Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/checklist-for-installing-update-2509",
+      "firstSeenAt": "2026-01-30T15:50:29.000Z",
+      "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/index.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 4,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/remote-actions/index.md b/intune/intune-service/remote-actions/index.md\nindex eb12c824bb..e7e6717e92 100644\n--- a/intune/intune-service/remote-actions/index.md\n+++ b/intune/intune-service/remote-actions/index.md\n@@ -111,10 +111,8 @@ Select one of the following tabs to learn more about the available remote action\n | :::image type=\"icon\" source=\"icons/rename-device.svg\" border=\"false\"::: | [Rename device][RA-REN] | Changes the device name in Intune. |\n | :::image type=\"icon\" source=\"icons/reset-passcode.svg\" border=\"false\"::: | [Reset passcode][RA-PREST] | Resets the device passcode. |\n | :::image type=\"icon\" source=\"icons/restart.svg\" border=\"false\"::: | [Restart][RA-RESTART] | Restarts a device. |\n-| :::image type=\"icon\" source=\"icons/restore-managed-home-screen.svg\" border=\"false\"::: | [Restore managed home screen][RA-RMHS] | Restores the managed home screen on a device. |\n | :::image type=\"icon\" source=\"icons/retire.svg\" border=\"false\"::: | [Retire][RA-RETIRE] | Removes company data and settings from a device, and leaves personal data intact. |\n | :::image type=\"icon\" source=\"icons/send-custom-notification.svg\" border=\"false\"::: | [Send custom notification][RA-NOTIFY] | Sends a custom notification message to a device that can be viewed in the Company Portal app. |\n-| :::image type=\"icon\" source=\"icons/suspend-managed-home-screen.svg\" border=\"false\"::: | [Suspend managed home screen][RA-SMHS] | Suspends the managed home screen on a device. |\n | :::image type=\"icon\" source=\"icons/sync.svg\" border=\"false\"::: | [Sync][RA-SYNC] | Syncs a device with Intune to apply the latest policies and configurations. |\n | :::image type=\"icon\" source=\"icons/wipe.svg\" border=\"false\"::: | [Wipe][RA-WIPE] | Restores a device to its factory settings and removes all data and settings. |\n \n@@ -261,12 +259,10 @@ Remote device actions in Intune empower IT pros to manage devices efficiently an\n [RA-REN]: device-rename.md\n [RA-RESTART]: device-restart.md\n [RA-RETIRE]: device-retire.md\n-[RA-RMHS]: device-restore-managed-home-screen.md\n [RA-ROTLAP]: ../protect/windows-laps-policy.md#manually-rotate-passwords\n [RA-SCAN]: device-scan-defender.md\n [RA-SCANF]: device-full-scan.md\n [RA-SCANQ]: device-quick-scan.md\n-[RA-SMHS]: device-suspend-managed-home-screen.md \n [RA-SYNC]: device-sync.md\n [RA-TVIEW]: ../fundamentals/teamviewer-support.md\n [RA-WIPE]: device-wipe.md\n",
+      "baseCommitSha": "51ceddbdc0afda67e48b4ccd2ec0925c0865997a",
+      "commitSha": "a35281d3b81d29b715da6b7af54f14b58e7219c9",
+      "commitMessage": "Revert \"[Remote actions] Managed home screen\"",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-30T11:26:12-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/index",
+      "firstSeenAt": "2026-01-30T16:26:12.000Z",
+      "eventId": "intune-docs:a35281d3b81d29b715da6b7af54f14b58e7219c9:modified:intune/intune-service/remote-actions/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert \"[Remote actions] Managed home screen\"",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex b2da9c1b3c..4c846b64b0 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -28,10 +28,10 @@ appliesto:\n \n Date added: *January 30, 2026*  \n \n-You can now configure up to 25 apps in a Windows Autopilot device preparation policy. This increase helps you install more apps during OOBE so that you can take full advantage of Autopilot device preparation. The limit change applies to both user-driven and automatic modes, including all Cloud PC offerings. If you configure more apps, be sure to adjust your deployment timeout settings to avoid unexpected timeouts. For more information about assigning apps, see:  \n+The maximum number of apps that can be configured in a Windows Autopilot device preparation policy has been increased to 25. This update supports organizations that require more apps to be delivered during the out-of-box experience (OOBE). The increased limit applies to both user-driven and automatic modes, including all Cloud PC offerings. Review and adjust your deployment timeout settings as needed to help avoid unexpected timeouts. For more information about assigning apps, see:  \n \n-*  [Windows Autopilot device preparation user-driven Microsoft Entra join: Assign applications and PowerShell scripts to device group](tutorial/user-driven/entra-join-assign-apps-scripts.md)\n-*  [Windows Autopilot device preparation in automatic mode: Assign applications and PowerShell scripts to device group](tutorial/automatic/automatic-assign-apps-scripts.md)\n+*  [Windows Autopilot device preparation user-driven Microsoft Entra join: Assign applications and PowerShell scripts to device group](tutorial/user-driven/entra-join-assign-apps-scripts.md)  \n+*  [Windows Autopilot device preparation in automatic mode: Assign applications and PowerShell scripts to device group](tutorial/automatic/automatic-assign-apps-scripts.md)  \n \n ## Windows Autopilot device preparation in automatic mode for Windows 365 Enterprise, Windows 365 Frontline in dedicated mode, and Windows 365 Cloud Apps is in public preview  \n \n",
+      "baseCommitSha": "18971373b6d028fd09ea60cf4d9a4ba7592524f3",
+      "commitSha": "6cd0889a165e9e4dcdfc2e65f9455265c3e4e7fd",
+      "commitMessage": "Increase app limit to 25 in Autopilot device preparation",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-01-30T11:36:33-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-01-30T16:36:33.000Z",
+      "eventId": "intune-docs:6cd0889a165e9e4dcdfc2e65f9455265c3e4e7fd:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Increase app limit to 25 in Autopilot device preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/apps-win32-deploy-update-package.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/apps-win32-deploy-update-package.md b/intune/intune-service/apps/apps-win32-deploy-update-package.md\nindex a9fb3dcf06..236b52b2e4 100644\n--- a/intune/intune-service/apps/apps-win32-deploy-update-package.md\n+++ b/intune/intune-service/apps/apps-win32-deploy-update-package.md\n@@ -17,7 +17,7 @@ ms.collection:\n You can deploy a Windows update package (*.msu* file) to Windows devices managed by Intune by using the [Intune Win32 app management](../apps/apps-win32-app-management.md) capabilities.\n \n > [!NOTE]\n-> Deploying updates as Win32 apps isn't the recommended approach as described in this article. Use Windows Update policies instead, including [Update rings](../../../device-updates/windows/update-rings.md), [Feature updates](../../../device-updates/windows/feature-updates.md), and [Quality updates](../../../device-updates/windows/expedite-updates.md). The Win32 app method can provide more granular control when needed but requires more manual effort.\n+> Deploying updates as Win32 apps isn't the recommended approach as described in this article. Use Windows Update policies instead, including [Update rings](../../device-updates/windows/update-rings.md), [Feature updates](../../device-updates/windows/feature-updates.md), and [Quality updates](../../device-updates/windows/expedite-updates.md). The Win32 app method can provide more granular control when needed but requires more manual effort.\n \n The following steps help you deploy a Windows update package to Intune.\n \n",
+      "baseCommitSha": "3b97a2230ff9142635e98f768b026c2ccf2d56fd",
+      "commitSha": "d3b35a1de456bf9bf6ea3643f7541993fdbfce13",
+      "commitMessage": "Fix broken documentation links in apps-win32-deploy-update-package.md",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-30T13:28:51-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/apps-win32-deploy-update-package.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-win32-deploy-update-package",
+      "firstSeenAt": "2026-01-30T18:28:51.000Z",
+      "eventId": "intune-docs:d3b35a1de456bf9bf6ea3643f7541993fdbfce13:modified:intune/intune-service/apps/apps-win32-deploy-update-package.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix broken documentation links in apps-win32-deploy-update-package.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-scopes.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/device-scopes.md b/intune/advanced-analytics/device-scopes.md\nindex 8ac67a8be2..55dfae6976 100644\n--- a/intune/advanced-analytics/device-scopes.md\n+++ b/intune/advanced-analytics/device-scopes.md\n@@ -42,7 +42,7 @@ Additional prerequisites for custom device scopes:\n >\n >> [!NOTE]\n >> After custom device scopes are created, other users with access to endpoint analytics can use them.\\\n->> Only the user who created the custom device scopes or a Global administrator can delete the custom device scopes.\n+>> Only the user who created the custom device scopes or a Global Administrator can delete the custom device scopes.\n :::column-end:::\n :::row-end:::\n \n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "48273b73277bbad0c45ed662d45ce4f7e2a87148",
+      "commitMessage": "Global Admin casing",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-30T14:58:39-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-scopes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-scopes",
+      "firstSeenAt": "2026-01-30T19:58:39.000Z",
+      "eventId": "intune-docs:48273b73277bbad0c45ed662d45ce4f7e2a87148:modified:intune/advanced-analytics/device-scopes.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Global Admin casing",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-scopes.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/role-based-access-control.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/intune/intune-service/fundamentals/role-based-access-control.md b/intune/intune-service/fundamentals/role-based-access-control.md\nindex 7e872c58b7..61363279cd 100644\n--- a/intune/intune-service/fundamentals/role-based-access-control.md\n+++ b/intune/intune-service/fundamentals/role-based-access-control.md\n@@ -67,16 +67,16 @@ The following table identifies the Microsoft Entra roles that have access to Int\n \n | Microsoft Entra role | All Intune data | Intune audit data |\n | --- | :---: | :---: |\n-| Global Administrator [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n-| Intune Service Administrator [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n-| Conditional Access Administrator [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | None | None |\n-| Security Administrator [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only (full administrative permissions for Endpoint Security node) | Read only |\n-| Security Operator [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n-| Security Reader [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n+| Global Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n+| Intune Service Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n+| Conditional Access Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | None | None |\n+| Security Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only (full administrative permissions for Endpoint Security node) | Read only |\n+| Security Operator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n+| Security Reader :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n | Compliance Administrator | None | Read only |\n | Compliance Data Administrator | None | Read only |\n-| Global Reader [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read Only | Read Only |\n-| Helpdesk administrator [![Privileged label icon](../media/privileged-lable.png)](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) (This role is equivalent to the Intune *Help Desk Operator* role) | Read Only | Read Only |\n+| Global Reader :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read Only | Read Only |\n+| Helpdesk administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) (This role is equivalent to the Intune *Help Desk Operator* role) | Read Only | Read Only |\n | Reports Reader | None | Read Only|\n \n In addition to the Microsoft Entra roles with permission within Intune, the following three areas of Intune are direct extensions of Microsoft Entra: **Users**, **Groups**, and **Conditional Access**. Instances of these objects and configurations made from within Intune exist in Microsoft Entra. As Microsoft Entra objects, they can be managed by Microsoft Entra administrators with sufficient permissions granted by an Microsoft Entra role. Similarly, Intune admins with sufficient permissions for Intune can view and manage these object types that are created in Microsoft Entra.\n",
+      "baseCommitSha": "bf6513fb3a1a21d6f9b352e5650050d8e2109872",
+      "commitSha": "48273b73277bbad0c45ed662d45ce4f7e2a87148",
+      "commitMessage": "Global Admin casing",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-30T14:58:39-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/role-based-access-control.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/role-based-access-control",
+      "firstSeenAt": "2026-01-30T19:58:39.000Z",
+      "eventId": "intune-docs:48273b73277bbad0c45ed662d45ce4f7e2a87148:modified:intune/intune-service/fundamentals/role-based-access-control.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Global Admin casing",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/role-based-access-control.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 8,
+      "changes": 16,
+      "patch": "diff --git a/intune/intune-service/fundamentals/role-based-access-control.md b/intune/intune-service/fundamentals/role-based-access-control.md\nindex 61363279cd..fae01b2f6b 100644\n--- a/intune/intune-service/fundamentals/role-based-access-control.md\n+++ b/intune/intune-service/fundamentals/role-based-access-control.md\n@@ -67,16 +67,16 @@ The following table identifies the Microsoft Entra roles that have access to Int\n \n | Microsoft Entra role | All Intune data | Intune audit data |\n | --- | :---: | :---: |\n-| Global Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n-| Intune Service Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n-| Conditional Access Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | None | None |\n-| Security Administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only (full administrative permissions for Endpoint Security node) | Read only |\n-| Security Operator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n-| Security Reader :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n+| Global Administrator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n+| Intune Service Administrator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read/write | Read/write |\n+| Conditional Access Administrator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | None | None |\n+| Security Administrator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only (full administrative permissions for Endpoint Security node) | Read only |\n+| Security Operator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n+| Security Reader [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read only | Read only |\n | Compliance Administrator | None | Read only |\n | Compliance Data Administrator | None | Read only |\n-| Global Reader :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read Only | Read Only |\n-| Helpdesk administrator :::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) (This role is equivalent to the Intune *Help Desk Operator* role) | Read Only | Read Only |\n+| Global Reader [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) | Read Only | Read Only |\n+| Helpdesk administrator [:::image type=\"icon\" source=\"../../media/icons/16/privileged-label.svg\" border=\"false\":::](/entra/identity/role-based-access-control/privileged-roles-permissions?tabs=admin-center) (This role is equivalent to the Intune *Help Desk Operator* role) | Read Only | Read Only |\n | Reports Reader | None | Read Only|\n \n In addition to the Microsoft Entra roles with permission within Intune, the following three areas of Intune are direct extensions of Microsoft Entra: **Users**, **Groups**, and **Conditional Access**. Instances of these objects and configurations made from within Intune exist in Microsoft Entra. As Microsoft Entra objects, they can be managed by Microsoft Entra administrators with sufficient permissions granted by an Microsoft Entra role. Similarly, Intune admins with sufficient permissions for Intune can view and manage these object types that are created in Microsoft Entra.\n",
+      "baseCommitSha": "48273b73277bbad0c45ed662d45ce4f7e2a87148",
+      "commitSha": "22ce4ba1a3282a51e755acc5c5554611e4e68de6",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-30T15:04:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/role-based-access-control.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/role-based-access-control",
+      "firstSeenAt": "2026-01-30T20:04:55.000Z",
+      "eventId": "intune-docs:22ce4ba1a3282a51e755acc5c5554611e4e68de6:modified:intune/intune-service/fundamentals/role-based-access-control.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 67,
+      "changes": 67,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md b/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\ndeleted file mode 100644\nindex 745f73b2b4..0000000000\n--- a/intune/intune-service/remote-actions/device-restore-managed-home-screen.md\n+++ /dev/null\n@@ -1,70 +0,0 @@\n----\n-title: \"Remote Device Action: Restore Managed Home Screen\"\n-description: Learn how to restore the managed home screen with Microsoft Intune.\n-ms.date: 01/20/2026\n-ms.topic: how-to\n----\n-\n-# Remote device action: restore managed home screen\n-\n-The *restore managed home screen* remote action in Intune re-enables the managed home screen on a device that was previously suspended. When the managed home screen is restored, the device will enforce the managed home screen policies again, restricting access to only the apps and settings defined by those policies.\n-\n-## Prerequisites\n-\n-:::row:::\n-:::column span=\"1\":::\n-[!INCLUDE [platform](../../includes/requirements/platform.md)]\n-\n-:::column-end:::\n-:::column span=\"3\":::\n-\n-> This remote action supports the following platforms:\n-> - Android Enterprise corporate-owned Fully Managed (COBO)\n-> - Android Enterprise corporate-owned Dedicated (COSU)\n-\n-:::column-end:::\n-:::row-end:::\n-\n-:::row:::\n-:::column span=\"1\":::\n-\n-[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n-:::column-end:::\n-:::column span=\"3\":::\n-> To run this remote action, use an account with at least one of the following roles:\n->\n-> - [Help Desk Operator][INT-R1]\n-> - [School Administrator][INT-R2]\n-> - [Custom role][INT-RC] that includes:\n->   - The permission **Remote tasks/Restore Managed Home Screen**\n->   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n-:::column-end:::\n-:::row-end:::\n-\n-## How to restore the managed home screen from the Intune admin center\n-\n-1. In the [Microsoft Intune admin center][INT-AC], select **Devices** > [**All devices**][INT-ALLD].\n-1. From the devices list, select a device.\n-1. At the top of the device overview pane, find the row of remote action icons. Select **Restore managed home screen**.\n-\n-## User experience\n-\n-Once the managed home screen is restored, the device will enforce the managed home screen policies again, and the user will have access to the managed home screen and apps.\n-\n-\n-## Reference links\n-\n-- Microsoft Graph API: [managedDevice resource type][GRAPH-1]\n-<!--\n-- Microsoft Graph API: [restoreManagedHomeScreen action][GRAPH-2]\n--->\n-\n-[INT-AC]: https://go.microsoft.com/fwlink/?linkid=2109431\n-[INT-ALLD]: https://go.microsoft.com/fwlink/?linkid=2333814\n-\n-[INT-RC]: /intune/intune-service/fundamentals/create-custom-role\n-[INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n-[INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n-\n-[GRAPH-1]: /graph/api/resources/intune-devices-manageddevice\n-[GRAPH-2]: /graph/api/intune-devices-manageddevice-RestoreManagedHomeScreen\n",
+      "baseCommitSha": "51ceddbdc0afda67e48b4ccd2ec0925c0865997a",
+      "commitSha": "a35281d3b81d29b715da6b7af54f14b58e7219c9",
+      "commitMessage": "Revert \"[Remote actions] Managed home screen\"",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-30T11:26:12-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-restore-managed-home-screen",
+      "firstSeenAt": "2026-01-30T16:26:12.000Z",
+      "eventId": "intune-docs:a35281d3b81d29b715da6b7af54f14b58e7219c9:removed:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Revert \"[Remote actions] Managed home screen\"",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 66,
+      "changes": 66,
+      "patch": "diff --git a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md b/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\ndeleted file mode 100644\nindex 634a15a18e..0000000000\n--- a/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md\n+++ /dev/null\n@@ -1,69 +0,0 @@\n----\n-title: \"Remote Device Action: Suspend Managed Home Screen\"\n-description: Learn how to suspend the managed home screen with Microsoft Intune.\n-ms.date: 01/20/2026\n-ms.topic: how-to\n----\n-\n-# Remote device action: suspend managed home screen\n-\n-The *suspend managed home screen* remote action in Intune temporarily disables the managed home screen on a device. When the managed home screen is suspended, the device will no longer enforce the managed home screen policies, and the user will have access to the standard home screen and apps.\n-\n-## Prerequisites\n-\n-:::row:::\n-:::column span=\"1\":::\n-[!INCLUDE [platform](../../includes/requirements/platform.md)]\n-\n-:::column-end:::\n-:::column span=\"3\":::\n-\n-> This remote action supports the following platforms:\n-> - Android Enterprise corporate-owned Fully Managed (COBO)\n-> - Android Enterprise corporate-owned Dedicated (COSU)\n-\n-:::column-end:::\n-:::row-end:::\n-\n-:::row:::\n-:::column span=\"1\":::\n-\n-[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n-:::column-end:::\n-:::column span=\"3\":::\n-> To run this remote action, use an account with at least one of the following roles:\n->\n-> - [Help Desk Operator][INT-R1]\n-> - [School Administrator][INT-R2]\n-> - [Custom role][INT-RC] that includes:\n->   - The permission **Remote tasks/Temporarily Suspend Managed Home Screen**\n->   - Permissions that provide visibility into and access to managed devices in Intune (for example, Organization/Read, Managed devices/Read)\n-:::column-end:::\n-:::row-end:::\n-\n-## How to suspend the managed home screen from the Intune admin center\n-\n-1. In the [Microsoft Intune admin center][INT-AC], select **Devices** > [**All devices**][INT-ALLD].\n-1. From the devices list, select a device.\n-1. At the top of the device overview pane, find the row of remote action icons. Select **Suspend managed home screen**.\n-\n-## User experience\n-\n-Once the managed home screen is suspended, the device will no longer enforce the managed home screen policies, and the user will have access to the standard home screen and apps.\n-\n-## Reference links\n-\n-- Microsoft Graph API: [managedDevice resource type][GRAPH-1]\n-<!--\n-- Microsoft Graph API: [temporarilySuspendManagedHomeScreen action][GRAPH-2]\n--->\n-\n-[INT-AC]: https://go.microsoft.com/fwlink/?linkid=2109431\n-[INT-ALLD]: https://go.microsoft.com/fwlink/?linkid=2333814\n-\n-[INT-RC]: /intune/intune-service/fundamentals/create-custom-role\n-[INT-R1]: /intune/intune-service/fundamentals/role-based-access-control-reference#help-desk-operator\n-[INT-R2]: /intune/intune-service/fundamentals/role-based-access-control-reference#school-administrator\n-\n-[GRAPH-1]: /graph/api/resources/intune-devices-manageddevice\n-[GRAPH-2]: /graph/api/intune-devices-manageddevice-TemporarilySuspendManagedHomeScreen\n",
+      "baseCommitSha": "51ceddbdc0afda67e48b4ccd2ec0925c0865997a",
+      "commitSha": "a35281d3b81d29b715da6b7af54f14b58e7219c9",
+      "commitMessage": "Revert \"[Remote actions] Managed home screen\"",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-30T11:26:12-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/remote-actions/device-suspend-managed-home-screen",
+      "firstSeenAt": "2026-01-30T16:26:12.000Z",
+      "eventId": "intune-docs:a35281d3b81d29b715da6b7af54f14b58e7219c9:removed:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Revert \"[Remote actions] Managed home screen\"",
+        "summary": "Removed Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 12,
+    "totalFiles": 21,
+    "authors": [
+      "Laura Newsad",
+      "Paolo Matarazzo",
+      "Pavel Yurenev",
+      "nicholasswhite",
+      "toniyang0820"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 19 updated, and 2 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.",
+        "sourceFiles": [
+          "intune/intune-service/apps/manage-microsoft-edge.md",
+          "intune/intune-service/apps/apps-supported-intune-apps.md",
+          "intune/intune-service/apps/apps-supported-intune-apps.md",
+          "intune/intune-service/remote-actions/index.md",
+          "intune/intune-service/apps/apps-win32-deploy-update-package.md",
+          "intune/intune-service/fundamentals/role-based-access-control.md",
+          "intune/intune-service/fundamentals/role-based-access-control.md",
+          "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
+          "intune/intune-service/remote-actions/device-suspend-managed-home-screen.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installi",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+          "intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
+          "intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "sourceFiles": [
+          "autopilot/device-preparation/whats-new.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-scopes.md.",
+        "sourceFiles": [
+          "intune/advanced-analytics/device-scopes.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installi"
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-scopes.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

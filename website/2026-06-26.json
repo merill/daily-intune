@@ -1,0 +1,84 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/remote-help/start-session.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/remote-help/start-session.md b/intune/remote-help/start-session.md\nindex d24bd1bbeb..c727c08ad4 100644\n--- a/intune/remote-help/start-session.md\n+++ b/intune/remote-help/start-session.md\n@@ -264,8 +264,8 @@ Remote Help displays a warning if the sharer's device isn't enrolled in Microsof\n \n     c. During an unattended control session, the screen of the device you're connected to is blocked due to security and privacy reasons, and the user is notified if they interact with it. If the user interacts with the blocked screen, they'll receive a notification letting them know that you're currently accessing the device. When the notification is shown, you and the end user won't be able to take any action for 30 seconds when this screen will close.\n \n-      > [!TIP]\n-      > We recommend limiting your activities to nonsensitive operations during an unattended control session, even with the screen of the device you're connected to blocked to the end user.  \n+      > [!IMPORTANT]\n+      > Do not perform sensitive operations during an unattended control session. On devices that use unattended access, do not install  or allowlist any apps that can record or mirror the screen. \n \n 1. At the end of the session, select **Leave** to end the session from the admin console.\n \n@@ -296,4 +296,4 @@ Remote Help displays a warning if the sharer's device isn't enrolled in Microsof\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "5ffa14a126c4cf8d47c6439813323d9ca0d38e69",
+      "commitSha": "ab7726481f23ce26f49dd86b39ef7532207b7702",
+      "commitMessage": "Revise unattended session guidelines for security (#20472)",
+      "commitAuthor": "Kara Wang",
+      "commitDate": "2026-06-26T16:26:54-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/remote-help/start-session.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/remote-help/start-session",
+      "firstSeenAt": "2026-06-26T20:26:54.000Z",
+      "eventId": "intune-docs:ab7726481f23ce26f49dd86b39ef7532207b7702:modified:intune/remote-help/start-session.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revise unattended session guidelines for security (#20472)",
+        "summary": "Updated Microsoft Intune documentation in intune/remote-help/start-session.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/remote-help/deploy.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "patch": "diff --git a/intune/remote-help/deploy.md b/intune/remote-help/deploy.md\nindex 11361de020..81319de881 100644\n--- a/intune/remote-help/deploy.md\n+++ b/intune/remote-help/deploy.md\n@@ -271,8 +271,9 @@ Content-Type: application/json\n \n To protect user privacy on the device, both the Android OS and device OEMs require certain permissions to be granted to the Remote Help app.\n \n-> [!NOTE]\n-> We don't recommend installing or allowlist apps capable of screen recording or mirroring if you intend to use unattended mode in your organization for risky operations.\n+ > [!IMPORTANT]\n+ > On devices that use unattended access, do not install or allowlist any apps that can record or mirror the screen. We also recommend that you avoid performing sensitive operations during an unattended control session.\n+\n \n ##### Camera\n \n@@ -492,4 +493,4 @@ To apply conditional access policies to Remote Help, follow these steps:\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "ab7726481f23ce26f49dd86b39ef7532207b7702",
+      "commitSha": "ce89dea7967d0d39d9b0771fef106e190bc8d0f4",
+      "commitMessage": "Revise permissions advice for Remote Help app (#20473)",
+      "commitAuthor": "Kara Wang",
+      "commitDate": "2026-06-26T16:33:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/remote-help/deploy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/remote-help/deploy",
+      "firstSeenAt": "2026-06-26T20:33:30.000Z",
+      "eventId": "intune-docs:ce89dea7967d0d39d9b0771fef106e190bc8d0f4:modified:intune/remote-help/deploy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revise permissions advice for Remote Help app (#20473)",
+        "summary": "Updated Microsoft Intune documentation in intune/remote-help/deploy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Kara Wang"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/remote-help",
+        "summary": "Updated Microsoft Intune documentation in intune/remote-help/start-session.md. Updated Microsoft Intune documentation in intune/remote-help/deploy.md.",
+        "sourceFiles": [
+          "intune/remote-help/start-session.md",
+          "intune/remote-help/deploy.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/remote-help",
+        "detail": "Updated Microsoft Intune documentation in intune/remote-help/start-session.md. Updated Microsoft Intune documentation in intune/remote-help/deploy.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

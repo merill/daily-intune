@@ -1,0 +1,249 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md b/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md\nindex 2cb3d53ab7..182784a036 100644\n--- a/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md\n+++ b/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md\n@@ -58,7 +58,7 @@ For more specific information on this enrollment type, go to:\n | Devices are user-less, such as kiosk or dedicated device. | ✅ |\n | Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. Applications on BYOD or personal devices can be managed using [MAM](deployment-guide-enrollment-mamwe.md) (opens another Microsoft article), or [User and Device enrollment](#byod-user-and-device-enrollment) (in this article). |\n | You have existing devices. | ❌ <br/><br/>Existing devices should be enrolled using [Apple Configurator](#apple-configurator-enrollment) (in this article). |\n-| Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users must unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specifics apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n+| Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users must unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specific apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n | You use the device enrollment manager (DEM) account. | ❌ <br/><br/> The DEM account isn't supported. |\n \n ---\n@@ -233,7 +233,7 @@ For more specific information on this enrollment type, go to [Apple Configurator\n | Devices are associated with a single user. | ✅ |\n | Devices are user-less, such as kiosk or dedicated device. | ✅ |\n | Devices are personal or BYOD. | ❌ <br/><br/> Not recommended. Applications on BYOD or personal devices can be managed using [MAM](deployment-guide-enrollment-mamwe.md) (opens another Microsoft article), or [User and Device enrollment](#byod-user-and-device-enrollment) (in this article). |\n-| Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users need to unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specifics apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n+| Devices are managed by another MDM provider. | ❌ <br/><br/> To be fully managed by Intune, users need to unenroll from the current MDM provider, and then enroll in Intune. Or, you can use MAM to manage specific apps on the device. Since these devices are organization-owned, we recommend enrolling in Intune. |\n | You use the device enrollment manager (DEM) account. | ❌ <br/><br/> The DEM account isn't supported. |\n \n ---\n@@ -364,7 +364,7 @@ This list provides an overview of the tasks required of administrators.\n - Be sure the [Apple MDM push certificate](../enrollment/apple-mdm-push-certificate-get.md) is added to Intune, and is active. This certificate is required to enroll iOS/iPadOS devices. For more information, go to [Get an Apple MDM push certificate](../enrollment/apple-mdm-push-certificate-get.md).\n - In the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), create the enrollment profile. When you create the enrollment profile, you have the following options:\n \n-  - **Device enrollment with Company Portal**: This option is a typical enrollment in the Company Portal app for personal devices. The device is managed, not just specifics apps or features. With this option, consider the following information:\n+  - **Device enrollment with Company Portal**: This option is a typical enrollment in the Company Portal app for personal devices. The device is managed, not just specific apps or features. With this option, consider the following information:\n \n     - You can deploy certificates that apply to the whole device.\n     - Users must install updates. Only devices enrolled using Automated Device Enrollment (ADE) can receive updates using MDM policies or profiles.\n",
+      "baseCommitSha": "35b15eed00cc86b7de7767def44971c77a34bd84",
+      "commitSha": "0335e80bff7378b6cd9e26c029eac8d2b75075d3",
+      "commitMessage": "Fix typos and improve clarity in deployment guide",
+      "commitAuthor": "Jake Dowie",
+      "commitDate": "2026-03-23T12:13:38Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados",
+      "firstSeenAt": "2026-03-23T12:13:38.000Z",
+      "eventId": "intune-docs:0335e80bff7378b6cd9e26c029eac8d2b75075d3:modified:intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix typos and improve clarity in deployment guide",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/apps-supported-intune-apps.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/apps-supported-intune-apps.md b/intune/intune-service/apps/apps-supported-intune-apps.md\nindex c66f7927d5..032354e219 100644\n--- a/intune/intune-service/apps/apps-supported-intune-apps.md\n+++ b/intune/intune-service/apps/apps-supported-intune-apps.md\n@@ -143,7 +143,7 @@ Apps table.\n | App   title | App description | App store links for supported   platforms |\n |-------------------------------------------------|-------------------------|---------------------------------------------|\n | :::no-loc text=\"365Pay\"::: <p><img alt=\"Partner app - 365Pay icon\" src=\"./media/apps-supported-intune-apps/icon-p-365pay.png\" width=\"100\"> | The 365Pay app provides a quick way to buy products across various experiences offered in your workplace. Use your unique QR code to touchlessly check out at any 365 self-checkout experiences. You can earn loyalty points while ordering ahead from the cafeteria and scan and pay for products using the app itself. The 365Pay app also helps you stay up to date on new and exciting products and promotions being offered at your location! | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.avinside&hl=en_US),<br>[App Store link (iOS)](https://apps.apple.com/us/app/365pay/id1087422156) |\n-| :::no-loc text=\"4CEE Connect\"::: <p><img alt=\"Partner app - 4CEE Connect icon\" src=\"./media/apps-supported-intune-apps/icon-p-4cee-connect.png\" width=\"100\"> | The 4CEE Connect app is a mobile app for employee expenses. Just take a photo of the receipt with your smartphone and add it to the entered expense. The amount and date are automatically recognized from the receipt. This expense is then sent to your workflow application, for example Easy Invoice or Basware, and processed as an invoice. You can also view and manage your current purchase requests. In addition, the app enables you to perform approval tasks as a budget holder. The 4CEE Connect app was previously Easy Expense by Easy Systems and Expense Service by ICreative.  | [Google Play link (Android)]( https://play.google.com/store/apps/details?id=com.fourcee.connect&pcampaignid=web_share),<br>[App Store link (iOS)](https://apps.apple.com/nl/app/4cee-connect/id1618249508?l=en-GB) |\n+| :::no-loc text=\"4CEE Connect\"::: <p><img alt=\"Partner app - 4CEE Connect icon\" src=\"./media/apps-supported-intune-apps/icon-p-4cee-connect.png\" width=\"100\"> | The 4CEE Connect app is a mobile app for employee expenses. Just take a photo of the receipt with your smartphone and add it to the entered expense. The amount and date are automatically recognized from the receipt. This expense is then sent to your workflow application, for example Easy Invoice or Basware, and processed as an invoice. You can also view and manage your current purchase requests. In addition, the app enables you to perform approval tasks as a budget holder. The 4CEE Connect app was previously Easy Expense by Easy Systems and Expense Service by ICreative.  | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.fourcee.connect&pcampaignid=web_share),<br>[App Store link (iOS)](https://apps.apple.com/nl/app/4cee-connect/id1618249508?l=en-GB) |\n | :::no-loc text=\"Achievers\"::: <p><img alt=\"Partner app - Achievers icon\" src=\"./media/apps-supported-intune-apps/icon-p-achievers.png\" width=\"100\"> | The Achievers app puts the power of recognition in your hands. Achieving great things is a challenge. Recognizing someone for great achievements is easy. Engage, align, and recognize colleagues with the touch of a screen at any time and anywhere. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.achievers.client),<br>[App Store link (iOS)](https://apps.apple.com/app/achievers/id945779451) |\n | :::no-loc text=\"Acronis Access\"::: <p><img alt=\"Partner app - Acronis Access icon\" src=\"./media/apps-supported-intune-apps/icon-p-acronis-access.png\" width=\"100\"> | Safely access your business files from anywhere and any device with Acronis Access. Easily share documents with colleagues, customers, and vendors while keeping files and data secure and private, where only you and your organization can touch them. The app is designed for extreme ease of use with unparalleled security, privacy, and management capabilities. | [App Store link (iOS)](https://apps.apple.com/us/app/acronis-access/id429704844?mt=8) |\n | :::no-loc text=\"Adobe Acrobat Reader\"::: <p><img alt=\"Partner app - Adobe Acrobat Reader icon\" src=\"./media/apps-supported-intune-apps/icon-p-adobe-acrobat-reader.png\" width=\"100\"> | Open, view, and work with PDFs in a Microsoft Intune managed environment with Adobe Acrobat Reader. Available for iOS/iPadOS and Android. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.adobe.reader),<br>[App Store link (iOS)](https://apps.apple.com/app/adobe-acrobat-reader-for-pdf/id469337564) |\n",
+      "baseCommitSha": "7f560001a31d71c361a3d4d6c0bad23b43cb435e",
+      "commitSha": "b768475f04b6d38ed90d42da0c410bc564ebe5fc",
+      "commitMessage": "Fix 3 broken links in Intune apps articles",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-23T10:25:02-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/apps-supported-intune-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-supported-intune-apps",
+      "firstSeenAt": "2026-03-23T14:25:02.000Z",
+      "eventId": "intune-docs:b768475f04b6d38ed90d42da0c410bc564ebe5fc:modified:intune/intune-service/apps/apps-supported-intune-apps.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix 3 broken links in Intune apps articles",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/apps-win32-deploy-update-package.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/apps-win32-deploy-update-package.md b/intune/intune-service/apps/apps-win32-deploy-update-package.md\nindex 236b52b2e4..b82a6b548e 100644\n--- a/intune/intune-service/apps/apps-win32-deploy-update-package.md\n+++ b/intune/intune-service/apps/apps-win32-deploy-update-package.md\n@@ -17,7 +17,7 @@ ms.collection:\n You can deploy a Windows update package (*.msu* file) to Windows devices managed by Intune by using the [Intune Win32 app management](../apps/apps-win32-app-management.md) capabilities.\n \n > [!NOTE]\n-> Deploying updates as Win32 apps isn't the recommended approach as described in this article. Use Windows Update policies instead, including [Update rings](../../device-updates/windows/update-rings.md), [Feature updates](../../device-updates/windows/feature-updates.md), and [Quality updates](../../device-updates/windows/expedite-updates.md). The Win32 app method can provide more granular control when needed but requires more manual effort.\n+> Deploying updates as Win32 apps isn't the recommended approach as described in this article. Use Windows Update policies instead, including [Update rings](../../device-updates/windows/update-rings.md), [Feature updates](../../device-updates/windows/feature-updates.md), and [Quality updates](../../device-updates/windows/expedite-policy.md). The Win32 app method can provide more granular control when needed but requires more manual effort.\n \n The following steps help you deploy a Windows update package to Intune.\n \n",
+      "baseCommitSha": "7f560001a31d71c361a3d4d6c0bad23b43cb435e",
+      "commitSha": "b768475f04b6d38ed90d42da0c410bc564ebe5fc",
+      "commitMessage": "Fix 3 broken links in Intune apps articles",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-23T10:25:02-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/apps-win32-deploy-update-package.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-win32-deploy-update-package",
+      "firstSeenAt": "2026-03-23T14:25:02.000Z",
+      "eventId": "intune-docs:b768475f04b6d38ed90d42da0c410bc564ebe5fc:modified:intune/intune-service/apps/apps-win32-deploy-update-package.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix 3 broken links in Intune apps articles",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/intune-management-extension.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/intune-management-extension.md b/intune/intune-service/apps/intune-management-extension.md\nindex c3af23a70c..589fef8c09 100644\n--- a/intune/intune-service/apps/intune-management-extension.md\n+++ b/intune/intune-service/apps/intune-management-extension.md\n@@ -77,7 +77,7 @@ For devices meeting the prerequisites, the Intune management extension installs\n - [Discovery scripts for custom compliance](../protect/compliance-custom-script.md)\n - [Win32 apps](../apps/apps-win32-add.md)\n - [Endpoint analytics](../../endpoint-analytics/index.md)\n-- [Remote Help](../fundamentals/remote-help-windows.md)\n+- [Remote Help](../fundamentals/remote-help.md)\n - [Managed Installers in Intune](../protect/endpoint-security-app-control-policy.md)\n - [Update Windows BIOS using configuration MDM policy](../configuration/bios-configuration.md)\n \n",
+      "baseCommitSha": "7f560001a31d71c361a3d4d6c0bad23b43cb435e",
+      "commitSha": "b768475f04b6d38ed90d42da0c410bc564ebe5fc",
+      "commitMessage": "Fix 3 broken links in Intune apps articles",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-03-23T10:25:02-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/intune-management-extension.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/intune-management-extension",
+      "firstSeenAt": "2026-03-23T14:25:02.000Z",
+      "eventId": "intune-docs:b768475f04b6d38ed90d42da0c410bc564ebe5fc:modified:intune/intune-service/apps/intune-management-extension.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix 3 broken links in Intune apps articles",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/intune-management-extension.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/whats-new.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/intune/intune-service/fundamentals/whats-new.md b/intune/intune-service/fundamentals/whats-new.md\nindex 5c7a330f43..07c4b7b54c 100644\n--- a/intune/intune-service/fundamentals/whats-new.md\n+++ b/intune/intune-service/fundamentals/whats-new.md\n@@ -3,7 +3,7 @@ title: What's new in Microsoft Intune\n description: Find out what's new in Microsoft Intune.\n author: brenduns\n ms.author: brenduns\n-ms.date: 03/12/2026\n+ms.date: 03/23/2026\n ms.topic: whats-new\n ms.reviewer: intuner\n ms.collection:\n@@ -57,6 +57,16 @@ You can use RSS to be notified when this page is updated. For more information,\n \n -->\n \n+## Week of March 16, 2026  \n+\n+### Device management  \n+\n+#### Improved Remote Help update reporting on macOS<!-- 35705883 -->  \n+\n+We've improved the update and reporting experience for Remote Help on macOS to make version management more reliable and transparent for IT admins.  \n+ \n+After you deploy the latest Remote Help client (version 1.0.26012221) through Microsoft Intune, you can now view the full client version in your device inventory and during app upgrades. This improvement makes it easier to verify deployments. Remote Help installations deployed through Intune are also registered with Microsoft AutoUpdate (MAU), allowing Intune-managed macOS devices to automatically receive future Remote Help updates. For more information, see [Deploy Remote Help with Microsoft Intune](remote-help-deploy.md). \n+\n ## Week of March 2, 2026 (Service release 2602)\n \n ### App management\n",
+      "baseCommitSha": "d14b9e25774c3fe377018d04674f47c9b6e71f4a",
+      "commitSha": "bd47866fdcd2b86b8eea75b990724b35f6ed1bed",
+      "commitMessage": "Update what's new for March 2026",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-23T11:01:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new",
+      "firstSeenAt": "2026-03-23T15:01:31.000Z",
+      "eventId": "intune-docs:bd47866fdcd2b86b8eea75b990724b35f6ed1bed:modified:intune/intune-service/fundamentals/whats-new.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update what's new for March 2026",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/it-pro-support/get-support-admin-center.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/it-pro-support/get-support-admin-center.md b/intune/fundamentals/it-pro-support/get-support-admin-center.md\nindex bc70ba8bd9..1432a8cda7 100644\n--- a/intune/fundamentals/it-pro-support/get-support-admin-center.md\n+++ b/intune/fundamentals/it-pro-support/get-support-admin-center.md\n@@ -15,7 +15,7 @@ ms.collection:\n \n Microsoft provides global technical, presales, billing, and subscription support for device management cloud-based services. These cloud-based services include Intune, Configuration Manager, Windows 365, and Microsoft Managed Desktop. You can access support for all of these options from **Help and support** in the Microsoft Intune admin center. In this article, we explain how to get to Help and support and review your different support options from within the admin center.\n \n-To access support resources in the Intune admin center, including creating and managing a support incident, your account must have an Azure Active Directory (Azure AD) role that includes the *action* **microsoft.office365.supportTickets**. Guest users are an exception: they can't file support tickets, even when granted the correct action. For information about Azure AD roles and permissions that are required to create a support ticket, see [administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).\n+All authenticated users can access Support Assistant in the Microsoft Intune admin center to find solutions and troubleshooting guidance. Creating and managing support tickets requires a Microsoft Entra role that includes the *microsoft.office365.supportTickets* action. Guest users can’t file support tickets, even if the action is assigned. For more information about required roles and permissions, see [Administrator roles in Microsoft Entra ID](/entra/identity/role-based-access-control/permissions-reference).  \n \n Support is available both online and by phone for paid and trial subscriptions. Online technical support is available in English and Japanese. Phone support and online billing support are available in other languages.\n \n",
+      "baseCommitSha": "1de330325d8540cf2d109710799423d7abcd185c",
+      "commitSha": "08e86666afd37904ee4829903daaad845c3e994a",
+      "commitMessage": "Learn Editor: Update get-support-admin-center.md",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-23T16:33:03-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/it-pro-support/get-support-admin-center.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/it-pro-support/get-support-admin-center",
+      "firstSeenAt": "2026-03-23T20:33:03.000Z",
+      "eventId": "intune-docs:08e86666afd37904ee4829903daaad845c3e994a:modified:intune/fundamentals/it-pro-support/get-support-admin-center.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update get-support-admin-center.md",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/it-pro-support/get-support-admin-center.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/device-compliance-partners.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/protect/device-compliance-partners.md b/intune/intune-service/protect/device-compliance-partners.md\nindex af6e6b41f7..f87c1e8348 100644\n--- a/intune/intune-service/protect/device-compliance-partners.md\n+++ b/intune/intune-service/protect/device-compliance-partners.md\n@@ -53,9 +53,9 @@ The following compliance partners are supported as generally available:\n - mobiconnect\n - Mosyle Fuse\n - Mosyle Onek12\n+- Omnissa Workspace ONE UEM\n - Scalefusion\n - SOTI MobiControl\n-- VMware Workspace ONE UEM (formerly AirWatch)\n \n > [!NOTE]\n > If you offer an MDM product and would like to onboard as a device compliance partner, fill out this Form: [Intune partner compliance onboarding.](https://aka.ms/IntunePartnerComplianceOnboarding)\n@@ -129,8 +129,8 @@ To enable a device compliance partner to work with Intune, you must complete con\n - [Fleet](https://fleetdm.com/guides/entra-conditional-access-integration)\n - [Kandji Device Compliance](https://support.kandji.io/support/solutions/articles/72000630314)\n - [mobiconnect](https://help.mobi-connect.net/function/function_category/c0119/?func_os=ios-ipados)\n+- [Omnissa Workspace ONE UEM](https://docs.omnissa.com/bundle/WorkspaceONE-UEM-Managing-DevicesVSaaS/page/ConditionalAccessMicrosoftEntraID.html)\n - [Scalefusion](https://help.scalefusion.com/docs/microsoft-intune-partner-compliance)\n-- [VMware Workspace ONE UEM](https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/2102/Directory_Service_Integration/GUID-800FB831-AA66-4094-8F5A-FA5899A3C70C.html)\n \n \n ## Enroll your devices to your device compliance partner\n",
+      "baseCommitSha": "3407acb147a24ac968be2484e3354b06ceb51661",
+      "commitSha": "096e67e9afb7b5b49c3ff283335671455dfcdda7",
+      "commitMessage": "Update device compliance partners list - renaming VMWare to Omissa",
+      "commitAuthor": "nairra32",
+      "commitDate": "2026-03-23T17:58:40-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/device-compliance-partners.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/device-compliance-partners",
+      "firstSeenAt": "2026-03-23T21:58:40.000Z",
+      "eventId": "intune-docs:096e67e9afb7b5b49c3ff283335671455dfcdda7:modified:intune/intune-service/protect/device-compliance-partners.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update device compliance partners list - renaming VMWare to Omissa",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/device-compliance-partners.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/device-compliance-partners.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/protect/device-compliance-partners.md b/intune/intune-service/protect/device-compliance-partners.md\nindex af6e6b41f7..f87c1e8348 100644\n--- a/intune/intune-service/protect/device-compliance-partners.md\n+++ b/intune/intune-service/protect/device-compliance-partners.md\n@@ -53,9 +53,9 @@ The following compliance partners are supported as generally available:\n - mobiconnect\n - Mosyle Fuse\n - Mosyle Onek12\n+- Omnissa Workspace ONE UEM\n - Scalefusion\n - SOTI MobiControl\n-- VMware Workspace ONE UEM (formerly AirWatch)\n \n > [!NOTE]\n > If you offer an MDM product and would like to onboard as a device compliance partner, fill out this Form: [Intune partner compliance onboarding.](https://aka.ms/IntunePartnerComplianceOnboarding)\n@@ -129,8 +129,8 @@ To enable a device compliance partner to work with Intune, you must complete con\n - [Fleet](https://fleetdm.com/guides/entra-conditional-access-integration)\n - [Kandji Device Compliance](https://support.kandji.io/support/solutions/articles/72000630314)\n - [mobiconnect](https://help.mobi-connect.net/function/function_category/c0119/?func_os=ios-ipados)\n+- [Omnissa Workspace ONE UEM](https://docs.omnissa.com/bundle/WorkspaceONE-UEM-Managing-DevicesVSaaS/page/ConditionalAccessMicrosoftEntraID.html)\n - [Scalefusion](https://help.scalefusion.com/docs/microsoft-intune-partner-compliance)\n-- [VMware Workspace ONE UEM](https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/2102/Directory_Service_Integration/GUID-800FB831-AA66-4094-8F5A-FA5899A3C70C.html)\n \n \n ## Enroll your devices to your device compliance partner\n",
+      "baseCommitSha": "403f143e9aaaa0ee9f79fc621cd518cd72b81d17",
+      "commitSha": "fbdab0200ac4122f09d5731025e7b19bf76f937b",
+      "commitMessage": "Update device compliance partners list - renaming VMWare to Omissa",
+      "commitAuthor": "nairra32",
+      "commitDate": "2026-03-23T17:58:40-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/device-compliance-partners.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/device-compliance-partners",
+      "firstSeenAt": "2026-03-23T21:58:40.000Z",
+      "eventId": "intune-docs:fbdab0200ac4122f09d5731025e7b19bf76f937b:modified:intune/intune-service/protect/device-compliance-partners.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update device compliance partners list - renaming VMWare to Omissa",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/device-compliance-partners.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 6,
+    "totalFiles": 8,
+    "authors": [
+      "Jake Dowie",
+      "Laura Newsad",
+      "Nicholas S. White",
+      "nairra32"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/apps/intune-management-extension.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/protect/device-compliance-partners.md. Updated Microsoft Intune documentation in intune/intune-service/protect/device-",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md",
+          "intune/intune-service/apps/apps-supported-intune-apps.md",
+          "intune/intune-service/apps/apps-win32-deploy-update-package.md",
+          "intune/intune-service/apps/intune-management-extension.md",
+          "intune/intune-service/fundamentals/whats-new.md",
+          "intune/intune-service/protect/device-compliance-partners.md",
+          "intune/intune-service/protect/device-compliance-partners.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/it-pro-support/get-support-admin-center.md.",
+        "sourceFiles": [
+          "intune/fundamentals/it-pro-support/get-support-admin-center.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-guide-enrollment-ios-ipados.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/apps/intune-management-extension.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/protect/device-compliance-partners.md. Updated Microsoft Intune documentation in intune/intune-service/protect/device-"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/it-pro-support/get-support-admin-center.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

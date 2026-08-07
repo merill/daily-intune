@@ -1,0 +1,276 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2503/36495448.md",
+      "status": "added",
+      "additions": 80,
+      "deletions": 0,
+      "changes": 80,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/36495448.md b/intune/configmgr/hotfix/2503/36495448.md\nnew file mode 100644\nindex 0000000000..21e9060fbd\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2503/36495448.md\n@@ -0,0 +1,80 @@\n+---\n+title: Software update management client fix for Microsoft Configuration Manager\n+titleSuffix: Configuration Manager\n+description: SUM Client update for Configuration Manager\n+ms.date: 3/5/2026\n+ms.subservice: core-infra\n+ms.service: configuration-manager\n+ms.topic: reference\n+ms.assetid: ec969e9b-501e-416b-9b4c-39de23d968b1\n+author: bhuney\n+ms.author: brianhun\n+manager: dougeby\n+---\n+\n+# Software update management client fix for Microsoft Configuration Manager versions 2503 and 2509\n+\n+*Applies to: Configuration Manager (current branch, versions 2503 and 2509)*\n+## Summary of KB36495448\n+\n+An update is available to fix an issue with software updates when third-party updates are used in a co-managed environment.\n+\n+In Configuration Manager versions 2503 (with Update rollup 32851084 installed) and 2509, Windows Update scan source policies are unintentionally modified on co-managed devices when third-party updates are enabled.\n+The Configuration Manager client can create an incomplete (partial) scan source policy configuration.\n+\n+The partial scan causes devices that should receive Feature Updates (FU) or Quality Updates (QU) from Microsoft Intune or Windows Update for Business (WUfB) to instead obtain those updates from WSUS/Configuration Manager.\n+\n+This update corrects the issue by ensuring that Configuration Manager no longer sets or modifies Windows Update scan source policies on co managed devices.\n+\n+## Issue details\n+When a device is both co-managed by Microsoft Intune and third-party updates are enabled via ConfigMgr, the client set only two Windows Update scan source policy values:\n+* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\UseUpdateClassPolicySource = 1\n+* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForOtherUpdates = 1\n+\n+However, the following related policy values aren't set, and are removed if they existed:\n+* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForDriverUpdates\n+* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForFeatureUpdates\n+* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForQualityUpdates\n+\n+When only some values are present, the Windows Update Agent can assume all categories should follow the same scan source.\n+As a result, Feature Updates and Quality Updates intended to come from Microsoft Intune/ WUfB are instead redirected to WSUS/ ConfigMgr, even though the environment was configured for Intune-managed updates.\n+\n+## Post hotfix behavior\n+After applying this hotfix, Configuration Manager will no longer set any of the following values on co-managed devices after installing this update: \n+\n+* UseUpdateClassPolicySource\n+* SetPolicyDrivenUpdateSourceFor* (Feature, Quality, Driver, Other)\n+\n+Existing devices that were placed into a partial policy state by previous builds have those incomplete values cleaned up once.\n+\n+Third-party updates deployed from WSUS/ConfigMgr aren't affected by this change because they don't rely on Windows Update scan source policies. Customers fully control scan source behavior; if organizations wish to control Windows Update scan source policies, they should do so explicitly using:\n+\n+- Group Policy or Intune policy configuration service provider for WUfB\n+\n+Environments using only Configuration Manager (without co-management) or only Microsoft Intune/ WUfB aren't affected.\n+\n+#### Prerequisites\n+To apply this hotfix, you must be using Configuration Manager, versions 2503 (with Update rollup 32851084 installed) and 2509.\n+\n+#### Restart information\n+This update doesn't initiate a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset).\n+\n+### Other installation information\n+After you install this update on a primary site, preexisting secondary sites must be manually updated. To update a secondary site in the Configuration Manager console, select **Administration** > **Site Configuration** > **Sites** >  **Recover Secondary Site**, and then select the secondary site. The primary site then reinstalls that secondary site by using the updated files. Configurations and settings for the secondary site aren't affected by this reinstallation. The new, upgraded, and reinstalled secondary sites under that primary site automatically receive this update.\n+\n+Run the following SQL Server command on the site database to check whether the update version of a secondary site matches that of its parent primary site:\n+   ```sql\n+   select dbo.fnGetSecondarySiteCMUpdateStatus ('SiteCode_of_secondary_site')\n+   ```\n+If the value 1 is returned, the site is up to date, with all the hotfixes applied on its parent primary site.\n+\n+If the value 0 is returned, the site hasn't yet installed all the fixes that are applied to the primary site, and you should use the **Recover Secondary Site** option to update the secondary site.\n+\n+## Hotfix replacement information\n+This hotfix doesn't replace any previously released hotfix.\n+\n+## File information\n+File information is available in the downloadable [KB36495448_FileList.txt](https://aka.ms/KB36495448)\n+\n+## Release history\n+- February 23, 2026: Initial hotfix release\n\\ No newline at end of file\n",
+      "baseCommitSha": "c5794952d0bc04c7746869f67d78fc0d6b49c050",
+      "commitSha": "302ab030ffeaa3d175ddcc5dfcccfea66bd587eb",
+      "commitMessage": "add softwre update kb for CM2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-03-06T15:57:45-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/36495448.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/36495448",
+      "firstSeenAt": "2026-03-06T21:57:45.000Z",
+      "eventId": "intune-docs:302ab030ffeaa3d175ddcc5dfcccfea66bd587eb:added:intune/configmgr/hotfix/2503/36495448.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "add softwre update kb for CM2509",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2503/36495448.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/36419222.md",
+      "status": "added",
+      "additions": 30,
+      "deletions": 0,
+      "changes": 30,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/36419222.md b/intune/configmgr/hotfix/2509/36419222.md\nnew file mode 100644\nindex 0000000000..088a9e32d9\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2509/36419222.md\n@@ -0,0 +1,30 @@\n+---\n+title: Offline feedback submission fails when using UploadOfflineFeedback.exe\n+description: Offline feedback submission fails with a System.IO.FileLoadException due to a Microsoft.Identity.Client version mismatch when using UploadOfflineFeedback.exe in Configuration Manager.\n+author: microsoft\n+ms.author: microsoft\n+manager: dougeby\n+ms.date: 03/6/2026\n+ms.topic: troubleshooting\n+ms.prod: configuration-manager\n+---\n+\n+# Offline feedback submission fails when using UploadOfflineFeedback.exe\n+\n+## Applies to\n+- Microsoft Configuration Manager (current branch)\n+- Configuration Manager console version **5.00.9145.1026**\n+- Product feedback feature (offline feedback submission)\n+\n+## Summary\n+When you submit offline product feedback from the Configuration Manager console by using the **UploadOfflineFeedback.exe** command-line tool, the submission may fail with an unexpected error and the feedback is not uploaded to Microsoft.\n+\n+This issue occurs due to a dependency version mismatch for **Microsoft.Identity.Client**, which prevents the offline feedback client from authenticating and completing the submission process.\n+\n+## Symptoms\n+When you run **UploadOfflineFeedback.exe** from a command prompt to submit a previously saved offline feedback package, the command fails and returns an error similar to the following:\n+\n+```text\n+UploadOfflineFeedback Error: 2 : An unexpected error 'System.IO.FileLoadException' occurred.\n+Could not load file or assembly 'Microsoft.Identity.Client, Version=4.61.3.0, Culture=neutral,\n+PublicKeyToken=0a613f4dd989e8ae' or one of its dependencies.\n\\ No newline at end of file\n",
+      "baseCommitSha": "302ab030ffeaa3d175ddcc5dfcccfea66bd587eb",
+      "commitSha": "7bced458bb551820646115adbe91d0121a2171df",
+      "commitMessage": "add softwre update kb for CM2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-03-06T16:11:43-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/36419222.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/36419222",
+      "firstSeenAt": "2026-03-06T22:11:43.000Z",
+      "eventId": "intune-docs:7bced458bb551820646115adbe91d0121a2171df:added:intune/configmgr/hotfix/2509/36419222.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "add softwre update kb for CM2509",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2509/36419222.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/enrollment/windows-enroll.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/enrollment/windows-enroll.md b/intune/intune-service/enrollment/windows-enroll.md\nindex 7605fbc0f5..e7df901edc 100644\n--- a/intune/intune-service/enrollment/windows-enroll.md\n+++ b/intune/intune-service/enrollment/windows-enroll.md\n@@ -1,7 +1,7 @@\n ---\n title: Enable MDM automatic enrollment for Windows | Microsoft Intune\n description: Enable Intune automatic enrollment for Windows devices joining or registering with your Microsoft Entra ID.\n-ms.date: 02/18/2026\n+ms.date: 03/06/2026\n ms.topic: how-to\n ms.reviewer: maholdaa\n ms.collection:\n@@ -44,7 +44,7 @@ This article describes how to enable automatic mobile device management (MDM) en\n :::column-end:::\n :::column span=\"3\":::\n > Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) with the following role:\n-> - Built-in **[Intune Administrator](/entra/identity/role-based-access-control/permissions-reference#intune-administrator)** Microsoft Entra role\n+> - Built-in **[Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)** Microsoft Entra role\n :::column-end:::\n :::row-end:::\n \n",
+      "baseCommitSha": "6d8be18e8126026cde99e47f2ccb340ba62f1e09",
+      "commitSha": "bd660ab0d79a73aeba0b0518998480581d27f29a",
+      "commitMessage": "Update required role",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-03-06T11:22:12-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/windows-enroll.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/windows-enroll",
+      "firstSeenAt": "2026-03-06T16:22:12.000Z",
+      "eventId": "intune-docs:bd660ab0d79a73aeba0b0518998480581d27f29a:modified:intune/intune-service/enrollment/windows-enroll.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update required role",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/developer/app-wrapper-prepare-ios.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/developer/app-wrapper-prepare-ios.md b/intune/intune-service/developer/app-wrapper-prepare-ios.md\nindex ef88a61a2f..e8f138a8f6 100644\n--- a/intune/intune-service/developer/app-wrapper-prepare-ios.md\n+++ b/intune/intune-service/developer/app-wrapper-prepare-ios.md\n@@ -227,7 +227,9 @@ You can use the following command line parameters with the App Wrapping Tool:\n |`-dt`|(Optional) Disable collection of Microsoft Intune client data.\n |`-dl`|(Optional) Disable MSAL logs from the Intune logs for applications that are integrated with MSAL and implement their own MSAL logging callback.\n |`-ds`|(Optional) Disable Intune's protections for SFSafariViewController, SFAuthSession, and ASWebAuthenticationSession.\n-|`-mp`|(Optional) `<Path to a plist file containing MAM settings to merge into the wrapped app>`. Use this property to provide custom Intune MAM SDK settings that will be merged into the app's IntuneMAMSettings dictionary during the wrapping process. Note that protected settings required by the App Wrapping Tool (such as MultiIdentity, MAMPolicyRequired, AutoEnrollOnLaunch) cannot be overridden and will be set after the merge operation completes. |\n+|`-mp`|(Optional) `<Path to a plist file containing MAM settings to merge into the wrapped app>`. Use this property to provide custom Intune MAM SDK settings that will be merged into the app's IntuneMAMSettings dictionary during the wrapping process. Note: The settings `MultiIdentity`, `MAMPolicyRequired`, `AutoEnrollOnLaunch`, and `ContainingAppBundleId` are unsupported via -mp as they are automatically configured by the App Wrapping Tool. Authentication settings (`ADALAuthority`, `ADALClientId`, `ADALRedirectUri`) are also unsupported via -mp and must be configured using the -aa, -ac, and -ar command-line parameters. |\n+\n+\n \n ### Use a plist to input arguments\n \n",
+      "baseCommitSha": "276ac748141d6914c56ca1ec8d65e3988249da87",
+      "commitSha": "6bc909c731f975b171ebb8deb936e5d379a295f6",
+      "commitMessage": "Update -mp flag description in app-wrapper-prepare-ios.md",
+      "commitAuthor": "tgrabowski2",
+      "commitDate": "2026-03-06T12:47:57-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/developer/app-wrapper-prepare-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/developer/app-wrapper-prepare-ios",
+      "firstSeenAt": "2026-03-06T17:47:57.000Z",
+      "eventId": "intune-docs:6bc909c731f975b171ebb8deb936e5d379a295f6:modified:intune/intune-service/developer/app-wrapper-prepare-ios.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update -mp flag description in app-wrapper-prepare-ios.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/developer/app-wrapper-prepare-ios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/developer/app-wrapper-prepare-ios.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 2,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/developer/app-wrapper-prepare-ios.md b/intune/intune-service/developer/app-wrapper-prepare-ios.md\nindex e8f138a8f6..98f9a3a2a2 100644\n--- a/intune/intune-service/developer/app-wrapper-prepare-ios.md\n+++ b/intune/intune-service/developer/app-wrapper-prepare-ios.md\n@@ -229,8 +229,6 @@ You can use the following command line parameters with the App Wrapping Tool:\n |`-ds`|(Optional) Disable Intune's protections for SFSafariViewController, SFAuthSession, and ASWebAuthenticationSession.\n |`-mp`|(Optional) `<Path to a plist file containing MAM settings to merge into the wrapped app>`. Use this property to provide custom Intune MAM SDK settings that will be merged into the app's IntuneMAMSettings dictionary during the wrapping process. Note: The settings `MultiIdentity`, `MAMPolicyRequired`, `AutoEnrollOnLaunch`, and `ContainingAppBundleId` are unsupported via -mp as they are automatically configured by the App Wrapping Tool. Authentication settings (`ADALAuthority`, `ADALClientId`, `ADALRedirectUri`) are also unsupported via -mp and must be configured using the -aa, -ac, and -ar command-line parameters. |\n \n-\n-\n ### Use a plist to input arguments\n \n An easy way to run the App Wrapping Tool is to put all the command arguments into a [plist](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/PropertyLists/Introduction/Introduction.html) file. Plist is a file format similar to XML that you can use to input your command line arguments using a form interface.\n",
+      "baseCommitSha": "6bc909c731f975b171ebb8deb936e5d379a295f6",
+      "commitSha": "fbb8be2ce1a0c74311c9716405148a9557c32744",
+      "commitMessage": "Clean up blank lines in app-wrapper-prepare-ios.md",
+      "commitAuthor": "tgrabowski2",
+      "commitDate": "2026-03-06T12:50:13-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/developer/app-wrapper-prepare-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/developer/app-wrapper-prepare-ios",
+      "firstSeenAt": "2026-03-06T17:50:13.000Z",
+      "eventId": "intune-docs:fbb8be2ce1a0c74311c9716405148a9557c32744:modified:intune/intune-service/developer/app-wrapper-prepare-ios.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clean up blank lines in app-wrapper-prepare-ios.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/developer/app-wrapper-prepare-ios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "status": "modified",
+      "additions": 50,
+      "deletions": 48,
+      "changes": 98,
+      "patch": "diff --git a/intune/intune-service/protect/security-baseline-settings-mdm-all.md b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\nindex 1f64f24f2c..c0ae073754 100644\n--- a/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n+++ b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n@@ -154,18 +154,18 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   [Learn more](/windows/client-management/mdm/policy-csp-printers?WT.mc_id=Portal-fx#configurerpcconnectionpolicy)\n   - **Use authentication for outgoing RPC connections: (Device)**\\\n     Baseline default: *Default*\n-  - **Protocol to allow for incoming RPC connections: (Device)**\\\n+  - **Protocol to use for outgoing RPC connections: (Device)**\\\n     Baseline default: *RPC over TCP*\n \n - **Configure RPC listener settings**\\\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-printers?WT.mc_id=Portal-fx#configurerpclistenerpolicy)\n   - **Protocols to allow for incoming RPC connections: (Device)**\\\n-    Baseline default: *RCP over TCP*\n+    Baseline default: *RPC over TCP*\n   - **Authentication protocol to use for incoming RPC connections: (Device)**\\\n     Baseline default: *Negotiate*\n \n-- **Configure RPC over TPC port**\\\n+- **Configure RPC over TCP port**\\\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-printers?WT.mc_id=Portal-fx#configurerpctcpport)\n   - **RPC over TCP port (Device)**\\\n@@ -178,7 +178,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n - **Manage processing of Queue-specific files**\\\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-printers?WT.mc_id=Portal-fx#configurecopyfilespolicy)\n-  - **Manage processing of Queue-specific files: (Device)**\\\n+  - **Manage processing of Queue-Specific files: (Device)**\\\n     Baseline default: *Limit Queue-specific files to Color profiles*\n \n #### Start Menu and Taskbar > Notifications\n@@ -187,6 +187,12 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-admx-wpn?WT.mc_id=Portal-fx#nolockscreentoastnotification)\n \n+#### System > Audit Process Creation\n+\n+- **Include command line in process creation events**\\\n+  Baseline default: *Enabled*\\\n+  [Learn more](windows/client-management/mdm/policy-csp-admx-auditsettings?WT.mc_id=Portal-fx#includecmdline)\n+  \n #### System > Credentials Delegation\n \n - **Encryption Oracle Remediation**\\\n@@ -229,7 +235,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n \n #### System > Internet Communication Management > Internet Communication settings\n \n-- **Turn off downloading of print drivers**\\\n+- **Turn off downloading of print drivers over HTTP**\\\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-connectivity?WT.mc_id=Portal-fx#disabledownloadingofprintdriversoverhttp)\n \n@@ -562,7 +568,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n - **Include local path when user is uploading files to a server**\\\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-internetexplorer?WT.mc_id=Portal-fx#internetzoneincludelocalpathwhenuploadingfilestoserver)\n-  - **Include local path when user is uploading files to a server**\\\n+  - **Include local directory path when uploading files to a server**\\\n     Baseline default: *Disable*\n \n - **Initialize and script ActiveX controls not marked as safe**\\\n@@ -746,7 +752,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n - **Allow binary and script behaviors**\\\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-internetexplorer?WT.mc_id=Portal-fx#restrictedsiteszoneallowbinaryandscriptbehaviors)\n-  - **Allow binary and script behaviors**\\\n+  - **Allow binary and script Behaviors**\\\n     Baseline default: *Disable*\n \n - **Allow cut, copy or paste operations from the clipboard via script**\\\n@@ -1069,12 +1075,6 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   Baseline default: *Enabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-admx-microsoftdefenderantivirus?WT.mc_id=Portal-fx#realtimeprotection-disablescanonrealtimeenable)\n \n-#### Windows Components > Microsoft Defender Antivirus > Scan\n-\n-- **Scan packed executables**\\\n-  Baseline default: *Enabled*\\\n-  [Learn more](/windows/client-management/mdm/policy-csp-admx-microsoftdefenderantivirus?WT.mc_id=Portal-fx#scan-disablepackedexescanning)\n-\n #### Windows Components > Remote Desktop Services > Remote Desktop Connection Client\n \n - **Do not allow passwords to be saved**\\\n@@ -1111,7 +1111,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n \n #### Windows Components > Windows Logon Options\n \n-- **Enable MPR notifications for the system**\\\n+- **Configure the transmission of the user's password in the content of MPR notifications sent by winlogon**\\\n   Baseline default: *Disabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-windowslogon?WT.mc_id=Portal-fx#enablemprnotifications)\n \n@@ -1334,6 +1334,9 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   - **Block credential stealing from the Windows local security authority subsystem**\\\n     Baseline default: *Block*\\\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+  - **Block process creations originating from PSExec and WMI commands**\n+    Baseline default: *Audit*\\\n+    [Learn more](https://learn.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n@@ -1373,10 +1376,6 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   Baseline default: *If you enable this setting, local admins will no longer be able to see the exclusion list in Windows Security App or via PowerShell.*\\\n   [Learn more](/windows/client-management/mdm/Defender-csp/?WT.mc_id=Portal-fx#configurationhideexclusionsfromlocaladmins)\n \n-- **Hide Exclusions From Local Users**\\\n-  Baseline default: *If you enable this setting, local users will no longer be able to see the exclusion list in Windows Security App or via PowerShell.*\\\n-  [Learn more](/windows/client-management/mdm/Defender-csp/?WT.mc_id=Portal-fx#configurationhideexclusionsfromlocalusers)\n-\n - **Oobe Enable Rtp And Sig Update**\\\n   Baseline default: *If you enable this setting, real-time protection and Security Intelligence Updates are enabled during OOBE.*\\\n   [Learn more](/windows/client-management/mdm/defender-csp?WT.mc_id=Portal-fx#configurationoobeenablertpandsigupdate)\n@@ -1474,7 +1473,8 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n     Baseline default: *True*\\\n     [Learn more](/windows/client-management/mdm/firewall-csp?WT.mc_id=Portal-fx#mdmstoredomainprofiledisableinboundnotifications)\n   - **Log Max File Size**\\\n-    Baseline default: *16384*\\\n+    Baseline default: *Configured*\\\n+    Value: *16384*\\\n     [Learn more](/windows/client-management/mdm/Firewall-csp/?WT.mc_id=Portal-fx#mdmstoredomainprofilelogmaxfilesize)\n   - **Default Inbound Action for Domain Profile**\\\n     Baseline default: *Block*\\\n@@ -1484,7 +1484,8 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   Baseline default: *True*\\\n   [Learn more](/windows/client-management/mdm/firewall-csp?WT.mc_id=Portal-fx#mdmstoreprivateprofileenablefirewall)\n   - **Log Max File Size**\\\n-    Baseline default: *16384*\\\n+    Baseline default: *Configured*\\\n+    Value: *16384*\\\n     [Learn more](/windows/client-management/mdm/firewall-csp?WT.mc_id=Portal-fx#mdmstoreprivateprofilelogmaxfilesize)\n   - **Default Inbound Action for Private Profile**\\\n     Baseline default: *Block*\\\n@@ -1509,7 +1510,8 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n     Baseline default: *Enable Logging Of Dropped Packets*\\\n     [Learn more](/windows/client-management/mdm/firewall-csp?WT.mc_id=Portal-fx#mdmstorepublicprofileenablelogdroppedpackets)\n   - **Log Max File Size**\\\n-    Baseline default: *16384*\\\n+    Baseline default: *Configured*\\\n+    Value: *16384*\\\n     [Learn more](/windows/client-management/mdm/firewall-csp?WT.mc_id=Portal-fx#mdmstorepublicprofilelogmaxfilesize)\n   - **Default Outbound Action**\\\n     Baseline default: *Allow*\\\n@@ -1567,7 +1569,8 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   [Learn more](/windows/client-management/mdm/policy-csp-lanmanserver#auditinsecureguestlogon)\n \n - **Auth Rate Limiter Delay In Ms**\\\n-  Baseline default: *2000*\\\n+  Baseline default: *Configured*\\\n+  Value: *2000*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-lanmanserver#authratelimiterdelayinms)\n \n - **Enable Auth Rate Limiter**\\\n@@ -1578,12 +1581,12 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   Baseline default: *Disabled*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-lanmanserver#enablemailslots)\n \n-- **Max SMB 2 Dialect**\\\n+- **Max Smb2 Dialect**\\\n   Baseline default: *SMB 3.1.1*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-lanmanserver#maxsmb2dialect)\n \n-- **Min SMB 2 Dialect**\\\n-  Baseline default: *3.0.0*\\\n+- **Min Smb2 Dialect**\\\n+  Baseline default: *SMB 3.0.0*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-lanmanserver#minsmb2dialect)\n \n ### Lanman Workstation\n@@ -1623,7 +1626,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n ### LAPS\n <!-- UI option uses 'Azure AD`, as does the CSP for options while the CSP description uses Microsoft Entra ID -->\n - **Backup Directory**\\\n-  Baseline default: *Backup the password to Azure AD only*\\\n+  Baseline default: *Backup the password to Microsoft Entra ID only*\\\n   [Learn more](/windows/client-management/mdm/LAPS-csp/?WT.mc_id=Portal-fx#policiesbackupdirectory)\n \n ### Local Policies Security Options\n@@ -1675,7 +1678,7 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   [Learn more](/windows/client-management/mdm/policy-csp-LocalPoliciesSecurityOptions?WT.mc_id=Portal-fx#networksecurity_donotstorelanmanagerhashvalueonnextpasswordchange)\n \n - **Network Security LAN Manager Authentication Level**\\\n-  Baseline default: *Send LM and NTLMv2 responses only. Refuse LM and NTLM*\\\n+  Baseline default: *Send NTLMv2 responses only. Refuse LM and NTLM*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-LocalPoliciesSecurityOptions?WT.mc_id=Portal-fx#networksecurity_lanmanagerauthenticationlevel)\n \n - **Network Security Minimum Session Security For NTLMSSP Based Clients**\\\n@@ -1815,87 +1818,87 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n \n - **Access From Network**\\\n   Baseline default: *Configured*\\\n-  Values: *Administrators* (*S-1-5-32-544), *Remote Desktop Users* (*S-1-5-32-555)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#accessfromnetwork)\n \n - **Allow Local Log On**\\\n   Baseline default: *Configured*\\\n-  Values: *Administrators* (*S-1-5-32-544), *Users* (*S-1-5-32-545)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#allowlocallogon)\n \n - **Backup Files And Directories**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#backupfilesanddirectories)\n \n - **Create Global Objects**\\\n   Baseline default: *Configured*\\\n-  Values: *Administrators* (*S-1-5-32-544), *Local Service*  (*S-1-5-19), *Network Service* (*S-1-5-20), *Service* (*S-1-5-6)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#createglobalobjects)\n \n - **Create Page File**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#createpagefile)\n \n - **Debug Programs**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#debugprograms)\n \n - **Deny Access From Network**\\\n   Baseline default: *Configured*\\\n-  Value: *NT AUTHORITY\\Local Account* (*S-1-5-113)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#denyaccessfromnetwork)\n \n - **Deny Remote Desktop Services Log On**\\\n   Baseline default: *Configured*\\\n-  Value: *NT AUTHORITY\\Local Account* (*S-1-5-113)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#denyremotedesktopserviceslogon)\n \n - **Impersonate Client**\\\n   Baseline default: *Configured*\\\n-  Values: *Administrators* (*S-1-5-32-544), *Service* (*S-1-5-6), *Local Service* (*S-1-5-19), *Network Service* (*S-1-5-20)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#impersonateclient)\n \n - **Load Unload Device Drivers**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#loadunloaddevicedrivers)\n \n - **Manage Auditing And Security Log**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#manageauditingandsecuritylog)\n \n - **Manage Volume**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#managevolume)\n \n - **Modify Firmware Environment**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#modifyfirmwareenvironment)\n \n - **Profile Single Process**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#profilesingleprocess)\n \n - **Remote Shutdown**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#remoteshutdown)\n \n - **Restore Files And Directories**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#restorefilesanddirectories)\n \n - **Take Ownership**\\\n   Baseline default: *Configured*\\\n-  Value: *Administrators* (*S-1-5-32-544)\n+  *In the admin center, this setting includes one or more preconfigured SIDs, but none are selected by default.*\\\n   [Learn more](/windows/client-management/mdm/policy-csp-UserRights?WT.mc_id=Portal-fx#takeownership)\n \n ### Virtualization Based Technology\n@@ -3215,6 +3218,9 @@ The settings in this baseline are taken from the Windows 11 **version 24H2** sec\n   - **Block credential stealing from the Windows local security authority subsystem**\\\n     Baseline default: *Block*\\\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+  - **Block process creations originating from PSExec and WMI commands**\n+    Baseline default: *Audit*\\\n+    [Learn more](https://learn.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n     [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n@@ -3266,10 +3272,6 @@ The settings in this baseline are taken from the Windows 11 **version 24H2** sec\n   Baseline default: *Warn verdicts are converted to block*\\\n   [Learn more](/windows/client-management/mdm/Defender-csp/?WT.mc_id=Portal-fx#configurationenableconvertwarntoblock)\n \n-- **Hide Exclusions From Local Users**\\\n-  Baseline default: *If you enable this setting, local users will no longer be able to see the exclusion list in Windows Security App or via PowerShell.*\\\n-  [Learn more](/windows/client-management/mdm/Defender-csp/?WT.mc_id=Portal-fx#configurationhideexclusionsfromlocalusers)\n-\n - **Oobe Enable Rtp And Sig Update**\\\n   Baseline default: *If you enable this setting, real-time protection and Security Intelligence Updates are enabled during OOBE.*\\\n   [Learn more](/windows/client-management/mdm/defender-csp?WT.mc_id=Portal-fx#configurationoobeenablertpandsigupdate)\n",
+      "baseCommitSha": "f5826546cc45233f3ca467e8e4ddc0e958369586",
+      "commitSha": "00bb3058ac629771cce1a6380b558484accbb517",
+      "commitMessage": "Settings content review for 25h2 vs current UI (3.6.2026 dogfood UI)",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-06T10:25:46-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all",
+      "firstSeenAt": "2026-03-06T18:25:46.000Z",
+      "eventId": "intune-docs:00bb3058ac629771cce1a6380b558484accbb517:modified:intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Settings content review for 25h2 vs current UI (3.6.2026 dogfood UI)",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/protect/security-baseline-settings-mdm-all.md b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\nindex c0ae073754..4fe8c269f4 100644\n--- a/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n+++ b/intune/intune-service/protect/security-baseline-settings-mdm-all.md\n@@ -5,7 +5,7 @@ author: brenduns\n ms.author: brenduns\n ms.date: 03/23/2026\n ms.topic: reference\n-ms.reviewer: juidaewo\n+ms.reviewer: juidaewoaa\n ms.collection:\n - M365-identity-device-management\n - sub-secure-endpoints\n",
+      "baseCommitSha": "00bb3058ac629771cce1a6380b558484accbb517",
+      "commitSha": "00e14fbe0c01a40e932ffa1e0ebe6c65092b87e6",
+      "commitMessage": "Update links and list of baseline versions",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-06T10:44:04-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all",
+      "firstSeenAt": "2026-03-06T18:44:04.000Z",
+      "eventId": "intune-docs:00e14fbe0c01a40e932ffa1e0ebe6c65092b87e6:modified:intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update links and list of baseline versions",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/protect/security-baselines.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/intune-service/protect/security-baselines.md b/intune/intune-service/protect/security-baselines.md\nindex 245688a499..17f47d32d1 100644\n--- a/intune/intune-service/protect/security-baselines.md\n+++ b/intune/intune-service/protect/security-baselines.md\n@@ -3,7 +3,7 @@ title: Learn about Intune security baselines for Windows devices\n description: Deploy security baselines that have preset and recommended configurations to the Windows devices you manage with Microsoft Intune.\n author: brenduns\n ms.author: brenduns\n-ms.date: 02/12/2025\n+ms.date: 03/23/2026\n ms.topic: overview\n ms.reviewer: juidaewo\n   - intune-azure\n@@ -71,6 +71,7 @@ For example, the default settings for firewall configuration might not merge con\n The following security baseline instances are available for use with Intune. Use the links to view the settings for recent instances of each baseline.\n \n - **Security Baseline for Windows 10 and later**:\n+  - [Version 25H2](security-baseline-settings-mdm-all.md?pivots=mdm-25h2)\n   - [Version 24H2](security-baseline-settings-mdm-all.md?pivots=mdm-24h2)\n   - [Version 23H2](security-baseline-settings-mdm-all.md?pivots=mdm-23h2)\n   - [November 2021](security-baseline-settings-mdm-all.md?pivots=november-2021)\n",
+      "baseCommitSha": "00bb3058ac629771cce1a6380b558484accbb517",
+      "commitSha": "00e14fbe0c01a40e932ffa1e0ebe6c65092b87e6",
+      "commitMessage": "Update links and list of baseline versions",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-03-06T10:44:04-08:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/protect/security-baselines.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baselines",
+      "firstSeenAt": "2026-03-06T18:44:04.000Z",
+      "eventId": "intune-docs:00e14fbe0c01a40e932ffa1e0ebe6c65092b87e6:modified:intune/intune-service/protect/security-baselines.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update links and list of baseline versions",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/security-baselines.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2503/36495448.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 78,
+      "changes": 78,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/36495448.md b/intune/configmgr/hotfix/2503/36495448.md\ndeleted file mode 100644\nindex 21e9060fbd..0000000000\n--- a/intune/configmgr/hotfix/2503/36495448.md\n+++ /dev/null\n@@ -1,80 +0,0 @@\n----\n-title: Software update management client fix for Microsoft Configuration Manager\n-titleSuffix: Configuration Manager\n-description: SUM Client update for Configuration Manager\n-ms.date: 3/5/2026\n-ms.subservice: core-infra\n-ms.service: configuration-manager\n-ms.topic: reference\n-ms.assetid: ec969e9b-501e-416b-9b4c-39de23d968b1\n-author: bhuney\n-ms.author: brianhun\n-manager: dougeby\n----\n-\n-# Software update management client fix for Microsoft Configuration Manager versions 2503 and 2509\n-\n-*Applies to: Configuration Manager (current branch, versions 2503 and 2509)*\n-## Summary of KB36495448\n-\n-An update is available to fix an issue with software updates when third-party updates are used in a co-managed environment.\n-\n-In Configuration Manager versions 2503 (with Update rollup 32851084 installed) and 2509, Windows Update scan source policies are unintentionally modified on co-managed devices when third-party updates are enabled.\n-The Configuration Manager client can create an incomplete (partial) scan source policy configuration.\n-\n-The partial scan causes devices that should receive Feature Updates (FU) or Quality Updates (QU) from Microsoft Intune or Windows Update for Business (WUfB) to instead obtain those updates from WSUS/Configuration Manager.\n-\n-This update corrects the issue by ensuring that Configuration Manager no longer sets or modifies Windows Update scan source policies on co managed devices.\n-\n-## Issue details\n-When a device is both co-managed by Microsoft Intune and third-party updates are enabled via ConfigMgr, the client set only two Windows Update scan source policy values:\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\UseUpdateClassPolicySource = 1\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForOtherUpdates = 1\n-\n-However, the following related policy values aren't set, and are removed if they existed:\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForDriverUpdates\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForFeatureUpdates\n-* HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\SetPolicyDrivenUpdateSourceForQualityUpdates\n-\n-When only some values are present, the Windows Update Agent can assume all categories should follow the same scan source.\n-As a result, Feature Updates and Quality Updates intended to come from Microsoft Intune/ WUfB are instead redirected to WSUS/ ConfigMgr, even though the environment was configured for Intune-managed updates.\n-\n-## Post hotfix behavior\n-After applying this hotfix, Configuration Manager will no longer set any of the following values on co-managed devices after installing this update: \n-\n-* UseUpdateClassPolicySource\n-* SetPolicyDrivenUpdateSourceFor* (Feature, Quality, Driver, Other)\n-\n-Existing devices that were placed into a partial policy state by previous builds have those incomplete values cleaned up once.\n-\n-Third-party updates deployed from WSUS/ConfigMgr aren't affected by this change because they don't rely on Windows Update scan source policies. Customers fully control scan source behavior; if organizations wish to control Windows Update scan source policies, they should do so explicitly using:\n-\n-- Group Policy or Intune policy configuration service provider for WUfB\n-\n-Environments using only Configuration Manager (without co-management) or only Microsoft Intune/ WUfB aren't affected.\n-\n-#### Prerequisites\n-To apply this hotfix, you must be using Configuration Manager, versions 2503 (with Update rollup 32851084 installed) and 2509.\n-\n-#### Restart information\n-This update doesn't initiate a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset).\n-\n-### Other installation information\n-After you install this update on a primary site, preexisting secondary sites must be manually updated. To update a secondary site in the Configuration Manager console, select **Administration** > **Site Configuration** > **Sites** >  **Recover Secondary Site**, and then select the secondary site. The primary site then reinstalls that secondary site by using the updated files. Configurations and settings for the secondary site aren't affected by this reinstallation. The new, upgraded, and reinstalled secondary sites under that primary site automatically receive this update.\n-\n-Run the following SQL Server command on the site database to check whether the update version of a secondary site matches that of its parent primary site:\n-   ```sql\n-   select dbo.fnGetSecondarySiteCMUpdateStatus ('SiteCode_of_secondary_site')\n-   ```\n-If the value 1 is returned, the site is up to date, with all the hotfixes applied on its parent primary site.\n-\n-If the value 0 is returned, the site hasn't yet installed all the fixes that are applied to the primary site, and you should use the **Recover Secondary Site** option to update the secondary site.\n-\n-## Hotfix replacement information\n-This hotfix doesn't replace any previously released hotfix.\n-\n-## File information\n-File information is available in the downloadable [KB36495448_FileList.txt](https://aka.ms/KB36495448)\n-\n-## Release history\n-- February 23, 2026: Initial hotfix release\n\\ No newline at end of file\n",
+      "baseCommitSha": "7bced458bb551820646115adbe91d0121a2171df",
+      "commitSha": "22c2e8bc46a0dd9fad31f5f21b866610724d9ef3",
+      "commitMessage": "add softwre update kb for CM2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-03-06T16:19:11-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/36495448.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/36495448",
+      "firstSeenAt": "2026-03-06T22:19:11.000Z",
+      "eventId": "intune-docs:22c2e8bc46a0dd9fad31f5f21b866610724d9ef3:removed:intune/configmgr/hotfix/2503/36495448.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "add softwre update kb for CM2509",
+        "summary": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2503/36495448.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 8,
+    "totalFiles": 9,
+    "authors": [
+      "Brent Dunsire",
+      "Laura Newsad",
+      "sccmavenger",
+      "tgrabowski2"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 6 updated, and 1 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/configmgr",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2503/36495448.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2509/36419222.md. Removed Microsoft Intune documentation in intune/configmgr/hotfix/2503/36495448.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2503/36495448.md",
+          "intune/configmgr/hotfix/2509/36419222.md",
+          "intune/configmgr/hotfix/2503/36495448.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/developer/app-wrapper-prepare-ios.md. Updated Microsoft Intune documentation in intune/intune-service/developer/app-wrapper-prepare-ios.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baselines.md.",
+        "sourceFiles": [
+          "intune/intune-service/enrollment/windows-enroll.md",
+          "intune/intune-service/developer/app-wrapper-prepare-ios.md",
+          "intune/intune-service/developer/app-wrapper-prepare-ios.md",
+          "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+          "intune/intune-service/protect/security-baseline-settings-mdm-all.md",
+          "intune/intune-service/protect/security-baselines.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/configmgr",
+        "detail": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2503/36495448.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2509/36419222.md. Removed Microsoft Intune documentation in intune/configmgr/hotfix/2503/36495448.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/developer/app-wrapper-prepare-ios.md. Updated Microsoft Intune documentation in intune/intune-service/developer/app-wrapper-prepare-ios.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baseline-settings-mdm-all.md. Updated Microsoft Intune documentation in intune/intune-service/protect/security-baselines.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

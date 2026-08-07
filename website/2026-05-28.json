@@ -1,0 +1,336 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md b/intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md\nindex f3bd7ce213..af983936f5 100644\n--- a/intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md\n+++ b/intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md\n@@ -69,7 +69,17 @@ Class SMS_SUPSyncStatus : SMS_BaseClass\n \n  Qualifiers: [read]  \n \n- Last synchronization state.  \n+ Last synchronization state. Possible values are:\n+ \n+| Value | Status |  \n+| ----- | ------ |  \n+| 6702 |\tWSUS Synchronization done (Success) |\n+| 6703\t| WSUS Synchronization failed |\n+| 6704\t| WSUS Synchronization in progress. Current phase: Synchronizing WSUS Server |\n+| 6705\t| WSUS Synchronization in progress. Current phase: Synchronizing site database |\n+| 6706\t| WSUS Synchronization in progress. Current phase: Synchronizing Internet facing WSUS Server |\n+| 6707\t| Content of WSUS server is out of sync with upstream server |\n+| 6708\t| WSUS synchronization complete, with pending license terms downloads |\n \n  `LastSyncStateTime`  \n  Data type: `DateTime`  \n",
+      "baseCommitSha": "f527e554f2bbab3d7d5dc140668377ec1182a593",
+      "commitSha": "6cd91edd1f4553e8f1630fa93f6899cf13b52de4",
+      "commitMessage": "Update sms_supsyncstatus WMI class with possible values (#5123)",
+      "commitAuthor": "PraveenGururaj",
+      "commitDate": "2026-05-28T13:01:23+04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class",
+      "firstSeenAt": "2026-05-28T09:01:23.000Z",
+      "eventId": "intune-docs:6cd91edd1f4553e8f1630fa93f6899cf13b52de4:modified:intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update sms_supsyncstatus WMI class with possible values (#5123)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/advanced-capabilities.md",
+      "status": "modified",
+      "additions": 27,
+      "deletions": 10,
+      "changes": 37,
+      "patch": "diff --git a/intune/fundamentals/advanced-capabilities.md b/intune/fundamentals/advanced-capabilities.md\nindex 3fad2d016e..140b400499 100644\n--- a/intune/fundamentals/advanced-capabilities.md\n+++ b/intune/fundamentals/advanced-capabilities.md\n@@ -89,19 +89,36 @@ For licensing concepts and admin-access requirements, see [Microsoft Intune lice\n \n ## Trial subscriptions for advanced capabilities\n \n-A free trial of an advanced capability lasts 90 days, with up to 250 users per tenant. Each tenant can start a trial of any given capability once. After the trial ends, you have a 30-day grace period before the capability becomes unavailable in the admin center.\n \n-> [!NOTE]\n-> If your organization has Microsoft 365 E3, E5, E7, or Microsoft Intune Suite, you already have access to the included capabilities and don't need a trial. Start a trial only for capabilities not included in your current licenses.\n+You can start a free trial to explore advanced capabilities before purchasing.\n+\n+### Trial summary\n+- **Duration:** 90 days  \n+- **Maximum users:** 250 per tenant  \n+- **Trial limit:** One trial per capability per tenant  \n+- **Post-trial:** 30-day grace period\n+\n+After the trial ends, a 30-day grace period begins. Once this period expires, the capability is no longer available in the admin center.\n+\n+### Before you start\n+\n+Availability of advanced capabilities depends on your existing licenses, which may vary across your organization. Review your licensing to understand what is already included and avoid overlapping functionality.\n+\n+For more information, see:\n+\n+- [Microsoft Intune plans and pricing](https://aka.ms/MicrosoftIntunePricing)\n+- [Licensing options available with Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)\n+\n+If a capability isn't included in your current licenses, you can start a trial to evaluate it.\n \n-To start a capability trial:\n+### Start a trial\n \n-1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) as a Global or Billing administrator.\n-1. Select **Tenant administration** > **Intune add-ons**.\n-1. Select the **All add-ons** tab and find the capability you want.\n-1. Select **View details** in the **Try or Buy** column, then select **To try or buy, go to Microsoft 365 admin center**.\n-1. In the Microsoft 365 admin center, complete the **Start free trial** flow.\n-1. Return to **Tenant administration** > **Intune add-ons**. The capability now shows **Active**.\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) as a Global or Billing administrator.  \n+1. Go to **Tenant administration** > **Intune add-ons**.  \n+1. Select the **All add-ons** tab and find the capability you want to try.  \n+1. In the **Try or Buy** column, select **View details**, then choose **Go to Microsoft 365 admin center**.  \n+1. In the Microsoft 365 admin center, complete the **Start free trial** process.  \n+1. Return to **Tenant administration** > **Intune add-ons**. The capability now shows as **Active**.\n \n > [!NOTE]\n > If you're not a Global or Billing admin, the **Your add-ons** tab isn't visible. The **Capabilities** tab still shows what your tenant is eligible for.\n",
+      "baseCommitSha": "4b349195a3c70c009188f331a231ffdcbf18f926",
+      "commitSha": "949f4f713d5eabaa21019151b2804426f2cfea04",
+      "commitMessage": "Enhance trial subscription section for advanced capabilities with clearer details and steps (#20291)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-05-28T12:12:38-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/advanced-capabilities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/advanced-capabilities",
+      "firstSeenAt": "2026-05-28T16:12:38.000Z",
+      "eventId": "intune-docs:949f4f713d5eabaa21019151b2804426f2cfea04:modified:intune/fundamentals/advanced-capabilities.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Enhance trial subscription section for advanced capabilities with clearer details and steps (#20291)",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/advanced-capabilities.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-ios.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 9,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-ios.md b/intune/device-enrollment/apple/setup-automated-ios.md\nindex a0341249e4..2e168c3b31 100644\n--- a/intune/device-enrollment/apple/setup-automated-ios.md\n+++ b/intune/device-enrollment/apple/setup-automated-ios.md\n@@ -222,15 +222,7 @@ Create an enrollment policy for automated device enrollment. A device enrollment\n     - If you select **Show**, the screen is shown during setup, but only if there are steps to complete after the restore or after the software update. Users can sometimes skip the screen without taking action. They can then later go to the device's **Settings** menu to set up the feature.\n     - With Shared iPad, all Setup Assistant panes after activation are automatically skipped regardless of the configuration.\n \n-1. Select **Next**.\n-\n-1. On the **Device group** tab, optionally select a Microsoft Entra security group to use for enrollment time grouping. The group maps directly to this enrollment policy, and you can edit it after policy creation.\n-\n-   This tab is only available in new enrollment policies and doesn't appear in existing enrollment profiles. Only static Microsoft Entra security groups are available for selection. To configure this setting, you must have the *enrollment time device membership assignment* permission in a custom RBAC role (under **Enrollment programs**).\n-\n-   For more information about how enrollment time grouping works, see [Enrollment time grouping in Microsoft Intune](../setup-time-grouping.md). \n-\n-1. Select **Next**.\n+1. Select **Next**.  \n \n 1. To save the policy, select **Create**.\n \n",
+      "baseCommitSha": "949f4f713d5eabaa21019151b2804426f2cfea04",
+      "commitSha": "c1187b5fc02b6d4683bfd755b9aa665723c8e514",
+      "commitMessage": "Revert doc changes",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-28T14:45:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/setup-automated-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-ios",
+      "firstSeenAt": "2026-05-28T18:45:41.000Z",
+      "eventId": "intune-docs:c1187b5fc02b6d4683bfd755b9aa665723c8e514:modified:intune/device-enrollment/apple/setup-automated-ios.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert doc changes",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-ios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 9,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-macos.md b/intune/device-enrollment/apple/setup-automated-macos.md\nindex 9bfe518a29..39f885b68b 100644\n--- a/intune/device-enrollment/apple/setup-automated-macos.md\n+++ b/intune/device-enrollment/apple/setup-automated-macos.md\n@@ -167,15 +167,7 @@ At the end of this procedure, you can assign this policy to Microsoft Entra devi\n     2. Select the Setup Assistant screens you want to show or hide during device setup. For a description of all screens, [see Setup Assistant screen reference](#setup-assistant-screen-reference) (in this article). Your options:\n         * **Hide**: The screen doesn't appear to users during device setup. After device setup, the user can go to their device settings to set up the feature.\n         * **Show**: The screen appears to users during device setup. The user can still skip screens that don't require immediate action. After device setup, the user can go to their device settings to set up the feature.\n-1. Select **Next**.\n-\n-1. On the **Device group** tab, optionally select a Microsoft Entra security group to use for enrollment time grouping. The group maps directly to this enrollment policy, and you can edit it after policy creation.\n-\n-   This tab is only available in new enrollment policies and doesn't appear in existing enrollment profiles. Only static Microsoft Entra security groups are available for selection. To configure this setting, you must have the *enrollment time device membership assignment* permission in a custom RBAC role (under **Enrollment programs**).\n-\n-    For more information about how enrollment time grouping works, see [Enrollment time grouping in Microsoft Intune](../setup-time-grouping.md). \n-\n-1. Select **Next**.\n+1. Select **Next**.  \n \n 1. Review the summary of changes, and then select **Create** to finish creating the policy.\n \n",
+      "baseCommitSha": "949f4f713d5eabaa21019151b2804426f2cfea04",
+      "commitSha": "c1187b5fc02b6d4683bfd755b9aa665723c8e514",
+      "commitMessage": "Revert doc changes",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-28T14:45:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/setup-automated-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-macos",
+      "firstSeenAt": "2026-05-28T18:45:41.000Z",
+      "eventId": "intune-docs:c1187b5fc02b6d4683bfd755b9aa665723c8e514:modified:intune/device-enrollment/apple/setup-automated-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert doc changes",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/setup-time-grouping.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 32,
+      "changes": 35,
+      "patch": "diff --git a/intune/device-enrollment/setup-time-grouping.md b/intune/device-enrollment/setup-time-grouping.md\nindex 089d3a2b93..8744ccf3a8 100644\n--- a/intune/device-enrollment/setup-time-grouping.md\n+++ b/intune/device-enrollment/setup-time-grouping.md\n@@ -28,8 +28,6 @@ This article provides an overview of enrollment time grouping, how to configure\n > Enrollment time grouping is supported on the following platforms:\n >\n > - Android Enterprise\n-> - iOS/iPadOS\n-> - macOS\n > - tvOS\n > - visionOS\n > - Windows 11\n@@ -46,26 +44,10 @@ This article provides an overview of enrollment time grouping, how to configure\n \n > Enrollment time grouping is supported on devices provisioned via:\n >\n-> - [Automated device enrollment for iOS/iPadOS, tvOS, and visionOS](./apple/overview-automated-enrollment-apple.md)\n-> - [Automated device enrollment for macOS](./apple/overview-automated-enrollment-macos.md)\n+> - [Automated device enrollment for tvOS and visionOS](./apple/overview-automated-enrollment-apple.md)\n > - [Windows Autopilot device preparation](/autopilot/device-preparation/overview)\n > - [Android Enterprise](android/guide.md)\n >\n-> For iOS/iPadOS automated device enrollment, enrollment time grouping is supported with the following authentication methods:\n->\n-> - Enrollment with user affinity:\n->   - Setup Assistant with modern authentication\n->   - Company Portal\n-> - Enrollment without user affinity:\n->   - Enroll with Microsoft Entra shared mode\n->   - Enroll with shared iPad\n->\n-> For macOS automated device enrollment, enrollment time grouping is supported with the following authentication methods:\n->\n-> - Enrollment with user affinity:\n->   - Setup Assistant with modern authentication\n-> - Enrollment without user affinity\n->\n > For Android Enterprise, enrollment time grouping is supported with the following enrollment policies:\n >\n > - Android Enterprise fully managed\n@@ -84,8 +66,7 @@ This article provides an overview of enrollment time grouping, how to configure\n \n > The permissions you need depend on the platform you're configuring:\n >\n-> - iOS/iPadOS, tvOS, and visionOS automated device enrollment: Permissions to create and modify iOS/iPadOS, tvOS, and visionOS enrollment policies, and the *enrollment time device membership assignment* permission (available in custom roles under **Enrollment programs**).\n-> - macOS automated device enrollment: Permissions to create and modify macOS enrollment policies, and the *enrollment time device membership assignment* permission (available in custom roles under **Enrollment programs**).\n+> - tvOS and visionOS automated device enrollment: Permissions to create and modify tvOS and visionOS enrollment policies, and the *enrollment time device membership assignment* permission (available in custom roles under **Enrollment programs**). \n > - Windows Autopilot: Permissions to create and modify Windows Autopilot device preparation policies, and the *enrollment time device membership assignment* permission (available in custom roles under **Enrollment programs**).\n > - Android Enterprise: Permissions to create and modify Android Enterprise enrollment policies, and the *enrollment time device membership assignment for Android Enterprise* permission (available in custom roles under **Android Enterprise**).\n >\n@@ -98,13 +79,7 @@ This article provides an overview of enrollment time grouping, how to configure\n :::row-end:::  \n \n > [!TIP]\n-> For more information about creating custom roles, see [Role based access control](../fundamentals/role-based-access-control/overview.md#custom-roles).\n-\n-## Device group assignment during enrollment  \n-\n-When you create a new Apple automated device enrollment (ADE) policy that supports enrollment time grouping, a **Device group** tab appears in the enrollment policy. The security group you select on this tab is applied to the device during enrollment so Intune can deliver the correct policies, apps, and settings.  \n-\n-The Device group tab is only available in new enrollment policies. It isn’t available in existing enrollment policies.  \n+> For more information about creating custom roles, see [Role based access control](../fundamentals/role-based-access-control/overview.md#custom-roles).  \n \n ## Step 1: Create Microsoft Entra security group\n \n@@ -158,10 +133,6 @@ You can add one static Microsoft Entra security group per enrollment policy. As\n 1. Expand **Device onboarding**, and then select **Enrollment**.\n 1. Select the type of enrollment you're configuring and create a policy.\n \n-   - iOS/iPadOS: [Set up automated device enrollment for iOS/iPadOS](apple/setup-automated-ios.md)\n-\n-   - macOS: [Set up automated device enrollment for macOS](apple/setup-automated-macos.md)\n-\n    - Windows: [Create Windows Autopilot device preparation policy](/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy)\n \n    - Android Enterprise with work profile: [Set up Intune enrollment of Android Enterprise corporate-owned devices with work profile](android/setup-corporate-work-profile.md)\n",
+      "baseCommitSha": "949f4f713d5eabaa21019151b2804426f2cfea04",
+      "commitSha": "c1187b5fc02b6d4683bfd755b9aa665723c8e514",
+      "commitMessage": "Revert doc changes",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-28T14:45:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/setup-time-grouping.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/setup-time-grouping",
+      "firstSeenAt": "2026-05-28T18:45:41.000Z",
+      "eventId": "intune-docs:c1187b5fc02b6d4683bfd755b9aa665723c8e514:modified:intune/device-enrollment/setup-time-grouping.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Revert doc changes",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/setup-time-grouping.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-macos.md b/intune/device-enrollment/apple/setup-automated-macos.md\nindex 39f885b68b..c805c79a58 100644\n--- a/intune/device-enrollment/apple/setup-automated-macos.md\n+++ b/intune/device-enrollment/apple/setup-automated-macos.md\n@@ -65,9 +65,7 @@ At the end of this procedure, you can assign this policy to Microsoft Entra devi\n 1. Select the **macOS** tab.\n 1. Under **Bulk Enrollment Methods**, select **Enrollment program tokens**.\n 1. Select an enrollment program token.\n-1. Select **Enrollment policies** > **Create policy** > **macOS**.\n-\n-    ![Create a policy screenshot.](./media/setup-automated-macos/image04.png)\n+1. Select **Enrollment policies** > **Create policy** > **macOS**.  \n \n    > [!IMPORTANT]\n    > You must assign an enrollment policy to your devices before the devices become active. We recommend that you set a default enrollment policy as soon as possible so that as devices sync from Apple Business or Apple School Manager, and then turn on, they can enroll correctly through automated device enrollment. If a device you synced from Apple isn't assigned an enrollment policy and someone turns it on to set it up, enrollment fails.\n",
+      "baseCommitSha": "c1187b5fc02b6d4683bfd755b9aa665723c8e514",
+      "commitSha": "9e96ab222bbb8119e2372a00c15b8dc0d697e84f",
+      "commitMessage": "Removed outdated image",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-28T14:55:54-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/setup-automated-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-macos",
+      "firstSeenAt": "2026-05-28T18:55:54.000Z",
+      "eventId": "intune-docs:9e96ab222bbb8119e2372a00c15b8dc0d697e84f:modified:intune/device-enrollment/apple/setup-automated-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed outdated image",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/33247081.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 6,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/33247081.md b/intune/configmgr/hotfix/2509/33247081.md\nindex b0aad91c77..5b5cc332b2 100644\n--- a/intune/configmgr/hotfix/2509/33247081.md\n+++ b/intune/configmgr/hotfix/2509/33247081.md\n@@ -75,12 +75,6 @@ $parentKeyPath = \"HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeliveryOptimization\n  \n Request Teams app download from Connected Cache via HTTPS:\n \n-```powershell \n-Add-AppxPackage \"https://statics.teams.cdn.office.net/production-windows-x64/enterprise/webview2/lkg/MSTeams-x64.msix\"\n-```\n-\n-   OR\n-\n ```powershell\n Add-AppxPackage \"https://installer.teams.static.microsoft/production-windows-x64/25177.2002.3761.5185/MSTeams-x64.msix\"\n ```\n@@ -110,4 +104,5 @@ There are three possible results to determine whether HTTPS downloads from Micro\n \n \n ## Release history\n+- May 28, 2026: Removed non-functional verification example using `statics.teams.cdn.office.net` URL\n - February 18, 2026: Initial hotfix release\n",
+      "baseCommitSha": "07098fb08893458f46d7ae60a5d781cd612fd90f",
+      "commitSha": "52a61510e506eccb396a035fb293f301a6705df9",
+      "commitMessage": "Remove non-functional verification example from KB33247081",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-05-28T12:51:09-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/33247081.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/33247081",
+      "firstSeenAt": "2026-05-28T19:51:09.000Z",
+      "eventId": "intune-docs:52a61510e506eccb396a035fb293f301a6705df9:modified:intune/configmgr/hotfix/2509/33247081.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove non-functional verification example from KB33247081",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 42,
+      "deletions": 63,
+      "changes": 105,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex e6e8295f87..a51b5e35df 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -1,7 +1,7 @@\n ---\n-title: Collect device hardware info with the properties catalog\n-description: Use the properties catalog in Microsoft Intune view and collect enhanced device hardware info on Windows devices you manage with Intune. You can collect info like BIOS version, TPM status, disk info, memory details, and network adapter configurations. Use this information to get deeper visibility into your device inventory and troubleshoot issues.\n-ms.date: 02/09/2026\n+title: \"Collect Device Hardware Info With the Properties Catalog\"\n+description: \"Use the properties catalog in Microsoft Intune to collect device hardware info like BIOS version, TPM status, and disk details on managed Windows devices. Get deeper visibility into your device inventory and troubleshoot issues.\"\n+ms.date: 05/28/2026\n ms.topic: how-to\n ms.collection:\n - M365-identity-device-management\n@@ -10,12 +10,11 @@ ms.reviewer: abbystarr, madisoncooks\n \n # Use the Intune properties catalog to get device hardware properties\n \n-In Microsoft Intune, you can use the **properties catalog** to collect and view hardware properties from your managed Windows devices. When you create the policy, you can select specific properties to collect, such as BIOS version, disk information, memory details, and network adapter configurations.\n-\n-You can use this information to get deeper visibility into your device inventory, including detailed hardware and system information.\n+In Microsoft Intune, you can use the **properties catalog** to collect and view hardware properties from your managed Windows devices. When you create the policy, you can select specific properties to collect.\n \n For example, you can:\n \n+- Discover local AI agents, like OpenClaw, running on your Windows devices.\n - Get the BIOS version and TPM status to identify devices that might need firmware updates or aren't compliant with security policies.\n - Identify devices that lack encryption, which might violate security policies.\n - Identify devices that need to be replaced based on hardware properties, like disk size or memory.\n@@ -23,7 +22,9 @@ For example, you can:\n - Collect battery health information to help monitor device performance and lifespan.\n - Retrieve network adapter configurations to troubleshoot connectivity issues.\n \n-This article shows you how to configure a properties catalog policy, view the data collected by the policy,  and lists the available properties. After you create a profile, you then assign or deploy that profile to your Windows devices.\n+Use this information to get deeper visibility into your device inventory, including detailed hardware and system information.\n+\n+This article shows you how to configure a properties catalog policy, view the data collected by the policy, and lists the available properties. After you create a profile, assign or deploy that profile to your Windows devices.\n \n This feature applies to:\n \n@@ -61,7 +62,7 @@ This feature applies to:\n :::column-end:::\n :::row-end:::\n \n-## Create the policy and view the collected data\n+## Create the policy\n \n Use the following steps to create a properties catalog profile and assign it to your Windows devices.\n \n@@ -81,7 +82,7 @@ Use the following steps to create a properties catalog profile and assign it to\n \n 5. Select **Add properties** and select the properties you want to collect. You can select multiple properties from multiple categories.\n \n-    There are some required properties that are automatically added. For a list, see [Required properties](#available-and-required-properties) (in this article).\n+    Some required properties are automatically added. For a list, see [Required properties](#available-and-required-properties) (in this article).\n \n     Select **Next**.\n \n@@ -95,11 +96,38 @@ Use the following steps to create a properties catalog profile and assign it to\n \n 8. In **Review + create**, review your settings, and select **Create**.\n \n-    When you select create, the profile is assigned to the groups you specified. The profile is also created and is shown in the list.\n+    When you select **Create**, the profile is assigned to the groups you specified. The profile is also created and shown in the list.\n \n The next time each device checks in with the Intune service, the policy applies. It can take up to 24 hours for the initial collection of inventory data.\n \n-### View collected data\n+## Available and required properties\n+\n+You can collect the following properties. To learn more about the different properties, see [Intune Data Platform Schema](../advanced-analytics/ref-data-platform-schema.md).\n+\n+When you create the policy, select any of the following property categories to collect. The **required** properties are automatically collected when you collect any property in that category.\n+\n+| Category | Required properties |\n+| --- | --- |\n+| Application Properties | App Name<br/>App Version<br/>Architectures<br/>Install Scope<br/>Install Scope Platform User ID<br/>Install Scope User ID<br/>Publisher |\n+| Battery | Instance Name |\n+| Bios Info | Bios Name<br/>Software Element ID<br/>Software Element State<br/>Target Operating System |\n+| CPU | Processor ID |\n+| Disk Drive | Drive ID |\n+| Encryptable Volume | Volume ID |\n+| Local AI Agents | Agent Name<br/>Install Location<br/>Install Scope |\n+| Logical Drive | Drive Identifier |\n+| Memory Info | |\n+| Network Adapter | Identifier |\n+| OS Version | |\n+| Sim Info | Windows eSIM ID |\n+| System Enclosure | Serial Number |\n+| System Info | |\n+| Time | |\n+| TPM | |\n+| Video Controller | Identifier |\n+| Windows QFE | Hot Fix ID |\n+\n+## View collected data\n \n Use the following steps to view the collected device inventory information:\n \n@@ -107,67 +135,17 @@ Use the following steps to view the collected device inventory information:\n 2. Go to **Devices** > **By platform** > **Windows Devices** and select a device.\n 3. In **Monitor**, select **Device Inventory**. Select a category to view the hardware information.\n \n-## Available and required properties\n-\n-The following properties are available for you to collect. To learn more about the different properties, see [Intune Data Platform Schema](../advanced-analytics/ref-data-platform-schema.md).\n-\n-# [Available property categories](#tab/available)\n-\n-When you create the policy, you can select any of the following property categories to collect:\n-\n-- Battery\n-- Bios Info\n-- Cpu\n-- Disk Drive\n-- Encryptable Volume\n-- Logical Drive\n-- Memory Info\n-- Network Adapter\n-- Os Version\n-- Sim Info\n-- System Enclosure\n-- System Info\n-- Time\n-- TPM\n-- Video Controller\n-- Windows Qfe\n-\n-# [Required properties](#tab/required)\n-\n-When you create the policy, the following **required** properties are automatically collected when you collect any property in that category.\n-\n-- Battery - Instance Name\n-- Bios Info:\n-  - Bios Name\n-  - Software Element ID\n-  - Software Element State\n-  - Target Operating System\n-- Cpu - Processor ID\n-- Disk Drive - Drive ID\n-- Encryptable Volume - Volume ID\n-- Logical Drive - Drive Identifier\n-- Network Adapter - Identifier\n-- System Enclosure - Serial Number\n-- Video Controller - Identifier\n-- Windows QFE - Hot Fix ID\n-\n----\n-\n ## What you need to know\n \n-- Collection of properties can only be stopped (deleted) at the category level. To stop collecting properties, go to the **properties catalog** profile, and remove collection for every property in the category.\n+- You can stop (delete) the collection of properties only at the category level. To stop collecting properties, go to the **properties catalog** profile, and remove the collection for every property in the category.\n \n   If you delete a properties catalog policy, you can see the last-collected data in Device Inventory for up to 28 days.\n \n-- When you select a device, you see a **Device Inventory** tab and a **Hardware** tab. They're different and their data comes from different places. We recommend using the properties catalog for the most up-to-date and comprehensive data about your devices.\n-\n-  In the future, the data source for the **Hardware** and **Device Inventory** tabs will be the same.\n-\n - If you use co-management with tenant attach, you see the **Resource Explorer** and **Device Inventory** nodes.\n \n-  For Intune collected data, you see a **Device Inventory** tab. For Configuration Manager collected data, you see a **Resource Explorer** tab. Use the source that best fits your use case. In the future, we recommend using the Intune-based **Device Inventory**.\n+  For Intune collected data, you see a **Device Inventory** tab. For Configuration Manager collected data, you see a **Resource Explorer** tab. Use the source that best fits your use case. In the future, use the Intune-based **Device Inventory**.\n \n-- The client logs are available at `C:\\Program Files\\Microsoft Device Inventory Agent\\Logs`. The logs can also be collected using the [Remote device action: collect diagnostics](../device-management/actions/collect-diagnostics.md). You can use these logs to help troubleshoot.\n+- The client logs are at `C:\\Program Files\\Microsoft Device Inventory Agent\\Logs`. You can also collect the logs by using the [Remote device action: collect diagnostics](../device-management/actions/collect-diagnostics.md). Use these logs to help troubleshoot.\n \n ## Related content\n \n",
+      "baseCommitSha": "949f4f713d5eabaa21019151b2804426f2cfea04",
+      "commitSha": "ffe4a0eecaa610a7112088b3d6dd1585d343272c",
+      "commitMessage": "2505 OOB",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-28T16:30:27-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "firstSeenAt": "2026-05-28T20:30:27.000Z",
+      "eventId": "intune-docs:ffe4a0eecaa610a7112088b3d6dd1585d343272c:modified:intune/device-configuration/collect-device-properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2505 OOB",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/governance/integrate-azure-monitor.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/governance/integrate-azure-monitor.md b/intune/governance/integrate-azure-monitor.md\nindex 394ebc87f8..2c3fccd238 100644\n--- a/intune/governance/integrate-azure-monitor.md\n+++ b/intune/governance/integrate-azure-monitor.md\n@@ -3,7 +3,7 @@ title: Route logs to Azure Monitor using Microsoft Intune\n description: Use Diagnostics Settings to send audit logs and operational logs in Microsoft Intune to Azure Storage account, Event Hubs, or Log Analytics. Choose how long you want to keep the data, and see some estimated costs for different size tenants.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 02/26/2026\n+ms.date: 05/28/2026\n ms.topic: how-to\n ms.reviewer: chnatar, daviales\n ms.collection:\n@@ -196,7 +196,7 @@ After the action:\n > [!NOTE]\n > Intune doesn't guarantee that Device Compliance Organizational Logs or Intune Devices report data will be exported or available at a specific time of day. These exports can occur anytime within each 24-hour export period and remain subject to the documented delivery window. As Microsoft improves the export pipeline, the observed completion time might change.\n >\n->If you depend on exported Intune data for reports, dashboards, or automation, use a consumption schedule that accounts for variable export timing rather than relying on a previously observed completion time.\n+> If you depend on exported Intune data for reports, dashboards, or automation, use a consumption schedule in your software solution that accounts for variable export timing. Don’t rely on a fixed or previously observed completion time.\n \n When Azure Monitor services receive the data, it typically shows in the Azure Monitor service within 30 minutes.\n \n",
+      "baseCommitSha": "12433d65b7466abc2ae2de3d67173ba234be5c1b",
+      "commitSha": "7251345ef5efc2b469ead6c3848eea8554cb1c58",
+      "commitMessage": "Update date and improve note clarity in documentation",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-28T18:51:14-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/governance/integrate-azure-monitor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/governance/integrate-azure-monitor",
+      "firstSeenAt": "2026-05-28T22:51:14.000Z",
+      "eventId": "intune-docs:7251345ef5efc2b469ead6c3848eea8554cb1c58:modified:intune/governance/integrate-azure-monitor.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update date and improve note clarity in documentation",
+        "summary": "Updated Microsoft Intune documentation in intune/governance/integrate-azure-monitor.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex a51b5e35df..3614d0ddb7 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -114,7 +114,7 @@ When you create the policy, select any of the following property categories to c\n | CPU | Processor ID |\n | Disk Drive | Drive ID |\n | Encryptable Volume | Volume ID |\n-| Local AI Agents | Agent Name<br/>Install Location<br/>Install Scope |\n+| Local AI Agent | Agent Name<br/>Install Location<br/>Install Scope |\n | Logical Drive | Drive Identifier |\n | Memory Info | |\n | Network Adapter | Identifier |\n",
+      "baseCommitSha": "ffe4a0eecaa610a7112088b3d6dd1585d343272c",
+      "commitSha": "ee442d43ee5031ac2e44113afa687660939cd880",
+      "commitMessage": "PM updates",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-28T19:04:44-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "firstSeenAt": "2026-05-28T23:04:44.000Z",
+      "eventId": "intune-docs:ee442d43ee5031ac2e44113afa687660939cd880:modified:intune/device-configuration/collect-device-properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "PM updates",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 8,
+    "totalFiles": 10,
+    "authors": [
+      "Laura Newsad",
+      "Mandi Ohlinger",
+      "Paolo Matarazzo",
+      "PraveenGururaj",
+      "QianDong Ni"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Intune documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "sourceFiles": [
+          "intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md",
+          "intune/configmgr/hotfix/2509/33247081.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/advanced-capabilities.md.",
+        "sourceFiles": [
+          "intune/fundamentals/advanced-capabilities.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-ios.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-macos.md. Updated Microsoft Intune documentation in intune/device-enrollment/setup-time-grouping.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-macos.md.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-automated-ios.md",
+          "intune/device-enrollment/apple/setup-automated-macos.md",
+          "intune/device-enrollment/setup-time-grouping.md",
+          "intune/device-enrollment/apple/setup-automated-macos.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "sourceFiles": [
+          "intune/device-configuration/collect-device-properties.md",
+          "intune/device-configuration/collect-device-properties.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/governance",
+        "summary": "Updated Microsoft Intune documentation in intune/governance/integrate-azure-monitor.md.",
+        "sourceFiles": [
+          "intune/governance/integrate-azure-monitor.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/develop/reference/sum/sms_supsyncstatus-server-wmi-class.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/advanced-capabilities.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-ios.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-macos.md. Updated Microsoft Intune documentation in intune/device-enrollment/setup-time-grouping.md. Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-automated-macos.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/governance",
+        "detail": "Updated Microsoft Intune documentation in intune/governance/integrate-azure-monitor.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

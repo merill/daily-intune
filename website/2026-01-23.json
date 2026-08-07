@@ -1,0 +1,537 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/intune-service/fundamentals/migrate-to-intune.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 5,
+      "changes": 14,
+      "patch": "diff --git a/intune/intune-service/fundamentals/migrate-to-intune.md b/intune/intune-service/fundamentals/migrate-to-intune.md\nindex 47a77a0b32..5af4a6fa9b 100644\n--- a/intune/intune-service/fundamentals/migrate-to-intune.md\n+++ b/intune/intune-service/fundamentals/migrate-to-intune.md\n@@ -1,5 +1,5 @@\n ---\n-title: Move from Basic Mobility and Security to Intune: Migration Guide\n+title: Move from Basic Mobility and Security to Intune-Migration Guide\n description: Follow this migration guide to move your mobile device management from Microsoft 365 Basic Mobility and Security to Intune. Includes policy mapping and license assignment steps.\n author: MandiOhlinger\n ms.author: mandia\n@@ -12,7 +12,7 @@ ms.collection:\n \n # Move to Intune from Microsoft 365 Basic Mobility and Security\n \n-**Basic Mobility and Security** is a basic set of policies included with Microsoft 365 that help protect devices that access Microsoft 365 apps, like Outlook.\n+**Basic Mobility and Security** is a basic set of policies included with Microsoft 365 that helps protect devices that access Microsoft 365 apps, like Outlook.\n \n Many organizations want more advanced device management features that Microsoft Intune provides. For a comparison of the features, see [Choose between Basic Mobility and Security or Intune](/microsoft-365/admin/basic-mobility-security/choose-between-basic-mobility-and-security-and-intune).\n \n@@ -26,7 +26,7 @@ If you use Basic Mobility and Security and want to move to Intune, this article\n \n     Use the policy mapping guidance to create new Intune policies that correspond to your existing Basic Mobility and Security policies.\n \n-3. **Assign the policies and complete the move**:\n+3. **Assign the licenses and policies**:\n \n     Assign the Intune licenses to users or groups, which automatically switches the users to Intune device management. When you assign licenses, users and devices are ready to receive the new Intune policies you create.\n \n@@ -44,6 +44,10 @@ This article helps you move your mobile device management (MDM) from Microsoft 3\n \n   - **Policy and profile manager** - This Microsoft Intune role lets you create and assign policies in the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431). For more information on this role, see [Built-in roles for Microsoft Intune](../fundamentals/role-based-access-control-reference.md#policy-and-profile-manager).\n \n+  - **Endpoint Security Manager** - This Microsoft Intune role lets you create and assign app-based Conditional Access policies in the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431). For more information on this role, see [Built-in roles for Microsoft Intune](../fundamentals/role-based-access-control-reference.md#endpoint-security-manager).\n+\n+  - **Conditional Access Administrator** - This Microsoft Entra role lets you create and assign device-based Conditional Access policies in the [Microsoft Entra admin center](https://entra.microsoft.com/). For more information on this role, see [Microsoft Entra built-in roles - Conditional Access Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).\n+\n - Test the steps in this article on a test users group that have devices enrolled in Basic Mobility and Security. Confirm that the policies behave as you expect.\n \n - After you move to Intune, the existing Basic Mobility and Security policies are still available and shown in [Basic Mobility and Security](https://compliance.microsoft.com/basicmobilityandsecurity). However, the Basic Mobility and Security policies no longer apply to users that are assigned Intune licenses.\n@@ -57,7 +61,7 @@ For more information, see [Basic Mobility and Security overview](/microsoft-365/\n Before you move from Basic Mobility and Security device management to Intune device management:\n \n 1. Make sure you have enough [Intune licenses](licenses.md) to cover all your users managed by Basic Mobility and Security. If you don't have enough licenses, group your users by priority and assign licenses in stages.\n-1. Review the existing Basic Mobility and Security policies and delete any policies that you no longer need. Deleting unneeded policies reduces the number of new Intune policies you create.\n+1. Review the existing Basic Mobility and Security policies and [remove any policies](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-turn-off) that you no longer need. Deleting unneeded policies reduces the number of new Intune policies you create.\n \n     The following articles list and describe the Basic Mobility and Security policies:\n \n@@ -91,7 +95,7 @@ After you prepare your licenses and review the information in [Step 1 - Prepare]\n     | [Access requirements policy mapping](policy-map-access-requirements.md) | [Compliance policies](../protect/device-compliance-get-started.md) |  [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Compliance** |\n     | [Configurations policy mapping](policy-map-configurations.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n     | [Miscellaneous policy mapping](policy-map-miscellaneous.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n-    | Basic Conditional Access policies described at [Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up) and [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure). | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** <br/><br/>Conditional Access is a Microsoft Entra feature. |\n+    | Basic Conditional Access policies described in: <br/><br/>-[Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up)<br/>- [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure) | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** <br/><br/>Conditional Access is a Microsoft Entra feature. |\n \n ## Step 3 - Assign the policies in stages\n \n",
+      "baseCommitSha": "9ab246583df803bf2f51d2f51a7b1ada4f6cb41c",
+      "commitSha": "bd59857be7773a82f615dcf4257712640f307bcd",
+      "commitMessage": "validation warning",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-22T19:48:16-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/migrate-to-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/migrate-to-intune",
+      "firstSeenAt": "2026-01-23T00:48:16.000Z",
+      "eventId": "intune-docs:bd59857be7773a82f615dcf4257712640f307bcd:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "validation warning",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/migrate-to-intune.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/migrate-to-intune.md b/intune/intune-service/fundamentals/migrate-to-intune.md\nindex 5af4a6fa9b..6ab38195fc 100644\n--- a/intune/intune-service/fundamentals/migrate-to-intune.md\n+++ b/intune/intune-service/fundamentals/migrate-to-intune.md\n@@ -56,8 +56,6 @@ This article helps you move your mobile device management (MDM) from Microsoft 3\n \n ## Step 1 - Prepare\n \n-For more information, see [Basic Mobility and Security overview](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-overview).\n-\n Before you move from Basic Mobility and Security device management to Intune device management:\n \n 1. Make sure you have enough [Intune licenses](licenses.md) to cover all your users managed by Basic Mobility and Security. If you don't have enough licenses, group your users by priority and assign licenses in stages.\n@@ -95,7 +93,7 @@ After you prepare your licenses and review the information in [Step 1 - Prepare]\n     | [Access requirements policy mapping](policy-map-access-requirements.md) | [Compliance policies](../protect/device-compliance-get-started.md) |  [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Compliance** |\n     | [Configurations policy mapping](policy-map-configurations.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n     | [Miscellaneous policy mapping](policy-map-miscellaneous.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n-    | Basic Conditional Access policies described in: <br/><br/>-[Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up)<br/>- [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure) | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** <br/><br/>Conditional Access is a Microsoft Entra feature. |\n+    | Basic Conditional Access policies described in: <br/><br/>-[Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up)<br/>- [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure) | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** |\n \n ## Step 3 - Assign the policies in stages\n \n",
+      "baseCommitSha": "bd59857be7773a82f615dcf4257712640f307bcd",
+      "commitSha": "7712f47afcb7f12e5ba9fd9e8de82220dbe00601",
+      "commitMessage": "final review",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-22T19:58:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/migrate-to-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/migrate-to-intune",
+      "firstSeenAt": "2026-01-23T00:58:35.000Z",
+      "eventId": "intune-docs:7712f47afcb7f12e5ba9fd9e8de82220dbe00601:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final review",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 6,
+      "changes": 17,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 676a9e7de4..ddc50c313a 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -169,7 +169,7 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | --- | --- |\n | `count` | Returns a table with a single record containing the number of records. |\n | `distinct` | Produces a table with the distinct combination of the provided columns of the input table. |\n-| `join` | Merge the rows of two tables to form a new table by matching row for the same device. Only the join types of `innerunique`, `Leftouter`, `Fullouter`, `Rightouter`, and inner are supported. If you type in a join type other than the ones supported, they're ignored. Join statements support `on` syntax if joined with `Device` or `Device.Deviceid`. Common syntax for join is LeftEntity \\| join [hints] (RightEntity) on Conditions. For more info, see [Join](/kusto/query/join-operator) documentation.|\n+| `join` | Merge the rows of two tables to form a new table by matching row for the same device. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`. If you type in a join type other than the ones supported, they're ignored. Join statements support `on` syntax if joined with `Device`. Common syntax for join is `LeftEntity \\| join [hints] (RightEntity) on Conditions`. For more info, see [Join](/kusto/query/join-operator) documentation.|\n | `order by` | Sort the rows of the input table into order by one or more columns. |\n | `project` | Select the columns to include, rename or drop, and insert new computed columns. |\n | `take` | Return up to the specified number of rows. |\n@@ -177,6 +177,9 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | `where` | Filter a table to the subset of rows that satisfy a predicate. |\n | `summarize` | produces a table that aggregates the contents of the input table. |\n \n+> [!NOTE]\n+> `Device` is an entity-type and can't be used directly in operators that require scalar values (such as `distinct`, `summarize`, and `order by`). Use a specific device property (for example, `Device.DeviceId`) instead.\n+\n ### Scalar operators\n \n Scalar operators can be used to perform operations on individual values. The following operators are supported:\n@@ -297,12 +300,12 @@ Device query for multiple devices supports a linked entity. The Device entity ca\n | `LastSeenDateTime` | String | The date and time that the device last connected to Intune. |\n | `Ownership` | String | Ownership of the device. |\n \n-Device entity allows you to reference the device associated with a resulting row without needing to write a separate query to join them together. Essentially, it acts as an automatic join to include device information in your query results.\n+`Device` entity allows you to reference the device associated with a resulting row without needing to write a separate query to join them together. Essentially, it acts as an automatic join to include device information in your query results.\n \n-The device entity is automatically joined to every other entity for ease of use. The device entity is the first column in they query results, unless the query updates the return type through use of operators like a `project`, `summarize`, or `distinct`.\n+The `Device` entity is automatically joined to every other entity for ease of use. The `Device` entity is the first column in they query results, unless the query updates the return type through use of operators like a `project`, `summarize`, or `distinct`.\n \n-Using Device by itself in a query parses to `Device.DeviceId`. In the Device column returned by default, the DeviceId is translated to DeviceName to allow for easier identification of devices.\n-The device entity and its properties can also be referenced in queries by referencing Device.[Insert property].\n+Using `Device` by itself in a query parses to `Device.DeviceId`. In the `Device` column returned by default, the `DeviceId` is translated to `DeviceName` to allow for easier identification of devices.\n+The `Device` entity and its properties can also be referenced in queries by referencing `Device.[Insert property]`.\n \n The following query returns all the DiskDrive information for all devices with serial number 123:\n \n@@ -350,7 +353,9 @@ Cpu | where Device.DeviceName == 'Desktop123\"\n - A maximum of 10 queries can be submitted per minute. Any other queries within the same minute fail.\n - A maximum of 1,000 queries can be submitted per month.\n - Negative values for the amounts parameter of the datetime_add() function aren't supported.\n-- Referencing a variable that has been summarized by an aggregation function throws an error. Explicitly naming the variable allows the query to succeed again. For example, the query Device | summarize dcount(DeviceId) | order by dcount_DeviceId will fail. Device | summarize DCountDeviceIdRename=dcount(DeviceId) | order by DCountDeviceIdRename succeeds.\n+- Referencing a variable that has been summarized by an aggregation function throws an error. Explicitly naming the variable allows the query to succeed again. For example:\n+  - The query `Device | summarize dcount(DeviceId) | order by dcount_DeviceId` fails\n+  - The query `Device | summarize DCountDeviceIdRename=dcount(DeviceId) | order by DCountDeviceIdRename` succeeds.\n \n <!--links-->\n \n",
+      "baseCommitSha": "eba9db30f0dbea175759b89d4209fe97e7bd39d9",
+      "commitSha": "f8c4863c9227ccc553d28e219b2fd916486f1f0f",
+      "commitMessage": "Updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-23T06:50:47-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-23T11:50:47.000Z",
+      "eventId": "intune-docs:f8c4863c9227ccc553d28e219b2fd916486f1f0f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updates",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md b/intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md\nindex a9df38969b..57cda8e3fc 100644\n--- a/intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md\n+++ b/intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md\n@@ -74,6 +74,9 @@ The following notification message displays when the end user opens the installa\n \n ![Customized task sequence notification to the end user from Software Center.](../media/user-notification-enduser.png)\n \n+## Deploying a High-impact task sequence\n+If you select to deploy a Task Sequence as High-impact, this will display under teh Operating Systems node in Software Center. If you do not select 'This is a high-impact task sequence' the deployment will show under the Applications note.\n+\n ## Next steps\n \n [Task sequence performance](task-sequence-performance.md)\n",
+      "baseCommitSha": "4791c83fce5ce6fdbdcbd14b437e9ea5367314ae",
+      "commitSha": "332f4e179bcadd38c28e33e8975e4e840de60bac",
+      "commitMessage": "Update high-impact-task-sequence-settings.md",
+      "commitAuthor": "Andrew John Porter",
+      "commitDate": "2026-01-23T12:54:40Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings",
+      "firstSeenAt": "2026-01-23T12:54:40.000Z",
+      "eventId": "intune-docs:332f4e179bcadd38c28e33e8975e4e840de60bac:modified:intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update high-impact-task-sequence-settings.md",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/migrate-to-intune.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 5,
+      "changes": 14,
+      "patch": "diff --git a/intune/intune-service/fundamentals/migrate-to-intune.md b/intune/intune-service/fundamentals/migrate-to-intune.md\nindex 47a77a0b32..5af4a6fa9b 100644\n--- a/intune/intune-service/fundamentals/migrate-to-intune.md\n+++ b/intune/intune-service/fundamentals/migrate-to-intune.md\n@@ -1,5 +1,5 @@\n ---\n-title: Move from Basic Mobility and Security to Intune: Migration Guide\n+title: Move from Basic Mobility and Security to Intune-Migration Guide\n description: Follow this migration guide to move your mobile device management from Microsoft 365 Basic Mobility and Security to Intune. Includes policy mapping and license assignment steps.\n author: MandiOhlinger\n ms.author: mandia\n@@ -12,7 +12,7 @@ ms.collection:\n \n # Move to Intune from Microsoft 365 Basic Mobility and Security\n \n-**Basic Mobility and Security** is a basic set of policies included with Microsoft 365 that help protect devices that access Microsoft 365 apps, like Outlook.\n+**Basic Mobility and Security** is a basic set of policies included with Microsoft 365 that helps protect devices that access Microsoft 365 apps, like Outlook.\n \n Many organizations want more advanced device management features that Microsoft Intune provides. For a comparison of the features, see [Choose between Basic Mobility and Security or Intune](/microsoft-365/admin/basic-mobility-security/choose-between-basic-mobility-and-security-and-intune).\n \n@@ -26,7 +26,7 @@ If you use Basic Mobility and Security and want to move to Intune, this article\n \n     Use the policy mapping guidance to create new Intune policies that correspond to your existing Basic Mobility and Security policies.\n \n-3. **Assign the policies and complete the move**:\n+3. **Assign the licenses and policies**:\n \n     Assign the Intune licenses to users or groups, which automatically switches the users to Intune device management. When you assign licenses, users and devices are ready to receive the new Intune policies you create.\n \n@@ -44,6 +44,10 @@ This article helps you move your mobile device management (MDM) from Microsoft 3\n \n   - **Policy and profile manager** - This Microsoft Intune role lets you create and assign policies in the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431). For more information on this role, see [Built-in roles for Microsoft Intune](../fundamentals/role-based-access-control-reference.md#policy-and-profile-manager).\n \n+  - **Endpoint Security Manager** - This Microsoft Intune role lets you create and assign app-based Conditional Access policies in the [Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431). For more information on this role, see [Built-in roles for Microsoft Intune](../fundamentals/role-based-access-control-reference.md#endpoint-security-manager).\n+\n+  - **Conditional Access Administrator** - This Microsoft Entra role lets you create and assign device-based Conditional Access policies in the [Microsoft Entra admin center](https://entra.microsoft.com/). For more information on this role, see [Microsoft Entra built-in roles - Conditional Access Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).\n+\n - Test the steps in this article on a test users group that have devices enrolled in Basic Mobility and Security. Confirm that the policies behave as you expect.\n \n - After you move to Intune, the existing Basic Mobility and Security policies are still available and shown in [Basic Mobility and Security](https://compliance.microsoft.com/basicmobilityandsecurity). However, the Basic Mobility and Security policies no longer apply to users that are assigned Intune licenses.\n@@ -57,7 +61,7 @@ For more information, see [Basic Mobility and Security overview](/microsoft-365/\n Before you move from Basic Mobility and Security device management to Intune device management:\n \n 1. Make sure you have enough [Intune licenses](licenses.md) to cover all your users managed by Basic Mobility and Security. If you don't have enough licenses, group your users by priority and assign licenses in stages.\n-1. Review the existing Basic Mobility and Security policies and delete any policies that you no longer need. Deleting unneeded policies reduces the number of new Intune policies you create.\n+1. Review the existing Basic Mobility and Security policies and [remove any policies](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-turn-off) that you no longer need. Deleting unneeded policies reduces the number of new Intune policies you create.\n \n     The following articles list and describe the Basic Mobility and Security policies:\n \n@@ -91,7 +95,7 @@ After you prepare your licenses and review the information in [Step 1 - Prepare]\n     | [Access requirements policy mapping](policy-map-access-requirements.md) | [Compliance policies](../protect/device-compliance-get-started.md) |  [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Compliance** |\n     | [Configurations policy mapping](policy-map-configurations.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n     | [Miscellaneous policy mapping](policy-map-miscellaneous.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n-    | Basic Conditional Access policies described at [Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up) and [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure). | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** <br/><br/>Conditional Access is a Microsoft Entra feature. |\n+    | Basic Conditional Access policies described in: <br/><br/>-[Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up)<br/>- [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure) | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** <br/><br/>Conditional Access is a Microsoft Entra feature. |\n \n ## Step 3 - Assign the policies in stages\n \n",
+      "baseCommitSha": "a872dcdac71d5a48e369582211a6e3538d33f745",
+      "commitSha": "378575de73f3ae7e613ab3669e606482e44695de",
+      "commitMessage": "validation warning",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-22T19:48:16-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/migrate-to-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/migrate-to-intune",
+      "firstSeenAt": "2026-01-23T00:48:16.000Z",
+      "eventId": "intune-docs:378575de73f3ae7e613ab3669e606482e44695de:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "validation warning",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/migrate-to-intune.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/fundamentals/migrate-to-intune.md b/intune/intune-service/fundamentals/migrate-to-intune.md\nindex 5af4a6fa9b..6ab38195fc 100644\n--- a/intune/intune-service/fundamentals/migrate-to-intune.md\n+++ b/intune/intune-service/fundamentals/migrate-to-intune.md\n@@ -56,8 +56,6 @@ This article helps you move your mobile device management (MDM) from Microsoft 3\n \n ## Step 1 - Prepare\n \n-For more information, see [Basic Mobility and Security overview](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-overview).\n-\n Before you move from Basic Mobility and Security device management to Intune device management:\n \n 1. Make sure you have enough [Intune licenses](licenses.md) to cover all your users managed by Basic Mobility and Security. If you don't have enough licenses, group your users by priority and assign licenses in stages.\n@@ -95,7 +93,7 @@ After you prepare your licenses and review the information in [Step 1 - Prepare]\n     | [Access requirements policy mapping](policy-map-access-requirements.md) | [Compliance policies](../protect/device-compliance-get-started.md) |  [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Compliance** |\n     | [Configurations policy mapping](policy-map-configurations.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n     | [Miscellaneous policy mapping](policy-map-miscellaneous.md) | [Device configuration profiles](../configuration/device-profiles.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Manage devices** > **Configuration** |\n-    | Basic Conditional Access policies described in: <br/><br/>-[Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up)<br/>- [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure) | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** <br/><br/>Conditional Access is a Microsoft Entra feature. |\n+    | Basic Conditional Access policies described in: <br/><br/>-[Set up Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-set-up)<br/>- [Configure policies in Basic Mobility and Security](/microsoft-365/admin/security-and-compliance/m365b-devices-basic-mobility-security-policies-configure) | [Conditional Access policies]( ../protect/conditional-access.md) | [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) > **Devices** > **Conditional Access** > **Classic policies** |\n \n ## Step 3 - Assign the policies in stages\n \n",
+      "baseCommitSha": "378575de73f3ae7e613ab3669e606482e44695de",
+      "commitSha": "f421bb5899a243d7f103ca9891e8b865a9235498",
+      "commitMessage": "final review",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-01-22T19:58:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/migrate-to-intune.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/migrate-to-intune",
+      "firstSeenAt": "2026-01-23T00:58:35.000Z",
+      "eventId": "intune-docs:f421bb5899a243d7f103ca9891e8b865a9235498:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "final review",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex ddc50c313a..38213f2c88 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -169,7 +169,7 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | --- | --- |\n | `count` | Returns a table with a single record containing the number of records. |\n | `distinct` | Produces a table with the distinct combination of the provided columns of the input table. |\n-| `join` | Merge the rows of two tables to form a new table by matching row for the same device. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`. If you type in a join type other than the ones supported, they're ignored. Join statements support `on` syntax if joined with `Device`. Common syntax for join is `LeftEntity \\| join [hints] (RightEntity) on Conditions`. For more info, see [Join](/kusto/query/join-operator) documentation.|\n+| `join` | Merge the rows of two tables to form a new table by matching row for the same device. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`.<br><br>If you type in a join type other than the ones supported, they're ignored. Join statements support `on` syntax if joined with `Device`.<br> Common syntax for join is:<br> `LeftEntity | join [hints] (RightEntity) on Conditions`.<br><br>For more information, see [Join](/kusto/query/join-operator) documentation.|\n | `order by` | Sort the rows of the input table into order by one or more columns. |\n | `project` | Select the columns to include, rename or drop, and insert new computed columns. |\n | `take` | Return up to the specified number of rows. |\n@@ -307,21 +307,21 @@ The `Device` entity is automatically joined to every other entity for ease of us\n Using `Device` by itself in a query parses to `Device.DeviceId`. In the `Device` column returned by default, the `DeviceId` is translated to `DeviceName` to allow for easier identification of devices.\n The `Device` entity and its properties can also be referenced in queries by referencing `Device.[Insert property]`.\n \n-The following query returns all the DiskDrive information for all devices with serial number 123:\n+The following query returns all the `DiskDrive` information for all devices with serial number *123*:\n \n ```kusto\n DiskDrive\n where Device.SerialNumber = 123\n ```\n \n-The following query projects the Device ID and Manufacturer properties of the entity DiskDrive:\n+The following query projects the `DeviceId` and `Manufacturer` properties of the entity `DiskDrive`:\n \n ```kusto\n DiskDrive | project Device.DeviceId, Manufacturer\n ```\n \n-Although the Device entity that is shown as the first column by default appears as device names using Device by itself in a query parses to Device.DeviceId.\n-This query returns results ordered by the DeviceID, not by DeviceName:\n+Although the `Device` entity that is shown as the first column by default appears as device names using Device by itself in a query parses to `Device.DeviceId`.\n+This query returns results ordered by the `DeviceID`, not by `DeviceName`:\n \n ```kusto\n MemoryInfo | order by Device\n@@ -341,7 +341,7 @@ Cpu | where Device.DeviceName == 'Desktop123\"\n \n ## Known limitations\n \n-- Using the Device entity in aggregation functions shows a red underline. However, the query can  still run and can return results as expected. For example, the following query shows a red underline under **Device** but still runs:\n+- Using the `Device` entity in aggregation functions shows a red underline. However, the query can  still run and can return results as expected. For example, the following query shows a red underline under **Device** but still runs:\n \n   ```kusto\n   Cpu | summarize max(Device) by Manufacturer.\n",
+      "baseCommitSha": "f421bb5899a243d7f103ca9891e8b865a9235498",
+      "commitSha": "ff379a494e563a80719395adc892896ceac77fe7",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-23T08:53:20-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-23T13:53:20.000Z",
+      "eventId": "intune-docs:ff379a494e563a80719395adc892896ceac77fe7:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 38213f2c88..3ce1fedef7 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -169,7 +169,7 @@ Table operators can be used to filter, summarize, and transform data streams. Th\n | --- | --- |\n | `count` | Returns a table with a single record containing the number of records. |\n | `distinct` | Produces a table with the distinct combination of the provided columns of the input table. |\n-| `join` | Merge the rows of two tables to form a new table by matching row for the same device. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`.<br><br>If you type in a join type other than the ones supported, they're ignored. Join statements support `on` syntax if joined with `Device`.<br> Common syntax for join is:<br> `LeftEntity | join [hints] (RightEntity) on Conditions`.<br><br>For more information, see [Join](/kusto/query/join-operator) documentation.|\n+| `join` | Merge the rows of two tables to form a new table by matching row for the same device. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`.<br><br>Join statements support `on` syntax if joined with `Device`.<br> Common syntax for join is:<br> `LeftEntity | join [hints] (RightEntity) on Conditions`.<br><br>For more information, see [Join](/kusto/query/join-operator) documentation.|\n | `order by` | Sort the rows of the input table into order by one or more columns. |\n | `project` | Select the columns to include, rename or drop, and insert new computed columns. |\n | `take` | Return up to the specified number of rows. |\n",
+      "baseCommitSha": "ff379a494e563a80719395adc892896ceac77fe7",
+      "commitSha": "34654258a4c4c086d7e5360fb4f6ef0199128181",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-23T08:57:18-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-23T13:57:18.000Z",
+      "eventId": "intune-docs:34654258a4c4c086d7e5360fb4f6ef0199128181:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/remediations.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/remediations.md b/intune/intune-service/fundamentals/remediations.md\nindex e382625ca0..c926955acf 100644\n--- a/intune/intune-service/fundamentals/remediations.md\n+++ b/intune/intune-service/fundamentals/remediations.md\n@@ -189,7 +189,7 @@ You can use the **Run remediation** device action to run a remediation script on\n > [!NOTE]\n > - Only a single **Run remediation** device action can be issued at a time for the same device. If you run multiple **Run remediation** device actions in a short period of time to a device, they can overwrite each other.\n >\n-> - The device might not receive the **Run remediation** device action if the device is offline or can't successfully communicate with Intune or Windows Push Notification Service (WNS) when the device action is sent.\n+> - The device will not receive the **Run remediation** device action if the device is offline or can't successfully communicate with Intune or Windows Push Notification Service (WNS) when the device action is sent.\n \n ## Client policy retrieval and client reporting\n \n",
+      "baseCommitSha": "4791c83fce5ce6fdbdcbd14b437e9ea5367314ae",
+      "commitSha": "0bd24bf7ab6920164c8e3dba089d740bfb0565cf",
+      "commitMessage": "Update remediations.md",
+      "commitAuthor": "paulo1904",
+      "commitDate": "2026-01-23T14:25:59Z",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/remediations.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations",
+      "firstSeenAt": "2026-01-23T14:25:59.000Z",
+      "eventId": "intune-docs:0bd24bf7ab6920164c8e3dba089d740bfb0565cf:modified:intune/intune-service/fundamentals/remediations.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update remediations.md",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remediations.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 43,
+      "deletions": 35,
+      "changes": 78,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 3ce1fedef7..672f154863 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -165,17 +165,17 @@ Device query supports only a subset of the operators supported in the Kusto Quer\n \n Table operators can be used to filter, summarize, and transform data streams. The following operators are supported:\n \n-| Table Operators | Description |\n+| Table operator | Description |\n | --- | --- |\n | `count` | Returns a table with a single record containing the number of records. |\n-| `distinct` | Produces a table with the distinct combination of the provided columns of the input table. |\n-| `join` | Merge the rows of two tables to form a new table by matching row for the same device. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`.<br><br>Join statements support `on` syntax if joined with `Device`.<br> Common syntax for join is:<br> `LeftEntity | join [hints] (RightEntity) on Conditions`.<br><br>For more information, see [Join](/kusto/query/join-operator) documentation.|\n-| `order by` | Sort the rows of the input table into order by one or more columns. |\n-| `project` | Select the columns to include, rename or drop, and insert new computed columns. |\n-| `take` | Return up to the specified number of rows. |\n+| `distinct` | Produces a table with distinct combinations of the provided columns from the input table. |\n+| `join` | Merges rows from two tables to form a new table based on matching values in the specified columns. The following join types are supported:<br>- `innerunique` (default)<br>- `inner`<br>- `leftouter`<br>- `rightouter`<br>- `fullouter`<br>- `leftsemi`<br>- `rightsemi`<br>- `leftanti`<br>- `rightanti`<br><br>Join statements support an optional `on` clause. In device query scenarios, you typically use `on Device` when joining tables that contain a `Device` entity. Common syntax for `join` is: `LeftTable | join [hints] (RightTable) on Conditions`.<br><br>For more information, see [Join operator](/kusto/query/join-operator). |\n+| `order by` | Sorts the rows of the input table by one or more columns. |\n+| `project` | Selects columns to include, rename, or drop, and inserts new computed columns. |\n+| `take` | Returns up to the specified number of rows. |\n | `top` | Returns the first N records sorted by the specified columns. |\n-| `where` | Filter a table to the subset of rows that satisfy a predicate. |\n-| `summarize` | produces a table that aggregates the contents of the input table. |\n+| `where` | Filters a table to the subset of rows that satisfy a predicate. |\n+| `summarize` | Produces a table that aggregates the contents of the input table. |\n \n > [!NOTE]\n > `Device` is an entity-type and can't be used directly in operators that require scalar values (such as `distinct`, `summarize`, and `order by`). Use a specific device property (for example, `Device.DeviceId`) instead.\n@@ -300,62 +300,70 @@ Device query for multiple devices supports a linked entity. The Device entity ca\n | `LastSeenDateTime` | String | The date and time that the device last connected to Intune. |\n | `Ownership` | String | Ownership of the device. |\n \n-`Device` entity allows you to reference the device associated with a resulting row without needing to write a separate query to join them together. Essentially, it acts as an automatic join to include device information in your query results.\n \n-The `Device` entity is automatically joined to every other entity for ease of use. The `Device` entity is the first column in they query results, unless the query updates the return type through use of operators like a `project`, `summarize`, or `distinct`.\n+The `Device` entity allows you to reference device information associated with each resulting row without needing to explicitly join to a device table.\n \n-Using `Device` by itself in a query parses to `Device.DeviceId`. In the `Device` column returned by default, the `DeviceId` is translated to `DeviceName` to allow for easier identification of devices.\n-The `Device` entity and its properties can also be referenced in queries by referencing `Device.[Insert property]`.\n+By default, query results include a `Device` entity column that provides device context for each row. Operators such as `project`, `summarize`, or `distinct` can change which columns are returned.\n \n-The following query returns all the `DiskDrive` information for all devices with serial number *123*:\n+`Device` represents the device associated with the resulting row and can be referenced directly as an entity-type column. When displayed in query results, the `Device` entity is shown using a friendly identifier, such as the device name, to make it easier to identify devices.\n+\n+You can reference properties of the `Device` entity in queries using `Device.[Property]`.\n+\n+The following query returns all `DiskDrive` information for devices with a specific serial number:\n \n ```kusto\n DiskDrive\n-where Device.SerialNumber = 123\n+| where Device.SerialNumber == \"123\"\n ```\n \n-The following query projects the `DeviceId` and `Manufacturer` properties of the entity `DiskDrive`:\n+\n+The following query projects the `Device` entity and the `Manufacturer` property from the `DiskDrive` entity:\n \n ```kusto\n-DiskDrive | project Device.DeviceId, Manufacturer\n-```\n \n-Although the `Device` entity that is shown as the first column by default appears as device names using Device by itself in a query parses to `Device.DeviceId`.\n-This query returns results ordered by the `DeviceID`, not by `DeviceName`:\n+DiskDrive\n+| project Device, Manufacturer\n \n-```kusto\n-MemoryInfo | order by Device\n ```\n \n-Similarly, this query returns no results unless the device ID is Desktop123. It doesn't query on device name:\n+By default, query results include a `Device` entity that represents the device associated with each row. The `Device` entity is an entity-type column and does not implicitly resolve to a specific scalar property.\n+When sorting or filtering results, explicitly reference the device property you want to use. For example, this query orders results by device name:\n \n ```kusto\n-Cpu | where Device == \"Desktop123\"\n+\n+MemoryInfo\n+| order by Device.DeviceName\n+\n ```\n \n-Use the following example to query on device name:\n+Similarly, to filter by device name, reference the `DeviceName` property directly:\n \n ```kusto\n-Cpu | where Device.DeviceName == 'Desktop123\"\n+\n+Cpu\n+| where Device.DeviceName == \"Desktop123\"\n+\n ```\n \n ## Known limitations\n \n-- Using the `Device` entity in aggregation functions shows a red underline. However, the query can  still run and can return results as expected. For example, the following query shows a red underline under **Device** but still runs:\n+\n+- Using entity-type columns such as `Device` in aggregation functions can show a red underline in the editor because aggregation functions require scalar values. To avoid this, reference a specific scalar property of the entity. For example:\n \n   ```kusto\n-  Cpu | summarize max(Device) by Manufacturer.\n+  Cpu\n+  | summarize max(CpuUsage) by Device.Manufacturer\n   ```\n \n-- Queries with a join operator, $left and $right parameters show a red underline under $left and $right. However, the query can still run and returns results as expected.\n-- A single query can contain a maximum of three join operators. Queries with more joins fail.\n-- A max of ~50,000 records are returned for a query.\n-- A maximum of 10 queries can be submitted per minute. Any other queries within the same minute fail.\n+- Queries that use the `join` operator with `$left` and `$right` parameters may show a red underline in the editor. However, the query can still run and return results as expected.\n+- A single query can contain a maximum of three `join` operators. Queries with more joins fail.\n+- A maximum of ~50,000 records are returned for a query.\n+- A maximum of 10 queries can be submitted per minute. Additional queries within the same minute fail.\n - A maximum of 1,000 queries can be submitted per month.\n-- Negative values for the amounts parameter of the datetime_add() function aren't supported.\n-- Referencing a variable that has been summarized by an aggregation function throws an error. Explicitly naming the variable allows the query to succeed again. For example:\n-  - The query `Device | summarize dcount(DeviceId) | order by dcount_DeviceId` fails\n-  - The query `Device | summarize DCountDeviceIdRename=dcount(DeviceId) | order by DCountDeviceIdRename` succeeds.\n+- Negative values for the `amount` parameter of the `datetime_add()` function aren't supported.\n+- Referencing a variable that was generated by an aggregation function without explicitly naming it can cause a query to fail. Explicitly naming the variable allows the query to succeed. For example:\n+  - The query `Device | summarize dcount(DeviceId) | order by dcount_DeviceId` fails.\n+  - The query `Device | summarize DCountDeviceIdRename = dcount(DeviceId) | order by DCountDeviceIdRename` succeeds.\n \n <!--links-->\n \n",
+      "baseCommitSha": "34654258a4c4c086d7e5360fb4f6ef0199128181",
+      "commitSha": "80d72fd4473ed3eb65d20519100b9fbb2c9f2ee7",
+      "commitMessage": "examples updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-23T09:41:47-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-23T14:41:47.000Z",
+      "eventId": "intune-docs:80d72fd4473ed3eb65d20519100b9fbb2c9f2ee7:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "examples updates",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-query-multiple-devices.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 6,
+      "changes": 28,
+      "patch": "diff --git a/intune/advanced-analytics/device-query-multiple-devices.md b/intune/advanced-analytics/device-query-multiple-devices.md\nindex 672f154863..d81efc17cc 100644\n--- a/intune/advanced-analytics/device-query-multiple-devices.md\n+++ b/intune/advanced-analytics/device-query-multiple-devices.md\n@@ -90,7 +90,10 @@ To help you get started, some sample queries are provided in this section. To ac\n This query lists the top five CPUs sorted by core count.\n \n ```kusto\n-Cpu| project Device, ProcessorId, Model, Architecture, CpuStatus, ProcessorType, CoreCount, LogicalProcessorCount, Manufacturer, AddressWidth| order by CoreCount asc| take 5\n+Cpu\n+| project Device, ProcessorId, Model, Architecture, CpuStatus, ProcessorType, CoreCount, LogicalProcessorCount, Manufacturer, AddressWidth\n+| order by CoreCount asc\n+| take 5\n ```\n \n ### Devices with unprotected disks\n@@ -98,7 +101,9 @@ Cpu| project Device, ProcessorId, Model, Architecture, CpuStatus, ProcessorType,\n This query lists devices with unencrypted disks.\n \n ```kusto\n-EncryptableVolume| where ProtectionStatus != \"PROTECTED\"| join LogicalDrive\n+EncryptableVolume\n+| where ProtectionStatus != \"PROTECTED\"\n+| join LogicalDrive on Device\n ```\n \n ### Arm64 devices\n@@ -106,7 +111,8 @@ EncryptableVolume| where ProtectionStatus != \"PROTECTED\"| join LogicalDrive\n This query lists all devices with an ARM64 processor.\n \n ```kusto\n-Cpu | where Architecture == \"ARM64\"\n+Cpu\n+| where Architecture == \"ARM64\"\n ```\n \n ### Device count by processor architecture\n@@ -114,7 +120,8 @@ Cpu | where Architecture == \"ARM64\"\n This query provides a summary of devices by CPU architecture.\n \n ```kusto\n-Cpu| summarize DeviceCount=count() by Architecture\n+Cpu\n+| summarize DeviceCount = count() by Architecture\n ```\n \n ### Top devices by battery capacity\n@@ -122,7 +129,12 @@ Cpu| summarize DeviceCount=count() by Architecture\n This query lists the top 10 devices by fully charged battery capacity.\n \n ```kusto\n-Battery| project Device, InstanceName, Manufacturer, Model, SerialNumber, CycleCount, DesignedCapacity, FullChargedCapacity, FullChargedCapacityPercent = (FullChargedCapacity*100)/DesignedCapacity| top 10 by FullChargedCapacityPercent asc\n+Battery\n+| project Device, InstanceName, Manufacturer, Model, SerialNumber, CycleCount,\n+          DesignedCapacity,\n+          FullChargedCapacity,\n+          FullChargedCapacityPercent = (FullChargedCapacity * 100) / DesignedCapacity\n+| top 10 by FullChargedCapacityPercent asc\n ```\n \n ### Devices memory information\n@@ -130,7 +142,11 @@ Battery| project Device, InstanceName, Manufacturer, Model, SerialNumber, CycleC\n This query lists devices with physical and virtual memory in GB.\n \n ```kusto\n-MemoryInfo| project Device, PhysicalMemoryGB = PhysicalMemoryTotalBytes/(1000*1000*1000), VirtualMemoryGB = VirtualMemoryTotalBytes/(1000*1000*1000) | order by PhysicalMemoryGB asc\n+MemoryInfo\n+| project Device,\n+          PhysicalMemoryGB = PhysicalMemoryTotalBytes/(1000*1000*1000),\n+          VirtualMemoryGB = VirtualMemoryTotalBytes/(1000*1000*1000)\n+| order by PhysicalMemoryGB asc\n ```\n \n ### Device count by OS version\n",
+      "baseCommitSha": "80d72fd4473ed3eb65d20519100b9fbb2c9f2ee7",
+      "commitSha": "9e45f7d623df8e4320b237599a2b0499065dc41f",
+      "commitMessage": "updates",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-01-23T09:58:42-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/advanced-analytics/device-query-multiple-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-query-multiple-devices",
+      "firstSeenAt": "2026-01-23T14:58:42.000Z",
+      "eventId": "intune-docs:9e45f7d623df8e4320b237599a2b0499065dc41f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updates",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-1-mamca.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-1-mamca.md b/intune/intune-service/apps/mamedge-1-mamca.md\nindex 25654a8a24..4aa9b94e3b 100644\n--- a/intune/intune-service/apps/mamedge-1-mamca.md\n+++ b/intune/intune-service/apps/mamedge-1-mamca.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 1. Create Microsoft Entra Conditional Access with Microsoft Edge for Business\n description: Step 1. Create Microsoft Entra Conditional Access with Microsoft Edge for Business.\n-ms.date: 12/05/2025\n+ms.date: 01/23/2026\n ms.topic: how-to\n ms.reviewer: samarti\n ms.custom:\n@@ -168,6 +168,4 @@ Use this companion policy to ensure that desktop applications on Windows devices\n \n ## Next step\n \n-[:::image type=\"content\" source=\"./media/securing-data-edge-for-business/securing-data-edge-for-business-steps-02.png\" alt-text=\"Step 2 to create an app protection policy.\":::](mamedge-2-app.md)\n-\n Continue with [Step 2](mamedge-2-app.md) to create an app protection policy.\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-1-mamca.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-1-mamca",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-1-mamca.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-1-mamca.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-2-app.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-2-app.md b/intune/intune-service/apps/mamedge-2-app.md\nindex 24d55f82b3..0e5a65b80b 100644\n--- a/intune/intune-service/apps/mamedge-2-app.md\n+++ b/intune/intune-service/apps/mamedge-2-app.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 2. Create App Protection Policies for Microsoft Edge for Business\n description: Step 2. Create app protection policies for Microsoft Edge for Business across Windows, Android, and iOS platforms.\n-ms.date: 12/05/2025\n+ms.date: 01/23/2026\n ms.topic: how-to\n ms.reviewer: samarti\n ms.custom:\n@@ -614,6 +614,4 @@ Level 3 configuration provides the highest level of data protection and is recom\n \n ## Next step\n \n-[:::image type=\"content\" source=\"./media/securing-data-edge-for-business/securing-data-edge-for-business-steps-03.png\" alt-text=\"Step 3 to integrate Mobile Threat Defense with Microsoft Edge for Business.\":::](mamedge-3-scc.md)\n-\n Continue with [Step 3](mamedge-3-scc.md) to integrate Mobile Threat Defense with Microsoft Edge for Business.\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-2-app.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-2-app",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-2-app.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-2-app.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-3-scc.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-3-scc.md b/intune/intune-service/apps/mamedge-3-scc.md\nindex 48dbc7c166..6e2e323bae 100644\n--- a/intune/intune-service/apps/mamedge-3-scc.md\n+++ b/intune/intune-service/apps/mamedge-3-scc.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 3. Integrate Mobile Threat Defense for App Protection Policy\n description: Step 3. Integrate Mobile Threat Defense signals with Microsoft Edge for Business app protection policies in Microsoft Intune.\n-ms.date: 12/05/2025\n+ms.date: 01/23/2026\n ms.topic: how-to\n ms.reviewer: samarti\n ms.custom:\n@@ -118,6 +118,4 @@ Use the following steps to configure the MTD Connector.\n \n ## Next step\n \n-[:::image type=\"content\" source=\"./media/securing-data-edge-for-business/securing-data-edge-for-business-steps-04.png\" alt-text=\"Step 2 to create an app protection policy.\":::](mamedge-4-acp-edge.md)\n-\n Continue with [Step 4](mamedge-4-acp-edge.md) to create app configuration policies for Microsoft Edge for Business.\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-3-scc.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-3-scc",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-3-scc.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-3-scc.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-4-acp-edge.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 5,
+      "changes": 8,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-4-acp-edge.md b/intune/intune-service/apps/mamedge-4-acp-edge.md\nindex 3cd2dd1043..e8459ab298 100644\n--- a/intune/intune-service/apps/mamedge-4-acp-edge.md\n+++ b/intune/intune-service/apps/mamedge-4-acp-edge.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 4. Create App Configuration Policies for Microsoft Edge for Business\n description: Step 4. Create app configuration policies for Microsoft Edge for Business across Windows, Android, and iOS platforms.\n-ms.date: 01/15/2026\n+ms.date: 01/23/2026\n ms.topic: how-to\n ms.reviewer: samarti\n ms.custom:\n@@ -26,7 +26,7 @@ This step defines three progressive ACP configurations per platform, Level 1 (Ba\n App Configuration Policies (this step) are designed for non-enrolled devices using the Managed Apps configuration channel, while Settings Catalog policies (Step 5) are designed for enrolled devices with device-level controls.\n \n > [!IMPORTANT]\n-> Never deploy both App Configuration Policies and Settings Catalog policies targeting Microsoft Edge to the same client. Choose the appropriate policy type based on device enrollment status to avoid policy conflicts.\n+Choose the appropriate policy type based on device enrollment status to avoid policy conflicts.\n \n ## Security Level Selection\n \n@@ -825,8 +825,6 @@ Level 3 configuration enforces maximum security with zero-trust controls and com\n \n ::: zone-end\n \n-## Next steps\n-\n-[:::image type=\"content\" source=\"./media/securing-data-edge-for-business/securing-data-edge-for-business-steps-05.png\" alt-text=\"Step 2 to create an app protection policy.\":::](mamedge-5-settings-catalog.md)\n+## Next step\n \n Continue to [Step 5](mamedge-5-settings-catalog.md) to configure Settings Catalog policies for enrolled Windows and macOS devices.\n\\ No newline at end of file\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-4-acp-edge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-4-acp-edge",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-4-acp-edge.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-4-acp-edge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-5-settings-catalog.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-5-settings-catalog.md b/intune/intune-service/apps/mamedge-5-settings-catalog.md\nindex e5eac4c904..1e05f2f262 100644\n--- a/intune/intune-service/apps/mamedge-5-settings-catalog.md\n+++ b/intune/intune-service/apps/mamedge-5-settings-catalog.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 5. Create Settings Catalog policies for Microsoft Edge for Business\n description: Step 5. Create Settings Catalog policies for Microsoft Edge for Business on Windows and macOS.\n-ms.date: 01/15/2026\n+ms.date: 01/23/2026\n ms.topic: how-to\n ms.reviewer: samarti\n ms.custom:\n@@ -493,8 +493,6 @@ After deploying Settings Catalog policies:\n \n ::: zone-end\n \n-## Next steps\n-\n-[:::image type=\"content\" source=\"./media/securing-data-edge-for-business/securing-data-edge-for-business-steps-06.png\" alt-text=\"Step 6 to understand end user experience.\":::](mamedge-6-end-user-experience.md)\n+## Next step\n \n Continue to [Step 6](mamedge-6-end-user-experience.md) to understand the Microsoft Edge for Business end user experience.\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-5-settings-catalog.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-5-settings-catalog",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-5-settings-catalog.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-5-settings-catalog.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-6-end-user-experience.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-6-end-user-experience.md b/intune/intune-service/apps/mamedge-6-end-user-experience.md\nindex 3d5ef09ce2..a449717877 100644\n--- a/intune/intune-service/apps/mamedge-6-end-user-experience.md\n+++ b/intune/intune-service/apps/mamedge-6-end-user-experience.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 6. Understand Microsoft Edge for Business End User Experience for Windows\n description: Step 6. Understand Microsoft Edge for Business end user experience Windows.\n-ms.date: 01/15/2026\n+ms.date: 01/23/2026\n ms.topic: how-to\n ms.reviewer: samarti\n ms.custom:\n@@ -89,6 +89,4 @@ Intune displays notifications when a policy requirement isn’t met. The followi\n \n ## Next step\n \n-[:::image type=\"content\" source=\"./media/securing-data-edge-for-business/securing-data-edge-for-business-steps-07.png\" alt-text=\"Step 7 to troubleshoot Microsoft Edge for Business.\":::](mamedge-7-troubleshoot.md)\n-\n Continue with [Step 7](mamedge-7-troubleshoot.md) to troubleshoot Microsoft Edge for Business.\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-6-end-user-experience.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-6-end-user-experience",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-6-end-user-experience.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-6-end-user-experience.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-7-troubleshoot.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-7-troubleshoot.md b/intune/intune-service/apps/mamedge-7-troubleshoot.md\nindex 5cfeeebbf6..34e395b175 100644\n--- a/intune/intune-service/apps/mamedge-7-troubleshoot.md\n+++ b/intune/intune-service/apps/mamedge-7-troubleshoot.md\n@@ -1,7 +1,7 @@\n ---\n title: Step 7. Troubleshoot Microsoft Edge for Business Data Security\n description: Step 7. Troubleshoot Microsoft Edge for Business corporate data security in Microsoft Intune.\n-ms.date: 01/15/2026\n+ms.date: 01/23/2026\n ms.topic: troubleshooting\n ms.reviewer: samarti\n ms.custom:\n",
+      "baseCommitSha": "1c9a3f78430df9ad2d1265c8c4ad776085316a05",
+      "commitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitMessage": "Removed section, updated grammar.",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:18:55-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-7-troubleshoot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-7-troubleshoot",
+      "firstSeenAt": "2026-01-23T16:18:55.000Z",
+      "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-7-troubleshoot.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed section, updated grammar.",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-7-troubleshoot.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/apps/mamedge-4-acp-edge.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/apps/mamedge-4-acp-edge.md b/intune/intune-service/apps/mamedge-4-acp-edge.md\nindex e8459ab298..6563a7ff74 100644\n--- a/intune/intune-service/apps/mamedge-4-acp-edge.md\n+++ b/intune/intune-service/apps/mamedge-4-acp-edge.md\n@@ -26,7 +26,7 @@ This step defines three progressive ACP configurations per platform, Level 1 (Ba\n App Configuration Policies (this step) are designed for non-enrolled devices using the Managed Apps configuration channel, while Settings Catalog policies (Step 5) are designed for enrolled devices with device-level controls.\n \n > [!IMPORTANT]\n-Choose the appropriate policy type based on device enrollment status to avoid policy conflicts.\n+> Choose the appropriate policy type based on device enrollment status to avoid policy conflicts.\n \n ## Security Level Selection\n \n",
+      "baseCommitSha": "7756b221f4a05d29c1a496889a8100ac51bcc6be",
+      "commitSha": "e546b09fdfca5f8e0b124cb8a9af92572cc0112f",
+      "commitMessage": "Fix formatting for policy type selection note in Microsoft Edge ACP documentation",
+      "commitAuthor": "nicholasswhite",
+      "commitDate": "2026-01-23T11:32:22-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/apps/mamedge-4-acp-edge.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/apps/mamedge-4-acp-edge",
+      "firstSeenAt": "2026-01-23T16:32:22.000Z",
+      "eventId": "intune-docs:e546b09fdfca5f8e0b124cb8a9af92572cc0112f:modified:intune/intune-service/apps/mamedge-4-acp-edge.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix formatting for policy type selection note in Microsoft Edge ACP documentation",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-4-acp-edge.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 13,
+    "totalFiles": 19,
+    "authors": [
+      "Andrew John Porter",
+      "Mandi Ohlinger",
+      "Paolo Matarazzo",
+      "nicholasswhite",
+      "paulo1904"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 19 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remediations.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-1-mamca.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-2-app.md. Updated Microsoft Intune documenta",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/migrate-to-intune.md",
+          "intune/intune-service/fundamentals/migrate-to-intune.md",
+          "intune/intune-service/fundamentals/migrate-to-intune.md",
+          "intune/intune-service/fundamentals/migrate-to-intune.md",
+          "intune/intune-service/fundamentals/remediations.md",
+          "intune/intune-service/apps/mamedge-1-mamca.md",
+          "intune/intune-service/apps/mamedge-2-app.md",
+          "intune/intune-service/apps/mamedge-3-scc.md",
+          "intune/intune-service/apps/mamedge-4-acp-edge.md",
+          "intune/intune-service/apps/mamedge-5-settings-catalog.md",
+          "intune/intune-service/apps/mamedge-6-end-user-experience.md",
+          "intune/intune-service/apps/mamedge-7-troubleshoot.md",
+          "intune/intune-service/apps/mamedge-4-acp-edge.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "sourceFiles": [
+          "intune/advanced-analytics/device-query-multiple-devices.md",
+          "intune/advanced-analytics/device-query-multiple-devices.md",
+          "intune/advanced-analytics/device-query-multiple-devices.md",
+          "intune/advanced-analytics/device-query-multiple-devices.md",
+          "intune/advanced-analytics/device-query-multiple-devices.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md.",
+        "sourceFiles": [
+          "intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remediations.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-1-mamca.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-2-app.md. Updated Microsoft Intune documenta"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

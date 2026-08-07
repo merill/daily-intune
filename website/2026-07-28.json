@@ -1,0 +1,84 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2603/38232642.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38232642.md b/intune/configmgr/hotfix/2603/38232642.md\nindex f6701dbb3c..cdecd9189a 100644\n--- a/intune/configmgr/hotfix/2603/38232642.md\n+++ b/intune/configmgr/hotfix/2603/38232642.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-endpoint-configuration-manager\n \n ## Summary of KB38232642\n \n-An update is available that enhances security in Configuration Manager for importing console extensions.\n+An update is available that enhances security in Configuration Manager for importing console extensions. This update resolves the vulnerability described in [CVE-2026-47301](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-47301).\n \n > [!NOTE]\n > This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "cbe3720f68b54cb13508bb5e72779c95cd0e783f",
+      "commitMessage": "KB38232642: add CVE-2026-47301 reference",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-07-28T16:08:27-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/38232642.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38232642",
+      "firstSeenAt": "2026-07-28T23:08:27.000Z",
+      "eventId": "intune-docs:cbe3720f68b54cb13508bb5e72779c95cd0e783f:modified:intune/configmgr/hotfix/2603/38232642.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "KB38232642: add CVE-2026-47301 reference",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/37864969.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/37864969.md b/intune/configmgr/hotfix/2509/37864969.md\nindex ff84875227..d0dd1f89eb 100644\n--- a/intune/configmgr/hotfix/2509/37864969.md\n+++ b/intune/configmgr/hotfix/2509/37864969.md\n@@ -68,7 +68,7 @@ For more information on changes in Configuration Manager version 2509, see:\n \n - **Security update for importing console extensions**\n \n-   This update enhances security in Configuration Manager for importing console extensions. For more information, see [KB 38232642](../2603/38232642.md).\n+   This update enhances security in Configuration Manager for importing console extensions and resolves the vulnerability described in [CVE-2026-47301](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-47301). For more information, see [KB 38232642](../2603/38232642.md).\n \n - **Offline feedback submission fails due to authentication library version mismatch**\n \n@@ -85,7 +85,7 @@ The following issues are new in this update rollup and weren't included in [KB 3\n - Offline feedback submission fails due to authentication library version mismatch. For more information, see [KB 36419072](../2509/36419072.md).\n - Co-managed clients with third party update catalogs receive updates from incorrect source. For more information, see [KB 36495448](../2509/36495448.md).\n - Cloud Management Gateway virtual machine scale set image updated to remove end-of-life .NET 6. For more information, see [KB 37942646](../2603/37942646.md).\n-- Security update for importing console extensions. For more information, see [KB 38232642](../2603/38232642.md).\n+- Security update for importing console extensions ([CVE-2026-47301](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-47301)). For more information, see [KB 38232642](../2603/38232642.md).\n \n ## Hotfixes that are included in this update\n \n",
+      "baseCommitSha": "cbe3720f68b54cb13508bb5e72779c95cd0e783f",
+      "commitSha": "6d50432a73a4967dc4acd5a400630bec719b552e",
+      "commitMessage": "KB37864969: add CVE-2026-47301 reference for console extension fix",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-07-28T16:12:22-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/37864969.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/37864969",
+      "firstSeenAt": "2026-07-28T23:12:22.000Z",
+      "eventId": "intune-docs:6d50432a73a4967dc4acd5a400630bec719b552e:modified:intune/configmgr/hotfix/2509/37864969.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "KB37864969: add CVE-2026-47301 reference for console extension fix",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "QianDong Ni"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2603/38232642.md",
+          "intune/configmgr/hotfix/2509/37864969.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

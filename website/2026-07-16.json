@@ -1,0 +1,59 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/apps/deploy-use/packages-and-programs.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/configmgr/apps/deploy-use/packages-and-programs.md b/intune/configmgr/apps/deploy-use/packages-and-programs.md\nindex dde3554da4..1446dc6738 100644\n--- a/intune/configmgr/apps/deploy-use/packages-and-programs.md\n+++ b/intune/configmgr/apps/deploy-use/packages-and-programs.md\n@@ -113,6 +113,9 @@ When clients receive the deployment policy, they'll display the icon in Software\n \n         If it can't find the file, the program fails.\n \n+        > [!IMPORTANT]\n+        > On a 64-bit client, the command line always runs as a 32-bit process in the WOW64 (Windows 32-bit On Windows 64-bit) subsystem. As a result, WOW64 redirects the process's file system and registry access. For example, a script that writes files to `%ProgramFiles%` is redirected to `%ProgramFiles(x86)%`, and registry writes to `HKEY_LOCAL_MACHINE\\Software` are redirected to `HKEY_LOCAL_MACHINE\\Software\\WOW6432Node`. To bypass file system redirection and run a 64-bit process, WOW64 recognizes `%windir%\\Sysnative` as a special alias for `%windir%\\System32`. For example, to run the 64-bit version of `cmd.exe`, use the following command line: `%windir%\\Sysnative\\cmd.exe`. For more information, see [File System Redirector](/windows/win32/winprog64/file-system-redirector) and [Registry Redirector](/windows/win32/winprog64/registry-redirector).\n+\n     - **Startup folder** (optional): Specify the folder from which the program runs, up to 127 characters. This folder can be an absolute path on the client. It can also be a path that's relative to the distribution point folder that contains the package.\n \n     - **Run**: Specify the mode in which the program runs on client computers. Select one of the following options:\n@@ -189,7 +192,7 @@ When clients receive the deployment policy, they'll display the icon in Software\n         - **Required**: The package and program is deployed automatically, according to the configured schedule. In Software Center, you can track its deployment status and install it before the deadline.\n \n         > [!NOTE]\n-        > If multiple users are signed into the device, package and task sequence deployments may not appear in Software Center.\n+        > If multiple users are signed in to the device, package and task sequence deployments appear in Software Center for the user in the active console session. If no user is signed in to the active console session, the deployments appear for the user with the lowest active session ID. When a user signs in, Windows starts a session for that user and identifies it with a unique session ID. To view the session ID and type for each signed-in user, open Task Manager, select the **Users** tab, right-click a column header, and then select **ID** and **Session**. The **Session** column shows the session type, such as **Console** for a local sign-in or an **RDP** session name for a remote connection. For more information, see [Remote Desktop Sessions](/windows/win32/termserv/terminal-services-sessions).\n \n     - **Send wake-up packets**: If you set the deployment purpose to **Required** and select this option, the site first sends a wake-up packet to computers at the installation deadline time. Before you can use this option, configure computers for Wake On LAN. For more information, see [How to configure Wake on LAN](../../core/clients/deploy/configure-wake-on-lan.md).\n \n",
+      "baseCommitSha": "e25eb3ed3073ba76e0fb075d693687004d1fb5e9",
+      "commitSha": "418983404989b626b7b79e56206d379fe61576ed",
+      "commitMessage": "Adding the note on 32-bit launcher for Packages and Programs - and updated the note on visibility in SCC.",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-16T21:11:32+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/apps/deploy-use/packages-and-programs.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/apps/deploy-use/packages-and-programs",
+      "firstSeenAt": "2026-07-16T20:11:32.000Z",
+      "eventId": "intune-docs:418983404989b626b7b79e56206d379fe61576ed:modified:intune/configmgr/apps/deploy-use/packages-and-programs.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Adding the note on 32-bit launcher for Packages and Programs - and updated the note on visibility in SCC.",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/apps/deploy-use/packages-and-programs.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Pavel Yurenev"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/apps/deploy-use/packages-and-programs.md.",
+        "sourceFiles": [
+          "intune/configmgr/apps/deploy-use/packages-and-programs.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/apps/deploy-use/packages-and-programs.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,539 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-configuration/templates/configure-wired-networks.md",
+      "status": "modified",
+      "additions": 27,
+      "deletions": 12,
+      "changes": 39,
+      "patch": "diff --git a/intune/device-configuration/templates/configure-wired-networks.md b/intune/device-configuration/templates/configure-wired-networks.md\nindex 160a6c1389..98801de68e 100644\n--- a/intune/device-configuration/templates/configure-wired-networks.md\n+++ b/intune/device-configuration/templates/configure-wired-networks.md\n@@ -1,28 +1,23 @@\n ---\n title: Configure 802.1x wired network settings for macOS and Windows devices in Microsoft Intune\n description: Create or add a wired network device configuration profile or policy using the IEEE 802.1X standard for macOS, Windows 10, and Windows 11 devices and computers. See the different settings, add certificates, choose an EAP type, and select an authentication method in Microsoft Intune.\n-ms.date: 02/18/2025\n+ms.date: 05/26/2026\n ms.topic: how-to\n-ms.reviewer: abalwan\n+ms.reviewer: wicale\n ms.collection:\n - M365-identity-device-management\n ---\n \n-# Add and use wired networks settings on your macOS and Windows devices in Microsoft Intune\n+# Add and use wired networks settings on your devices in Microsoft Intune\n \n Organization use wired networks to give network access to desktop computers and devices that must use a network cable.\n \n-Microsoft Intune includes built-in settings to configure wired networks for your macOS and Windows devices. You can configure the network interface, accepted EAP types, enter server trust settings, and more.\n+Microsoft Intune includes built-in settings to configure wired networks for your iOS/iPadOS, macOS, and Windows devices. You can configure the network interface, accepted EAP types, enter server trust settings, and more.\n \n These built-in settings can be deployed to devices in your organization using policy. When the policy is ready, it can be assigned to different users and groups. Once assigned, your users get access to your organization's wired network without configuring it themselves.\n \n As part of your mobile device management (MDM) solution, use this feature to create 802.1x profiles to manage wired networks. Then, deploy these wired networks to your devices.\n \n-This feature applies to:\n-\n-- macOS\n-- Windows\n-\n ## Example scenario\n \n You have a wired network named **Contoso wired network**. You want to set up all macOS desktops to connect to this network. Here's the process:\n@@ -35,7 +30,27 @@ This article lists the steps to create a wired network profile in Intune. It als\n \n ## Prerequisites\n \n-- [!INCLUDE [minimum-rbac-role-policy-profile-manager](../../includes/minimum-rbac-role-policy-profile-manager.md)]\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../includes/requirements/platform.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> This feature supports the following platforms:\n+>\n+> - iOS/iPadOS\n+> - macOS\n+> - Windows\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [rbac](../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> - [!INCLUDE [minimum-rbac-role-policy-profile-manager](../includes/minimum-rbac-role-policy-profile-manager.md)]\n+:::column-end:::\n+:::row-end:::\n \n ## Create the profile\n \n@@ -43,7 +58,7 @@ This article lists the steps to create a wired network profile in Intune. It als\n 2. Select **Devices** > **Manage devices** > **Configuration** > **Create** > **New policy**.\n 3. Enter the following properties:\n \n-    - **Platform**: Select **macOS** or **Windows 10 and later**.\n+    - **Platform**: Select **iOS/iPadOS**, **macOS**, or **Windows 10 and later**.\n     - **Profile type**: Select **Templates** > **Wired network**.\n \n 4. Select **Create**.\n@@ -55,7 +70,7 @@ This article lists the steps to create a wired network profile in Intune. It als\n 6. Select **Next**.\n 7. In **Configuration settings**, configure the settings, including the Extensible Authentication Protocol (EAP) type. For a list of all settings, and what they do, go to:\n \n-    - [macOS](./ref-wired-network-settings-macos.md)\n+    - [Apple](./ref-wired-network-settings-macos.md)\n     - [Windows](./ref-wired-network-settings-windows.md)\n \n 8. Select **Next**.\n",
+      "baseCommitSha": "c186c5fefef272807b3f03002ed2db441adae74c",
+      "commitSha": "9a6692d9988209c9dbbe9008927a37ae4081edd2",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-13T20:40:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/configure-wired-networks.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-wired-networks",
+      "firstSeenAt": "2026-05-14T00:40:30.000Z",
+      "eventId": "intune-docs:9a6692d9988209c9dbbe9008927a37ae4081edd2:modified:intune/device-configuration/templates/configure-wired-networks.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 6,
+      "changes": 13,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wired-network-settings-macos.md b/intune/device-configuration/templates/ref-wired-network-settings-macos.md\nindex c4444d5f4c..8d5921ed93 100644\n--- a/intune/device-configuration/templates/ref-wired-network-settings-macos.md\n+++ b/intune/device-configuration/templates/ref-wired-network-settings-macos.md\n@@ -1,9 +1,9 @@\n ---\n title: Configure wired network settings for macOS devices in Microsoft Intune\n description: Create or add a wired network device configuration profile for macOS devices. See the different settings, add certificates, choose an EAP type, and select an authentication method in Microsoft Intune.\n-ms.date: 11/19/2024\n+ms.date: 05/26/2026\n ms.topic: reference\n-ms.reviewer: abalwan\n+ms.reviewer: wicale\n ms.collection:\n - M365-identity-device-management\n ---\n@@ -43,12 +43,13 @@ This article describes the settings you can configure.\n \n - **Deployment channel**: Select how you want to deploy the profile. This setting also determines the keychain where the authentication certificates are stored, so it's important to select the proper channel. It's not possible to edit the deployment channel after you deploy the profile. To do so, you must create a new profile.\n \n-  >[!NOTE]\n+  > [!NOTE]\n   > We recommend rechecking the deployment channel setting in existing profiles when the linked authentication certificates are up for renewal to ensure the intended channel is selected. If it isn't, create a new profile with the correct deployment channel.\n \n-   You have two options:\n-   - **User channel**: Always select the user deployment channel in profiles with user certificates. This option stores certificates in the user keychain.\n-   - **Device channel**: Always select the device deployment channel in profiles with device certificates. This option stores certificates in the system keychain.\n+  You have two options:\n+\n+  - **User channel**: Always select the user deployment channel in profiles with user certificates. This option stores certificates in the user keychain.\n+  - **Device channel**: Always select the device deployment channel in profiles with device certificates. This option stores certificates in the system keychain.\n \n - **EAP type**: To authenticate secured wired connections, select the Extensible Authentication Protocol (EAP) type. Your options:\n \n",
+      "baseCommitSha": "c186c5fefef272807b3f03002ed2db441adae74c",
+      "commitSha": "9a6692d9988209c9dbbe9008927a37ae4081edd2",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-13T20:40:30-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wired-network-settings-macos",
+      "firstSeenAt": "2026-05-14T00:40:30.000Z",
+      "eventId": "intune-docs:9a6692d9988209c9dbbe9008927a37ae4081edd2:modified:intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/archive/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/whats-new/archive/index.md b/intune/whats-new/archive/index.md\nindex 8387cb99fa..661e4770d6 100644\n--- a/intune/whats-new/archive/index.md\n+++ b/intune/whats-new/archive/index.md\n@@ -71,7 +71,7 @@ We've updated the Vulnerability Remediation Agent for Security Copilot, adding t\n \n   When using granular RBAC configurations, ensure the agent's identity is scoped in Microsoft Defender to include all relevant device groups. The agent can't access or report on devices outside its assigned scope.\n \n-- **Agent Identity** – You can now [manually change the account that the agent uses as its identity](../../copilot/agents/vulnerability-remediation-agent.md#change-the-agent-identity). From the agents *Settings* tab, select **Choose another identity** to open a sign-in prompt. Enter and authenticate the new account. Ensure the new account has sufficient permission to access the Microsoft Defender Vulnerability Remediation data.\n+- **Agent Identity** – You can now [manually change the account that the agent uses as its identity](../../copilot/agents/vulnerability-remediation-agent.md). From the agents *Settings* tab, select **Choose another identity** to open a sign-in prompt. Enter and authenticate the new account. Ensure the new account has sufficient permission to access the Microsoft Defender Vulnerability Remediation data.\n \n   Changes to the agent's identity won't affect the agent's run history, which remains available.\n \n",
+      "baseCommitSha": "fec66c6fd7fb3164bab502e39ed0e557912d0171",
+      "commitSha": "ff94f9086675ef2698ccd23b1dbb12f21f719dc4",
+      "commitMessage": "fixing bookmark",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-05-14T07:10:53-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/archive/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/archive/index",
+      "firstSeenAt": "2026-05-14T14:10:53.000Z",
+      "eventId": "intune-docs:ff94f9086675ef2698ccd23b1dbb12f21f719dc4:modified:intune/whats-new/archive/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "fixing bookmark",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/archive/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-device-restrictions-apple.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-device-restrictions-apple.md b/intune/device-configuration/templates/ref-device-restrictions-apple.md\nindex 61340877ef..503efa31da 100644\n--- a/intune/device-configuration/templates/ref-device-restrictions-apple.md\n+++ b/intune/device-configuration/templates/ref-device-restrictions-apple.md\n@@ -809,7 +809,8 @@ These settings use the [Passcode payload](https://developer.apple.com/documentat\n   > [!NOTE]\n   > The Intune UI for this setting doesn't separate the iOS and iPadOS supported values. The UI might be updated in a future release.\n \n-- **Password expiration (days)**: Enter the number of days before the device password must be changed, from 1-730.\n+- **Password expiration (days)**: Enter the number of days before the device password must be changed, from 1-730. When the password expires, users are prompted to create a new password. When the value is blank or set to **Not configured**, Intune doesn't change or update this setting.\n+\n - **Prevent reuse of previous passwords**: Restrict users from creating previous passwords. Enter the number of previously used passwords that can't be used, from 1-24. For example, enter 5 so users can't set a new password to their current password or any of their previous four passwords. When the value is blank, Intune doesn't change or update this setting.\n - **Block Touch ID and Face ID unlock**: **Yes** prevents using a fingerprint or face to unlock devices. When set to **Not configured** (default), Intune doesn't change or update this setting. By default, the OS might allow users to unlock devices using biometrics.\n \n@@ -874,7 +875,7 @@ These settings use the [Passcode payload](https://developer.apple.com/documentat\n   - **Block simple passwords**: **Yes** prevents using simple passwords, such as `0000` or `1234`. When the value is blank or set to **Not configured**, Intune doesn't change or update this setting. By default, the OS might allow simple passwords.\n   - **Maximum minutes of inactivity until screen locks**: Enter the length of time devices must be idle before the screen is automatically locked. For example, enter `5` to lock devices after 5 minutes of being idle. When the value is blank or set to **Not configured**, Intune doesn't change or update this setting.\n   - **Maximum minutes after screen lock before password is required**: Enter the length of time devices must be inactive before a password is required to unlock it. When the value is blank or set to **Not configured**, Intune doesn't change or update this setting.\n-  - **Password expiration (days)**: Enter the number of days until the device password must be changed, from 1-65535. For example, enter `90` to expire the password after 90 days. When the password expires, users are prompted to create a new password. When the value is blank or set to **Not configured**, Intune doesn't change or update this setting.\n+  - **Password expiration (days)**: Enter the number of days until the device password must be changed, from 1-730. For example, enter `90` to expire the password after 90 days. When the password expires, users are prompted to create a new password. When the value is blank or set to **Not configured**, Intune doesn't change or update this setting.\n   - **Prevent reuse of previous passwords**: Restrict users from creating previously used passwords. Enter the number of previously used passwords that can't be used, from 1-24. For example, enter 5 so users can't set a new password to their current password or any of their previous four passwords. When the value is blank, Intune doesn't change or update this setting.\n   - **Maximum allowed sign-in attempts**: Enter the maximum number of times that users can consecutively try to sign in before the device locks users out, from 2-11. When this number is exceeded, the device is locked. We recommend not setting this value to a low number, such as `2` or `3`. It's common for users to enter the wrong password. We recommend setting to a higher value.\n \n",
+      "baseCommitSha": "0bcdc794214f85a91f2e6d20ca9c20af0d7839d4",
+      "commitSha": "7ef0a0b3a40b76fa888ea19fbb206677dcb21c41",
+      "commitMessage": "Learn Editor: Update ref-device-restrictions-apple.md",
+      "commitAuthor": "Benjamin Flamm",
+      "commitDate": "2026-05-14T10:25:39-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-device-restrictions-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-device-restrictions-apple",
+      "firstSeenAt": "2026-05-14T14:25:39.000Z",
+      "eventId": "intune-docs:7ef0a0b3a40b76fa888ea19fbb206677dcb21c41:modified:intune/device-configuration/templates/ref-device-restrictions-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Learn Editor: Update ref-device-restrictions-apple.md",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-device-restrictions-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-device-restrictions-apple.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-device-restrictions-apple.md b/intune/device-configuration/templates/ref-device-restrictions-apple.md\nindex 503efa31da..b123960c21 100644\n--- a/intune/device-configuration/templates/ref-device-restrictions-apple.md\n+++ b/intune/device-configuration/templates/ref-device-restrictions-apple.md\n@@ -1,7 +1,7 @@\n ---\n title: Apple device restriction settings in Microsoft Intune\n description: Add, configure, or create settings on iOS, iPadOS, and macOS devices to restrict features in Microsoft Intune. Create password requirements, control the locked screen, use built-in apps, add restricted or approved apps, handle bluetooth devices, connect to the cloud for backup and storage, enable kiosk mode, add domains, and control how users interact with the Safari web browser.\n-ms.date: 04/29/2026\n+ms.date: 05/14/2026\n ms.topic: reference\n ms.reviewer: beflamm, jayeren\n ms.collection:\n",
+      "baseCommitSha": "fae34a8d9f2322f483a4df9d277c9f035f381afb",
+      "commitSha": "53a9d53f62654dd3c43b789863f4b5f6b9a45b23",
+      "commitMessage": "Update ref-device-restrictions-apple.md",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-05-14T10:43:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-device-restrictions-apple.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-device-restrictions-apple",
+      "firstSeenAt": "2026-05-14T14:43:57.000Z",
+      "eventId": "intune-docs:53a9d53f62654dd3c43b789863f4b5f6b9a45b23:modified:intune/device-configuration/templates/ref-device-restrictions-apple.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update ref-device-restrictions-apple.md",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-device-restrictions-apple.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/conditional-access-integration/scenarios.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 20,
+      "changes": 39,
+      "patch": "diff --git a/intune/device-security/conditional-access-integration/scenarios.md b/intune/device-security/conditional-access-integration/scenarios.md\nindex 3c4ee77007..90aa36f56d 100644\n--- a/intune/device-security/conditional-access-integration/scenarios.md\n+++ b/intune/device-security/conditional-access-integration/scenarios.md\n@@ -12,13 +12,20 @@ ms.collection:\n \n # Common ways to use Conditional Access with Intune\n \n-There are two types of Conditional Access policies you can use with Intune: device-based Conditional Access and app-based Conditional Access. To support each, you need to configure the related Intune policies. When the Intune policies are in place and deployed, you can then use Conditional Access to allow or block access to Exchange, control access to your network, or integrate with a mobile threat defense solution.\n+There are two types of Conditional Access policies you can use with Intune: device-based and app-based. This article covers common scenarios for both types.\n \n The information in this article can help you understand how to use both the Intune mobile device compliance capabilities and the Intune mobile application management (MAM) capabilities.  \n \n > [!NOTE]\n > Conditional Access is a Microsoft Entra capability that is included with a Microsoft Entra ID P1 or P2 license. The Conditional Access node accessed from the Microsoft Intune admin center is the same node as accessed from Microsoft Entra ID.\n \n+## Applications available in Conditional Access for controlling Microsoft Intune\n+\n+When you configure Conditional Access in the Microsoft Entra admin center, you have two applications to choose from:\n+\n+1. **Microsoft Intune** - This application controls access to the Microsoft Intune admin center and data sources. Configure grants/controls on this application when you want to target the Microsoft Intune admin center and data sources.\n+2. **Microsoft Intune Enrollment** - This application controls the enrollment workflow. Configure grants/controls on this application when you want to target the enrollment process. For more information, see [Require multifactor authentication for Intune device enrollments](../../device-enrollment/configure-multifactor-authentication.md).\n+\n ## Device-based Conditional Access\n \n Intune and Microsoft Entra ID work together to make sure only managed and compliant devices can access your organization's email, Microsoft 365 services, software as a service (SaaS) apps, and [on-premises apps](/entra/identity/app-proxy). Additionally, you can set a policy in Microsoft Entra ID to only enable domain-joined computers or mobile devices that are enrolled in Intune to access Microsoft 365 services.\n@@ -33,14 +40,9 @@ Device-based Conditional Access policies for Exchange online and other Microsoft\n \n - Learn more about [Supported browsers with Conditional Access in Microsoft Entra ID](/entra/identity/conditional-access/concept-conditional-access-conditions#supported-browsers).\n \n-## Applications available in Conditional Access for controlling Microsoft Intune\n+The following scenarios build on device-based Conditional Access to show how it applies in specific contexts.\n \n-When you configure Conditional Access in the Microsoft Entra admin center, you have two applications to choose from:\n-\n-1. **Microsoft Intune** - This application controls access to the Microsoft Intune admin center and data sources. Configure grants/controls on this application when you want to target the Microsoft Intune admin center and data sources.\n-2. **Microsoft Intune Enrollment** - This application controls the enrollment workflow. Configure grants/controls on this application when you want to target the enrollment process. For more information, see [Require multifactor authentication for Intune device enrollments](../../device-enrollment/configure-multifactor-authentication.md).\n-\n-## Conditional Access based on network access control\n+### Conditional Access based on network access control\n \n Intune integrates with partners like Cisco ISE, Aruba Clear Pass, and Citrix NetScaler to provide access controls based on the Intune enrollment and the device compliance state.\n \n@@ -48,29 +50,23 @@ Users can be allowed or denied access to corporate Wi-Fi or VPN resources based\n \n - Learn more about the [NAC integration with Intune](../integrate-network-access-control.md).\n \n-## Conditional Access based on device risk\n+### Conditional Access based on device risk\n \n-Intune partners with mobile threat defense vendors that provide a security solution to detect malware, Trojans, and other threats on mobile devices.\n-\n-### How the Intune and mobile threat defense integration works\n-\n-When mobile devices have the mobile threat defense agent installed, the agent sends compliance state messages back to Intune reporting when a threat is found on the mobile device itself.\n-\n-The Intune and mobile threat defense integration plays a factor in the Conditional Access decisions based on device risk.\n+Intune partners with mobile threat defense vendors that provide a security solution to detect malware, Trojans, and other threats on mobile devices. When mobile devices have the mobile threat defense agent installed, the agent sends compliance state messages back to Intune reporting when a threat is found. This integration plays a factor in Conditional Access decisions based on device risk.\n \n - Learn more about [Intune mobile threat defense](../mobile-threat-defense/overview.md).\n \n-## Conditional Access for Windows PCs\n+### Conditional Access for Windows PCs\n \n Conditional Access for PCs provides capabilities similar to those available for mobile devices. The following options are available when managing PCs with Intune.\n \n-### Corporate-owned\n+#### Corporate-owned\n \n - **Microsoft Entra hybrid joined:** This option is commonly used by organizations that are reasonably comfortable with how they're already managing their PCs through AD group policies or Configuration Manager.\n \n - **Microsoft Entra domain joined and Intune management:** This scenario is for organizations that want to be cloud-first (that is, primarily use cloud services, with a goal to reduce use of an on-premises infrastructure) or cloud-only (no on-premises infrastructure). Microsoft Entra join works well in a hybrid environment, enabling access to both cloud and on-premises apps and resources. The device joins to the Microsoft Entra ID and gets enrolled to Intune, which can be used as a Conditional Access criteria when accessing corporate resources.\n \n-### Bring your own device (BYOD)\n+#### Bring your own device (BYOD)\n \n - **Workplace join and Intune management:** Here the user can join their personal devices to access corporate resources and services. You can use Workplace join and enroll devices into Intune MDM to receive device-level policies, which are another option to evaluate Conditional Access criteria.\n \n@@ -78,7 +74,10 @@ Learn more about [Device Management in Microsoft Entra ID](/entra/identity/devic\n \n ## App-based Conditional Access\n \n-Intune and Microsoft Entra ID work together to make sure only managed apps can access corporate email or other Microsoft 365 services. Learn more about [app-based Conditional Access with Intune](./app-based-policies.md).\n+App-based Conditional Access protects access at the app level rather than the device level, making it well-suited for unenrolled devices. The following articles cover app-based Conditional Access scenarios for Intune:\n+\n+- [Use app-based Conditional Access policies with Intune](./app-based-policies.md)\n+- [Require approved app or app protection policy (Microsoft Entra)](/entra/identity/conditional-access/policy-all-users-approved-app-or-app-protection)\n \n ## Next steps\n \n",
+      "baseCommitSha": "de95f409c70c119db7954f07708992f627aa2ed6",
+      "commitSha": "ae1af4851b1245d47038d5034106cf2aa9388975",
+      "commitMessage": "updated scenario structure",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T12:38:16-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/conditional-access-integration/scenarios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/conditional-access-integration/scenarios",
+      "firstSeenAt": "2026-05-14T16:38:16.000Z",
+      "eventId": "intune-docs:ae1af4851b1245d47038d5034106cf2aa9388975:modified:intune/device-security/conditional-access-integration/scenarios.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "updated scenario structure",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/conditional-access-integration/scenarios.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/laps/setup-macos.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-security/laps/setup-macos.md b/intune/device-security/laps/setup-macos.md\nindex bff2fbc56c..a7ac5a9b5a 100644\n--- a/intune/device-security/laps/setup-macos.md\n+++ b/intune/device-security/laps/setup-macos.md\n@@ -83,6 +83,9 @@ Whenever any part of the local account configuration, the **Await final configur\n \n The following are examples of the available configuration options. Additional details are accessible through the *Information* icons that follow the name of some settings.\n \n+> [!NOTE]\n+> For macOS ADE enrollment policies without user device affinity, we recommend configuring the 'Admin account username' to {{serialNumber}}-admin or {{serialNumber}}-user because the that serves as the unique identifier of userless ADE devices.'\n+\n - **Admin account username** - Specify the account name or use one of the following supported variables to dynamically create the name. By default, this field uses *Admin*.\n   - {{serialNumber}} - for example, **F4KN99ZUG5V2**\n   - {{partialupn}} - for example, **John.Dupont**\n",
+      "baseCommitSha": "4e75f7c87a16381266d4235bbb6d234cb36cee03",
+      "commitSha": "f678275264e642d624c1084a4d6447533c5bad5f",
+      "commitMessage": "Admin account username for device without user affinity",
+      "commitAuthor": "Iris Yuning Ye",
+      "commitDate": "2026-05-14T16:00:42-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/laps/setup-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/laps/setup-macos",
+      "firstSeenAt": "2026-05-14T20:00:42.000Z",
+      "eventId": "intune-docs:f678275264e642d624c1084a4d6447533c5bad5f:modified:intune/device-security/laps/setup-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Admin account username for device without user affinity",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/laps/setup-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/autopilot/device-preparation/overview.md b/autopilot/device-preparation/overview.md\nindex efe04485bb..89fe7516f9 100644\n--- a/autopilot/device-preparation/overview.md\n+++ b/autopilot/device-preparation/overview.md\n@@ -1,4 +1,4 @@\n----\n+﻿---\n title: Overview of Windows Autopilot device preparation\n description: Windows Autopilot device preparation is used to set up and configure new devices, getting them ready for productive use.\n ms.date: 04/02/2025\n@@ -70,7 +70,7 @@ New features in Windows Autopilot device preparation include:\n \n > [!IMPORTANT]\n >\n-> [Windows 365 Frontline in shared mode](/windows-365/enterprise/introduction-windows-365-frontline) isn't supported for GCCH and DoD at this time.\n+> [Windows 365 Flex in shared mode](/windows-365/enterprise/introduction-windows-365-frontline) isn't supported for GCCH and DoD at this time.\n \n ## Capabilities\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/overview",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed preview tag",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md b/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md\nindex 6a35826b30..58b01847f7 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md\n@@ -1,13 +1,13 @@\n ---\n-title: Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 3 of 6 - Assign applications and PowerShell scripts to device group\n-description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 3 of 6 - Assign applications and PowerShell scripts to device group.\n+title: Windows Autopilot device preparation in automatic mode for Windows 365 - Step 3 of 6 - Assign applications and PowerShell scripts to device group\n+description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 - Step 3 of 6 - Assign applications and PowerShell scripts to device group.\n ms.date: 01/20/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Windows Autopilot device preparation in automatic mode for Windows 365 (preview): Assign applications and PowerShell scripts to device group\n+# Windows Autopilot device preparation in automatic mode for Windows 365: Assign applications and PowerShell scripts to device group\n \n Windows Autopilot device preparation in automatic mode for Windows 365 steps:\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed preview tag",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md b/autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md\nindex 29908477b9..bf4e0fff60 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md\n@@ -1,13 +1,13 @@\n ---\n-title: Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 1 of 6 - Set up Windows automatic Intune enrollment\n-description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 1 of 6 - Set up Windows automatic Intune enrollment.\n+title: Windows Autopilot device preparation in automatic mode for Windows 365 - Step 1 of 6 - Set up Windows automatic Intune enrollment\n+description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 - Step 1 of 6 - Set up Windows automatic Intune enrollment.\n ms.date: 06/11/2025\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Windows Autopilot device preparation in automatic mode for Windows 365 (preview): Set up Windows automatic Intune enrollment\n+# Windows Autopilot device preparation in automatic mode for Windows 365: Set up Windows automatic Intune enrollment\n \n Windows Autopilot device preparation in automatic mode for Windows 365 steps:\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed preview tag",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md b/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md\nindex b885ccbca4..9d31b641ff 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md\n@@ -1,13 +1,13 @@\n ---\n-title: Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 4 of 6 - Create a Windows Autopilot device preparation policy\n-description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 4 of 6 - Create a Windows Autopilot device preparation policy.\n+title: Windows Autopilot device preparation in automatic mode for Windows 365 - Step 4 of 6 - Create a Windows Autopilot device preparation policy\n+description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 - Step 4 of 6 - Create a Windows Autopilot device preparation policy.\n ms.date: 06/11/2025\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Windows Autopilot device preparation in automatic mode for Windows 365 (preview): Create a Windows Autopilot device preparation policy\n+# Windows Autopilot device preparation in automatic mode for Windows 365: Create a Windows Autopilot device preparation policy\n \n Windows Autopilot device preparation in automatic mode for Windows 365 steps:\n \n@@ -40,7 +40,7 @@ To create an automatic mode for Windows 365 Windows Autopilot device preparation\n \n 1. In the **Windows | Windows enrollment** screen, under **Windows Autopilot device preparation**, select **Device preparation policies**.\n \n-1. In the **Device preparation policies** screen, select **Create**, and then select **Automatic (Preview)**.\n+1. In the **Device preparation policies** screen, select **Create**, and then select **Automatic**.\n \n 1. The **Create profile** screen opens. In the **Introduction** page, select **Next**.\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed preview tag",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md b/autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md\nindex 8dc9500c89..0383143714 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md\n@@ -1,13 +1,13 @@\n ---\n-title: Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 5 of 6 - Create a Cloud PC provisioning policy\n-description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 5 of 6 - Create a Cloud PC provisioning policy.\n+title: Windows Autopilot device preparation in automatic mode for Windows 365 - Step 5 of 6 - Create a Cloud PC provisioning policy\n+description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 - Step 5 of 6 - Create a Cloud PC provisioning policy.\n ms.date: 06/11/2025\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Windows Autopilot device preparation in automatic mode for Windows 365 (preview): Create a Cloud PC provisioning policy\n+# Windows Autopilot device preparation in automatic mode for Windows 365: Create a Cloud PC provisioning policy\n \n Windows Autopilot device preparation in automatic mode for Windows 365 steps:\n \n@@ -80,7 +80,7 @@ To create a Cloud PC provisioning policy for use with Windows Autopilot device p\n \n       1. If unique names for Cloud PCs are desired, select **Apply device name template** under **Cloud PC naming**, and then follow the instructions to create a name template.\n \n-      1. Under **Windows Autopilot (Preview)**:\n+      1. Under **Windows Autopilot**:\n \n          1. Next to **Autopilot Device preparation policy**, use the drop-down menu to select the automatic Windows Autopilot device preparation policy created in [Step 4: Create Windows Autopilot device preparation policy](automatic-autopilot-policy.md).\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Removed preview tag",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-device-group.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-device-group.md b/autopilot/device-preparation/tutorial/automatic/automatic-device-group.md\nindex f59ccf9231..6743d68e9b 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-device-group.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-device-group.md\n@@ -1,13 +1,13 @@\n ---\n-title: Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 2 of 6 - Create an assigned device group\n-description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 2 of 6 - Create an assigned device group.\n+title: Windows Autopilot device preparation in automatic mode for Windows 365 - Step 2 of 6 - Create an assigned device group\n+description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 - Step 2 of 6 - Create an assigned device group.\n ms.date: 06/11/2025\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Windows Autopilot device preparation in automatic mode for Windows 365 (preview): Create an assigned device group\n+# Windows Autopilot device preparation in automatic mode for Windows 365: Create an assigned device group\n \n Windows Autopilot device preparation in automatic mode for Windows 365 steps:\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-device-group.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-device-group",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-device-group.md",
+      "englishSummary": {
+        "category": "General availability",
+        "headline": "Preview label removed from automatic-device-group",
+        "summary": "The automatic-device-group article removes its preview tag, indicating the documented device-preparation scenario is no longer labeled preview.",
+        "adminImpact": "Review rollout plans and current availability guidance for this scenario.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:12:26.480Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-monitor.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-monitor.md b/autopilot/device-preparation/tutorial/automatic/automatic-monitor.md\nindex 7dcd407861..8382c5d1f0 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-monitor.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-monitor.md\n@@ -1,13 +1,13 @@\n ---\n-title: Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 6 of 6 - Monitor the deployment\n-description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 (preview) - Step 6 of 6 - Monitor the deployment.\n+title: Windows Autopilot device preparation in automatic mode for Windows 365 - Step 6 of 6 - Monitor the deployment\n+description: How to - Windows Autopilot device preparation in automatic mode for Windows 365 - Step 6 of 6 - Monitor the deployment.\n ms.date: 06/11/2025\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Windows Autopilot device preparation in automatic mode for Windows 365 (preview): Monitor the Windows Autopilot device preparation in automatic mode for Windows 365 deployment\n+# Windows Autopilot device preparation in automatic mode for Windows 365: Monitor the Windows Autopilot device preparation in automatic mode for Windows 365 deployment\n \n Windows Autopilot device preparation in automatic mode for Windows 365 steps:\n \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-monitor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-monitor",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-monitor.md",
+      "englishSummary": {
+        "category": "General availability",
+        "headline": "Preview label removed from automatic-monitor",
+        "summary": "The automatic-monitor article removes its preview tag, indicating the documented device-preparation scenario is no longer labeled preview.",
+        "adminImpact": "Review rollout plans and current availability guidance for this scenario.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:12:26.480Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/automatic/automatic-workflow.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 14,
+      "changes": 26,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/automatic/automatic-workflow.md b/autopilot/device-preparation/tutorial/automatic/automatic-workflow.md\nindex 7331d3711e..b756d92ae1 100644\n--- a/autopilot/device-preparation/tutorial/automatic/automatic-workflow.md\n+++ b/autopilot/device-preparation/tutorial/automatic/automatic-workflow.md\n@@ -1,35 +1,32 @@\n----\n-title: Overview for Windows Autopilot device preparation in automatic mode for Windows 365 (preview) in Intune\n-description: Overview for Windows Autopilot device preparation in automatic mode for Windows 365 (preview) in Intune.\n+﻿---\n+title: Overview for Windows Autopilot device preparation in automatic mode for Windows 365 in Intune\n+description: Overview for Windows Autopilot device preparation in automatic mode for Windows 365 in Intune.\n ms.date: 11/21/2025\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Step by step tutorial for Windows Autopilot device preparation in automatic mode for Windows 365 (preview) in Intune  \n-\n-> [!NOTE]\n-> This feature is in public preview.  \n+# Step by step tutorial for Windows Autopilot device preparation in automatic mode for Windows 365 in Intune    \n \n This step by step tutorial guides through using Intune to perform a Windows Autopilot device preparation in automatic mode for Windows 365. You can use Windows Autopilot device preparation policies in automatic mode to provision these supported SKUs:  \n \n-- Windows 365 Frontline in shared mode  \n+- Windows 365 Flex in shared mode  \n - Windows 365 Enterprise  \n-- Windows 365 Frontline in dedicated mode  \n+- Windows 365 Flex in dedicated mode  \n - Windows 365 Cloud Apps  \n \n The purpose of this tutorial is a step by step guide for all the configuration steps required for a successful Windows Autopilot device preparation in automatic mode for Windows 365 deployment using Intune. The tutorial is also designed as a walkthrough in a lab or testing scenario, but can be expanded for use in a production environment.\n \n Before beginning, refer to the [How to: Plan your Microsoft Entra join implementation](/azure/active-directory/devices/azureadjoin-plan) to make sure all requirements are met for joining devices to Microsoft Entra ID.\n \n-## Windows Autopilot device preparation in automatic mode for Windows 365 (preview) overview\n+## Windows Autopilot device preparation in automatic mode for Windows 365 overview\n \n-Windows Autopilot device preparation in automatic mode for Windows 365 (preview), also known as Windows Autopilot device preparation automatic mode, is a solution that adds an additional Windows Autopilot device preparation policy that can be included in Windows 365 provisioning policies. By including the Windows Autopilot device preparation policy in the Windows 365 provisioning policies, it ensures that essential required device-targeted apps and scripts in Intune are installed on Cloud PCs during the provisioning process before the user signs in. This feature helps increase standardization of Cloud PCs while reducing the management overhead that comes with IT admins creating and managing their own custom images with pre-installed applications.\n+Windows Autopilot device preparation in automatic mode for Windows 365, also known as Windows Autopilot device preparation automatic mode, is a solution that adds an additional Windows Autopilot device preparation policy that can be included in Windows 365 provisioning policies. By including the Windows Autopilot device preparation policy in the Windows 365 provisioning policies, it ensures that essential required device-targeted apps and scripts in Intune are installed on Cloud PCs during the provisioning process before the user signs in. This feature helps increase standardization of Cloud PCs while reducing the management overhead that comes with IT admins creating and managing their own custom images with pre-installed applications.\n \n Windows Autopilot device preparation tracks the installation progress of specified Intune applications and scripts during Cloud PC provisioning. Instead of marking Cloud PCs as **Provisioned** after Intune enrollment, Windows Autopilot device preparation and Windows 365 wait until those workloads are fully installed. IT admins see a new status of **Preparing** reflected in the console while Windows Autopilot device preparation is underway.\n \n-## Windows Autopilot device preparation in automatic mode for Windows 365 (preview) process\n+## Windows Autopilot device preparation in automatic mode for Windows 365 process\n \n 1. The Windows 365 Cloud PC agent creates the Cloud PC.\n \n@@ -78,6 +75,6 @@ The following steps are needed to configure and then perform a Windows Autopilot\n \n ## Related articles\n \n-- [Windows 365 Frontline Cloud PC in shared mode - Quick Start Guide](https://techcommunity.microsoft.com/discussions/windows365discussions/windows-365-frontline-cloud-pc-in-shared-mode-%E2%80%93-quick-start-guide/4399905).\n-- [Use automated Autopilot device preparation with Windows 365 Frontline Cloud PCs in shared mode (preview)](/windows-365/enterprise/autopilot-device-preparation).\n-- [What is Windows 365 Frontline?](/windows-365/enterprise/introduction-windows-365-frontline)\n+- [Windows 365 Flex Cloud PC in shared mode - Quick Start Guide](https://techcommunity.microsoft.com/discussions/windows365discussions/windows-365-frontline-cloud-pc-in-shared-mode-%E2%80%93-quick-start-guide/4399905).\n+- [Use automated Autopilot device preparation with Windows 365 Flex Cloud PCs in shared mode](/windows-365/enterprise/autopilot-device-preparation).\n+- [What is Windows 365 Flex?](/windows-365/enterprise/introduction-windows-365-frontline)\n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/automatic/automatic-workflow.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/automatic/automatic-workflow",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/automatic/automatic-workflow.md",
+      "englishSummary": {
+        "category": "General availability",
+        "headline": "Preview label removed from automatic-workflow",
+        "summary": "The automatic-workflow article removes its preview tag, indicating the documented device-preparation scenario is no longer labeled preview.",
+        "adminImpact": "Review rollout plans and current availability guidance for this scenario.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:12:26.480Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/scenarios.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/scenarios.md b/autopilot/device-preparation/tutorial/scenarios.md\nindex 06b70413fd..b2453f2c50 100644\n--- a/autopilot/device-preparation/tutorial/scenarios.md\n+++ b/autopilot/device-preparation/tutorial/scenarios.md\n@@ -1,4 +1,4 @@\n----\n+﻿---\n title: Windows Autopilot device preparation scenarios\n description: Describes the different Windows Autopilot device preparation scenarios.\n ms.date: 11/21/2025\n@@ -16,7 +16,7 @@ The following table summarizes the scenarios that are available in Windows Autop\n | **Scenario** | **Purpose** | **Description** |\n | --- | --- | --- |\n | **Windows Autopilot device preparation user-driven Microsoft Entra join mode** | Set up device for a single user. | User runs deployment. |\n-| **Windows Autopilot device preparation automatic mode** | Set up Windows 365 Frontline in shared mode, Windows 365 Enterprise, Windows 365 Frontline in dedicated mode, and Windows 365 Cloud Apps. | Device preparation policy is configured in the Cloud PC provisioning policy and deployment runs automatically after Cloud PCs are created. |\n+| **Windows Autopilot device preparation automatic mode** | Set up Windows 365 Flex in shared mode, Windows 365 Enterprise, Windows 365 Flex in dedicated mode, and Windows 365 Cloud Apps. | Device preparation policy is configured in the Cloud PC provisioning policy and deployment runs automatically after Cloud PCs are created. |\n \n > [!NOTE]\n >\n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/scenarios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/scenarios",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/tutorial/scenarios.md",
+      "englishSummary": {
+        "category": "General availability",
+        "headline": "Preview label removed from scenarios",
+        "summary": "The scenarios article removes its preview tag, indicating the documented device-preparation scenario is no longer labeled preview.",
+        "adminImpact": "Review rollout plans and current availability guidance for this scenario.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:12:26.480Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex 20d072023d..a2802b688b 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -1,4 +1,4 @@\n----\n+﻿---\n title: What's new in Windows Autopilot device preparation\n description: News and resources about the latest updates of Windows Autopilot device preparation. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n ms.date: 04/10/2026\n@@ -30,8 +30,8 @@ appliesto:\n Use Windows Autopilot device preparation policies in the automatic flow to provision Cloud PCs at creation. This feature is generally available for:  \n \n - Windows 365 Enterprise\n-- Windows 365 Frontline (dedicated)\n-- Windows 365 Frontline (shared)\n+- Windows 365 Flex (dedicated)\n+- Windows 365 Flex (shared)\n - Windows 365 Cloud Apps  \n \n This feature is in public preview for Windows 365 Reserve.  \n",
+      "baseCommitSha": "8e8d5de84f9465b9c1d316491febd8aa9b52677a",
+      "commitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitMessage": "Removed preview tag",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:20:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "firstSeenAt": "2026-05-14T20:20:31.000Z",
+      "eventId": "intune-docs:8dbe9c5263059b0fa5447745f427366ebff6bbc0:modified:autopilot/device-preparation/whats-new.md",
+      "englishSummary": {
+        "category": "General availability",
+        "headline": "Preview label removed from whats-new",
+        "summary": "The whats-new article removes its preview tag, indicating the documented device-preparation scenario is no longer labeled preview.",
+        "adminImpact": "Review rollout plans and current availability guidance for this scenario.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:12:26.480Z"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/overview.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/autopilot/device-preparation/overview.md b/autopilot/device-preparation/overview.md\nindex 89fe7516f9..292b874421 100644\n--- a/autopilot/device-preparation/overview.md\n+++ b/autopilot/device-preparation/overview.md\n@@ -66,7 +66,7 @@ New features in Windows Autopilot device preparation include:\n   - PowerShell scripts status\n   - Deployment time. For more information, see [Windows Autopilot device preparation reporting and monitoring](reporting-monitoring.md).\n \n-- **Support for Government Community Cloud High (GCCH) and Department of Defense (DoD) environments** - Windows Autopilot device preparation supports [GCCH and DoD](/intune/fundamentals/government-service-description) environments.\n+- **Support for Government Community Cloud High (GCCH) and Department of Defense (DoD) environments** - Windows Autopilot device preparation supports [GCCH and DoD](/intune/fundamentals/government-service) environments.\n \n > [!IMPORTANT]\n >\n",
+      "baseCommitSha": "8dbe9c5263059b0fa5447745f427366ebff6bbc0",
+      "commitSha": "3d5a52e9a207a6e7fe45040c8bb22ccf34d5e168",
+      "commitMessage": "Fixed link",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-05-14T16:29:26-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/overview",
+      "firstSeenAt": "2026-05-14T20:29:26.000Z",
+      "eventId": "intune-docs:3d5a52e9a207a6e7fe45040c8bb22ccf34d5e168:modified:autopilot/device-preparation/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixed link",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 8,
+    "totalFiles": 18,
+    "authors": [
+      "Benjamin Flamm",
+      "Brent Dunsire",
+      "Iris Yuning Ye",
+      "Laura Newsad",
+      "Mandi Ohlinger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 18 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-macos.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-device-restrictions-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-device-restrictions-apple.md.",
+        "sourceFiles": [
+          "intune/device-configuration/templates/configure-wired-networks.md",
+          "intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+          "intune/device-configuration/templates/ref-device-restrictions-apple.md",
+          "intune/device-configuration/templates/ref-device-restrictions-apple.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/archive/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/archive/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/conditional-access-integration/scenarios.md. Updated Microsoft Intune documentation in intune/device-security/laps/setup-macos.md.",
+        "sourceFiles": [
+          "intune/device-security/conditional-access-integration/scenarios.md",
+          "intune/device-security/laps/setup-macos.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/overview.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-device-group.",
+        "sourceFiles": [
+          "autopilot/device-preparation/overview.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-device-group.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-monitor.md",
+          "autopilot/device-preparation/tutorial/automatic/automatic-workflow.md",
+          "autopilot/device-preparation/tutorial/scenarios.md",
+          "autopilot/device-preparation/whats-new.md",
+          "autopilot/device-preparation/overview.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-macos.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-device-restrictions-apple.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-device-restrictions-apple.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/archive/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/conditional-access-integration/scenarios.md. Updated Microsoft Intune documentation in intune/device-security/laps/setup-macos.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/overview.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-automatic-enrollment.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-autopilot-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-cloud-pc-provisioning-policy.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-device-group."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

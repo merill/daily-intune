@@ -1,0 +1,59 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/protection/configure-quiet-time.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/app-management/protection/configure-quiet-time.md b/intune/app-management/protection/configure-quiet-time.md\nindex 7ead29e8b3..c5432786c2 100644\n--- a/intune/app-management/protection/configure-quiet-time.md\n+++ b/intune/app-management/protection/configure-quiet-time.md\n@@ -1,7 +1,7 @@\n ---\n title: Create Quiet Time Policies in Microsoft Intune\n description: Learn how to create quiet time policies for iOS/iPadOS and Android apps.\n-ms.date: 09/23/2024\n+ms.date: 04/25/2026\n ms.topic: overview\n ms.reviewer: cdemello\n ms.collection:\n@@ -11,6 +11,9 @@ ms.collection:\n \n The global quiet time settings allow you to create policies to schedule quiet time for your end users. These settings automatically mute Microsoft Outlook email and Teams notifications on iOS/iPadOS and Android platforms. These policies can be used to limit end user notifications received after work hours.\n \n+> [!IMPORTANT]\n+> Quiet time policies are not supported in sovereign cloud environments, including US Government Community Cloud (GCC), GCC High, Department of Defense (DoD), and Microsoft Azure operated by 21Vianet. Quiet time relies on a service (Substrate) that is not available in these environments.\n+\n ## Quiet time policy types\n \n There are three quiet time policy types available. The following table describes each policy type.\n",
+      "baseCommitSha": "1ebebae7eda882c68ea0ca2adbd43019c7c970cd",
+      "commitSha": "ed42915fdb22ac42dd29d8f80328e6020fbe36f7",
+      "commitMessage": "Add sovereign cloud limitation note to Quiet Time article",
+      "commitAuthor": "Nicholas S. White",
+      "commitDate": "2026-04-25T14:28:55-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/protection/configure-quiet-time.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/protection/configure-quiet-time",
+      "firstSeenAt": "2026-04-25T18:28:55.000Z",
+      "eventId": "intune-docs:ed42915fdb22ac42dd29d8f80328e6020fbe36f7:modified:intune/app-management/protection/configure-quiet-time.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add sovereign cloud limitation note to Quiet Time article",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/protection/configure-quiet-time.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Nicholas S. White"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "Updated Microsoft Intune documentation in intune/app-management/protection/configure-quiet-time.md.",
+        "sourceFiles": [
+          "intune/app-management/protection/configure-quiet-time.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "Updated Microsoft Intune documentation in intune/app-management/protection/configure-quiet-time.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

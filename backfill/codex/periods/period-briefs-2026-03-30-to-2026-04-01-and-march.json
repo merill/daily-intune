@@ -1,0 +1,147 @@
+{
+  "worker": "period-briefs",
+  "kind": "periods",
+  "model": "gpt-5.6-terra",
+  "reasoningEffort": "xhigh",
+  "items": [
+    {
+      "periodKind": "day",
+      "key": "2026-03-30",
+      "summary": {
+        "headline": "Security Copilot material for Intune and vulnerability remediation is introduced",
+        "overview": "New Security Copilot in Intune overview material and related integration guidance were published alongside updates for the Vulnerability Remediation Agent and device query.",
+        "adminImpact": "Security and endpoint teams evaluating Copilot should use the new overview and Intune integration guidance to understand the documented capabilities before planning agent access, operational ownership, or vulnerability-remediation workflows.",
+        "keyChanges": [
+          {
+            "title": "Security Copilot in Intune feature overview is added",
+            "detail": "Microsoft published a new overview of Security Copilot features in Intune.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-03-30-security-copilot-in-intune-features-overview-04"
+          },
+          {
+            "title": "Security Copilot in Microsoft Intune guidance is added",
+            "detail": "New documentation covers Security Copilot in Microsoft Intune.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-03-30-security-copilot-in-microsoft-intune-05"
+          },
+          {
+            "title": "Vulnerability Remediation Agent usage guidance is updated",
+            "detail": "The documentation describing use of the Vulnerability Remediation Agent was revised.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-30-vulnerability-remediation-agent-use-32"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-03-31",
+      "summary": {
+        "headline": "Security Copilot agents in Intune receive a new documentation set",
+        "overview": "The archive adds a focused set of Security Copilot agent references for Intune, including an agent overview, setup material, requirements, and vulnerability-remediation management guidance. A previous Intune Vulnerability Remediation Agent page was removed as this material was introduced.",
+        "adminImpact": "Use the new agent documentation when assessing readiness, permissions, and operating procedures. Update bookmarks and internal runbooks that reference the removed legacy vulnerability-remediation page.",
+        "keyChanges": [
+          {
+            "title": "Security Copilot Agents in Intune overview is added",
+            "detail": "Microsoft added a new entry point for Security Copilot agents in Intune.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-03-31-security-copilot-agents-in-intune-03"
+          },
+          {
+            "title": "Vulnerability Remediation Agent management guidance is added",
+            "detail": "New documentation describes using the Vulnerability Remediation Agent to manage vulnerabilities.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-03-31-use-the-vulnerability-remediation-agent-to-manage-vulnerabilities-07"
+          },
+          {
+            "title": "Legacy Vulnerability Remediation Agent page is removed",
+            "detail": "The earlier Intune Vulnerability Remediation Agent documentation page was removed, indicating that administrators should follow the new agent documentation paths.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-31-vulnerability-remediation-agent-42"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "week",
+      "key": "2026-03-30",
+      "summary": {
+        "headline": "Security Copilot agents, remote retire guidance, and Autopilot material define the week",
+        "overview": "The week combines a large Security Copilot agent documentation release with new remote-device retire guidance, updated Autopilot hybrid connector proxy documentation, and device-query updates.",
+        "adminImpact": "Security and endpoint operations teams should assess the new Copilot agent guidance and align support processes with it. Review retire-action and Autopilot proxy references before changing remote-device operations or hybrid Autopilot connectivity.",
+        "keyChanges": [
+          {
+            "title": "Remote Device Action: Retire guidance is added",
+            "detail": "Microsoft added documentation for the Intune remote device action to retire a device.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-02-remote-device-action-retire-23"
+          },
+          {
+            "title": "Security Copilot agents documentation is introduced",
+            "detail": "A new documentation entry point for Security Copilot agents in Intune was published.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-03-31-security-copilot-agents-in-intune-03"
+          },
+          {
+            "title": "Autopilot hybrid connector proxy guidance is refreshed",
+            "detail": "The Windows Autopilot hybrid connector proxy documentation was updated.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-04-03-autopilot-hybrid-connector-proxy-10"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "month",
+      "key": "2026-03",
+      "summary": {
+        "headline": "March pairs policy and device-management guidance with a new Security Copilot agent surface",
+        "overview": "March's Intune archive includes new settings-catalog policy migration guidance and a new Security Copilot agents documentation set, plus significant updates across Configuration Manager, Windows Autopilot device preparation, and Remote Help.",
+        "adminImpact": "Treat the settings-catalog tutorial and Copilot agent references as the current starting points for planned work. Review updated endpoint-security, Autopilot, and remote-support guidance where existing operational documentation may now be stale.",
+        "keyChanges": [
+          {
+            "title": "Settings catalog policy migration walkthrough is added",
+            "detail": "A new walkthrough covers creating a settings catalog policy for Group Policy migration work.",
+            "product": "Intune",
+            "sourceId": "doc-2026-03-26-walkthrough-create-a-settings-catalog-policy-08"
+          },
+          {
+            "title": "Security Copilot agents documentation is introduced",
+            "detail": "Microsoft added the Security Copilot agents in Intune documentation entry point.",
+            "product": "Security Copilot",
+            "sourceId": "doc-2026-03-31-security-copilot-agents-in-intune-03"
+          },
+          {
+            "title": "Windows Autopilot device preparation update guidance is refreshed",
+            "detail": "Microsoft updated the release notes for Windows Autopilot device preparation.",
+            "product": "Windows Autopilot",
+            "sourceId": "doc-2026-03-27-what-s-new-in-windows-autopilot-device-preparation-20"
+          }
+        ]
+      }
+    },
+    {
+      "periodKind": "day",
+      "key": "2026-04-01",
+      "summary": {
+        "headline": "Security baseline references and the March Intune service update are published",
+        "overview": "The day includes updates to Intune security baseline settings and the What's new reference, accompanied by a Message Center notice for the March 2026 Intune service update.",
+        "adminImpact": "Check Tenant Status for the service build and review the March update notes before adjusting baseline policy or communicating feature availability to administrators and support teams.",
+        "keyChanges": [
+          {
+            "title": "March 2026 Intune service update is announced",
+            "detail": "Microsoft states that the March 2026 service update introduces a new service build visible in Tenant Status and directs administrators to the What's new page and related blogs for feature details.",
+            "product": "Intune",
+            "sourceId": "MC1266895"
+          },
+          {
+            "title": "Security baseline settings reference is updated",
+            "detail": "The documentation for Intune MDM security baseline settings was updated.",
+            "product": "Intune",
+            "sourceId": "doc-2026-04-01-security-baseline-settings-mdm-all-04"
+          }
+        ]
+      }
+    }
+  ]
+}

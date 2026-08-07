@@ -1,0 +1,59 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md b/intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md\nindex 0035160241..46df6c89bf 100644\n--- a/intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md\n+++ b/intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md\n@@ -248,7 +248,7 @@ To mitigate both cases, renew the secret key.\n For more information on how to interact with these notifications, see [Configuration Manager console notifications](../../manage/admin-console-notifications.md).\n \n > [!NOTE]\n-> You need to have at least the \"Cloud Application Administrator\" Microsoft Entra role assigned to be able to renew the secret key.\n+> Starting in Configuration Manager 2409, Azure services use Microsoft Graph. Signing in to renew the secret key requires consent for the Microsoft Graph `Directory.Read.All` permission, which the **Cloud Application Administrator** role can't grant. You must sign in with an account that has the **Global Administrator** role (or a role that can grant admin consent for Microsoft Graph permissions, such as **Privileged Role Administrator**). For more information, see [Permissions differences between Azure AD Graph and Microsoft Graph](/graph/migrate-azure-ad-graph-permissions-differences).\n \n ### Renew key for created app\n \n",
+      "baseCommitSha": "413439c884afab7806092d2f76b6e4f61575773f",
+      "commitSha": "75c6733144aba8d97aa612203001bd7e554a3d81",
+      "commitMessage": "Update azure-services-wizard.md: correct minimum role to renew secret key (2409 Microsoft Graph) - AB#31109846",
+      "commitAuthor": "Umair Khan",
+      "commitDate": "2026-07-07T17:30:45-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/azure-services-wizard",
+      "firstSeenAt": "2026-07-07T22:30:45.000Z",
+      "eventId": "intune-docs:75c6733144aba8d97aa612203001bd7e554a3d81:modified:intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update azure-services-wizard.md: correct minimum role to renew secret key (2409 Microsoft Graph) - AB#31109846",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Umair Khan"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/azure-services-wizard.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

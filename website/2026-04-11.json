@@ -1,0 +1,84 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/solutions/passwordless.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 8,
+      "changes": 23,
+      "patch": "diff --git a/intune/solutions/passwordless.md b/intune/solutions/passwordless.md\nindex f0a8a146fe..ef494bf123 100644\n--- a/intune/solutions/passwordless.md\n+++ b/intune/solutions/passwordless.md\n@@ -12,6 +12,7 @@ ms.custom:\n ms.collection:\n   - M365-identity-device-management\n   - Microsoft Intune-scenario\n+#customer intent: As an IT admin, I want to understand how Microsoft Intune supports passwordless authentication so that I can plan and deploy passwordless methods across my device fleet.\n ai-usage: ai-assisted\n ---\n \n@@ -142,7 +143,7 @@ The passwordless methods available to users depend on both the device platform a\n >This method is often a good fit when organizations need:\n >\n >- A portable passwordless option for shared or specialized devices.\n->- A strong phishing-resistant option that isn't tied to a single platform Microsoft Authenticator.\n+>- A strong phishing-resistant option that isn't tied to a single platform or to Microsoft Authenticator.\n >- A recovery or alternate path alongside platform-based credentials.\n >\n > :::image type=\"icon\" source=\"../media/icons/16/learn-more.svg\" border=\"false\"::: For implementation guidance, see:\n@@ -164,18 +165,20 @@ The passwordless methods available to users depend on both the device platform a\n >\n > - **Device-bound passkeys** stored in secure hardware (TPM or Secure Enclave) on a single device, such as through Windows Hello or Microsoft Authenticator on iOS 17+ and Android 14+.\n > - **Synced passkeys** managed by platform password managers (such as iCloud Keychain or Google Password Manager) or supported third-party providers, which enable cross-device use.\n+> - **Microsoft Entra passkey on Windows** is a FIDO2 passkey that uses Windows Hello for biometric verification but doesn't require device join or registration. Users can register multiple passkeys for multiple Microsoft Entra accounts on the same device, making it well suited for shared devices, unmanaged endpoints, and scenarios where Windows Hello for Business isn't provisioned.\n >\n > :::image type=\"icon\" source=\"../media/icons/16/intune.svg\" border=\"false\"::: **Intune's role**  \n->  From an Microsoft Intune perspective, passkeys are mostly about platform and app readiness—managing the device and app prerequisites that make passkey adoption viable across platforms.\n+>  From a Microsoft Intune perspective, passkeys are mostly about platform and app readiness—managing the device and app prerequisites that make passkey adoption viable across platforms.\n >\n >This dependency is especially important on:\n >\n-> - **Windows**, where platform sign-in and Windows Hello can intersect with broader passwordless planning.\n+> - **Windows**, where platform sign-in and Windows Hello can intersect with broader passwordless planning. Microsoft Entra passkey on Windows extends passkey coverage to devices that aren't enrolled or joined, complementing Windows Hello for Business on managed devices.\n > - **iOS/iPadOS** and **Android**, where passkeys can depend on mobile device state and app broker behavior.\n > - **macOS**, where platform identity integration and user sign-in experience shape adoption.\n >\n > :::image type=\"icon\" source=\"../media/icons/16/learn-more.svg\" border=\"false\"::: For implementation guidance, see:\n->-  [Passwordless authentication options for Microsoft Entra ID](/entra/identity/authentication/concept-authentication-passwordless)\n+> - [Passwordless authentication options for Microsoft Entra ID](/entra/identity/authentication/concept-authentication-passwordless)\n+> - [Microsoft Entra passkey on Windows](/entra/identity/authentication/how-to-authentication-entra-passkeys-on-windows)\n :::column-end:::\n :::row-end:::\n \n@@ -221,7 +224,7 @@ The passwordless methods available to users depend on both the device platform a\n > Temporary Access Pass (TAP) is a time-limited credential that an admin issues to help users bootstrap or recover access before they complete their long-term passwordless setup. TAP isn't a permanent passwordless method and isn't phishing-resistant, but it's often a critical part of a successful rollout because it solves the first-sign-in problem without issuing a password.\n >\n > :::image type=\"icon\" source=\"../media/icons/16/intune.svg\" border=\"false\"::: **Intune's role**  \n-> From an Microsoft Intune perspective, Temporary Access Pass matters when you want to:\n+> From a Microsoft Intune perspective, Temporary Access Pass matters when you want to:\n >\n > - Simplify onboarding to passwordless methods.\n > - Reduce reliance on temporary passwords during deployment.\n@@ -311,7 +314,7 @@ Depending on the passwordless methods you choose, your organization might need M\n \n ### Platform requirements\n \n-The passwordless methods described in this article rely on specific platform capabilities that are only available in certain OS versions. The table below summarizes the platform requirements for each method:\n+The passwordless methods described in this article rely on specific platform capabilities that are only available in certain OS versions. The following table summarizes the platform requirements for each method:\n \n | Method                                               | Windows                         | macOS                    | iOS/iPadOS               | Android     |\n |------------------------------------------------------|:-------------------------------:|:------------------------:|:------------------------:|:-----------:|\n@@ -433,12 +436,13 @@ Passwordless isn't one feature. It's a set of platform-specific experiences that\n > \n > - [Passwordless authentication options for Microsoft Entra ID](/entra/identity/authentication/concept-authentication-passwordless)\n :::row-end:::\n+:::column-end:::\n \n ## Dependencies for passwordless authentication\n \n ### Zero Trust architecture\n \n-Passwordless authentication is one part of a broader identity and device access strategy. For an Microsoft Intune administrator, planning usually involves these layers:\n+Passwordless authentication is one part of a broader identity and device access strategy. For a Microsoft Intune administrator, planning usually involves these layers:\n \n - **Identity**: Phishing-resistant authentication methods in Microsoft Entra ID.\n - **Device trust**: Microsoft Intune enrollment, compliance, and configuration.\n@@ -472,12 +476,14 @@ Plan for these scenarios as part of your passwordless deployment:\n - **Recovery with Temporary Access Pass**: When a user loses their passwordless device, an admin can issue a new TAP so the user can sign in and register a replacement credential. This approach avoids resetting the user to a password and keeps the recovery flow within the passwordless model.\n - **Multiple registered methods**: Encourage users to register more than one passwordless method where possible. For example, a user who uses Hello for Business on their laptop might also register a passkey in Microsoft Authenticator on their phone. If one device is lost, the other method still works.\n - **Self-service credential management**: Users can manage their authentication methods at [My Security Info](https://mysignins.microsoft.com/security-info). When combined with TAP-based recovery, this approach reduces helpdesk dependency for credential resets.\n+- **Total loss recovery with Verified ID**: For scenarios where a user loses all registered credentials and devices, Microsoft Entra account recovery using Verified ID provides an identity-verified recovery path that doesn't rely on passwords or helpdesk-issued credentials.\n \n Planning for recovery before you enforce passwordless is essential. A rollout that blocks passwords without a recovery path creates the kind of lockout scenarios that erode admin and user confidence in the transition.\n \n :::image type=\"icon\" source=\"../media/icons/16/learn-more.svg\" border=\"false\"::: **Learn more**\n \n-- [Manage emergency access accounts in Microsoft Entra ID](/entra/identity/role-based-access-control/security-emergency-access).\n+- [Manage emergency access accounts in Microsoft Entra ID](/entra/identity/role-based-access-control/security-emergency-access)\n+- [Account recovery with Microsoft Entra Verified ID](/entra/identity/authentication/concept-account-recovery-overview)\n \n ### Compliance and device readiness\n \n@@ -515,6 +521,7 @@ Consider these practices:\n ## Related articles\n \n - [Passwordless authentication options for Microsoft Entra ID](/entra/identity/authentication/concept-authentication-passwordless)\n+- [Deploy phishing-resistant passwordless authentication in Microsoft Entra ID](/entra/identity/authentication/how-to-deploy-phishing-resistant-passwordless-authentication)\n - [Windows Hello for Business overview](/windows/security/identity-protection/hello-for-business/hello-overview)\n - [Passwordless strategy guide for organizations](/windows/security/identity-protection/passwordless-strategy)\n - [Microsoft Enterprise SSO plug-in and Platform SSO for Apple devices](/entra/identity-platform/apple-sso-plugin)\n",
+      "baseCommitSha": "25da418042ba1e7f537aebe4d917bd3e6298f020",
+      "commitSha": "b9dd9d44f890382d7874707f22dc3068e62b44d8",
+      "commitMessage": "Enhance passwordless authentication documentation with clarifications and additional resources",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-11T08:17:53-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/passwordless.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/passwordless",
+      "firstSeenAt": "2026-04-11T12:17:53.000Z",
+      "eventId": "intune-docs:b9dd9d44f890382d7874707f22dc3068e62b44d8:modified:intune/solutions/passwordless.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Enhance passwordless authentication documentation with clarifications and additional resources",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/solutions/passwordless.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/solutions/passwordless.md b/intune/solutions/passwordless.md\nindex ef494bf123..248670489d 100644\n--- a/intune/solutions/passwordless.md\n+++ b/intune/solutions/passwordless.md\n@@ -1,7 +1,7 @@\n ---\n title: Passwordless authentication with Microsoft Intune\n description: Learn how Microsoft Intune supports passwordless authentication across devices. Explore key methods and plan your deployment.\n-ms.date: 03/24/2026\n+ms.date: 04/13/2026\n ms.topic: concept-article\n author: paolomatarazzo\n ms.author: paoloma\n@@ -253,7 +253,7 @@ The passwordless methods available to users depend on both the device platform a\n :::row-end:::\n \n :::row:::\n-    :::column span=\"1\":::\n+:::column span=\"1\":::\n #### **Certificate-Based Authentication (CBA)**\n \n :::image type=\"icon\" source=\"media/passwordless/certificate.svg\" border=\"false\":::\n@@ -422,7 +422,7 @@ Passwordless isn't one feature. It's a set of platform-specific experiences that\n :::row-end:::\n \n :::row:::\n-    :::column span=\"1\":::\n+:::column span=\"1\":::\n #### Android\n \n :::image type=\"icon\" source=\"media/passwordless/android.svg\" border=\"false\":::\n@@ -435,8 +435,8 @@ Passwordless isn't one feature. It's a set of platform-specific experiences that\n > :::image type=\"icon\" source=\"../media/icons/16/learn-more.svg\" border=\"false\"::: **Learn more**\n > \n > - [Passwordless authentication options for Microsoft Entra ID](/entra/identity/authentication/concept-authentication-passwordless)\n-:::row-end:::\n :::column-end:::\n+:::row-end:::\n \n ## Dependencies for passwordless authentication\n \n",
+      "baseCommitSha": "b9dd9d44f890382d7874707f22dc3068e62b44d8",
+      "commitSha": "fa47e2a8eac62c7f5a88f21f023f43239fbb79d4",
+      "commitMessage": "Update date in passwordless authentication documentation and fix formatting issues",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-04-11T08:23:31-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/passwordless.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/passwordless",
+      "firstSeenAt": "2026-04-11T12:23:31.000Z",
+      "eventId": "intune-docs:fa47e2a8eac62c7f5a88f21f023f43239fbb79d4:modified:intune/solutions/passwordless.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update date in passwordless authentication documentation and fix formatting issues",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md. Updated Microsoft Intune documentation in intune/solutions/passwordless.md.",
+        "sourceFiles": [
+          "intune/solutions/passwordless.md",
+          "intune/solutions/passwordless.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/passwordless.md. Updated Microsoft Intune documentation in intune/solutions/passwordless.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

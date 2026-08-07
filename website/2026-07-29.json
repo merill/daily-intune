@@ -1,0 +1,362 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md",
+      "status": "added",
+      "additions": 136,
+      "deletions": 0,
+      "changes": 136,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md b/intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md\nnew file mode 100644\nindex 0000000000..13ac525589\n--- /dev/null\n+++ b/intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md\n@@ -0,0 +1,136 @@\n+---\n+title: Supported configurations for SQL Server\n+description: Learn about required and optional SQL Server and database configurations for Configuration Manager.\n+ms.date: 07/28/2026\n+ms.subservice: core-infrastructure\n+ms.topic: reference\n+ms.collection: tier3\n+ms.service: microsoft-endpoint-configuration-manager\n+---\n+\n+# Supported configurations for SQL Server in Configuration Manager\n+\n+*Applies to: Configuration Manager (current branch)*\n+\n+This article identifies required and optional SQL Server configurations for Configuration Manager. For supported versions, editions, and compatibility levels, see [Supported SQL Server versions](support-for-sql-server-versions.md).\n+\n+## <a name=\"bkmk_SQLConfig\"></a> Required SQL Server instance configurations\n+\n+The following configurations are required by all installations of SQL Server that you use for a site database, including SQL Server Express. When Configuration Manager installs SQL Server Express as part of a secondary site installation, it automatically creates these configurations.\n+\n+### SQL Server instance and database collation\n+\n+At each site, both the instance of SQL Server that's used for the site and the site database must use the following collation: **SQL_Latin1_General_CP1_CI_AS**.\n+\n+Configuration Manager supports two exceptions to this collation for the China GB18030 standard. For more information, see [International support](../hierarchy/international-support.md).\n+\n+### Windows authentication\n+\n+Configuration Manager requires **Windows authentication** to validate connections to the database.\n+\n+### Server memory configuration\n+\n+Reserve memory for SQL Server by using SQL Server Management Studio. Set the **Minimum server memory** setting under **Server Memory Options**. For more information about how to configure this setting, see [SQL Server memory server configuration options](/sql/database-engine/configure-windows/server-memory-server-configuration-options).\n+\n+- **For a database server that you install on the same computer as the site server**: Limit the memory for SQL Server to 50 to 80 percent of the available addressable system memory.\n+\n+- **For a dedicated database server that's remote from the site server**: Limit the memory for SQL Server to 80 to 90 percent of the available addressable system memory.\n+\n+- **For a memory reserve for the buffer pool of each SQL Server instance in use**:\n+\n+  - For a central administration site: Set a minimum of 8 GB.\n+  - For a primary site: Set a minimum of 8 GB.\n+  - For a secondary site: Set a minimum of 4 GB.\n+\n+### Required server configuration options\n+\n+Configuration Manager sets the below SQL Server instance configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios. Do not alter them unless instructed by Microsoft support.\n+\n+| Display name | Canonical name | Required value | More information link |\n+|--------------|---------------|----------------|------------------|\n+| CLR integration | `clr enabled` | True | [Introduction to SQL Server CLR Integration](/dotnet/framework/data/adonet/sql/introduction-to-sql-server-clr-integration). |\n+| Allow Triggers to Fire Others | `nested triggers` | True | [Configure the nested triggers server configuration option](/sql/database-engine/configure-windows/configure-the-nested-triggers-server-configuration-option). |\n+| Max Text Replication Size | `max text repl size (B)` | 2147483647 | [Configure the max text repl size server configuration option](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option). |\n+\n+## <a name=\"bkmk_DBConfig\"></a> Required site database options\n+\n+Configuration Manager sets the below database configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios - as well as for SQL Always On configurations.\n+\n+Do not alter them unless instructed by Microsoft support. The [Support policies for manual database changes](/troubleshoot/mem/configmgr/setup-migrate-backup-recovery/support-policy-for-manual-database-changes) article applies for database options.\n+\n+| Display name | Canonical name | Required value | More information link |\n+|--------------|---------------|----------------|------------------|\n+| Database owner | `owner_sid` | `sa` | [ALTER AUTHORIZATION for databases](/sql/t-sql/statements/alter-authorization-transact-sql#alter-authorization-for-databases) |\n+| Change tracking | `CHANGE_TRACKING` | True (ON) | [Enable change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) |\n+| Recursive Triggers Enabled | `RECURSIVE_TRIGGERS` | True (ON) | [Recursive Triggers](/sql/relational-databases/triggers/create-nested-triggers#recursive-triggers) |\n+| Broker Enabled | `ENABLE_BROKER` | True (ON) | [Activate Service Broker in a database](/sql/database-engine/service-broker/how-to-activate-service-broker-message-delivery-in-databases-transact-sql#activate-service-broker-in-a-database) |\n+| Honor Broker Priority | `HONOR_BROKER_PRIORITY` | True (ON) | [Enable conversation priorities](/sql/database-engine/service-broker/managing-conversation-priorities#enable-conversation-priorities) |\n+| Trustworthy | `TRUSTWORTHY` | True (ON) | [TRUSTWORTHY database property](/sql/relational-databases/security/trustworthy-database-property) |\n+| Allow Snapshot Isolation | `ALLOW_SNAPSHOT_ISOLATION` | True (ON) | [Snapshot Isolation in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) |\n+| Is Read Committed Snapshot On | `READ_COMMITTED_SNAPSHOT` | True (ON) | [Set Transaction Isolation Level](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) |\n+| ANSI Nulls Enabled | `ANSI_NULLS` | True (ON) | [SET ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql) |\n+| ANSI Padding Enabled | `ANSI_PADDING` | True (ON) | [SET ANSI_PADDING](/sql/t-sql/statements/set-ansi-padding-transact-sql) |\n+| ANSI Warnings Enabled | `ANSI_WARNINGS` | True (ON) | [SET ANSI_WARNINGS](/sql/t-sql/statements/set-ansi-warnings-transact-sql) |\n+| Arithmetic Abort Enabled | `ARITHABORT` | True (ON) | [SET ARITHABORT](/sql/t-sql/statements/set-arithabort-transact-sql) |\n+| Concatenate Null Yields Null | `CONCAT_NULL_YIELDS_NULL` | True (ON) | [SET CONCAT_NULL_YIELDS_NULL](/sql/t-sql/statements/set-concat-null-yields-null-transact-sql) |\n+| Quoted Identifiers Enabled | `QUOTED_IDENTIFIER` | True (ON) | [SET QUOTED_IDENTIFIER](/sql/t-sql/statements/set-quoted-identifier-transact-sql) |\n+| Numeric Round-abort | `NUMERIC_ROUNDABORT` | False (OFF) | [SET NUMERIC_ROUNDABORT](/sql/t-sql/statements/set-numeric-roundabort-transact-sql) |\n+\n+## <a name=\"bkmk_optional\"></a> Optional configurations\n+\n+The following configurations are optional for each database that uses a full SQL Server installation.\n+\n+### SQL Server service account\n+\n+You can configure the SQL Server service to run using:\n+\n+- A *low rights domain user* account:\n+\n+  - This configuration is a best practice and might require you to manually register the service principal name (SPN) for the account.\n+\n+- The **local system** account of the computer that runs SQL Server:\n+\n+  - Use the local system account to simplify the configuration process.\n+  - When you use the local system account, Configuration Manager automatically registers the SPN for the SQL Server service.\n+  - Using the local system account for the SQL Server service isn't a SQL Server best practice.\n+\n+When the computer running SQL Server doesn't use its local system account to run the SQL Server service, configure the SPN of the account that runs the SQL Server service in Active Directory Domain Services. (When the system account is used, the SPN is automatically registered for you.)\n+\n+For information about SPNs for the site database, see [Manage the SPN for the site database server](../../servers/manage/modify-your-infrastructure.md#bkmk_SPN).\n+\n+For information about how to change the account that is used by the SQL Server service, see [SCM Services - Change the service startup account](/sql/database-engine/configure-windows/scm-services-change-the-service-startup-account).\n+\n+### Extended protection for authentication\n+<!--24501008-->\n+\n+Starting from version 2603, Configuration Manager supports SQL extended protection for authentication. It's a security feature that enhances protection against MITM attacks, making SQL server more secure when connections are made using extended protection. These enhancements collectively reduce the risk of unauthorized access and protect sensitive data managed by the SQL Server database engine.\n+\n+For more information, see [Connect to the Database Engine Using Extended Protection](/sql/database-engine/configure-windows/connect-to-the-database-engine-using-extended-protection).\n+\n+### Force encryption\n+<!--16590006-->\n+\n+Starting from version 2603, Configuration Manager supports setting **Force Encryption** to **Yes** on the SQL Server instance. This setting requires all clients to encrypt connections to the Database Engine. It helps protect against man-in-the-middle (MITM) attacks and reduces the risk of unauthorized access to data in the site database.\n+\n+For more information, see [Encrypt connections to SQL Server by importing a certificate](/sql/database-engine/configure-windows/configure-sql-server-encryption#step-2-configure-encryption-settings-in-sql-server).\n+\n+### SQL Server ports\n+\n+For communication to the SQL Server database engine and for intersite replication, you can use the default SQL Server port configurations or specify custom ports:\n+\n+- **Intersite communications** use the SQL Server Service Broker, which uses port TCP 4022 by default.\n+- **Intrasite communications** between the SQL Server database engine and various Configuration Manager site system roles use port TCP 1433 by default. The following site system roles communicate directly with the SQL Server database:\n+\n+  - Management point\n+  - SMS Provider computer\n+  - Reporting services point\n+  - Site server\n+\n+When a computer running SQL Server hosts a database from more than one site, each database must use a separate instance of SQL Server. Also, each instance must be configured to use a unique set of ports.\n+\n+> [!WARNING]\n+> Configuration Manager doesn't support dynamic ports. Because SQL Server named instances by default use dynamic ports for connections to the database engine, when you use a named instance, you must manually configure the static port that you want to use for intrasite communication.\n+\n+If you have a firewall enabled on the computer that is running SQL Server, make sure that it's configured to allow the ports that are being used by your deployment and at any locations on the network between computers that communicate with the SQL Server.\n+\n+For an example of how to configure SQL Server to use a specific port, see [Configure a server to listen on a specific TCP port](/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port).\n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:added:intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2509/37864969.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/37864969.md b/intune/configmgr/hotfix/2509/37864969.md\nindex d0dd1f89eb..926dd91e6c 100644\n--- a/intune/configmgr/hotfix/2509/37864969.md\n+++ b/intune/configmgr/hotfix/2509/37864969.md\n@@ -68,7 +68,7 @@ For more information on changes in Configuration Manager version 2509, see:\n \n - **Security update for importing console extensions**\n \n-   This update enhances security in Configuration Manager for importing console extensions and resolves the vulnerability described in [CVE-2026-47301](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-47301). For more information, see [KB 38232642](../2603/38232642.md).\n+   This update enhances security in Configuration Manager for importing console extensions and resolves the vulnerability described in [CVE-2026-47301](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301). For more information, see [KB 38232642](../2603/38232642.md).\n \n - **Offline feedback submission fails due to authentication library version mismatch**\n \n@@ -85,7 +85,7 @@ The following issues are new in this update rollup and weren't included in [KB 3\n - Offline feedback submission fails due to authentication library version mismatch. For more information, see [KB 36419072](../2509/36419072.md).\n - Co-managed clients with third party update catalogs receive updates from incorrect source. For more information, see [KB 36495448](../2509/36495448.md).\n - Cloud Management Gateway virtual machine scale set image updated to remove end-of-life .NET 6. For more information, see [KB 37942646](../2603/37942646.md).\n-- Security update for importing console extensions ([CVE-2026-47301](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-47301)). For more information, see [KB 38232642](../2603/38232642.md).\n+- Security update for importing console extensions ([CVE-2026-47301](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301)). For more information, see [KB 38232642](../2603/38232642.md).\n \n ## Hotfixes that are included in this update\n \n",
+      "baseCommitSha": "6d50432a73a4967dc4acd5a400630bec719b552e",
+      "commitSha": "c7573d42d0e7b53d069d391741a3c428136d1676",
+      "commitMessage": "Remove en-US locale from CVE-2026-47301 URLs",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-07-28T19:27:40-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/37864969.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/37864969",
+      "firstSeenAt": "2026-07-29T02:27:40.000Z",
+      "eventId": "intune-docs:c7573d42d0e7b53d069d391741a3c428136d1676:modified:intune/configmgr/hotfix/2509/37864969.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove en-US locale from CVE-2026-47301 URLs",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/38232642.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38232642.md b/intune/configmgr/hotfix/2603/38232642.md\nindex cdecd9189a..4ab237b855 100644\n--- a/intune/configmgr/hotfix/2603/38232642.md\n+++ b/intune/configmgr/hotfix/2603/38232642.md\n@@ -13,7 +13,7 @@ ms.service: microsoft-endpoint-configuration-manager\n \n ## Summary of KB38232642\n \n-An update is available that enhances security in Configuration Manager for importing console extensions. This update resolves the vulnerability described in [CVE-2026-47301](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2026-47301).\n+An update is available that enhances security in Configuration Manager for importing console extensions. This update resolves the vulnerability described in [CVE-2026-47301](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47301).\n \n > [!NOTE]\n > This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n",
+      "baseCommitSha": "6d50432a73a4967dc4acd5a400630bec719b552e",
+      "commitSha": "c7573d42d0e7b53d069d391741a3c428136d1676",
+      "commitMessage": "Remove en-US locale from CVE-2026-47301 URLs",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-07-28T19:27:40-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/38232642.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38232642",
+      "firstSeenAt": "2026-07-29T02:27:40.000Z",
+      "eventId": "intune-docs:c7573d42d0e7b53d069d391741a3c428136d1676:modified:intune/configmgr/hotfix/2603/38232642.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove en-US locale from CVE-2026-47301 URLs",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 140,
+      "changes": 164,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md b/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\nindex dba144001d..aba32a6ac8 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md\n@@ -1,7 +1,7 @@\n ---\n title: Supported SQL Server versions\n-description: Get SQL Server version and configuration requirements for hosting a Configuration Manager site database.\n-ms.date: 05/21/2026\n+description: Learn which SQL Server versions, editions, and compatibility levels Configuration Manager supports.\n+ms.date: 07/28/2026\n ms.subservice: core-infrastructure\n ms.topic: reference\n ms.collection: tier3\n@@ -12,10 +12,20 @@ ms.service: microsoft-endpoint-configuration-manager\n \n *Applies to: Configuration Manager (current branch)*\n \n-Each Configuration Manager site requires a supported SQL Server version and configuration to host the site database.\n+Each Configuration Manager site requires a supported SQL Server version to host the site database. For required and optional settings, see [Supported configurations for SQL Server](supported-configurations-for-sql-server.md).\n \n ## <a name=\"bkmk_Instances\"></a> SQL Server instances and locations\n \n+### SQL Server features\n+\n+Only the **Database Engine Services** feature is required for each site server.\n+\n+Configuration Manager database replication doesn't require the **SQL Server replication** feature. However, this SQL Server configuration is required when you use [database replicas for management points](../../servers/deploy/configure/database-replicas-for-management-points.md).\n+\n+### SQL Server instance\n+\n+Use a dedicated instance of SQL Server for each site. The instance can be a **named instance** or the **default instance**.\n+\n ### Central administration site and primary sites\n \n The site database must use a full installation of SQL Server.\n@@ -44,6 +54,10 @@ SQL Server must be located on the site server computer.\n > [!IMPORTANT]\n > Upgrade SQL 2012 or 2014 Express, Standard, Enterprise edition to SQl 2016 or latest version. Visual C++ Redistributable need to be upgraded to latest version on Secondary site: [Download Latest Microsoft Visual C++ Redistributable Version](https://aka.ms/vs/17/release/vc_redist.x64.exe).\n \n+### Data warehouse service point\n+\n+The data warehouse uses a separate database. You can host it on the site database server, or a separate SQL Server. For more information, see [The data warehouse service point for Configuration Manager](../../servers/manage/data-warehouse.md).\n+\n ### Limitations to support\n \n The following configurations aren't supported:\n@@ -71,6 +85,10 @@ Unless specified otherwise, the following versions of SQL Server are supported w\n > [!IMPORTANT]\n > When you use SQL Server Standard for the database at the central administration site, you limit the total number of clients that a hierarchy can support. See [Size and scale numbers](size-and-scale-numbers.md).\n \n+### SQL Server architecture\n+\n+Configuration Manager requires a 64-bit version of SQL Server to host the site database.\n+\n ### Standard / Enterprise SQL Editions\n \n | SQL Version | Minimum Required Update | Supported Site Types | Notes |\n@@ -128,61 +146,7 @@ You can use this version with the minimum service pack and cumulative update sup\n > Starting in version 2409, support for SQL Server 2014 is deprecated.<!--10092858--> \n > <!--Its support lifecycle ends in July 2024. Plan to upgrade all database servers before that time. For more information, see [SQL Server](../changes/deprecated/removed-and-deprecated-server.md#sql-server).-->\n \n-## <a name=\"bkmk_SQLConfig\"></a> Required configurations for SQL Server\n-\n-The following configurations are required by all installations of SQL Server that you use for a site database, including SQL Server Express. When Configuration Manager installs SQL Server Express as part of a secondary site installation, it automatically creates these configurations.\n-\n-### SQL Server architecture version\n-\n-Configuration Manager requires a 64-bit version of SQL Server to host the site database.\n-\n-### SQL Instance and Database collations\n-\n-At each site, both the instance of SQL Server that's used for the site and the site database must use the following collation: **SQL_Latin1_General_CP1_CI_AS**.\n-\n-Configuration Manager supports two exceptions to this collation for the China GB18030 standard. For more information, see [International support](../hierarchy/international-support.md).\n-\n-### SQL Server features\n-\n-Only the **Database Engine Services** feature is required for each site server.\n-\n-Configuration Manager database replication doesn't require the **SQL Server replication** feature. However, this SQL Server configuration is required when you use [database replicas for management points](../../servers/deploy/configure/database-replicas-for-management-points.md).\n-\n-### Windows authentication\n-\n-Configuration Manager requires **Windows authentication** to validate connections to the database.\n-\n-### SQL Server instance\n-\n-Use a dedicated instance of SQL Server for each site. The instance can be a **named instance** or the **default instance**.\n-\n-### SQL Server memory\n-\n-Reserve memory for SQL Server by using SQL Server Management Studio. Set the **Minimum server memory** setting under **Server Memory Options**. For more information about how to configure this setting, see [SQL Server memory server configuration options](/sql/database-engine/configure-windows/server-memory-server-configuration-options).\n-\n-- **For a database server that you install on the same computer as the site server**: Limit the memory for SQL Server to 50 to 80 percent of the available addressable system memory.\n-\n-- **For a dedicated database server that's remote from the site server**: Limit the memory for SQL Server to 80 to 90 percent of the available addressable system memory.\n-\n-- **For a memory reserve for the buffer pool of each SQL Server instance in use**:\n-\n-  - For a central administration site: Set a minimum of 8 GB.\n-  - For a primary site: Set a minimum of 8 GB.\n-  - For a secondary site: Set a minimum of 4 GB.\n-\n-### Other required SQL Server configurations\n-\n-Configuration Manager sets the below SQL Server configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios. Do not alter them unless instructed by Microsoft support.\n-\n-| Display name | Canonical name | Required value | More information link |\n-|--------------|---------------|----------------|------------------|\n-| CLR integration | `clr enabled` | True | [Introduction to SQL Server CLR Integration](/dotnet/framework/data/adonet/sql/introduction-to-sql-server-clr-integration). |\n-| Allow Triggers to Fire Others | `nested triggers` | True | [Configure the nested triggers server configuration option](/sql/database-engine/configure-windows/configure-the-nested-triggers-server-configuration-option). |\n-| Max Text Replication Size | `max text repl size (B)` | 2147483647 | [Configure the max text repl size server configuration option](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option). |\n-\n-## <a name=\"bkmk_DBConfig\"></a>Required SQL database configurations\n-\n-### Database compatibility level\n+## Database compatibility level\n \n Configuration Manager requires that the compatibility level for the site database is no less than the lowest supported SQL Server version for your Configuration Manager version.\n \n@@ -192,7 +156,7 @@ The following table identifies the recommended compatibility levels for Configur\n \n |SQL Server version | Supported compatibility levels | Recommended level |\n |----------------|--------------------|--------|\n-| SQL Server 2025 | 170, 160, 150, 140, 130, 120, 110 | 170 |\n+| SQL Server 2025  (since version 2603) | 170, 160, 150, 140, 130, 120, 110 | 170 |\n | SQL Server 2022 | 160 (since version 2603), 150, 140, 130, 120, 110 | 150 |\n | SQL Server 2019 | 150, 140, 130, 120, 110 | 150 |\n | SQL Server 2017 | 140, 130, 120, 110 | 140 |\n@@ -207,62 +171,7 @@ SELECT name, compatibility_level FROM sys.databases\n \n For more information on SQL Server compatibility levels and how to set them, see [ALTER DATABASE Compatibility Level (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).\n \n-### Other required database configurations\n-\n-Configuration Manager sets the below database configurations during setup to function correctly. They apply for both standalone primary site and hierarchy scenarios - as well as for SQL Always On configurations.\n-\n-Do not alter them unless instructed by Microsoft support. The [Support policies for manual database changes](/troubleshoot/mem/configmgr/setup-migrate-backup-recovery/support-policy-for-manual-database-changes) article applies for database options.\n-\n-| Display name | Canonical name | Required value | More information link |\n-|--------------|---------------|----------------|------------------|\n-| Database owner | `owner_sid` | `sa` | [ALTER AUTHORIZATION for databases](/sql/t-sql/statements/alter-authorization-transact-sql#alter-authorization-for-databases) |\n-| Change tracking | `CHANGE_TRACKING` | True (ON) | [Enable change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) |\n-| Recursive Triggers Enabled | `RECURSIVE_TRIGGERS` | True (ON) | [Recursive Triggers](/sql/relational-databases/triggers/create-nested-triggers#recursive-triggers) |\n-| Broker Enabled | `ENABLE_BROKER` | True (ON) | [Activate Service Broker in a database](/sql/database-engine/service-broker/how-to-activate-service-broker-message-delivery-in-databases-transact-sql#activate-service-broker-in-a-database) |\n-| Honor Broker Priority | `HONOR_BROKER_PRIORITY` | True (ON) | [Enable conversation priorities](/sql/database-engine/service-broker/managing-conversation-priorities#enable-conversation-priorities) |\n-| Trustworthy | `TRUSTWORTHY` | True (ON) | [TRUSTWORTHY database property](/sql/relational-databases/security/trustworthy-database-property) |\n-| Allow Snapshot Isolation | `ALLOW_SNAPSHOT_ISOLATION` | True (ON) | [Snapshot Isolation in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) |\n-| Is Read Committed Snapshot On | `READ_COMMITTED_SNAPSHOT` | True (ON) | [Set Transaction Isolation Level](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) |\n-| ANSI Nulls Enabled | `ANSI_NULLS` | True (ON) | [SET ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql) |\n-| ANSI Padding Enabled | `ANSI_PADDING` | True (ON) | [SET ANSI_PADDING](/sql/t-sql/statements/set-ansi-padding-transact-sql) |\n-| ANSI Warnings Enabled | `ANSI_WARNINGS` | True (ON) | [SET ANSI_WARNINGS](/sql/t-sql/statements/set-ansi-warnings-transact-sql) |\n-| Arithmetic Abort Enabled | `ARITHABORT` | True (ON) | [SET ARITHABORT](/sql/t-sql/statements/set-arithabort-transact-sql) |\n-| Concatenate Null Yields Null | `CONCAT_NULL_YIELDS_NULL` | True (ON) | [SET CONCAT_NULL_YIELDS_NULL](/sql/t-sql/statements/set-concat-null-yields-null-transact-sql) |\n-| Quoted Identifiers Enabled | `QUOTED_IDENTIFIER` | True (ON) | [SET QUOTED_IDENTIFIER](/sql/t-sql/statements/set-quoted-identifier-transact-sql) |\n-| Numeric Round-abort | `NUMERIC_ROUNDABORT` | False (OFF) | [SET NUMERIC_ROUNDABORT](/sql/t-sql/statements/set-numeric-roundabort-transact-sql) |\n-\n-## <a name=\"bkmk_optional\"></a> Optional configurations for SQL Server\n-\n-The following configurations are optional for each database that uses a full SQL Server installation.\n-\n-### SQL Server service\n-\n-You can configure the SQL Server service to run using:\n-\n-- A *low rights domain user* account:\n-\n-  - This configuration is a best practice and might require you to manually register the service principal name (SPN) for the account.\n-\n-- The **local system** account of the computer that runs SQL Server:\n-\n-  - Use the local system account to simplify the configuration process.\n-  - When you use the local system account, Configuration Manager automatically registers the SPN for the SQL Server service.\n-  - Using the local system account for the SQL Server service isn't a SQL Server best practice.\n-\n-When the computer running SQL Server doesn't use its local system account to run the SQL Server service, configure the SPN of the account that runs the SQL Server service in Active Directory Domain Services. (When the system account is used, the SPN is automatically registered for you.)\n-\n-For information about SPNs for the site database, see [Manage the SPN for the site database server](../../servers/manage/modify-your-infrastructure.md#bkmk_SPN).\n-\n-For information about how to change the account that is used by the SQL Server service, see [SCM Services - Change the service startup account](/sql/database-engine/configure-windows/scm-services-change-the-service-startup-account).\n-\n-### SQL Extended Protection for Authentication\n-<!--24501008-->\n-\n-Starting from version 2409, Configuration Manager supports SQL extended protection for authentication. It's a security feature that enhances protection against MITM attacks, making SQL server more secure when connections are made using extended protection. These enhancements collectively reduce the risk of unauthorized access and protect sensitive data managed by the SQL Server database engine.\n-\n-For more information, see [Connect to the Database Engine Using Extended Protection](/sql/database-engine/configure-windows/connect-to-the-database-engine-using-extended-protection).\n-\n-### SQL Server Reporting Services\n+## SQL Server Reporting Services\n \n SQL Server Reporting Services is required for installing a reporting services point that lets you run reports. Configuration Manager supports the same versions of SQL Server for reporting as it does for the site database.\n \n@@ -272,31 +181,6 @@ For more information, see [Prerequisites for reporting in Configuration Manager]\n > After you upgrade SQL Server from a previous version, you might see the following error: *Report Builder Does Not Exist*.\n > To resolve this error, you must reinstall the reporting services point site system role.\n \n-### Data warehouse service point\n-\n-The data warehouse uses a separate database. You can host it on the site database server, or a separate SQL Server. For more information, see [The data warehouse service point for Configuration Manager](../../servers/manage/data-warehouse.md).\n-\n-### SQL Server ports\n-\n-For communication to the SQL Server database engine and for intersite replication, you can use the default SQL Server port configurations or specify custom ports:\n-\n-- **Intersite communications** use the SQL Server Service Broker, which uses port TCP 4022 by default.\n-- **Intrasite communications** between the SQL Server database engine and various Configuration Manager site system roles use port TCP 1433 by default. The following site system roles communicate directly with the SQL Server database:\n-\n-  - Management point\n-  - SMS Provider computer\n-  - Reporting services point\n-  - Site server\n-\n-When a computer running SQL Server hosts a database from more than one site, each database must use a separate instance of SQL Server. Also, each instance must be configured to use a unique set of ports.\n-\n-> [!WARNING]\n-> Configuration Manager doesn't support dynamic ports. Because SQL Server named instances by default use dynamic ports for connections to the database engine, when you use a named instance, you must manually configure the static port that you want to use for intrasite communication.\n-\n-If you have a firewall enabled on the computer that is running SQL Server, make sure that it's configured to allow the ports that are being used by your deployment and at any locations on the network between computers that communicate with the SQL Server.\n-\n-For an example of how to configure SQL Server to use a specific port, see [Configure a server to listen on a specific TCP port](/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port).\n-\n ## Upgrade options for SQL Server\n \n If you need to upgrade your version of SQL Server, use one of the following methods, from easy to more complex:\n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-sql-server-versions",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/supported-configurations.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/supported-configurations.md b/intune/configmgr/core/plan-design/configs/supported-configurations.md\nindex 60bd770037..33118238e7 100644\n--- a/intune/configmgr/core/plan-design/configs/supported-configurations.md\n+++ b/intune/configmgr/core/plan-design/configs/supported-configurations.md\n@@ -37,7 +37,9 @@ Products and product versions that aren't listed in these articles aren't suppor\n \n - [Supported operating systems for the console](supported-operating-systems-consoles.md): Learn about which operating systems can host the Configuration Manager console.\n \n-- [Support for SQL Server versions](support-for-sql-server-versions.md): Learn about which versions of SQL Server can host the site database and reporting database. It also includes required and optional configurations that you can use with SQL Server.\n+- [Supported SQL Server versions](support-for-sql-server-versions.md): Learn which versions, editions, and compatibility levels of SQL Server can host the site database and reporting database.\n+\n+- [Supported configurations for SQL Server](supported-configurations-for-sql-server.md): Learn about required and optional SQL Server and database configurations.\n \n - [High-availability options](../../servers/deploy/configure/high-availability-options.md): Learn about the options you can implement when designing your environment to help maintain a high level of available service for Configuration Manager.\n \n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/supported-configurations.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/supported-configurations",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/plan-design/configs/supported-configurations.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/supported-configurations.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/hierarchy/international-support.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/hierarchy/international-support.md b/intune/configmgr/core/plan-design/hierarchy/international-support.md\nindex f7c2f716ff..ebf2ecb23f 100644\n--- a/intune/configmgr/core/plan-design/hierarchy/international-support.md\n+++ b/intune/configmgr/core/plan-design/hierarchy/international-support.md\n@@ -25,6 +25,6 @@ The following sections provide technical details to help you make Configuration\n     -   Chinese_Simplified_Stroke_Order_100_CI_AI\n \n     > [!NOTE]\n-    >  These database collations are an exception to the requirements that are noted in [Support for SQL Server versions for Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).\n+    >  These database collations are an exception to the requirements that are noted in [Supported configurations for SQL Server](../../../core/plan-design/configs/supported-configurations-for-sql-server.md).\n \n -   You must place a file with the name **GB18030.SMS** in the root folder of the system volume of each site server computer in the hierarchy. This file does not contain any data and can be an empty text file that is named to meet this requirement.\n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/hierarchy/international-support.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/hierarchy/international-support",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/plan-design/hierarchy/international-support.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/international-support.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md b/intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md\nindex b05adfc903..d94e92399e 100644\n--- a/intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md\n+++ b/intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md\n@@ -34,7 +34,7 @@ The following SQL Server configurations can be used to host the site database:\n \n - A SQL Server Always On availability group\n \n-To host the site database, the SQL Server must meet the requirements detailed in [Support for SQL Server versions for Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).\n+To host the site database, SQL Server must meet the [supported version](../../../core/plan-design/configs/support-for-sql-server-versions.md) and [configuration](../../../core/plan-design/configs/supported-configurations-for-sql-server.md) requirements.\n \n ## Remote database server location considerations\n \n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md b/intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md\nindex 7b7796898b..025e6097be 100644\n--- a/intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md\n+++ b/intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md\n@@ -38,7 +38,7 @@ This configuration can help reduce the CPU processing requirements on the site d\n \n ### SQL Server requirements\n \n-- The SQL Server that hosts the database replica has the same requirements as the site database server. The replica server doesn't need to run the same version or edition of SQL Server as the site database server, as long as it runs a supported version and edition of SQL Server. For more information, see [Support for SQL Server versions](../../../../core/plan-design/configs/support-for-sql-server-versions.md).\n+- The SQL Server that hosts the database replica has the same requirements as the site database server. The replica server doesn't need to run the same version or edition of SQL Server as the site database server, as long as it runs a supported version and edition of SQL Server. For more information, see [supported SQL Server versions](../../../../core/plan-design/configs/support-for-sql-server-versions.md) and [supported configurations for SQL Server](../../../../core/plan-design/configs/supported-configurations-for-sql-server.md).\n \n - The SQL Server service on the computer that hosts the replica database must run as the **System** account.\n \n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md b/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md\nindex 70afa8f543..2f9e5ac7f4 100644\n--- a/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md\n+++ b/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md\n@@ -488,7 +488,7 @@ When using an availability group, replicas are in a healthy state.\n \n *Applies to: Site database server*\n \n-The SQL Server meets the minimum requirements for site upgrade. For more information, see required [SQL Server](../../../plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLConfig) and [Database](../../../plan-design/configs/support-for-sql-server-versions.md#bkmk_DBConfig) configurations.\n+The SQL Server meets the minimum requirements for site upgrade. For more information, see required [SQL Server](../../../plan-design/configs/supported-configurations-for-sql-server.md#bkmk_SQLConfig) and [database](../../../plan-design/configs/supported-configurations-for-sql-server.md#bkmk_DBConfig) configurations.\n \n ### SQL Server edition\n \n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md b/intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md\nindex 8b92372588..1ed62dd9bf 100644\n--- a/intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md\n+++ b/intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md\n@@ -60,7 +60,7 @@ For more information, see [Design a hierarchy of sites for Configuration Manager\n For more information, see [Site and site system prerequisites](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md).\n \n - **Install and configure SQL Server to host the site database**\n-For more information, see [Support for SQL Server versions for Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).\n+For more information, see [supported SQL Server versions](../../../../core/plan-design/configs/support-for-sql-server-versions.md) and [supported configurations for SQL Server](../../../../core/plan-design/configs/supported-configurations-for-sql-server.md).\n \n - **Prepare your network environment to support Configuration Manager**\n For more information, see [Configure firewalls, ports, and domains to prepare for Configuration Manager](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).\n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/install/prepare-to-install-sites",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/modify-your-infrastructure.md b/intune/configmgr/core/servers/manage/modify-your-infrastructure.md\nindex 1263f42197..17707035ef 100644\n--- a/intune/configmgr/core/servers/manage/modify-your-infrastructure.md\n+++ b/intune/configmgr/core/servers/manage/modify-your-infrastructure.md\n@@ -166,7 +166,7 @@ Run Configuration Manager setup on the site server, and select the option **Perf\n - SQL Server Service Broker port in use by Configuration Manager.\n \n > [!IMPORTANT]\n-> The **Modify SQL Server configuration** maintenance path doesn't run the SQL Server collation prerequisite check that a new install or upgrade performs. Before you continue, verify that the target SQL Server instance *and* the site database both use the required collation, **SQL_Latin1_General_CP1_CI_AS**. Moving or pointing the site to an instance or database that uses a different collation can corrupt data and cause site failures that might not appear immediately. The only exceptions are the two China GB18030 collations. For more information, see [SQL Server instance and database collations](../../plan-design/configs/support-for-sql-server-versions.md#sql-instance-and-database-collations) and [International support](../../plan-design/hierarchy/international-support.md). To verify the configuration, run the [verification script](#verify-sql-server-configuration-before-you-move-the-site-database).\n+> The **Modify SQL Server configuration** maintenance path doesn't run the SQL Server collation prerequisite check that a new install or upgrade performs. Before you continue, verify that the target SQL Server instance *and* the site database both use the required collation, **SQL_Latin1_General_CP1_CI_AS**. Moving or pointing the site to an instance or database that uses a different collation can corrupt data and cause site failures that might not appear immediately. The only exceptions are the two China GB18030 collations. For more information, see [SQL Server instance and database collations](../../plan-design/configs/supported-configurations-for-sql-server.md#sql-server-instance-and-database-collation) and [International support](../../plan-design/hierarchy/international-support.md). To verify the configuration, run the [verification script](#verify-sql-server-configuration-before-you-move-the-site-database).\n \n ### Move the site database\n \n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/modify-your-infrastructure",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/modify-your-infrastructure.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/understand/supported-configurations-for-ltsb.md b/intune/configmgr/core/understand/supported-configurations-for-ltsb.md\nindex fa5ce05aa1..7689e6488a 100644\n--- a/intune/configmgr/core/understand/supported-configurations-for-ltsb.md\n+++ b/intune/configmgr/core/understand/supported-configurations-for-ltsb.md\n@@ -118,7 +118,7 @@ The LTSB supports the following operating systems to run the Configuration Manag\n \n \n ## SQL Server versions supported for the site database and reporting point\n-The LTSB supports the following versions of SQL Server to host the site database and reporting point. For each supported version, the same configuration requirements and limitations that appear in [Support for SQL Server versions](../plan-design/configs/support-for-sql-server-versions.md) for the current branch apply to the LTSB.  This support includes the use of a SQL Server Always On failover cluster instance or an availability group.\n+The LTSB supports the following versions of SQL Server to host the site database and reporting point. For each supported version, the same [configuration requirements](../plan-design/configs/supported-configurations-for-sql-server.md) and [limitations](../plan-design/configs/support-for-sql-server-versions.md#limitations-to-support) for the current branch apply to the LTSB. This support includes the use of a SQL Server Always On failover cluster instance or an availability group.\n \n **Supported versions:**\n \n",
+      "baseCommitSha": "a7ae2a672451b64b8d5e762ea286845823963bd1",
+      "commitSha": "0b6be673bc34dd234d181a133f9cde79df4387f0",
+      "commitMessage": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+      "commitAuthor": "Pavel Yurenev",
+      "commitDate": "2026-07-29T04:47:59+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/understand/supported-configurations-for-ltsb",
+      "firstSeenAt": "2026-07-29T03:47:59.000Z",
+      "eventId": "intune-docs:0b6be673bc34dd234d181a133f9cde79df4387f0:modified:intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Added Force Encryption flag support + SQL pages reorg (#20584)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/understand/supported-configurations-for-ltsb.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md b/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md\nindex ecf17fd739..5491414a50 100644\n--- a/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md\n+++ b/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md\n@@ -87,7 +87,7 @@ Use the following high-level guidance to set your clients to prefer a cloud-base\n 1. Ensure your [cloud management gateway](../../../clients/manage/cmg/set-up-checklist.md?toc=/mem/configmgr/cloud-attach/toc.json&bc=/mem/configmgr/cloud-attach/breadcrumb/toc.json) is configured and functional\n 1. Verify that your [software update points](../../../../sum/get-started/install-a-software-update-point.md) are functional and synchronized.\n 1. Enable the [**Allow Configuration Manager cloud management gateway traffic**](../../../clients/manage/cmg/setup-cloud-management-gateway.md#bkmk_role) option for any SUP you want to use with CMG.\n-1. [Configure the boundary group](../../deploy/configure/boundary-group-procedures.md#configure-a-boundary-group) for this behavior by enabling the **Prefer cloud based sources over on-premises sources** option and adding the CGM SUP server to the **Site system servers** list.\n+1. [Configure the boundary group](../../deploy/configure/boundary-group-procedures.md#configure-a-boundary-group) for this behavior by enabling the **Prefer cloud based sources over on-premises sources** option and adding the CMG SUP server to the **Site system servers** list.\n 1. To manually switch clients to a new SUP, use the **Switch to next Software Update Point** [client notification](../../../clients/manage/client-notification.md#switch-to-the-next-software-update-point) action for a device or for a collection.\n    - Clients in the boundary group [don't automatically switch to a new SUP](../../../../sum/plan-design/plan-for-software-updates.md#BKMK_ManuallySwitchSUPs)*9 unless scanning against their current SUP fails four times over the course of two hours.\n    - You won't need to manually switch the SUP for any new clients added to the environment after the boundary group option is set.\n",
+      "baseCommitSha": "3d45e8a75bb018311c2ef85d41705dc41c34c615",
+      "commitSha": "e252f919778a1e120844de752abe070f0bb49063",
+      "commitMessage": "Update boundary-groups-software-update-points.md (#5195)",
+      "commitAuthor": "Bernie Edelbacher",
+      "commitDate": "2026-07-29T18:00:35+02:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points",
+      "firstSeenAt": "2026-07-29T16:00:35.000Z",
+      "eventId": "intune-docs:e252f919778a1e120844de752abe070f0bb49063:modified:intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update boundary-groups-software-update-points.md (#5195)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 13,
+    "authors": [
+      "Bernie Edelbacher",
+      "Pavel Yurenev",
+      "QianDong Ni"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 12 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/configmgr",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/supported-configurations.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/international-support.md. Updated Microsoft Intune documentation in intune/configmgr/co",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md",
+          "intune/configmgr/hotfix/2509/37864969.md",
+          "intune/configmgr/hotfix/2603/38232642.md",
+          "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
+          "intune/configmgr/core/plan-design/configs/supported-configurations.md",
+          "intune/configmgr/core/plan-design/hierarchy/international-support.md",
+          "intune/configmgr/core/plan-design/hierarchy/plan-for-the-site-database.md",
+          "intune/configmgr/core/servers/deploy/configure/database-replicas-for-management-points.md",
+          "intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
+          "intune/configmgr/core/servers/deploy/install/prepare-to-install-sites.md",
+          "intune/configmgr/core/servers/manage/modify-your-infrastructure.md",
+          "intune/configmgr/core/understand/supported-configurations-for-ltsb.md",
+          "intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/configmgr",
+        "detail": "Added Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/supported-configurations-for-sql-server.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/38232642.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/supported-configurations.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/international-support.md. Updated Microsoft Intune documentation in intune/configmgr/co"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 0,
+      "changes": 22,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex f4438c59e8..0fd934a712 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -183,6 +183,28 @@ For more information about OEMConfig, see [Use and manage Android Enterprise dev\n \n ### Device management\n \n+#### Advanced Intune capabilities are being added to Microsoft 365 E3 and E5<!-- 37289179 -->\n+\n+Microsoft is adding several Intune Suite capabilities to Microsoft 365 E3 and Microsoft 365 E5 to enable more organizations to use advanced endpoint management and security without a separate add-on.\n+\n+The following capabilities are added to Microsoft Enterprise Mobility + Security E3 (EMS E3), which is included with Microsoft 365 E3:\n+\n+- Remote Help\n+- Advanced Analytics\n+- Intune Plan 2, which includes Microsoft Tunnel for mobile application management (MAM), specialty device management, and firmware over-the-air (FOTA) updates for supported devices\n+\n+Microsoft 365 E5 includes all Microsoft 365 E3 capabilities, plus:\n+\n+- Endpoint Privilege Management\n+- Enterprise Application Management\n+- Microsoft Cloud PKI\n+\n+These capabilities are gradually rolling out. Eligible tenants are automatically provisioned, and no action is required. Before the change takes effect in your tenant, Microsoft posts a notification in the Microsoft 365 admin center 30 days in advance.\n+\n+This update applies to commercial Microsoft 365 E3 and E5. There are no changes to the Education (EDU) or frontline worker (FLW) plans at this time. For Government plans, Intune Suite packaging is planned to align with the equivalent enterprise plans, subject to compliance and regulatory requirements. For the capabilities currently supported  in GCC High and DoD, see [Supported Intune features in GCC High and DoD](../fundamentals/government-service.md#supported-intune-features-in-gcc-high-and-dod).\n+\n+For more information, see [Microsoft Intune advanced capabilities](../fundamentals/advanced-capabilities.md) and the blog post [Microsoft 365 adds advanced Microsoft Intune solutions at scale](https://techcommunity.microsoft.com/blog/microsoftintuneblog/microsoft-365-adds-advanced-microsoft-intune-solutions-at-scale/4474272).\n+\n #### Intune support for Trustd Mobile as a mobile threat defense partner<!-- 38433837 -->\n \n You can now use Trustd Mobile as a mobile threat defense partner (MTD) for enrolled devices that run the following platforms:\n",
+      "baseCommitSha": "383f64e213117253223281acce684a23dbb5d58b",
+      "commitSha": "17448eedd727ead7821cc897c04369c137321d3f",
+      "commitMessage": "37289179 (#20518)",
+      "commitAuthor": "Paolo Matarazzo",
+      "commitDate": "2026-07-06T07:54:52-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-07-06T11:54:52.000Z",
+      "eventId": "intune-docs:17448eedd727ead7821cc897c04369c137321d3f:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "37289179 (#20518)",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-macos-token.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-macos-token.md b/intune/device-enrollment/apple/setup-macos-token.md\nindex 125256cee0..530b6d214c 100644\n--- a/intune/device-enrollment/apple/setup-macos-token.md\n+++ b/intune/device-enrollment/apple/setup-macos-token.md\n@@ -20,7 +20,7 @@ An *enrollment program token* (sometimes called an automated device enrollment t\n This article describes how to create, renew, and delete enrollment program tokens for macOS.  \n \n ## Create an enrollment program token \n-The steps in this section apply to both Apple Business Manager and Apple School Manager. Where the user interface differs, separate instructions are provided.  \n+The steps in this section apply to both Apple Business and Apple School Manager. Where the user interface differs, separate instructions are provided.  \n \n ### Step 1: Download the Intune public key certificate\n \n@@ -38,7 +38,7 @@ The public key certificate is needed to request a trust-relationship certificate\n \n ### Step 2: Create the connection and download the server token  \n \n-Create a connection between Microsoft Intune and Apple Business Manager or Apple School Manager, and then download the server token. Apple Business Manager creates a device management service, while Apple School Manager creates an MDM server. Both processes result in a server token that you upload to Intune. \n+Create a connection between Microsoft Intune and Apple Business or Apple School Manager, and then download the server token. Apple Business creates a device management service, while Apple School Manager creates an MDM server. Both processes result in a server token that you upload to Intune. \n \n 1. In the admin center, select the link that corresponds with the Apple portal you use. Your options:  \n    - **Create a token via Apple Business**\n@@ -92,7 +92,7 @@ Renew your enrollment program token yearly. The Intune admin center shows the to\n - The Apple ID password changes for the user who set up the token in Apple Business or Apple School Manager. \n - The user who set up the token leaves the organization.\n \n-To renew the token, download a new token from the Apple connection associated with Intune. In Apple Business Manager, the connection is a device management service. In Apple School Manager, the connection is an MDM server. \n+To renew the token, download a new token from the Apple connection associated with Intune. In Apple Business, the connection is a device management service. In Apple School Manager, the connection is an MDM server. \n \n 1. Sign in to the Apple portal with an account that has the appropriate administrator permissions.\n 1. Go to the management settings:\n@@ -147,4 +147,4 @@ To delete an enrollment program token:\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "17448eedd727ead7821cc897c04369c137321d3f",
+      "commitSha": "bf4a916ef5c377d0060d1a8bb1e155e09f28ca81",
+      "commitMessage": "Update terminology from 'Apple Business Manager' to 'Apple Business' (#20516)",
+      "commitAuthor": "Ben Watt",
+      "commitDate": "2026-07-06T14:47:31+01:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/setup-macos-token.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-macos-token",
+      "firstSeenAt": "2026-07-06T13:47:31.000Z",
+      "eventId": "intune-docs:bf4a916ef5c377d0060d1a8bb1e155e09f28ca81:modified:intune/device-enrollment/apple/setup-macos-token.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update terminology from 'Apple Business Manager' to 'Apple Business' (#20516)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-macos-token.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/user-help/enrollment/enroll-company-portal-macos.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/user-help/enrollment/enroll-company-portal-macos.md b/intune/user-help/enrollment/enroll-company-portal-macos.md\nindex c2bf1ec209..20c46a7946 100644\n--- a/intune/user-help/enrollment/enroll-company-portal-macos.md\n+++ b/intune/user-help/enrollment/enroll-company-portal-macos.md\n@@ -29,8 +29,8 @@ Your device must be running macOS 11 or later.\n 5. Select **Agree** to agree to the terms of the software license agreement.\n 6. On the **Installation Type** page, select **Install**.\n 7. Enter your device password or registered fingerprint. Then select **Install Software**.\n-9. Wait for Company Portal to finish installing.\n-11. Open the Company Portal app.\n+8. Wait for Company Portal to finish installing.\n+9. Open Company Portal from the Applications folder.\n \n > [!IMPORTANT]\n > Microsoft AutoUpdate might open after enrollment and update your Microsoft software. After all updates are installed, open the Company Portal app. For the best setup experience, install the latest versions of Microsoft AutoUpdate and Company Portal.\n",
+      "baseCommitSha": "bf4a916ef5c377d0060d1a8bb1e155e09f28ca81",
+      "commitSha": "413439c884afab7806092d2f76b6e4f61575773f",
+      "commitMessage": "Update instruction for opening Company Portal app (#20486)",
+      "commitAuthor": "Iris Yuning Ye",
+      "commitDate": "2026-07-06T10:02:43-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/user-help/enrollment/enroll-company-portal-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/user-help/enrollment/enroll-company-portal-macos",
+      "firstSeenAt": "2026-07-06T14:02:43.000Z",
+      "eventId": "intune-docs:413439c884afab7806092d2f76b6e4f61575773f:modified:intune/user-help/enrollment/enroll-company-portal-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update instruction for opening Company Portal app (#20486)",
+        "summary": "Updated Microsoft Intune documentation in intune/user-help/enrollment/enroll-company-portal-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 3,
+    "totalFiles": 3,
+    "authors": [
+      "Ben Watt",
+      "Iris Yuning Ye",
+      "Paolo Matarazzo"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-macos-token.md.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-macos-token.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/user-help",
+        "summary": "Updated Microsoft Intune documentation in intune/user-help/enrollment/enroll-company-portal-macos.md.",
+        "sourceFiles": [
+          "intune/user-help/enrollment/enroll-company-portal-macos.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "Updated Microsoft Intune documentation in intune/device-enrollment/apple/setup-macos-token.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/user-help",
+        "detail": "Updated Microsoft Intune documentation in intune/user-help/enrollment/enroll-company-portal-macos.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

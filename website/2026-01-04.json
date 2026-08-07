@@ -1,0 +1,62 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 18,
+      "changes": 18,
+      "patch": "diff --git a/intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md b/intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md\nindex 5e68dea694..4c4443bb3e 100644\n--- a/intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md\n+++ b/intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md\n@@ -26,24 +26,6 @@ This feature applies to:\n \n - Windows cloud-native endpoints\n \n-> [!TIP]\n-> If you want a Microsoft recommended, standardized solution to build on top of, then you might be interested in [Windows in cloud configuration](https://www.microsoft.com/microsoft-365/windows/cloud-configuration). For an Intune [Guided Scenario](../../intune-service/fundamentals/guided-scenarios-overview.md), see [Windows in cloud configuration](../../intune-service/fundamentals/cloud-configuration.md).\n->\n-> The following table describes the key difference between this guide and *Windows in cloud configuration*:\n->\n-> ---\n-> | Solution | Objective |\n-> | --- | --- |\n-> | **Tutorial: Get started with cloud-native Windows endpoints** (this guide) | Guides you through creating your own configuration for your environment, based on Microsoft recommended settings, and helps you start testing. |\n-> | [**Windows in cloud configuration**](https://www.microsoft.com/microsoft-365/windows/cloud-configuration) | A guided scenario experience that creates and applies a pre-built configuration based on Microsoft best practices for frontline, remote, and other workers with more focused needs. |\n->\n-> ---\n->\n-> You can use this guide combined with *Windows in cloud configuration* to customize the pre-built experience even more.\n-\n-> [!IMPORTANT]\n-> [!INCLUDE [windows-10-support](../../intune-service/includes/windows-10-support.md)]\n-\n ## How to get started\n \n Use the five ordered phases in this guide, which build on each other to help you prepare your cloud-native Windows endpoint configuration. By completing these phases in order, you see tangible progress and are ready to provision new devices.\n",
+      "baseCommitSha": "fdf881af207e694588fb7f103898c6583cc05c10",
+      "commitSha": "7b05455f6a6cd6b1b5d52aa0458eb86e8a9bc627",
+      "commitMessage": "Update cloud-native-windows-endpoints.md",
+      "commitAuthor": "Scott Breen",
+      "commitDate": "2026-01-05T09:12:42+10:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints",
+      "firstSeenAt": "2026-01-04T23:12:42.000Z",
+      "eventId": "intune-docs:7b05455f6a6cd6b1b5d52aa0458eb86e8a9bc627:modified:intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Cloud-native endpoint tutorial removes configuration comparison",
+        "summary": "The tutorial removed its tip comparing this guide with Windows in cloud configuration, including the table describing each solution's objective and the Windows 10 support callout.",
+        "adminImpact": "Use the linked solution documentation directly when deciding whether to build a custom cloud-native configuration or use Windows in cloud configuration.",
+        "generatedBy": "codex-one-time-backfill",
+        "model": "gpt-5.6-terra",
+        "reasoningEffort": "medium",
+        "generatedAt": "2026-08-06T22:04:01.779Z"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "Scott Breen"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md.",
+        "sourceFiles": [
+          "intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

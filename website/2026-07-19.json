@@ -1,0 +1,84 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/sum/understand/software-updates-introduction.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 2,
+      "changes": 33,
+      "patch": "diff --git a/intune/configmgr/sum/understand/software-updates-introduction.md b/intune/configmgr/sum/understand/software-updates-introduction.md\nindex c2d4afaf6e..b20fca2ad2 100644\n--- a/intune/configmgr/sum/understand/software-updates-introduction.md\n+++ b/intune/configmgr/sum/understand/software-updates-introduction.md\n@@ -136,7 +136,24 @@ For an example scenario that shows how you might deploy software updates in your\n  The software updates metadata that is required for the scan for software updates compliance is stored on the local client computer, and by default, is relevant for up to 24 hours. This value is known as the Time to Live (TTL).\n \n #### Scan for software updates compliance types\n- The client scans for software updates compliance by using an online or offline scan and a forced or non-forced scan, depending on the way the scan for software updates compliance is started. The following describes which methods for starting the scan are online or offline and whether the scan is forced or non-forced.\n+ The client scans for software updates compliance by using an online or offline scan and a forced or non-forced scan, depending on the way the scan for software updates compliance is started. Whether the client actually connects to WSUS is the result of two independent decisions:\n+\n+- **Forced or non-forced** determines whether the client reuses its cached scan results. A non-forced scan reuses the results of the last scan when they're still current and within the TTL, and it only runs a new scan when the cache is stale. A forced scan always runs a new scan and ignores the cache.\n+\n+- **Online or offline** determines where a scan that does run gets its metadata. An online scan connects to WSUS on the software update point to refresh the metadata before it evaluates the client. An offline scan evaluates the client by using metadata already stored locally, without connecting to WSUS.\n+\n+> [!NOTE]\n+>  *Online* describes what a scan is allowed to do, not what it always does. A non-forced online scan connects to WSUS only when the cached results are outside the TTL. When the last scan is still within the TTL, the client answers from its local cache and doesn't connect to WSUS, even though the scan type is *online*. This is also why *forced offline* isn't a contradiction: *forced* means the cache isn't reused, and *offline* means the resulting scan uses local metadata instead of WSUS. A non-forced offline scan doesn't exist.\n+\n+ The following table summarizes the combinations:\n+\n+|Scan behavior|What it means|Contacts WSUS?|\n+|---|---|---|\n+|Non-forced online|Reuse the cached results if they're still current and within the TTL; otherwise refresh the metadata from WSUS.|Only when the last scan is outside the TTL.|\n+|Forced online|Always refresh the metadata from WSUS, regardless of the TTL.|Always.|\n+|Forced offline|Always run a scan, but evaluate by using local metadata.|Never.|\n+\n+ The following describes which methods for starting the scan are online or offline and whether the scan is forced or non-forced.\n \n -   **Software updates scan schedule** (non-forced online scan)\n \n@@ -166,6 +183,18 @@ For an example scenario that shows how you might deploy software updates in your\n \n      After a software update is installed and the computer is restarted, the Software Updates Client Agent starts a scan by using the local metadata. The client never connects to WSUS running on the software update point to retrieve software updates metadata.\n \n+#### A scan evaluates the whole catalog, not a single deployment\n+ A scan evaluates the client against all update metadata that's synchronized on the software update point, not against a single deployment. One scan produces compliance for updates in new deployments, updates in existing deployments, and updates that aren't deployed at all, in a single pass.\n+\n+ As a result, the number of deployments doesn't change the number of scans. Whether a client is targeted by 1 deployment or 10, a single scan against the software update point evaluates the client for all of them at once.\n+\n+#### A scan updates compliance, but installation still requires deployment policy\n+ Running a **Software Updates Scan Cycle** refreshes compliance for all updates that the software update point knows about. However, the client can only install a newly added update after it also receives the deployment (machine) policy for that update. Refreshing compliance and acting on a deployment are separate steps:\n+\n+- To refresh compliance across all updates, use the **Software Updates Scan Cycle**.\n+\n+- To make the client act on a new or changed deployment, use the **Machine Policy Retrieval & Evaluation Cycle**, followed by the **Software Updates Deployment Evaluation Cycle**.\n+\n ##  <a name=\"BKMK_DeploymentPackages\"></a> Software update deployment packages\n  A software update deployment package is the vehicle used to download software updates to a network shared folder, and copy the software update source files to the content library on site servers and on distribution points that are defined in the deployment. By using the Download Updates Wizard, you can download software updates and add them to deployment packages before you deploy them. This wizard lets you provision software updates on distribution points and verify that this part of the deployment process is successful before you deploy the software updates to clients.\n \n@@ -267,4 +296,4 @@ For an example scenario that shows how you might deploy software updates in your\n  Use System Center Updates Publisher to manage software updates that are not available from Microsoft Update. After you publish the software updates to the update server and synchronize the software updates in Configuration Manager, you can deploy the software updates to Configuration Manager clients. For more information about Updates Publisher, see [Updates Publisher 2011](/previous-versions/system-center/updates-publisher-2011/hh134742(v=technet.10)).\n \n ## Next steps\n-[Plan for software updates](../plan-design/plan-for-software-updates.md)\n\\ No newline at end of file\n+[Plan for software updates](../plan-design/plan-for-software-updates.md)\n",
+      "baseCommitSha": "274cf0d4bccf0a1689acd2f10b64184fece7d19c",
+      "commitSha": "d5761df2e71784179522f781378ffb8906de6a7c",
+      "commitMessage": "Clarify online vs. WSUS contact in software updates scan documentation",
+      "commitAuthor": "Umair Khan",
+      "commitDate": "2026-07-19T14:07:09-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/sum/understand/software-updates-introduction.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/sum/understand/software-updates-introduction",
+      "firstSeenAt": "2026-07-19T19:07:09.000Z",
+      "eventId": "intune-docs:d5761df2e71784179522f781378ffb8906de6a7c:modified:intune/configmgr/sum/understand/software-updates-introduction.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify online vs. WSUS contact in software updates scan documentation",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/sum/understand/software-updates-introduction.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/sum/understand/software-updates-introduction.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 0,
+      "changes": 13,
+      "patch": "diff --git a/intune/configmgr/sum/understand/software-updates-introduction.md b/intune/configmgr/sum/understand/software-updates-introduction.md\nindex b20fca2ad2..0624d8cdcd 100644\n--- a/intune/configmgr/sum/understand/software-updates-introduction.md\n+++ b/intune/configmgr/sum/understand/software-updates-introduction.md\n@@ -145,6 +145,19 @@ For an example scenario that shows how you might deploy software updates in your\n > [!NOTE]\n >  *Online* describes what a scan is allowed to do, not what it always does. A non-forced online scan connects to WSUS only when the cached results are outside the TTL. When the last scan is still within the TTL, the client answers from its local cache and doesn't connect to WSUS, even though the scan type is *online*. This is also why *forced offline* isn't a contradiction: *forced* means the cache isn't reused, and *offline* means the resulting scan uses local metadata instead of WSUS. A non-forced offline scan doesn't exist.\n \n+ The following diagram shows how the two decisions combine:\n+\n+```mermaid\n+flowchart TD\n+    A[Scan requested] --> B{Forced?}\n+    B -- No --> C{Cached results current and within TTL?}\n+    C -- Yes --> D[Use cached results. Do not contact WSUS.]\n+    C -- No --> E{Online or offline?}\n+    B -- Yes --> E\n+    E -- Online --> F[Contact WSUS, refresh metadata, then scan.]\n+    E -- Offline --> G[Scan using local metadata. Do not contact WSUS.]\n+```\n+\n  The following table summarizes the combinations:\n \n |Scan behavior|What it means|Contacts WSUS?|\n",
+      "baseCommitSha": "d5761df2e71784179522f781378ffb8906de6a7c",
+      "commitSha": "55ead5e483029dc7b818190c057889fa3d50e58c",
+      "commitMessage": "Add Mermaid flowchart showing the two-decisions scan model",
+      "commitAuthor": "Umair Khan",
+      "commitDate": "2026-07-19T14:19:35-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/sum/understand/software-updates-introduction.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/sum/understand/software-updates-introduction",
+      "firstSeenAt": "2026-07-19T19:19:35.000Z",
+      "eventId": "intune-docs:55ead5e483029dc7b818190c057889fa3d50e58c:modified:intune/configmgr/sum/understand/software-updates-introduction.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add Mermaid flowchart showing the two-decisions scan model",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/sum/understand/software-updates-introduction.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Umair Khan"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/sum/understand/software-updates-introduction.md. Updated Microsoft Intune documentation in intune/configmgr/sum/understand/software-updates-introduction.md.",
+        "sourceFiles": [
+          "intune/configmgr/sum/understand/software-updates-introduction.md",
+          "intune/configmgr/sum/understand/software-updates-introduction.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/sum/understand/software-updates-introduction.md. Updated Microsoft Intune documentation in intune/configmgr/sum/understand/software-updates-introduction.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

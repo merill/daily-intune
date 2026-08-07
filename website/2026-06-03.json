@@ -1,0 +1,837 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "added",
+      "additions": 61,
+      "deletions": 0,
+      "changes": 61,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nnew file mode 100644\nindex 0000000000..cf13f2e478\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -0,0 +1,61 @@\n+---\n+title: Cloud management gateway update for Windows Server 2022 image deprecation for Microsoft Configuration Manager\n+description: Cloud management gateway update for Windows Server 2022 image deprecation for Configuration Manager versions 2603, 2509, 2503, and 2409\n+ms.date: 06/02/2026\n+ms.subservice: core-infra\n+ms.topic: reference\n+---\n+\n+# Cloud management gateway update for Windows Server 2022 image deprecation for Microsoft Configuration Manager\n+\n+*Applies to: Configuration Manager (current branch, version 2603, and versions 2509, 2503, and 2409 with update rollup installed)*\n+\n+## Summary of KB37784287\n+<!-- 37784287 -->\n+An update is available to resolve the following issue for Configuration Manager customers using the cloud management gateway (CMG) component.\n+\n+The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated after June 9, 2026. Cloud management gateway deployments that use Azure Virtual Machine Scale Sets (VMSS) reference these legacy images. After the deprecation enforcement begins, new CMG deployments and reimaging operations that reference the legacy images will fail.\n+\n+This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that does not include the deprecated .NET 6 packages.\n+\n+For more information about the image deprecation, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://techcommunity.microsoft.com/blog/azurecompute/incoming-changes-for-window-server-2022-marketplace-image-users/4262423).\n+\n+### Update information for Microsoft Configuration Manager current branch\n+\n+This update is available in the Updates and Servicing node of the Configuration Manager console for environments running version 2603 directly, or for versions 2509, 2503, and 2409 with the following update rollups installed:\n+\n+- KB [37864969](../../hotfix/2509/37864969.md): Second update rollup for Microsoft Configuration Manager current branch, version 2509\n+- KB [32851084](../../hotfix/2503/32851084.md): Update rollup for Microsoft Configuration Manager current branch, version 2503\n+- KB [30385346](../../hotfix/2409/30385346.md): Update rollup for Microsoft Configuration Manager current branch, version 2409\n+\n+### Restart information\n+\n+This update doesn't require a computer restart or a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) after installation.\n+\n+### Additional installation information\n+\n+After you install this update on a primary site, preexisting secondary sites must be manually updated. To update a secondary site in the Configuration Manager console, select **Administration** > **Site Configuration** > **Sites** >  **Recover Secondary Site**, and then select the secondary site. The primary site then reinstalls that secondary site by using the updated files. This reinstallation doesn't affect configurations and settings for the secondary site. The new, upgraded, and reinstalled secondary sites under that primary site automatically receive this update.\n+\n+Run the following SQL Server command on the site database to check whether the update version of a secondary site matches that of its parent primary site:\n+   ```sql\n+   select dbo.fnGetSecondarySiteCMUpdateStatus ('SiteCode_of_secondary_site')\n+   ```\n+If the value 1 is returned, the site is up to date, with all the hotfixes applied on its parent primary site.\n+\n+If the value 0 is returned, all the fixes that are applied to the primary site aren't installed for the secondary site. You should use the **Recover Secondary Site** option to update the secondary site.\n+\n+## File information\n+File information is available in the following downloadable text files.\n+\n+<!-- TODO: Add file list links when available -->\n+\n+## Version information\n+\n+<!-- TODO: Add version information when available -->\n+\n+## Release history\n+- June 2, 2026: Initial hotfix release\n+\n+## References\n+- [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n+- [Breaking change for Window Server 2022 Image Users with .NET 6](https://techcommunity.microsoft.com/blog/azurecompute/incoming-changes-for-window-server-2022-marketplace-image-users/4262423)\n",
+      "baseCommitSha": "e01c63a7976c13b341e0a2c134822c2af723f433",
+      "commitSha": "ffe5194069a7ce2efdfbdfa573f585aea7861fb2",
+      "commitMessage": "Add KB 37784287: CMG update for VMSS image deprecation",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T17:09:51-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T00:09:51.000Z",
+      "eventId": "intune-docs:ffe5194069a7ce2efdfbdfa573f585aea7861fb2:added:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Add KB 37784287: CMG update for VMSS image deprecation",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37942646.md",
+      "status": "added",
+      "additions": 61,
+      "deletions": 0,
+      "changes": 61,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37942646.md b/intune/configmgr/hotfix/2603/37942646.md\nnew file mode 100644\nindex 0000000000..a798e4ab48\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2603/37942646.md\n@@ -0,0 +1,61 @@\n+---\n+title: Cloud management gateway VMSS image update for Microsoft Configuration Manager\n+description: Cloud management gateway VMSS image update for Configuration Manager versions 2603, 2509, 2503, and 2409\n+ms.date: 06/02/2026\n+ms.subservice: core-infra\n+ms.topic: reference\n+---\n+\n+# Cloud management gateway VMSS image update for Microsoft Configuration Manager\n+\n+*Applies to: Configuration Manager (current branch, versions 2603 and 2509, and versions 2503 and 2409 with update rollup installed)*\n+\n+## Summary of KB37942646\n+<!-- 37942646 -->\n+An update is available to resolve the following issue for Configuration Manager customers using the cloud management gateway (CMG) component.\n+\n+The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated. Cloud management gateway deployments that use Azure Virtual Machine Scale Sets (VMSS) reference these legacy images.\n+\n+After the deprecation begins, the legacy images will no longer be compliant or supported, and will not receive new OS patch updates via image refresh. Once enforcement begins in early 2027, new CMG deployments and reimaging operations that reference the legacy images will fail.\n+\n+This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that does not include the deprecated .NET 6 packages. For more details on the deprecation timeline and impact, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37942646_IMGDep).\n+\n+> [!NOTE]\n+> This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n+\n+### Update information for Microsoft Configuration Manager current branch\n+\n+This update is available in the Updates and Servicing node of the Configuration Manager console for environments running version 2603 directly, or for versions 2503 and 2409 with the following update rollups installed:\n+\n+- KB [32851084](../../hotfix/2503/32851084.md): Update rollup for Microsoft Configuration Manager current branch, version 2503\n+- KB [30385346](../../hotfix/2409/30385346.md): Update rollup for Microsoft Configuration Manager current branch, version 2409\n+\n+### Restart information\n+\n+This update doesn't require a computer restart or a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) after installation.\n+\n+## Version information\n+\n+The following major components are updated to the versions specified:\n+\n+| Component | Version |\n+|---|---|\n+| Configuration Manager console (2409) | 5.2409.1183.2100 |\n+| Configuration Manager console (2503) | 5.2503.1083.2100 |\n+| Configuration Manager console (2603) | 5.2603.1035.1200 |\n+\n+## File information\n+File information is available in the following downloadable text files.\n+\n+[KB37942646_2409_FileList.txt](https://aka.ms/KB37942646_2409_FileList)\n+\n+[KB37942646_2503_FileList.txt](https://aka.ms/KB37942646_2503_FileList)\n+\n+[KB37942646_2603_FileList.txt](https://aka.ms/KB37942646_2603_FileList)\n+\n+## Release history\n+- June 2, 2026: Initial hotfix release\n+\n+## References\n+- [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n+- [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37942646_IMGDep)\n",
+      "baseCommitSha": "61dd70ef0cce2f57bf04aec4beae47f3b42dbeda",
+      "commitSha": "d75ef88b9299033e7b8dacbef4ddd6ae03697306",
+      "commitMessage": "Correct KB ID from 37784287 to 37942646",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T13:01:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37942646.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37942646",
+      "firstSeenAt": "2026-06-03T20:01:12.000Z",
+      "eventId": "intune-docs:d75ef88b9299033e7b8dacbef4ddd6ae03697306:added:intune/configmgr/hotfix/2603/37942646.md",
+      "englishSummary": {
+        "category": "New documentation",
+        "headline": "Correct KB ID from 37784287 to 37942646",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37942646.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2509/37864969.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/37864969.md b/intune/configmgr/hotfix/2509/37864969.md\nindex 0aa91f3934..e4fc2d2dcb 100644\n--- a/intune/configmgr/hotfix/2509/37864969.md\n+++ b/intune/configmgr/hotfix/2509/37864969.md\n@@ -71,7 +71,7 @@ For more information on changes in Configuration Manager version 2509, see:\n \n - **Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6**\n \n-   The Cloud Management Gateway (CMG) Virtual Machine Scale Set (VMSS) image is updated to use a new SKU that doesn't include .NET 6, which has reached end of life.\n+   The Cloud Management Gateway (CMG) Virtual Machine Scale Set (VMSS) image is updated to use a new SKU that doesn't include .NET 6, which has reached end of life. For more information, see [KB 37784287](../2603/37784287.md).\n \n ## Issues that are fixed in this update that aren't in KB 36949461\n \n@@ -79,12 +79,13 @@ The following issues are new in this update rollup and weren't included in [KB 3\n \n - Offline feedback submission fails due to authentication library version mismatch. For more information, see [KB 36419072](../2509/36419072.md).\n - Co-managed clients with third party update catalogs receive updates from incorrect source. For more information, see [KB 36495448](../2509/36495448.md).\n-- Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6.\n+- Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6. For more information, see [KB 37784287](../2603/37784287.md).\n \n ## Hotfixes that are included in this update\n \n - [KB 37172183](../2503/37172183.md): Software Center compliance check fails with GET_TOKEN_FROM_STS_ERROR in co-managed environments\n - [KB 37447175](../2503/37447175.md): Security update to harden access to Network Access Account information\n+- [KB 37784287](../2603/37784287.md): CMG update for VMSS image deprecation\n - [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n - [KB 36495448](../2509/36495448.md): Co-management and third party update scan source fix for Configuration Manager\n \n",
+      "baseCommitSha": "bba53025b560174c542d1ad751c00b15160593ab",
+      "commitSha": "5fcdccdb6b36726fda0f845df13a65f1fb7442a0",
+      "commitMessage": "Update KB 37784287: note fix already in 2509 HFRU, update HFRU to reference KB",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T20:08:03-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/37864969.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/37864969",
+      "firstSeenAt": "2026-06-03T03:08:03.000Z",
+      "eventId": "intune-docs:5fcdccdb6b36726fda0f845df13a65f1fb7442a0:modified:intune/configmgr/hotfix/2509/37864969.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update KB 37784287: note fix already in 2509 HFRU, update HFRU to reference KB",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex cf13f2e478..4bb6dc09b1 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -20,11 +20,13 @@ This update transitions the CMG/VMSS to use the new Windows Server 2022 image of\n \n For more information about the image deprecation, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://techcommunity.microsoft.com/blog/azurecompute/incoming-changes-for-window-server-2022-marketplace-image-users/4262423).\n \n+> [!NOTE]\n+> This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n+\n ### Update information for Microsoft Configuration Manager current branch\n \n-This update is available in the Updates and Servicing node of the Configuration Manager console for environments running version 2603 directly, or for versions 2509, 2503, and 2409 with the following update rollups installed:\n+This update is available in the Updates and Servicing node of the Configuration Manager console for environments running version 2603 directly, or for versions 2503 and 2409 with the following update rollups installed:\n \n-- KB [37864969](../../hotfix/2509/37864969.md): Second update rollup for Microsoft Configuration Manager current branch, version 2509\n - KB [32851084](../../hotfix/2503/32851084.md): Update rollup for Microsoft Configuration Manager current branch, version 2503\n - KB [30385346](../../hotfix/2409/30385346.md): Update rollup for Microsoft Configuration Manager current branch, version 2409\n \n",
+      "baseCommitSha": "bba53025b560174c542d1ad751c00b15160593ab",
+      "commitSha": "5fcdccdb6b36726fda0f845df13a65f1fb7442a0",
+      "commitMessage": "Update KB 37784287: note fix already in 2509 HFRU, update HFRU to reference KB",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T20:08:03-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T03:08:03.000Z",
+      "eventId": "intune-docs:5fcdccdb6b36726fda0f845df13a65f1fb7442a0:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update KB 37784287: note fix already in 2509 HFRU, update HFRU to reference KB",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex 4bb6dc09b1..cd91ac3998 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -18,7 +18,7 @@ The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`)\n \n This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that does not include the deprecated .NET 6 packages.\n \n-For more information about the image deprecation, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://techcommunity.microsoft.com/blog/azurecompute/incoming-changes-for-window-server-2022-marketplace-image-users/4262423).\n+For more information about the image deprecation, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37784287_IMGDep).\n \n > [!NOTE]\n > This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n@@ -60,4 +60,4 @@ File information is available in the following downloadable text files.\n \n ## References\n - [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n-- [Breaking change for Window Server 2022 Image Users with .NET 6](https://techcommunity.microsoft.com/blog/azurecompute/incoming-changes-for-window-server-2022-marketplace-image-users/4262423)\n+- [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37784287_IMGDep)\n",
+      "baseCommitSha": "5fcdccdb6b36726fda0f845df13a65f1fb7442a0",
+      "commitSha": "42272eb0029a3326e523d63ce7933f18981a8029",
+      "commitMessage": "Replace blog URL with aka.ms/KB37784287_IMGDep fwlink",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T20:15:18-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T03:15:18.000Z",
+      "eventId": "intune-docs:42272eb0029a3326e523d63ce7933f18981a8029:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Replace blog URL with aka.ms/KB37784287_IMGDep fwlink",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex cd91ac3998..ca319af486 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -1,12 +1,12 @@\n ---\n-title: Cloud management gateway update for Windows Server 2022 image deprecation for Microsoft Configuration Manager\n-description: Cloud management gateway update for Windows Server 2022 image deprecation for Configuration Manager versions 2603, 2509, 2503, and 2409\n+title: Cloud management gateway VMSS image update for Microsoft Configuration Manager\n+description: Cloud management gateway VMSS image update for Configuration Manager versions 2603, 2509, 2503, and 2409\n ms.date: 06/02/2026\n ms.subservice: core-infra\n ms.topic: reference\n ---\n \n-# Cloud management gateway update for Windows Server 2022 image deprecation for Microsoft Configuration Manager\n+# Cloud management gateway VMSS image update for Microsoft Configuration Manager\n \n *Applies to: Configuration Manager (current branch, version 2603, and versions 2509, 2503, and 2409 with update rollup installed)*\n \n",
+      "baseCommitSha": "7522b5ecb42d3bf123bad53af115a02f085067a0",
+      "commitSha": "e63aec2c07364041c9b847ea964558c35dadfa03",
+      "commitMessage": "Update KB 37784287 title to avoid confusion about WS2022 deprecation",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T21:47:00-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T04:47:00.000Z",
+      "eventId": "intune-docs:e63aec2c07364041c9b847ea964558c35dadfa03:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update KB 37784287 title to avoid confusion about WS2022 deprecation",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex ca319af486..ef11d9051c 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -14,11 +14,11 @@ ms.topic: reference\n <!-- 37784287 -->\n An update is available to resolve the following issue for Configuration Manager customers using the cloud management gateway (CMG) component.\n \n-The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated after June 9, 2026. Cloud management gateway deployments that use Azure Virtual Machine Scale Sets (VMSS) reference these legacy images. After the deprecation enforcement begins, new CMG deployments and reimaging operations that reference the legacy images will fail.\n+The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated. Cloud management gateway deployments that use Azure Virtual Machine Scale Sets (VMSS) reference these legacy images.\n \n-This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that does not include the deprecated .NET 6 packages.\n+After the deprecation begins, the legacy images will no longer be compliant or supported, and will not receive new OS patch updates via image refresh. Once enforcement begins in early 2027, new CMG deployments and reimaging operations that reference the legacy images will fail.\n \n-For more information about the image deprecation, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37784287_IMGDep).\n+This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that does not include the deprecated .NET 6 packages. For more details on the deprecation timeline and impact, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37784287_IMGDep).\n \n > [!NOTE]\n > This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n",
+      "baseCommitSha": "e63aec2c07364041c9b847ea964558c35dadfa03",
+      "commitSha": "7d0a15573e8bac210964fc743a22cdeb00bc2955",
+      "commitMessage": "Clarify deprecation impact timeline in KB 37784287",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T21:55:25-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T04:55:25.000Z",
+      "eventId": "intune-docs:7d0a15573e8bac210964fc743a22cdeb00bc2955:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify deprecation impact timeline in KB 37784287",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex ef11d9051c..2b07879806 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -8,7 +8,7 @@ ms.topic: reference\n \n # Cloud management gateway VMSS image update for Microsoft Configuration Manager\n \n-*Applies to: Configuration Manager (current branch, version 2603, and versions 2509, 2503, and 2409 with update rollup installed)*\n+*Applies to: Configuration Manager (current branch, versions 2603 and 2509, and versions 2503 and 2409 with update rollup installed)*\n \n ## Summary of KB37784287\n <!-- 37784287 -->\n",
+      "baseCommitSha": "7d0a15573e8bac210964fc743a22cdeb00bc2955",
+      "commitSha": "9a2453a49cdec3ccca374f42878f85d3b0daa6d0",
+      "commitMessage": "Fix applies-to: 2509 doesn't require rollup (fix is in HFRU)",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-02T22:07:38-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T05:07:38.000Z",
+      "eventId": "intune-docs:9a2453a49cdec3ccca374f42878f85d3b0daa6d0:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix applies-to: 2509 doesn't require rollup (fix is in HFRU)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 2,
+      "changes": 14,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex 2b07879806..616101ab20 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -49,11 +49,21 @@ If the value 0 is returned, all the fixes that are applied to the primary site a\n ## File information\n File information is available in the following downloadable text files.\n \n-<!-- TODO: Add file list links when available -->\n+[KB37784287_2409_FileList.txt](https://aka.ms/KB37784287_2409_FileList)\n+\n+[KB37784287_2503_FileList.txt](https://aka.ms/KB37784287_2503_FileList)\n+\n+[KB37784287_2603_FileList.txt](https://aka.ms/KB37784287_2603_FileList)\n \n ## Version information\n \n-<!-- TODO: Add version information when available -->\n+The following major components are updated to the versions specified:\n+\n+| Component | Version |\n+|---|---|\n+| Configuration Manager console (2409) | 5.2409.1183.2100 |\n+| Configuration Manager console (2503) | 5.2503.1083.2100 |\n+| Configuration Manager console (2603) | 5.2603.1035.1200 |\n \n ## Release history\n - June 2, 2026: Initial hotfix release\n",
+      "baseCommitSha": "9a2453a49cdec3ccca374f42878f85d3b0daa6d0",
+      "commitSha": "732573ac1ddc5717f2f763ffdf1721aea2622b3a",
+      "commitMessage": "Add file list aka.ms links and version info for KB 37784287",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T00:01:56-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T07:01:56.000Z",
+      "eventId": "intune-docs:732573ac1ddc5717f2f763ffdf1721aea2622b3a:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Add file list aka.ms links and version info for KB 37784287",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 9,
+      "changes": 18,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex 616101ab20..21fcb832af 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -46,15 +46,6 @@ If the value 1 is returned, the site is up to date, with all the hotfixes applie\n \n If the value 0 is returned, all the fixes that are applied to the primary site aren't installed for the secondary site. You should use the **Recover Secondary Site** option to update the secondary site.\n \n-## File information\n-File information is available in the following downloadable text files.\n-\n-[KB37784287_2409_FileList.txt](https://aka.ms/KB37784287_2409_FileList)\n-\n-[KB37784287_2503_FileList.txt](https://aka.ms/KB37784287_2503_FileList)\n-\n-[KB37784287_2603_FileList.txt](https://aka.ms/KB37784287_2603_FileList)\n-\n ## Version information\n \n The following major components are updated to the versions specified:\n@@ -65,6 +56,15 @@ The following major components are updated to the versions specified:\n | Configuration Manager console (2503) | 5.2503.1083.2100 |\n | Configuration Manager console (2603) | 5.2603.1035.1200 |\n \n+## File information\n+File information is available in the following downloadable text files.\n+\n+[KB37784287_2409_FileList.txt](https://aka.ms/KB37784287_2409_FileList)\n+\n+[KB37784287_2503_FileList.txt](https://aka.ms/KB37784287_2503_FileList)\n+\n+[KB37784287_2603_FileList.txt](https://aka.ms/KB37784287_2603_FileList)\n+\n ## Release history\n - June 2, 2026: Initial hotfix release\n \n",
+      "baseCommitSha": "732573ac1ddc5717f2f763ffdf1721aea2622b3a",
+      "commitSha": "1accd0436621daaf6a1ea037226db6d7b79fc011",
+      "commitMessage": "Move Version information before File information in KB 37784287",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T00:04:49-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T07:04:49.000Z",
+      "eventId": "intune-docs:1accd0436621daaf6a1ea037226db6d7b79fc011:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Move Version information before File information in KB 37784287",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 10,
+      "changes": 20,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md b/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md\nindex d13fb061ea..a829a7030e 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md\n@@ -26,16 +26,16 @@ When you deploy operating systems with Configuration Manager, the Windows Assess\n \n The following table lists the versions of the Windows ADK that you can use with different versions of Configuration Manager.\n \n-| Windows ADK version            | ConfigMgr 2409 | ConfigMgr 2503 | ConfigMgr 2509 | ConfigMgr 2603 |\n-|--------------------------------|----------------|----------------|----------------|----------------|\n-| **ADK 10.1.28000.1 (Updated Nov 2025)** <br>(10.1.28000.1)| ❌ | ❌ | ❌ | ❌ |\n-| **ADK 10.1.26100.2454 (Updated Dec 2024)** <br>(10.1.26100.X)| ✅ | ✅ | ✅ | ✅ |\n-| **ADK 10.1.26100.1 (May 2024)** <br>(10.1.26100.1)| ✅ | ✅ | ✅ | ✅ |\n-| **ADK 10.1.25398.1 (updated September 2023)** <br>(10.1.25398.1)|❌ | ❌ | ❌ | ❌ |\n-| **ADK for Windows 11, version 22H2**<br>(10.1.22621.1)|  ✅ | ✅ | ✅ | ✅ |\n-| **ADK for Windows 11, version 21H1**<br>(10.1.22000) |  ✅ | ✅ | ✅ | ✅ |\n-| **ADK for Windows Server 2022**<br>(10.1.20348)  |  ✅ | ✅ | ✅ | ✅ |\n-| **ADK for Windows 10, version 2004**<br>(10.1.19041) **EOS**|  ❌  | ❌  | ❌  | ❌ |\n+| Windows ADK version            | ConfigMgr 2503 | ConfigMgr 2509 | ConfigMgr 2603 |\n+|--------------------------------|----------------|----------------|----------------|\n+| **ADK 10.1.28000.1 (Updated Nov 2025)** <br>(10.1.28000.1)| ❌ | ❌ | ❌ |\n+| **ADK 10.1.26100.2454 (Updated Dec 2024)** <br>(10.1.26100.X)| ✅ | ✅ | ✅ |\n+| **ADK 10.1.26100.1 (May 2024)** <br>(10.1.26100.1)| ✅ | ✅ | ✅ |\n+| **ADK 10.1.25398.1 (updated September 2023)** <br>(10.1.25398.1)| ❌ | ❌ | ❌ |\n+| **ADK for Windows 11, version 22H2**<br>(10.1.22621.1)| ✅ | ✅ | ✅ |\n+| **ADK for Windows 11, version 21H1**<br>(10.1.22000) | ✅ | ✅ | ✅ |\n+| **ADK for Windows Server 2022**<br>(10.1.20348)  | ✅ | ✅ | ✅ |\n+| **ADK for Windows 10, version 2004**<br>(10.1.19041) **EOS**| ❌  | ❌  | ❌ |\n \n |Key|\n |--|\n",
+      "baseCommitSha": "e01c63a7976c13b341e0a2c134822c2af723f433",
+      "commitSha": "1356000aee20d16172b30467eede6de284e895a3",
+      "commitMessage": "Move ConfigMgr 2409 to historical versions, remove from ADK table",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T07:38:36-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-windows-adk",
+      "firstSeenAt": "2026-06-03T14:38:36.000Z",
+      "eventId": "intune-docs:1356000aee20d16172b30467eede6de284e895a3:modified:intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Move ConfigMgr 2409 to historical versions, remove from ADK table",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-windows-adk.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/updates.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/updates.md b/intune/configmgr/core/servers/manage/updates.md\nindex b8ebcf24ff..e6da0a4896 100644\n--- a/intune/configmgr/core/servers/manage/updates.md\n+++ b/intune/configmgr/core/servers/manage/updates.md\n@@ -82,6 +82,7 @@ The following table lists historical versions of Configuration Manager current b\n \n | Version                          | Availability date | Support end date   | Baseline | In-console update |\n |----------------------------------|-------------------|--------------------|----------|-------------------|\n+| **2409** <br /> (5.00.9132)      | December 4, 2024  | June 4, 2026       | No       | Yes               |\n | **2403** <br /> (5.00.9128)      | April 22, 2024    | October 22, 2025   | Yes      | Yes               |\n | **2309** <br /> (5.00.9122)      | October 9, 2023   | April 9, 2025      | No       | Yes               |\n | **2303** <br /> (5.00.9106)      | April 10, 2023    | October 10, 2024   | Yes      | Yes               |\n",
+      "baseCommitSha": "e01c63a7976c13b341e0a2c134822c2af723f433",
+      "commitSha": "1356000aee20d16172b30467eede6de284e895a3",
+      "commitMessage": "Move ConfigMgr 2409 to historical versions, remove from ADK table",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T07:38:36-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/updates.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/updates",
+      "firstSeenAt": "2026-06-03T14:38:36.000Z",
+      "eventId": "intune-docs:1356000aee20d16172b30467eede6de284e895a3:modified:intune/configmgr/core/servers/manage/updates.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Move ConfigMgr 2409 to historical versions, remove from ADK table",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/updates.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-windows-10.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-windows-10.md b/intune/configmgr/core/plan-design/configs/support-for-windows-10.md\nindex b02f381091..5d1024ada4 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-windows-10.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-windows-10.md\n@@ -37,9 +37,9 @@ A Configuration Manager version drops from the matrix after [support for that ve\n \n The following table lists the versions of Windows 10 that you can use as a client with different versions of Configuration Manager.\n \n-| Windows 10 version                         | ConfigMgr 2409 | ConfigMgr 2503 | ConfigMgr 2509 | ConfigMgr 2603 |\n-|--------------------------------------------|----------------|----------------|----------------|----------------|\n-| **22H2**<br>(10.0.19045) <sup>[Extended Security Updates](supported-operating-systems-for-clients-and-devices.md#bkmk_ESU)</sup> <!--2025-05-13--> | ✅ | ✅ | ✅ | ✅ |\n+| Windows 10 version                         | ConfigMgr 2503 | ConfigMgr 2509 | ConfigMgr 2603 |\n+|--------------------------------------------|----------------|----------------|----------------|\n+| **22H2**<br>(10.0.19045) <sup>[Extended Security Updates](supported-operating-systems-for-clients-and-devices.md#bkmk_ESU)</sup> <!--2025-05-13--> | ✅ | ✅ | ✅ |\n \n All currently supported versions of Configuration Manager current branch support the following Windows 10 LTSB/LTSC editions:\n \n",
+      "baseCommitSha": "1356000aee20d16172b30467eede6de284e895a3",
+      "commitSha": "1ba4b2fc84723b0bad0b44db4404eaf7e234a4e1",
+      "commitMessage": "Remove ConfigMgr 2409 column from Windows 10 and Windows 11 support tables",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T07:47:49-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-windows-10.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-windows-10",
+      "firstSeenAt": "2026-06-03T14:47:49.000Z",
+      "eventId": "intune-docs:1ba4b2fc84723b0bad0b44db4404eaf7e234a4e1:modified:intune/configmgr/core/plan-design/configs/support-for-windows-10.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove ConfigMgr 2409 column from Windows 10 and Windows 11 support tables",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-windows-10.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-windows-11.md b/intune/configmgr/core/plan-design/configs/support-for-windows-11.md\nindex efc3bdfbf7..bcdd473147 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-windows-11.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-windows-11.md\n@@ -40,11 +40,11 @@ A Configuration Manager version drops from the matrix after [support for that ve\n \n The following table lists the versions of Windows 11 that you can use as a client with different versions of Configuration Manager.\n \n-| Windows 11 version                         | ConfigMgr 2409 | ConfigMgr 2503 | ConfigMgr 2509 | ConfigMgr 2603 |\n-|--------------------------------------------|----------------|----------------|----------------|----------------|\n-| **25H2**<br>(10.0.26200) <!--2027-10-12--> | ❌ | ❌ | ✅ | ✅ |\n-| **24H2**<br>(10.0.26100) <!--2027-10-12--> | ✅ | ✅ | ✅ | ✅ |\n-| **23H2**<br>(10.0.22631) <!--2026-10-31--> | ✅ | ✅ | ✅ | ✅ |\n+| Windows 11 version                         | ConfigMgr 2503 | ConfigMgr 2509 | ConfigMgr 2603 |\n+|--------------------------------------------|----------------|----------------|----------------|\n+| **25H2**<br>(10.0.26200) <!--2027-10-12--> | ❌ | ✅ | ✅ |\n+| **24H2**<br>(10.0.26100) <!--2027-10-12--> | ✅ | ✅ | ✅ |\n+| **23H2**<br>(10.0.22631) <!--2026-10-31--> | ✅ | ✅ | ✅ |\n \n \n <!--\n",
+      "baseCommitSha": "1356000aee20d16172b30467eede6de284e895a3",
+      "commitSha": "1ba4b2fc84723b0bad0b44db4404eaf7e234a4e1",
+      "commitMessage": "Remove ConfigMgr 2409 column from Windows 10 and Windows 11 support tables",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T07:47:49-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-windows-11",
+      "firstSeenAt": "2026-06-03T14:47:49.000Z",
+      "eventId": "intune-docs:1ba4b2fc84723b0bad0b44db4404eaf7e234a4e1:modified:intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove ConfigMgr 2409 column from Windows 10 and Windows 11 support tables",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-windows-11.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 12,
+      "changes": 12,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\nindex 21fcb832af..c0262869b7 100644\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ b/intune/configmgr/hotfix/2603/37784287.md\n@@ -34,18 +34,6 @@ This update is available in the Updates and Servicing node of the Configuration\n \n This update doesn't require a computer restart or a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) after installation.\n \n-### Additional installation information\n-\n-After you install this update on a primary site, preexisting secondary sites must be manually updated. To update a secondary site in the Configuration Manager console, select **Administration** > **Site Configuration** > **Sites** >  **Recover Secondary Site**, and then select the secondary site. The primary site then reinstalls that secondary site by using the updated files. This reinstallation doesn't affect configurations and settings for the secondary site. The new, upgraded, and reinstalled secondary sites under that primary site automatically receive this update.\n-\n-Run the following SQL Server command on the site database to check whether the update version of a secondary site matches that of its parent primary site:\n-   ```sql\n-   select dbo.fnGetSecondarySiteCMUpdateStatus ('SiteCode_of_secondary_site')\n-   ```\n-If the value 1 is returned, the site is up to date, with all the hotfixes applied on its parent primary site.\n-\n-If the value 0 is returned, all the fixes that are applied to the primary site aren't installed for the secondary site. You should use the **Recover Secondary Site** option to update the secondary site.\n-\n ## Version information\n \n The following major components are updated to the versions specified:\n",
+      "baseCommitSha": "1accd0436621daaf6a1ea037226db6d7b79fc011",
+      "commitSha": "61dd70ef0cce2f57bf04aec4beae47f3b42dbeda",
+      "commitMessage": "Remove secondary site section from KB 37784287 (not applicable)",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T07:50:20-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T14:50:20.000Z",
+      "eventId": "intune-docs:61dd70ef0cce2f57bf04aec4beae47f3b42dbeda:modified:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remove secondary site section from KB 37784287 (not applicable)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 4,
+      "changes": 8,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex 04aa885a65..c5887a6202 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -1,7 +1,7 @@\n ---\n title: \"Collect Device Hardware Info With the Properties Catalog\"\n description: \"Use the properties catalog in Microsoft Intune to collect device hardware info like BIOS version, TPM status, and disk details on managed Windows devices. Get deeper visibility into your device inventory and troubleshoot issues.\"\n-ms.date: 06/01/2026\n+ms.date: 06/03/2026\n ms.topic: how-to\n ms.collection:\n - M365-identity-device-management\n@@ -114,7 +114,7 @@ When you create the policy, select any of the following property categories to c\n | CPU | Processor ID |\n | Disk Drive | Drive ID |\n | Encryptable Volume | Volume ID |\n-| Local AI Agent | Agent Name<br/>Install Location<br/>Install Scope |\n+| Local AI Agent | Agent Name<br/>Install Location<br/>Install Scope <br/><br/>Microsoft recommends collecting **Host process**, as OpenClaw can run in different process names, like `node.exe`, `wsl.exe`, etc. |\n | Logical Drive | Drive Identifier |\n | Memory Info | |\n | Network Adapter | Identifier |\n@@ -137,10 +137,10 @@ Use the following steps to view the collected device inventory information:\n \n ## What you need to know\n \n-- **Local AI Agent** helps you discover local AI agents, like OpenClaw, running on your Windows devices. After deploy the properties catalog policy and start collecting data, you can:\n+- **Local AI Agent** helps you discover OpenClaw running on your Windows devices. After you deploy the properties catalog policy and start collecting data, the next steps are:\n \n   - Use [Device Query](../advanced-analytics/device-query-multiple-devices.md) to view devices with a Local AI Agent.\n-  - Use the [Local AI Agent Baseline - OpenClaw (Preview)](../device-security/security-baselines/ref-openclaw-settings.md) to block users from using OpenClaw.\n+  - Use the [Local AI Agent Baseline - OpenClaw](../device-security/security-baselines/ref-openclaw-settings.md) to block users from using OpenClaw.\n \n - You can stop (delete) the collection of properties only at the category level. To stop collecting properties, go to the **properties catalog** profile, and remove the collection for every property in the category.\n \n",
+      "baseCommitSha": "e01c63a7976c13b341e0a2c134822c2af723f433",
+      "commitSha": "18c222d3dc1c9d9db7e34e301b9d6eddbc17976d",
+      "commitMessage": "Update collect-device-properties.md with date and details",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T11:23:03-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "firstSeenAt": "2026-06-03T15:23:03.000Z",
+      "eventId": "intune-docs:18c222d3dc1c9d9db7e34e301b9d6eddbc17976d:modified:intune/device-configuration/collect-device-properties.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update collect-device-properties.md with date and details",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 17,
+      "changes": 34,
+      "patch": "diff --git a/intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md b/intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md\nindex 0a39f7a3e8..fd52e77ad8 100644\n--- a/intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md\n+++ b/intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md\n@@ -6,7 +6,7 @@ ms.topic: reference\n ms.collection:\n - M365-identity-device-management\n - sub-secure-endpoints\n-ms.reviewer: mattcall\n+ms.reviewer: aanavath\n \n ---\n # Attack surface reduction policy settings for endpoint security in Intune\n@@ -217,7 +217,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n > For profiles that use the new settings format, Intune no longer maintains a list of each setting by name. Instead, the name of each setting, its configuration options, and its explanatory text you see in the Microsoft Intune admin center are taken directly from the settings authoritative content. That content can provide more information about the use of the setting in its proper context. When viewing a settings information text, you can use its *Learn more* link to open that content.\n \n - **Block persistence through WMI event subscription**  \n-  [Reduce attack surfaces with attack surface reduction rules](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Reduce attack surfaces with attack surface reduction rules](/defender-endpoint/attack-surface-reduction-rules-reference#block-persistence-through-wmi-event-subscription)\n \n   This attack surface reduction (ASR) rule is controlled via the following GUID: e6db77e5-3df2-4cf1-b95a-636979351e5b\n \n@@ -228,10 +228,10 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Audit** – Evaluate how this rule affects your organization if it's enabled (set to Block).\n   - **Disable** - Turn this rule off. Persistence is not blocked.\n \n-  To learn more about this setting, see [Block persistence through WMI event subscription](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx#block-persistence-through-wmi-event-subscription).\n+  To learn more about this setting, see [Block persistence through WMI event subscription](/defender-endpoint/attack-surface-reduction-rules-reference#block-persistence-through-wmi-event-subscription).\n \n - **Block credential stealing from the Windows local security authority subsystem (lsass.exe)**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-credential-stealing-from-the-windows-local-security-authority-subsystem)\n \n   This attack surface reduction (ASR) rule is controlled via the following GUID: 9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -241,7 +241,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Warn** - For Windows 10 version 1809 or later and Windows 11, the device user receives a message that they can bypass *Block* of the setting. On devices that run earlier versions of Windows 10, the rule enforces the *Enable* behavior.\n \n - **Block Adobe Reader from creating child processes**  \n-  [Reduce attack surfaces with attack surface reduction rules](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Reduce attack surfaces with attack surface reduction rules](/defender-endpoint/attack-surface-reduction-rules-reference#block-adobe-reader-from-creating-child-processes)\n \n   This ASR rule is controlled via the following GUID: 7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c\n   - **Not configured** (*default*) - The Windows default is restored, is to not block creation of child processes.\n@@ -251,7 +251,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Warn** - For Windows 10 version 1809 or later and Windows 11, the device user receives a message that they can bypass *Block* of the setting. On devices that run earlier versions of Windows 10, the rule enforces the *Enable* behavior.\n \n - **Block Office applications from injecting code into other processes**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-injecting-code-into-other-processes)\n \n   This ASR rule is controlled via the following GUID: 75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -261,7 +261,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block Office applications from creating executable content**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-creating-executable-content)\n \n   This ASR rule is controlled via the following GUID: 3B576869-A4EC-4529-8536-B80A7769E899\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -271,7 +271,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block all Office applications from creating child processes**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-all-office-applications-from-creating-child-processes)\n \n   This ASR rule is controlled via the following GUID: D4F940AB-401B-4EFC-AADC-AD5F3C50688A\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -281,7 +281,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block Win32 API calls from Office macro**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-win32-api-calls-from-office-macros)\n \n   This ASR rule is controlled via the following GUID: 92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -291,7 +291,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block Office communication apps from creating child processes**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-communication-application-from-creating-child-processes)\n \n   This ASR rule is controlled via the following GUID: 26190899-1602-49e8-8b27-eb1d0a1ce869.\n   - **Not configured** (*default*) - The Windows default is restored, which is to not block creation of child processes.\n@@ -301,7 +301,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Warn** - For Windows 10 version 1809 or later and Windows 11, the device user receives a message that they can bypass *Block* of the setting. On devices that run earlier versions of Windows 10, the rule enforces the *Enable* behavior.\n \n - **Block execution of potentially obfuscated scripts (js/vbs/ps)**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-execution-of-potentially-obfuscated-scripts)\n \n   This ASR rule is controlled via the following GUID: 5BEB7EFE-FD9A-4556-801D-275E5FFC04CC\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -311,7 +311,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block JavaScript or VBScript from launching downloaded executable content**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-javascript-or-vbscript-from-launching-downloaded-executable-content)\n \n    This ASR rule is controlled via the following GUID: D3E037E1-3EB8-44C8-A917-57927947596D\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -320,7 +320,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block process creations originating from PSExec and WMI commands**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-process-creations-originating-from-psexec-and-wmi-commands)\n \n   This ASR rule is controlled via the following GUID: d1e49aac-8f56-4280-b9ba-993a6d77406c\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -330,7 +330,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block untrusted and unsigned processes that run from USB**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-untrusted-and-unsigned-processes-that-run-from-usb)\n \n   This ASR rule is controlled via the following GUID: b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -340,7 +340,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block executable files from running unless they meet a prevalence, age, or trusted list criteria**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-executable-files-from-running-unless-they-meet-a-prevalence-age-or-trusted-list-criterion)\n \n   This ASR rule is controlled via the following GUID: 01443614-cd74-433a-b99e-2ecdc07bfc25e\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n@@ -350,7 +350,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Block executable content download from email and webmail clients**  \n-  [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+  [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#block-executable-content-from-email-client-and-webmail)\n \n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n   - **Block** - Executable content downloaded from email and webmail clients is blocked.\n@@ -359,7 +359,7 @@ To learn more about Attack surface reduction rules, see [Attack surface reductio\n   - **Disable** - This setting is turned off.\n \n - **Use advanced protection against ransomware**\n-   [Protect devices from exploits](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction)\n+   [Protect devices from exploits](/defender-endpoint/attack-surface-reduction-rules-reference#use-advanced-protection-against-ransomware)\n \n   This ASR rule is controlled via the following GUID: c1db55ab-c21a-4637-bb3f-a12568109d35\n   - **Not configured** (*default*) - The setting returns to the Windows default, which is off.\n",
+      "baseCommitSha": "63e8dcde6d7b3a53c5b85754f4de88a57e075ca4",
+      "commitSha": "1b17c3b8e3cd32a09ccb55ca2c2f85f13eac1ac5",
+      "commitMessage": "Fix links to more refined ASR rule details",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-03T11:19:06-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings",
+      "firstSeenAt": "2026-06-03T18:19:06.000Z",
+      "eventId": "intune-docs:1b17c3b8e3cd32a09ccb55ca2c2f85f13eac1ac5:modified:intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix links to more refined ASR rule details",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/security-baselines/ref-windows-mdm-settings.md",
+      "status": "modified",
+      "additions": 35,
+      "deletions": 35,
+      "changes": 70,
+      "patch": "diff --git a/intune/device-security/security-baselines/ref-windows-mdm-settings.md b/intune/device-security/security-baselines/ref-windows-mdm-settings.md\nindex 8c01fd6f24..eae915c0c4 100644\n--- a/intune/device-security/security-baselines/ref-windows-mdm-settings.md\n+++ b/intune/device-security/security-baselines/ref-windows-mdm-settings.md\n@@ -1310,40 +1310,40 @@ The settings in this baseline are taken from the Windows 11 **version 25H2** sec\n   [Learn more](/windows/client-management/mdm/policy-csp-defender?WT.mc_id=Portal-fx#allowscriptscanning)\n   - **Block execution of potentially obfuscated scripts**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-execution-of-potentially-obfuscated-scripts)\n   - **Block Win32 API calls from Office macros**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-win32-api-calls-from-office-macros)\n   - **Block Office communication application from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-communication-application-from-creating-child-processes)\n   - **Block all Office applications from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-all-office-applications-from-creating-child-processes)\n   - **Block JavaScript or VBScript from launching downloaded executable content**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-javascript-or-vbscript-from-launching-downloaded-executable-content)\n   - **Block untrusted and unsigned processes that run from USB**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-untrusted-and-unsigned-processes-that-run-from-usb)\n   - **Block Adobe Reader from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-adobe-reader-from-creating-child-processes)\n   - **Block credential stealing from the Windows local security authority subsystem**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-credential-stealing-from-the-windows-local-security-authority-subsystem)\n   - **Block process creations originating from PSExec and WMI commands**\n     Baseline default: *Audit*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-process-creations-originating-from-psexec-and-wmi-commands)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-creating-executable-content)\n   - **Block Office applications from injecting code into other processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-injecting-code-into-other-processes)\n   - **Block executable content from email client and webmail**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-executable-content-from-email-client-and-webmail)\n \n - **Cloud Block Level**\\\n   Baseline default: *High*\\\n@@ -3194,40 +3194,40 @@ The settings in this baseline are taken from the Windows 11 **version 24H2** sec\n   [Learn more](/windows/client-management/mdm/policy-csp-defender?WT.mc_id=Portal-fx#allowscriptscanning)\n   - **Block execution of potentially obfuscated scripts**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-execution-of-potentially-obfuscated-scripts)\n   - **Block Win32 API calls from Office macros**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-win32-api-calls-from-office-macros)\n   - **Block Office communication application from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-communication-application-from-creating-child-processes)\n   - **Block all Office applications from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-all-office-applications-from-creating-child-processes)\n   - **Block JavaScript or VBScript from launching downloaded executable content**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-javascript-or-vbscript-from-launching-downloaded-executable-content)\n   - **Block untrusted and unsigned processes that run from USB**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-untrusted-and-unsigned-processes-that-run-from-usb)\n   - **Block Adobe Reader from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-adobe-reader-from-creating-child-processes)\n   - **Block credential stealing from the Windows local security authority subsystem**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-credential-stealing-from-the-windows-local-security-authority-subsystem)\n   - **Block process creations originating from PSExec and WMI commands**\n     Baseline default: *Audit*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-process-creations-originating-from-psexec-and-wmi-commands)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-creating-executable-content)\n   - **Block Office applications from injecting code into other processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-injecting-code-into-other-processes)\n   - **Block executable content from email client and webmail**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-executable-content-from-email-client-and-webmail)\n \n - **Cloud Block Level**\\\n   Baseline default: *High*\\\n@@ -5074,37 +5074,37 @@ The settings in this baseline are taken from the **version 23H2** of the Group P\n   [Learn more](/windows/client-management/mdm/policy-csp-defender?WT.mc_id=Portal-fx#allowscriptscanning)\n   - **Block execution of potentially obfuscated scripts**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-execution-of-potentially-obfuscated-scripts)\n   - **Block Win32 API calls from Office macros**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-win32-api-calls-from-office-macros)\n   - **Block Office communication application from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-communication-application-from-creating-child-processes)\n   - **Block all Office applications from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-all-office-applications-from-creating-child-processes)\n   - **Block JavaScript or VBScript from launching downloaded executable content**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-javascript-or-vbscript-from-launching-downloaded-executable-content)\n   - **Block untrusted and unsigned processes that run from USB**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-untrusted-and-unsigned-processes-that-run-from-usb)\n   - **Block Adobe Reader from creating child processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-adobe-reader-from-creating-child-processes)\n   - **Block credential stealing from the Windows local security authority subsystem**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-credential-stealing-from-the-windows-local-security-authority-subsystem)\n   - **Block Office applications from creating executable content**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-creating-executable-content)\n   - **Block Office applications from injecting code into other processes**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-office-applications-from-injecting-code-into-other-processes)\n   - **Block executable content from email client and webmail**\\\n     Baseline default: *Block*\\\n-    [Learn more](/windows/security/threat-protection/microsoft-defender-atp/attack-surface-reduction?WT.mc_id=Portal-fx)\n+    [Learn more](/defender-endpoint/attack-surface-reduction-rules-reference#block-executable-content-from-email-client-and-webmail)\n \n - **Cloud Block Level**\\\n   Baseline default: *High*\\\n",
+      "baseCommitSha": "63e8dcde6d7b3a53c5b85754f4de88a57e075ca4",
+      "commitSha": "1b17c3b8e3cd32a09ccb55ca2c2f85f13eac1ac5",
+      "commitMessage": "Fix links to more refined ASR rule details",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-03T11:19:06-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/security-baselines/ref-windows-mdm-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-baselines/ref-windows-mdm-settings",
+      "firstSeenAt": "2026-06-03T18:19:06.000Z",
+      "eventId": "intune-docs:1b17c3b8e3cd32a09ccb55ca2c2f85f13eac1ac5:modified:intune/device-security/security-baselines/ref-windows-mdm-settings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix links to more refined ASR rule details",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/security-baselines/ref-windows-mdm-settings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/37864969.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/37864969.md b/intune/configmgr/hotfix/2509/37864969.md\nindex e4fc2d2dcb..ab3ad9ff1a 100644\n--- a/intune/configmgr/hotfix/2509/37864969.md\n+++ b/intune/configmgr/hotfix/2509/37864969.md\n@@ -71,7 +71,7 @@ For more information on changes in Configuration Manager version 2509, see:\n \n - **Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6**\n \n-   The Cloud Management Gateway (CMG) Virtual Machine Scale Set (VMSS) image is updated to use a new SKU that doesn't include .NET 6, which has reached end of life. For more information, see [KB 37784287](../2603/37784287.md).\n+   The Cloud Management Gateway (CMG) Virtual Machine Scale Set (VMSS) image is updated to use a new SKU that doesn't include .NET 6, which has reached end of life. For more information, see [KB 37942646](../2603/37942646.md).\n \n ## Issues that are fixed in this update that aren't in KB 36949461\n \n@@ -79,13 +79,13 @@ The following issues are new in this update rollup and weren't included in [KB 3\n \n - Offline feedback submission fails due to authentication library version mismatch. For more information, see [KB 36419072](../2509/36419072.md).\n - Co-managed clients with third party update catalogs receive updates from incorrect source. For more information, see [KB 36495448](../2509/36495448.md).\n-- Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6. For more information, see [KB 37784287](../2603/37784287.md).\n+- Cloud Management Gateway VMSS image updated to remove end-of-life .NET 6. For more information, see [KB 37942646](../2603/37942646.md).\n \n ## Hotfixes that are included in this update\n \n - [KB 37172183](../2503/37172183.md): Software Center compliance check fails with GET_TOKEN_FROM_STS_ERROR in co-managed environments\n - [KB 37447175](../2503/37447175.md): Security update to harden access to Network Access Account information\n-- [KB 37784287](../2603/37784287.md): CMG update for VMSS image deprecation\n+- [KB 37942646](../2603/37942646.md): CMG update for VMSS image deprecation\n - [KB 36419072](../2509/36419072.md): Offline feedback update for Configuration Manager\n - [KB 36495448](../2509/36495448.md): Co-management and third party update scan source fix for Configuration Manager\n \n",
+      "baseCommitSha": "61dd70ef0cce2f57bf04aec4beae47f3b42dbeda",
+      "commitSha": "d75ef88b9299033e7b8dacbef4ddd6ae03697306",
+      "commitMessage": "Correct KB ID from 37784287 to 37942646",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T13:01:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/37864969.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/37864969",
+      "firstSeenAt": "2026-06-03T20:01:12.000Z",
+      "eventId": "intune-docs:d75ef88b9299033e7b8dacbef4ddd6ae03697306:modified:intune/configmgr/hotfix/2509/37864969.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Correct KB ID from 37784287 to 37942646",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/government-service.md",
+      "status": "modified",
+      "additions": 32,
+      "deletions": 14,
+      "changes": 46,
+      "patch": "diff --git a/intune/fundamentals/government-service.md b/intune/fundamentals/government-service.md\nindex d39e574891..390c9123bc 100644\n--- a/intune/fundamentals/government-service.md\n+++ b/intune/fundamentals/government-service.md\n@@ -73,35 +73,53 @@ The following features are available and supported in Microsoft GCC High and/or\n | Mobile Threat Defense (MTD) | ✅ <br/><br/>Mobile Threat Defense (MTD) connectors for Android and iOS/iPadOS devices with MTD vendors that **also support** the GCC High environment can be used. When you sign in to a GCC High tenant, you see the connectors that are available in these environments. |\n | Microsoft Defender for Endpoint security settings management | ✅ <br/><br/> On devices onboarded to Defender but not enrolled in Intune, you can use Intune endpoint security policies to manage Defender security settings. <br/><br/>This support extends to the US Government Community Cloud (GCC), US Government Community High (GCC High), and Department of Defense (DoD) environments. <br/><br/>For more information on this feature, go to [Defender for Endpoint security settings management](../device-security/microsoft-defender/security-settings-management.md). |\n | Platform support | ✅ <br/><br/> You can use the same operating systems - Android, Android Open Source Project (AOSP), iOS/iPadOS, Linux, macOS, and Windows. <br/><br/>- **Android (AOSP)**: There are some device restrictions. For more information, go to [Supported operating systems and browsers in Intune - AOSP](ref-supported-platforms.md#android). <br/>- **Linux**: Generally available (GA) in February 2024.|\n-| Windows Autopilot device preparation | ✅ <br/><br/> Some features are available now, such as user-driven deployments, and some are still [in the planning phase](#in-the-planning-phase). For more information on the recent changes to Windows Autopilot device preparation, go to [Blog: Windows deployment with the next generation of Windows Autopilot](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/windows-deployment-with-the-next-generation-of-windows-autopilot/ba-p/4148169). <br/><br/> To get started with Windows Autopilot device preparation, go to [Windows Autopilot Device Preparation overview](/autopilot/device-preparation/overview). |\n+| Windows Autopilot device preparation | ✅ <br/><br/> Some features are available now, such as user-driven deployments, and some are still [in the planning phase](#in-the-planning-phase). For more information about Windows Autopilot solutions, go to [Compare Windows Autopilot device preparation and Windows Autopilot](/autopilot/device-preparation/compare). <br/><br/> To get started with Windows Autopilot device preparation, go to [Windows Autopilot Device Preparation overview](/autopilot/device-preparation/overview). |\n | Log Analytics | ✅ <br/><br/> You can send Intune log data to Azure Storage, Event Hubs, or Log Analytics. <br/><br/> For more information on this feature, go to [Send log data to storage, event hubs, or log analytics from Intune](../governance/integrate-azure-monitor.md). |\n | Microsoft Intune Plan 2 </br>and Microsoft Intune Suite | For more information on these plans, go to [Microsoft Intune advanced capabilities](advanced-capabilities.md). <br/><br/> The following Plan 2 features support the GCC High and DoD environments: </br>- [Microsoft Tunnel for Mobile Application Management](../device-security/microsoft-tunnel/mam.md) </br>- [Firmware-over-the-air update](../device-updates/android/manage-fota.md) </br>- [Specialty devices management](../device-management/specialty-devices.md) </br></br>  The following Microsoft Intune Suite features support the GCC High and DoD environments: </br>- [Endpoint Privilege Management](../epm/overview.md) </br>- [Advanced Analytics](../advanced-analytics/index.md)|\n \n ### In the planning phase\n \n-The following features are currently not available and aren't supported in GCC High and DoD clouds. Planning is underway to support these features for GCC High and DoD. If ETAs are available, then they're listed.\n+The following features are currently not available and aren't supported in GCC High and DoD clouds. Planning is underway to support these features for GCC High and DoD environments. If ETAs are available, then they're listed.\n \n | Feature | Availability |\n | --- | --- |\n-| Expedited updates | For more information on this feature, go to [Windows quality updates in Microsoft Intune](../device-updates/windows/manage-quality-updates.md). |\n-| Feature updates | For more information on this feature, go to [Feature updates for Windows in Intune](../device-updates/windows/manage-feature-updates.md). |\n-| Windows Autopilot device preparation| The following features are in the planning phase: </br></br>- Customize out-of-box experience (OOBE) and rename devices during provisioning based on organizational structure </br>- Self-deploying and pre-provisioning mode </br>- More admin-specified configurations delivered before allowing desktop access. </br>- Enhanced optional desktop onboarding experience inside the Windows Company Portal app </br>- The ability to associate a device with a tenant. </br></br>Provisioning modes which require Windows Autopilot registration are not supported. </br></br>To get started with Windows Autopilot device preparation, go to [Windows Autopilot Device Preparation overview](/autopilot/device-preparation/overview).|\n+| Windows Autopatch | For more information on this feature, go to [What is Windows Autopatch](/windows/deployment/windows-autopatch/overview/windows-autopatch-overview). |\n+| Feature updates | For more information on this feature, go to [Feature updates for Windows in Intune](../device-updates/windows/manage-feature-updates). |\n+| Quality updates | For more information on this feature, go to [Manage Windows quality updates](../device-updates/windows/manage-quality-updates.md)\n+| Expedite updates | For more information on this feature, go to [Windows quality updates in Microsoft Intune](../device-updates/windows/configure-expedite-policy). |\n+| Driver updates | For more information on this feature, go to [Configure Windows driver update policies](../device-updates/windows/configure-driver-update-policy.md). |\n+| Windows Autopilot device preparation | The following features are in the planning phase: - Customize out-of-box experience (OOBE) and rename devices during provisioning based on organizational structure - Self-deploying and pre-provisioning mode - More admin-specified configurations delivered before allowing desktop access. - Enhanced optional desktop onboarding experience inside the Windows Company Portal app - The ability to associate a device with a tenant. Provisioning modes which require Windows Autopilot registration are not supported. To get started with Windows Autopilot device preparation, go to [Windows Autopilot Device Preparation overview](/autopilot/device-preparation/overview). |\n | Delivery Optimization for Win32 Apps | For more information on the Delivery Optimization feature in Windows, go to [What is Delivery Optimization?](/windows/deployment/do/waas-delivery-optimization). |\n-| Windows Device Health Attestation (DHA)| For more information on Device Health Attestation, go to [Device Health Attestation](/windows-server/security/device-health-attestation) |\n-| BIOS configuration policies on Windows | For more information on this feature, go to [Use BIOS configuration profiles on Windows devices in Microsoft Intune](../device-configuration/templates/configure-bios-windows.md). |\n-| Device firmware configuration interface (DFCI) | For more information on this feature, go to [Device Firmware Configuration Interface (DFCI) Management](/autopilot/dfci-management).|\n+| Windows Device Health Attestation (DHA) | For more information on Device Health Attestation, go to [Device Health Attestation](/windows-server/security/device-health-attestation) |\n+| BIOS configuration policies on Windows | For more information on this feature, go to [Use BIOS configuration profiles on Windows devices in Microsoft Intune](../device-configuration/templates/configure-bios-windows). |\n+| Device firmware configuration interface (DFCI) | For more information on this feature, go to [Device Firmware Configuration Interface (DFCI) Management](/autopilot/dfci-management). |\n+| Enterprise Application Management | For more information on this feature, go to [Microsoft Enterprise Application Management (EAM)](/app-management/deployment/enterprise-app-management.md). | \n+| Remote Help | For more information on this feature go to [Use Remote Help with Microsoft Intune](/remote-help/index.md). |\n+| Cloud PKI (GCC High only) | For more information on this feature go to [Overview of Microsoft Cloud PKI for Microsoft Intune](/cloud-pki/index.md) |\n+| Security Copilot | For more information on this feature go to [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot) |\n \n ### Not available\n \n-The following features aren't available and won't be supported for GCC High and DoD:\n+The following features aren't available and there's currently no planning underway to support these features for GCC High and DoD environments:\n \n | Feature | Availability |\n | --- | --- |\n-| Chrome OS Connector | ❌ |\n-| Microsoft Store for Business | ❌ |\n-| On-premises Exchange Connector | ❌ |\n-| Windows Subscription Activation | ❌ |\n-| [TeamViewer connector](../device-management/tools/teamviewer-legacy.md) </br>or TeamViewer feature | ❌ |\n+| [Apple Managed account federation](/entra/external-id/customers/how-to-apple-federation-customers) | ❌ |\n+| [Chrome Enterprise Connector](../device-enrollment/configure-chrome-enterprise-connector.md) | ❌ |\n+| [Windows Autopilot](/autopilot/overview) | ❌ |\n+| [Windows Enterprise multi-session remote desktops (AVD)](../solutions/azure-virtual-desktop-multi-session.md) | ❌ |\n+| [Windows Diagnostic Data processor configuration](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#enable-windows-diagnostic-data-processor-configuration) | ❌ |\n+| [App and driver compatibility reports for Windows updates](../device-updates/windows/monitor-compatibility.md) | ❌ |\n+| [Reports for feature update policies](../device-updates/windows/monitor-feature-updates.md) | ❌ |\n+| [Windows Backup for Organizations](/windows/configuration/windows-backup/?tabs=intune) | ❌ |\n+| [eSIM cellular support on Windows](../device-configuration/templates/configure-esim-download-server.md) | ❌ |\n+| [Windows Subscription Activation](/windows/deployment/windows-subscription-activation?pivots=windows-11) | ❌ |\n+| [Microsoft Store for Business](/windows/configuration/store/?tabs=intune) | ❌ |\n+| [Microsoft Connected Cache for Enterprise and Education](/windows/deployment/do/mcc-ent-edu-overview) | ❌ |\n+| [ServiceNow connector](../device-management/tools/setup-servicenow.md) | ❌ |\n+| [TeamViewer connector (legacy)](../device-management/tools/teamviewer-legacy.md) and [TeamViewer integration](../device-management/tools/setup-teamviewer.md) | ❌ |\n+| [Intune PowerBI connector for DWH](/power-query/connectors/) | ❌ |\n+| [On-premises Exchange Connector] | ❌ |\n \n ## Next steps\n \n",
+      "baseCommitSha": "81ed311fbc6a3bfc76fbf310b4800a53bd93ed39",
+      "commitSha": "976dcad67dfa0974611ef881804ccf72fad7ec6c",
+      "commitMessage": "Update GCCH/DOD gaps",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-06-03T14:18:05-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/government-service.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/government-service",
+      "firstSeenAt": "2026-06-03T21:18:05.000Z",
+      "eventId": "intune-docs:976dcad67dfa0974611ef881804ccf72fad7ec6c:modified:intune/fundamentals/government-service.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update GCCH/DOD gaps",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/government-service.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 7d42f86677..a1f64600d5 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -19,9 +19,9 @@ You can also read:\n - Information about [how Intune service updates are released](../fundamentals/servicing-information.md)\n \n > [!NOTE]\n-> Each monthly [service update](../fundamentals/servicing-information.md) is rolled out gradually to help ensure quality and reliability. Updates are first validated in Microsoft internal environments, then released to a small set of customer datacenters before expanding worldwide over several days. Because rollouts are based on datacenter proximity rather than geographic region, some tenants might see changes earlier than others. The rollout is carefully monitored and may be paused or delayed to protect customers, which can affect timing.\n+> Each monthly [service update](../fundamentals/servicing-information.md) is rolled out gradually to help ensure quality and reliability. Updates are first validated in Microsoft internal environments, then to a small set of customer datacenters before expanding worldwide over the course of several days to a week. Some tenants might see changes before other tenants. The rollout is carefully monitored and might be paused or delayed to protect customers, which can affect timing.\n >\n-> Some features roll out over several weeks and might not be available to all customers in the first week.\n+> Some features may gradually roll out over several weeks.\n >\n > For a list of upcoming Intune feature releases, see [In development for Microsoft Intune](./in-development.md).\n >\n@@ -49,6 +49,8 @@ You can use RSS to be notified when this page is updated. For more information,\n \n -->\n \n+The 2605 release is currently in progress and expected to complete by end of week.\n+\n ## Week of May 26, 2026\n \n ### Role-based access control\n",
+      "baseCommitSha": "752bb344762ba7b9499258a98abca80c837fec88",
+      "commitSha": "4feb6366077d82cbfecac8c2fca4b39106df675d",
+      "commitMessage": "revise rollout message",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-03T14:30:57-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-06-03T21:30:57.000Z",
+      "eventId": "intune-docs:4feb6366077d82cbfecac8c2fca4b39106df675d:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "revise rollout message",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex a1f64600d5..b549c82e9a 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -49,7 +49,8 @@ You can use RSS to be notified when this page is updated. For more information,\n \n -->\n \n-The 2605 release is currently in progress and expected to complete by end of week.\n+> [!NOTE]  \n+> The 2605 release is currently in progress and expected to complete by end of week.\n \n ## Week of May 26, 2026\n \n",
+      "baseCommitSha": "4feb6366077d82cbfecac8c2fca4b39106df675d",
+      "commitSha": "72fb24b65eeb3ef6a0dba0766f4a47c2ec61ca04",
+      "commitMessage": "revise rollout message",
+      "commitAuthor": "Brent Dunsire",
+      "commitDate": "2026-06-03T14:37:06-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "firstSeenAt": "2026-06-03T21:37:06.000Z",
+      "eventId": "intune-docs:72fb24b65eeb3ef6a0dba0766f4a47c2ec61ca04:modified:intune/whats-new/index.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "revise rollout message",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/create-device-profile.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/create-device-profile.md b/intune/device-configuration/create-device-profile.md\nindex 97579671bb..d21cc9331d 100644\n--- a/intune/device-configuration/create-device-profile.md\n+++ b/intune/device-configuration/create-device-profile.md\n@@ -111,7 +111,7 @@ Each template is a logical group of settings grouped together, like Email, VPN,\n - [VPN](./templates/configure-vpn.md)\n - [Wi-Fi](./templates/configure-wifi.md)\n - [Windows health monitoring](./templates/configure-health-monitoring-windows.md)\n-- [Wired networks (macOS)](./templates/ref-wired-network-settings-macos.md)\n+- [Wired networks](./templates/configure-wired-networks.md)\n \n ---\n \n",
+      "baseCommitSha": "7b6e848316f1e3e3f3dabc935051c7c8c31bce2b",
+      "commitSha": "c4aa907bea68706e43daac007810f312c54e5f7c",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T18:29:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/create-device-profile.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/create-device-profile",
+      "firstSeenAt": "2026-06-03T22:29:57.000Z",
+      "eventId": "intune-docs:c4aa907bea68706e43daac007810f312c54e5f7c:modified:intune/device-configuration/create-device-profile.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/create-device-profile.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/overview.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-configuration/overview.md b/intune/device-configuration/overview.md\nindex eb98b3a3a7..0faab8d2d9 100644\n--- a/intune/device-configuration/overview.md\n+++ b/intune/device-configuration/overview.md\n@@ -1,7 +1,7 @@\n ---\n title: Device features and settings in Microsoft Intune\n description: Overview of the different Microsoft Intune device profiles. Get info on GPO, features, restrictions, email, wifi, VPN, education, certificates, upgrade Windows 10/11, BitLocker and Microsoft Defender, and custom device configuration settings in the Microsoft Intune admin center. Use these profiles to manage and protect data and devices in your company.\n-ms.date: 02/10/2026\n+ms.date: 06/03/2026\n ms.topic: overview\n ms.reviewer: mikedano\n ms.collection:\n@@ -354,6 +354,7 @@ When you assign the profile, users get access to your corporate wired network wi\n \n This feature supports:\n \n+- iOS/iPadOS\n - macOS\n - Windows\n \n",
+      "baseCommitSha": "7b6e848316f1e3e3f3dabc935051c7c8c31bce2b",
+      "commitSha": "c4aa907bea68706e43daac007810f312c54e5f7c",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T18:29:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/overview",
+      "firstSeenAt": "2026-06-03T22:29:57.000Z",
+      "eventId": "intune-docs:c4aa907bea68706e43daac007810f312c54e5f7c:modified:intune/device-configuration/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/configure-wired-networks.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-configuration/templates/configure-wired-networks.md b/intune/device-configuration/templates/configure-wired-networks.md\nindex 98801de68e..f667bb7553 100644\n--- a/intune/device-configuration/templates/configure-wired-networks.md\n+++ b/intune/device-configuration/templates/configure-wired-networks.md\n@@ -1,7 +1,7 @@\n ---\n-title: Configure 802.1x wired network settings for macOS and Windows devices in Microsoft Intune\n-description: Create or add a wired network device configuration profile or policy using the IEEE 802.1X standard for macOS, Windows 10, and Windows 11 devices and computers. See the different settings, add certificates, choose an EAP type, and select an authentication method in Microsoft Intune.\n-ms.date: 05/26/2026\n+title: Configure 802.1x wired network settings for Apple and Windows devices in Microsoft Intune\n+description: Create or add a wired network device configuration profile or policy using the IEEE 802.1X standard for macOS, iOS/iPadOS, Windows 10, and Windows 11 devices and computers. See the different settings, add certificates, choose an EAP type, and select an authentication method in Microsoft Intune.\n+ms.date: 06/03/2026\n ms.topic: how-to\n ms.reviewer: wicale\n ms.collection:\n",
+      "baseCommitSha": "7b6e848316f1e3e3f3dabc935051c7c8c31bce2b",
+      "commitSha": "c4aa907bea68706e43daac007810f312c54e5f7c",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T18:29:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/configure-wired-networks.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-wired-networks",
+      "firstSeenAt": "2026-06-03T22:29:57.000Z",
+      "eventId": "intune-docs:c4aa907bea68706e43daac007810f312c54e5f7c:modified:intune/device-configuration/templates/configure-wired-networks.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+      "status": "modified",
+      "additions": 91,
+      "deletions": 22,
+      "changes": 113,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wired-network-settings-macos.md b/intune/device-configuration/templates/ref-wired-network-settings-macos.md\nindex 8d5921ed93..1dd4079780 100644\n--- a/intune/device-configuration/templates/ref-wired-network-settings-macos.md\n+++ b/intune/device-configuration/templates/ref-wired-network-settings-macos.md\n@@ -1,33 +1,75 @@\n ---\n-title: Configure wired network settings for macOS devices in Microsoft Intune\n-description: Create or add a wired network device configuration profile for macOS devices. See the different settings, add certificates, choose an EAP type, and select an authentication method in Microsoft Intune.\n-ms.date: 05/26/2026\n+title: Configure wired network settings for Apple devices in Microsoft Intune\n+description: Create or add a wired network device configuration profile for Apple devices. See the different settings, add certificates, choose an EAP type, and select an authentication method in Microsoft Intune.\n+ms.date: 06/03/2026\n ms.topic: reference\n ms.reviewer: wicale\n ms.collection:\n - M365-identity-device-management\n+zone_pivot_groups: platforms-apple\n ---\n \n-# Add wired network settings for macOS devices in Microsoft Intune\n+# Add wired network settings for Apple devices in Microsoft Intune\n \n > [!NOTE]\n > [!INCLUDE [not-all-settings-are-documented](../includes/not-all-settings-are-documented.md)]\n \n-You can create a profile with specific wired network settings, and then deploy this profile to your macOS devices. Microsoft Intune offers many features, including authenticating to your network, adding a Simple Certificate Enrollment Protocol (SCEP) certificate, and more.\n+You can create a profile with specific wired network settings, and then deploy this profile to your iOS/iPadOS and macOS devices. Microsoft Intune offers many features, including authenticating to your network, adding a Simple Certificate Enrollment Protocol (SCEP) certificate, and more.\n+\n+This article describes the settings you can configure. To learn more about Wired Network profiles in Intune, see [wired network device configuration profile](configure-wired-networks.md).\n+\n+## Prerequisites\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [platform](../../includes/requirements/platform.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> This feature supports the following platforms:\n+>\n+> - iOS/iPadOS\n+> - macOS\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> - [!INCLUDE [minimum-rbac-role-policy-profile-manager](../../includes/minimum-rbac-role-policy-profile-manager.md)]\n+:::column-end:::\n+:::row-end:::\n+\n+:::row:::\n+:::column span=\"1\":::\n+[!INCLUDE [device-configuration](../../includes/requirements/device-configuration.md)]\n+:::column-end:::\n+:::column span=\"3\":::\n+> - Create a [wired network device configuration profile](configure-wired-networks.md).\n+> - These settings are available for all enrollment types.\n+:::column-end:::\n+:::row-end:::\n \n-This feature applies to:\n+## Wired Network\n \n-- macOS\n+::: zone pivot=\"ios-ipados\"\n \n-This article describes the settings you can configure.\n+- **Network Interface**: Automatically set to **Any Ethernet**.\n \n-## Before you begin\n+::: zone-end\n \n-- Create a [macOS wired network device configuration profile](./configure-wired-networks.md).\n+::: zone pivot=\"macos\"\n \n-- These settings are available for all enrollment types. For more information on the enrollment types, go to [macOS enrollment](../../device-enrollment/apple/methods-macos.md).\n+- **Deployment channel**: Select how you want to deploy the profile. This setting also determines the keychain where the authentication certificates are stored, so it's important to select the proper channel. It's not possible to edit the deployment channel after you deploy the profile. To do so, you must create a new profile.\n \n-## Wired Network\n+  > [!NOTE]\n+  > When the linked authentication certificates are ready for renewal, confirm the deployment channel setting in existing profiles. This step makes sure the intended channel is selected. If it isn't, create a new profile with the correct deployment channel.\n+\n+  You have two options:\n+\n+  - **User channel**: Always select the user deployment channel in profiles with user certificates. This option stores certificates in the user keychain.\n+  - **Device channel**: Always select the device deployment channel in profiles with device certificates. This option stores certificates in the system keychain.\n \n - **Network Interface**: Select the network interfaces on the device the profile applies to, based on service-order priority. Your options:\n \n@@ -41,24 +83,20 @@ This article describes the settings you can configure.\n \n   Options with \"active\" in the title use interfaces that are actively working on the device. If there are no active interfaces, the next interface in service-order priority is configured. By default, **First active Ethernet** is selected, which is also the default setting configured by macOS.\n \n-- **Deployment channel**: Select how you want to deploy the profile. This setting also determines the keychain where the authentication certificates are stored, so it's important to select the proper channel. It's not possible to edit the deployment channel after you deploy the profile. To do so, you must create a new profile.\n-\n-  > [!NOTE]\n-  > We recommend rechecking the deployment channel setting in existing profiles when the linked authentication certificates are up for renewal to ensure the intended channel is selected. If it isn't, create a new profile with the correct deployment channel.\n-\n-  You have two options:\n-\n-  - **User channel**: Always select the user deployment channel in profiles with user certificates. This option stores certificates in the user keychain.\n-  - **Device channel**: Always select the device deployment channel in profiles with device certificates. This option stores certificates in the system keychain.\n+::: zone-end\n \n - **EAP type**: To authenticate secured wired connections, select the Extensible Authentication Protocol (EAP) type. Your options:\n \n+  ::: zone pivot=\"macos\"\n+\n   - **EAP-FAST**: Enter the **Protected Access Credential (PAC) Settings**. This option uses protected access credentials to create an authenticated tunnel between the client and the authentication server. Your options:\n     - **Do not use (PAC)**\n     - **Use (PAC)**: If an existing PAC file exists, use it.\n     - **Use and Provision PAC**: Create and add the PAC file to your devices.\n     - **Use and Provision PAC Anonymously**: Create and add the PAC file to your devices without authenticating to the server.\n \n+  ::: zone-end\n+\n   - **EAP-TLS**: Also enter:\n \n     - **Server Trust** - **Certificate server names**: Enter one or more common names used in the certificates issued by your trusted certificate authority (CA). When you enter this information, you can bypass the dynamic trust window shown on user devices when they connect to this network.\n@@ -70,25 +108,56 @@ This article describes the settings you can configure.\n \n     - **Server Trust** - **Certificate server names**: Enter one or more common names used in the certificates issued by your trusted certificate authority (CA). When you enter this information, you can bypass the dynamic trust window shown on user devices when they connect to this network.\n     - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, then you don't need to include a root certificate.\n+\n+    ::: zone pivot=\"ios-ipados\"\n+\n+    - **Client Authentication** - **Certificates**: Select an existing SCEP client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection. PKCS certificates aren't supported. Choose the certificate that aligns with your deployment channel selection. If you selected the user channel, your certificate options are limited to user certificate profiles. If you selected the device channel, you have both user and device certificate profiles to choose from. However, we recommend always selecting the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+\n+    ::: zone-end\n+\n+    ::: zone pivot=\"macos\"\n+\n     - **Client Authentication**: Select an **Authentication method**. Your options:\n+\n       - **Username and Password**: Prompts the user for a user name and password to authenticate the connection. Also enter:\n         - **Non-EAP method (inner identity)**: Select how you authenticate the connection. Be sure you choose the same protocol that is configured on your network. Your options:\n           - **Unencrypted password (PAP)**\n           - **Challenge Handshake Authentication Protocol (CHAP)**\n           - **Microsoft CHAP (MS-CHAP)**\n           - **Microsoft CHAP Version 2 (MS-CHAP v2)**\n+\n       - **Certificates**: Select an existing SCEP client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection. PKCS certificates aren't supported. Choose the certificate that aligns with your deployment channel selection. If you selected the user channel, your certificate options are limited to user certificate profiles. If you selected the device channel, you have both user and device certificate profiles to choose from. However, we recommend always selecting the certificate type that aligns with the selected channel. Storing user certificates in the system keychain increases security risks.\n+\n+      ::: zone-end\n+\n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n+  ::: zone pivot=\"macos\"\n+\n   - **LEAP**\n \n+  ::: zone-end\n+\n   - **PEAP**: Also enter:\n \n     - **Server Trust** - **Certificate server names**: Enter one or more common names used in the certificates issued by your trusted certificate authority (CA). When you enter this information, you can bypass the dynamic trust window shown on user devices when they connect to this network.\n     - **Root certificate for server validation**: Select one or more existing trusted root certificate profiles. When the client connects to the network, these certificates are used to establish a chain of trust with the server. If your authentication server uses a public certificate, then you don't need to include a root certificate.\n+\n+    ::: zone pivot=\"ios-ipados\"\n+\n+    - **Client Authentication** - **Certificates**: Select an existing SCEP client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection. PKCS certificates aren't supported.\n+\n+    ::: zone-end\n+\n     - **Client Authentication**: Select an **Authentication method**. Your options:\n-      - **Username and Password**: Prompts the user for a user name and password to authenticate the connection.\n+\n+      ::: zone pivot=\"macos\"\n+\n+      - **Username and Password**: Prompts the user for a user name and password to authenticate the connection.`\n       - **Certificates**: Select an existing SCEP client certificate profile that is also deployed to the device. This certificate is the identity presented by the device to the server to authenticate the connection. PKCS certificates aren't supported.\n+\n+      ::: zone-end\n+\n       - **Identity privacy (outer identity)**: Enter the text sent in the response to an EAP identity request. This text can be any value, such as `anonymous`. During authentication, this anonymous identity is initially sent. Then, the real identification is sent in a secure tunnel.\n \n ## Related articles\n",
+      "baseCommitSha": "7b6e848316f1e3e3f3dabc935051c7c8c31bce2b",
+      "commitSha": "c4aa907bea68706e43daac007810f312c54e5f7c",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T18:29:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wired-network-settings-macos",
+      "firstSeenAt": "2026-06-03T22:29:57.000Z",
+      "eventId": "intune-docs:c4aa907bea68706e43daac007810f312c54e5f7c:modified:intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-macos.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-wired-network-settings-windows.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-wired-network-settings-windows.md b/intune/device-configuration/templates/ref-wired-network-settings-windows.md\nindex 800005376e..0be58accb9 100644\n--- a/intune/device-configuration/templates/ref-wired-network-settings-windows.md\n+++ b/intune/device-configuration/templates/ref-wired-network-settings-windows.md\n@@ -178,5 +178,5 @@ This feature applies to:\n ## Related articles\n \n - Be sure to [assign this profile](../assign-device-profile.md) and [monitor its status](../monitor-device-profile.md).\n-- Learn more about the [wired network settings for macOS devices](./ref-wired-network-settings-macos.md).\n+- Learn more about the [wired network settings for Apple devices](./ref-wired-network-settings-macos.md).\n - Get information on the [Extensible Authentication Protocol (EAP) for network access](/windows-server/networking/technologies/extensible-authentication-protocol/network-access).\n",
+      "baseCommitSha": "7b6e848316f1e3e3f3dabc935051c7c8c31bce2b",
+      "commitSha": "c4aa907bea68706e43daac007810f312c54e5f7c",
+      "commitMessage": "2605",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T18:29:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/ref-wired-network-settings-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-wired-network-settings-windows",
+      "firstSeenAt": "2026-06-03T22:29:57.000Z",
+      "eventId": "intune-docs:c4aa907bea68706e43daac007810f312c54e5f7c:modified:intune/device-configuration/templates/ref-wired-network-settings-windows.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "2605",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-windows.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/configure-wired-networks.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-configuration/templates/configure-wired-networks.md b/intune/device-configuration/templates/configure-wired-networks.md\nindex f667bb7553..b1d327d399 100644\n--- a/intune/device-configuration/templates/configure-wired-networks.md\n+++ b/intune/device-configuration/templates/configure-wired-networks.md\n@@ -32,7 +32,7 @@ This article lists the steps to create a wired network profile in Intune. It als\n \n :::row:::\n :::column span=\"1\":::\n-[!INCLUDE [platform](../includes/requirements/platform.md)]\n+[!INCLUDE [platform](../../includes/requirements/platform.md)]\n :::column-end:::\n :::column span=\"3\":::\n > This feature supports the following platforms:\n@@ -45,10 +45,10 @@ This article lists the steps to create a wired network profile in Intune. It als\n \n :::row:::\n :::column span=\"1\":::\n-[!INCLUDE [rbac](../includes/requirements/rbac.md)]\n+[!INCLUDE [rbac](../../includes/requirements/rbac.md)]\n :::column-end:::\n :::column span=\"3\":::\n-> - [!INCLUDE [minimum-rbac-role-policy-profile-manager](../includes/minimum-rbac-role-policy-profile-manager.md)]\n+> - [!INCLUDE [minimum-rbac-role-policy-profile-manager](../../includes/minimum-rbac-role-policy-profile-manager.md)]\n :::column-end:::\n :::row-end:::\n \n",
+      "baseCommitSha": "c4aa907bea68706e43daac007810f312c54e5f7c",
+      "commitSha": "73327acfeedce304422f2310c33d33ffee15b8f1",
+      "commitMessage": "links",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T18:36:41-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/templates/configure-wired-networks.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-wired-networks",
+      "firstSeenAt": "2026-06-03T22:36:41.000Z",
+      "eventId": "intune-docs:73327acfeedce304422f2310c33d33ffee15b8f1:modified:intune/device-configuration/templates/configure-wired-networks.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "links",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/government-service.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "patch": "diff --git a/intune/fundamentals/government-service.md b/intune/fundamentals/government-service.md\nindex 390c9123bc..da399b1160 100644\n--- a/intune/fundamentals/government-service.md\n+++ b/intune/fundamentals/government-service.md\n@@ -3,7 +3,7 @@ title: Microsoft Intune Government Service overview\n description: Learn more about the Intune government service offerings and features. This article is designed to serve as an overview of the Microsoft Intune offering for government community cloud (GCC) High and United States Department of Defense (DoD) environments.\n author: MandiOhlinger\n ms.author: mandia\n-ms.date: 08/11/2025\n+ms.date: 06/03/2026\n ms.topic: concept-article\n ms.reviewer: pfetty\n ms.collection:\n@@ -84,18 +84,18 @@ The following features are currently not available and aren't supported in GCC H\n | Feature | Availability |\n | --- | --- |\n | Windows Autopatch | For more information on this feature, go to [What is Windows Autopatch](/windows/deployment/windows-autopatch/overview/windows-autopatch-overview). |\n-| Feature updates | For more information on this feature, go to [Feature updates for Windows in Intune](../device-updates/windows/manage-feature-updates). |\n+| Feature updates | For more information on this feature, go to [Feature updates for Windows in Intune](../device-updates/windows/manage-feature-updates.md). |\n | Quality updates | For more information on this feature, go to [Manage Windows quality updates](../device-updates/windows/manage-quality-updates.md)\n-| Expedite updates | For more information on this feature, go to [Windows quality updates in Microsoft Intune](../device-updates/windows/configure-expedite-policy). |\n+| Expedite updates | For more information on this feature, go to [Windows quality updates in Microsoft Intune](../device-updates/windows/configure-expedite-policy.md). |\n | Driver updates | For more information on this feature, go to [Configure Windows driver update policies](../device-updates/windows/configure-driver-update-policy.md). |\n | Windows Autopilot device preparation | The following features are in the planning phase: - Customize out-of-box experience (OOBE) and rename devices during provisioning based on organizational structure - Self-deploying and pre-provisioning mode - More admin-specified configurations delivered before allowing desktop access. - Enhanced optional desktop onboarding experience inside the Windows Company Portal app - The ability to associate a device with a tenant. Provisioning modes which require Windows Autopilot registration are not supported. To get started with Windows Autopilot device preparation, go to [Windows Autopilot Device Preparation overview](/autopilot/device-preparation/overview). |\n | Delivery Optimization for Win32 Apps | For more information on the Delivery Optimization feature in Windows, go to [What is Delivery Optimization?](/windows/deployment/do/waas-delivery-optimization). |\n | Windows Device Health Attestation (DHA) | For more information on Device Health Attestation, go to [Device Health Attestation](/windows-server/security/device-health-attestation) |\n-| BIOS configuration policies on Windows | For more information on this feature, go to [Use BIOS configuration profiles on Windows devices in Microsoft Intune](../device-configuration/templates/configure-bios-windows). |\n+| BIOS configuration policies on Windows | For more information on this feature, go to [Use BIOS configuration profiles on Windows devices in Microsoft Intune](../device-configuration/templates/configure-bios-windows.md). |\n | Device firmware configuration interface (DFCI) | For more information on this feature, go to [Device Firmware Configuration Interface (DFCI) Management](/autopilot/dfci-management). |\n-| Enterprise Application Management | For more information on this feature, go to [Microsoft Enterprise Application Management (EAM)](/app-management/deployment/enterprise-app-management.md). | \n-| Remote Help | For more information on this feature go to [Use Remote Help with Microsoft Intune](/remote-help/index.md). |\n-| Cloud PKI (GCC High only) | For more information on this feature go to [Overview of Microsoft Cloud PKI for Microsoft Intune](/cloud-pki/index.md) |\n+| Enterprise Application Management | For more information on this feature, go to [Microsoft Enterprise Application Management (EAM)](../app-management/deployment/enterprise-app-management.md). | \n+| Remote Help | For more information on this feature go to [Use Remote Help with Microsoft Intune](../remote-help/index.md). |\n+| Cloud PKI (GCC High only) | For more information on this feature go to [Overview of Microsoft Cloud PKI for Microsoft Intune](../cloud-pki/index.md) |\n | Security Copilot | For more information on this feature go to [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot) |\n \n ### Not available\n",
+      "baseCommitSha": "976dcad67dfa0974611ef881804ccf72fad7ec6c",
+      "commitSha": "f46bc5cd623eb2cff30d545b79ab89c769c6a207",
+      "commitMessage": "Fixed links",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-06-03T19:17:57-04:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/government-service.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/government-service",
+      "firstSeenAt": "2026-06-03T23:17:57.000Z",
+      "eventId": "intune-docs:f46bc5cd623eb2cff30d545b79ab89c769c6a207:modified:intune/fundamentals/government-service.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fixed links",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/government-service.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [
+    {
+      "filename": "intune/configmgr/hotfix/2603/37784287.md",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 59,
+      "changes": 59,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37784287.md b/intune/configmgr/hotfix/2603/37784287.md\ndeleted file mode 100644\nindex c0262869b7..0000000000\n--- a/intune/configmgr/hotfix/2603/37784287.md\n+++ /dev/null\n@@ -1,61 +0,0 @@\n----\n-title: Cloud management gateway VMSS image update for Microsoft Configuration Manager\n-description: Cloud management gateway VMSS image update for Configuration Manager versions 2603, 2509, 2503, and 2409\n-ms.date: 06/02/2026\n-ms.subservice: core-infra\n-ms.topic: reference\n----\n-\n-# Cloud management gateway VMSS image update for Microsoft Configuration Manager\n-\n-*Applies to: Configuration Manager (current branch, versions 2603 and 2509, and versions 2503 and 2409 with update rollup installed)*\n-\n-## Summary of KB37784287\n-<!-- 37784287 -->\n-An update is available to resolve the following issue for Configuration Manager customers using the cloud management gateway (CMG) component.\n-\n-The legacy Windows Server 2022 Azure Marketplace images (offer: `windowsserver`) that include .NET 6 are being deprecated. Cloud management gateway deployments that use Azure Virtual Machine Scale Sets (VMSS) reference these legacy images.\n-\n-After the deprecation begins, the legacy images will no longer be compliant or supported, and will not receive new OS patch updates via image refresh. Once enforcement begins in early 2027, new CMG deployments and reimaging operations that reference the legacy images will fail.\n-\n-This update transitions the CMG/VMSS to use the new Windows Server 2022 image offer (`windowsserver2022`) that does not include the deprecated .NET 6 packages. For more details on the deprecation timeline and impact, see [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37784287_IMGDep).\n-\n-> [!NOTE]\n-> This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../../hotfix/2509/37864969.md)). A separate out of band hotfix is not required for version 2509.\n-\n-### Update information for Microsoft Configuration Manager current branch\n-\n-This update is available in the Updates and Servicing node of the Configuration Manager console for environments running version 2603 directly, or for versions 2503 and 2409 with the following update rollups installed:\n-\n-- KB [32851084](../../hotfix/2503/32851084.md): Update rollup for Microsoft Configuration Manager current branch, version 2503\n-- KB [30385346](../../hotfix/2409/30385346.md): Update rollup for Microsoft Configuration Manager current branch, version 2409\n-\n-### Restart information\n-\n-This update doesn't require a computer restart or a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) after installation.\n-\n-## Version information\n-\n-The following major components are updated to the versions specified:\n-\n-| Component | Version |\n-|---|---|\n-| Configuration Manager console (2409) | 5.2409.1183.2100 |\n-| Configuration Manager console (2503) | 5.2503.1083.2100 |\n-| Configuration Manager console (2603) | 5.2603.1035.1200 |\n-\n-## File information\n-File information is available in the following downloadable text files.\n-\n-[KB37784287_2409_FileList.txt](https://aka.ms/KB37784287_2409_FileList)\n-\n-[KB37784287_2503_FileList.txt](https://aka.ms/KB37784287_2503_FileList)\n-\n-[KB37784287_2603_FileList.txt](https://aka.ms/KB37784287_2603_FileList)\n-\n-## Release history\n-- June 2, 2026: Initial hotfix release\n-\n-## References\n-- [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n-- [Breaking change for Window Server 2022 Image Users with .NET 6](https://aka.ms/KB37784287_IMGDep)\n",
+      "baseCommitSha": "61dd70ef0cce2f57bf04aec4beae47f3b42dbeda",
+      "commitSha": "d75ef88b9299033e7b8dacbef4ddd6ae03697306",
+      "commitMessage": "Correct KB ID from 37784287 to 37942646",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-06-03T13:01:12-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/37784287.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37784287",
+      "firstSeenAt": "2026-06-03T20:01:12.000Z",
+      "eventId": "intune-docs:d75ef88b9299033e7b8dacbef4ddd6ae03697306:removed:intune/configmgr/hotfix/2603/37784287.md",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Correct KB ID from 37784287 to 37942646",
+        "summary": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 20,
+    "totalFiles": 30,
+    "authors": [
+      "Albert Cabello Serrano",
+      "Brent Dunsire",
+      "Mandi Ohlinger",
+      "QianDong Ni"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 2 new, 27 updated, and 1 removed Microsoft Intune documentation files across 5 documentation areas.",
+    "groups": [
+      {
+        "category": "New documentation",
+        "title": "intune/configmgr",
+        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37942646.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documen",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37942646.md",
+          "intune/configmgr/hotfix/2509/37864969.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+          "intune/configmgr/core/servers/manage/updates.md",
+          "intune/configmgr/core/plan-design/configs/support-for-windows-10.md",
+          "intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+          "intune/configmgr/hotfix/2603/37784287.md",
+          "intune/configmgr/hotfix/2509/37864969.md",
+          "intune/configmgr/hotfix/2603/37784287.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-configuration",
+        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md. Updated Microsoft Intune documentation in intune/device-configuration/create-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/overview.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-macos.md. Updated Microsoft Intune documentation in intune/device-configura",
+        "sourceFiles": [
+          "intune/device-configuration/collect-device-properties.md",
+          "intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md",
+          "intune/device-configuration/create-device-profile.md",
+          "intune/device-configuration/overview.md",
+          "intune/device-configuration/templates/configure-wired-networks.md",
+          "intune/device-configuration/templates/ref-wired-network-settings-macos.md",
+          "intune/device-configuration/templates/ref-wired-network-settings-windows.md",
+          "intune/device-configuration/templates/configure-wired-networks.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/security-baselines/ref-windows-mdm-settings.md.",
+        "sourceFiles": [
+          "intune/device-security/security-baselines/ref-windows-mdm-settings.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "Updated Microsoft Intune documentation in intune/fundamentals/government-service.md. Updated Microsoft Intune documentation in intune/fundamentals/government-service.md.",
+        "sourceFiles": [
+          "intune/fundamentals/government-service.md",
+          "intune/fundamentals/government-service.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Updated Microsoft Intune documentation in intune/whats-new/index.md. Updated Microsoft Intune documentation in intune/whats-new/index.md.",
+        "sourceFiles": [
+          "intune/whats-new/index.md",
+          "intune/whats-new/index.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New documentation",
+        "headline": "intune/configmgr",
+        "detail": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/37942646.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/37864969.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2603/37784287.md. Updated Microsoft Intune documen"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/collect-device-properties.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/ref-attack-surface-reduction-settings.md. Updated Microsoft Intune documentation in intune/device-configuration/create-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/overview.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/configure-wired-networks.md. Updated Microsoft Intune documentation in intune/device-configuration/templates/ref-wired-network-settings-macos.md. Updated Microsoft Intune documentation in intune/device-configura"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/security-baselines/ref-windows-mdm-settings.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "Updated Microsoft Intune documentation in intune/fundamentals/government-service.md. Updated Microsoft Intune documentation in intune/fundamentals/government-service.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Updated Microsoft Intune documentation in intune/whats-new/index.md. Updated Microsoft Intune documentation in intune/whats-new/index.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

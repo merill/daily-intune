@@ -1,0 +1,97 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md b/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md\nindex 2ec2528191..62305e7f7b 100644\n--- a/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md\n+++ b/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md\n@@ -26,6 +26,7 @@ The following features are deprecated. You can still use them now, but Microsoft\n \n |Feature|Deprecation first announced|Planned end of support|\n |-------|---------------------------|----------------------|\n+| **Microsoft Connected Cache (MCC)** integration in Configuration Manager will be deprecated in a future release of Configuration Manager. After deprecation, no further feature development or updates will be provided for Microsoft Connected Cache within Configuration Manager. Customers should begin transitioning to the standalone version of Microsoft Connected Cache to continue receiving ongoing improvements and support. For more information, see [Microsoft Connected Cache](/windows/deployment/do/waas-microsoft-connected-cache). | June 2026 | TBD |\n | The **MDT Integration with CM and Standalone**  is no longer supported with Configuration Manager. Customers should remove MDT TS steps, followed by removing MDT integration, to avoid TS corruption and modification failures. More information on the MDT retirement [here](/troubleshoot/mem/configmgr/mdt/mdt-retirement). | Dec 2024 | The first release after Oct 10, 2025 |\n | **Office 365 Client Management dashboard add-in support statement**.<!-- 12454890 --> For more information, see [Office 365 Client Management dashboard](../../../../sum/deploy-use/office-365-dashboard.md). | April 2024 | The first release after April 1, 2025 |\n | Windows Information Protection <!-- MAXADO-6010051 --> | July 2022 | TBD |\n",
+      "baseCommitSha": "eda273777862f5c79450f3eb5aa8a24c6ecef05b",
+      "commitSha": "fddfd1521a35cab0ffcf2a560270bebb82c98244",
+      "commitMessage": "Update security update status dashboard content and guidance (#20318)",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-06-09T05:43:00-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures",
+      "firstSeenAt": "2026-06-09T10:43:00.000Z",
+      "eventId": "intune-docs:fddfd1521a35cab0ffcf2a560270bebb82c98244:modified:intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update security update status dashboard content and guidance (#20318)",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/device-security/security-baselines/ref-v2-office-settings.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/security-baselines/ref-v2-office-settings.md b/intune/device-security/security-baselines/ref-v2-office-settings.md\nindex fb31fb95a7..531045099f 100644\n--- a/intune/device-security/security-baselines/ref-v2-office-settings.md\n+++ b/intune/device-security/security-baselines/ref-v2-office-settings.md\n@@ -131,7 +131,7 @@ For more information about the following settings that are included in this base\n \n - **VBA Macro Notification Settings (User)**\\\n   Baseline default: *Enabled*\n-  - Baseline default: *Disable all with notification*\n+  - Baseline default: *Disable all except digitally signed macros*\n \n #### Application Settings > Security > Trust Center > Trusted Locations\n \n",
+      "baseCommitSha": "fddfd1521a35cab0ffcf2a560270bebb82c98244",
+      "commitSha": "f77678e88733d49322cdf3a9278554b2695d0b61",
+      "commitMessage": "Update ref-v2-office-settings.md (#20279)",
+      "commitAuthor": "Aasawari Navathe",
+      "commitDate": "2026-06-09T13:16:36-07:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/security-baselines/ref-v2-office-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-baselines/ref-v2-office-settings",
+      "firstSeenAt": "2026-06-09T20:16:36.000Z",
+      "eventId": "intune-docs:f77678e88733d49322cdf3a9278554b2695d0b61:modified:intune/device-security/security-baselines/ref-v2-office-settings.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update ref-v2-office-settings.md (#20279)",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/security-baselines/ref-v2-office-settings.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Aasawari Navathe",
+      "sccmavenger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md.",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-security",
+        "summary": "Updated Microsoft Intune documentation in intune/device-security/security-baselines/ref-v2-office-settings.md.",
+        "sourceFiles": [
+          "intune/device-security/security-baselines/ref-v2-office-settings.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-security",
+        "detail": "Updated Microsoft Intune documentation in intune/device-security/security-baselines/ref-v2-office-settings.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

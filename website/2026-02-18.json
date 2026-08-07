@@ -1,0 +1,486 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "autopilot/oem-registration.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/oem-registration.md b/autopilot/oem-registration.md\nindex 35bf5b7bf0..4f7f729e32 100644\n--- a/autopilot/oem-registration.md\n+++ b/autopilot/oem-registration.md\n@@ -31,13 +31,12 @@ Microsoft manages and maintains Windows Autopilot. This service provides the bac\n \n ### Customer consent\n \n-Before an OEM can register devices for an organization, the organization must grant the OEM permission to do so. The OEM begins this process with approval granted by a Microsoft Entra Global Administrator from the organization. For more information, see [OEM authorization](registration-auth.md#oem-authorization).\n+Before an OEM can register devices for an organization, the organization's Microsoft Entra Global Administrator must approve the OEM. For more information, see [OEM authorization](registration-auth.md#oem-authorization).\n \n <!-- MAXADO-9048730 -->\n \n > [!IMPORTANT]\n->\n-> Microsoft recommends using roles with the fewest permissions. Using lower permissioned accounts helps improve security for an organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when an existing role can't be used.\n+> [!INCLUDE [global-administrator](../autopilot/includes/global-administrator.md)]\n \n ## Microsoft Surface registration\n \n",
+      "baseCommitSha": "45b001d0fac5073aad978397eca6ee6d3e6f6f11",
+      "commitSha": "14c2cabba11454a4a1a40f92a6c6e48304924475",
+      "commitMessage": "GA",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-17T20:09:04-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/oem-registration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/oem-registration",
+      "firstSeenAt": "2026-02-18T01:09:04.000Z",
+      "eventId": "intune-docs:14c2cabba11454a4a1a40f92a6c6e48304924475:modified:autopilot/oem-registration.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA",
+        "summary": "Updated Microsoft Intune documentation in autopilot/oem-registration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/partner-registration.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/partner-registration.md b/autopilot/partner-registration.md\nindex 809489365e..b75b230ea7 100644\n--- a/autopilot/partner-registration.md\n+++ b/autopilot/partner-registration.md\n@@ -28,15 +28,12 @@ Windows Autopilot doesn't require delegated administrator permissions when estab\n <!-- MAXADO-9048730 -->\n \n > [!IMPORTANT]\n->\n-> Microsoft recommends using roles with the fewest permissions. Using lower permissioned accounts helps improve security for an organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when an existing role can't be used.\n+> [!INCLUDE [global-administrator](../autopilot/includes/global-administrator.md)]\n \n > [!TIP]\n->\n > While resellers, distributors, or partners could boot each new Windows device to obtain the hardware hash for purposes of providing them to customers or direct registration by the partner, this method isn't recommended. Instead, these partners should register devices using the PKID information obtained from the device packaging, such as the barcode, or obtained electronically from the OEM or upstream partner/distributor.\n \n > [!NOTE]\n->\n > Partner Center doesn't have access to profiles created in Intune or Microsoft Store for Business. It only has access to the Windows Autopilot profiles created through Partner Center.\n \n ## Related content\n",
+      "baseCommitSha": "45b001d0fac5073aad978397eca6ee6d3e6f6f11",
+      "commitSha": "14c2cabba11454a4a1a40f92a6c6e48304924475",
+      "commitMessage": "GA",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-17T20:09:04-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/partner-registration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/partner-registration",
+      "firstSeenAt": "2026-02-18T01:09:04.000Z",
+      "eventId": "intune-docs:14c2cabba11454a4a1a40f92a6c6e48304924475:modified:autopilot/partner-registration.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA",
+        "summary": "Updated Microsoft Intune documentation in autopilot/partner-registration.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "autopilot/registration-auth.md",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 23,
+      "changes": 38,
+      "patch": "diff --git a/autopilot/registration-auth.md b/autopilot/registration-auth.md\nindex de097c5516..aa9e241e9b 100644\n--- a/autopilot/registration-auth.md\n+++ b/autopilot/registration-auth.md\n@@ -39,11 +39,11 @@ For a CSP to register Windows Autopilot devices for a customer, the customer mus\n \n     1. Select the **Request a reseller relationship** link:\n \n-        :::image type=\"content\" source=\"images/csp1.png\" alt-text=\"Request a reseller relationship.\":::\n+        :::image type=\"content\" source=\"images/csp1.png\" alt-text=\"Request a reseller relationship.\" lightbox=\"images/csp1.png\":::\n \n     1. Select the checkbox indicating if delegated admin rights are desired:\n \n-        :::image type=\"content\" source=\"images/csp2.png\" alt-text=\"Delegated rights.\":::\n+        :::image type=\"content\" source=\"images/csp2.png\" alt-text=\"Delegated rights.\" lightbox=\"images/csp2.png\":::\n \n         > [!NOTE]\n         >\n@@ -51,31 +51,28 @@ For a CSP to register Windows Autopilot devices for a customer, the customer mus\n \n     1. Send the template in the previous step to the customer via email.\n \n-1. Customer with Microsoft Admin Center global administrator privileges selects the link in email. The link takes them to the following [Microsoft 365 admin center](https://admin.microsoft.com/) page:\n+1. Customer with Microsoft 365 admin center Global Administrator privileges selects the link in email. The link takes them to the following [Microsoft 365 admin center](https://admin.microsoft.com/) page:\n \n-    :::image type=\"content\" source=\"images/csp3a.png\" alt-text=\"Screenshot of Accept agreement and authorize partner page - delegated admin rights.\":::\n+    :::image type=\"content\" source=\"images/csp3a.png\" alt-text=\"Screenshot of Accept agreement and authorize partner page - delegated admin rights.\" lightbox=\"images/csp3a.png\":::\n \n     The above image is what the customer sees if they requested delegated admin rights (DAP). The page says what Admin roles are being requested. If the customer didn't request delegated admin rights, they would see the following page:\n \n-    :::image type=\"content\" source=\"images/csp3b.png\" alt-text=\"Screenshot of Accept agreement and authorize partner page.\":::\n+    :::image type=\"content\" source=\"images/csp3b.png\" alt-text=\"Screenshot of Accept agreement and authorize partner page.\" lightbox=\"images/csp3b.png\":::\n \n-    > [!NOTE]\n-    >\n-    > A user without global administrator privileges who selects the link sees a message similar to the following message:\n+    A user without Global Administrator privileges who selects the link sees a message similar to the following message:\n \n-    :::image type=\"content\" source=\"images/csp4.png\" alt-text=\"Screenshot of permission page.\":::\n+    :::image type=\"content\" source=\"images/csp4.png\" alt-text=\"Screenshot of permission page.\" lightbox=\"images/csp4.png\":::\n \n 1. Customer selects the **Yes** checkbox, followed by the **Accept** button. Authorization happens instantaneously.\n \n 1. To check that the authorization request is complete, the CSP can check the **Customers** list in their Microsoft Partner Center account. If the customer is in the list, the request is complete. For example:\n \n-    :::image type=\"content\" source=\"images/csp5.png\" alt-text=\"Customers.\":::\n+    :::image type=\"content\" source=\"images/csp5.png\" alt-text=\"Customers.\" lightbox=\"images/csp5.png\":::\n \n <!-- MAXADO-9048730 -->\n \n > [!IMPORTANT]\n->\n-> Microsoft recommends using roles with the fewest permissions. Using lower permissioned accounts helps improve security for an organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when an existing role can't be used.\n+> [!INCLUDE [global-administrator](../autopilot/includes/global-administrator.md)]\n \n ## OEM authorization\n \n@@ -85,17 +82,15 @@ OEMs who are eligible of using Direct API solution have a unique link to provide\n \n 1. OEM emails link to their customer.\n \n-1. Customer signs into the [Microsoft 365 admin center](https://admin.microsoft.com/) using a cloud-native account (for example, [domain].onmicrosoft.com) with global administrator privileges.\n+1. Customer signs into the [Microsoft 365 admin center](https://admin.microsoft.com/) using a cloud-native account (for example, [domain].onmicrosoft.com) with Global Administrator privileges.\n \n 1. Customer selects the link in the email, which takes them directly to the following page:\n \n-    :::image type=\"content\" source=\"images/csp6.png\" alt-text=\"Screenshot of Accept partner invitation page.\":::\n+    :::image type=\"content\" source=\"images/csp6.png\" alt-text=\"Screenshot of Accept partner invitation page.\" lightbox=\"images/csp6.png\":::\n \n-    > [!NOTE]\n-    >\n-    > A user without global admin privileges who selects the link sees a message similar to the following message:\n+    A user without Global Administrator privileges who selects the link sees a message similar to the following message:\n \n-    :::image type=\"content\" source=\"images/csp7.png\" alt-text=\"Screenshot of MSfB permission required page.\":::\n+    :::image type=\"content\" source=\"images/csp7.png\" alt-text=\"Screenshot of MSfB permission required page.\" lightbox=\"images/csp7.png\":::\n \n 1. Customer selects the **Yes** checkbox, followed by the **Accept** button, and they're done. Authorization happens instantaneously.\n \n@@ -107,11 +102,8 @@ OEMs who are eligible of using Direct API solution have a unique link to provide\n \n     > [!NOTE]\n     >\n-    > This API is discussed in the latest version of the [API Whitepaper, p. 14ff](https://devicepartner.microsoft.com/assets/detail/windows-autopilot-integration-with-oem-api-design-whitepaper-docx). This link is only accessible by Microsoft Device Partners. As discussed in this article, it's a best practice recommendation for OEM partners to run the API check to confirm customer consent is received before attempting to register devices. This check can help avoid errors in the registration process.\n-\n-    > [!NOTE]\n-    >\n-    > During the OEM authorization registration process, no delegated admin permissions are granted to the OEM.\n+    > - This API is discussed in the [API Whitepaper, p. 14ff](https://devicepartner.microsoft.com/assets/detail/windows-autopilot-integration-with-oem-api-design-whitepaper-docx). This link is only accessible by Microsoft Device Partners. As discussed in this article, it's a best practice recommendation for OEM partners to run the API check to confirm customer consent is received before attempting to register devices. This check can help avoid errors in the registration process.\n+    > - During the OEM authorization registration process, no delegated admin permissions are granted to the OEM.\n \n ## Summary\n \n",
+      "baseCommitSha": "45b001d0fac5073aad978397eca6ee6d3e6f6f11",
+      "commitSha": "14c2cabba11454a4a1a40f92a6c6e48304924475",
+      "commitMessage": "GA",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-17T20:09:04-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/registration-auth.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/registration-auth",
+      "firstSeenAt": "2026-02-18T01:09:04.000Z",
+      "eventId": "intune-docs:14c2cabba11454a4a1a40f92a6c6e48304924475:modified:autopilot/registration-auth.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA",
+        "summary": "Updated Microsoft Intune documentation in autopilot/registration-auth.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/remote-help.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/fundamentals/remote-help.md b/intune/intune-service/fundamentals/remote-help.md\nindex 0423c76f90..e65af66ab3 100644\n--- a/intune/intune-service/fundamentals/remote-help.md\n+++ b/intune/intune-service/fundamentals/remote-help.md\n@@ -70,7 +70,7 @@ The Remote Help app supports the following capabilities in general across the su\n \n ### [:::image type=\"icon\" source=\"../../media/icons/16/android.svg\"::: **Android**](#tab/android)\n \n-- **Unattended access**: Helpers can connect to Android devices without requiring the sharer to accept the connection each time. This capability requires the Android device to be enrolled in Intune as a fully managed device or as a dedicated device.\n+- **Unattended access**: Helpers can connect to Android devices without requiring the sharer to accept the connection each time. This capability requires the Android device to be enrolled in Intune as an Android Enterprise dedicated device.\n   \n   :::image type=\"content\" source=\"media/remote-help/remote-help-android-unattended.png\" alt-text=\"Screenshot of an unattended Remote Help session on Android\" lightbox=\"media/remote-help/remote-help-android-unattended-expanded.png\":::\n \n",
+      "baseCommitSha": "09a67a2e9bebd6925b8d014059246a95d05192a4",
+      "commitSha": "c0cdf23b15064966ec612f12b553dcc72489d3cc",
+      "commitMessage": "Clarify Android unattended access supported scenarios",
+      "commitAuthor": "rogersoMS",
+      "commitDate": "2026-02-18T23:11:13+11:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/remote-help.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remote-help",
+      "firstSeenAt": "2026-02-18T12:11:13.000Z",
+      "eventId": "intune-docs:c0cdf23b15064966ec612f12b553dcc72489d3cc:modified:intune/intune-service/fundamentals/remote-help.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Clarify Android unattended access supported scenarios",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/comanage/how-to-enable.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 3,
+      "changes": 9,
+      "patch": "diff --git a/intune/configmgr/comanage/how-to-enable.md b/intune/configmgr/comanage/how-to-enable.md\nindex 8444acd09c..c450613cdb 100644\n--- a/intune/configmgr/comanage/how-to-enable.md\n+++ b/intune/configmgr/comanage/how-to-enable.md\n@@ -45,14 +45,17 @@ To enable co-management, follow these instructions:\n       \n    When you select Azure Government cloud, the **Upload to Microsoft Endpoint Manager admin center** option for [tenant attach](../tenant-attach/device-sync-actions.md) is disabled.\n    \n-1. Select **Sign In**. Sign in as a Microsoft Entra Global Administrator, and then select **Next**. You sign in this one time for the purposes of this wizard. The credentials aren't stored or reused elsewhere.\n+1. Select **Sign In**. Sign in as a [Microsoft Entra Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator), and then select **Next**. You sign in this one time for the purposes of this wizard. The credentials aren't stored or reused elsewhere.\n+\n+    > [!IMPORTANT]\n+    > [!INCLUDE [global-administrator](../includes/global-administrator-configmgr.md)]\n \n 1. On the **Enablement** page, choose the following settings:\n \n    - **Automatic enrollment in Intune**: Enables automatic client enrollment in Intune for existing Configuration Manager clients. This option allows you to enable co-management on a subset of clients to initially test co-management and then roll out co-management by using a phased approach. If the user unenrolls a device, the device will be re-enrolled on the next evaluation of the policy. \n    \n       - **Pilot**: Only the Configuration Manager clients that are members of the **Intune Auto Enrollment** collection are automatically enrolled in Intune.\n-      - **All**: Enable automatic enrollment for all clients running Windows 10 version 1709 or later.\n+      - **All**: Enable automatic enrollment for all clients running [supported Windows versions](../../intune-service/fundamentals/supported-devices-browsers.md).\n       - **None**: Disable automatic enrollment for all clients.\n             \n    - **Intune Auto Enrollment**: This collection should contain all of the clients that you want to onboard into co-management. It's essentially a superset of all the other staging collections.\n@@ -73,7 +76,7 @@ To enable co-management, follow these instructions:\n    If you only want to enable co-management, you don't need to switch workloads now. You can switch workloads later. For more information, see [How to switch workloads](how-to-switch-workloads.md).  \n    \n    - **Pilot Intune**: Switches the associated workload only for the devices in the pilot collections that you'll specify on the **Staging** page. Each workload can have a different pilot collection.\n-   - **Intune**: Switches the associated workload for all co-managed Windows 10 or later devices.  \n+   - **Intune**: Switches the associated workload for all co-managed devices.  \n       \n    > [!Important]\n    > Before you switch any workloads, make sure that you properly configure and deploy the corresponding workload in Intune. Make sure that workloads are always managed by one of the management tools for your devices.  \n",
+      "baseCommitSha": "4ac5ca69ac592468b54bb26ef64f2583ed424182",
+      "commitSha": "96147fdbd72e86b1a25719f0ce2ce227e334588e",
+      "commitMessage": "GA in tenant attach and comanage",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-18T11:59:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/comanage/how-to-enable.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/comanage/how-to-enable",
+      "firstSeenAt": "2026-02-18T16:59:05.000Z",
+      "eventId": "intune-docs:96147fdbd72e86b1a25719f0ce2ce227e334588e:modified:intune/configmgr/comanage/how-to-enable.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA in tenant attach and comanage",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/comanage/how-to-enable.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/comanage/overview.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/configmgr/comanage/overview.md b/intune/configmgr/comanage/overview.md\nindex 10043625cb..803f47c66c 100644\n--- a/intune/configmgr/comanage/overview.md\n+++ b/intune/configmgr/comanage/overview.md\n@@ -1,6 +1,6 @@\n ---\n title: Co-management for Windows devices\n-description: Learn how to concurrently manage Windows 10 or later devices by using both Configuration Manager and Microsoft Intune.\n+description: Learn how to concurrently manage Windows devices by using both Configuration Manager and Microsoft Intune.\n ms.date: 12/04/2024\n ms.topic: overview\n ms.subservice: co-management\n@@ -13,7 +13,7 @@ ms.collection: tier3\n <!-- 1350871 -->\n Co-management is one of the primary ways to attach your existing Configuration Manager deployment to the Microsoft 365 cloud. It helps you unlock more cloud-powered capabilities like Conditional Access.\n \n-Co-management enables you to concurrently manage Windows 10 or later devices by using both Configuration Manager and Microsoft Intune. It lets you cloud-attach your existing investment in Configuration Manager by adding new functionality. By using co-management, you have the flexibility to use the technology solution that works best for your organization.\n+Co-management enables you to concurrently manage Windows devices by using both Configuration Manager and Microsoft Intune. It lets you cloud-attach your existing investment in Configuration Manager by adding new functionality. By using co-management, you have the flexibility to use the technology solution that works best for your organization.\n \n When a Windows device has the Configuration Manager client and is enrolled to Intune, you get the benefits of both services. You control which workloads, if any, you switch the authority from Configuration Manager to Intune. Configuration Manager continues to manage all other workloads, including those workloads that you don't switch to Intune, and all other features of Configuration Manager that co-management doesn't support.\n \n@@ -28,9 +28,9 @@ You're also able to pilot a workload with a separate collection of devices. Pilo\n \n There are two main paths to reach to co-management:\n \n-- **Existing Configuration Manager clients**: You have Windows 10 or later devices that are already Configuration Manager clients. You set up hybrid Microsoft Entra ID, and enroll them into Intune.\n+- **Existing Configuration Manager clients**: You have Windows devices that are already Configuration Manager clients. You set up hybrid Microsoft Entra ID, and enroll them into Intune.\n \n-- **New internet-based devices**: You have new Windows 10 or later devices that join Microsoft Entra ID and automatically enroll to Intune. You install the Configuration Manager client to reach a co-management state.\n+- **New internet-based devices**: You have new Windows devices that join Microsoft Entra ID and automatically enroll to Intune. You install the Configuration Manager client to reach a co-management state.\n \n For more information on the paths, see [Paths to co-management](quickstart-paths.md).\n \n@@ -114,7 +114,7 @@ Enabling co-management itself doesn't require that you onboard your site with Mi\n \n ### Windows\n \n-Update your devices to an [Intune supported version of Windows 11 or Windows 10](../../intune-service/fundamentals/supported-devices-browsers.md). For more information, see [Adopting Windows as a service](../core/understand/configuration-manager-and-windows-as-service.md#windows-as-a-service).\n+Update your devices to an [Intune supported version of Windows](../../intune-service/fundamentals/supported-devices-browsers.md). For more information, see [Adopting Windows as a service](../core/understand/configuration-manager-and-windows-as-service.md#windows-as-a-service).\n \n ### Permissions and roles\n \n",
+      "baseCommitSha": "4ac5ca69ac592468b54bb26ef64f2583ed424182",
+      "commitSha": "96147fdbd72e86b1a25719f0ce2ce227e334588e",
+      "commitMessage": "GA in tenant attach and comanage",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-18T11:59:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/comanage/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/comanage/overview",
+      "firstSeenAt": "2026-02-18T16:59:05.000Z",
+      "eventId": "intune-docs:96147fdbd72e86b1a25719f0ce2ce227e334588e:modified:intune/configmgr/comanage/overview.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA in tenant attach and comanage",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/comanage/overview.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/comanage/tutorial-co-manage-clients.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 11,
+      "changes": 25,
+      "patch": "diff --git a/intune/configmgr/comanage/tutorial-co-manage-clients.md b/intune/configmgr/comanage/tutorial-co-manage-clients.md\nindex 9a47763109..cb08f80197 100644\n--- a/intune/configmgr/comanage/tutorial-co-manage-clients.md\n+++ b/intune/configmgr/comanage/tutorial-co-manage-clients.md\n@@ -11,13 +11,13 @@ ms.collection: tier3\n \n With co-management, you can keep your well-established processes for using Configuration Manager to manage PCs in your organization. At the same time, you're investing in the cloud through use of Intune for security and modern provisioning.\n \n-In this tutorial, you set up co-management of your Windows 10 or later devices that are already enrolled in Configuration Manager. This tutorial begins with the premise that you already use Configuration Manager to manage your Windows 10 or later devices.\n+In this tutorial, you set up co-management of your Windows devices that are already enrolled in Configuration Manager. This tutorial begins with the premise that you already use Configuration Manager to manage your Windows devices.\n \n Use this tutorial when:\n \n - You have an on-premises Active Directory that you can connect to Microsoft Entra ID in a hybrid Microsoft Entra configuration.\n \n-  If you can't deploy a hybrid Microsoft Entra ID that joins your on-premises AD with Microsoft Entra ID, we recommend following our companion tutorial, [Enable co-management for new internet-based Windows 10 or later devices](tutorial-co-manage-new-devices.md).\n+  If you can't deploy a hybrid Microsoft Entra ID that joins your on-premises AD with Microsoft Entra ID, we recommend following our companion tutorial, [Enable co-management for new internet-based Windows devices](tutorial-co-manage-new-devices.md).\n - You have existing Configuration Manager clients that you want to cloud-attach.\n \n **In this tutorial you will:**\n@@ -55,9 +55,12 @@ Throughout this tutorial, use the following permissions to complete tasks:\n \n - An account that's a *domain admin* on your on-premises infrastructure\n - An account that's a *full administrator* for *all* scopes in Configuration Manager\n-- An account that's a *global administrator* in Microsoft Entra ID\n+- An account that's a *Global Administrator* in Microsoft Entra ID\n   - Make sure you've assigned an Intune license to the account that you use to sign in to your tenant. Otherwise, sign in fails with the error message *An unanticipated error occurred*. <!--mem issue 169, MEMDocs#691-->\n \n+  > [!IMPORTANT]\n+  > [!INCLUDE [global-administrator](../includes/global-administrator-configmgr.md)]\n+\n <a name='set-up-hybrid-azure-ad'></a>\n \n ## Set up hybrid Microsoft Entra ID\n@@ -82,7 +85,7 @@ Hybrid Microsoft Entra ID requires configuration of Microsoft Entra Connect to k\n \n Beginning with version 1.1.819.0, Microsoft Entra Connect provides you with a wizard to configure Microsoft Entra hybrid join. Use of that wizard simplifies the configuration process.\n \n-To configure Microsoft Entra Connect, you need credentials of a global administrator for Microsoft Entra ID. The following procedure should not be considered authoritative for set up of Microsoft Entra Connect but is provided here to help streamline configuration of co-management between Intune and Configuration Manager. For the authoritative content on this and related procedures for set up of Microsoft Entra ID, see [Configure Microsoft Entra hybrid join for managed domains](/azure/active-directory/devices/hybrid-azuread-join-managed-domains) in the Microsoft Entra documentation.\n+To configure Microsoft Entra Connect, you need credentials of a Global Administrator for Microsoft Entra ID. The following procedure should not be considered authoritative for set up of Microsoft Entra Connect but is provided here to help streamline configuration of co-management between Intune and Configuration Manager. For the authoritative content on this and related procedures for set up of Microsoft Entra ID, see [Configure Microsoft Entra hybrid join for managed domains](/azure/active-directory/devices/hybrid-azuread-join-managed-domains) in the Microsoft Entra documentation.\n \n <a name='configure-a-hybrid-azure-ad-join-using-azure-ad-connect'></a>\n \n@@ -92,14 +95,14 @@ To configure Microsoft Entra Connect, you need credentials of a global administr\n 2. Launch Microsoft Entra Connect, and then select **Configure**.\n 3. On the **Additional tasks** page, select **Configure device options**, and then select **Next**.\n 4. On the **Overview** page, select **Next**.\n-5. On the **Connect to Microsoft Entra ID** page, enter the credentials of a global administrator for Microsoft Entra ID.\n+5. On the **Connect to Microsoft Entra ID** page, enter the credentials of a Global Administrator for Microsoft Entra ID.\n 6. On the **Device options** page, select **Configure Microsoft Entra hybrid join**, and then select **Next**.\n 7. On the **Device operating systems** page, select the operating systems used by devices in your Active Directory environment, and then select **Next**.\n \n-   You can select the option to support Windows downlevel domain-joined devices, but keep in mind that co-management of devices is only supported for Windows 10 or later.\n+   You can select the option to support Windows downlevel domain-joined devices, but keep in mind that co-management of devices is only supported for Windows devices.\n 8. On the **SCP** page, for each on-premises forest you want Microsoft Entra Connect to configure the service connection point (SCP), do the following steps, and then select **Next**:\n    1. Select the forest.\n-   2. Select the authentication service.  If you have a federated domain, select AD FS server unless your organization has exclusively Windows 10 or later clients and you have configured computer/device sync or your organization is using [SeamlessSSO](/azure/active-directory/hybrid/how-to-connect-sso).\n+   2. Select the authentication service.  If you have a federated domain, select AD FS server unless your organization has exclusively Windows clients and you have configured computer/device sync or your organization is using [SeamlessSSO](/azure/active-directory/hybrid/how-to-connect-sso).\n    3. Click **Add** to enter the enterprise administrator credentials.\n 9. If you have a managed domain, skip this step.\n \n@@ -127,15 +130,15 @@ Use Client Settings to configure Configuration Manager clients to automatically\n \n Next, we'll set up auto-enrollment of devices with Intune. With automatic enrollment, devices you manage with Configuration Manager automatically enroll with Intune.\n \n-Automatic enrollment also lets users enroll their Windows 10 or later devices to Intune. Devices enroll when a user adds their work account to their personally owned device, or when a corporate-owned device is joined to Microsoft Entra ID.\n+Automatic enrollment also lets users enroll their Windows devices to Intune. Devices enroll when a user adds their work account to their personally owned device, or when a corporate-owned device is joined to Microsoft Entra ID.\n \n 1. Sign in to the [Azure portal](https://portal.azure.com/) and select **Microsoft Entra ID** > **Mobility (MDM and MAM)** > **Microsoft Intune**.\n \n 2. Configure **MDM user scope**. Specify one of the following to configure which users' devices are managed by Microsoft Intune and accept the defaults for the URL values.\n \n-   - **Some**: Select the **Groups** that can automatically enroll their Windows 10 or later devices\n+   - **Some**: Select the **Groups** that can automatically enroll their Windows devices\n \n-   - **All**: All users can automatically enroll their Windows 10 or later devices\n+   - **All**: All users can automatically enroll their Windows devices\n \n    - **None**: Disable MDM automatic enrollment\n \n@@ -157,7 +160,7 @@ Automatic enrollment also lets users enroll their Windows 10 or later devices to\n \n ## Enable co-management in Configuration Manager\n \n-With hybrid Microsoft Entra set-up and Configuration Manager client configurations in place, you're ready to flip the switch and enable co-management of your Windows 10 or later devices. The phrase **Pilot group** is used throughout the co-management feature and configuration dialogs. A *pilot group* is a collection containing a subset of your Configuration Manager devices. Use a *pilot group* for your initial testing, adding devices as needed, until you're ready to move the workloads for all Configuration Manager devices. There isn't a time limit on how long a *pilot group* can be used for workloads. A *pilot group* can be used indefinitely if you don't wish to move the workload to all Configuration Manager devices.\n+With hybrid Microsoft Entra set-up and Configuration Manager client configurations in place, you're ready to flip the switch and enable co-management of your Windows devices. The phrase **Pilot group** is used throughout the co-management feature and configuration dialogs. A *pilot group* is a collection containing a subset of your Configuration Manager devices. Use a *pilot group* for your initial testing, adding devices as needed, until you're ready to move the workloads for all Configuration Manager devices. There isn't a time limit on how long a *pilot group* can be used for workloads. A *pilot group* can be used indefinitely if you don't wish to move the workload to all Configuration Manager devices.\n \n When you enable co-management, you'll assign a collection as a *Pilot group*. This is a group that contains a small number of clients to test your co-management configurations. We recommend you create a suitable collection before you start the procedure. Then you can select that collection without exiting the procedure to do so. You may need multiple collections since you can assign a different *Pilot group* for each workload.\n \n",
+      "baseCommitSha": "4ac5ca69ac592468b54bb26ef64f2583ed424182",
+      "commitSha": "96147fdbd72e86b1a25719f0ce2ce227e334588e",
+      "commitMessage": "GA in tenant attach and comanage",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-18T11:59:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/comanage/tutorial-co-manage-clients.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/comanage/tutorial-co-manage-clients",
+      "firstSeenAt": "2026-02-18T16:59:05.000Z",
+      "eventId": "intune-docs:96147fdbd72e86b1a25719f0ce2ce227e334588e:modified:intune/configmgr/comanage/tutorial-co-manage-clients.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA in tenant attach and comanage",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/comanage/tutorial-co-manage-clients.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/comanage/tutorial-co-manage-new-devices.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 16,
+      "changes": 35,
+      "patch": "diff --git a/intune/configmgr/comanage/tutorial-co-manage-new-devices.md b/intune/configmgr/comanage/tutorial-co-manage-new-devices.md\nindex b4a36e0bca..255c2b7e0f 100644\n--- a/intune/configmgr/comanage/tutorial-co-manage-new-devices.md\n+++ b/intune/configmgr/comanage/tutorial-co-manage-new-devices.md\n@@ -1,6 +1,6 @@\n ---\n title: Tutorial - Enable co-management for internet devices\n-description: Learn how to configure co-management for new internet-based Windows 10 or later devices by using Configuration Manager and Microsoft Intune.\n+description: Learn how to configure co-management for new internet-based Windows devices by using Configuration Manager and Microsoft Intune.\n ms.date: 08/24/2021\n ms.topic: tutorial\n ms.subservice: co-management\n@@ -12,14 +12,14 @@ ms.collection: tier3\n \n When you're investing in the cloud through the use of Intune for security and modern provisioning, you might not want to lose your well-established processes for using Configuration Manager to manage PCs in your organization. With co-management, you can keep that process in place.\n \n-In this tutorial, you set up co-management of Windows 10 or later devices in an environment where you use both Microsoft Entra ID and on-premises Active Directory but don't have a [hybrid Microsoft Entra ID](/azure/active-directory/devices/concept-azure-ad-join-hybrid) instance. The Configuration Manager environment includes a single primary site with all site system roles located on the same server, the site server. This tutorial begins with the premise that your Windows 10 or later devices are already enrolled with Intune.\n+In this tutorial, you set up co-management of Windows devices in an environment where you use both Microsoft Entra ID and on-premises Active Directory but don't have a [hybrid Microsoft Entra ID](/azure/active-directory/devices/concept-azure-ad-join-hybrid) instance. The Configuration Manager environment includes a single primary site with all site system roles located on the same server, the site server. This tutorial begins with the premise that your Windows devices are already enrolled with Intune.\n \n If you have a hybrid Microsoft Entra instance that joins on-premises Active Directory with Microsoft Entra ID, we recommend following our companion tutorial, [Enable co-management for Configuration Manager clients](tutorial-co-manage-clients.md).\n \n Use this tutorial when:\n \n-- You have Windows 10 or later devices to bring into co-management. These devices might have been provisioned through Windows Autopilot or might be direct from your hardware OEM.\n-- You have Windows 10 or later devices on the internet that you currently manage with Intune, and you want to add the Configuration Manager client to them.\n+- You have Windows devices to bring into co-management. These devices might have been provisioned through Windows Autopilot or might be direct from your hardware OEM.\n+- You have Windows devices on the internet that you currently manage with Intune, and you want to add the Configuration Manager client to them.\n \n In this tutorial, you will:\n > [!div class=\"checklist\"]\n@@ -63,6 +63,10 @@ In this tutorial, you will:\n Throughout this tutorial, use the following permissions to complete tasks:\n \n - An account that's a *Global Administrator* for Microsoft Entra ID\n+\n+  > [!IMPORTANT]\n+  > [!INCLUDE [global-administrator](../includes/global-administrator-configmgr.md)]\n+\n - An account that's a *Domain Administrator* on your on-premises infrastructure\n - An account that's a *Full Administrator* for *all* scopes in Configuration Manager\n \n@@ -85,8 +89,7 @@ About this certificate:\n \n When you request the CMG server authentication certificate, you specify what must be a unique name to identify your cloud service (classic) in Azure. By default, the Azure public cloud uses *cloudapp.net*, and the CMG is hosted within the *cloudapp.net* domain as *\\<YourUniqueDnsName>.cloudapp.net*.\n \n-> [!TIP]\n-> In this tutorial, the CMG server authentication certificate uses a fully qualified domain name (FQDN) that ends in *contoso.com*.  After you create the CMG, you'll configure a canonical name record (CNAME) in your organization's public DNS. This record creates an alias for the CMG that maps to the name that you use in the public certificate.\n+In this tutorial, the CMG server authentication certificate uses a fully qualified domain name (FQDN) that ends in *contoso.com*.  After you create the CMG, you'll configure a canonical name record (CNAME) in your organization's public DNS. This record creates an alias for the CMG that maps to the name that you use in the public certificate.\n \n Before you request your public certificate, confirm that the name you want to use is available in Azure. You don't directly create the service in Azure. Instead, Configuration Manager uses the name that's specified in the public certificate to create the cloud service when you install the CMG.\n \n@@ -197,18 +200,18 @@ Run the following procedure from the primary site server:\n \n 2. On the **App Properties** page, for **Web app**, select **Browse** to open the **Server App** dialog. Select **Create**, and then configure the following fields:\n \n-   - **Application Name**: Specify a friendly name for the app, such as **Cloud Management web app**.\n+    - **Application Name**: Specify a friendly name for the app, such as **Cloud Management web app**.\n \n-   - **HomePage URL**: Configuration Manager doesn't use this value, but Microsoft Entra ID requires it. By default, this value is `https://ConfigMgrService`.\n+    - **HomePage URL**: Configuration Manager doesn't use this value, but Microsoft Entra ID requires it. By default, this value is `https://ConfigMgrService`.\n \n-   - **App ID URI**: This value needs to be unique in your Microsoft Entra tenant. It's in the access token that the Configuration Manager client uses to request access to the service. By default, this value is `https://ConfigMgrService`. Change the default to one of the following recommended formats:<!-- 10617402 -->\n+    - **App ID URI**: This value needs to be unique in your Microsoft Entra tenant. It's in the access token that the Configuration Manager client uses to request access to the service. By default, this value is `https://ConfigMgrService`. Change the default to one of the following recommended formats:<!-- 10617402 -->\n \n-     - `api://{tenantId}/{string}`, for example, `api://5e97358c-d99c-4558-af0c-de7774091dda/ConfigMgrService`\n-     - `https://{verifiedCustomerDomain}/{string}`, for example, `https://contoso.onmicrosoft.com/ConfigMgrService`\n+      - `api://{tenantId}/{string}`, for example, `api://5e97358c-d99c-4558-af0c-de7774091dda/ConfigMgrService`\n+      - `https://{verifiedCustomerDomain}/{string}`, for example, `https://contoso.onmicrosoft.com/ConfigMgrService`\n \n-   Next, select **Sign in**, and specify a Microsoft Entra Global Administrator account. Configuration Manager doesn't save these credentials. This persona doesn't require permissions in Configuration Manager and doesn't need to be the same account that runs the Azure Services Wizard.\n+    Next, select **Sign in**, and specify a Microsoft Entra Global Administrator account. Configuration Manager doesn't save these credentials. This persona doesn't require permissions in Configuration Manager and doesn't need to be the same account that runs the Azure Services Wizard.\n \n-   After you sign in, the results appear. Select **OK** to close the **Create Server Application** dialog and return to the **App Properties** page.\n+    After you sign in, the results appear. Select **OK** to close the **Create Server Application** dialog and return to the **App Properties** page.\n \n 3. For **Native Client app**, select **Browse** to open the **Client app** dialog.\n \n@@ -288,7 +291,7 @@ Use this procedure to install a cloud management gateway as a service in Azure.\n \n ### Create DNS CNAME records\n \n-When you create a DNS entry for the CMG, you enable your Windows 10 or later devices both inside and outside your corporate network to use name resolution to find the CMG cloud service in Azure.\n+When you create a DNS entry for the CMG, you enable your Windows devices both inside and outside your corporate network to use name resolution to find the CMG cloud service in Azure.\n \n Our CNAME record example is *MyCMG.contoso.com*, which becomes *MyCMG.cloudapp.net*. In the example:\n \n@@ -373,9 +376,9 @@ We recommend that you create a suitable collection before you start the procedur\n \n ## Use Intune to deploy the Configuration Manager client\n \n-You can use Intune to install the Configuration Manager client on Windows 10 or later devices that are currently only managed with Intune.\n+You can use Intune to install the Configuration Manager client on Windows devices that are currently only managed with Intune.\n \n-Then, when a previously unmanaged Windows 10 or later device enrolls with Intune, it automatically installs the Configuration Manager client.\n+Then, when a previously unmanaged Windows device enrolls with Intune, it automatically installs the Configuration Manager client.\n \n > [!NOTE]\n > If you're planning to deploy the Configuration Manager client to devices going through Windows Autopilot, we recommend that you target users for the assignment of the Configuration Manager client instead of devices.\n",
+      "baseCommitSha": "4ac5ca69ac592468b54bb26ef64f2583ed424182",
+      "commitSha": "96147fdbd72e86b1a25719f0ce2ce227e334588e",
+      "commitMessage": "GA in tenant attach and comanage",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-18T11:59:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/comanage/tutorial-co-manage-new-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/comanage/tutorial-co-manage-new-devices",
+      "firstSeenAt": "2026-02-18T16:59:05.000Z",
+      "eventId": "intune-docs:96147fdbd72e86b1a25719f0ce2ce227e334588e:modified:intune/configmgr/comanage/tutorial-co-manage-new-devices.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA in tenant attach and comanage",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/comanage/tutorial-co-manage-new-devices.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/tenant-attach/device-sync-actions.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 5,
+      "changes": 18,
+      "patch": "diff --git a/intune/configmgr/tenant-attach/device-sync-actions.md b/intune/configmgr/tenant-attach/device-sync-actions.md\nindex 558f227fec..1504523d68 100644\n--- a/intune/configmgr/tenant-attach/device-sync-actions.md\n+++ b/intune/configmgr/tenant-attach/device-sync-actions.md\n@@ -32,12 +32,16 @@ When co-management is already enabled, edit the co-management properties to enab\n 1. Check the option to **Enforce Role-based Access Control** for the devices uploading to cloud service. By default, SCCM RBAC is enforced along with Intune RBAC when you're uploading your Configuration Manager devices to the cloud service. Hence, the checkbox is checked by default. If you want to enforce only Intune RBAC or if you're using cloud-only account, you must uncheck the option.\n 1. Check the option to **Enable Uploading Microsoft Defender for Endpoint data for reporting on devices uploaded to Microsoft Intune admin center** if you want to use [Endpoint Security reports in Intune admin center](deploy-antivirus-policy.md#bkmk_mdereports)\n \n-> [!Important]\n-> When you enable Endpoint analytics data upload, your default client settings is automatically updated to allow managed endpoints to send relevant data to your Configuration Manager site server. If you use custom client settings, you may need to update and re-deploy them for data collection to occur. For more information on this, as well as how to configure data collection, such as to limit collection only to a specific set of devices, see the section on [Configuring Endpoint analytics data collection](../../endpoint-analytics/index.md).\n+    > [!Important]\n+    > When you enable Endpoint analytics data upload, your default client settings is automatically updated to allow managed endpoints to send relevant data to your Configuration Manager site server. If you use custom client settings, you may need to update and re-deploy them for data collection to occur. For more information on this, as well as how to configure data collection, such as to limit collection only to a specific set of devices, see the section on [Configuring Endpoint analytics data collection](../../endpoint-analytics/index.md).\n \n- [![Screenshot that shows how to upload devices to Microsoft Intune admin center.](../../configmgr/tenant-attach/media/13058986-configure-upload-configmgr.png)](../../configmgr/tenant-attach/media/13058986-configure-upload-configmgr.png#lightbox)\n+    [![Screenshot that shows how to upload devices to Microsoft Intune admin center.](../../configmgr/tenant-attach/media/13058986-configure-upload-configmgr.png)](../../configmgr/tenant-attach/media/13058986-configure-upload-configmgr.png#lightbox)\n+\n+1. Sign in with a **Global Administrator** account when prompted.\n+\n+    > [!IMPORTANT]\n+    > [!INCLUDE [global-administrator](../includes/global-administrator-configmgr.md)]\n \n-1. Sign in with your *Global Administrator* account when prompted.\n 1. Select **Yes** to accept the **Create Microsoft Entra Application** notification. This action provisions a service principal and creates a Microsoft Entra application registration to facilitate the sync.\n 1. Choose **OK** to exit the co-management properties once you've done making changes.\n \n@@ -55,7 +59,11 @@ When co-management isn't enabled, use the instructions below to enable device up\n 1. In the ribbon, select **Configure Cloud Attach** to open the wizard. For version 2103 and earlier, select **Configure co-management** to open the wizard.\n 1. On the onboarding page, select **AzurePublicCloud** for your environment. Azure Government Cloud and Azure China 21Vianet aren't supported.\n    - Starting in version 2107, US Government customers can select **AzureUSGovernmentCloud**.<!-- 8353823 -->\n-1. Select **Sign In**. Use your *Global Administrator* account to sign in.\n+1. Select **Sign In** and sign in with the **Global Administrator** account.\n+\n+    > [!IMPORTANT]\n+    > [!INCLUDE [global-administrator](../includes/global-administrator-configmgr.md)]\n+\n 1. Ensure the **Enable Microsoft Endpoint Manager admin center** option is selected on the **Cloud attach** page. For version 2103 and earlier, select the **Upload to Microsoft Endpoint Manager admin center** option on the **Tenant onboarding** page.\n    - Make sure the option **Enable automatic client enrollment for co-management** isn't checked if you don't want to enable co-management now. If you do want to enable co-management, select the option.\n    - If you enable co-management along with device upload, there will be given additional pages in the wizard to complete. For more information, see [Enable co-management](../comanage/how-to-enable.md).\n",
+      "baseCommitSha": "4ac5ca69ac592468b54bb26ef64f2583ed424182",
+      "commitSha": "96147fdbd72e86b1a25719f0ce2ce227e334588e",
+      "commitMessage": "GA in tenant attach and comanage",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-18T11:59:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/tenant-attach/device-sync-actions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/tenant-attach/device-sync-actions",
+      "firstSeenAt": "2026-02-18T16:59:05.000Z",
+      "eventId": "intune-docs:96147fdbd72e86b1a25719f0ce2ce227e334588e:modified:intune/configmgr/tenant-attach/device-sync-actions.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA in tenant attach and comanage",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/tenant-attach/device-sync-actions.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/tenant-attach/prerequisites.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/tenant-attach/prerequisites.md b/intune/configmgr/tenant-attach/prerequisites.md\nindex a730822049..e7bccd0eac 100644\n--- a/intune/configmgr/tenant-attach/prerequisites.md\n+++ b/intune/configmgr/tenant-attach/prerequisites.md\n@@ -20,9 +20,12 @@ The Microsoft Intune family of products is an integrated solution for managing a\n \n ## Prerequisites\n \n-- An account that is a *Global Administrator* for signing in when applying this onboarding change. For more information, see [Microsoft Entra administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-ad-administrator-roles).\n+- An account that is a **[Microsoft Entra Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)** for signing in when applying this onboarding change.\n \n-  - Onboarding creates a third-party app and a first party service principal in your Microsoft Entra tenant.\n+  Onboarding creates a third-party app and a first party service principal in your Microsoft Entra tenant.\n+\n+  > [!IMPORTANT]\n+  > [!INCLUDE [global-administrator](../includes/global-administrator-configmgr.md)]\n \n - An Azure cloud environment.\n \n",
+      "baseCommitSha": "4ac5ca69ac592468b54bb26ef64f2583ed424182",
+      "commitSha": "96147fdbd72e86b1a25719f0ce2ce227e334588e",
+      "commitMessage": "GA in tenant attach and comanage",
+      "commitAuthor": "Mandi Ohlinger",
+      "commitDate": "2026-02-18T11:59:05-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/tenant-attach/prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/tenant-attach/prerequisites",
+      "firstSeenAt": "2026-02-18T16:59:05.000Z",
+      "eventId": "intune-docs:96147fdbd72e86b1a25719f0ce2ce227e334588e:modified:intune/configmgr/tenant-attach/prerequisites.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "GA in tenant attach and comanage",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/tenant-attach/prerequisites.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/windows-enroll.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/intune-service/enrollment/windows-enroll.md b/intune/intune-service/enrollment/windows-enroll.md\nindex 5327e4dd29..32c213fa12 100644\n--- a/intune/intune-service/enrollment/windows-enroll.md\n+++ b/intune/intune-service/enrollment/windows-enroll.md\n@@ -1,7 +1,7 @@\n ---\n title: Enable MDM automatic enrollment for Windows | Microsoft Intune\n description: Enable Intune automatic enrollment for Windows devices joining or registering with your Microsoft Entra ID.\n-ms.date: 02/13/2026\n+ms.date: 02/18/2026\n ms.topic: how-to\n ms.reviewer: maholdaa\n ms.collection:\n",
+      "baseCommitSha": "0cbf48b5cd3d9d7ad14454ed0518bc3922cf3615",
+      "commitSha": "2be807bc45d5eabfeb9a8bbc14c83385cfdbc477",
+      "commitMessage": "Refreshed image",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-02-18T12:23:19-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/windows-enroll.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/windows-enroll",
+      "firstSeenAt": "2026-02-18T17:23:19.000Z",
+      "eventId": "intune-docs:2be807bc45d5eabfeb9a8bbc14c83385cfdbc477:modified:intune/intune-service/enrollment/windows-enroll.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Refreshed image",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/enrollment/windows-enroll.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/enrollment/windows-enroll.md b/intune/intune-service/enrollment/windows-enroll.md\nindex 32c213fa12..7605fbc0f5 100644\n--- a/intune/intune-service/enrollment/windows-enroll.md\n+++ b/intune/intune-service/enrollment/windows-enroll.md\n@@ -72,9 +72,9 @@ This article describes how to enable automatic mobile device management (MDM) en\n    > If your intent is to enable automatic MDM enrollment for Windows BYOD devices, select **All** or **Some** for the MDM user scope. Then make sure the WIP user scope is **None** or **Some**, and that users are not members of both user scopes.\n \n 1. Use the default values for these URLs:\n-   - **MDM Terms of use URL**\n-   - **MDM Discovery URL**\n-   - **MDM Compliance URL**\n+   - **MDM terms of use URL**\n+   - **MDM discovery URL**\n+   - **MDM compliance URL**\n \n 1. You have the option to control if users in an automatic enrollment configuration on Microsoft Entra registered devices are prompted to MDM enroll their device in the work or school account registration flow (referring to [Add Your Work or School Account to a Windows Device](https://support.microsoft.com/windows/add-your-work-or-school-account-to-a-windows-device-a6505ceb-1a20-4b15-889c-250175481506)). To control the behavior of the flow, use the **Disable MDM enrollment when adding work or school account** setting.\n \n",
+      "baseCommitSha": "2be807bc45d5eabfeb9a8bbc14c83385cfdbc477",
+      "commitSha": "d256ab217e7ddff7faa12f39d96f9899c34c75d9",
+      "commitMessage": "Correct capitalization in MDM URLs section",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-02-18T12:31:50-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/enrollment/windows-enroll.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/windows-enroll",
+      "firstSeenAt": "2026-02-18T17:31:50.000Z",
+      "eventId": "intune-docs:d256ab217e7ddff7faa12f39d96f9899c34c75d9:modified:intune/intune-service/enrollment/windows-enroll.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Correct capitalization in MDM URLs section",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/33247081.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/33247081.md b/intune/configmgr/hotfix/2509/33247081.md\nindex 5ba311e805..ad8680be87 100644\n--- a/intune/configmgr/hotfix/2509/33247081.md\n+++ b/intune/configmgr/hotfix/2509/33247081.md\n@@ -29,7 +29,7 @@ To establish a secure HTTPS connection, Connected Cache distribution point cache\n ## Update information for Microsoft Endpoint Configuration Manager, version 2409, 2503, and 2509\n The following hotfix to resolve this problem is available for download from the Microsoft Download Center:\n \n-[Download this hotfix now](https://download.microsoft.com/download/ef20d1a6-82e7-49c8-9b7d-f47891cf27e3/DoincInstall.exe).\n+[Download this hotfix now](https://download.microsoft.com/download/b35fef69-7780-455c-abba-d2771c504e4b/DoincInstall.exe).\n \n ## Prerequisites\n To apply this hotfix, you must be using Microsoft Endpoint Configuration Manager, versions 2409, 2503, and 2509.\n",
+      "baseCommitSha": "c16e5c976ce18e478efc080b821d5b0ee613a869",
+      "commitSha": "a947706ff3cc82a58d6738f507b069acdaa3f8b9",
+      "commitMessage": "Fix download link for hotfix in Connected Cache documentation for Configuration Manager versions 2409, 2503, and 2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-02-18T12:05:33-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/33247081.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/33247081",
+      "firstSeenAt": "2026-02-18T18:05:33.000Z",
+      "eventId": "intune-docs:a947706ff3cc82a58d6738f507b069acdaa3f8b9:modified:intune/configmgr/hotfix/2509/33247081.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix download link for hotfix in Connected Cache documentation for Configuration Manager versions 2409, 2503, and 2509",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/33247081.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/33247081.md b/intune/configmgr/hotfix/2509/33247081.md\nindex ad8680be87..5ba311e805 100644\n--- a/intune/configmgr/hotfix/2509/33247081.md\n+++ b/intune/configmgr/hotfix/2509/33247081.md\n@@ -29,7 +29,7 @@ To establish a secure HTTPS connection, Connected Cache distribution point cache\n ## Update information for Microsoft Endpoint Configuration Manager, version 2409, 2503, and 2509\n The following hotfix to resolve this problem is available for download from the Microsoft Download Center:\n \n-[Download this hotfix now](https://download.microsoft.com/download/b35fef69-7780-455c-abba-d2771c504e4b/DoincInstall.exe).\n+[Download this hotfix now](https://download.microsoft.com/download/ef20d1a6-82e7-49c8-9b7d-f47891cf27e3/DoincInstall.exe).\n \n ## Prerequisites\n To apply this hotfix, you must be using Microsoft Endpoint Configuration Manager, versions 2409, 2503, and 2509.\n",
+      "baseCommitSha": "a947706ff3cc82a58d6738f507b069acdaa3f8b9",
+      "commitSha": "69d80f875778fb4dfb96cb5f4f01f468f7f78d39",
+      "commitMessage": "Fix download link for hotfix in Connected Cache documentation for Configuration Manager version 2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-02-18T13:08:58-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/33247081.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/33247081",
+      "firstSeenAt": "2026-02-18T19:08:58.000Z",
+      "eventId": "intune-docs:69d80f875778fb4dfb96cb5f4f01f468f7f78d39:modified:intune/configmgr/hotfix/2509/33247081.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Fix download link for hotfix in Connected Cache documentation for Configuration Manager version 2509",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/33247081.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/33247081.md b/intune/configmgr/hotfix/2509/33247081.md\nindex 5ba311e805..843d387659 100644\n--- a/intune/configmgr/hotfix/2509/33247081.md\n+++ b/intune/configmgr/hotfix/2509/33247081.md\n@@ -1,5 +1,5 @@\n ---\n-title: Connected cache update for Microsoft Endpoint Configuration Manager version 2509\n+title: Microsoft Connected Cache update for Microsoft Endpoint Configuration Manager version 2509\n description: Console update for 2509\n ms.date: 2/11/2026\n ms.subservice: core-infra\n@@ -18,9 +18,9 @@ manager: dougeby\n \n An update is available to resolve the following issues with Configuration Manager current branch, version 2409, 2503, and 2509.\n \n-- Customers using the Microsoft Connected Cache behind a proxy servers that may require absolute URLs (URLs that contain the server name and requested resource path) and not relative URLs (URLs that contain only the path to the requested resource). This changes complies with HTTP RFC 2616 section 5.1.2: [RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1](https://datatracker.ietf.org/doc/html/rfc2616#section-5.1.2) and HTTP RFC 7230 section 5.3.2: [RFC 7230 - Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing](https://datatracker.ietf.org/doc/html/rfc7230#section-5.3.2).\n-- Organizations can now configure their Configuration Manager distribution point cache nodes to deliver content over HTTPS. This enhancement enables Connected Cache to support secure delivery of Intune-managed Win32 applications which will require delivery via https in the future and, for the first time, Microsoft Teams content. All other content types will continue to be delivered via HTTP.\n-To establish a secure HTTPS connection, Connected Cache distribution point cache nodes must present a valid TLS certificate to client devices. Unlike the process required to enable https delivery on Microsoft Connected Cache for Enterprise and Education, customers must use their PKI to generate the necessary certificates to be used for content delivery.\n+- Customers using the Microsoft Connected Cache (MCC) behind a proxy servers that may require absolute URLs (URLs that contain the server name and requested resource path) and not relative URLs (URLs that contain only the path to the requested resource). This changes complies with HTTP RFC 2616 section 5.1.2: [RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1](https://datatracker.ietf.org/doc/html/rfc2616#section-5.1.2) and HTTP RFC 7230 section 5.3.2: [RFC 7230 - Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing](https://datatracker.ietf.org/doc/html/rfc7230#section-5.3.2).\n+- Organizations can now configure their Configuration Manager distribution point cache nodes to deliver content over HTTPS. This enhancement enables Connected Cache to support secure delivery of Intune-managed Win32 applications which will require delivery via HTTPS in the future and, for the first time, Microsoft Teams content. All other content types will continue to be delivered via HTTP.\n+To establish a secure HTTPS connection, Connected Cache distribution point cache nodes must present a valid TLS certificate to client devices. Unlike the process required to enable HTTPS delivery on Microsoft Connected Cache for Enterprise and Education, customers must use their PKI to generate the necessary certificates to be used for content delivery.\n - Office content delivery (including updates and installations) OCDI compliant CDN endpoints have been added to the supported hostnames, including but not limited to: \n    - *static.microsoft\n    - *fg.tscdn.m365.static.microsoft\n@@ -89,7 +89,7 @@ Expected result: BytesFromCacheServer should be greater than 0, indicating succe\n \n > Please note: You may encounter a known issue where the Intune content is not cached until requested three time from the cache server. This is due to a known issue where the Intune CDN returns the VARY header on content requests which is an instruction to not cache content.\n \n-There are three possible results to determine whether https downloads from Microsoft Connected Cache are functioning properly:\n+There are three possible results to determine whether HTTPS downloads from Microsoft Connected Cache are functioning properly:\n 1.\t“CDN” and “DOINC” bytes are equal value. This means 100% of the bytes came from cache.\n 2.\t“DOINC” bytes are zero. This means that 100% of the bytes came from CDN.\n 3.\t“CDN” greater than “DOINC” bytes. This means partial bytes came from cache server.\n",
+      "baseCommitSha": "69d80f875778fb4dfb96cb5f4f01f468f7f78d39",
+      "commitSha": "2b29c48a14ced8f8089fe60bf5e9b9366df076b0",
+      "commitMessage": "Update title and enhance clarity in Connected Cache documentation for Configuration Manager version 2509",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-02-18T13:40:20-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/33247081.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/33247081",
+      "firstSeenAt": "2026-02-18T19:40:20.000Z",
+      "eventId": "intune-docs:2b29c48a14ced8f8089fe60bf5e9b9366df076b0:modified:intune/configmgr/hotfix/2509/33247081.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update title and enhance clarity in Connected Cache documentation for Configuration Manager version 2509",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/intune-service/fundamentals/multi-admin-approval.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/intune/intune-service/fundamentals/multi-admin-approval.md b/intune/intune-service/fundamentals/multi-admin-approval.md\nindex f926d7d5da..e239f4d394 100644\n--- a/intune/intune-service/fundamentals/multi-admin-approval.md\n+++ b/intune/intune-service/fundamentals/multi-admin-approval.md\n@@ -3,7 +3,7 @@ title: Use Multi Admin Approval in Intune\n description: Configure Multi Admin Approval to protect your tenant against the use of compromised administrative accounts in Intune.\n author: brenduns\n ms.author: brenduns\n-ms.date: 09/16/2025\n+ms.date: 02/23/2026\n ms.topic: how-to\n ms.reviewer: davidra\n ms.collection:\n@@ -22,7 +22,9 @@ When any account in the Tenant is used to make a change to a resource that's pro\n \n Access policies are supported for the following resources:\n \n-- Apps – Applies to [app deployments](../apps/apps-add.md), but doesn't apply to app protection policies.\n+- Apps – Applies to [app deployments](../apps/apps-add.md), but doesn't apply to app protection policies.  \n+- Compliance policies - Applies to creating and managing [compliance policies](../protect/create-compliance-policy.md).  \n+- Configuration policies - Applies to creating and managing policies via the [settings catalog](../configuration/settings-catalog.md).  \n - Device actions - Applies to [wipe](../remote-actions/device-wipe.md), [retire](../remote-actions/device-retire.md) and [delete](../remote-actions/device-delete.md) device actions.\n - Role-based access control – Applies to changes to roles, including modifications to role permissions, admin groups, or member group assignments.\n - Scripts – Applies to deploying scripts to devices that run [Windows](../apps/powershell-scripts.md).\n",
+      "baseCommitSha": "0a9a3e886094e321973f80a2dc03c966575288bc",
+      "commitSha": "749733aee734154ca81a1b9c7ac9c981c34c5abe",
+      "commitMessage": "Update Multi Admin Approval documentation",
+      "commitAuthor": "Laura Newsad",
+      "commitDate": "2026-02-18T14:50:16-05:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/intune-service/fundamentals/multi-admin-approval.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/multi-admin-approval",
+      "firstSeenAt": "2026-02-18T19:50:16.000Z",
+      "eventId": "intune-docs:749733aee734154ca81a1b9c7ac9c981c34c5abe:modified:intune/intune-service/fundamentals/multi-admin-approval.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update Multi Admin Approval documentation",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/multi-admin-approval.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2509/33247081.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "changes": 12,
+      "patch": "diff --git a/intune/configmgr/hotfix/2509/33247081.md b/intune/configmgr/hotfix/2509/33247081.md\nindex 843d387659..e41b784a95 100644\n--- a/intune/configmgr/hotfix/2509/33247081.md\n+++ b/intune/configmgr/hotfix/2509/33247081.md\n@@ -36,13 +36,14 @@ To apply this hotfix, you must be using Microsoft Endpoint Configuration Manager\n \n Configure the Configuration Manager distribution point's IIS with your TLS certificate. Follow the instructions to [Example PKI certificate deployment - Configuration Manager | Microsoft Learn](../../core/plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).\n \n+\n >*Please Note: Enhanced HTTP will not work for Microsoft Connected Cache content distribution.* When you enable Enhanced HTTP, the site server generates a self-signed certificate and is intended for client and ConfigMgr DP communications only.*\n \n After you download this hotfix and confirmed the prerequisites, refer to the following installation instructions.\n \n ## Installation instructions\n 1. Confirm there is not currently an installation of the MCC component in progress. This is done by checking for status message **9522**, generated by the `SMS_DISTRIBUTION_MANAGER` component. The 9522 message indicates that installation is no longer being retried.\n-2. Copy the new version of `DoincInstall.exe`, version **1.5.5.9002**, to the `{SMSInstallDir}\\bin\\x64` folder on all site servers, including the Central Administration Site (CAS) if present, and any passive sites.\n+2. Copy the new version of `DoincInstall.exe`, version **1.5.6.44280**, to the `{SMSInstallDir}\\bin\\x64` folder on all site servers, including the Central Administration Site (CAS) if present, and any passive sites.\n 3. Uncheck the **Enable this distribution point to be used as Microsoft Connected Cache server** option in the affected distribution point’s properties.\n 4. Wait for the uninstall of MCC to complete on the distribution point. This can be confirmed by looking for a **9152** success status message, combined with the following entry in `distmgr.log`.\n    ```text\n@@ -94,13 +95,12 @@ There are three possible results to determine whether HTTPS downloads from Micro\n 2.\t“DOINC” bytes are zero. This means that 100% of the bytes came from CDN.\n 3.\t“CDN” greater than “DOINC” bytes. This means partial bytes came from cache server.\n \n-## Hotfix replacement information\n-This hotfix replaces the following previously released hotfix.\n+## File information\n \n-[KB5001600 Microsoft Connected Cache component fails to install on Configuration Manager current branch](../../hotfix/2010/5001600.md)\n+| File Name | File version | File size | Date |\n+|---|---|---|---| \n+| DoincInstall.exe | 1.5.6.44280 | 31.1 MB | 2/18/2026 |\n \n-## File information\n-File information is available in the downloadable [KB14978429_FileList.txt](https://aka.ms/KB14978429_FileList) text file.\n \n ## Release history\n - February 18, 2026: Initial hotfix release\n",
+      "baseCommitSha": "2b29c48a14ced8f8089fe60bf5e9b9366df076b0",
+      "commitSha": "429d93d868a3e83fe81f3d51680274e7ca06841e",
+      "commitMessage": "Update DoincInstall.exe version to 1.5.6.44280 in hotfix documentation for Configuration Manager",
+      "commitAuthor": "sccmavenger",
+      "commitDate": "2026-02-18T17:54:25-06:00",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2509/33247081.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2509/33247081",
+      "firstSeenAt": "2026-02-18T23:54:25.000Z",
+      "eventId": "intune-docs:429d93d868a3e83fe81f3d51680274e7ca06841e:modified:intune/configmgr/hotfix/2509/33247081.md",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Update DoincInstall.exe version to 1.5.6.44280 in hotfix documentation for Configuration Manager",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 10,
+    "totalFiles": 17,
+    "authors": [
+      "Laura Newsad",
+      "Mandi Ohlinger",
+      "rogersoMS",
+      "sccmavenger"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 17 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "Windows Autopilot",
+        "summary": "Updated Microsoft Intune documentation in autopilot/oem-registration.md. Updated Microsoft Intune documentation in autopilot/partner-registration.md. Updated Microsoft Intune documentation in autopilot/registration-auth.md.",
+        "sourceFiles": [
+          "autopilot/oem-registration.md",
+          "autopilot/partner-registration.md",
+          "autopilot/registration-auth.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/intune-service",
+        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/multi-admin-approval.md.",
+        "sourceFiles": [
+          "intune/intune-service/fundamentals/remote-help.md",
+          "intune/intune-service/enrollment/windows-enroll.md",
+          "intune/intune-service/enrollment/windows-enroll.md",
+          "intune/intune-service/fundamentals/multi-admin-approval.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "Updated Microsoft Intune documentation in intune/configmgr/comanage/how-to-enable.md. Updated Microsoft Intune documentation in intune/configmgr/comanage/overview.md. Updated Microsoft Intune documentation in intune/configmgr/comanage/tutorial-co-manage-clients.md. Updated Microsoft Intune documentation in intune/configmgr/comanage/tutorial-co-manage-new-devices.md. Updated Microsoft Intune documentation in intune/configmgr/tenant-attach/device-sync-actions.md. Updated Microsoft Intune documentation in intune/configmgr/tenant-attach/prerequisites.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md. Updated Microsoft Intune documentation in intune/configmgr/",
+        "sourceFiles": [
+          "intune/configmgr/comanage/how-to-enable.md",
+          "intune/configmgr/comanage/overview.md",
+          "intune/configmgr/comanage/tutorial-co-manage-clients.md",
+          "intune/configmgr/comanage/tutorial-co-manage-new-devices.md",
+          "intune/configmgr/tenant-attach/device-sync-actions.md",
+          "intune/configmgr/tenant-attach/prerequisites.md",
+          "intune/configmgr/hotfix/2509/33247081.md",
+          "intune/configmgr/hotfix/2509/33247081.md",
+          "intune/configmgr/hotfix/2509/33247081.md",
+          "intune/configmgr/hotfix/2509/33247081.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "Windows Autopilot",
+        "detail": "Updated Microsoft Intune documentation in autopilot/oem-registration.md. Updated Microsoft Intune documentation in autopilot/partner-registration.md. Updated Microsoft Intune documentation in autopilot/registration-auth.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/intune-service",
+        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/multi-admin-approval.md."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "Updated Microsoft Intune documentation in intune/configmgr/comanage/how-to-enable.md. Updated Microsoft Intune documentation in intune/configmgr/comanage/overview.md. Updated Microsoft Intune documentation in intune/configmgr/comanage/tutorial-co-manage-clients.md. Updated Microsoft Intune documentation in intune/configmgr/comanage/tutorial-co-manage-new-devices.md. Updated Microsoft Intune documentation in intune/configmgr/tenant-attach/device-sync-actions.md. Updated Microsoft Intune documentation in intune/configmgr/tenant-attach/prerequisites.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md. Updated Microsoft Intune documentation in intune/configmgr/"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

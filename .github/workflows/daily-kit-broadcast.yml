@@ -101,6 +101,7 @@ jobs:
         KIT_DRAFT_MODE: ${{ inputs.draft_mode }}
         KIT_SCHEDULE_DELAY_MINUTES: "5"
         KIT_SEND_VERIFICATION_GRACE_MINUTES: "30"
+        KIT_RECONCILIATION_START_DATE: "2026-08-07"
         AUTO_MODE: ${{ steps.report.outputs.auto }}
         REPORT_DATE: ${{ steps.report.outputs.date }}
       run: |

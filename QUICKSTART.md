@@ -21,6 +21,10 @@ Add these secrets:
 - `KIT_DAILY_FORM_EMBED_SRC`: Public HTTPS `src` value from the Kit form's JavaScript embed
 - `HEALTHCHECKS_PING_URL`: Private Healthchecks.io ping URL for the scheduled pipeline check
 
+Add this repository variable under the **Variables** tab:
+
+- `USERJOT_PROJECT_ID`: Public UserJot project ID for the site feedback widget
+
 The workflow uses the OpenAI Responses API with `gpt-5.6-luna` and `xhigh` reasoning. It summarizes every diff separately and makes one additional grouping request when multiple diffs are detected. If the key is missing or an API request fails, the site, JSON, Discord feed, and email use deterministic fallback text.
 
 ## Step 3: Test Locally (Optional)

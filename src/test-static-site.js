@@ -218,6 +218,27 @@ test('daily email form falls back safely when Kit public configuration is missin
   assert.doesNotMatch(trusted.dailyEmailForm(), /<script/);
 });
 
+test('UserJot is configured from a validated project ID and omitted safely otherwise', () => {
+  const missing = new StaticSiteGenerator();
+  const missingHtml = `${missing.head('Test', 'Test', '/test/')}${missing.footer()}`;
+  assert.doesNotMatch(missingHtml, /cdn\.userjot\.com|data-userjot-feedback|window\.uj\.init/);
+
+  const invalid = new StaticSiteGenerator({ userJotProjectId: "bad'id" });
+  const invalidHtml = `${invalid.head('Test', 'Test', '/test/')}${invalid.footer()}`;
+  assert.doesNotMatch(invalidHtml, /cdn\.userjot\.com|data-userjot-feedback|window\.uj\.init/);
+
+  const configured = new StaticSiteGenerator({ userJotProjectId: 'intune-project-123' });
+  const configuredHtml = `${configured.head('Test', 'Test', '/test/')}${configured.footer()}`;
+  assert.match(configuredHtml, /https:\/\/cdn\.userjot\.com\/sdk\/v2\/uj\.js/);
+  assert.match(configuredHtml, /window\.uj\.init\('intune-project-123',\{widget:true,theme:'auto',position:'right'\}\)/);
+  assert.match(configuredHtml, /data-userjot-feedback/);
+});
+
+test('the workflow forwards the UserJot repository variable to site builds', async () => {
+  const workflow = await fs.readFile(path.join(__dirname, '..', '.github', 'workflows', 'daily-docs-monitor.yml'), 'utf8');
+  assert.equal((workflow.match(/USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/g) || []).length, 2);
+});
+
 test('static generator writes indexable archive and detail pages', async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'intune-daily-'));
   const websiteDir = path.join(root, 'website');
@@ -299,6 +320,7 @@ test('static generator writes indexable archive and detail pages', async () => {
     mcDataPath,
     detailDays: 60,
     generatedAt: '2026-08-04T09:00:00Z',
+    userJotProjectId: 'intune-test-project',
     kitDailyFormUid: 'daily-form-123',
     kitDailyFormEmbedSrc: 'https://daily-intune-news.kit.com/daily-form-123/index.js'
   });
@@ -336,7 +358,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(indexHtml, /name="twitter:card" content="summary_large_image"/);
   for (const html of [indexHtml, dayHtml, weekIndexHtml, monthHtml, docDetailHtml, messageDetailHtml, aboutHtml]) {
     assert.match(html, /https:\/\/cdn\.userjot\.com\/sdk\/v2\/uj\.js/);
-    assert.match(html, /window\.uj\.init\('cmsf6dr5931kz0ipdm14g1qbt',\{widget:true,theme:'auto',position:'right'\}\)/);
+    assert.match(html, /window\.uj\.init\('intune-test-project',\{widget:true,theme:'auto',position:'right'\}\)/);
     assert.doesNotMatch(html, /uj\.identify/);
   }
   assert.equal((indexHtml.match(/cdn\.userjot\.com\/sdk\/v2\/uj\.js/g) || []).length, 1);

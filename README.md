@@ -61,6 +61,10 @@ Add these repository secrets for the public inline subscription form configurati
 - **`KIT_DAILY_FORM_UID`**: The public `data-uid` from Kit's JavaScript form embed
 - **`KIT_DAILY_FORM_EMBED_SRC`**: The HTTPS `src` URL from Kit's JavaScript form embed; only Kit or ConvertKit hosts are accepted by the site generator
 
+Add this public value under **Settings → Secrets and variables → Actions → Variables**:
+
+- **`USERJOT_PROJECT_ID`**: The project ID from UserJot; when omitted or invalid, the feedback widget and footer button are not generated
+
 The workflow defaults to `gpt-5.6-luna` with `xhigh` reasoning and three concurrent per-diff requests. Every material diff receives its own English summary. When a report contains multiple diffs, one additional Luna request groups related changes into a daily digest. You can override `OPENAI_SUMMARY_MODEL`, `OPENAI_SUMMARY_REASONING_EFFORT`, and `OPENAI_SUMMARY_CONCURRENCY`, or disable AI generation with `OPENAI_SUMMARY_ENABLED=false`. Deterministic fallbacks keep report generation, Discord delivery, and email working if OpenAI is unavailable.
 
 ### Discord setup

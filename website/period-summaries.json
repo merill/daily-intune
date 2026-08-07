@@ -6271,6 +6271,52 @@
         "outputTokens": 1338,
         "costUsd": 0.00188
       }
+    },
+    "2026-08-07": {
+      "headline": "Intune guidance flags registry exposure, approval boundaries, and macOS enrollment risks",
+      "overview": "The 7 August period is documentation-heavy: all 32 recorded items are updates, with no new, removed, or Message Center entries. The most consequential changes clarify security exposure, Multi Admin Approval scope, macOS enrollment prerequisites, Microsoft Tunnel installation requirements, and Windows Autopilot network endpoints. The supplied evidence does not establish a new feature launch, general availability change, retirement, or broad product behavior change.",
+      "adminImpact": "Prioritize reviews of registry-inventory permissions and privacy handling, Multi Admin Approval automation, PSSO profile assignments for userless ADE devices, Microsoft Tunnel host prerequisites, and Autopilot firewall allowlists. Treat the remaining updates as targeted documentation corrections or reference maintenance unless they affect a specific deployment.",
+      "keyChanges": [
+        {
+          "title": "Registry inventory data is explicitly identified as sensitive configuration information",
+          "detail": "The Collect Device Properties guidance now states that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. This is security and privacy guidance, not evidence that the permission model changed; review access and handling of the collected data.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-collect-device-properties-19"
+        },
+        {
+          "title": "Multi Admin Approval guidance defines delegated and app-authenticated Graph coverage",
+          "detail": "The guidance now clarifies that MAA applies to delegated actions and app-authenticated Microsoft Graph API calls when policies are configured. Per-policy enterprise application exclusions for app-auth calls are limited to 50 applications, require second-admin approval, and are audited; excluded applications can bypass approval for the affected resource type.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-use-multi-admin-approval-in-intune-32"
+        },
+        {
+          "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
+          "detail": "The Automated Device Enrollment guidance warns that targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and exclude those devices.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
+        },
+        {
+          "title": "Microsoft Tunnel on RHEL 9.8 requires manual ip_tables loading",
+          "detail": "The prerequisites now list Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default. Because RHEL 9.8 does not automatically load the ip_tables kernel module, administrators must load it manually before installing Microsoft Tunnel.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
+        },
+        {
+          "title": "Windows Autopilot diagnostics guidance replaces regional upload endpoints",
+          "detail": "The Endpoints page replaces the previous regional lgmsape...blob.core.windows.net entries with a larger list of amsu...lmsas.blob.core.windows.net endpoints. Administrators managing outbound firewall or allowlist rules should review the new list to support Windows Autopilot diagnostics uploads.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-08-07-endpoints-22"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-07T11:03:29.508Z",
+      "usage": {
+        "inputTokens": 4853,
+        "outputTokens": 4295,
+        "costUsd": 0.006125
+      }
     }
   },
   "weeks": {
@@ -7653,31 +7699,49 @@
       }
     },
     "2026-08-03": {
-      "headline": "MDM Firewall and ASR policies expose policy-level, not per-setting, status",
-      "overview": "The week’s substantive Intune update clarified Endpoint Security reporting: Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM show policy-level status only, while per-setting status requires devices enrolled with Defender for Endpoint security settings management. The other update corrected procedure numbering in Monitor Device Profile. The supplied evidence indicates documentation clarification rather than a feature launch, preview, general-availability change, retirement, or product behavior change.",
-      "adminImpact": "Set reporting expectations for MDM-managed Firewall Rules and ASR Rules policies: policy-level status does not include per-setting statuses. If per-setting status is required, devices must be enrolled with Defender for Endpoint security settings management. The Monitor Device Profile renumbering requires no tenant action.",
+      "headline": "Per-setting firewall and ASR reporting requires Defender security settings management",
+      "overview": "The week of 3 August 2026 was quiet in release terms: all 34 recorded items were documentation updates, with no new, removed, or Message Center entries. Most edits were wording, links, examples, or navigation, but several clarified consequential reporting limits, enrollment risks, data sensitivity, API handling, and infrastructure prerequisites. The evidence supports documentation clarification and operational guidance—not a new Intune launch, general-availability announcement, or retirement.",
+      "adminImpact": "Prioritize review of MDM Firewall Rules and ASR reporting expectations, registry inventory access, userless macOS ADE profile assignments, Multi Admin Approval integrations, and Microsoft Tunnel installation prerequisites. Apply administrator action only where the updated guidance states a concrete requirement; the supplied records do not establish broader product availability changes.",
       "keyChanges": [
         {
-          "title": "Firewall and ASR per-setting reporting limitation clarified",
-          "detail": "The Firewall documentation states that per-setting reporting is available for most Endpoint Security policies, but MDM-managed Firewall Rules and ASR Rules policies are limited to policy-level status. Per-setting status for those policies requires enrollment with Defender for Endpoint security settings management.",
-          "product": "Intune — Endpoint security",
+          "title": "MDM Firewall Rules and ASR Rules have policy-level reporting limits",
+          "detail": "The Firewall page adds an IMPORTANT note that per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM provide only policy-level status and no per-setting reporting statuses. Viewing per-setting status requires devices to be enrolled with Defender for Endpoint security settings management. This is a reporting-scope clarification, so align monitoring expectations accordingly.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Monitor Device Profile procedure steps were renumbered",
-          "detail": "The reporting procedure now labels “Go back to Device and user check-in status and select View report” as step 6 instead of step 5, and the following policy-property information step as 7 instead of 6. This is a documentation procedure correction, not evidence of a functional change.",
-          "product": "Intune — Endpoint analytics",
-          "sourceId": "doc-2026-08-06-monitor-device-profile-01"
+          "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
+          "detail": "The Automated Device Enrollment guidance warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Doing so can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and exclude userless ADE devices from these profiles.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
+        },
+        {
+          "title": "Registry inventory data carries an explicit permissions and privacy warning",
+          "detail": "Collect Device Properties now states that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Review the security and privacy implications of those permissions and the registry data being collected; the update does not describe a new permission model.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-collect-device-properties-19"
+        },
+        {
+          "title": "Multi Admin Approval Graph integrations need revised error handling",
+          "detail": "The Microsoft Graph guidance now specifies HTTP 400 when approval headers are missing. A pending approval returns HTTP 412 (Precondition Failed), a Microsoft Graph BadRequest code, and an x-msft-approval-code header. Integrations should preserve the original method, URL, and request body so the request can be resubmitted after approval.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-use-multi-admin-approval-with-the-microsoft-graph-api-15"
+        },
+        {
+          "title": "Microsoft Tunnel prerequisites add RHEL 9.8 and manual ip_tables loading",
+          "detail": "The prerequisites page now lists Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default and notes that RHEL 9.8 does not automatically load the ip_tables kernel module. Administrators installing Microsoft Tunnel on RHEL 9.8 should manually load ip_tables before installation.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "generatedAt": "2026-08-07T11:03:29.508Z",
       "usage": {
-        "inputTokens": 1202,
-        "outputTokens": 1679,
-        "costUsd": 0.002255
+        "inputTokens": 5217,
+        "outputTokens": 6425,
+        "costUsd": 0.008753
       }
     }
   },
@@ -8005,58 +8069,76 @@
       }
     },
     "2026-08": {
-      "headline": "MDM Firewall and ASR reporting stays policy-level without Defender enrollment",
-      "overview": "August’s two Intune updates were documentation clarifications rather than a feature launch. The Firewall page now states that MDM-managed Firewall Rules and Attack Surface Reduction (ASR) Rules policies provide policy-level status only, while per-setting status requires devices enrolled with Defender for Endpoint security settings management. Monitor Device Profile received corrected procedure numbering.",
-      "adminImpact": "Set expectations that MDM-managed Firewall Rules and ASR Rules policies do not provide per-setting reporting. If per-setting status is needed, the affected devices must be enrolled with Defender for Endpoint security settings management. The Monitor Device Profile numbering correction requires no tenant configuration change.",
+      "headline": "Per-setting Firewall and ASR reporting requires Defender for Endpoint security settings management",
+      "overview": "The supplied August change log is documentation-only: all 34 records were updates, with no new, removed, or Message Center items. Most edits concern terminology, links, formatting, or scope clarification. The most consequential guidance covers Endpoint Security reporting, registry-inventory exposure, macOS ADE and PSSO assignments, Multi Admin Approval, and Microsoft Tunnel prerequisites. A Windows Sync page references the Preview new device view toggle, but the evidence does not establish a new launch, general availability, retirement, or changed tenant behavior.",
+      "adminImpact": "Set reporting expectations for Firewall Rules and ASR based on the enrollment model; review access to registry inventory; audit PSSO assignments to userless ADE devices; review Multi Admin Approval automation and app-auth exclusions; and load ip_tables on RHEL 9.8 Tunnel hosts before installation. These are targeted checks supported by updated guidance, not evidence of a broad product rollout.",
       "keyChanges": [
         {
-          "title": "Firewall and ASR MDM policies have limited reporting",
-          "detail": "The Firewall documentation clarifies that, although per-setting reporting is available for most Endpoint Security policies, Firewall Rules and ASR Rules policies managed through MDM report policy-level status only. Per-setting status requires devices enrolled with Defender for Endpoint security settings management.",
+          "title": "MDM Firewall and ASR reporting is limited to policy-level status",
+          "detail": "The added Important note says per-setting reporting is available for most Endpoint Security policies. For Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM, reporting is limited to policy-level status and does not include per-setting reporting statuses. Devices must be enrolled with Defender for Endpoint security settings management to view per-setting status. This clarifies the documented reporting boundary rather than announcing a new reporting rollout.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Monitor Device Profile procedure steps were renumbered",
-          "detail": "The procedure now identifies “Go back to Device and user check-in status and select View report” as step 6 instead of step 5, and the subsequent policy-property review as step 7 instead of step 6. This is a documentation correction, not evidence of changed product behavior.",
+          "title": "Registry inventory data is accessible through existing Device Inventory permissions",
+          "detail": "Collect Device Properties now notes that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Review who has those permissions and whether the registry data collected is appropriate; the record does not indicate a new permission grant or product behavior change.",
           "product": "Intune",
-          "sourceId": "doc-2026-08-06-monitor-device-profile-01"
+          "sourceId": "doc-2026-08-07-collect-device-properties-19"
+        },
+        {
+          "title": "PSSO profiles can disrupt userless macOS Automated Device Enrollment",
+          "detail": "The macOS Automated Device Enrollment guidance warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Such targeting can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and do not target these profiles to userless ADE devices.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
+        },
+        {
+          "title": "Multi Admin Approval guidance clarifies delegated and app-authenticated Graph calls",
+          "detail": "The guidance now states that Multi Admin Approval covers delegated actions and app-authenticated Microsoft Graph API calls when policies are already configured. Per-policy enterprise application exclusions for app-auth calls have a 50-application limit, require second-admin approval, and are audit logged; excluded app-auth applications can bypass approval for the affected resource type. Review service-principal access, approver Read permissions, direct group membership, and application exclusions.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-use-multi-admin-approval-in-intune-32"
+        },
+        {
+          "title": "Microsoft Tunnel on RHEL 9.8 requires manual ip_tables loading",
+          "detail": "The Microsoft Tunnel prerequisites now list Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default. Because RHEL 9.8 does not automatically load the ip_tables kernel module, administrators using it should load ip_tables manually before installing Tunnel. This is updated prerequisite guidance, not evidence of a new Tunnel release.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-07T06:20:38.899Z",
+      "generatedAt": "2026-08-07T11:03:29.508Z",
       "usage": {
-        "inputTokens": 1677,
-        "outputTokens": 1144,
-        "costUsd": 0.001708
+        "inputTokens": 5697,
+        "outputTokens": 8969,
+        "costUsd": 0.011902
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-07T08:38:38.622Z",
+  "generatedAt": "2026-08-07T11:03:29.508Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
     "2026-08-07": {
-      "inputTokens": 2768632,
-      "outputTokens": 1357889,
-      "requests": 209,
-      "costUsd": 2.183193
+      "inputTokens": 2784399,
+      "outputTokens": 1377578,
+      "requests": 212,
+      "costUsd": 2.209973
     }
   },
   "lastRun": {
-    "inputTokens": 1523255,
-    "outputTokens": 907946,
-    "requests": 161,
-    "costUsd": 1.394186
+    "inputTokens": 15767,
+    "outputTokens": 19689,
+    "requests": 3,
+    "costUsd": 0.02678
   },
   "totalUsage": {
-    "inputTokens": 2768632,
-    "outputTokens": 1357889,
-    "requests": 209,
-    "costUsd": 2.183193
+    "inputTokens": 2784399,
+    "outputTokens": 1377578,
+    "requests": 212,
+    "costUsd": 2.209973
   }
 }

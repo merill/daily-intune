@@ -422,6 +422,10 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(indexHtml, /class="story-description">This readable summary explains the configuration baseline change in full/);
   assert.match(indexHtml, /class="right-rail month-stats-rail period-product-rail day-rail"/);
   assert.match(indexHtml, /Day by product/);
+  assert.match(siteCss, /\.left-rail \.product-list a[^}]*text-decoration:none/);
+  assert.match(siteCss, /\.left-rail \.topic-rail \.plain-list a/);
+  assert.match(siteCss, /\.detail-aside \.plain-list a/);
+  assert.match(siteCss, /\.period-product-rail \.rail-count-list a:hover[^}]*background:var\(--green-soft\)[^}]*box-shadow:inset 3px 0 0 var\(--green\)/);
   assert.match(indexHtml, /class="mini-calendar"/);
   assert.match(indexHtml, /aria-label="August 2026 change calendar"/);
   assert.match(indexHtml, /aria-label="1 August 2026, 2 changes"/);

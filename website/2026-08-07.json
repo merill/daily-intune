@@ -1,17 +1,988 @@
 {
   "newFiles": [],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/deployment/assign-groups.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/intune/app-management/deployment/assign-groups.md b/intune/app-management/deployment/assign-groups.md\nindex 152288dde8..908e187593 100644\n--- a/intune/app-management/deployment/assign-groups.md\n+++ b/intune/app-management/deployment/assign-groups.md\n@@ -1,7 +1,7 @@\n ---\n title: Assign Apps to Groups in Microsoft Intune\n description: Learn how to assign an Intune app to groups of users or devices using Microsoft Intune.\n-ms.date: 12/03/2025\n+ms.date: 08/06/2026\n ms.topic: how-to\n ms.collection:\n - M365-identity-device-management\n@@ -12,8 +12,6 @@ ms.collection:\n \n After you [add an app](./index.md) to Microsoft Intune, you can assign the app to users and devices. You can deploy an app to a device whether or not the device is managed by Intune.\n \n-> [!NOTE]\n-> The **Available for enrolled devices** deployment intent is supported for **user groups** and **device groups**. This applies when targeting Android Enterprise fully managed devices (COBO) and Android Enterprise corporate-owned personally enabled (COPE) devices.\n \n ## Options when assigning managed apps\n \n@@ -36,7 +34,11 @@ The following table lists the various options when *assigning* apps to users and\n >\n > Device users with devices that aren’t enrolled in Intune must open their organization’s Company Portal and install app updates manually.\n > \n-> For almost all app types and platforms, *Available assignments* are only valid when assigning to user groups, not device groups. Win32 apps can be assigned to either user or device groups.\n+> For almost all app types and platforms, *Available assignments* are only valid when assigning to user groups, not device groups.\n+> \n+> The exceptions to this rule are:\n+> 1. Win32 apps can be assigned to either user or device groups as *Available*.\n+> 2. Apps targeting Android Enterprise fully managed devices (COBO) and Android Enterprise corporate-owned personally enabled (COPE) can be assigned to either user or device groups as *Available*.\n >\n > If managed Google Play preproduction track apps are assigned as required on Android Enterprise personally owned work profile devices, they don't install on the device. To work around this issue, create two identical user groups. Assign the preproduction track as \"available\" to one group and \"required\" to the other group. The result is that the preproduction track successfully deploys to the device.\n \n",
+      "baseCommitSha": "ec3d8a93c7b531f0f9e7e13fd058f74a900e51cc",
+      "commitSha": "d4228b11f3bbe8694322e5f813bf0b166d59e424",
+      "commitMessage": "Update app assignment options in documentation (#20405)",
+      "commitAuthor": "mabutc",
+      "commitDate": "2026-08-06 15:57:26 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/deployment/assign-groups.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/assign-groups",
+      "eventId": "intune-docs:d4228b11f3bbe8694322e5f813bf0b166d59e424:modified:intune/app-management/deployment/assign-groups.md",
+      "firstSeenAt": "2026-08-07T10:33:15.825Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Clarified exceptions for available app assignments",
+        "summary": "The documentation now explicitly states that Available assignments can target device groups for Win32 apps and apps targeting Android Enterprise fully managed (COBO) and corporate-owned personally enabled (COPE) devices. The documentation date changed from 12/03/2025 to 08/06/2026.",
+        "adminImpact": "Administrators can use this clarification when choosing user or device groups for Available app assignments; it documents existing assignment guidance rather than announcing a new feature.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 499232764b..02dfb658cf 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -569,6 +569,7 @@ For setup and validation guidance, see:\n Enrollment time grouping is now generally available for Apple automated device enrollment (ADE) on iOS/iPadOS and macOS. With enrollment time grouping, you can identify a device's Microsoft Entra security group during enrollment, so policies, apps, and settings can be applied earlier in the setup process.\n \n Enrollment time grouping is supported in new Apple ADE enrollment policies. For requirements and setup details, see [Set up enrollment time grouping](../device-enrollment/setup-time-grouping.md).  \n+With the enrollment time grouping availability to iOS/iPadOS and macOS, we're also making the new Apple enrollment policies experience avaialble. Please check our previous blog post to learn more. (https://techcommunity.microsoft.com/blog/intunecustomersuccess/new-iosipados-visionos-tvos-and-macos-ade-enrollment-policies-experience/4393531)\n \n ### Device management\n \n",
+      "baseCommitSha": "f3757732134ca1e0c0ee8a16b097b495e8f90462",
+      "commitSha": "ec3d8a93c7b531f0f9e7e13fd058f74a900e51cc",
+      "commitMessage": "Update index.md with enrollment time grouping details (#20418)",
+      "commitAuthor": "Iris Yuning Ye",
+      "commitDate": "2026-08-06 18:48:53 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:ec3d8a93c7b531f0f9e7e13fd058f74a900e51cc:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-08-07T10:33:15.863Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Intune What's New adds Apple enrollment policy availability details",
+        "summary": "The page now notes that enrollment time grouping is available for iOS/iPadOS and macOS, along with the new Apple enrollment policies experience, and links to a previous blog post.",
+        "adminImpact": "Apple enrollment administrators should review the linked blog post for more information; no required action is specified.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/certificates/pkcs-profiles.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "changes": 7,
+      "patch": "diff --git a/intune/device-configuration/certificates/pkcs-profiles.md b/intune/device-configuration/certificates/pkcs-profiles.md\nindex 220c1de5d2..99dde5f291 100644\n--- a/intune/device-configuration/certificates/pkcs-profiles.md\n+++ b/intune/device-configuration/certificates/pkcs-profiles.md\n@@ -1,7 +1,7 @@\n ---\n title: Use a PKCS certificate profile to provision devices with certificates in Microsoft Intune\n description: Use Public Key Cryptography Standards (PKCS) certificates with Microsoft Intune, work with root certificates and certificate templates, and use device configuration profiles for a PKCS Certificate.\n-ms.date: 11/19/2024\n+ms.date: 08/06/2026\n ms.topic: how-to\n ---\n # Configure and use PKCS certificates with Intune\n@@ -22,6 +22,9 @@ For information about using imported PKCS certificates, see [Imported PFX Certif\n > [!TIP]\n > *PKCS certificate* profiles are supported for [Windows Enterprise multi-session remote desktops](../../solutions/azure-virtual-desktop-multi-session.md).\n \n+> [!NOTE]\n+> Device configuration profiles including PKCS certificate profile aren't supported on Microsoft Teams devices running AOSP.\n+\n ## Requirements\n \n To use PKCS certificates with Intune, you need the following infrastructure:\n@@ -401,4 +404,4 @@ Platforms:\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "79acad27482ae1e74730c1c6e00de383f29ecdab",
+      "commitSha": "f3757732134ca1e0c0ee8a16b097b495e8f90462",
+      "commitMessage": "Update PKCS profiles documentation with support notes (#20589)",
+      "commitAuthor": "minakash",
+      "commitDate": "2026-08-07 07:46:55 +0900",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/certificates/pkcs-profiles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/certificates/pkcs-profiles",
+      "eventId": "intune-docs:f3757732134ca1e0c0ee8a16b097b495e8f90462:modified:intune/device-configuration/certificates/pkcs-profiles.md",
+      "firstSeenAt": "2026-08-07T10:33:15.881Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "PKCS profiles documentation adds Teams on AOSP limitation",
+        "summary": "The PKCS profiles article was updated with a note that device configuration profiles, including PKCS certificate profiles, aren’t supported on Microsoft Teams devices running AOSP. The document date changed from November 19, 2024, to August 6, 2026.",
+        "adminImpact": "Administrators managing Microsoft Teams devices running AOSP should not rely on PKCS certificate profiles through device configuration profiles.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-macos.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-macos.md b/intune/device-enrollment/apple/setup-automated-macos.md\nindex 7704d7244c..0176ff035d 100644\n--- a/intune/device-enrollment/apple/setup-automated-macos.md\n+++ b/intune/device-enrollment/apple/setup-automated-macos.md\n@@ -89,6 +89,8 @@ At the end of this procedure, you can assign this policy to Microsoft Entra devi\n 1. On the **Configuration settings** tab, configure **User Affinity**. *User affinity* determines whether devices enroll with or without an assigned user. Your options:\n \n     * **Enroll without User Affinity**:  Enroll devices that aren't associated with a single user. Choose this option for shared devices and devices that don't need to access local user data. The Company Portal app doesn't work on these types of devices. Enrolling without user affinity is also referred to as enrolling *userless*.\n+   > [!IMPORTANT]\n+   >  Do not target Platform SSO (PSSO) configuration profiles that enable PSSO registration during Setup Assistant to userless Automated Device Enrollment (ADE) devices. Doing so can cause unexpected enrollment behavior and results in the device losing expected affinity. See [Configure platform SSO during enrollment](/configure-platform-sso-during-enrollment)\n     * **Enroll with User Affinity**: Enroll devices that are associated with an assigned user. Choose this option for work devices that belong to users, and if you want to require users to have the Company Portal app to install apps. Multifactor authentication (MFA) is available with this option. Enrolling with user affinity is also referred to as enrolling with a *user*.\n \n       Option 2 requires more configurations. Users must authenticate themselves before enrollment to confirm their identity. Select one of the following authentication methods:\n@@ -232,4 +234,4 @@ Optionally, you can select a default enrollment policy. The default policy is de\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "37fa6d4385938baa53928311df8d3d05443347a2",
+      "commitSha": "8ab5ff19866e07dfe9fcdfb0621ba08d142cd03c",
+      "commitMessage": "Add warning about PSSO and userless ADE devices (#20540)",
+      "commitAuthor": "Iris Yuning Ye",
+      "commitDate": "2026-08-06 18:40:37 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/apple/setup-automated-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-macos",
+      "eventId": "intune-docs:8ab5ff19866e07dfe9fcdfb0621ba08d142cd03c:modified:intune/device-enrollment/apple/setup-automated-macos.md",
+      "firstSeenAt": "2026-08-07T10:33:15.946Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Warning added for PSSO profiles on userless ADE devices",
+        "summary": "The macOS Automated Device Enrollment documentation now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. This can cause unexpected enrollment behavior and loss of expected device affinity.",
+        "adminImpact": "Review profile assignments and do not target these PSSO profiles to userless ADE devices.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 17,
+      "changes": 18,
+      "patch": "diff --git a/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md b/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md\nindex 4c39f1ae1e..c2acaa60fd 100644\n--- a/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md\n+++ b/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md\n@@ -1,7 +1,7 @@\n ---\n title: Manually register Microsoft Entra apps\n description: Manually create the required apps in Microsoft Entra ID to integrate the Configuration Manager site to support the cloud management gateway (CMG).\n-ms.date: 03/11/2022\n+ms.date: 08/06/2026\n ms.subservice: core-infrastructure\n ms.topic: how-to\n ms.collection: tier3\n@@ -106,14 +106,6 @@ First, you need to make note of the **Microsoft Entra tenant name** and **tenant\n \n     1. Select **Add scope** to save.\n \n-1. In the menu of the app properties, select **Manifest**. Set the **oauth2AllowIdTokenImplicitFlow** entry to **true**. For example:\n-\n-    ```json\n-    \"oauth2AllowIdTokenImplicitFlow\": true,\n-    ```\n-\n-    Select **Save**.\n-\n The web (server) app for CMG is now registered in Microsoft Entra ID.\n \n \n@@ -155,14 +147,6 @@ The web (server) app for CMG is now registered in Microsoft Entra ID.\n \n     1. On the API permissions pane, select **Grant admin consent for...**, and then select **Yes**.\n \n-1. In the menu of the app properties, select **Manifest**. Set the **oauth2AllowIdTokenImplicitFlow** entry to **true**. For example:\n-\n-    ```json\n-    \"oauth2AllowIdTokenImplicitFlow\": true,\n-    ```\n-\n-    Select **Save**.\n-\n The native (client) app for CMG is now registered in Microsoft Entra ID. This step also concludes the process in the Azure portal. The role of the Microsoft Entra Global Administrator is done.\n \n ## Import the apps to Configuration Manager\n",
+      "baseCommitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitSha": "37fa6d4385938baa53928311df8d3d05443347a2",
+      "commitMessage": "Remove oauth2AllowIdTokenImplicitFlow instructions (#20533)",
+      "commitAuthor": "Yuta Honda",
+      "commitDate": "2026-08-07 07:37:43 +0900",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps",
+      "eventId": "intune-docs:37fa6d4385938baa53928311df8d3d05443347a2:modified:intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+      "firstSeenAt": "2026-08-07T10:33:15.968Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Removed oauth2AllowIdTokenImplicitFlow setup instructions",
+        "summary": "The manual Azure AD app registration article no longer instructs administrators to set `oauth2AllowIdTokenImplicitFlow` to `true` in the app manifest. The article date changed from 03/11/2022 to 08/06/2026.",
+        "adminImpact": "Administrators using this guide should follow the updated steps and no longer apply the removed manifest setting based on this documentation.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/app-management/ref-protected-apps.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/intune/app-management/ref-protected-apps.md b/intune/app-management/ref-protected-apps.md\nindex ee69ed201e..b5acde4211 100644\n--- a/intune/app-management/ref-protected-apps.md\n+++ b/intune/app-management/ref-protected-apps.md\n@@ -224,7 +224,6 @@ Apps table.\n | :::no-loc text=\"ixArma\"::: <p><img alt=\"Partner app - ixArma icon\" src=\"./media/ref-protected-apps/icon-p-ixarma.png\" width=\"100\">| IxArma app 6 is the mobile part of alarm server management for ixArma 6, enabling comprehensive business continuity management for any alarm scenario. Users of the ixArma 6 app can rapidly respond to incidents and emergencies in real time and on the go. The ixArma 6 app is browser independent and simple to operate.<p>The IxArma provides the following functionality:<ul><li>Alarms of different priorities according to predefined alarm scenarios and plans</li><li>Alarms of various priorities with visual and acoustic signaling</li><li>Interactive alarms with updates in real time</li><li>Acknowledge or reject alarm, also with PIN</li><li>Alarm progress and control monitoring in real time</li><li>Fully server-based app management</li><li>Mass SMS notification</li><li>Multilingual (DE, FR, IT, EN)</li><li>MDM version available on request</li></ul><p>**NOTE:** ixArma 6 app doesn't work with older version of ixArma 5. Don't upgrade your app unless your ixArma is version 6. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.inax.ixarmav6&pli=1),<br>[App Store link (iOS)](https://apps.apple.com/gb/app/ixarma-6/id1582838799) |\n | :::no-loc text=\"Jump AI\"::: <p><img alt=\"Partner app - Jump AI icon\" src=\"./media/ref-protected-apps/icon-p-jump-ai.png\" width=\"100\"> | Jump AI provides mobile tools to capture and manage meeting information for advisors. The app allows users to record in-person meetings, upload recordings, and generate structured notes and summaries. Users can review upcoming meetings, access past meeting notes, and manage recorded content from their mobile devices while data remains protected through Intune app protection policies. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.jumpapp.mobile.intune),<br>[App Store link (iOS)](https://apps.apple.com/us/app/jump-ai-notetaker/id6475781425) |\n | :::no-loc text=\"KeePassium for Intune\"::: <p><img alt=\"Partner app - KeePassium for Intune icon\" src=\"./media/ref-protected-apps/icon-p-keepassium.png\" width=\"100\">| KeePassium for Intune is a password manager for enterprise, government, and academic organizations managed by Microsoft Intune. The app enables company's administrators to safeguard corporate information by enforcing app configuration and data protection policies.<p>The end-user version of KeePassium is available at http://keepassium.app.<p>**IMPORTANT:** This app requires your company's work account and a managed environment. Some functionality might not be available in all countries/regions. Contact your company's IT administrator if you have issues or questions about this app. | [App Store link (iOS)](https://apps.apple.com/app/id6446429955) |\n-| :::no-loc text=\"Klaxoon for Intune\"::: <p><img alt=\"Partner app - Klaxoon for Intune icon\" src=\"./media/ref-protected-apps/icon-p-kalaxoon.png\" width=\"100\">| Klaxoon for Intune is for Klaxoon customers that enabled Microsoft Intune Mobile Application Management (MAM). Every day, workshops replace traditional meetings and are becoming a more efficient way to drive performance. Klaxoon is a hybrid and complete workspace that enables every type of workshop to be more engaging, mindful, and efficient: ideation workshops, design thinking, project management, customer meetings, team rituals, training sessions, business reviews, and more.  | [App Store link (iOS)](https://apps.apple.com/app/klaxoon-for-intune/id1658568739) |\n | :::no-loc text=\"Kofax Power PDF Mobile\"::: <p><img alt=\"Partner app - Kofax Power PDF Mobile icon\" src=\"./media/ref-protected-apps/kofaxpowerpdf.png\" width=\"100\">| Kofax Power PDF Mobile is an easy-to-use PDF viewer and editor, providing instant access to your PDF files anytime, anywhere. Kofax Power PDF Mobile ensures a high-quality mobile PDF reading experience with a rich set of functions.<p>PDF viewing includes the following capabilities:<ul><li>View PDF packages, comments, attachments, and encrypted documents.</li><li>Choose from single-page view or continuous view.</li><li>Switch between day and night modes to protect your eyes.</li><li>Reach the corresponding page by page number.</li><li>Add and edit bookmarks quickly.</li><li>Search the document.</li><li>Reflow the text for easier reading or keep the original layout.</li></ul>  | [App Store link (iOS)](https://apps.apple.com/us/app/kofax-power-pdf-mobile/id1599500192) |\n | :::no-loc text=\"Leap Work for Intune\"::: <p><img alt=\"Partner app - Leap Work for Intune icon\" src=\"./media/ref-protected-apps/icon-p-leapwork.png\" width=\"100\">| Leap Work is a B2C communication app. Employees can call or send text, voice, and file messages to client's messengers of their choice: WhatsApp&trade;, WeChat&trade;, Telegram&trade;, Line&trade;, SMS, and others. Leap Work is a part of LeapXpert's Federated Messaging Orchestration Platform (FMOP). FMOP concept allows the promotion of messaging to a formal business communication channel, similar to calling or emailing. <br>Use Leap Work to:<br><ul><li>Reach clients on their messengers</li><li>Own and control all company's communication data</li><li>Gather employees and clients communication on one platform</li><li>Allow group chats between employees and clients</li><li>Keep company communication history always available for monitoring and compliance purposes</li></ul> | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.leapxpert.leap.work.intune),<br>[App Store link (iOS)](https://apps.apple.com/sg/app/leap-work-for-intune/id1536700401) |\n | :::no-loc text=\"Lemur Pro for Intune\"::: <p><img alt=\"Partner app - Lemur Pro for Intune icon.\" src=\"./media/ref-protected-apps/icon-p-lemurpro.png\" width=\"100\">| Lemur Pro provides field workers with robust, user-friendly GIS capabilities regardless of network connection. When paired with a supported field service/work order app, your mobile technicians have a complete, integrated workflow to accomplish the following tasks:<ul><li>Get their work and see it on an Esri ArcGIS map</li><li>Understand safety and operational context</li><li>Record work completion</li><li>Update work status</li><li>Submit any updates to your corporate GIS data</li></ul><p>Designed for deployment at scale (100-10,000+users) in large organizations, Lemur allows administrators to preconfigure data and workflows for non-GIS savvy users. In addition, Lemur can be configured to support virtually any type of infrastructure industry field work. | [App Store link (iOS)](https://apps.apple.com/us/app/lemur-pro-for-intune/id6670217408) |\n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/app-management/ref-protected-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/ref-protected-apps",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/app-management/ref-protected-apps.md",
+      "firstSeenAt": "2026-08-07T10:33:16.035Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Klaxoon for Intune removed from protected apps documentation",
+        "summary": "The protected apps reference no longer includes the Klaxoon for Intune entry.",
+        "adminImpact": "Administrators consulting this list will no longer find Klaxoon for Intune there. The diff provides no evidence of a product retirement or required administrative action.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/mam-android.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/mam-android.md b/intune/device-security/microsoft-tunnel/mam-android.md\nindex de59962e99..e0e1004137 100644\n--- a/intune/device-security/microsoft-tunnel/mam-android.md\n+++ b/intune/device-security/microsoft-tunnel/mam-android.md\n@@ -226,7 +226,7 @@ LOB apps that use the MAM tunnel on Android are required to integrate with the I\n \n **Trusted Root Certificates Management**:\n \n-If your application requires SSL/TLS certificates issued by an on-premises or private certificate authority to provide secure access to internal websites and applications, the Intune App SDK has added support for certificate trust management using the API classes [MAMTrustedRootCertsManager](https://microsoftconnect.github.io/ms-intune-app-sdk-android/reference/com/microsoft/intune/mam/client/app/MAMTrustedRootCertsManager.html) and [MAMCertTrustWebViewClient](https://microsoftconnect.github.io/ms-intune-app-sdk-android/reference/com/microsoft/intune/mam/client/app/MAMCertTrustWebViewClient.html).\n+If your application requires SSL/TLS certificates issued by an on-premises or private certificate authority to provide secure access to internal websites and applications, the Intune App SDK has added support for certificate trust management using the API classes [MAMTrustedRootCertsManager](https://github.com/microsoftconnect/ms-intune-app-sdk-android/blob/master/docs/com/microsoft/intune/mam/client/app/MAMTrustedRootCertsManager.html) and [MAMCertTrustWebViewClient](https://github.com/microsoftconnect/ms-intune-app-sdk-android/blob/master/docs/com/microsoft/intune/mam/client/app/MAMCertTrustWebViewClient.html).\n \n **Requirements**:\n \n@@ -282,7 +282,7 @@ You can choose to use MAM Tunnel with enrolled devices instead of using MDM Tunn\n \n ### Android fails to build the certificate chain when you use private certification authority\n \n-When using WebView with [MAMCertTrustWebViewClient](https://microsoftconnect.github.io/ms-intune-app-sdk-android/reference/com/microsoft/intune/mam/client/app/MAMCertTrustWebViewClient.html) in MAM to validate certificates, MAM delegates to Android to build a certificate chain from certificates provided by the admins and the server. If a server that uses private certificates provides the full chain to the connecting WebView but the admin deploys only the root certificate, Android can fail to build the cert chain and fail when checking the server trust. This behavior occurs because Android requires intermediate certificates to build the chain to an acceptable level.\n+When using WebView with [MAMCertTrustWebViewClient](https://github.com/microsoftconnect/ms-intune-app-sdk-android/blob/master/docs/com/microsoft/intune/mam/client/app/MAMCertTrustWebViewClient.html) in MAM to validate certificates, MAM delegates to Android to build a certificate chain from certificates provided by the admins and the server. If a server that uses private certificates provides the full chain to the connecting WebView but the admin deploys only the root certificate, Android can fail to build the cert chain and fail when checking the server trust. This behavior occurs because Android requires intermediate certificates to build the chain to an acceptable level.\n \n **Workaround**: To ensure proper certificate validation, admins must deploy the root certificate and all intermediate certificates in Intune. If the root certificate along with all intermediate certificates aren't deployed, Android can fail to build the certificate chain and fail to trust the server.\n \n@@ -342,4 +342,4 @@ Also see:\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/mam-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/mam-android",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/device-security/microsoft-tunnel/mam-android.md",
+      "firstSeenAt": "2026-08-07T10:33:16.046Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated links in Android MAM certificate trust documentation",
+        "summary": "The page refreshes links for Intune App SDK certificate trust management, including the MAMCertTrustWebViewClient reference, which now points to GitHub documentation.",
+        "adminImpact": "No product or configuration change is indicated. Administrators reviewing Android MAM certificate trust guidance should use the updated links.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md b/intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md\nindex 22ee86f637..f31813d72b 100644\n--- a/intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md\n+++ b/intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md\n@@ -46,10 +46,10 @@ However, should you wish to make the app available to end users via the Intune C\n ### Making CylancePROTECT available to end users\n \n - **Android**\n-  - See the instructions for [adding Android store apps to Microsoft Intune](../../app-management/deployment/add-store-android.md). Use this [CylancePROTECT - Play Store URL](https://play.google.com/store/apps/details?id=com.blackberry.protect) when completing the **Configure app information** section.\n+  - See the instructions for [adding Android store apps to Microsoft Intune](../../app-management/deployment/add-store-android.md).\n \n - **iOS**\n-  - See the instructions for [adding iOS store apps to Microsoft Intune](../../app-management/deployment/add-store-ios.md). Use this [CylancePROTECT - App Store URL](https://apps.apple.com/us/app/cylanceprotect/id1511209199) when completing the **Configure app information** section.\n+  - See the instructions for [adding iOS store apps to Microsoft Intune](../../app-management/deployment/add-store-ios.md).\n \n ### Making Check Point Harmony Mobile Protect available to end users\n \n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md",
+      "firstSeenAt": "2026-08-07T10:33:16.053Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Direct CylancePROTECT store links removed",
+        "summary": "The page now links only to the general Android and iOS store-app instructions; the direct CylancePROTECT Google Play and Apple App Store URLs were removed.",
+        "adminImpact": "Administrators using this guidance will no longer find the app store URLs on this page and may need to locate the appropriate CylancePROTECT listing separately.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/assign-apps.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/assign-apps.md b/intune/device-security/mobile-threat-defense/assign-apps.md\nindex 18c61cbee8..175cfd1692 100644\n--- a/intune/device-security/mobile-threat-defense/assign-apps.md\n+++ b/intune/device-security/mobile-threat-defense/assign-apps.md\n@@ -151,7 +151,7 @@ Use the same Microsoft Entra account previously configured in the [Symantec Endp\n \n ### Sophos Mobile app configuration policy\n \n-Create the iOS app configuration policy as described in the [using iOS app configuration policy](../../app-management/configuration/configure-managed-ios.md) article. For more information, see [Sophos Intercept X for Mobile iOS - Available managed settings](https://support.sophos.com/support/s/article/KBA-000006738) in the Sophos knowledge base.\n+Create the iOS app configuration policy as described in the [using iOS app configuration policy](../../app-management/configuration/configure-managed-ios.md) article.\n \n ### Trellix Mobile Security app configuration policy\n \n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/assign-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/assign-apps",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/device-security/mobile-threat-defense/assign-apps.md",
+      "firstSeenAt": "2026-08-07T10:33:16.058Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Removed a Sophos iOS settings link",
+        "summary": "The article now retains the instruction to create an iOS app configuration policy but removes the linked Sophos Intercept X managed-settings reference.",
+        "adminImpact": "No Intune feature or configuration behavior changed. Administrators should use the updated article; no action is required unless they relied on the removed link.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/blackberry.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/blackberry.md b/intune/device-security/mobile-threat-defense/blackberry.md\nindex 1202a82f0b..1907f0903a 100644\n--- a/intune/device-security/mobile-threat-defense/blackberry.md\n+++ b/intune/device-security/mobile-threat-defense/blackberry.md\n@@ -11,7 +11,6 @@ You can control mobile device access to corporate resources using Conditional Ac\n \n You can configure Conditional Access policies based on a BlackBerry Protect risk assessment, enabled through Intune device compliance policies for enrolled devices. You can set up your policies to allow or block noncompliant devices from accessing corporate resources based on detected threats. For unenrolled devices, you can use app protection policies to enforce a block or selective wipe based on detected threats.\n \n-For more information about how to integrate BlackBerry UES with Microsoft Intune, see the [BlackBerry UES documentation](https://www.blackberry.com/en/secure-communications/blackberry-uem).\n \n ## Supported platforms\n \n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/blackberry.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/blackberry",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/device-security/mobile-threat-defense/blackberry.md",
+      "firstSeenAt": "2026-08-07T10:33:16.065Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "BlackBerry UES documentation link removed",
+        "summary": "The BlackBerry Intune documentation no longer includes the link to BlackBerry UES documentation.",
+        "adminImpact": "Administrators will not find that BlackBerry UES reference on this page; no product feature change is indicated.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/setup-blackberry.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/setup-blackberry.md b/intune/device-security/mobile-threat-defense/setup-blackberry.md\nindex 5e8a14be9c..976c9b6ab3 100644\n--- a/intune/device-security/mobile-threat-defense/setup-blackberry.md\n+++ b/intune/device-security/mobile-threat-defense/setup-blackberry.md\n@@ -7,7 +7,7 @@ ms.topic: how-to\n \n # Connect BlackBerry Protect Mobile MTD connector in Microsoft Intune\n \n-Connect the BlackBerry Protect Mobile MTD connector to monitor and mitigate device risk levels on Intune-managed devices. BlackBerry Protect Mobile (powered by Cylance AI) works by reporting device risk levels to Microsoft Intune. Intune then uses that information to enforce the appropriate app configuration and risk assessment policies. For more information about BlackBerry Protect Mobile, see [Key features of BlackBerry Protect Mobile](https://www.blackberry.com/en/secure-communications/blackberry-uem) (opens BlackBerry UES docs).\n+Connect the BlackBerry Protect Mobile MTD connector to monitor and mitigate device risk levels on Intune-managed devices. BlackBerry Protect Mobile (powered by Cylance AI) works by reporting device risk levels to Microsoft Intune. Intune then uses that information to enforce the appropriate app configuration and risk assessment policies.\n \n This article describes the requirements and steps to connect the MTD connector in your tenant.\n \n@@ -55,7 +55,7 @@ For more information about consent and Microsoft Entra applications, see [Introd\n 5. Select **Add**.\n 6. For **Select the Mobile Threat Defense connector to setup,** choose **CylancePROTECT Mobile**.\n 7. Select **Open the CylancePROTECT Mobile admin console**. Keep the Microsoft Intune admin center tab open for later.\n-8. Sign in with your Microsoft Entra account, and then follow the instructions in [Integrating UES with Intune to respond to mobile threats](https://www.blackberry.com/en/secure-communications/blackberry-uem) (opens BlackBerry UES docs) to complete setup.\n+8. Sign in with your Microsoft Entra account and complete the setup.\n 9. After you finish setup in the UES management console, return to your tab in the Microsoft Intune admin center.\n 10. Under **MDM Compliance Policy Settings**, turn on the following settings:\n     - **Connect Android devices to BlackBerry Protect Mobile**\n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/mobile-threat-defense/setup-blackberry.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/setup-blackberry",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/device-security/mobile-threat-defense/setup-blackberry.md",
+      "firstSeenAt": "2026-08-07T10:33:16.074Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "BlackBerry Protect Mobile setup instructions updated",
+        "summary": "The setup page removes the external BlackBerry UES documentation link from step 8 and now instructs administrators to sign in with their Microsoft Entra account and complete setup.",
+        "adminImpact": "Administrators configuring the existing connector should use the revised step and no longer rely on the removed link.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/user-help/apps/managed-apps-android.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/user-help/apps/managed-apps-android.md b/intune/user-help/apps/managed-apps-android.md\nindex e113e16bcb..34754fb975 100644\n--- a/intune/user-help/apps/managed-apps-android.md\n+++ b/intune/user-help/apps/managed-apps-android.md\n@@ -77,7 +77,7 @@ If there's an app you need but don't see in Company Portal, you can request it f\n \n ### View protected media files with Azure Information Protection app\n \n-The Azure Information Protection (AIP) mobile apps let you view protected emails, PDFs, images, and text files that you can't open with your regular apps for these file types. The mobile viewer app is available for Android devices on [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.ipviewer).\n+The Azure Information Protection (AIP) mobile apps let you view protected emails, PDFs, images, and text files that you can't open with your regular apps for these file types.\n \n For more information about AIP, see [View protected files with Microsoft Purview Information Protection viewer](https://support.microsoft.com/topic/view-protected-files-with-microsoft-purview-information-protection-viewer-9fb56fae-7989-48b0-850f-f446e057cf73).\n \n",
+      "baseCommitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitSha": "52e45a2b0f36b8fec344f8ee73386a13154fcc88",
+      "commitMessage": "2026_07 - Fix monthly broken links (#20574)",
+      "commitAuthor": "Hector",
+      "commitDate": "2026-08-07 05:24:29 +0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/user-help/apps/managed-apps-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/user-help/apps/managed-apps-android",
+      "eventId": "intune-docs:52e45a2b0f36b8fec344f8ee73386a13154fcc88:modified:intune/user-help/apps/managed-apps-android.md",
+      "firstSeenAt": "2026-08-07T10:33:16.086Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Removed Google Play link from Android managed apps documentation",
+        "summary": "The AIP mobile apps description no longer includes the sentence linking to Google Play for the mobile viewer app. The supported viewing description remains.",
+        "adminImpact": "This is a documentation-only change; no Intune administrator action or product change is indicated.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/sync.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-management/actions/sync.md b/intune/device-management/actions/sync.md\nindex da2c32cbca..694622f5ce 100644\n--- a/intune/device-management/actions/sync.md\n+++ b/intune/device-management/actions/sync.md\n@@ -1,7 +1,7 @@\n ---\n title: \"Device Action: Sync\"\n description: Learn how to use the device sync action in Intune to apply policy, app, and configuration updates to managed devices.\n-ms.date: 10/27/2025\n+ms.date: 08/06/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n zone_pivot_groups: 51e33912-415a-402f-8201-8acebf3e4991\n@@ -63,7 +63,6 @@ For more information about the standard Intune policy check-in frequencies, see\n \n After selecting **Sync**, Intune initiates an on-demand synchronization across multiple workloads to help ensure the device reflects the latest admin intent as quickly as possible. This process includes, but isn't limited to:\n \n-- Compliance policy evaluation\n - Configuration policy processing\n - App detection and deployment state updates\n - Script and remediation processing\n@@ -72,7 +71,7 @@ After selecting **Sync**, Intune initiates an on-demand synchronization across m\n You can track the progress of the sync action by selecting the **Device sync status** tab in the device overview pane.\n \n >[!NOTE]\n-> The described sync behavior, including the **Device sync status** tab, applies only to Windows devices.\n+> The described sync behavior, including the **Device sync status** tab, applies only to Windows devices. To see the new device sync improvements, ensure that the 'Preview new device view' toggle is turned ON. This is at the top right of the Intune admin console screen.\n \n ::: zone-end\n \n",
+      "baseCommitSha": "21c5a27ac60a956a205f7b3e592a5c99f546f7bb",
+      "commitSha": "ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d",
+      "commitMessage": "Update sync behavior note for Windows devices (#20586)",
+      "commitAuthor": "Ileana Wu",
+      "commitDate": "2026-08-06 18:21:34 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/sync.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/sync",
+      "eventId": "intune-docs:ab72c1eee4d4024d99659c72aee8fc1dbd0ffc5d:modified:intune/device-management/actions/sync.md",
+      "firstSeenAt": "2026-08-07T10:33:16.106Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Sync documentation adds preview-toggle guidance",
+        "summary": "The sync page now states that its described behavior and Device sync status tab apply only to Windows devices, and instructs administrators to turn on the “Preview new device view” toggle in the top-right of the Intune admin center to see the new device sync improvements.",
+        "adminImpact": "Windows administrators who want to see these improvements must enable the specified preview toggle; the documentation does not establish a new product launch or general availability.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/licensing.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 0,
+      "changes": 13,
+      "patch": "diff --git a/intune/fundamentals/licensing.md b/intune/fundamentals/licensing.md\nindex 0d042c3cf8..e406091fb0 100644\n--- a/intune/fundamentals/licensing.md\n+++ b/intune/fundamentals/licensing.md\n@@ -48,18 +48,31 @@ Intune offers a *device-only subscription* for managing devices that aren't affi\n Assign device licenses based on your estimated usage. Device licenses apply when a device is enrolled through any of the following methods:\n \n - [Windows Autopilot Self-Deploying mode](/autopilot/self-deploying)\n+\n - [Apple Device Enrollment Program without user affinity](../device-enrollment/apple/setup-automated-ios.md)\n+\n - [Apple School Manager without user affinity](../device-enrollment/apple/school-manager.md)\n+\n - [Apple Configurator without user affinity](../device-enrollment/apple/setup-configurator-ios.md)\n+\n - [Android Enterprise dedicated](../device-enrollment/android/setup-dedicated.md)\n+\n - [Using a device enrollment manager account](../device-enrollment/setup-enrollment-manager.md)\n \n+### Device-only management scenarios\n+\n+- Devices managed through a Microsoft Intune device-only subscription support device-targeted management scenarios for eligible enrollment methods, including shared-device and no-user-affinity scenarios.\n+\n+- A signed-in user without an Intune user license doesn't prevent device-targeted policies, applications, or management actions from being processed on a device managed through a device-only subscription.\n+\n ### Device-only license limitations\n \n When a device is enrolled by using a device license, the following Intune functions aren't supported:\n \n - [Intune app protection policies](../app-management/protection/overview.md)\n+\n - [Conditional Access](../device-security/conditional-access-integration/overview.md)\n+\n - User-based management features, such as email and calendaring\n \n ## Unlicensed admin access\n",
+      "baseCommitSha": "dd91e8b0821f10be9fc38180846fcd5850a8a8df",
+      "commitSha": "21c5a27ac60a956a205f7b3e592a5c99f546f7bb",
+      "commitMessage": "Learn Editor: Update licensing.md (#20517)",
+      "commitAuthor": "nufurtad",
+      "commitDate": "2026-08-06 23:21:12 +0100",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/licensing.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/licensing",
+      "eventId": "intune-docs:21c5a27ac60a956a205f7b3e592a5c99f546f7bb:modified:intune/fundamentals/licensing.md",
+      "firstSeenAt": "2026-08-07T10:33:16.126Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Licensing guidance adds device-only management scenarios",
+        "summary": "The licensing documentation now states that Intune device-only subscriptions support eligible shared-device and no-user-affinity enrollment scenarios. It also clarifies that an unlicensed signed-in user does not prevent device-targeted policies, apps, or management actions from processing.",
+        "adminImpact": "Administrators can use this guidance when assessing licensing for shared or user-independent device deployments.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 6,
+      "changes": 19,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md b/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md\nindex 4476d60c8b..12797ce0c9 100644\n--- a/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md\n+++ b/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md\n@@ -1,7 +1,7 @@\n ---\n title: Use Multi Admin Approval with the Microsoft Graph API\n description: Learn how to update your automation scripts and applications to work with Multi Admin Approval enforcement on app-authenticated API calls in Microsoft Intune.\n-ms.date: 06/15/2026\n+ms.date: 08/06/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n ms.reviewer: davidra\n@@ -23,7 +23,7 @@ This article explains how to update your automation to work with the MAA approva\n \n Previously, only interactive (delegated) admin actions were subject to MAA approval workflows. With this change, automated and scripted calls that use app-only tokens are also intercepted by MAA when the target resource is protected by an access policy.\n \n-If your application makes API calls to MAA-protected resources using app-auth and doesn't include the required approval headers, the call returns an HTTP 403 error. The response body indicates that the operation requires Multi Admin Approval.\n+If your application makes API calls to MAA-protected resources using app-auth and doesn't include the required approval headers, the call returns an HTTP 400 error. The response body indicates that the operation requires Multi Admin Approval.\n \n ### Affected resource types\n \n@@ -73,20 +73,27 @@ Without the justification header, the request fails with an error indicating tha\n \n ## Step 2: Handle the approval response\n \n-The request returns an HTTP 403 error with an `ApprovalRequired` error code. This 403 response is expected and doesn't indicate a permissions problem — it's how MAA signals that the request was received and is now waiting for approval. The response includes an `x-msft-approval-code` header that you need for the remaining steps.\n+The request returns an HTTP 412 (`Precondition Failed`) with an outer Microsoft Graph error code of `BadRequest`. This response is expected and doesn't indicate a permissions problem — it's how MAA signals that the request was received and is now waiting for approval. The approval-required details are nested in the error message.\n+\n+The response includes an `x-msft-approval-code` header that you need for the remaining steps. Use the presence of this header together with HTTP 412 as the signal that MAA accepted the request and created an approval request.\n \n Example response:\n \n ```json\n+HTTP/1.1 412 Precondition Failed\n+x-msft-approval-code: aabb1234-5678-9012-abcd-ef0123456789\n+Content-Type: application/json\n+\n {\n   \"error\": {\n-    \"code\": \"ApprovalRequired\",\n-    \"message\": \"Approval Required. Request Approval using the request ID returned as part of the x-msft-approval-code response header. x-msft-approval-code: aabb1234-5678-9012-abcd-ef0123456789\"\n+    \"code\": \"BadRequest\",\n+    \"message\": \"{\\r\\n  \\\"_version\\\": 3,\\r\\n  \\\"Message\\\": \\\"Approval Required. Request Approval using the request ID returned as part of the x-msft-approval-code response header. x-msft-approval-code: aabb1234-5678-9012-abcd-ef0123456789 - Operation ID (for customer support): 00000000-0000-0000-0000-000000000000 - Activity ID: <activity-id> - Url: <service-url>\\\",\\r\\n  \\\"CustomApiErrorPhrase\\\": \\\"\\\",\\r\\n  \\\"RetryAfter\\\": null,\\r\\n  \\\"ErrorSourceService\\\": \\\"\\\",\\r\\n  \\\"HttpHeaders\\\": \\\"{\\\\\\\"x-msft-approval-code\\\\\\\":\\\\\\\"aabb1234-5678-9012-abcd-ef0123456789\\\\\\\"}\\\"\\r\\n}\"\n   }\n }\n ```\n \n-Extract the `x-msft-approval-code` value from the response. You need it in Step 4 after the request is approved.\n+Extract the `x-msft-approval-code` value from the response. Save the original HTTP method, URL, and request body with this value because you must resubmit the same request in Step 4 after approval.\n+\n \n ## Step 3: Wait for approval\n \n",
+      "baseCommitSha": "682f24108004477041c6044265ba4dfd680d57b2",
+      "commitSha": "dd91e8b0821f10be9fc38180846fcd5850a8a8df",
+      "commitMessage": "Fix HTTP error codes in MAA approval documentation (#20612)",
+      "commitAuthor": "shmokash",
+      "commitDate": "2026-08-06 15:10:31 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api",
+      "eventId": "intune-docs:dd91e8b0821f10be9fc38180846fcd5850a8a8df:modified:intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+      "firstSeenAt": "2026-08-07T10:33:16.149Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Multi Admin Approval API documentation corrects response codes",
+        "summary": "The documentation now states that missing approval headers return HTTP 400, while a pending approval returns HTTP 412 (Precondition Failed) with a Microsoft Graph `BadRequest` code and an `x-msft-approval-code` header. It also instructs readers to save the original method, URL, and body for resubmission.",
+        "adminImpact": "Update integrations and error handling to recognize the corrected responses, and preserve the original request details for the post-approval retry.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/prerequisites.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/prerequisites.md b/intune/device-security/microsoft-tunnel/prerequisites.md\nindex 20d13f91ae..b4ac701987 100644\n--- a/intune/device-security/microsoft-tunnel/prerequisites.md\n+++ b/intune/device-security/microsoft-tunnel/prerequisites.md\n@@ -1,7 +1,7 @@\n ---\n title: Prerequisites the Microsoft Tunnel VPN for Microsoft Intune\n description: Review the prerequisites for installation and use of the Microsoft Tunnel Gateway. These include Linux servers, network, and firewall configurations.\n-ms.date: 06/24/2026\n+ms.date: 08/06/2026\n ms.topic: how-to\n ---\n \n@@ -63,6 +63,7 @@ Set up a Linux based virtual machine or a physical server on which to install th\n   | Red Hat (RHEL) 9.5  | Podman 5.2.2 *(default)*   | This version of RHEL doesn't automatically load the *ip_tables* module into the Linux kernel. When you use this version, plan to [manually load the ip_tables](#manually-load-ip_tables) before Tunnel is installed. </br></br> [Containers created by Podman v3 and earlier](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/8.7_release_notes/index#enhancement_containers) aren't usable with Podman v4.2 and later. If upgrading and changing containers, plan to create new containers and to uninstall and then reinstall Microsoft Tunnel. |\n    | Red Hat (RHEL) 9.6  | Podman 5.4.0 *(default)*   | This version of RHEL doesn't automatically load the *ip_tables* module into the Linux kernel. When you use this version, plan to [manually load the ip_tables](#manually-load-ip_tables) before Tunnel is installed. </br></br> [Containers created by Podman v3 and earlier](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/8.7_release_notes/index#enhancement_containers) aren't usable with Podman v4.2 and later. If upgrading and changing containers, plan to create new containers and to uninstall and then reinstall Microsoft Tunnel. |\n   | Red Hat (RHEL) 9.7  | Podman 5.8.2 *(default)*   | This version of RHEL doesn't automatically load the *ip_tables* module into the Linux kernel. When you use this version, plan to [manually load the ip_tables](#manually-load-ip_tables) before Tunnel is installed. </br></br> [Containers created by Podman v3 and earlier](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/8.7_release_notes/index#enhancement_containers) aren't usable with Podman v4.2 and later. If upgrading and changing containers, plan to create new containers and to uninstall and then reinstall Microsoft Tunnel. |\n+  | Red Hat (RHEL) 9.8  | Podman 5.8.2+ *(default)*   | This version of RHEL doesn't automatically load the *ip_tables* module into the Linux kernel. When you use this version, plan to [manually load the ip_tables](#manually-load-ip_tables) before Tunnel is installed. </br></br> [Containers created by Podman v3 and earlier](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/8.7_release_notes/index#enhancement_containers) aren't usable with Podman v4.2 and later. If upgrading and changing containers, plan to create new containers and to uninstall and then reinstall Microsoft Tunnel. |\n    | Red Hat (RHEL) 10.0  | Podman 5.4.0 *(default)*   | This version of RHEL doesn't automatically load the *ip_tables* module into the Linux kernel. When you use this version, plan to [manually load the ip_tables](#manually-load-ip_tables) before Tunnel is installed. </br></br> [Containers created by Podman v3 and earlier](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/8.7_release_notes/index#enhancement_containers) aren't usable with Podman v4.2 and later. If upgrading and changing containers, plan to create new containers and to uninstall and then reinstall Microsoft Tunnel. |\n   | Ubuntu 24.04           | Docker CE               |                    |\n   | Ubuntu 26.04           | Docker CE               |                    |\n",
+      "baseCommitSha": "4fca9d85ff049932c73e5186faf5da252c5cc01e",
+      "commitSha": "682f24108004477041c6044265ba4dfd680d57b2",
+      "commitMessage": "Update prerequisites.md (#20616)",
+      "commitAuthor": "Oluchi",
+      "commitDate": "2026-08-06 15:10:06 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/prerequisites",
+      "eventId": "intune-docs:682f24108004477041c6044265ba4dfd680d57b2:modified:intune/device-security/microsoft-tunnel/prerequisites.md",
+      "firstSeenAt": "2026-08-07T10:33:16.172Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Microsoft Tunnel prerequisites add RHEL 9.8 guidance",
+        "summary": "The prerequisites documentation date changed from June 24, 2026 to August 6, 2026. It adds Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default, noting that RHEL 9.8 does not automatically load the ip_tables kernel module.",
+        "adminImpact": "Administrators using RHEL 9.8 should manually load ip_tables before installing Microsoft Tunnel.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/government-service.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/government-service.md b/intune/fundamentals/government-service.md\nindex 29037adcfa..409dc3c8af 100644\n--- a/intune/fundamentals/government-service.md\n+++ b/intune/fundamentals/government-service.md\n@@ -102,7 +102,7 @@ The following features aren't available and there's currently no planning to sup\n | [Microsoft Connected Cache for Enterprise and Education](/windows/deployment/do/mcc-ent-edu-overview) | n/a |\n | [Microsoft Store for Business](/windows/configuration/store/?tabs=intune) | n/a |\n | On-premises Exchange Connector | n/a |\n-|[Remediations](../device-management/tools/deploy-remediations)|n/a|\n+|[Remediations](../device-management/tools/deploy-remediations.md)|n/a|\n | [Reports for feature update policies](../device-updates/windows/monitor-feature-updates.md) | n/a |\n | [ServiceNow connector](../device-management/tools/setup-servicenow.md) | n/a |\n | [TeamViewer connector (legacy)](../device-management/tools/teamviewer-legacy.md) and [TeamViewer integration](../device-management/tools/setup-teamviewer.md) | n/a |\n",
+      "baseCommitSha": "5336b757ecda6a26312a4da2909030bf2152ad8d",
+      "commitSha": "44e0400625aff901961a884333582168a93f86c3",
+      "commitMessage": "Update link for Remediations in government-service.md",
+      "commitAuthor": "Jon Callahan",
+      "commitDate": "2026-08-06 14:58:33 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/government-service.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/government-service",
+      "eventId": "intune-docs:44e0400625aff901961a884333582168a93f86c3:modified:intune/fundamentals/government-service.md",
+      "firstSeenAt": "2026-08-07T10:33:16.224Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated Remediations link in government service documentation",
+        "summary": "The Remediations link now points to the deploy-remediations.md page instead of deploy-remediations.",
+        "adminImpact": "Administrators using the government service documentation should be directed to the updated Remediations page.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/government-service.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/fundamentals/government-service.md b/intune/fundamentals/government-service.md\nindex decd488d5d..29037adcfa 100644\n--- a/intune/fundamentals/government-service.md\n+++ b/intune/fundamentals/government-service.md\n@@ -102,6 +102,7 @@ The following features aren't available and there's currently no planning to sup\n | [Microsoft Connected Cache for Enterprise and Education](/windows/deployment/do/mcc-ent-edu-overview) | n/a |\n | [Microsoft Store for Business](/windows/configuration/store/?tabs=intune) | n/a |\n | On-premises Exchange Connector | n/a |\n+|[Remediations](../device-management/tools/deploy-remediations)|n/a|\n | [Reports for feature update policies](../device-updates/windows/monitor-feature-updates.md) | n/a |\n | [ServiceNow connector](../device-management/tools/setup-servicenow.md) | n/a |\n | [TeamViewer connector (legacy)](../device-management/tools/teamviewer-legacy.md) and [TeamViewer integration](../device-management/tools/setup-teamviewer.md) | n/a |\n",
+      "baseCommitSha": "9413c18d9a4b5385d9ac445a7e52a38bcf6d83b3",
+      "commitSha": "5336b757ecda6a26312a4da2909030bf2152ad8d",
+      "commitMessage": "Learn Editor: Update government-service.md",
+      "commitAuthor": "Jon Callahan",
+      "commitDate": "2026-08-06 14:56:57 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/government-service.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/government-service",
+      "eventId": "intune-docs:5336b757ecda6a26312a4da2909030bf2152ad8d:modified:intune/fundamentals/government-service.md",
+      "firstSeenAt": "2026-08-07T10:33:16.241Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Government service documentation adds Remediations entry",
+        "summary": "The government service page now lists Remediations, marked “n/a.”",
+        "adminImpact": "Administrators can use the updated page to identify the documented status of Remediations. No new availability or required action is indicated.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex 394bbbd35d..b74afc776b 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -176,7 +176,7 @@ Use the following steps to view the collected device inventory information:\n >Lets you collect selected Windows registry data through the properties catalog for configuration visibility and troubleshooting. Here are some important details about this feature:\n > - Supported collection methods include a single value, all values directly under a key (non-recursive), and the same value across immediate subkeys.\n > - Registry key inventory isn't intended to collect sensitive or confidential values and includes detection logic to help prevent potentially sensitive values from being ingested. If a value is flagged as potentially sensitive, it isn't collected.\n-> - To view collected registry data, use Device Inventory.\n+> - To view collected registry data, use Device Inventory. Registry key inventory is accessible through existing device inventory permissions and may expose missed sensitive device configuration information; this is an accepted risk, and organizations should review security and privacy implications before enabling broad access.\n > - Initial release limitations include HKLM-only collection and enforced value (6KB) and per-device (100 registry keys) collection limits.\n :::column-end:::\n :::row-end:::\n@@ -205,4 +205,4 @@ To troubleshoot issues with the properties catalog, review the client logs at `C\n \n <!--Intune roles-->\n \n-[Custom role]: ../fundamentals/role-based-access-control/create-custom-role.md\n\\ No newline at end of file\n+[Custom role]: ../fundamentals/role-based-access-control/create-custom-role.md\n",
+      "baseCommitSha": "9c11f35b40f70fd6f10526d944fe754bd42be4d7",
+      "commitSha": "b7755dca38dffdb566f4589ef4d467762feee6cf",
+      "commitMessage": "Update device properties collection details (#5206)",
+      "commitAuthor": "mrcooks9",
+      "commitDate": "2026-08-06 11:33:10 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "eventId": "intune-docs:b7755dca38dffdb566f4589ef4d467762feee6cf:modified:intune/device-configuration/collect-device-properties.md",
+      "firstSeenAt": "2026-08-07T10:33:16.259Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Registry inventory security implications clarified",
+        "summary": "The documentation now notes that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information.",
+        "adminImpact": "Review the security and privacy implications of registry key inventory access in your organization.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nindex 3d28982380..fdf31c85f0 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -43,7 +43,7 @@ All Configuration Manager components and site roles are updated to remove the de\n \n ### SQL Server Management Objects updated\n \n-The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2025 versions (SMO 17). The `SQLSysClrTypes.msi` and `SharedManagementObjects.msi` files are no longer included in the Configuration Manager redistributable files. After updating to version 2603, customers can safely uninstall these legacy MSI packages. The required package files are now included in the Configuration Manager installation package.\n+The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2025 versions (SMO 17). The `SQLSysClrTypes.msi` and `SharedManagementObjects.msi` files are no longer included in the Configuration Manager redistributable files. After updating to version 2603, customers can safely uninstall these legacy MSI packages. The required files are now included in the Configuration Manager installation package.\n \n ### PKI certificate support for site system-to-SQL Server communication\n \n",
+      "baseCommitSha": "060b4998cec956d254d66aca1e9faf2ac097d3a3",
+      "commitSha": "672451bbdf881c2d9a5fc86c44ec5a130f467745",
+      "commitMessage": "Clarify required SMO files wording",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-08-05 15:27:16 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "eventId": "intune-docs:672451bbdf881c2d9a5fc86c44ec5a130f467745:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "firstSeenAt": "2026-08-07T10:33:16.284Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Clarification of SMO dependency wording for version 2603",
+        "summary": "The version 2603 documentation clarifies that SQL Server Management Objects and SQL Server System CLR Types use the SQL Server 2025 versions (SMO 17), while the related MSI files are no longer included in Configuration Manager media.",
+        "adminImpact": "Administrators should refer to the revised wording when reviewing SMO prerequisites or troubleshooting Configuration Manager deployments.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\nindex 62779194b3..3d28982380 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in version 2603\n description: Get details about changes and new capabilities introduced in version 2603 of Configuration Manager current branch.\n-ms.date: 04/27/2026\n+ms.date: 08/05/2026\n ms.subservice: core-infrastructure\n ms.topic: whats-new\n ms.collection: tier3\n@@ -43,7 +43,7 @@ All Configuration Manager components and site roles are updated to remove the de\n \n ### SQL Server Management Objects updated\n \n-The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2025 versions (SMO 17).\n+The Microsoft SQL Server Management Objects and Microsoft System CLR Types for SQL Server are updated from the deprecated SQL Server 2014 versions to the SQL Server 2025 versions (SMO 17). The `SQLSysClrTypes.msi` and `SharedManagementObjects.msi` files are no longer included in the Configuration Manager redistributable files. After updating to version 2603, customers can safely uninstall these legacy MSI packages. The required package files are now included in the Configuration Manager installation package.\n \n ### PKI certificate support for site system-to-SQL Server communication\n \n",
+      "baseCommitSha": "9413c18d9a4b5385d9ac445a7e52a38bcf6d83b3",
+      "commitSha": "060b4998cec956d254d66aca1e9faf2ac097d3a3",
+      "commitMessage": "Clarify SQL Server SMO packaging in version 2603",
+      "commitAuthor": "QianDong Ni",
+      "commitDate": "2026-08-05 15:10:36 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-in-version-2603",
+      "eventId": "intune-docs:060b4998cec956d254d66aca1e9faf2ac097d3a3:modified:intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+      "firstSeenAt": "2026-08-07T10:33:16.308Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Clarified SQL Server SMO packaging for version 2603",
+        "summary": "The documentation updates its date and clarifies that SQLSysClrTypes.msi and SharedManagementObjects.msi are no longer included in the Configuration Manager package. It also retains the update from SQL Server 2014 components to SQL Server 2025 versions (SMO 17).",
+        "adminImpact": "Administrators should review deployment dependencies that rely on these MSI files and account for their exclusion from the package.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/endpoints.md",
+      "status": "modified",
+      "additions": 35,
+      "deletions": 8,
+      "changes": 43,
+      "patch": "diff --git a/intune/fundamentals/endpoints.md b/intune/fundamentals/endpoints.md\nindex 034241ba63..3bb1814992 100644\n--- a/intune/fundamentals/endpoints.md\n+++ b/intune/fundamentals/endpoints.md\n@@ -163,7 +163,7 @@ In addition to configuring the network requirements listed in the following tabl\n | 165 | Windows Autopilot - NTP Sync | Default<BR>Required | False | `time.windows.com` | **UDP:** 123 |\n | 169 | Windows Autopilot - WNS Dependencies| Default<BR>Required | False | `clientconfig.passport.net`<BR>`windowsphone.com`<BR>`*.s-microsoft.com`<BR>`c.s-microsoft.com` | **TCP:** 443 |\n | 173 | Windows Autopilot - Third-party deployment dependencies| Default<BR>Required | False | `ekop.intel.com`<BR>`ekcert.spserv.microsoft.com`<BR>`ftpm.amd.com`<BR> | **TCP:** 443 |\n-| 182 | Windows Autopilot - Diagnostics upload | Default<BR>Required | False | `lgmsapeweu.blob.core.windows.net`<BR>`lgmsapewus2.blob.core.windows.net`<BR>`lgmsapesea.blob.core.windows.net`<BR>`lgmsapeaus.blob.core.windows.net`<BR>`lgmsapeind.blob.core.windows.net`<BR>`lgmsapeswiss.blob.core.windows.net`<BR> | **TCP:** 443 |\n+| 182 | Windows Autopilot - Diagnostics upload | Default<BR>Required | False | `amsua0101lmsas.blob.core.windows.net`<BR>`amsua0102lmsas.blob.core.windows.net`<BR>`amsua0201lmsas.blob.core.windows.net`<BR>`amsua0202lmsas.blob.core.windows.net`<BR>`amsua0401lmsas.blob.core.windows.net`<BR>`amsua0402lmsas.blob.core.windows.net`<BR>`amsua0501lmsas.blob.core.windows.net`<BR>`amsua0502lmsas.blob.core.windows.net`<BR>`amsua0601lmsas.blob.core.windows.net`<BR>`amsua0602lmsas.blob.core.windows.net`<BR>`amsua0701lmsas.blob.core.windows.net`<BR>`amsua0702lmsas.blob.core.windows.net`<BR>`amsua0801lmsas.blob.core.windows.net`<BR>`amsua0901lmsas.blob.core.windows.net`<BR>`amsua0902lmsas.blob.core.windows.net`<BR>`amsub0101lmsas.blob.core.windows.net`<BR>`amsub0102lmsas.blob.core.windows.net`<BR>`amsub0201lmsas.blob.core.windows.net`<BR>`amsub0202lmsas.blob.core.windows.net`<BR>`amsub0301lmsas.blob.core.windows.net`<BR>`amsub0302lmsas.blob.core.windows.net`<BR>`amsub0501lmsas.blob.core.windows.net`<BR>`amsub0502lmsas.blob.core.windows.net`<BR>`amsub0601lmsas.blob.core.windows.net`<BR>`amsub0701lmsas.blob.core.windows.net`<BR>`amsub0801lmsas.blob.core.windows.net`<BR>`amsub0901lmsas.blob.core.windows.net`<BR>`amsuc0101lmsas.blob.core.windows.net`<BR>`amsuc0201lmsas.blob.core.windows.net`<BR>`amsuc0301lmsas.blob.core.windows.net`<BR>`amsuc0501lmsas.blob.core.windows.net`<BR>`amsuc0601lmsas.blob.core.windows.net`<BR>`amsud0101lmsas.blob.core.windows.net`<BR>`amsuin01lmsas.blob.core.windows.net`<BR> | **TCP:** 443 |\n \n ## Endpoint analytics\n \n@@ -477,13 +477,40 @@ intunemaape13.jpe.attest.azure.net\n intunemaape17.jpe.attest.azure.net\n intunemaape18.jpe.attest.azure.net\n intunemaape19.jpe.attest.azure.net\n-lgmsapeaus.blob.core.windows.net\n-lgmsapeind.blob.core.windows.net\n-lgmsapesea.blob.core.windows.net\n-lgmsapeswiss.blob.core.windows.net\n-lgmsapeweu.blob.core.windows.net\n-lgmsapeweu.blob.core.windows.net\n-lgmsapewus2.blob.core.windows.net\n+amsua0101lmsas.blob.core.windows.net\n+amsua0102lmsas.blob.core.windows.net\n+amsua0201lmsas.blob.core.windows.net\n+amsua0202lmsas.blob.core.windows.net\n+amsua0401lmsas.blob.core.windows.net\n+amsua0402lmsas.blob.core.windows.net\n+amsua0501lmsas.blob.core.windows.net\n+amsua0502lmsas.blob.core.windows.net\n+amsua0601lmsas.blob.core.windows.net\n+amsua0602lmsas.blob.core.windows.net\n+amsua0701lmsas.blob.core.windows.net\n+amsua0702lmsas.blob.core.windows.net\n+amsua0801lmsas.blob.core.windows.net\n+amsua0901lmsas.blob.core.windows.net\n+amsua0902lmsas.blob.core.windows.net\n+amsub0101lmsas.blob.core.windows.net\n+amsub0102lmsas.blob.core.windows.net\n+amsub0201lmsas.blob.core.windows.net\n+amsub0202lmsas.blob.core.windows.net\n+amsub0301lmsas.blob.core.windows.net\n+amsub0302lmsas.blob.core.windows.net\n+amsub0501lmsas.blob.core.windows.net\n+amsub0502lmsas.blob.core.windows.net\n+amsub0601lmsas.blob.core.windows.net\n+amsub0701lmsas.blob.core.windows.net\n+amsub0801lmsas.blob.core.windows.net\n+amsub0901lmsas.blob.core.windows.net\n+amsuc0101lmsas.blob.core.windows.net\n+amsuc0201lmsas.blob.core.windows.net\n+amsuc0301lmsas.blob.core.windows.net\n+amsuc0501lmsas.blob.core.windows.net\n+amsuc0601lmsas.blob.core.windows.net\n+amsud0101lmsas.blob.core.windows.net\n+amsuin01lmsas.blob.core.windows.net\n licensing.mp.microsoft.com\n login.live.com\n login.microsoftonline.com\n",
+      "baseCommitSha": "9309a5ce1fcba0b9e1a109c7b19b032a40608238",
+      "commitSha": "696418e502ed54719ffbccf5469e074b13110003",
+      "commitMessage": "Update Windows Autopilot diagnostics upload endpoints",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-08-05 11:43:01 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/endpoints",
+      "eventId": "intune-docs:696418e502ed54719ffbccf5469e074b13110003:modified:intune/fundamentals/endpoints.md",
+      "firstSeenAt": "2026-08-07T10:33:16.351Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Windows Autopilot diagnostics upload endpoints updated",
+        "summary": "The endpoints documentation replaces the previous regional `lgmsape...blob.core.windows.net` entries with a larger list of `amsu...lmsas.blob.core.windows.net` endpoints.",
+        "adminImpact": "Administrators managing firewall or outbound allowlists should review the updated endpoint list to support Windows Autopilot diagnostics uploads.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/collect-diagnostics.md",
+      "status": "modified",
+      "additions": 47,
+      "deletions": 7,
+      "changes": 54,
+      "patch": "diff --git a/intune/device-management/actions/collect-diagnostics.md b/intune/device-management/actions/collect-diagnostics.md\nindex 8459868f16..b29ce4f7c7 100644\n--- a/intune/device-management/actions/collect-diagnostics.md\n+++ b/intune/device-management/actions/collect-diagnostics.md\n@@ -59,14 +59,54 @@ The *collect diagnostics* action lets you collect and download managed device di\n :::column-end:::\n :::column span=\"3\":::\n \n-> For diagnostics to be able to upload successfully from the client, make sure that the URL for your region isn't blocked on the network:\n+> For diagnostics to be able to upload successfully from the client, make sure that the URL for your region isn't blocked on the network. Refer to endpoint.microsoft.com, Tenant Administration | Tenant Status, to identify the geo and data center for your tenant:\n >\n-> - Europe: `lgmsapeweu.blob.core.windows.net`\n-> - Americas: `lgmsapewus2.blob.core.windows.net`\n-> - East Asia: `lgmsapesea.blob.core.windows.net`\n-> - Australia: `lgmsapeaus.blob.core.windows.net`\n-> - India: `lgmsapeind.blob.core.windows.net`\n-> - Switzerland: `lgmsapeswiss.blob.core.windows.net`\n+> - Americas:\n+>   - `https://amsua0101lmsas.blob.core.windows.net`\n+>   - `https://amsua0102lmsas.blob.core.windows.net`\n+>   - `https://amsua0201lmsas.blob.core.windows.net`\n+>   - `https://amsua0202lmsas.blob.core.windows.net`\n+>   - `https://amsua0401lmsas.blob.core.windows.net`\n+>   - `https://amsua0402lmsas.blob.core.windows.net`\n+>   - `https://amsua0501lmsas.blob.core.windows.net`\n+>   - `https://amsua0502lmsas.blob.core.windows.net`\n+>   - `https://amsua0601lmsas.blob.core.windows.net`\n+>   - `https://amsua0602lmsas.blob.core.windows.net`\n+>   - `https://amsua0701lmsas.blob.core.windows.net`\n+>   - `https://amsua0702lmsas.blob.core.windows.net`\n+>   - `https://amsua0801lmsas.blob.core.windows.net`\n+>   - `https://amsua0901lmsas.blob.core.windows.net`\n+>   - `https://amsua0902lmsas.blob.core.windows.net`\n+>\n+> - Europe:\n+>   - `https://amsub0101lmsas.blob.core.windows.net`\n+>   - `https://amsub0102lmsas.blob.core.windows.net`\n+>   - `https://amsub0201lmsas.blob.core.windows.net`\n+>   - `https://amsub0202lmsas.blob.core.windows.net`\n+>   - `https://amsub0301lmsas.blob.core.windows.net`\n+>   - `https://amsub0302lmsas.blob.core.windows.net`\n+>   - `https://amsub0501lmsas.blob.core.windows.net`\n+>   - `https://amsub0502lmsas.blob.core.windows.net`\n+>   - `https://amsub0601lmsas.blob.core.windows.net`\n+>   - `https://amsub0701lmsas.blob.core.windows.net`\n+>   - `https://amsub0801lmsas.blob.core.windows.net`\n+>   - `https://amsub0901lmsas.blob.core.windows.net`\n+>\n+> - Switzerland:\n+>   - `https://amsub0901lmsas.blob.core.windows.net`\n+>\n+> - East Asia:\n+>   - `https://amsuc0101lmsas.blob.core.windows.net`\n+>   - `https://amsuc0201lmsas.blob.core.windows.net`\n+>   - `https://amsuc0301lmsas.blob.core.windows.net`\n+>   - `https://amsuc0501lmsas.blob.core.windows.net`\n+>   - `https://amsuc0601lmsas.blob.core.windows.net`\n+>\n+> - India:\n+>   - `https://amsuin01lmsas.blob.core.windows.net`\n+>  \n+> - Australia:\n+>   - `https://amsud0101lmsas.blob.core.windows.net`\n > \n > Devices must be online and able to communicate with the service during diagnostics.\n \n",
+      "baseCommitSha": "9309a5ce1fcba0b9e1a109c7b19b032a40608238",
+      "commitSha": "d65c9764fbb452a45e8df42784c2d79ceb862d93",
+      "commitMessage": "Revise diagnostics upload URLs for various regions",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-08-05 11:19:18 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/collect-diagnostics.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/collect-diagnostics",
+      "eventId": "intune-docs:d65c9764fbb452a45e8df42784c2d79ceb862d93:modified:intune/device-management/actions/collect-diagnostics.md",
+      "firstSeenAt": "2026-08-07T10:33:16.370Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Diagnostics upload endpoints updated by region",
+        "summary": "The documentation replaces the previous regional upload URLs with region-specific endpoint lists and directs administrators to Tenant Administration > Tenant Status in endpoint.microsoft.com to identify their tenant’s geo and data center.",
+        "adminImpact": "Review network allowlists and permit the endpoint for your tenant’s region so client diagnostics uploads can succeed.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/add-devices.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/add-devices.md b/autopilot/add-devices.md\nindex 9d664bbd5b..58705e42eb 100644\n--- a/autopilot/add-devices.md\n+++ b/autopilot/add-devices.md\n@@ -4,9 +4,9 @@ description: Learn how to manually register Windows Autopilot devices. Gather ha\n ms.date: 04/11/2025\n ms.topic: how-to\n ms.collection:\n- - M365-modern-desktop\n- - m365initiative-coredeploy\n- - essentials-manage\n+  - M365-modern-desktop\n+  - m365initiative-coredeploy\n+  - essentials-manage\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 10</a>\n",
+      "baseCommitSha": "67a63cae91f25f25ae498bbc716b52502ce8a0b6",
+      "commitSha": "18fefae9d51869ddea51fadb07ab87ec368891d9",
+      "commitMessage": "Revert unintended change.",
+      "commitAuthor": "TimShererWithAquent",
+      "commitDate": "2026-08-03 10:00:55 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/add-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/add-devices",
+      "eventId": "intune-docs:18fefae9d51869ddea51fadb07ab87ec368891d9:modified:autopilot/add-devices.md",
+      "firstSeenAt": "2026-08-07T10:33:16.412Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Formatting-only update to Autopilot device documentation",
+        "summary": "The documentation was updated to reformat three existing labels while keeping their names unchanged: M365-modern-desktop, m365initiative-coredeploy, and essentials-manage.",
+        "adminImpact": "No feature or configuration change is indicated, so administrators do not need to take action.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/add-devices.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 5,
+      "changes": 10,
+      "patch": "diff --git a/autopilot/add-devices.md b/autopilot/add-devices.md\nindex d50bef8d09..9d664bbd5b 100644\n--- a/autopilot/add-devices.md\n+++ b/autopilot/add-devices.md\n@@ -1,12 +1,12 @@\n ---\n-title: Manually register devices with Windows Autopilot\n-description: Learn how to manually add devices to Windows Autopilot.\n+title: Manually Register Devices with Windows Autopilot\n+description: Learn how to manually register Windows Autopilot devices. Gather hardware hashes, and import, edit, and delete device records in the Intune admin center.\n ms.date: 04/11/2025\n ms.topic: how-to\n ms.collection:\n-  - M365-modern-desktop\n-  - m365initiative-coredeploy\n-  - essentials-manage\n+ - M365-modern-desktop\n+ - m365initiative-coredeploy\n+ - essentials-manage\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 10</a>\n",
+      "baseCommitSha": "dbe37c10bf8948d44b7601944a66cafee5f29615",
+      "commitSha": "67a63cae91f25f25ae498bbc716b52502ce8a0b6",
+      "commitMessage": "Metadata quality fixes.",
+      "commitAuthor": "TimShererWithAquent",
+      "commitDate": "2026-08-03 09:58:15 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/add-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/add-devices",
+      "eventId": "intune-docs:67a63cae91f25f25ae498bbc716b52502ce8a0b6:modified:autopilot/add-devices.md",
+      "firstSeenAt": "2026-08-07T10:33:16.431Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Autopilot device registration documentation clarified",
+        "summary": "The page title was capitalized and its description now states that it covers gathering hardware hashes and importing, editing, and deleting device records in the Intune admin center.",
+        "adminImpact": "This clarifies the documentation’s scope for administrators; the diff provides no evidence of a product change or required action.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/understand/software-center.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/understand/software-center.md b/intune/configmgr/core/understand/software-center.md\nindex e6133f1a1d..fe3182467f 100644\n--- a/intune/configmgr/core/understand/software-center.md\n+++ b/intune/configmgr/core/understand/software-center.md\n@@ -1,6 +1,6 @@\n ---\n-title: Software Center user guide\n-description: Learn about the features and functionality of Software Center\n+title: Software Center User Guide\n+description: Software Center helps you install apps, software updates, and Windows upgrades on your managed device. Learn about the setting you need to use Software Center.\n ms.date: 10/18/2024\n ms.topic: end-user-help\n ms.subservice: core-infrastructure\n",
+      "baseCommitSha": "dbe37c10bf8948d44b7601944a66cafee5f29615",
+      "commitSha": "67a63cae91f25f25ae498bbc716b52502ce8a0b6",
+      "commitMessage": "Metadata quality fixes.",
+      "commitAuthor": "TimShererWithAquent",
+      "commitDate": "2026-08-03 09:58:15 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/understand/software-center.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/understand/software-center",
+      "eventId": "intune-docs:67a63cae91f25f25ae498bbc716b52502ce8a0b6:modified:intune/configmgr/core/understand/software-center.md",
+      "firstSeenAt": "2026-08-07T10:33:16.444Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Software Center user guide description updated",
+        "summary": "The page title was capitalized, and its description now states that Software Center supports installing apps, software updates, and Windows upgrades, while directing users to the required setting.",
+        "adminImpact": "This clarifies the guide’s scope and highlights that a setting is needed to use Software Center; no product behavior change is indicated.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 67,
+      "deletions": 0,
+      "changes": 67,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex c3a5e013bd..499232764b 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -108,6 +108,73 @@ For the full list of policies, see the [Microsoft Edge policies reference](/depl\n >\n > - Windows\n \n+#### New Windows App (Azure Virtual Desktop) settings in the Windows settings catalog<!-- 38140497 wndraft wnready -->\n+\n+ \n+There are new Windows App settings in the Windows settings catalog. To see and configure them in Intune, create a Windows settings catalog profile (**Devices** > **Manage devices** > **Configuration** > **Create** > **New policy** > **Windows 10 and later** > **Settings catalog**). The new settings are:\n+- **Turn off automatic updates for Windows App** – controls whether Windows App automatically checks for and installs updates.\n+- **Automatically log off users after inactive interval** – signs users out of Windows App after a set period of inactivity.\n+- **Skip First Run Experience (FRE)** – skips the first-run experience so users go straight to their resources.\n+- **Admin Release Ring Policy** – sets the update release ring (channel) that Windows App follows.\n+- **Automatically create Windows App shortcuts to desktop** – creates desktop shortcuts for published Windows App resources.\n+For more information, see [Configure updates for Windows App](/windows-app/configure-updates-windows).\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+ \n+#### New option for the Remove Default Microsoft Store packages setting<!-- 38140497 wndraft wnready-->\n+\n+ \n+The existing **Remove Default Microsoft Store packages** setting in the ApplicationManagement area has a new subsetting, **Specify additional package family names to remove**. It lets you provide a custom list of package family names (PFNs) to remove, in addition to the built-in default set of Microsoft Store packages.\n+For more information, see the [ApplicationManagement policy CSP](/windows/client-management/mdm/policy-csp-applicationmanagement).\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+ \n+#### New setting to disable the Get Started app<!-- 38140497 wndraft wnready-->\n+\n+ \n+The new **Disable Get Started** setting prevents the Windows Get Started app from being available to users.\n+For more information, see the [Experience policy CSP](/windows/client-management/mdm/policy-csp-experience).\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+ \n+#### New OneDrive settings in the Windows settings catalog<!-- 38140497 wndraft wnready-->\n+\n+ \n+There are new OneDrive settings in the Windows settings catalog:\n+- **Set a custom name for the OneDrive folder** – sets a custom name for the synced OneDrive folder on the user's device.\n+- **Enable OpenID Connect (OIDC) authentication for syncing content from an on-prem SharePoint Server using the OneDrive sync app** – lets the OneDrive sync app authenticate to an on-premises SharePoint Server using OpenID Connect when the server supports it.\n+- **Specify the Application ID URI for your Entra application for OIDC** – specifies the Application ID URI for your Microsoft Entra application used for OIDC when it differs from your SharePoint Server URL.\n+- **Prevent users at your organization from enabling offline mode in OneDrive on the web** – blocks users from turning on offline mode for OneDrive on the web.\n+- **Prevent users at your organization from enabling offline mode in OneDrive on the web for libraries and folders that are shared from other organizations** – blocks offline mode for libraries and folders shared from other organizations.\n+- **Hard-delete the contents of a folder shortcut when unmounted** – permanently deletes the contents of a folder shortcut when it is unmounted instead of moving them to the Recycle Bin.\n+- **Hard-delete contents of a folder shortcut when a user loses permissions to the folder** – permanently deletes the contents of a folder shortcut when the user loses permissions to that folder.\n+For more information, see [Use Group Policy to control OneDrive sync app settings](/sharepoint/use-group-policy).\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n+ \n+#### Updated Visual Studio administrative templates in the Windows settings catalog<!-- 38140497 wndraft wnready-->\n+\n+ \n+The Visual Studio administrative templates were refreshed to version 1.0.184.40051, which adds the latest Visual Studio policy settings to the Windows settings catalog. The new setting is:\n+- **[Disable Model Context Protocol (MCP)](/visualstudio/ide/visual-studio-github-copilot-admin#configure-copilot-group-policy)** (DisableMCP)\n+For more information, see the [Visual Studio administrative templates documentation](/visualstudio/install/administrative-templates).\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n ### Device enrollment\n \n #### Skip Setup Assistant screens for tvOS and visionOS enrollment<!-- 37665726 -->\n",
+      "baseCommitSha": "33abeb2a1b2ebf656960ad63747edf509b3f019e",
+      "commitSha": "dbe37c10bf8948d44b7601944a66cafee5f29615",
+      "commitMessage": "Update index.md (#20603)",
+      "commitAuthor": "Laura Williams [MSFT]",
+      "commitDate": "2026-07-31 14:49:42 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:dbe37c10bf8948d44b7601944a66cafee5f29615:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-08-07T10:33:16.481Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Intune documentation adds Windows policy settings",
+        "summary": "The What's new page now documents new Windows App and OneDrive settings, a package-removal subsetting, the Disable Get Started setting, and refreshed Visual Studio administrative templates including Disable MCP. These entries apply to Windows.",
+        "adminImpact": "Administrators can review and configure the documented controls through Windows settings catalog profiles, including controls for app updates, user access, OneDrive behavior, package removal, and Visual Studio policies.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md b/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md\nindex ecf17fd739..5491414a50 100644\n--- a/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md\n+++ b/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md\n@@ -87,7 +87,7 @@ Use the following high-level guidance to set your clients to prefer a cloud-base\n 1. Ensure your [cloud management gateway](../../../clients/manage/cmg/set-up-checklist.md?toc=/mem/configmgr/cloud-attach/toc.json&bc=/mem/configmgr/cloud-attach/breadcrumb/toc.json) is configured and functional\n 1. Verify that your [software update points](../../../../sum/get-started/install-a-software-update-point.md) are functional and synchronized.\n 1. Enable the [**Allow Configuration Manager cloud management gateway traffic**](../../../clients/manage/cmg/setup-cloud-management-gateway.md#bkmk_role) option for any SUP you want to use with CMG.\n-1. [Configure the boundary group](../../deploy/configure/boundary-group-procedures.md#configure-a-boundary-group) for this behavior by enabling the **Prefer cloud based sources over on-premises sources** option and adding the CGM SUP server to the **Site system servers** list.\n+1. [Configure the boundary group](../../deploy/configure/boundary-group-procedures.md#configure-a-boundary-group) for this behavior by enabling the **Prefer cloud based sources over on-premises sources** option and adding the CMG SUP server to the **Site system servers** list.\n 1. To manually switch clients to a new SUP, use the **Switch to next Software Update Point** [client notification](../../../clients/manage/client-notification.md#switch-to-the-next-software-update-point) action for a device or for a collection.\n    - Clients in the boundary group [don't automatically switch to a new SUP](../../../../sum/plan-design/plan-for-software-updates.md#BKMK_ManuallySwitchSUPs)*9 unless scanning against their current SUP fails four times over the course of two hours.\n    - You won't need to manually switch the SUP for any new clients added to the environment after the boundary group option is set.\n",
+      "baseCommitSha": "003013a4bce89612c6e2cdf862e1050d4c700d3a",
+      "commitSha": "33abeb2a1b2ebf656960ad63747edf509b3f019e",
+      "commitMessage": "Confirm merge from repo_sync_working_branch to main to sync with https://github.com/MicrosoftDocs/memdocs (branch main) (#20591)",
+      "commitAuthor": "learn-build-service-prod[bot]",
+      "commitDate": "2026-07-31 13:11:22 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points",
+      "eventId": "intune-docs:33abeb2a1b2ebf656960ad63747edf509b3f019e:modified:intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+      "firstSeenAt": "2026-08-07T10:33:16.506Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Corrected the SUP server name in boundary group guidance",
+        "summary": "The documentation now refers to the “CMG SUP server” instead of the “CGM SUP server” when configuring a boundary group.",
+        "adminImpact": "Administrators should use the corrected server name when following this configuration guidance.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md b/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md\nindex 9dd1c16faf..aebfb1d8f4 100644\n--- a/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md\n+++ b/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md\n@@ -178,9 +178,9 @@ You can also use the following optional parameters:\n \n `ServiceConnectionTool.exe -connect -usagedatasrc D:\\USB\\ -updatepackdest D:\\USB\\UpdatePacks`\n \n-#### Example of connect with a proxy server\n+#### Example of connect with a proxy server and port\n \n-`ServiceConnectionTool.exe -connect -usagedatasrc D:\\USB\\Usagedata.cab -updatepackdest D:\\USB\\UpdatePacks -proxyserveruri itproxy.contoso.com -proxyusername jqpublic`\n+`ServiceConnectionTool.exe -connect -usagedatasrc D:\\USB\\Usagedata.cab -updatepackdest D:\\USB\\UpdatePacks -proxyserveruri itproxy.contoso.com:8080 -proxyusername jqpublic`\n \n #### Example of connect to download only site version applicable updates\n \n",
+      "baseCommitSha": "003013a4bce89612c6e2cdf862e1050d4c700d3a",
+      "commitSha": "33abeb2a1b2ebf656960ad63747edf509b3f019e",
+      "commitMessage": "Confirm merge from repo_sync_working_branch to main to sync with https://github.com/MicrosoftDocs/memdocs (branch main) (#20591)",
+      "commitAuthor": "learn-build-service-prod[bot]",
+      "commitDate": "2026-07-31 13:11:22 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/use-the-service-connection-tool",
+      "eventId": "intune-docs:33abeb2a1b2ebf656960ad63747edf509b3f019e:modified:intune/configmgr/core/servers/manage/use-the-service-connection-tool.md",
+      "firstSeenAt": "2026-08-07T10:33:16.518Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Proxy connection example now includes a port",
+        "summary": "The Service Connection Tool documentation updates the proxy example heading and command to use `itproxy.contoso.com:8080` instead of only the proxy hostname.",
+        "adminImpact": "Administrators using the example now have an explicit proxy server and port format to reference.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/create-custom-role.md b/intune/fundamentals/role-based-access-control/create-custom-role.md\nindex 95b5907cc0..3831be8f1a 100644\n--- a/intune/fundamentals/role-based-access-control/create-custom-role.md\n+++ b/intune/fundamentals/role-based-access-control/create-custom-role.md\n@@ -65,6 +65,7 @@ The following permissions are available when creating custom roles.\n | Android Enterprise | Update app sync | Manage or change the Managed Google Play configuration used to sync applications with the Managed Google Play store, or sync the apps you approved from the store with Intune. |\n | Android Enterprise | Update enrollment profiles | Manage or change Android Enterprise Device Owner enrollment profiles used to enroll devices. |\n | Android Enterprise | Update onboarding | Manage or change the Android Enterprise binding to Managed Google Play and other account-wide configurations. |\n+| Android Enterprise | Manage zero touch enrollment | Manage or change the connection to Google's Zero-Touch Enrollment (ZTE) portal. |\n \n ### Android FOTA\n \n@@ -578,4 +579,4 @@ The following permissions are available when creating custom roles.\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "003013a4bce89612c6e2cdf862e1050d4c700d3a",
+      "commitSha": "33abeb2a1b2ebf656960ad63747edf509b3f019e",
+      "commitMessage": "Confirm merge from repo_sync_working_branch to main to sync with https://github.com/MicrosoftDocs/memdocs (branch main) (#20591)",
+      "commitAuthor": "learn-build-service-prod[bot]",
+      "commitDate": "2026-07-31 13:11:22 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/create-custom-role",
+      "eventId": "intune-docs:33abeb2a1b2ebf656960ad63747edf509b3f019e:modified:intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "firstSeenAt": "2026-08-07T10:33:16.530Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Custom role documentation updates zero-touch enrollment permission details",
+        "summary": "The custom role documentation now shows the Android Enterprise “Manage zero touch enrollment” permission and its Microsoft Intune admin center link.",
+        "adminImpact": "Administrators reviewing custom roles can use the updated permission description; the change does not indicate a new feature or required action.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/solutions/azure-virtual-desktop.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/solutions/azure-virtual-desktop.md b/intune/solutions/azure-virtual-desktop.md\nindex 10fb005854..fc7a6ab212 100644\n--- a/intune/solutions/azure-virtual-desktop.md\n+++ b/intune/solutions/azure-virtual-desktop.md\n@@ -23,7 +23,7 @@ For single-session, Intune supports Azure Virtual Desktop VMs that are:\n   - [Configuration Manager co-management](/configmgr/comanage/overview).\n   - [User self-enrollment via Microsoft Entra join](../device-enrollment/windows/guide.md#byod-user-enrollment).\n - Microsoft Entra joined and enrolled in Intune by enabling [Enroll the VM with Intune](/azure/virtual-desktop/deploy-azure-ad-joined-vm#deploy-azure-ad-joined-vms) in the Azure portal.\n-- Under the same tenant as Intune and in the same region.\n+- Deployed in an Azure subscription associated with the same Entra ID tenant as Intune\n \n For more information on Azure Virtual Desktop licensing requirements, see [Licensing Azure Virtual Desktop](/azure/virtual-desktop/licensing).\n \n",
+      "baseCommitSha": "003013a4bce89612c6e2cdf862e1050d4c700d3a",
+      "commitSha": "33abeb2a1b2ebf656960ad63747edf509b3f019e",
+      "commitMessage": "Confirm merge from repo_sync_working_branch to main to sync with https://github.com/MicrosoftDocs/memdocs (branch main) (#20591)",
+      "commitAuthor": "learn-build-service-prod[bot]",
+      "commitDate": "2026-07-31 13:11:22 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/solutions/azure-virtual-desktop.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/azure-virtual-desktop",
+      "eventId": "intune-docs:33abeb2a1b2ebf656960ad63747edf509b3f019e:modified:intune/solutions/azure-virtual-desktop.md",
+      "firstSeenAt": "2026-08-07T10:33:16.543Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Clarified Azure Virtual Desktop tenant requirement",
+        "summary": "The documentation now says Azure Virtual Desktop must be deployed in an Azure subscription associated with the same Entra ID tenant as Intune. The previous wording also referenced being in the same region.",
+        "adminImpact": "Administrators should use the updated tenant and subscription wording when validating Azure Virtual Desktop deployments; this change is documentation clarification, not evidence of a new feature.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "status": "modified",
+      "additions": 31,
+      "deletions": 4,
+      "changes": 35,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/multi-admin-approval.md b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\nindex 38e3e22222..2608f2fe7e 100644\n--- a/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n+++ b/intune/fundamentals/role-based-access-control/multi-admin-approval.md\n@@ -1,7 +1,7 @@\n ---\n title: Use Multi Admin Approval in Intune\n description: Configure Multi Admin Approval to protect your tenant against the use of compromised administrative accounts in Intune.\n-ms.date: 06/15/2026\n+ms.date: 07/30/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n ms.reviewer: davidra\n@@ -19,6 +19,11 @@ By using Multi Admin Approval, you can configure access policies that protect sp\n \n When you use any account in the tenant to make a change to a resource that's protected by an access policy, Intune doesn't apply the change until a different account explicitly approves it. Only administrators who are members of an approval group that an access protection policy assigns a protected resource to can approve changes. Approvers can also reject change requests.\n \n+MAA enforcement applies to both interactive (delegated) admin actions and application-authenticated (app-auth) API calls made through the Microsoft Graph API. If your organization uses service principals, automation scripts, or third-party applications to manage Intune resources via the Microsoft Graph API, those calls are also intercepted by MAA when the target resource is protected by an access policy. For details on how to update your automation to work with MAA, see [Use Multi Admin Approval with the Microsoft Graph API](multi-admin-approval-graph-api.md). To exclude specific apps from enforcement, see [Exclude enterprise applications from an access policy](#exclude-enterprise-applications-from-an-access-policy).\n+\n+> [!TIP]\n+> MAA enforcement on API calls made by automation applies only to tenants that already have MAA access policies configured. It doesn't enable MAA or change any tenant's enrollment.\n+\n Intune supports access policies for the following resources:\n \n - Apps – Applies to [app deployments](../../app-management/deployment/index.md), but doesn't apply to app protection policies.  \n@@ -64,13 +69,14 @@ To create and manage access policies, use an account with one of the following o\n To approve or reject MAA requests submitted by other admins, an account must meet all of the following requirements:\n \n 1. **Approver group membership**: The account must be a member of the approver group that's assigned to the access policy for the specific resource type.\n-2. **Intune role permission**: The account must have the resource-specific Read permissions for the policy type they are approving. \n+2. **Intune role permission**: The approver account must have the resource-specific *Read* permission for the policy type they're approving. For example, to approve a request for a device delete action, the approver must have *ManagedDevices/Read*. For a full list of available permissions, see [Custom role permissions](create-custom-role.md#custom-role-permissions). \n 3. **RBAC role assignment for the group**: The approver security group itself must be added as a member group to at least one Intune role assignment. If the approver group isn't added to a role assignment, approver group members are removed from the group periodically.\n \n    > [!IMPORTANT]\n    > The approver group has two requirements:\n    > - It must be a **security group**. Distribution lists, Microsoft 365 groups, and mail-enabled security groups aren't supported and silently fail to resolve approver membership.\n-   > - It must be directly assigned to an Intune role as a member group. Intune role permissions held by individual members, whether through other groups or direct user assignments, don't satisfy this requirement.\n+   > - It must be directly assigned to an RBAC role in Intune as a member group. Intune role permissions held by individual members, whether through other groups or direct user assignments, don't satisfy this requirement.\n+   > - Users must be direct members of the assigned groups. Nested group memberships may result in unreliable behavior.\n \n ### Role 3: Change requestor\n \n@@ -111,12 +117,32 @@ If a request isn't processed further within 3 days, it becomes **Expired**, and\n \n 1. On *Approvers*, select **Add groups** and then select a group as the group of approvers for this policy. More complex configurations that exclude groups aren't supported.\n \n-1. On *Review + Create*, review, and then save your changes.\n+1. On *Exclusions*, optionally select **Add enterprise applications** to exclude specific enterprise applications that use app-auth tokens from MAA enforcement for this policy. Excluded applications can modify protected resources without going through the approval workflow. For more information, see [Exclude enterprise applications from an access policy](#exclude-enterprise-applications-from-an-access-policy).\n \n+1. On *Review + submit for approval*, review the policy summary including the basics, approvers, and any exclusions. Enter a *Business justification*, and then select **Submit for approval**.\n+   \n 1. Next, use a separate administrative account with **Approval for Multi Admin Approval** permission to sign in to the admin center to review and approve the new access policy.\n \n 1. Sign back in to the admin center with the first admin account that created the access policy, view the policy, and finalize it by selecting **Complete**. After Intune applies this policy, configurations for the protected profile type require multiple admin approvals.\n \n+\n+### Exclude enterprise applications from an access policy\n+\n+When you create or edit an access policy, you can exclude specific enterprise applications from MAA enforcement for that policy. Excluded applications can modify the protected resource type without going through the approval workflow.\n+\n+> [!IMPORTANT]\n+> Exclusions apply only to app-auth (application-authenticated) calls. Calls made with delegated authentication are always subject to MAA enforcement, even if the application is excluded.\n+\n+> [!WARNING]\n+> Excluding an application bypasses MAA protection for the affected resource type. Each exclusion creates a gap in your approval workflow that could be exploited if the excluded application is compromised. Only exclude applications when necessary, and review your exclusion list regularly to remove entries that are no longer needed.\n+\n+Keep the following details in mind:\n+\n+- **Per-policy scope** — Each exclusion applies only to the access policy where it's configured. An exclusion in one access policy doesn't affect other policies or workloads.\n+- **Limit** — App exclusions are capped at 50 applications per access policy.\n+- **Approval required** — Adding, removing, or modifying exclusions requires approval by a second administrator, just like other access policy changes.\n+- **Audit logging** — All add, remove, and modify actions on the exclusion list are captured in the Intune audit log.\n+\n ## Submit a request\n \n To submit a request when Multi Admin Approval is enabled, use your normal process to create or edit a resource.\n@@ -180,6 +206,7 @@ You can cancel a request before it's approved by selecting it from the **My requ\n \n ## Related content\n \n+- [Use Multi Admin Approval with the Microsoft Graph API](multi-admin-approval-graph-api.md)\n - Manage [role-based access control](../role-based-access-control/overview.md)\n \n <!--links-->\n",
+      "baseCommitSha": "52b93b3a20cbcecd14913f209523bdf63ad7eb8c",
+      "commitSha": "003013a4bce89612c6e2cdf862e1050d4c700d3a",
+      "commitMessage": "Revise Multi Admin Approval documentation (#20600)",
+      "commitAuthor": "shmokash",
+      "commitDate": "2026-07-31 09:06:29 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/multi-admin-approval",
+      "eventId": "intune-docs:003013a4bce89612c6e2cdf862e1050d4c700d3a:modified:intune/fundamentals/role-based-access-control/multi-admin-approval.md",
+      "firstSeenAt": "2026-08-07T10:33:16.569Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Multi Admin Approval guidance adds Graph API and app-exclusion details",
+        "summary": "The documentation now clarifies that MAA covers delegated actions and app-authenticated Microsoft Graph API calls when policies are already configured. It also documents per-policy enterprise application exclusions for app-auth calls, including a 50-application limit, second-admin approval, and audit logging.",
+        "adminImpact": "Review automation and service-principal access, approver Read permissions, direct group membership, and application exclusions. Delegated calls remain subject to MAA, while excluded app-auth applications can bypass approval for the affected resource type.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 0,
-    "totalFiles": 0,
-    "authors": []
+    "totalCommits": 22,
+    "totalFiles": 32,
+    "authors": [
+      "Albert Cabello Serrano",
+      "Hector",
+      "Ileana Wu",
+      "Iris Yuning Ye",
+      "Jon Callahan",
+      "Laura Williams [MSFT]",
+      "Oluchi",
+      "QianDong Ni",
+      "TimShererWithAquent",
+      "Yuta Honda",
+      "learn-build-service-prod[bot]",
+      "mabutc",
+      "minakash",
+      "mrcooks9",
+      "nufurtad",
+      "shmokash"
+    ]
   },
   "englishSummary": {
-    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
-    "groups": [],
-    "highlights": [],
+    "overview": "Today's report includes 0 new, 32 updated, and 0 removed Microsoft Intune documentation files across 10 documentation areas.",
+    "groups": [
+      {
+        "category": "Documentation change",
+        "title": "intune/app-management",
+        "summary": "The documentation now explicitly states that Available assignments can target device groups for Win32 apps and apps targeting Android Enterprise fully managed (COBO) and corporate-owned personally enabled (COPE) devices. The documentation date changed from 12/03/2025 to 08/06/2026. The protected apps reference no longer includes the Klaxoon for Intune entry.",
+        "sourceFiles": [
+          "intune/app-management/deployment/assign-groups.md",
+          "intune/app-management/ref-protected-apps.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/whats-new",
+        "summary": "The page now notes that enrollment time grouping is available for iOS/iPadOS and macOS, along with the new Apple enrollment policies experience, and links to a previous blog post. The What's new page now documents new Windows App and OneDrive settings, a package-removal subsetting, the Disable Get Started setting, and refreshed Visual Studio administrative templates including Disable MCP. These entries apply to Windows.",
+        "sourceFiles": [
+          "intune/whats-new/index.md",
+          "intune/whats-new/index.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/device-configuration",
+        "summary": "The PKCS profiles article was updated with a note that device configuration profiles, including PKCS certificate profiles, aren’t supported on Microsoft Teams devices running AOSP. The document date changed from November 19, 2024, to August 6, 2026. The documentation now notes that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information.",
+        "sourceFiles": [
+          "intune/device-configuration/certificates/pkcs-profiles.md",
+          "intune/device-configuration/collect-device-properties.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/device-enrollment",
+        "summary": "The macOS Automated Device Enrollment documentation now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. This can cause unexpected enrollment behavior and loss of expected device affinity.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-automated-macos.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/configmgr",
+        "summary": "The manual Azure AD app registration article no longer instructs administrators to set `oauth2AllowIdTokenImplicitFlow` to `true` in the app manifest. The article date changed from 03/11/2022 to 08/06/2026. The version 2603 documentation clarifies that SQL Server Management Objects and SQL Server System CLR Types use the SQL Server 2025 versions (SMO 17), while the related MSI files are no longer included in Configuration Manager media. The documentation updates its date and clarifies that SQLSysClrTypes.msi and SharedManagementObjects.msi are no longer included in the Configuration Manager package. It also retains the update from SQL Server 2014 components to SQL Server 2025 versions (SMO 1",
+        "sourceFiles": [
+          "intune/configmgr/core/clients/manage/cmg/manually-register-azure-ad-apps.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/core/plan-design/changes/whats-new-in-version-2603.md",
+          "intune/configmgr/core/understand/software-center.md",
+          "intune/configmgr/core/servers/deploy/configure/boundary-groups-software-update-points.md",
+          "intune/configmgr/core/servers/manage/use-the-service-connection-tool.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/device-security",
+        "summary": "The page refreshes links for Intune App SDK certificate trust management, including the MAMCertTrustWebViewClient reference, which now points to GitHub documentation. The page now links only to the general Android and iOS store-app instructions; the direct CylancePROTECT Google Play and Apple App Store URLs were removed. The article now retains the instruction to create an iOS app configuration policy but removes the linked Sophos Intercept X managed-settings reference. The BlackBerry Intune documentation no longer includes the link to BlackBerry UES documentation. The setup page removes the external BlackBerry UES documentation link from step 8 and now instructs administrators to sign in wi",
+        "sourceFiles": [
+          "intune/device-security/microsoft-tunnel/mam-android.md",
+          "intune/device-security/mobile-threat-defense/add-apps-unenrolled-devices.md",
+          "intune/device-security/mobile-threat-defense/assign-apps.md",
+          "intune/device-security/mobile-threat-defense/blackberry.md",
+          "intune/device-security/mobile-threat-defense/setup-blackberry.md",
+          "intune/device-security/microsoft-tunnel/prerequisites.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/user-help",
+        "summary": "The AIP mobile apps description no longer includes the sentence linking to Google Play for the mobile viewer app. The supported viewing description remains.",
+        "sourceFiles": [
+          "intune/user-help/apps/managed-apps-android.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/device-management",
+        "summary": "The sync page now states that its described behavior and Device sync status tab apply only to Windows devices, and instructs administrators to turn on the “Preview new device view” toggle in the top-right of the Intune admin center to see the new device sync improvements. The documentation replaces the previous regional upload URLs with region-specific endpoint lists and directs administrators to Tenant Administration > Tenant Status in endpoint.microsoft.com to identify their tenant’s geo and data center.",
+        "sourceFiles": [
+          "intune/device-management/actions/sync.md",
+          "intune/device-management/actions/collect-diagnostics.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/fundamentals",
+        "summary": "The licensing documentation now states that Intune device-only subscriptions support eligible shared-device and no-user-affinity enrollment scenarios. It also clarifies that an unlicensed signed-in user does not prevent device-targeted policies, apps, or management actions from processing. The documentation now states that missing approval headers return HTTP 400, while a pending approval returns HTTP 412 (Precondition Failed) with a Microsoft Graph `BadRequest` code and an `x-msft-approval-code` header. It also instructs readers to save the original method, URL, and body for resubmission. The Remediations link now points to the deploy-remediations.md page instead of deploy-remediations. The",
+        "sourceFiles": [
+          "intune/fundamentals/licensing.md",
+          "intune/fundamentals/role-based-access-control/multi-admin-approval-graph-api.md",
+          "intune/fundamentals/government-service.md",
+          "intune/fundamentals/government-service.md",
+          "intune/fundamentals/endpoints.md",
+          "intune/fundamentals/role-based-access-control/create-custom-role.md",
+          "intune/fundamentals/role-based-access-control/multi-admin-approval.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "Windows Autopilot",
+        "summary": "The documentation was updated to reformat three existing labels while keeping their names unchanged: M365-modern-desktop, m365initiative-coredeploy, and essentials-manage. The page title was capitalized and its description now states that it covers gathering hardware hashes and importing, editing, and deleting device records in the Intune admin center.",
+        "sourceFiles": [
+          "autopilot/add-devices.md",
+          "autopilot/add-devices.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Documentation change",
+        "headline": "intune/app-management",
+        "detail": "The documentation now explicitly states that Available assignments can target device groups for Win32 apps and apps targeting Android Enterprise fully managed (COBO) and corporate-owned personally enabled (COPE) devices. The documentation date changed from 12/03/2025 to 08/06/2026. The protected apps reference no longer includes the Klaxoon for Intune entry."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/whats-new",
+        "detail": "The page now notes that enrollment time grouping is available for iOS/iPadOS and macOS, along with the new Apple enrollment policies experience, and links to a previous blog post. The What's new page now documents new Windows App and OneDrive settings, a package-removal subsetting, the Disable Get Started setting, and refreshed Visual Studio administrative templates including Disable MCP. These entries apply to Windows."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-configuration",
+        "detail": "The PKCS profiles article was updated with a note that device configuration profiles, including PKCS certificate profiles, aren’t supported on Microsoft Teams devices running AOSP. The document date changed from November 19, 2024, to August 6, 2026. The documentation now notes that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-enrollment",
+        "detail": "The macOS Automated Device Enrollment documentation now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. This can cause unexpected enrollment behavior and loss of expected device affinity."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/configmgr",
+        "detail": "The manual Azure AD app registration article no longer instructs administrators to set `oauth2AllowIdTokenImplicitFlow` to `true` in the app manifest. The article date changed from 03/11/2022 to 08/06/2026. The version 2603 documentation clarifies that SQL Server Management Objects and SQL Server System CLR Types use the SQL Server 2025 versions (SMO 17), while the related MSI files are no longer included in Configuration Manager media. The documentation updates its date and clarifies that SQLSysClrTypes.msi and SharedManagementObjects.msi are no longer included in the Configuration Manager package. It also retains the update from SQL Server 2014 components to SQL Server 2025 versions (SMO 1"
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-security",
+        "detail": "The page refreshes links for Intune App SDK certificate trust management, including the MAMCertTrustWebViewClient reference, which now points to GitHub documentation. The page now links only to the general Android and iOS store-app instructions; the direct CylancePROTECT Google Play and Apple App Store URLs were removed. The article now retains the instruction to create an iOS app configuration policy but removes the linked Sophos Intercept X managed-settings reference. The BlackBerry Intune documentation no longer includes the link to BlackBerry UES documentation. The setup page removes the external BlackBerry UES documentation link from step 8 and now instructs administrators to sign in wi"
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/user-help",
+        "detail": "The AIP mobile apps description no longer includes the sentence linking to Google Play for the mobile viewer app. The supported viewing description remains."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-management",
+        "detail": "The sync page now states that its described behavior and Device sync status tab apply only to Windows devices, and instructs administrators to turn on the “Preview new device view” toggle in the top-right of the Intune admin center to see the new device sync improvements. The documentation replaces the previous regional upload URLs with region-specific endpoint lists and directs administrators to Tenant Administration > Tenant Status in endpoint.microsoft.com to identify their tenant’s geo and data center."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/fundamentals",
+        "detail": "The licensing documentation now states that Intune device-only subscriptions support eligible shared-device and no-user-affinity enrollment scenarios. It also clarifies that an unlicensed signed-in user does not prevent device-targeted policies, apps, or management actions from processing. The documentation now states that missing approval headers return HTTP 400, while a pending approval returns HTTP 412 (Precondition Failed) with a Microsoft Graph `BadRequest` code and an `x-msft-approval-code` header. It also instructs readers to save the original method, URL, and body for resubmission. The Remediations link now points to the deploy-remediations.md page instead of deploy-remediations. The"
+      },
+      {
+        "category": "Documentation change",
+        "headline": "Windows Autopilot",
+        "detail": "The documentation was updated to reformat three existing labels while keeping their names unchanged: M365-modern-desktop, m365initiative-coredeploy, and essentials-manage. The page title was capitalized and its description now states that it covers gathering hardware hashes and importing, editing, and deleting device records in the Intune admin center."
+      }
+    ],
     "generatedBy": "fallback"
   }
 }

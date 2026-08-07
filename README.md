@@ -4,9 +4,8 @@ An automated GitHub Actions workflow that monitors the [Microsoft Intune documen
 
 ## 🚀 Features
 
-- **📅 Daily Monitoring**: Automatically runs every day at 8:15 AM UTC, after Microsoft's late publish/sync cycle
-- **📧 Email Alerts**: Beautifully formatted HTML email reports sent to your inbox
-- **🗞️ Subscriber Broadcasts**: Concise Kit emails on days with meaningful Intune updates, with links to the full daily evidence
+- **📅 Four-hour Monitoring**: Refreshes at six UTC slots and reconciles the daily subscriber email from 8:15 AM onward
+- **🗞️ Subscriber Email**: Concise Kit broadcasts for confirmed subscribers, with links to the full daily evidence
 - **🔍 Smart Analysis**: Categorizes changes into new files, modifications, and deletions
 - **💡 Change Summaries**: Provides detailed summaries of what changed in each modified file
 - **📊 Visual Reports**: Clean, responsive HTML reports with statistics and direct GitHub links
@@ -15,39 +14,25 @@ An automated GitHub Actions workflow that monitors the [Microsoft Intune documen
 
 ## 📋 What You Get
 
-### Email Report Includes:
-1. **📊 Summary Statistics**: Total commits, new files, modified files, deleted files, and contributors
-2. **🆕 New Files Section**: Lists all newly added markdown documentation files with direct GitHub links
-3. **📝 Modified Files Section**: Shows changed files with:
-   - Line change statistics (+additions/-deletions)
-   - Key content changes summary
-   - Commit author and timestamp
-   - Direct links to files on GitHub
-4. **🗑️ Deleted Files Section**: Lists removed documentation files
+### Subscriber Email Includes:
+1. **Daily headline and overview**: A concise explanation of the meaningful Intune changes
+2. **Key changes**: The most important updates with product and topic context
+3. **Source links**: Direct links to the corresponding evidence on Daily.Intune.Admin.News
+4. **Account-level compliance**: Kit's default template supplies the unsubscribe link and sender details
 
 ### Sample Report Structure:
 ```
-📋 Microsoft Intune Documentation Changes
-Daily summary for changes since [timestamp]
+Microsoft Intune daily update — [date]
 
-📊 Summary
-- 15 Total Commits
-- 3 New Files  
-- 8 Modified Files
-- 1 Deleted Files
-- 5 Contributors
+[Daily headline]
+[Concise overview]
 
-🆕 New Documentation Files
-├── intune/apps/new-feature.md
-├── intune/enrollment/updated-guide.md
-└── autopilot/tutorial/user-driven.md
+Key changes
+├── [Product · Topic] [Change headline]
+│   └── [What changed and why it matters]
+└── [Additional material changes]
 
-📝 Modified Documentation Files  
-├── intune/configuration/device-profile.md
-│   ├── +12/-3 lines changed
-│   ├── Key Changes: Updated authentication flow steps...
-│   └── Modified by author on Jan 15, 2025
-└── [additional files...]
+View all updates for [date] →
 ```
 
 ## ⚙️ Setup Instructions
@@ -65,20 +50,16 @@ npm ci
 ### 2. **Configure Secrets**
 Go to your repository settings → Secrets and variables → Actions, and add:
 
-- **`AZURE_CLIENT_ID`**: Your Microsoft Entra ID app registration client ID
-- **`AZURE_CLIENT_SECRET`**: Your Microsoft Entra ID app registration client secret
-- **`AZURE_TENANT_ID`**: Your Azure/Microsoft 365 tenant ID
-- **`SENDER_EMAIL`**: Email address to send from (must exist in your tenant)
 - **`OPENAI_API_KEY`**: OpenAI project API key used to generate per-diff and grouped plain-English summaries
 - **`DISCORD_INTUNE_SCOUT_WEBHOOK_URL`**: Shared Intune Scout incoming webhook for the Discord channel that receives both documentation and Message Center updates
-- **`KIT_API_KEY`**: Kit v4 API key for the dedicated Daily.Intune.Admin.News account; omit it until the Kit account is approved and ready to send
+- **`KIT_API_KEY`**: Kit v4 API key for the dedicated Daily.Intune.Admin.News account; configure it before enabling scheduled reconciliation
+- **`KIT_SENDER_EMAIL`**: Optional override for the broadcast sender; omit it to use the verified Kit account default
+- **`HEALTHCHECKS_PING_URL`**: Private Healthchecks.io ping URL for detecting scheduled runs that never start or finish
 
 Add these repository secrets for the public inline subscription form configuration:
 
 - **`KIT_DAILY_FORM_UID`**: The public `data-uid` from Kit's JavaScript form embed
 - **`KIT_DAILY_FORM_EMBED_SRC`**: The HTTPS `src` URL from Kit's JavaScript form embed; only Kit or ConvertKit hosts are accepted by the site generator
-
-The recipient email (`merill@merill.net`) is already configured in the workflow.
 
 The workflow defaults to `gpt-5.6-luna` with `xhigh` reasoning and three concurrent per-diff requests. Every material diff receives its own English summary. When a report contains multiple diffs, one additional Luna request groups related changes into a daily digest. You can override `OPENAI_SUMMARY_MODEL`, `OPENAI_SUMMARY_REASONING_EFFORT`, and `OPENAI_SUMMARY_CONCURRENCY`, or disable AI generation with `OPENAI_SUMMARY_ENABLED=false`. Deterministic fallbacks keep report generation, Discord delivery, and email working if OpenAI is unavailable.
 
@@ -96,42 +77,42 @@ Discord messages disable all automatic mentions, retry rate limits and transient
 
 The documentation notification contains the grouped English digest and one link to the canonical `https://daily.intune.admin.news/day/YYYY-MM-DD/` daily page. It does not post separate cards for each documentation diff.
 
-### Kit daily email setup
+### Kit (formerly ConvertKit) daily email setup
 
-The public daily list is intentionally separate from the human-curated weekly Intune.Admin.News newsletter. After the dedicated 08:15 UTC run succeeds and its static website commit is pushed, it calls the separate `daily-kit-broadcast.yml` workflow to publish the email-only Kit broadcast. The other four-hour refreshes never trigger subscriber email.
+The public daily list is intentionally separate from the human-curated weekly Intune.Admin.News newsletter. Every successful scheduled refresh calls the separate `daily-kit-broadcast.yml` workflow. Before 08:15 UTC it verifies the previous delivery without creating today's broadcast; at and after 08:15 it reconciles today's report. The later 12:15, 16:15, and 20:15 runs therefore recover an email missed because an earlier Actions run was delayed, dropped, or failed.
 
-1. Create a dedicated Kit Newsletter account and complete Kit's sending approval.
-2. Add and confirm `updates@daily.intune.admin.news` as the account's default sending address. The API publisher omits `email_address`, allowing Kit to use this verified default. Set `KIT_SENDER_EMAIL` only if you intentionally need another sending address that is already verified in the same Kit account.
-3. Verify `daily.intune.admin.news` as the sending domain with the SPF, DKIM, and DMARC records Kit supplies.
-4. Configure the account's default Classic or HTML email template with an unsubscribe link and physical address. The publisher deliberately uses the account default template.
-5. Create an inline form, leave double opt-in enabled, and customize its confirmation email and success message.
-6. Copy the JavaScript embed's `data-uid` and `src` values into the repository variables above.
-7. Create a Kit v4 API key and save it as the `KIT_API_KEY` repository secret.
-8. Test the popup, success message, confirmation email, and final opt-in with seed subscribers in Outlook and Gmail before promoting the form publicly.
+1. Create a dedicated Kit Newsletter account, set its business details and timezone, and complete Kit's sending approval. Kit's [new-account checklist](https://help.kit.com/en/articles/14005977-how-to-set-up-your-new-kit-account-a-complete-checklist) shows the current navigation.
+2. In **Settings → Email**, add and confirm `updates@daily.intune.admin.news` as the default sending address. The API publisher omits `email_address`, allowing Kit to use this verified default. Set `KIT_SENDER_EMAIL` only if you intentionally need another sending address that is already verified in the same Kit account.
+3. In **Settings → Email → Verified Sending Domains**, add `daily.intune.admin.news`, publish the DNS records Kit displays, and click **Validate**. This establishes SPF, DKIM, and DMARC alignment; see Kit's [verified sending domain guide](https://help.kit.com/en/articles/2502558-verify-your-domain-to-optimize-your-deliverability).
+4. Configure the account's default Classic or HTML email template with the required unsubscribe link and physical address. The publisher deliberately uses the account default template.
+5. Go to **Audience growth → Landing Pages & Forms → + New → Form**, create an inline form, and keep double opt-in enabled by leaving **Auto-confirm new subscribers** unchecked. Customize the confirmation email and success/redirect behavior, then **Save & Publish**. Kit recommends the [JavaScript form embed](https://help.kit.com/en/articles/2502640-the-kit-form-builder).
+6. Open **Embed → JavaScript** and copy the script tag's `data-uid` into the `KIT_DAILY_FORM_UID` Actions secret and its HTTPS `src` into `KIT_DAILY_FORM_EMBED_SRC`.
+7. In **Settings → Developer → V4 Keys**, select **Add a new key**, name it `daily-intune-github-actions`, and copy it immediately. Save it as the `KIT_API_KEY` Actions secret. V3 keys are not compatible with this publisher; see Kit's [V4 authentication guide](https://developers.kit.com/api-reference/authentication).
+8. Test the form, success message, confirmation email, and final opt-in with seed subscribers in Outlook and Gmail. Confirm those subscribers appear as confirmed in Kit before testing a broadcast.
+9. Open **Actions → Publish Daily Kit Broadcast → Run workflow**, select a report date, enable **Create a Kit draft without scheduling or sending it**, and inspect/test-send the draft in Kit. Delete that test draft before rerunning draft mode for the same date.
+10. Run the workflow once with draft mode disabled only when the verified domain, default sender, template, unsubscribe details, and seed subscribers are ready.
 
-`node scripts/publish-kit-broadcast.js --date YYYY-MM-DD` publishes a saved daily report manually. Set `KIT_DRY_RUN=true` to render and validate the payload without contacting Kit. Without `KIT_API_KEY`, the command exits successfully after reporting that Kit is not configured.
+`node scripts/publish-kit-broadcast.js --date YYYY-MM-DD` publishes a saved daily report manually. `node scripts/publish-kit-broadcast.js --auto` runs the same-day reconciliation used by Actions. Set `KIT_DRY_RUN=true` to render and validate a manual payload without contacting Kit. Without `KIT_API_KEY`, manual mode exits successfully after reporting that Kit is not configured; automatic reconciliation fails so the missing production configuration is visible.
 
-For a manual format test, open **Actions → Publish Daily Kit Broadcast → Run workflow**, choose the report date, and enable **Create a Kit draft without scheduling or sending it**. The workflow creates an unscheduled draft in Kit, where you can use Kit's preview or test-send controls for a single recipient. Drafts use a separate `daily-intune-news:YYYY-MM-DD:draft` marker, so they never prevent the real daily broadcast for that date. Delete the existing test draft in Kit before rerunning draft mode for the same date.
+For a manual format test, the workflow creates an unscheduled draft in Kit, where you can use Kit's preview or test-send controls for a single recipient. Drafts use a separate `daily-intune-news:YYYY-MM-DD:draft` marker, so they never prevent the real daily broadcast for that date. Draft runs do not update Healthchecks.io; a successful non-draft manual run records the day's production completion.
 
-The publisher uses the combined daily editorial brief, including relevant Message Center items, and falls back to the documentation digest when necessary. It sends only when the selected day contains changes, schedules delivery five minutes ahead, and targets all confirmed subscribers in the dedicated account by omitting `subscriber_filter`, which Kit documents as the all-subscribers default. The Kit workflow serializes all runs, requires the selected date's report to exist, and checks an internal `daily-intune-news:YYYY-MM-DD` marker before every create attempt. After an ambiguous transient POST failure it re-lists broadcasts before retrying, so a broadcast that Kit accepted despite a lost response is not created again. Authentication and validation failures stop immediately without undoing the already-published site.
+The publisher uses the combined daily editorial brief, including relevant Message Center items, and falls back to the documentation digest when necessary. It sends only when the selected day contains changes, schedules delivery five minutes ahead, and targets all confirmed subscribers in the dedicated account by omitting `subscriber_filter`, which Kit documents as the all-subscribers default. The Kit workflow serializes all runs and checks an internal `daily-intune-news:YYYY-MM-DD` marker across every cursor-paginated result page before creating a broadcast. After an ambiguous transient POST failure it re-lists broadcasts before retrying, so a broadcast that Kit accepted despite a lost response is not created again.
 
-### 3. **Failure-alert email setup**
+Later reconciliations query Kit's delivery stats. `completed` verifies success; `scheduled` and `sending` remain healthy for 30 minutes after `send_at`; overdue or unexpected states fail the workflow and report failure to Healthchecks.io. The first run after midnight also verifies the previous UTC day. If that day had meaningful changes but never received a marker, the workflow reports the missed window but does not send stale mail.
 
-Microsoft Graph is used only to alert `merill@merill.net` when the refresh workflow fails. The scheduled daily digest is published through Kit.
+### 3. **External heartbeat setup**
 
-1. Create a Microsoft Entra ID app registration in [Azure Portal](https://portal.azure.com)
-2. Add **Mail.Send** application permission
-3. Grant admin consent for the permission
-4. Create a client secret
-5. Configure the sender email (must be a valid mailbox in your organization)
+1. Create a Healthchecks.io check named `Daily.Intune.Admin.News scheduled pipeline`.
+2. Use cron schedule `15 0,4,8,12,16,20 * * *`, timezone `UTC`, and a two-hour grace period.
+3. Enable the desired email notification integration.
+4. Save the check's private ping URL as the repository secret `HEALTHCHECKS_PING_URL`.
 
-📚 **Detailed setup guide**: See [GRAPH-SETUP.md](./GRAPH-SETUP.md) for step-by-step instructions.
+Scheduled runs send `/start`, success, and `/fail` signals. Non-draft manual Kit runs send the same signals, allowing a successful manual recovery to mark the check healthy; draft smoke tests deliberately remain silent. If GitHub Actions never starts a scheduled run, Healthchecks.io alerts after the grace period. Heartbeat request failures do not block content or email publishing.
 
 ### 4. **Customize (Optional)**
 Edit `.github/workflows/daily-docs-monitor.yml` to:
 - Change the four-hour schedule (currently 00:15 through 20:15 UTC)
-- Modify the recipient email
-- Change the dedicated 08:15 UTC email slot
+- Change the 08:15 UTC automatic email cutoff
 
 ## 🕒 Optimal Timing
 
@@ -145,11 +126,11 @@ Analysis of 838 merge commits in `MicrosoftDocs/memdocs` from May through early 
 
 Test the monitor manually:
 ```bash
-# Unit tests do not call OpenAI, Discord, Microsoft Graph, or Kit
+# Unit tests do not call OpenAI, Discord, or Kit
 npm test
 
-# End-to-end local run without sending email or Discord messages
-DRY_RUN=true DISCORD_DRY_RUN=true LOCAL_REPO_PATH=/path/to/memdocs npm start
+# End-to-end local monitor run without Discord publishing
+DISCORD_DRY_RUN=true LOCAL_REPO_PATH=/path/to/memdocs npm start
 ```
 
 Build and preview the static Intune.Admin.News Daily site locally:
@@ -215,13 +196,13 @@ daily-intune/
 4. **Analyze Changes**: Categorizes file modifications and asks Luna for one English summary per material diff
 5. **Refresh Briefs**: Regenerates the affected Luna-xhigh day, week, and month brief only when source content changed
 6. **Publish**: Merges events into cumulative UTC-day JSON, rebuilds the static site, and posts an incremental Discord update
-7. **Trigger Subscriber Brief**: After the 08:15 UTC website workflow succeeds, a serialized workflow schedules a concise, deduplicated Kit broadcast when the day contains meaningful updates
+7. **Reconcile Subscriber Brief**: Every scheduled website workflow verifies Kit delivery; the first successful run at or after 08:15 UTC schedules a concise, deduplicated broadcast when the day contains meaningful updates
 8. **Archive**: Saves the report as a GitHub Actions artifact and publishes the static output
 
 ## 🔧 Configuration Options
 
 ### Workflow Variables (in `daily-docs-monitor.yml`):
-- `cron`: Four-hour site/Discord schedule plus the dedicated 08:15 UTC Kit subscriber schedule
+- `cron`: Six UTC refresh slots; all verify Kit and the 08:15-or-later slots can create today's subscriber broadcast
 - `OPENAI_PERIOD_SUMMARY_DAILY_BUDGET_USD`: Shared UTC-day Luna-xhigh guardrail (currently `$0.25`)
 
 ### Script Configuration (in `monitor-docs.js`):
@@ -232,7 +213,7 @@ daily-intune/
 
 ## 📧 Subscriber Email Delivery
 
-Kit publishes a richly formatted summary after the successful 08:15 UTC site refresh. It includes links back to Daily.Intune.Admin.News, uses Kit's confirmed-subscriber list and default template, and skips days without meaningful updates. Microsoft Graph is reserved for workflow-failure alerts.
+Kit publishes a richly formatted summary on the first successful reconciliation at or after 08:15 UTC. Later same-day runs safely retry, delivery status is verified, and days without meaningful updates remain silent. Healthchecks.io reports scheduled-pipeline failures; Microsoft Graph email sending is not used.
 
 
 ## 📈 Monitoring & Troubleshooting
@@ -241,6 +222,7 @@ Kit publishes a richly formatted summary after the successful 08:15 UTC site ref
 - View run history in the Actions tab
 - Each run shows detailed logs of the monitoring process
 - Failed runs will show specific error messages
+- Healthchecks.io alerts when the scheduled pipeline does not report success within two hours of a UTC slot
 
 ### Common Issues:
 1. **Subscriber email not sending**: Check the Kit API key, verified sending domain, and broadcast logs

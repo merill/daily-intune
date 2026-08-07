@@ -78,6 +78,7 @@ jobs:
         MC_DATA_PATH: "./mc/@data"
         KIT_DAILY_FORM_UID: ${{ secrets.KIT_DAILY_FORM_UID }}
         KIT_DAILY_FORM_EMBED_SRC: ${{ secrets.KIT_DAILY_FORM_EMBED_SRC }}
+        USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
         GITHUB_ACTIONS: "true"
       run: node src/monitor-docs.js
 
@@ -101,6 +102,7 @@ jobs:
         MC_DATA_PATH: "./mc/@data"
         KIT_DAILY_FORM_UID: ${{ secrets.KIT_DAILY_FORM_UID }}
         KIT_DAILY_FORM_EMBED_SRC: ${{ secrets.KIT_DAILY_FORM_EMBED_SRC }}
+        USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
       run: |
         if [ -n "${{ inputs.backfill_dates }}" ]; then
           node scripts/generate-period-summaries.js --dates="${{ inputs.backfill_dates }}" --force

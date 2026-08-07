@@ -13,12 +13,12 @@ them outside this site.
 | --- | --- | --- | --- | --- |
 | `intune.svg` | Microsoft Intune | Microsoft Intune | `msicons/public/icons/intune/Microsoft-intune.svg` | Exact |
 | `autopilot.svg` | Windows Autopilot | Automanaged VM | `msicons/public/icons/compute/02112-icon-service-Automanaged-VM.svg` | Closest available |
-| `configuration-manager.svg` | Configuration Manager | Managed Desktop | `msicons/public/icons/management-governance/10311-icon-service-Managed-Desktop.svg` | Closest available |
-| `intune-suite.svg` | Intune Suite | Devices | `msicons/public/icons/intune/10332-icon-service-Devices.svg` | Closest available |
-| `epm.svg` | Endpoint Privilege Management | Entra Privileged Identity Management | `msicons/public/icons/identity/02251-icon-service-Entra-Privileged-Identity-Management.svg` | Closest available |
+| `configuration-manager.svg` | Configuration Manager | OSConfig | `msicons/public/icons/other/03365-icon-service-OSConfig.svg` | Closest available |
+| `intune.svg` | Intune Suite | Microsoft Intune | `msicons/public/icons/intune/Microsoft-intune.svg` | Shared parent mark |
+| `epm.svg` | Endpoint Privilege Management | Application Security Groups | `msicons/public/icons/security/10244-icon-service-Application-Security-Groups.svg` | Closest available |
 | `remote-help.svg` | Remote Help | Help and Support | `msicons/public/icons/general/10013-icon-service-Help-and-Support.svg` | Closest available |
 | `advanced-analytics.svg` | Advanced Analytics | Log Analytics Workspaces | `msicons/public/icons/analytics/00009-icon-service-Log-Analytics-Workspaces.svg` | Closest available |
-| `cloud-pki.svg` | Cloud PKI | App Service Certificates | `msicons/public/icons/app-services/00049-icon-service-App-Service-Certificates.svg` | Closest available |
+| `cloud-pki.svg` | Cloud PKI | Certificate | `msicons/public/icons/Microsoft/light-blue-Certificate.svg` | Closest available |
 | `enterprise-app-management.svg` | Enterprise App Management | Managed Applications Center | `msicons/public/icons/management-governance/10313-icon-service-Managed-Applications-Center.svg` | Closest available |
 | `copilot.svg` | Security Copilot | Copilot color | `msicons/public/icons/fabric/copilot_color.svg` | Closest available |
 

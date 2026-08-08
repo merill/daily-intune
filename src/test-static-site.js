@@ -34,7 +34,7 @@ test('MicrosoftX diff URLs preserve Learn state and exact revisions', () => {
     baseCommitSha: 'a'.repeat(40),
     commitSha: 'b'.repeat(40)
   }));
-  assert.equal(result.origin, 'https://learn.microsoftx.com');
+  assert.equal(result.origin, 'https://mx.merill.net');
   assert.equal(result.pathname, '/en-us/intune/example');
   assert.equal(result.searchParams.get('tabs'), 'portal');
   assert.equal(result.searchParams.get('_mx_base'), 'a'.repeat(40));
@@ -398,7 +398,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(indexHtml, /href="https:\/\/merill\.net"/);
   assert.match(indexHtml, /<script defer data-site="fmqjf1u7" data-domain="daily\.intune\.admin\.news" src="https:\/\/piqo\.app\/piqo\.js"><\/script>/);
   assert.equal((indexHtml.match(/https:\/\/piqo\.app\/piqo\.js/g) || []).length, 1);
-  assert.match(indexHtml, /href="https:\/\/microsoftx\.com\/" data-nav="compare" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="View full page diff" title="View full page diff"><span class="nav-mobile-icon" aria-hidden="true"><\/span><span class="nav-label">Diff<\/span><\/a>/);
+  assert.match(indexHtml, /href="https:\/\/mx\.merill\.net\/" data-nav="compare" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="View full page diff" title="View full page diff"><span class="nav-mobile-icon" aria-hidden="true"><\/span><span class="nav-label">Diff<\/span><\/a>/);
   assert.match(indexHtml, /href="\/search\/" data-nav="search" class="nav-icon" aria-label="Search" title="Search"><span class="nav-mobile-icon" aria-hidden="true"><\/span><span class="nav-label">Search<\/span><\/a>/);
   assert.match(searchHtml, /href="\/search\/" data-nav="search" class="nav-icon" aria-current="page" aria-label="Search" title="Search">/);
   assert.equal((indexHtml.match(/class="nav-mobile-icon"/g) || []).length, 6);
@@ -488,7 +488,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(dayHtml, /class="mini-calendar-grid"/);
   assert.match(dayHtml, /href="#product-intune"/);
   assert.match(dayHtml, /class="change-pill updated">Updated/);
-  assert.match(historicalDayHtml, /href="https:\/\/learn\.microsoftx\.com\/en-us\/intune\/intune-service\/\?_mx_base=cccccccccccccccccccccccccccccccccccccccc&amp;_mx_head=dddddddddddddddddddddddddddddddddddddddd">Archive update 2026-06-15<\/a>/);
+  assert.match(historicalDayHtml, /href="https:\/\/mx\.merill\.net\/en-us\/intune\/intune-service\/\?_mx_base=cccccccccccccccccccccccccccccccccccccccc&amp;_mx_head=dddddddddddddddddddddddddddddddddddddddd">Archive update 2026-06-15<\/a>/);
   await assert.rejects(fs.access(path.join(websiteDir, 'changes', '2026-06-15', 'archive-update-2026-06-15-01', 'index.html')));
   assert.match(dayHtml, /class="change-pill new">New/);
   assert.match(dayHtml, /<time datetime="2026-08-01T08:15:00Z" data-local-day>/);
@@ -593,7 +593,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.doesNotMatch(docDetailHtml, /extract of the Microsoft Learn article showing only the changed content|Open the full article/);
   assert.match(docDetailHtml, /Use the full-page view for complete context/);
   assert.equal((docDetailHtml.match(/View full page diff<\/a>/g) || []).length, 2);
-  assert.equal((docDetailHtml.match(/href="https:\/\/learn\.microsoftx\.com\/en-us\/intune\/governance\/tenant-governance\/how-to-create-monitor\?_mx_base=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&amp;_mx_head=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" target="_blank" rel="noopener noreferrer"><span class="diff-link-icon" aria-hidden="true"><\/span>View full page diff<\/a>/g) || []).length, 2);
+  assert.equal((docDetailHtml.match(/href="https:\/\/mx\.merill\.net\/en-us\/intune\/governance\/tenant-governance\/how-to-create-monitor\?_mx_base=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&amp;_mx_head=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" target="_blank" rel="noopener noreferrer"><span class="diff-link-icon" aria-hidden="true"><\/span>View full page diff<\/a>/g) || []).length, 2);
   assert.equal((docDetailHtml.match(/View on Microsoft Learn<\/a>/g) || []).length, 2);
   assert.doesNotMatch(docDetailHtml, /(?:View full page diff|View on Microsoft Learn) ↗/);
   assert.equal((docDetailHtml.match(/href="https:\/\/learn\.microsoft\.com\/en-us\/intune\/governance\/tenant-governance\/how-to-create-monitor" target="_blank" rel="noopener noreferrer"><img src="\/assets\/ui\/microsoft\.svg" alt="">View on Microsoft Learn<\/a>/g) || []).length, 2);

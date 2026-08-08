@@ -254,6 +254,19 @@ test('the workflow forwards the UserJot repository variable to site builds', asy
   assert.equal((workflow.match(/USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/g) || []).length, 2);
 });
 
+test('the generated-site workflow runs only for build inputs and cannot retrigger itself', async () => {
+  const workflow = await fs.readFile(path.join(__dirname, '..', '.github', 'workflows', 'build-static-website.yml'), 'utf8');
+  assert.match(workflow, /push:\n\s+branches:\n\s+- main\n\s+paths:/);
+  assert.match(workflow, /'\.github\/workflows\/build-static-website\.yml'/);
+  assert.match(workflow, /'assets\/site\/\*\*'/);
+  assert.match(workflow, /'src\/static-site\.js'/);
+  assert.doesNotMatch(workflow, /'reports\/\*\*'|'website\/\*\*'/);
+  assert.match(workflow, /group: intune-docs-monitor/);
+  assert.match(workflow, /MC_DATA_PATH: '\.\/mc\/@data'/);
+  assert.match(workflow, /run: npm run build:site/);
+  assert.match(workflow, /git add website\//);
+});
+
 test('static generator writes indexable archive and detail pages', async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'intune-daily-'));
   const websiteDir = path.join(root, 'website');

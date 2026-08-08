@@ -383,7 +383,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   }
   assert.equal((indexHtml.match(/cdn\.userjot\.com\/sdk\/v2\/uj\.js/g) || []).length, 1);
   assert.match(indexHtml, /href="https:\/\/merill\.net"/);
-  assert.match(indexHtml, /<script defer data-site="nuj3pzyz" data-domain="daily\.intune\.admin\.news" src="https:\/\/piqo\.app\/piqo\.js"><\/script>/);
+  assert.match(indexHtml, /<script defer data-site="fmqjf1u7" data-domain="daily\.intune\.admin\.news" src="https:\/\/piqo\.app\/piqo\.js"><\/script>/);
   assert.equal((indexHtml.match(/https:\/\/piqo\.app\/piqo\.js/g) || []).length, 1);
   assert.match(indexHtml, /href="https:\/\/microsoftx\.com\/" data-nav="compare" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="View full page diff" title="View full page diff"><span class="nav-mobile-icon" aria-hidden="true"><\/span><span class="nav-label">Diff<\/span><\/a>/);
   assert.match(indexHtml, /href="\/search\/" data-nav="search" class="nav-icon" aria-label="Search" title="Search"><span class="nav-mobile-icon" aria-hidden="true"><\/span><span class="nav-label">Search<\/span><\/a>/);

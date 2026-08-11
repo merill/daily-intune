@@ -6317,6 +6317,28 @@
         "outputTokens": 4295,
         "costUsd": 0.006125
       }
+    },
+    "2026-08-11": {
+      "headline": "Endpoint security page date changes without altering Intune behavior",
+      "overview": "This was a quiet Intune period: the only change was a metadata refresh on the “Manage devices with endpoint security in Microsoft Intune” page. Its date changed from August 2, 2024, to August 10, 2026; no substantive content change is shown.",
+      "adminImpact": "No feature change, policy behavior change, or administrator action is supported by this diff.",
+      "keyChanges": [
+        {
+          "title": "Endpoint security guidance received a metadata-only date update",
+          "detail": "The page metadata date changed from August 2, 2024, to August 10, 2026. The supplied diff shows no substantive content change, so this is ordinary documentation maintenance rather than a new capability, changed behavior, or required procedure.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-11-manage-devices-with-endpoint-security-in-microsoft-intune-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-11T17:11:15.367Z",
+      "usage": {
+        "inputTokens": 959,
+        "outputTokens": 526,
+        "costUsd": 0.000823
+      }
     }
   },
   "weeks": {
@@ -7743,6 +7765,28 @@
         "outputTokens": 6425,
         "costUsd": 0.008753
       }
+    },
+    "2026-08-10": {
+      "headline": "Endpoint security page gets a metadata refresh without changing administrator guidance",
+      "overview": "The sole reported change was a metadata-only update to the Intune endpoint security management page. Its date changed from August 2, 2024, to August 10, 2026; the supplied diff shows no substantive content change.",
+      "adminImpact": "No feature change, configuration change, or administrator action is indicated by this update.",
+      "keyChanges": [
+        {
+          "title": "Endpoint security page date updated",
+          "detail": "The “Manage devices with endpoint security in Microsoft Intune” page metadata date changed from August 2, 2024, to August 10, 2026. No new capability, changed behavior, prerequisite, or procedure is shown.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-11-manage-devices-with-endpoint-security-in-microsoft-intune-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-11T17:11:15.367Z",
+      "usage": {
+        "inputTokens": 768,
+        "outputTokens": 469,
+        "costUsd": 0.000716
+      }
     }
   },
   "months": {
@@ -8069,54 +8113,54 @@
       }
     },
     "2026-08": {
-      "headline": "Per-setting Firewall and ASR reporting requires Defender for Endpoint security settings management",
-      "overview": "The supplied August change log is documentation-only: all 34 records were updates, with no new, removed, or Message Center items. Most edits concern terminology, links, formatting, or scope clarification. The most consequential guidance covers Endpoint Security reporting, registry-inventory exposure, macOS ADE and PSSO assignments, Multi Admin Approval, and Microsoft Tunnel prerequisites. A Windows Sync page references the Preview new device view toggle, but the evidence does not establish a new launch, general availability, retirement, or changed tenant behavior.",
-      "adminImpact": "Set reporting expectations for Firewall Rules and ASR based on the enrollment model; review access to registry inventory; audit PSSO assignments to userless ADE devices; review Multi Admin Approval automation and app-auth exclusions; and load ip_tables on RHEL 9.8 Tunnel hosts before installation. These are targeted checks supported by updated guidance, not evidence of a broad product rollout.",
+      "headline": "Firewall reporting limits and ADE enrollment risks lead August Intune guidance",
+      "overview": "August 2026 was quiet in release terms: all 35 recorded items were documentation updates, with no new or removed items and no Message Center entries. The meaningful edits were concrete operational clarifications—MDM reporting limits for Firewall Rules and ASR Rules, a userless macOS ADE/PSSO warning, a RHEL 9.8 Microsoft Tunnel prerequisite, corrected Multi Admin Approval Graph response handling, and Windows-only sync improvements exposed through a preview toggle. The supplied records do not establish a new general-availability feature or retirement.",
+      "adminImpact": "Focus on targeted validation rather than a tenant-wide rollout: reset expectations for endpoint-security reporting, exclude userless ADE devices from affected PSSO profile assignments, load ip_tables on RHEL 9.8 before installing Microsoft Tunnel, update Multi Admin Approval integrations for HTTP 400 versus HTTP 412 responses while preserving the original request for retry, and enable Preview new device view to see the documented Windows sync improvements.",
       "keyChanges": [
         {
-          "title": "MDM Firewall and ASR reporting is limited to policy-level status",
-          "detail": "The added Important note says per-setting reporting is available for most Endpoint Security policies. For Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM, reporting is limited to policy-level status and does not include per-setting reporting statuses. Devices must be enrolled with Defender for Endpoint security settings management to view per-setting status. This clarifies the documented reporting boundary rather than announcing a new reporting rollout.",
+          "title": "MDM Firewall Rules and ASR Rules have policy-level reporting only",
+          "detail": "The updated Firewall guidance adds an important limitation: although per-setting reporting is available for most Endpoint Security policies, Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM report only policy-level status. Per-setting statuses require devices enrolled with Defender for Endpoint security settings management. This clarifies reporting scope rather than announcing a new firewall capability.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Registry inventory data is accessible through existing Device Inventory permissions",
-          "detail": "Collect Device Properties now notes that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Review who has those permissions and whether the registry data collected is appropriate; the record does not indicate a new permission grant or product behavior change.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-collect-device-properties-19"
-        },
-        {
-          "title": "PSSO profiles can disrupt userless macOS Automated Device Enrollment",
-          "detail": "The macOS Automated Device Enrollment guidance warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Such targeting can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and do not target these profiles to userless ADE devices.",
+          "title": "Userless macOS ADE devices should not receive PSSO-registration profiles",
+          "detail": "Automated Device Enrollment guidance now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Such targeting can cause unexpected enrollment behavior and loss of expected device affinity. This is deployment-risk guidance, not a feature-availability announcement.",
           "product": "Intune",
           "sourceId": "doc-2026-08-07-setup-automated-macos-04"
         },
         {
-          "title": "Multi Admin Approval guidance clarifies delegated and app-authenticated Graph calls",
-          "detail": "The guidance now states that Multi Admin Approval covers delegated actions and app-authenticated Microsoft Graph API calls when policies are already configured. Per-policy enterprise application exclusions for app-auth calls have a 50-application limit, require second-admin approval, and are audit logged; excluded app-auth applications can bypass approval for the affected resource type. Review service-principal access, approver Read permissions, direct group membership, and application exclusions.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-use-multi-admin-approval-in-intune-32"
-        },
-        {
-          "title": "Microsoft Tunnel on RHEL 9.8 requires manual ip_tables loading",
-          "detail": "The Microsoft Tunnel prerequisites now list Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default. Because RHEL 9.8 does not automatically load the ip_tables kernel module, administrators using it should load ip_tables manually before installing Tunnel. This is updated prerequisite guidance, not evidence of a new Tunnel release.",
+          "title": "Microsoft Tunnel prerequisites now call out RHEL 9.8 kernel-module loading",
+          "detail": "The prerequisites page now lists Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default and notes that RHEL 9.8 does not automatically load the ip_tables kernel module. Administrators using RHEL 9.8 must manually load ip_tables before installing Microsoft Tunnel.",
           "product": "Intune",
           "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
+        },
+        {
+          "title": "Multi Admin Approval API guidance separates missing-header and pending-approval errors",
+          "detail": "The Microsoft Graph guidance now documents HTTP 400 when approval headers are missing. A pending approval returns HTTP 412 (Precondition Failed), a Microsoft Graph BadRequest code, and an x-msft-approval-code header. Integrations should retain the original method, URL, and body for resubmission after approval.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-use-multi-admin-approval-with-the-microsoft-graph-api-15"
+        },
+        {
+          "title": "Windows Sync improvements are exposed through the Preview new device view toggle",
+          "detail": "The Device Action: Sync page now limits its described behavior and Device sync status tab to Windows devices. It instructs administrators to enable the Preview new device view toggle in the top-right of the Intune admin center to see the new sync improvements. The update documents preview access and does not establish general availability.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-device-action-sync-13"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-07T11:03:29.508Z",
+      "generatedAt": "2026-08-11T17:11:15.367Z",
       "usage": {
-        "inputTokens": 5697,
-        "outputTokens": 8969,
-        "costUsd": 0.011902
+        "inputTokens": 5911,
+        "outputTokens": 8524,
+        "costUsd": 0.011411
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-07T11:03:29.508Z",
+  "generatedAt": "2026-08-11T17:11:15.367Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8127,18 +8171,24 @@
       "outputTokens": 1377578,
       "requests": 212,
       "costUsd": 2.209973
+    },
+    "2026-08-11": {
+      "inputTokens": 7638,
+      "outputTokens": 9519,
+      "requests": 3,
+      "costUsd": 0.01295
     }
   },
   "lastRun": {
-    "inputTokens": 15767,
-    "outputTokens": 19689,
+    "inputTokens": 7638,
+    "outputTokens": 9519,
     "requests": 3,
-    "costUsd": 0.02678
+    "costUsd": 0.01295
   },
   "totalUsage": {
-    "inputTokens": 2784399,
-    "outputTokens": 1377578,
-    "requests": 212,
-    "costUsd": 2.209973
+    "inputTokens": 2792037,
+    "outputTokens": 1387097,
+    "requests": 215,
+    "costUsd": 2.222923
   }
 }

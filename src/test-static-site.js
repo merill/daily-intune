@@ -252,6 +252,8 @@ test('UserJot is configured from a validated project ID and omitted safely other
 test('the workflow forwards the UserJot repository variable to site builds', async () => {
   const workflow = await fs.readFile(path.join(__dirname, '..', '.github', 'workflows', 'daily-docs-monitor.yml'), 'utf8');
   assert.equal((workflow.match(/USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/g) || []).length, 2);
+  assert.match(workflow, /- name: Build the static site through the latest refresh date\n\s+env:[\s\S]*?run: npm run build:site/);
+  assert.doesNotMatch(workflow, /- name: Build the static site through the latest refresh date\n\s+if:/);
 });
 
 test('the generated-site workflow runs only for build inputs and cannot retrigger itself', async () => {
@@ -361,6 +363,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   const indexHtml = await fs.readFile(path.join(websiteDir, 'index.html'), 'utf8');
   const dayIndexHtml = await fs.readFile(path.join(websiteDir, 'day', 'index.html'), 'utf8');
   const dayHtml = await fs.readFile(path.join(websiteDir, 'day', '2026-08-01', 'index.html'), 'utf8');
+  const emptyDayHtml = await fs.readFile(path.join(websiteDir, 'day', '2026-08-04', 'index.html'), 'utf8');
   const historicalDayHtml = await fs.readFile(path.join(websiteDir, 'day', '2026-06-15', 'index.html'), 'utf8');
   const weekIndexHtml = await fs.readFile(path.join(websiteDir, 'week', 'index.html'), 'utf8');
   const monthHtml = await fs.readFile(path.join(websiteDir, 'month', '2026-08', 'index.html'), 'utf8');
@@ -465,7 +468,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(indexHtml, /class="mini-calendar"/);
   assert.match(indexHtml, /aria-label="August 2026 change calendar"/);
   assert.match(indexHtml, /aria-label="1 August 2026, 2 changes"/);
-  assert.match(indexHtml, /aria-label="2 August 2026, outside archive"/);
+  assert.match(indexHtml, /href="\/day\/2026-08-02\/" aria-label="2 August 2026, no changes"/);
   assert.match(indexHtml, /class="mini-update-dot"/);
   assert.match(siteCss, /\.mini-day\.selected\{[^}]*border-radius:6px/);
   assert.doesNotMatch(indexHtml, /class="mini-count"/);
@@ -486,6 +489,10 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(dayHtml, /class="story-description">This readable summary explains the configuration baseline change in full/);
   assert.match(dayHtml, /Day by product/);
   assert.match(dayHtml, /class="mini-calendar-grid"/);
+  assert.match(emptyDayHtml, /<h2 class="section-title">0 updates<\/h2>/);
+  assert.match(emptyDayHtml, /<h2>No tracked updates<\/h2>/);
+  assert.match(emptyDayHtml, /href="\/day\/2026-08-03\/">← Previous day<\/a>/);
+  assert.doesNotMatch(emptyDayHtml, /Next day →/);
   assert.match(dayHtml, /href="#product-intune"/);
   assert.match(dayHtml, /class="change-pill updated">Updated/);
   assert.match(historicalDayHtml, /href="https:\/\/mx\.merill\.net\/en-us\/intune\/intune-service\/\?_mx_base=cccccccccccccccccccccccccccccccccccccccc&amp;_mx_head=dddddddddddddddddddddddddddddddddddddddd">Archive update 2026-06-15<\/a>/);

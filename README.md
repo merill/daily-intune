@@ -107,7 +107,7 @@ Later reconciliations query Kit's delivery stats. `completed` verifies success; 
 ### 3. **External heartbeat setup**
 
 1. Create a Healthchecks.io check named `Daily.Intune.Admin.News scheduled pipeline`.
-2. Use cron schedule `15 0,4,8,12,16,20 * * *`, timezone `UTC`, and a two-hour grace period.
+2. Use cron schedule `15 0,4,8,12,16,20 * * *`, timezone `UTC`, and a three-hour grace period. This absorbs normal GitHub Actions scheduling delays while still alerting before the next four-hour slot.
 3. Enable the desired email notification integration.
 4. Save the check's private ping URL as the repository secret `HEALTHCHECKS_PING_URL`.
 
@@ -228,7 +228,7 @@ Kit publishes a richly formatted summary on the first successful reconciliation 
 - View run history in the Actions tab
 - Each run shows detailed logs of the monitoring process
 - Failed runs will show specific error messages
-- Healthchecks.io alerts when the scheduled pipeline does not report success within two hours of a UTC slot
+- Healthchecks.io alerts when the scheduled pipeline does not report success within three hours of a UTC slot
 
 ### Common Issues:
 1. **Subscriber email not sending**: Check the Kit API key, verified sending domain, and broadcast logs

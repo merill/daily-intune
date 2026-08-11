@@ -105,9 +105,6 @@ jobs:
         OPENAI_PERIOD_SUMMARY_BUDGET_USD: "1.25"
         OPENAI_PERIOD_SUMMARY_DAILY_BUDGET_USD: "0.25"
         MC_DATA_PATH: "./mc/@data"
-        KIT_DAILY_FORM_UID: ${{ secrets.KIT_DAILY_FORM_UID }}
-        KIT_DAILY_FORM_EMBED_SRC: ${{ secrets.KIT_DAILY_FORM_EMBED_SRC }}
-        USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
       run: |
         if [ -n "${{ inputs.backfill_dates }}" ]; then
           node scripts/generate-period-summaries.js --dates="${{ inputs.backfill_dates }}" --force
@@ -118,7 +115,14 @@ jobs:
         else
           node scripts/generate-period-summaries.js --current --force
         fi
-        npm run build:site
+
+    - name: Build the static site through the latest refresh date
+      env:
+        MC_DATA_PATH: "./mc/@data"
+        KIT_DAILY_FORM_UID: ${{ secrets.KIT_DAILY_FORM_UID }}
+        KIT_DAILY_FORM_EMBED_SRC: ${{ secrets.KIT_DAILY_FORM_EMBED_SRC }}
+        USERJOT_PROJECT_ID: ${{ vars.USERJOT_PROJECT_ID }}
+      run: npm run build:site
       
     - name: Configure Git
       run: |

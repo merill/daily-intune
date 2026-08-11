@@ -1306,12 +1306,13 @@ class StaticSiteGenerator {
     this.periodSummaries = await this.loadPeriodSummaries();
     const reports=await this.enrichCommitParents(await this.loadReports());
     const docs=this.normalizeDocItems(reports);
+    const generatedDate=moment.utc(this.generatedAt).format('YYYY-MM-DD');
     const archiveStart=reports[0]?.date||'';
     this.archiveStart = archiveStart;
-    this.archiveEnd = reports.at(-1)?.date || '';
+    this.archiveEnd = [reports.at(-1)?.date, generatedDate].filter(Boolean).sort().at(-1) || generatedDate;
     const mc=(await this.loadMessageCenterItems()).filter(item=>!archiveStart||item.date>=archiveStart);
     const items=[...docs,...mc].sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title));
-    const latestDate=this.archiveEnd||items[0]?.date||moment().format('YYYY-MM-DD');
+    const latestDate=items[0]?.date||reports.at(-1)?.date||generatedDate;
     const landingDate=items[0]?.date||latestDate;
     const latestWeek=mondayOf(latestDate), latestMonth=latestDate.slice(0,7);
     const recentCutoff=moment(latestDate).subtract(this.detailDays,'days');
@@ -1329,7 +1330,7 @@ class StaticSiteGenerator {
     await this.write('search/index.html',this.renderSearch());
     await this.write('message-center/index.html',`${this.head('Message Center','Microsoft 365 Message Center posts relevant to Microsoft Intune administrators.','/message-center/','message-center')}<div class="page-shell">${this.productRail()}<main class="content"><div class="eyebrow">Microsoft 365 roadmap signals</div><h1 class="page-title">Intune in Message Center</h1><p class="lede">Announcements where the service or title includes Microsoft Intune, presented beside related documentation changes.</p><section class="story-list">${this.itemRows(mc.slice(0,160))}</section></main>${this.periodRail(items,'month')}</div>${this.footer()}`);
     const earliestDate=this.archiveStart||items[items.length-1]?.date||latestDate;
-    for(let day=moment(earliestDate);day.isSameOrBefore(moment(latestDate));day.add(1,'day')) {
+    for(let day=moment(earliestDate);day.isSameOrBefore(moment(this.archiveEnd));day.add(1,'day')) {
       const date=day.format('YYYY-MM-DD');
       await this.write(`day/${date}/index.html`,this.renderDay(items,date));
     }

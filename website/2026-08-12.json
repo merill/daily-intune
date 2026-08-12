@@ -1,0 +1,99 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-configuration/collect-device-properties.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/device-configuration/collect-device-properties.md b/intune/device-configuration/collect-device-properties.md\nindex 394bbbd35d..8a44ed116d 100644\n--- a/intune/device-configuration/collect-device-properties.md\n+++ b/intune/device-configuration/collect-device-properties.md\n@@ -4,6 +4,7 @@ description: Use Microsoft Intune properties catalog to collect device propertie\n ms.date: 07/01/2026\n ms.topic: how-to\n ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1018\n ms.reviewer: abbystarr, madisoncooks\n ---\n \n@@ -176,7 +177,7 @@ Use the following steps to view the collected device inventory information:\n >Lets you collect selected Windows registry data through the properties catalog for configuration visibility and troubleshooting. Here are some important details about this feature:\n > - Supported collection methods include a single value, all values directly under a key (non-recursive), and the same value across immediate subkeys.\n > - Registry key inventory isn't intended to collect sensitive or confidential values and includes detection logic to help prevent potentially sensitive values from being ingested. If a value is flagged as potentially sensitive, it isn't collected.\n-> - To view collected registry data, use Device Inventory.\n+> - To view collected registry data, use Device Inventory. Registry key inventory is accessible through existing device inventory permissions and may expose missed sensitive device configuration information; this is an accepted risk, and organizations should review security and privacy implications before enabling broad access.\n > - Initial release limitations include HKLM-only collection and enforced value (6KB) and per-device (100 registry keys) collection limits.\n :::column-end:::\n :::row-end:::\n",
+      "baseCommitSha": "b9a630f6cff8a4a5a75edc6001b8bdb81aeeb7a4",
+      "commitSha": "30ba9ae8150c90c6828a4613567427622cc36037",
+      "commitMessage": "Restore registry inventory risk guidance",
+      "commitAuthor": "Celeste de Guzman",
+      "commitDate": "2026-08-12 11:55:26 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-configuration/collect-device-properties.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/collect-device-properties",
+      "eventId": "intune-docs:30ba9ae8150c90c6828a4613567427622cc36037:modified:intune/device-configuration/collect-device-properties.md",
+      "firstSeenAt": "2026-08-12T21:12:23.317Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Registry inventory guidance now highlights security and privacy risk",
+        "summary": "The documentation for collecting device properties now states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. It identifies this as an accepted risk and calls for reviewing security and privacy implications.",
+        "adminImpact": "Administrators should review who can access registry inventory and assess the related security and privacy impact.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/manage-endpoint-security-devices.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-management/manage-endpoint-security-devices.md b/intune/device-management/manage-endpoint-security-devices.md\nindex d04b5a40b0..99dd6d9cf5 100644\n--- a/intune/device-management/manage-endpoint-security-devices.md\n+++ b/intune/device-management/manage-endpoint-security-devices.md\n@@ -1,7 +1,7 @@\n ---\n title: Manage devices with endpoint security in Microsoft Intune\n description: Learn how Security Administrators can use the Endpoint Security node to view devices and manage them in Microsoft Intune.\n-ms.date: 08/02/2024\n+ms.date: 08/10/2026\n ms.topic: article\n ms.collection:\n - M365-identity-device-management\n",
+      "baseCommitSha": "caf28c154a05df356f1618299ab28ded5d8c0441",
+      "commitSha": "bc03440bdeae14303ae503fba47290f9b0a898bf",
+      "commitMessage": "freshness review with Matt Call",
+      "commitAuthor": "Bill Calero",
+      "commitDate": "2026-08-10 15:57:59 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/manage-endpoint-security-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/manage-endpoint-security-devices",
+      "eventId": "intune-docs:bc03440bdeae14303ae503fba47290f9b0a898bf:modified:intune/device-management/manage-endpoint-security-devices.md",
+      "firstSeenAt": "2026-08-12T21:12:23.345Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Updated review date for endpoint security device management documentation",
+        "summary": "The page metadata date changed from 08/02/2024 to 08/10/2026. No substantive documentation or product changes are shown.",
+        "adminImpact": "No administrator action is indicated; this is a documentation metadata update only.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 2,
+    "authors": [
+      "Bill Calero",
+      "Celeste de Guzman"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Documentation change",
+        "title": "intune/device-configuration",
+        "summary": "The documentation for collecting device properties now states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. It identifies this as an accepted risk and calls for reviewing security and privacy implications.",
+        "sourceFiles": [
+          "intune/device-configuration/collect-device-properties.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/device-management",
+        "summary": "The page metadata date changed from 08/02/2024 to 08/10/2026. No substantive documentation or product changes are shown.",
+        "sourceFiles": [
+          "intune/device-management/manage-endpoint-security-devices.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-configuration",
+        "detail": "The documentation for collecting device properties now states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. It identifies this as an accepted risk and calls for reviewing security and privacy implications."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-management",
+        "detail": "The page metadata date changed from 08/02/2024 to 08/10/2026. No substantive documentation or product changes are shown."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

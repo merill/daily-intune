@@ -6339,6 +6339,34 @@
         "outputTokens": 526,
         "costUsd": 0.000823
       }
+    },
+    "2026-08-12": {
+      "headline": "Registry inventory guidance now flags sensitive configuration exposure and privacy risk",
+      "overview": "This was a quiet Intune period: one substantive documentation clarification adds security and privacy guidance for registry key inventory, while the other update only changes page metadata. No new feature, preview, retirement, or product behavior change is evidenced.",
+      "adminImpact": "Review who can access registry inventory and assess the security and privacy implications of exposing device configuration information. No administrator action is indicated for the metadata-only update.",
+      "keyChanges": [
+        {
+          "title": "Registry key inventory is documented as an accepted exposure risk",
+          "detail": "The Collect Device Properties guidance now states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. It identifies the exposure as an accepted risk and calls for reviewing the related security and privacy implications.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-12-collect-device-properties-01"
+        },
+        {
+          "title": "Endpoint security page received a metadata-only date change",
+          "detail": "The Manage devices with endpoint security in Microsoft Intune page date changed from 08/02/2024 to 08/10/2026. No substantive documentation or product change is shown, and no administrator action is indicated.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-12-manage-devices-with-endpoint-security-in-microsoft-intune-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-12T21:12:29.025Z",
+      "usage": {
+        "inputTokens": 1067,
+        "outputTokens": 646,
+        "costUsd": 0.000989
+      }
     }
   },
   "weeks": {
@@ -7767,25 +7795,25 @@
       }
     },
     "2026-08-10": {
-      "headline": "Endpoint security page gets a metadata refresh without changing administrator guidance",
-      "overview": "The sole reported change was a metadata-only update to the Intune endpoint security management page. Its date changed from August 2, 2024, to August 10, 2026; the supplied diff shows no substantive content change.",
-      "adminImpact": "No feature change, configuration change, or administrator action is indicated by this update.",
+      "headline": "Intune registry inventory guidance flags sensitive configuration exposure and access risk",
+      "overview": "This was a quiet Intune documentation week. The substantive update to Collect Device Properties clarifies that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. Microsoft identifies this as an accepted risk and calls for reviewing its security and privacy implications. Two updates to Manage devices with endpoint security in Microsoft Intune only changed the page metadata date from August 2, 2024, to August 10, 2026; they show no substantive content or product change.",
+      "adminImpact": "Review which administrators can access registry inventory and assess the associated security and privacy impact. No administrator action or feature change is indicated by the endpoint security page metadata updates.",
       "keyChanges": [
         {
-          "title": "Endpoint security page date updated",
-          "detail": "The “Manage devices with endpoint security in Microsoft Intune” page metadata date changed from August 2, 2024, to August 10, 2026. No new capability, changed behavior, prerequisite, or procedure is shown.",
+          "title": "Registry key inventory now has explicit sensitive-data risk guidance",
+          "detail": "The Collect Device Properties documentation states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. It labels this an accepted risk and directs administrators to review the security and privacy implications; this is documentation clarification, not evidence of changed product behavior.",
           "product": "Intune",
-          "sourceId": "doc-2026-08-11-manage-devices-with-endpoint-security-in-microsoft-intune-01"
+          "sourceId": "doc-2026-08-12-collect-device-properties-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-11T17:11:15.367Z",
+      "generatedAt": "2026-08-12T21:12:29.025Z",
       "usage": {
-        "inputTokens": 768,
-        "outputTokens": 469,
-        "costUsd": 0.000716
+        "inputTokens": 1005,
+        "outputTokens": 773,
+        "costUsd": 0.001129
       }
     }
   },
@@ -8113,54 +8141,54 @@
       }
     },
     "2026-08": {
-      "headline": "Firewall reporting limits and ADE enrollment risks lead August Intune guidance",
-      "overview": "August 2026 was quiet in release terms: all 35 recorded items were documentation updates, with no new or removed items and no Message Center entries. The meaningful edits were concrete operational clarifications—MDM reporting limits for Firewall Rules and ASR Rules, a userless macOS ADE/PSSO warning, a RHEL 9.8 Microsoft Tunnel prerequisite, corrected Multi Admin Approval Graph response handling, and Windows-only sync improvements exposed through a preview toggle. The supplied records do not establish a new general-availability feature or retirement.",
-      "adminImpact": "Focus on targeted validation rather than a tenant-wide rollout: reset expectations for endpoint-security reporting, exclude userless ADE devices from affected PSSO profile assignments, load ip_tables on RHEL 9.8 before installing Microsoft Tunnel, update Multi Admin Approval integrations for HTTP 400 versus HTTP 412 responses while preserving the original request for retry, and enable Preview new device view to see the documented Windows sync improvements.",
+      "headline": "Firewall and ASR per-setting reporting requires Defender security settings management",
+      "overview": "August was a documentation-led month: all 37 recorded changes were updates, with no new, removed, or Message Center items. The most consequential clarifications affect Endpoint Security reporting, registry inventory privacy, macOS enrollment with PSSO, Microsoft Tunnel prerequisites, and Multi Admin Approval integrations. None of the supplied records establishes a new Intune launch, general availability change, or retirement.",
+      "adminImpact": "Prioritize the operational guidance rather than treating these edits as feature announcements. Validate Firewall and ASR reporting expectations, review access to registry inventory, correct userless macOS ADE assignments, update RHEL 9.8 Tunnel procedures, and revise Graph error handling where applicable. The evidence supports administrator action in these specific areas only.",
       "keyChanges": [
         {
-          "title": "MDM Firewall Rules and ASR Rules have policy-level reporting only",
-          "detail": "The updated Firewall guidance adds an important limitation: although per-setting reporting is available for most Endpoint Security policies, Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM report only policy-level status. Per-setting statuses require devices enrolled with Defender for Endpoint security settings management. This clarifies reporting scope rather than announcing a new firewall capability.",
-          "product": "Intune",
+          "title": "MDM Firewall and ASR reporting remains limited to policy status",
+          "detail": "The Firewall guidance clarifies that per-setting reporting is available for most Endpoint Security policies, but MDM-managed Firewall Rules and Attack Surface Reduction (ASR) Rules provide only policy-level status. Per-setting status requires devices to use Defender for Endpoint security settings management. This is a reporting clarification, not evidence of a new reporting rollout.",
+          "product": "Intune — Endpoint Security reporting",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Userless macOS ADE devices should not receive PSSO-registration profiles",
-          "detail": "Automated Device Enrollment guidance now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Such targeting can cause unexpected enrollment behavior and loss of expected device affinity. This is deployment-risk guidance, not a feature-availability announcement.",
-          "product": "Intune",
+          "title": "Registry inventory guidance highlights sensitive configuration exposure",
+          "detail": "Collect Device Properties now states that registry key inventory is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Microsoft identifies this as an accepted risk and calls for reviewing the security and privacy implications; the record does not establish a change to the inventory capability itself.",
+          "product": "Intune — Device Inventory",
+          "sourceId": "doc-2026-08-12-collect-device-properties-01"
+        },
+        {
+          "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
+          "detail": "The Automated Device Enrollment guidance warns that targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and exclude those devices from the affected profiles.",
+          "product": "Intune — macOS Automated Device Enrollment and PSSO",
           "sourceId": "doc-2026-08-07-setup-automated-macos-04"
         },
         {
-          "title": "Microsoft Tunnel prerequisites now call out RHEL 9.8 kernel-module loading",
-          "detail": "The prerequisites page now lists Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default and notes that RHEL 9.8 does not automatically load the ip_tables kernel module. Administrators using RHEL 9.8 must manually load ip_tables before installing Microsoft Tunnel.",
-          "product": "Intune",
+          "title": "RHEL 9.8 Tunnel hosts need a manual ip_tables load",
+          "detail": "Microsoft Tunnel prerequisites now list Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default and note that RHEL 9.8 does not automatically load the ip_tables kernel module. Administrators using that platform should load ip_tables manually before installing Microsoft Tunnel.",
+          "product": "Intune — Microsoft Tunnel VPN",
           "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
         },
         {
-          "title": "Multi Admin Approval API guidance separates missing-header and pending-approval errors",
-          "detail": "The Microsoft Graph guidance now documents HTTP 400 when approval headers are missing. A pending approval returns HTTP 412 (Precondition Failed), a Microsoft Graph BadRequest code, and an x-msft-approval-code header. Integrations should retain the original method, URL, and body for resubmission after approval.",
-          "product": "Intune",
+          "title": "Multi Admin Approval API guidance corrects response handling",
+          "detail": "The Graph API guidance now specifies HTTP 400 when approval headers are missing and HTTP 412 (Precondition Failed) for a pending approval, with a Microsoft Graph BadRequest code and an x-msft-approval-code header. Integrations should preserve the original method, URL, and body so the request can be resubmitted after approval.",
+          "product": "Intune — Multi Admin Approval and Microsoft Graph",
           "sourceId": "doc-2026-08-07-use-multi-admin-approval-with-the-microsoft-graph-api-15"
-        },
-        {
-          "title": "Windows Sync improvements are exposed through the Preview new device view toggle",
-          "detail": "The Device Action: Sync page now limits its described behavior and Device sync status tab to Windows devices. It instructs administrators to enable the Preview new device view toggle in the top-right of the Intune admin center to see the new sync improvements. The update documents preview access and does not establish general availability.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-device-action-sync-13"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-11T17:11:15.367Z",
+      "generatedAt": "2026-08-12T21:12:29.025Z",
       "usage": {
-        "inputTokens": 5911,
-        "outputTokens": 8524,
-        "costUsd": 0.011411
+        "inputTokens": 6214,
+        "outputTokens": 1758,
+        "costUsd": 0.003352
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-11T17:11:15.367Z",
+  "generatedAt": "2026-08-12T21:12:29.025Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8177,18 +8205,24 @@
       "outputTokens": 9519,
       "requests": 3,
       "costUsd": 0.01295
+    },
+    "2026-08-12": {
+      "inputTokens": 8286,
+      "outputTokens": 3177,
+      "requests": 3,
+      "costUsd": 0.00547
     }
   },
   "lastRun": {
-    "inputTokens": 7638,
-    "outputTokens": 9519,
+    "inputTokens": 8286,
+    "outputTokens": 3177,
     "requests": 3,
-    "costUsd": 0.01295
+    "costUsd": 0.00547
   },
   "totalUsage": {
-    "inputTokens": 2792037,
-    "outputTokens": 1387097,
-    "requests": 215,
-    "costUsd": 2.222923
+    "inputTokens": 2800323,
+    "outputTokens": 1390274,
+    "requests": 218,
+    "costUsd": 2.228393
   }
 }

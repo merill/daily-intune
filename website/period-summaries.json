@@ -6395,6 +6395,40 @@
         "outputTokens": 886,
         "costUsd": 0.001281
       }
+    },
+    "2026-08-14": {
+      "headline": "Intune sync guidance now covers iOS/iPadOS and multiple Windows workloads",
+      "overview": "The period is dominated by documentation clarification rather than a feature launch, preview announcement, general availability change, retirement, or confirmed service-behavior change. Sync guidance now describes policy, app, script, and remediation processing, extends the documented scope to iOS/iPadOS as well as Windows, and identifies the Device sync status tab for progress tracking. A separate Android Management API update clarifies the correct reporting location.",
+      "adminImpact": "For the documented sync improvements, enable the Preview new device view toggle in the Intune admin center. Use the Device sync status tab to monitor sync progress. For Android Management API reporting, go to Devices > Monitor and open the Personal Devices on Android Management API report; reporting is not shown in policy assignment status or the device configuration tab.",
+      "keyChanges": [
+        {
+          "title": "Sync guidance adds broader workload and device coverage",
+          "detail": "The Sync page now states that selecting Sync triggers policy processing, app state updates, and scripts or remediations, with progress available in the Device sync status tab. The documented behavior applies to iOS/iPadOS and Windows devices, and the described improvements require the Preview new device view toggle.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-14-sync-03"
+        },
+        {
+          "title": "Windows guidance documents combined MDM and IME check-ins",
+          "detail": "The updated Windows Management Extension guidance says that Sync from Windows Settings or the Intune admin center initiates both MDM and IME check-ins, including policy, app, script, and remediation processing. Administrators can view progress in the Device sync status tab.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-14-management-extension-windows-02"
+        },
+        {
+          "title": "Android Management API reporting location is clarified",
+          "detail": "Administrators are directed to the Personal Devices on Android Management API report under Devices > Monitor. The update explicitly says this reporting does not appear in the policy’s device assignment status or the device configuration tab.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-14-android-management-api-overview-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-14T20:43:26.306Z",
+      "usage": {
+        "inputTokens": 1333,
+        "outputTokens": 2003,
+        "costUsd": 0.00267
+      }
     }
   },
   "weeks": {
@@ -7823,37 +7857,49 @@
       }
     },
     "2026-08-10": {
-      "headline": "Intune will raise Apple OS support floors to iOS 18 and macOS 15",
-      "overview": "The week’s consequential changes were two Intune plans to raise Apple platform requirements later this year, following Apple’s iOS/iPadOS 27 and macOS Golden Gate 27 releases. Administrators should identify incompatible devices and plan upgrades. A documentation update also clarified the security and privacy implications of registry-key inventory; two other updates only changed page metadata.",
-      "adminImpact": "Review Intune reports and device compatibility for iOS/iPadOS devices, including userless devices enrolled through Automated Device Enrollment, and prepare macOS devices on macOS 14.x or earlier for upgrade. Existing devices on those macOS versions will remain enrolled, but new enrollments will no longer be allowed. For registry inventory, review access under existing Device Inventory permissions and assess exposure of sensitive configuration data. No action is indicated for the metadata-only updates.",
+      "headline": "Intune plans iOS/iPadOS 18 and macOS 15 floors as sync guidance broadens",
+      "overview": "Two Message Center plans dominate the week: Intune will require iOS/iPadOS 18 or later after Apple releases iOS/iPadOS 27, and will support macOS 15 or later after macOS Golden Gate 27 releases later this year. Documentation updates mainly clarify operational guidance around device sync, registry-inventory risk, and Android Management API reporting. Two endpoint-security page edits changed only metadata dates and show no product or administrator impact.",
+      "adminImpact": "Prioritize compatibility inventory and upgrade planning for affected iOS/iPadOS and macOS devices, including the specific requirements for userless devices enrolled through Automated Device Enrollment. For the documented sync improvements, enable Preview new device view and monitor the Device sync status tab. Review access to registry inventory and its security and privacy implications, and use the named Android Management API report under Devices > Monitor. No action is indicated for the metadata-only endpoint-security updates.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS 18 becomes the required minimum later this year",
-          "detail": "After Apple releases iOS/iPadOS 27, Intune will require iOS/iPadOS 18 or higher. Administrators should use Intune reports and OS-version controls to identify affected devices and plan remediation; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements that should be checked.",
-          "product": "Intune app management",
+          "title": "iOS/iPadOS 18 becomes the planned Intune support floor",
+          "detail": "A Message Center Plan for Change says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Administrators should check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements. Intune controls can be used to manage OS versions.",
+          "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "macOS 15 becomes the supported enrollment floor after Apple’s next release",
-          "detail": "After macOS Golden Gate 27 releases, Intune will support macOS 15 and later. Devices already enrolled on macOS 14.x or earlier remain enrolled, but new enrollments on those versions will not be allowed. Administrators should identify and upgrade affected devices before the change.",
-          "product": "Intune device enrollment",
+          "title": "macOS 15 becomes the planned support floor",
+          "detail": "After macOS Golden Gate 27 releases this year, Intune will support macOS 15 and later. Devices running macOS 14.x or below will remain enrolled, but new enrollments on those versions will not be allowed. Organizations should identify and upgrade affected devices before the change.",
+          "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "Registry-key inventory now carries an explicit security and privacy warning",
-          "detail": "The Collect Device Properties guidance states that registry-key inventory uses existing Device Inventory permissions and may expose sensitive device-configuration information. Microsoft identifies this as an accepted risk and directs administrators to review the related security and privacy implications.",
-          "product": "Intune device configuration",
+          "title": "Sync guidance documents broader processing and cross-platform status tracking",
+          "detail": "The updated Sync guidance says selecting Sync triggers multiple workloads, including policy processing, app state updates, scripts, and remediations. Progress can be monitored in the Device sync status tab, and the guidance applies to iOS/iPadOS and Windows devices. The documented improvements require the Preview new device view toggle in the Intune admin center.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-14-sync-03"
+        },
+        {
+          "title": "Registry inventory guidance adds an explicit sensitive-configuration risk",
+          "detail": "The Collect Device Properties update states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. Microsoft identifies this as an accepted risk and calls for review of the related security and privacy implications.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-12-collect-device-properties-01"
+        },
+        {
+          "title": "Android Management API guidance specifies the report to use",
+          "detail": "The updated overview directs administrators to the Personal Devices on Android Management API report under Devices > Monitor. It also clarifies that this reporting is not shown in the policy’s device assignment status or in the device configuration tab.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-14-android-management-api-overview-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-14T02:42:53.815Z",
+      "generatedAt": "2026-08-14T20:43:26.306Z",
       "usage": {
-        "inputTokens": 1268,
-        "outputTokens": 994,
-        "costUsd": 0.001446
+        "inputTokens": 1770,
+        "outputTokens": 4821,
+        "costUsd": 0.006139
       }
     }
   },
@@ -8181,54 +8227,54 @@
       }
     },
     "2026-08": {
-      "headline": "Intune plans iOS 18 and macOS 15 floors as security guidance sharpens",
-      "overview": "August’s biggest Intune signal is a pair of Plan for Change notices, not a feature launch: after Apple releases iOS/iPadOS 27, Intune will require iOS/iPadOS 18 or later; after macOS Golden Gate 27, it will support macOS 15 and later. Existing devices on macOS 14.x or earlier remain enrolled, but new enrollments on those versions won’t be allowed. The month’s other consequential guidance clarifies MDM Firewall Rules and ASR reporting limits, registry-inventory data exposure, and a userless macOS ADE/PSSO enrollment risk. Most remaining edits are documentation clarification, link, metadata, or example maintenance; the supplied evidence does not show a new Intune feature reaching general availability or a product retirement.",
-      "adminImpact": "Begin Apple fleet readiness work before the planned changes: use Intune reports to identify iOS/iPadOS devices that won’t meet the 18+ requirement, check the specific OS requirements for userless Automated Device Enrollment devices, and plan upgrades for macOS devices on 14.x or earlier. Set reporting expectations correctly: MDM-managed Firewall Rules and ASR Rules provide policy-level status only, while per-setting status requires Defender for Endpoint security settings management. Review who can access registry-key inventory because existing Device Inventory permissions may expose sensitive device configuration data. Also review profile assignments and do not target PSSO profiles that enable registration during Setup Assistant to userless macOS ADE devices.",
+      "headline": "Intune plans higher Apple OS floors as Sync preview guidance broadens device scope",
+      "overview": "August was update-heavy rather than launch-heavy: 41 Learn pages were updated, with no new or removed records, alongside two Message Center Plan for Change notices. The most consequential items are future iOS/iPadOS and macOS support floors, clarified limits on MDM Firewall and ASR reporting, preview Sync guidance, and registry-inventory security disclosure. Most other edits involved links, metadata, labels, examples, or scope clarification. No supplied item establishes a general-availability launch or product retirement.",
+      "adminImpact": "Begin Apple compatibility and enrollment inventory work, especially for iOS/iPadOS and macOS devices approaching the announced floors; the notices provide post-release timing but no exact enforcement date. Set accurate reporting expectations for MDM Firewall Rules and ASR Rules, enable Preview new device view when evaluating the documented Sync improvements, and review which administrators can access registry inventory through existing Device Inventory permissions. Mechanical documentation edits generally require no tenant action.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS support floor will rise to 18 after Apple’s 27 release",
-          "detail": "This is a Plan for Change, not current enforcement. After Apple releases iOS/iPadOS 27 later this year, Intune will require iOS/iPadOS 18 or higher. Administrators should check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements called out in the notice.",
+          "title": "iOS/iPadOS support floor moves to 18 after iOS/iPadOS 27",
+          "detail": "Plan for Change: after Apple releases iOS/iPadOS 27 later this year, Intune will require iOS/iPadOS 18 or higher. Check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have separate OS requirements. This is a future support-policy change, not a current general-availability feature announcement.",
           "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "New macOS 14 enrollments will be blocked after Golden Gate 27",
-          "detail": "After the macOS Golden Gate 27 release later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions won’t be allowed. This is a planned enrollment-support change, not an immediate device retirement.",
+          "title": "macOS 15 becomes the future enrollment floor after Golden Gate 27",
+          "detail": "Plan for Change: after macOS Golden Gate 27 releases, Intune will support macOS 15 and later. Devices already enrolled on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed. This is a planned enrollment-behavior change; no exact enforcement date is supplied.",
           "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "MDM Firewall Rules and ASR reporting remains policy-level only",
-          "detail": "The Firewall guidance now states that per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM are limited to policy-level status and do not include per-setting reporting statuses. Per-setting status requires devices enrolled with Defender for Endpoint security settings management. This is a documentation clarification of the reporting limitation, not evidence of a new general-availability feature.",
+          "title": "MDM Firewall and ASR policies remain limited to policy-level reporting",
+          "detail": "Documentation clarification: most Endpoint Security policies have per-setting reporting, but Firewall Rules and Attack Surface Reduction (ASR) Rules managed through MDM expose only policy-level status. Per-setting status requires devices to be enrolled with Defender for Endpoint security settings management. The change clarifies reporting expectations rather than policy enforcement.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Registry-key inventory carries a documented sensitive-data access risk",
-          "detail": "The Collect Device Properties guidance now states that registry key inventory data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. It identifies this as an accepted risk and calls for reviewing the security and privacy implications. The update does not establish that the access model itself changed.",
+          "title": "Sync preview guidance now covers Windows and iOS/iPadOS devices",
+          "detail": "Documentation clarification: the Sync behavior and Device sync status tab are now described as applying to Windows and iOS/iPadOS, rather than Windows only. Administrators must enable the Preview new device view toggle to see the described improvements. This is preview guidance, not evidence of general availability.",
           "product": "Intune",
-          "sourceId": "doc-2026-08-12-collect-device-properties-01"
+          "sourceId": "doc-2026-08-14-sync-04"
         },
         {
-          "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
-          "detail": "The macOS Automated Device Enrollment guidance now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Such targeting can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and treat this as operational guidance rather than a feature launch or retirement.",
+          "title": "Registry inventory guidance flags sensitive configuration exposure",
+          "detail": "Security and privacy guidance now states that collected registry key inventory is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. The guidance identifies this as an accepted risk and calls for reviewing the security and privacy implications. It does not show that permissions or inventory behavior changed.",
           "product": "Intune",
-          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
+          "sourceId": "doc-2026-08-12-collect-device-properties-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-14T02:42:53.815Z",
+      "generatedAt": "2026-08-14T20:43:26.306Z",
       "usage": {
-        "inputTokens": 6516,
-        "outputTokens": 5406,
-        "costUsd": 0.00779
+        "inputTokens": 6668,
+        "outputTokens": 6809,
+        "costUsd": 0.009504
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-14T02:42:53.815Z",
+  "generatedAt": "2026-08-14T20:43:26.306Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8253,22 +8299,22 @@
       "costUsd": 0.00547
     },
     "2026-08-14": {
-      "inputTokens": 8875,
-      "outputTokens": 7286,
-      "requests": 3,
-      "costUsd": 0.010518
+      "inputTokens": 18646,
+      "outputTokens": 20919,
+      "requests": 6,
+      "costUsd": 0.028832
     }
   },
   "lastRun": {
-    "inputTokens": 8875,
-    "outputTokens": 7286,
+    "inputTokens": 9771,
+    "outputTokens": 13633,
     "requests": 3,
-    "costUsd": 0.010518
+    "costUsd": 0.018314
   },
   "totalUsage": {
-    "inputTokens": 2809198,
-    "outputTokens": 1397560,
-    "requests": 221,
-    "costUsd": 2.238911
+    "inputTokens": 2818969,
+    "outputTokens": 1411193,
+    "requests": 224,
+    "costUsd": 2.257225
   }
 }

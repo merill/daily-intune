@@ -1,6 +1,107 @@
 {
   "newFiles": [],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-enrollment/android/android-management-api-overview.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-enrollment/android/android-management-api-overview.md b/intune/device-enrollment/android/android-management-api-overview.md\nindex 59e53946fe..6e043b71e2 100644\n--- a/intune/device-enrollment/android/android-management-api-overview.md\n+++ b/intune/device-enrollment/android/android-management-api-overview.md\n@@ -115,6 +115,8 @@ For devices already enrolled in Intune, use the Android Management API device co\n \n 9. In **Review + create**, review your settings. When you select **Create**, your changes are saved, and the profile is assigned. The policy is also shown in the profiles list.\n \n+10. Monitor progress at **Personal Devices on Android Management API** report under Devices -> Monitor. Note that reporting will not appear under the policy itself -> \"device assignment status\" or the device view -> device configuration tab. \n+\n When you assign the policy, devices start moving to Android Management API. If you unassign or delete this policy, devices that already moved keep using Android Management API. Targeted devices that haven't received the policy won't be moved to Android Management API.\n \n ### What happens to devices during migration\n@@ -203,4 +205,4 @@ For the latest updates on rollout timeline and enforcement changes, see [New pol\n \n <!--links-->\n \n-[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n\\ No newline at end of file\n+[Microsoft Intune admin center]: https://go.microsoft.com/fwlink/?linkid=2109431\n",
+      "baseCommitSha": "b9a630f6cff8a4a5a75edc6001b8bdb81aeeb7a4",
+      "commitSha": "3938bd26fe0a8096faecd15f39c2af17f1605e68",
+      "commitMessage": "Add monitoring instructions for Android Management API",
+      "commitAuthor": "Frances Cohen",
+      "commitDate": "2026-08-12 10:48:57 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-enrollment/android/android-management-api-overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/android-management-api-overview",
+      "eventId": "intune-docs:3938bd26fe0a8096faecd15f39c2af17f1605e68:modified:intune/device-enrollment/android/android-management-api-overview.md",
+      "firstSeenAt": "2026-08-14T20:43:17.905Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Android Management API monitoring guidance added",
+        "summary": "The documentation now directs administrators to the “Personal Devices on Android Management API” report under Devices > Monitor and clarifies that reporting is not shown in the policy’s device assignment status or the device configuration tab.",
+        "adminImpact": "Use the specified report to monitor progress; do not rely on the policy or device views for this reporting.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/tools/management-extension-windows.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 1,
+      "changes": 8,
+      "patch": "diff --git a/intune/device-management/tools/management-extension-windows.md b/intune/device-management/tools/management-extension-windows.md\nindex b54d35772d..1ab2e90020 100644\n--- a/intune/device-management/tools/management-extension-windows.md\n+++ b/intune/device-management/tools/management-extension-windows.md\n@@ -101,7 +101,13 @@ On a Windows device with the IME installed, open **Company Portal**, select **Se\n Alternatively, open **Task Manager**, find the service **IntuneManagementExtension**, right-click, and select **Restart**. The `IntuneManagementExtension` service restarts immediately, initiating a check-in with Intune.\n \n > [!NOTE]\n-> The **Sync** actions from either the **Settings** app or **Devices** in Microsoft Intune admin center initiate an MDM check-in but don't force an IME check-in.\n+> The **Sync** actions from either the **Settings** app or **Devices** in Microsoft Intune admin center initiate an MDM check-in as well as an IME check-in. After selecting Sync, Intune initiates an on-demand synchronization across multiple workloads to help ensure the device reflects the latest admin intent as quickly as possible. This process includes, but isn't limited to:\n+>- Configuration policy processing\n+>- App detection and deployment state updates\n+>- Script and remediation processing\n+>- Other device management signals required to align device state with current assignments\n+>  \n+>You can track the progress of the sync action by selecting the **Device sync status** tab in the device overview pane.\n \n ### Intune management extension removal\n \n",
+      "baseCommitSha": "b9a630f6cff8a4a5a75edc6001b8bdb81aeeb7a4",
+      "commitSha": "b0fea2368a3649808a77dfce1f6cf3cc974aa839",
+      "commitMessage": "Update management-extension-windows.md",
+      "commitAuthor": "Anya Novicheva",
+      "commitDate": "2026-08-12 10:42:46 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/tools/management-extension-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/tools/management-extension-windows",
+      "eventId": "intune-docs:b0fea2368a3649808a77dfce1f6cf3cc974aa839:modified:intune/device-management/tools/management-extension-windows.md",
+      "firstSeenAt": "2026-08-14T20:43:17.928Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Documentation clarifies that Sync also triggers IME check-ins",
+        "summary": "The documentation now states that Sync from Windows Settings or the Intune admin center initiates both MDM and IME check-ins, including policy, app, script, and remediation processing. Sync progress can be viewed in the Device sync status tab.",
+        "adminImpact": "Administrators can use Sync for broader on-demand device processing and monitor its progress in the device overview.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/sync.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 0,
+      "changes": 18,
+      "patch": "diff --git a/intune/device-management/actions/sync.md b/intune/device-management/actions/sync.md\nindex 694622f5ce..c342abf9f2 100644\n--- a/intune/device-management/actions/sync.md\n+++ b/intune/device-management/actions/sync.md\n@@ -75,6 +75,24 @@ You can track the progress of the sync action by selecting the **Device sync sta\n \n ::: zone-end\n \n+::: zone pivot=\"ios\"\n+\n+## Sync behavior on iOS/iPadOS\n+\n+After selecting **Sync**, Intune initiates an on-demand synchronization across multiple workloads to help ensure the device reflects the latest admin intent as quickly as possible. This process includes, but isn't limited to:\n+\n+- Configuration policy processing\n+- App detection and deployment state updates\n+- Script and remediation processing\n+- Other device management signals required to align device state with current assignments\n+\n+You can track the progress of the sync action by selecting the **Device sync status** tab in the device overview pane.\n+\n+>[!NOTE]\n+> The described sync behavior, including the **Device sync status** tab, applies only to iOS/iPadOS and Windows devices. To see the new device sync improvements, ensure that the 'Preview new device view' toggle is turned ON. This is at the top right of the Intune admin console screen.\n+\n+::: zone-end\n+\n ::: zone pivot=\"ios,android\"\n \n ## Retryable error codes\n",
+      "baseCommitSha": "b9a630f6cff8a4a5a75edc6001b8bdb81aeeb7a4",
+      "commitSha": "b7ab4f05608f1e2d92435f7c32b175deeb4153a0",
+      "commitMessage": "Update sync.md",
+      "commitAuthor": "Anya Novicheva",
+      "commitDate": "2026-08-11 18:07:37 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/sync.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/sync",
+      "eventId": "intune-docs:b7ab4f05608f1e2d92435f7c32b175deeb4153a0:modified:intune/device-management/actions/sync.md",
+      "firstSeenAt": "2026-08-14T20:43:17.938Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Documentation adds iOS/iPadOS sync behavior details",
+        "summary": "The sync documentation now explains that selecting Sync triggers multiple workloads, including policy processing, app state updates, and scripts/remediations. Admins can monitor progress in the Device sync status tab. This behavior applies to iOS/iPadOS and Windows devices.",
+        "adminImpact": "For the documented sync improvements, admins must enable the Preview new device view toggle in the Intune admin center.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/sync.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-management/actions/sync.md b/intune/device-management/actions/sync.md\nindex 694622f5ce..e43ab4a70e 100644\n--- a/intune/device-management/actions/sync.md\n+++ b/intune/device-management/actions/sync.md\n@@ -71,7 +71,7 @@ After selecting **Sync**, Intune initiates an on-demand synchronization across m\n You can track the progress of the sync action by selecting the **Device sync status** tab in the device overview pane.\n \n >[!NOTE]\n-> The described sync behavior, including the **Device sync status** tab, applies only to Windows devices. To see the new device sync improvements, ensure that the 'Preview new device view' toggle is turned ON. This is at the top right of the Intune admin console screen.\n+> The described sync behavior, including the **Device sync status** tab, applies only to Windows and iOS/iPadOS devices. To see the new device sync improvements, ensure that the 'Preview new device view' toggle is turned ON. This is at the top right of the Intune admin console screen.\n \n ::: zone-end\n \n",
+      "baseCommitSha": "b9a630f6cff8a4a5a75edc6001b8bdb81aeeb7a4",
+      "commitSha": "1e893e772607aaf2e29848ccde13239b12c8f891",
+      "commitMessage": "Update sync.md",
+      "commitAuthor": "Anya Novicheva",
+      "commitDate": "2026-08-11 17:32:16 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/sync.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/sync",
+      "eventId": "intune-docs:1e893e772607aaf2e29848ccde13239b12c8f891:modified:intune/device-management/actions/sync.md",
+      "firstSeenAt": "2026-08-14T20:43:17.948Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Sync documentation now includes iOS/iPadOS devices",
+        "summary": "The sync behavior and Device sync status tab are documented as applying to Windows and iOS/iPadOS devices, rather than Windows only. The Preview new device view toggle remains required to see the described improvements.",
+        "adminImpact": "Administrators managing iOS/iPadOS devices should consult this guidance and turn on the Preview new device view toggle in the Intune admin center.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [
     {
@@ -83,14 +184,47 @@
     }
   ],
   "summary": {
-    "totalCommits": 0,
-    "totalFiles": 0,
-    "authors": []
+    "totalCommits": 4,
+    "totalFiles": 4,
+    "authors": [
+      "Anya Novicheva",
+      "Frances Cohen"
+    ]
   },
   "englishSummary": {
-    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
-    "groups": [],
-    "highlights": [],
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Documentation change",
+        "title": "intune/device-enrollment",
+        "summary": "The documentation now directs administrators to the “Personal Devices on Android Management API” report under Devices > Monitor and clarifies that reporting is not shown in the policy’s device assignment status or the device configuration tab.",
+        "sourceFiles": [
+          "intune/device-enrollment/android/android-management-api-overview.md"
+        ]
+      },
+      {
+        "category": "Documentation change",
+        "title": "intune/device-management",
+        "summary": "The documentation now states that Sync from Windows Settings or the Intune admin center initiates both MDM and IME check-ins, including policy, app, script, and remediation processing. Sync progress can be viewed in the Device sync status tab. The sync documentation now explains that selecting Sync triggers multiple workloads, including policy processing, app state updates, and scripts/remediations. Admins can monitor progress in the Device sync status tab. This behavior applies to iOS/iPadOS and Windows devices. The sync behavior and Device sync status tab are documented as applying to Windows and iOS/iPadOS devices, rather than Windows only. The Preview new device view toggle remains requi",
+        "sourceFiles": [
+          "intune/device-management/tools/management-extension-windows.md",
+          "intune/device-management/actions/sync.md",
+          "intune/device-management/actions/sync.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-enrollment",
+        "detail": "The documentation now directs administrators to the “Personal Devices on Android Management API” report under Devices > Monitor and clarifies that reporting is not shown in the policy’s device assignment status or the device configuration tab."
+      },
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-management",
+        "detail": "The documentation now states that Sync from Windows Settings or the Intune admin center initiates both MDM and IME check-ins, including policy, app, script, and remediation processing. Sync progress can be viewed in the Device sync status tab. The sync documentation now explains that selecting Sync triggers multiple workloads, including policy processing, app state updates, and scripts/remediations. Admins can monitor progress in the Device sync status tab. This behavior applies to iOS/iPadOS and Windows devices. The sync behavior and Device sync status tab are documented as applying to Windows and iOS/iPadOS devices, rather than Windows only. The Preview new device view toggle remains requi"
+      }
+    ],
     "generatedBy": "fallback"
   }
 }

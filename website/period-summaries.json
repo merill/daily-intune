@@ -6367,6 +6367,34 @@
         "outputTokens": 646,
         "costUsd": 0.000989
       }
+    },
+    "2026-08-13": {
+      "headline": "Intune plans higher Apple OS floors: iOS 18 and macOS 15 later this year",
+      "overview": "Microsoft announced two planned Intune support changes tied to Apple’s next major OS releases. After iOS/iPadOS 27 becomes available, Intune will require iOS/iPadOS 18 or later. After macOS Golden Gate 27 is released, Intune will support macOS 15 and later; existing devices on macOS 14.x or below will remain enrolled, but new enrollments on those versions will be blocked.",
+      "adminImpact": "Review Intune reports to identify incompatible iPhone, iPad, and Mac devices, then plan upgrades before the changes take effect. Pay particular attention to userless devices enrolled through Automated Device Enrollment, which have specific OS-version requirements. For Macs, upgrade devices on macOS 14.x or earlier before they need to be newly enrolled.",
+      "keyChanges": [
+        {
+          "title": "iOS/iPadOS support moves to version 18 or later",
+          "detail": "After Apple releases iOS/iPadOS 27 later this year, Intune will require iOS/iPadOS 18 or higher. Administrators should check device compatibility and Intune reports, including the specific requirements for userless Automated Device Enrollment devices, and use Intune OS-version controls where appropriate.",
+          "product": "Intune",
+          "sourceId": "MC1454371"
+        },
+        {
+          "title": "macOS 15 becomes the supported enrollment baseline",
+          "detail": "After macOS Golden Gate 27 releases later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below will remain enrolled, but new enrollments on those versions will no longer be allowed.",
+          "product": "Intune",
+          "sourceId": "MC1454370"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-14T02:42:53.815Z",
+      "usage": {
+        "inputTokens": 1091,
+        "outputTokens": 886,
+        "costUsd": 0.001281
+      }
     }
   },
   "weeks": {
@@ -7795,25 +7823,37 @@
       }
     },
     "2026-08-10": {
-      "headline": "Intune registry inventory guidance flags sensitive configuration exposure and access risk",
-      "overview": "This was a quiet Intune documentation week. The substantive update to Collect Device Properties clarifies that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. Microsoft identifies this as an accepted risk and calls for reviewing its security and privacy implications. Two updates to Manage devices with endpoint security in Microsoft Intune only changed the page metadata date from August 2, 2024, to August 10, 2026; they show no substantive content or product change.",
-      "adminImpact": "Review which administrators can access registry inventory and assess the associated security and privacy impact. No administrator action or feature change is indicated by the endpoint security page metadata updates.",
+      "headline": "Intune will raise Apple OS support floors to iOS 18 and macOS 15",
+      "overview": "The week’s consequential changes were two Intune plans to raise Apple platform requirements later this year, following Apple’s iOS/iPadOS 27 and macOS Golden Gate 27 releases. Administrators should identify incompatible devices and plan upgrades. A documentation update also clarified the security and privacy implications of registry-key inventory; two other updates only changed page metadata.",
+      "adminImpact": "Review Intune reports and device compatibility for iOS/iPadOS devices, including userless devices enrolled through Automated Device Enrollment, and prepare macOS devices on macOS 14.x or earlier for upgrade. Existing devices on those macOS versions will remain enrolled, but new enrollments will no longer be allowed. For registry inventory, review access under existing Device Inventory permissions and assess exposure of sensitive configuration data. No action is indicated for the metadata-only updates.",
       "keyChanges": [
         {
-          "title": "Registry key inventory now has explicit sensitive-data risk guidance",
-          "detail": "The Collect Device Properties documentation states that registry key inventory uses existing Device Inventory permissions and may expose sensitive device configuration information. It labels this an accepted risk and directs administrators to review the security and privacy implications; this is documentation clarification, not evidence of changed product behavior.",
-          "product": "Intune",
+          "title": "iOS/iPadOS 18 becomes the required minimum later this year",
+          "detail": "After Apple releases iOS/iPadOS 27, Intune will require iOS/iPadOS 18 or higher. Administrators should use Intune reports and OS-version controls to identify affected devices and plan remediation; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements that should be checked.",
+          "product": "Intune app management",
+          "sourceId": "MC1454371"
+        },
+        {
+          "title": "macOS 15 becomes the supported enrollment floor after Apple’s next release",
+          "detail": "After macOS Golden Gate 27 releases, Intune will support macOS 15 and later. Devices already enrolled on macOS 14.x or earlier remain enrolled, but new enrollments on those versions will not be allowed. Administrators should identify and upgrade affected devices before the change.",
+          "product": "Intune device enrollment",
+          "sourceId": "MC1454370"
+        },
+        {
+          "title": "Registry-key inventory now carries an explicit security and privacy warning",
+          "detail": "The Collect Device Properties guidance states that registry-key inventory uses existing Device Inventory permissions and may expose sensitive device-configuration information. Microsoft identifies this as an accepted risk and directs administrators to review the related security and privacy implications.",
+          "product": "Intune device configuration",
           "sourceId": "doc-2026-08-12-collect-device-properties-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-12T21:12:29.025Z",
+      "generatedAt": "2026-08-14T02:42:53.815Z",
       "usage": {
-        "inputTokens": 1005,
-        "outputTokens": 773,
-        "costUsd": 0.001129
+        "inputTokens": 1268,
+        "outputTokens": 994,
+        "costUsd": 0.001446
       }
     }
   },
@@ -8141,54 +8181,54 @@
       }
     },
     "2026-08": {
-      "headline": "Firewall and ASR per-setting reporting requires Defender security settings management",
-      "overview": "August was a documentation-led month: all 37 recorded changes were updates, with no new, removed, or Message Center items. The most consequential clarifications affect Endpoint Security reporting, registry inventory privacy, macOS enrollment with PSSO, Microsoft Tunnel prerequisites, and Multi Admin Approval integrations. None of the supplied records establishes a new Intune launch, general availability change, or retirement.",
-      "adminImpact": "Prioritize the operational guidance rather than treating these edits as feature announcements. Validate Firewall and ASR reporting expectations, review access to registry inventory, correct userless macOS ADE assignments, update RHEL 9.8 Tunnel procedures, and revise Graph error handling where applicable. The evidence supports administrator action in these specific areas only.",
+      "headline": "Intune plans iOS 18 and macOS 15 floors as security guidance sharpens",
+      "overview": "August’s biggest Intune signal is a pair of Plan for Change notices, not a feature launch: after Apple releases iOS/iPadOS 27, Intune will require iOS/iPadOS 18 or later; after macOS Golden Gate 27, it will support macOS 15 and later. Existing devices on macOS 14.x or earlier remain enrolled, but new enrollments on those versions won’t be allowed. The month’s other consequential guidance clarifies MDM Firewall Rules and ASR reporting limits, registry-inventory data exposure, and a userless macOS ADE/PSSO enrollment risk. Most remaining edits are documentation clarification, link, metadata, or example maintenance; the supplied evidence does not show a new Intune feature reaching general availability or a product retirement.",
+      "adminImpact": "Begin Apple fleet readiness work before the planned changes: use Intune reports to identify iOS/iPadOS devices that won’t meet the 18+ requirement, check the specific OS requirements for userless Automated Device Enrollment devices, and plan upgrades for macOS devices on 14.x or earlier. Set reporting expectations correctly: MDM-managed Firewall Rules and ASR Rules provide policy-level status only, while per-setting status requires Defender for Endpoint security settings management. Review who can access registry-key inventory because existing Device Inventory permissions may expose sensitive device configuration data. Also review profile assignments and do not target PSSO profiles that enable registration during Setup Assistant to userless macOS ADE devices.",
       "keyChanges": [
         {
-          "title": "MDM Firewall and ASR reporting remains limited to policy status",
-          "detail": "The Firewall guidance clarifies that per-setting reporting is available for most Endpoint Security policies, but MDM-managed Firewall Rules and Attack Surface Reduction (ASR) Rules provide only policy-level status. Per-setting status requires devices to use Defender for Endpoint security settings management. This is a reporting clarification, not evidence of a new reporting rollout.",
-          "product": "Intune — Endpoint Security reporting",
+          "title": "iOS/iPadOS support floor will rise to 18 after Apple’s 27 release",
+          "detail": "This is a Plan for Change, not current enforcement. After Apple releases iOS/iPadOS 27 later this year, Intune will require iOS/iPadOS 18 or higher. Administrators should check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements called out in the notice.",
+          "product": "Intune",
+          "sourceId": "MC1454371"
+        },
+        {
+          "title": "New macOS 14 enrollments will be blocked after Golden Gate 27",
+          "detail": "After the macOS Golden Gate 27 release later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions won’t be allowed. This is a planned enrollment-support change, not an immediate device retirement.",
+          "product": "Intune",
+          "sourceId": "MC1454370"
+        },
+        {
+          "title": "MDM Firewall Rules and ASR reporting remains policy-level only",
+          "detail": "The Firewall guidance now states that per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM are limited to policy-level status and do not include per-setting reporting statuses. Per-setting status requires devices enrolled with Defender for Endpoint security settings management. This is a documentation clarification of the reporting limitation, not evidence of a new general-availability feature.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Registry inventory guidance highlights sensitive configuration exposure",
-          "detail": "Collect Device Properties now states that registry key inventory is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Microsoft identifies this as an accepted risk and calls for reviewing the security and privacy implications; the record does not establish a change to the inventory capability itself.",
-          "product": "Intune — Device Inventory",
+          "title": "Registry-key inventory carries a documented sensitive-data access risk",
+          "detail": "The Collect Device Properties guidance now states that registry key inventory data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. It identifies this as an accepted risk and calls for reviewing the security and privacy implications. The update does not establish that the access model itself changed.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-12-collect-device-properties-01"
         },
         {
           "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
-          "detail": "The Automated Device Enrollment guidance warns that targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and exclude those devices from the affected profiles.",
-          "product": "Intune — macOS Automated Device Enrollment and PSSO",
+          "detail": "The macOS Automated Device Enrollment guidance now warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Such targeting can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and treat this as operational guidance rather than a feature launch or retirement.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-07-setup-automated-macos-04"
-        },
-        {
-          "title": "RHEL 9.8 Tunnel hosts need a manual ip_tables load",
-          "detail": "Microsoft Tunnel prerequisites now list Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default and note that RHEL 9.8 does not automatically load the ip_tables kernel module. Administrators using that platform should load ip_tables manually before installing Microsoft Tunnel.",
-          "product": "Intune — Microsoft Tunnel VPN",
-          "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
-        },
-        {
-          "title": "Multi Admin Approval API guidance corrects response handling",
-          "detail": "The Graph API guidance now specifies HTTP 400 when approval headers are missing and HTTP 412 (Precondition Failed) for a pending approval, with a Microsoft Graph BadRequest code and an x-msft-approval-code header. Integrations should preserve the original method, URL, and body so the request can be resubmitted after approval.",
-          "product": "Intune — Multi Admin Approval and Microsoft Graph",
-          "sourceId": "doc-2026-08-07-use-multi-admin-approval-with-the-microsoft-graph-api-15"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-12T21:12:29.025Z",
+      "generatedAt": "2026-08-14T02:42:53.815Z",
       "usage": {
-        "inputTokens": 6214,
-        "outputTokens": 1758,
-        "costUsd": 0.003352
+        "inputTokens": 6516,
+        "outputTokens": 5406,
+        "costUsd": 0.00779
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-12T21:12:29.025Z",
+  "generatedAt": "2026-08-14T02:42:53.815Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8211,18 +8251,24 @@
       "outputTokens": 3177,
       "requests": 3,
       "costUsd": 0.00547
+    },
+    "2026-08-14": {
+      "inputTokens": 8875,
+      "outputTokens": 7286,
+      "requests": 3,
+      "costUsd": 0.010518
     }
   },
   "lastRun": {
-    "inputTokens": 8286,
-    "outputTokens": 3177,
+    "inputTokens": 8875,
+    "outputTokens": 7286,
     "requests": 3,
-    "costUsd": 0.00547
+    "costUsd": 0.010518
   },
   "totalUsage": {
-    "inputTokens": 2800323,
-    "outputTokens": 1390274,
-    "requests": 218,
-    "costUsd": 2.228393
+    "inputTokens": 2809198,
+    "outputTokens": 1397560,
+    "requests": 221,
+    "costUsd": 2.238911
   }
 }

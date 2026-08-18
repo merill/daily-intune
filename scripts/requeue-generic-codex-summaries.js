@@ -40,7 +40,7 @@ for (const filename of fs.readdirSync(websiteDir).filter(value => /^2026-\d\d-\d
     if (!isGeneric) continue;
     const verb = change.status === 'added' ? 'Added' : change.status === 'removed' ? 'Removed' : 'Updated';
     change.englishSummary = {
-      category: change.status === 'added' ? 'New documentation' : change.status === 'removed' ? 'Documentation change' : 'Feature update',
+      category: 'Doc update',
       headline: String(change.commitMessage || `${verb} ${change.filename.split('/').pop()}`).slice(0, 180),
       summary: `${verb} Microsoft Intune documentation in ${change.filename}.`,
       adminImpact: 'Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.',

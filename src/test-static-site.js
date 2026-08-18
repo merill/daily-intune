@@ -287,6 +287,9 @@ test('static generator writes indexable archive and detail pages', async () => {
       commitSha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       publicDocsUrl: 'https://learn.microsoft.com/en-us/intune/governance/tenant-governance/how-to-create-monitor',
       englishSummary: {
+        category: 'Public preview',
+        actionRequired: true,
+        generatedBy: 'openai',
         summary: 'This readable summary explains the configuration baseline change in full so administrators can understand the update before opening the source diff.',
         adminImpact: 'Intune administrators should compare the documented baseline with their tenant configuration and investigate unexpected drift.'
       }
@@ -494,7 +497,11 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(emptyDayHtml, /href="\/day\/2026-08-03\/">← Previous day<\/a>/);
   assert.doesNotMatch(emptyDayHtml, /Next day →/);
   assert.match(dayHtml, /href="#product-intune"/);
-  assert.match(dayHtml, /class="change-pill updated">Updated/);
+  assert.match(dayHtml, /class="change-pill nature public-preview">Public preview/);
+  assert.match(dayHtml, /class="change-pill action-required">Action required/);
+  assert.match(historicalDayHtml, /class="change-pill updated">Updated/);
+  assert.doesNotMatch(historicalDayHtml, /change-pill nature/);
+  assert.match(siteCss, /:root\[data-theme="dark"\] \.change-pill\.nature\.public-preview\{/);
   assert.match(historicalDayHtml, /href="https:\/\/mx\.merill\.net\/en-us\/intune\/intune-service\/\?_mx_base=cccccccccccccccccccccccccccccccccccccccc&amp;_mx_head=dddddddddddddddddddddddddddddddddddddddd">Archive update 2026-06-15<\/a>/);
   await assert.rejects(fs.access(path.join(websiteDir, 'changes', '2026-06-15', 'archive-update-2026-06-15-01', 'index.html')));
   assert.match(dayHtml, /class="change-pill new">New/);

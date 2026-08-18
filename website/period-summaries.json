@@ -6273,49 +6273,49 @@
       }
     },
     "2026-08-07": {
-      "headline": "Intune guidance flags registry exposure, approval boundaries, and macOS enrollment risks",
-      "overview": "The 7 August period is documentation-heavy: all 32 recorded items are updates, with no new, removed, or Message Center entries. The most consequential changes clarify security exposure, Multi Admin Approval scope, macOS enrollment prerequisites, Microsoft Tunnel installation requirements, and Windows Autopilot network endpoints. The supplied evidence does not establish a new feature launch, general availability change, retirement, or broad product behavior change.",
-      "adminImpact": "Prioritize reviews of registry-inventory permissions and privacy handling, Multi Admin Approval automation, PSSO profile assignments for userless ADE devices, Microsoft Tunnel host prerequisites, and Autopilot firewall allowlists. Treat the remaining updates as targeted documentation corrections or reference maintenance unless they affect a specific deployment.",
+      "headline": "Intune guidance details Graph approval coverage and RHEL 9.8 Tunnel requirements",
+      "overview": "The 7 August updates are documentation-led, but several carry operational weight. Intune’s Multi Admin Approval guidance now explicitly covers delegated actions and app-authenticated Graph calls; Tunnel prerequisites detail a manual kernel-module step for RHEL 9.8; and Collect Diagnostics publishes region-specific upload URLs. Configuration Manager also updates its SQL dependency guidance, while macOS ADE documentation flags a PSSO conflict for userless devices.",
+      "adminImpact": "Focus targeted reviews on Graph service principals and approver groups, RHEL 9.8 Tunnel hosts, firewall or network allowlists for diagnostics, Configuration Manager packaging that expects SQL support MSIs, and PSSO profile assignments to userless ADE devices. The evidence supports conditional action in these areas rather than a blanket tenant-wide change.",
       "keyChanges": [
         {
-          "title": "Registry inventory data is explicitly identified as sensitive configuration information",
-          "detail": "The Collect Device Properties guidance now states that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. This is security and privacy guidance, not evidence that the permission model changed; review access and handling of the collected data.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-collect-device-properties-19"
-        },
-        {
-          "title": "Multi Admin Approval guidance defines delegated and app-authenticated Graph coverage",
-          "detail": "The guidance now clarifies that MAA applies to delegated actions and app-authenticated Microsoft Graph API calls when policies are configured. Per-policy enterprise application exclusions for app-auth calls are limited to 50 applications, require second-admin approval, and are audited; excluded applications can bypass approval for the affected resource type.",
+          "title": "Multi Admin Approval guidance covers app-authenticated Graph calls",
+          "detail": "The updated Intune guide documents MAA enforcement for delegated actions and app-authenticated Microsoft Graph API calls. Per-policy enterprise application exclusions apply only to app-auth calls, allow up to 50 applications, require second-admin approval, and are audited. Approver permissions and direct group membership are also clarified. Review service principals, scripts, third-party applications, and approver-group assignments against this documented scope.",
           "product": "Intune",
           "sourceId": "doc-2026-08-07-use-multi-admin-approval-in-intune-32"
         },
         {
-          "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
-          "detail": "The Automated Device Enrollment guidance warns that targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and exclude those devices.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
-        },
-        {
-          "title": "Microsoft Tunnel on RHEL 9.8 requires manual ip_tables loading",
-          "detail": "The prerequisites now list Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default. Because RHEL 9.8 does not automatically load the ip_tables kernel module, administrators must load it manually before installing Microsoft Tunnel.",
+          "title": "Tunnel prerequisites call out manual ip_tables loading on RHEL 9.8",
+          "detail": "The Microsoft Tunnel prerequisites now list RHEL 9.8 with Podman 5.8.2 or later as the default and explain that the ip_tables kernel module must be loaded manually before Tunnel installation. Administrators deploying Tunnel on RHEL 9.8 should complete that step before installation.",
           "product": "Intune",
           "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
         },
         {
-          "title": "Windows Autopilot diagnostics guidance replaces regional upload endpoints",
-          "detail": "The Endpoints page replaces the previous regional lgmsape...blob.core.windows.net entries with a larger list of amsu...lmsas.blob.core.windows.net endpoints. Administrators managing outbound firewall or allowlist rules should review the new list to support Windows Autopilot diagnostics uploads.",
-          "product": "Windows Autopilot",
-          "sourceId": "doc-2026-08-07-endpoints-22"
+          "title": "Collect Diagnostics adds regional blob URLs and a tenant geo lookup",
+          "detail": "The Collect Diagnostics page now lists new blob storage URLs for each region and directs administrators to Tenant Status in endpoint.microsoft.com to identify their tenant’s geo and data center. Review network allowlists and firewall rules and permit the applicable URLs so diagnostics uploads succeed.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-collect-diagnostics-23"
+        },
+        {
+          "title": "Configuration Manager guidance names SQL Server 2025 versions and missing MSIs",
+          "detail": "The version 2603 guidance now states that SQLSysClrTypes.msi and SharedManagementObjects.msi are no longer included in Configuration Manager media. It also documents the move from deprecated SQL Server 2014 versions to SQL Server 2025 versions, including SMO 17. Administrators relying on those files should review packaging and dependency validation.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-08-07-what-s-new-in-version-2603-21"
+        },
+        {
+          "title": "macOS ADE guidance flags PSSO conflicts on userless devices",
+          "detail": "The automated macOS enrollment guidance warns against targeting userless ADE devices with profiles that enable PSSO registration during Setup Assistant. The combination can cause unexpected enrollment behavior and loss of expected device affinity. Review profile assignments for this configuration combination.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-07T11:03:29.508Z",
+      "generatedAt": "2026-08-18T10:47:30.482Z",
       "usage": {
-        "inputTokens": 4853,
-        "outputTokens": 4295,
-        "costUsd": 0.006125
+        "inputTokens": 4562,
+        "outputTokens": 5387,
+        "costUsd": 0.007377
       }
     },
     "2026-08-11": {
@@ -6453,37 +6453,37 @@
       }
     },
     "2026-08-18": {
-      "headline": "Intune action pages now document tenant-wide daily caps for Wipe, Retire, and Delete",
-      "overview": "The four updates are documentation clarifications to Intune device-action limits, not evidence of a new feature, preview, general-availability change, or retirement. The pages specify cumulative tenant-wide daily ceilings across individual, bulk, and Microsoft Graph submissions.",
-      "adminImpact": "When planning device actions, administrators should count every submission method against the relevant tenant-wide limit. The Wipe, Retire, and consolidated device-actions guidance says to contact Microsoft support to request a limit change if needed.",
+      "headline": "Intune guidance now lists tenant-wide daily limits for Wipe, Retire, and Delete",
+      "overview": "Updated Intune device-action pages now state that Wipe, Retire, and Delete submissions share tenant-wide daily limits. Individual, bulk, and Microsoft Graph requests count toward the relevant totals, giving administrators concrete limits for large-scale device operations.",
+      "adminImpact": "Plan bulk and automated device actions around the documented quotas: 500 Wipe actions per tenant per day and 1,000 Retire or Delete actions per tenant per day. Contact Microsoft support if a limit change is needed.",
       "keyChanges": [
         {
-          "title": "Wipe is documented at 500 actions per tenant per day",
-          "detail": "The Wipe page now states that individual device actions, bulk actions, and Microsoft Graph API requests count cumulatively toward a 500-action daily tenant limit. It also documents contacting Microsoft support to request a different limit.",
-          "product": "Intune",
+          "title": "Wipe actions have a documented 500-per-day tenant limit",
+          "detail": "The Wipe guidance states that individual, bulk, and Microsoft Graph Wipe requests count cumulatively toward a tenant-wide daily limit of 500 actions.",
+          "product": "Intune device actions",
           "sourceId": "doc-2026-08-18-device-action-wipe-04"
         },
         {
-          "title": "Retire is documented at 1,000 actions per tenant per day",
-          "detail": "The Retire page now states that individual, bulk, and Microsoft Graph requests count cumulatively toward a 1,000-action daily limit for each tenant. Administrators can contact Microsoft support to request a limit change.",
-          "product": "Intune",
+          "title": "Retire actions have a documented 1,000-per-day tenant limit",
+          "detail": "The Retire guidance states that individual, bulk, and Microsoft Graph API requests count cumulatively toward a tenant-wide daily limit of 1,000 Retire actions.",
+          "product": "Intune device actions",
           "sourceId": "doc-2026-08-18-device-action-retire-03"
         },
         {
-          "title": "Delete is documented at 1,000 actions, including cascading outcomes",
-          "detail": "The Delete guidance states that tenants can submit up to 1,000 Delete actions per day across individual actions, bulk actions, and Microsoft Graph requests. The cumulative count includes Deletes that trigger Retire or Wipe.",
-          "product": "Intune",
+          "title": "Delete limits also cover cascaded Retire or Wipe actions",
+          "detail": "The Delete guidance states that tenants can submit up to 1,000 Delete actions per day across individual, bulk, and Microsoft Graph requests. The limit also applies when Delete triggers Retire or Wipe.",
+          "product": "Intune device actions",
           "sourceId": "doc-2026-08-18-device-action-delete-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-18T08:52:24.723Z",
+      "generatedAt": "2026-08-18T11:34:12.621Z",
       "usage": {
-        "inputTokens": 1352,
-        "outputTokens": 904,
-        "costUsd": 0.001355
+        "inputTokens": 1368,
+        "outputTokens": 1043,
+        "costUsd": 0.001525
       }
     }
   },
@@ -8364,7 +8364,7 @@
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-18T08:52:24.723Z",
+  "generatedAt": "2026-08-18T11:34:12.621Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8395,22 +8395,22 @@
       "costUsd": 0.028832
     },
     "2026-08-18": {
-      "inputTokens": 18060,
-      "outputTokens": 14744,
-      "requests": 6,
-      "costUsd": 0.021305
+      "inputTokens": 19428,
+      "outputTokens": 15787,
+      "requests": 7,
+      "costUsd": 0.02283
     }
   },
   "lastRun": {
-    "inputTokens": 9572,
-    "outputTokens": 7256,
-    "requests": 3,
-    "costUsd": 0.010622
+    "inputTokens": 1368,
+    "outputTokens": 1043,
+    "requests": 1,
+    "costUsd": 0.001525
   },
   "totalUsage": {
-    "inputTokens": 2837029,
-    "outputTokens": 1425937,
-    "requests": 230,
-    "costUsd": 2.27853
+    "inputTokens": 2838397,
+    "outputTokens": 1426980,
+    "requests": 231,
+    "costUsd": 2.280055
   }
 }

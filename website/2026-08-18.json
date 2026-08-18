@@ -18,10 +18,11 @@
       "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/delete.md",
       "firstSeenAt": "2026-08-18T08:52:13.094Z",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Delete actions now document a 1,000-per-day tenant limit",
-        "summary": "The Delete action documentation was updated on August 6, 2026 to state that a tenant can submit up to 1,000 Delete actions per day. The cumulative limit covers individual actions, bulk actions, and Microsoft Graph requests, including Deletes that trigger Retire or Wipe.",
-        "adminImpact": "Administrators should account for this tenant-wide daily limit across all Delete action submission methods.",
+        "category": "Feature update",
+        "headline": "Daily limit documented for Delete actions",
+        "summary": "The documentation now states that a tenant can submit up to 1,000 Delete actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The limit also applies when Delete triggers Retire or Wipe.",
+        "adminImpact": "Plan device deletion operations around the tenant-wide daily limit.",
+        "actionRequired": false,
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
@@ -43,10 +44,11 @@
       "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/index.md",
       "firstSeenAt": "2026-08-18T08:52:13.105Z",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Intune documents daily device action limits",
-        "summary": "The documentation now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Limits apply cumulatively across individual, bulk, and Microsoft Graph submissions.",
-        "adminImpact": "Administrators should include all submission methods when tracking these limits. The documentation says to contact Microsoft support to request a limit change.",
+        "category": "Doc update",
+        "headline": "Daily limits for device actions documented",
+        "summary": "The documentation now lists tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Counts are cumulative across individual, bulk, and Microsoft Graph submissions.",
+        "adminImpact": "Administrators should consider these limits when planning device actions and contact Microsoft support if a limit change is needed.",
+        "actionRequired": false,
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
@@ -68,10 +70,11 @@
       "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/retire.md",
       "firstSeenAt": "2026-08-18T08:52:13.116Z",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Intune documents a 1,000-per-day Retire action limit",
-        "summary": "The Retire documentation now states that each tenant can submit up to 1,000 Retire actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests.",
-        "adminImpact": "Administrators should account for this tenant-wide limit and contact Microsoft support to request a limit change if needed.",
+        "category": "Doc update",
+        "headline": "Retire documentation adds a daily tenant limit",
+        "summary": "The documentation now states that a tenant can submit up to 1,000 Retire actions per day, cumulative across individual, bulk, and Microsoft Graph API requests.",
+        "adminImpact": "Plan large-scale retirements within the tenant-wide limit. Contact Microsoft support to request a limit change if needed.",
+        "actionRequired": false,
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
@@ -93,10 +96,11 @@
       "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/wipe.md",
       "firstSeenAt": "2026-08-18T08:52:13.126Z",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Wipe documentation adds a 500-actions-per-day tenant limit",
-        "summary": "The documentation now states that a tenant can submit up to 500 Wipe actions daily, cumulatively across individual device actions, bulk actions, and Microsoft Graph API requests. It also documents contacting Microsoft support to request a limit change.",
-        "adminImpact": "Plan wipe operations within the daily tenant-wide limit; contact Microsoft support if a different limit is needed.",
+        "category": "Feature update",
+        "headline": "Wipe actions are limited to 500 per tenant per day",
+        "summary": "The documentation now states that individual, bulk, and Microsoft Graph Wipe requests share a cumulative tenant-wide daily limit of 500 actions.",
+        "adminImpact": "Plan Wipe operations within the daily limit; contact Microsoft Support to request a limit change if needed.",
+        "actionRequired": false,
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
@@ -153,9 +157,9 @@
     "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Documentation change",
+        "category": "Feature update",
         "title": "intune/device-management",
-        "summary": "The Delete action documentation was updated on August 6, 2026 to state that a tenant can submit up to 1,000 Delete actions per day. The cumulative limit covers individual actions, bulk actions, and Microsoft Graph requests, including Deletes that trigger Retire or Wipe. The documentation now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Limits apply cumulatively across individual, bulk, and Microsoft Graph submissions. The Retire documentation now states that each tenant can submit up to 1,000 Retire actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The documentation now states that a tena",
+        "summary": "The documentation now states that a tenant can submit up to 1,000 Delete actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The limit also applies when Delete triggers Retire or Wipe. The documentation now lists tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Counts are cumulative across individual, bulk, and Microsoft Graph submissions. The documentation now states that a tenant can submit up to 1,000 Retire actions per day, cumulative across individual, bulk, and Microsoft Graph API requests. The documentation now states that individual, bulk, and Microsoft Graph Wipe requests share a cumulative tenant-wid",
         "sourceFiles": [
           "intune/device-management/actions/delete.md",
           "intune/device-management/actions/index.md",
@@ -166,9 +170,9 @@
     ],
     "highlights": [
       {
-        "category": "Documentation change",
+        "category": "Feature update",
         "headline": "intune/device-management",
-        "detail": "The Delete action documentation was updated on August 6, 2026 to state that a tenant can submit up to 1,000 Delete actions per day. The cumulative limit covers individual actions, bulk actions, and Microsoft Graph requests, including Deletes that trigger Retire or Wipe. The documentation now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Limits apply cumulatively across individual, bulk, and Microsoft Graph submissions. The Retire documentation now states that each tenant can submit up to 1,000 Retire actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The documentation now states that a tena"
+        "detail": "The documentation now states that a tenant can submit up to 1,000 Delete actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The limit also applies when Delete triggers Retire or Wipe. The documentation now lists tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Counts are cumulative across individual, bulk, and Microsoft Graph submissions. The documentation now states that a tenant can submit up to 1,000 Retire actions per day, cumulative across individual, bulk, and Microsoft Graph API requests. The documentation now states that individual, bulk, and Microsoft Graph Wipe requests share a cumulative tenant-wid"
       }
     ],
     "generatedBy": "fallback"

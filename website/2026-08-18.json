@@ -104,6 +104,32 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md",
+      "status": "modified",
+      "additions": 19,
+      "deletions": 1,
+      "changes": 20,
+      "patch": "diff --git a/intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md b/intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md\nindex 1c60ad5bc6..2e9efc87a1 100644\n--- a/intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md\n+++ b/intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md\n@@ -1,7 +1,7 @@\n ---\n title: Migrate from MBAM\n description: Understand the considerations when migrating from Microsoft BitLocker Administration and Monitoring (MBAM) to BitLocker management in Configuration Manager.\n-ms.date: 12/01/2021\n+ms.date: 8/18/2026\n ms.subservice: protect\n ms.topic: upgrade-and-migration-article\n ms.collection: tier3\n@@ -40,6 +40,24 @@ For example, you used MBAM to encrypt the drive with the AES-XTS 128 encryption\n \n To work around this behavior, first disable BitLocker on the device. Then deploy a new policy with the new settings.\n \n+## Reuse MBAM groups\n+\n+If you're migrating from a stand-alone MBAM deployment to Configuration Manager Bitlocker management, you can reuse your existing MBAM groups. To retrieve the groups, run the following PowerShell command on the MBAM application server:\n+\n+```PowerShell\n+Get-MbamWebApplication -AdministrationPortal | Select-Object AdvancedHelpdeskAccessGroup,HelpdeskAccessGroup,ReportsReadOnlyAccessGroup\n+```\n+ \n+ For more information about the properties returned by the cmdlet, see [Get-MbamWebApplication (MBAM)](/previous-versions/powershell/module/mbam/get-mbamwebapplication). \n+ \n+ When you [set up the BitLocker portals](setup-websites.md) in Configuration Manager, use the following portal-equivalent group mappings:\n+\n+ | MBAM Parameter | ConfigMgr Parameter |\n+ | ---------------|---------------------|\n+ | AdvancedHelpdeskAccessGroup | HelpdeskAdminsGroupName\n+ | HelpdeskAccessGroup | HelpdeskUsersGroupName |\n+ | ReportsReadOnlyAccessGroup | MbamReportUsersGroupName\n+\n ## Next steps\n \n [About the BitLocker recovery service](recovery-service.md)\n",
+      "baseCommitSha": "65641ffb7976f708bfab73cdb3d227da67076e2b",
+      "commitSha": "78aa2d51554f6a4ae571a41865b12209315a6e6e",
+      "commitMessage": "Updating bitlocker/migration-considerations.md with group reuse section",
+      "commitAuthor": "PraveenGururaj",
+      "commitDate": "2026-08-18 14:04:59 +0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/protect/deploy-use/bitlocker/migration-considerations",
+      "eventId": "intune-docs:78aa2d51554f6a4ae571a41865b12209315a6e6e:modified:intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md",
+      "firstSeenAt": "2026-08-18T13:05:46.686Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Migration guidance adds MBAM group reuse instructions",
+        "summary": "The documentation now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent Configuration Manager BitLocker portal groups during migration.",
+        "adminImpact": "Administrators migrating from standalone MBAM can reuse existing access groups instead of creating new group mappings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -147,14 +173,15 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 4,
+    "totalCommits": 2,
+    "totalFiles": 5,
     "authors": [
-      "Matt Call"
+      "Matt Call",
+      "PraveenGururaj"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -166,6 +193,14 @@
           "intune/device-management/actions/retire.md",
           "intune/device-management/actions/wipe.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The documentation now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent Configuration Manager BitLocker portal groups during migration.",
+        "sourceFiles": [
+          "intune/configmgr/protect/deploy-use/bitlocker/migration-considerations.md"
+        ]
       }
     ],
     "highlights": [
@@ -173,6 +208,11 @@
         "category": "Feature update",
         "headline": "intune/device-management",
         "detail": "The documentation now states that a tenant can submit up to 1,000 Delete actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The limit also applies when Delete triggers Retire or Wipe. The documentation now lists tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Counts are cumulative across individual, bulk, and Microsoft Graph submissions. The documentation now states that a tenant can submit up to 1,000 Retire actions per day, cumulative across individual, bulk, and Microsoft Graph API requests. The documentation now states that individual, bulk, and Microsoft Graph Wipe requests share a cumulative tenant-wid"
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The documentation now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent Configuration Manager BitLocker portal groups during migration."
       }
     ],
     "generatedBy": "fallback"

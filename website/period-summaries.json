@@ -6453,37 +6453,43 @@
       }
     },
     "2026-08-18": {
-      "headline": "Intune guidance now lists tenant-wide daily limits for Wipe, Retire, and Delete",
-      "overview": "Updated Intune device-action pages now state that Wipe, Retire, and Delete submissions share tenant-wide daily limits. Individual, bulk, and Microsoft Graph requests count toward the relevant totals, giving administrators concrete limits for large-scale device operations.",
-      "adminImpact": "Plan bulk and automated device actions around the documented quotas: 500 Wipe actions per tenant per day and 1,000 Retire or Delete actions per tenant per day. Contact Microsoft support if a limit change is needed.",
+      "headline": "Intune guidance now specifies 500 Wipe and separate 1,000 Retire and Delete daily caps",
+      "overview": "Intune’s device-action pages now spell out tenant-wide daily caps: 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions count cumulatively, while the Delete limit also applies when Delete triggers Retire or Wipe. Configuration Manager migration guidance explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent BitLocker portal groups.",
+      "adminImpact": "Administrators running large device-action batches should plan against the tenant-wide limits and contact Microsoft Support if a limit change is needed. MBAM migration teams can reuse existing access groups by retrieving them with PowerShell and mapping them to equivalent Configuration Manager BitLocker portal groups instead of creating new mappings.",
       "keyChanges": [
         {
-          "title": "Wipe actions have a documented 500-per-day tenant limit",
-          "detail": "The Wipe guidance states that individual, bulk, and Microsoft Graph Wipe requests count cumulatively toward a tenant-wide daily limit of 500 actions.",
-          "product": "Intune device actions",
+          "title": "Wipe requests share a 500-action daily tenant limit",
+          "detail": "The Wipe guidance now states that individual, bulk, and Microsoft Graph Wipe requests count toward a cumulative tenant-wide limit of 500 actions per day.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-18-device-action-wipe-04"
         },
         {
-          "title": "Retire actions have a documented 1,000-per-day tenant limit",
-          "detail": "The Retire guidance states that individual, bulk, and Microsoft Graph API requests count cumulatively toward a tenant-wide daily limit of 1,000 Retire actions.",
-          "product": "Intune device actions",
+          "title": "Retire requests share a 1,000-action daily tenant limit",
+          "detail": "The Retire guidance now states that individual, bulk, and Microsoft Graph API requests count cumulatively toward a tenant-wide limit of 1,000 Retire actions per day.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-18-device-action-retire-03"
         },
         {
-          "title": "Delete limits also cover cascaded Retire or Wipe actions",
-          "detail": "The Delete guidance states that tenants can submit up to 1,000 Delete actions per day across individual, bulk, and Microsoft Graph requests. The limit also applies when Delete triggers Retire or Wipe.",
-          "product": "Intune device actions",
+          "title": "Delete requests share a 1,000-action daily tenant limit",
+          "detail": "The Delete guidance now states that individual, bulk, and Microsoft Graph requests count cumulatively toward 1,000 actions per day. The limit also applies when Delete triggers Retire or Wipe.",
+          "product": "Intune",
           "sourceId": "doc-2026-08-18-device-action-delete-01"
+        },
+        {
+          "title": "MBAM migration guidance adds PowerShell group mapping",
+          "detail": "Configuration Manager guidance now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent BitLocker portal groups, allowing migrating administrators to reuse existing access groups.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-08-18-migrate-from-mbam-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-18T11:34:12.621Z",
+      "generatedAt": "2026-08-18T13:05:57.232Z",
       "usage": {
-        "inputTokens": 1368,
-        "outputTokens": 1043,
-        "costUsd": 0.001525
+        "inputTokens": 1486,
+        "outputTokens": 2553,
+        "costUsd": 0.003361
       }
     }
   },
@@ -7959,37 +7965,37 @@
       }
     },
     "2026-08-17": {
-      "headline": "Intune’s single-device page becomes default in September; docs spell out action quotas",
-      "overview": "The planned September 2609 release will make Intune’s new single device page the default, replacing the legacy page while retaining all management features. Separate Microsoft Learn updates clarify tenant-wide daily limits for Wipe, Retire, and Delete actions and how submissions are counted across the console, bulk operations, and Microsoft Graph.",
-      "adminImpact": "Prepare administrators for the new device-page interface by updating internal documentation and familiarizing staff before the 2609 release. For device actions, track individual, bulk, and Microsoft Graph submissions together against the documented tenant-wide limits; contact Microsoft support if a different limit is needed.",
+      "headline": "Intune’s single-device page becomes default as daily action caps are specified",
+      "overview": "The period’s main operational item is a planned Intune interface switch: the consolidated single-device page becomes the default in the September 2609 release, replacing the legacy view while retaining management features. Updated guidance also states tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete, cumulative across individual, bulk, and Microsoft Graph requests. Configuration Manager guidance adds a PowerShell path for carrying existing MBAM groups into equivalent BitLocker portal groups.",
+      "adminImpact": "Prepare administrators and internal runbooks for the 2609 page transition, and plan high-volume device actions within the shared daily caps, including Delete requests that trigger Retire or Wipe. Teams migrating from standalone MBAM can reuse existing access groups through the documented mapping procedure.",
       "keyChanges": [
         {
-          "title": "New single device page will replace the legacy default",
-          "detail": "The Microsoft 365 Message Center says the consolidated Intune single device page will become the default view in the September 2609 release. All management features remain available, so the supported change is to the interface and default experience rather than a stated capability removal.",
+          "title": "Single-device page will become the default in September 2609",
+          "detail": "The new consolidated Intune single-device page will replace the legacy page as the default view in the September 2609 release. Management features remain available, but administrators should update internal documentation and familiarize users with the new interface beforehand.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Documentation specifies cumulative daily Wipe, Retire, and Delete limits",
-          "detail": "The Device Actions page now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Each limit applies cumulatively across individual actions, bulk actions, and Microsoft Graph submissions. This is documented guidance, not an announcement that the service behavior changed during the period.",
+          "title": "Tenant-wide device-action limits are now explicitly documented",
+          "detail": "The Device Actions guidance lists cumulative daily tenant limits of 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions all count toward the same limits; administrators should plan large operations around these ceilings and contact Microsoft support if a limit change is needed.",
           "product": "Intune",
           "sourceId": "doc-2026-08-18-device-actions-wipe-lock-locate-and-more-02"
         },
         {
-          "title": "Delete accounting includes actions that trigger Retire or Wipe",
-          "detail": "The Delete action page states that a tenant can submit up to 1,000 Delete actions per day, counting individual, bulk, and Microsoft Graph requests. The documented total also includes Deletes that trigger Retire or Wipe, a detail administrators should include when planning cleanup automation.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-18-device-action-delete-01"
+          "title": "MBAM migration guidance adds PowerShell group mapping",
+          "detail": "The Migrate from MBAM procedure now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent Configuration Manager BitLocker portal groups, enabling migrating administrators to reuse existing access groups instead of creating new mappings.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-08-18-migrate-from-mbam-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-18T08:52:24.723Z",
+      "generatedAt": "2026-08-18T13:05:57.232Z",
       "usage": {
-        "inputTokens": 1280,
-        "outputTokens": 1997,
-        "costUsd": 0.002652
+        "inputTokens": 1413,
+        "outputTokens": 1717,
+        "costUsd": 0.002343
       }
     }
   },
@@ -8317,37 +8323,37 @@
       }
     },
     "2026-08": {
-      "headline": "Intune plans iOS/iPadOS 18 and macOS 15 floors as device UI changes",
-      "overview": "August was dominated by planned Intune changes rather than feature launches: future iOS/iPadOS and macOS support floors, plus the new single-device page becoming the default in September 2609. Microsoft Learn also clarified tenant-wide device-action quotas and reporting limitations for MDM Firewall Rules and Attack Surface Reduction Rules. No new or removed items were recorded, and the supplied evidence does not establish a general-availability launch or product retirement.",
-      "adminImpact": "Begin compatibility and enrollment planning for the two future OS floors, including userless Automated Device Enrollment scenarios and macOS 14.x-or-earlier devices. Update device-page runbooks and familiarize administrators before the September 2609 change. Reconcile Wipe, Retire, and Delete activity across individual, bulk, and Microsoft Graph submissions, and set reporting expectations for MDM Firewall Rules and ASR Rules. Most other August edits were documentation clarification or operational guidance rather than evidence of changed product behavior.",
+      "headline": "Intune plans iOS 18 and macOS 15 floors alongside a new device page",
+      "overview": "August’s high-impact Intune signals are forward-looking: Message Center plans raise the iOS/iPadOS floor to 18 and the macOS floor to 15 later this year, while the consolidated single-device page is scheduled to replace the legacy view as default in September 2609. Updated operational guidance also specifies tenant-wide daily caps for Wipe, Retire, and Delete requests and clarifies reporting limits for MDM-managed Firewall Rules and ASR Rules. The period centers on compatibility planning, interface preparation, operational capacity, and reporting expectations.",
+      "adminImpact": "Inventory iOS/iPadOS and macOS versions and plan upgrades; for macOS, devices on macOS 14.x or below will remain enrolled but new enrollments on those versions will not be allowed after the change. Prepare administrator runbooks and training for the September 2609 device-page transition. Schedule high-volume Wipe, Retire, and Delete operations within the shared daily caps. If per-setting Firewall Rules or ASR Rules status is required, devices must use Defender for Endpoint security settings management; MDM policy-level reporting alone does not provide those per-setting statuses.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS 18 becomes the planned Intune minimum after Apple’s iOS/iPadOS 27 release",
-          "detail": "Planned change, not an immediate enforcement update: Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Microsoft advises checking device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements. Use Intune OS-version controls when planning the transition.",
+          "title": "iOS/iPadOS 18 becomes Intune’s planned support floor after iOS/iPadOS 27",
+          "detail": "Microsoft’s change plan says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Administrators should check device compatibility and Intune reports, including the separately stated requirements for userless Automated Device Enrollment devices.",
           "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "macOS 15 becomes the planned support floor after macOS Golden Gate 27",
-          "detail": "Planned change: Intune will support macOS 15 and later after the macOS Golden Gate 27 release later this year. Existing devices on macOS 14.x or earlier remain enrolled, but new enrollments on those versions will no longer be allowed. Identify and upgrade affected devices before the change.",
+          "title": "macOS 15 becomes the planned floor after macOS Golden Gate 27",
+          "detail": "After the macOS Golden Gate 27 release this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed.",
           "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "The new single-device page becomes Intune’s default view in September 2609",
-          "detail": "Planned interface change: the new consolidated single-device management page will replace the legacy page as the default in the September 2609 release. The notice says all management features remain available. Update internal procedures and familiarize administrators with the new layout beforehand.",
+          "title": "The consolidated single-device page becomes default in September 2609",
+          "detail": "The new Intune single-device page will replace the legacy page as the default view in the September 2609 release. Microsoft says the management features remain available, but administrators should update internal documentation and familiarize teams with the new interface beforehand.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Intune guidance states daily tenant-wide limits for Wipe, Retire, and Delete",
-          "detail": "Documentation clarification: the updated Device Actions guidance states limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions per tenant per day. The totals are cumulative across individual actions, bulk actions, and Microsoft Graph submissions. The documentation directs administrators to Microsoft Support to request a limit change.",
+          "title": "Tenant-wide daily limits are documented for Wipe, Retire, and Delete actions",
+          "detail": "Intune guidance specifies a cumulative daily limit of 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions all count toward the same tenant-wide totals.",
           "product": "Intune",
           "sourceId": "doc-2026-08-18-device-actions-wipe-lock-locate-and-more-02"
         },
         {
-          "title": "MDM Firewall Rules and ASR Rules reporting remains policy-level only",
-          "detail": "The updated Firewall guidance says per-setting reporting is available for most Endpoint Security policies, but MDM-managed Firewall Rules and Attack Surface Reduction (ASR) Rules policies report only policy-level status, without per-setting statuses. Per-setting status requires devices to be enrolled with Defender for Endpoint security settings management.",
+          "title": "Per-setting Firewall Rules and ASR reporting requires Defender security settings management",
+          "detail": "The updated Firewall guidance states that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies report only policy-level status, without per-setting reporting statuses. Per-setting status requires devices to be enrolled with Defender for Endpoint security settings management.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         }
@@ -8355,16 +8361,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-18T08:52:24.723Z",
+      "generatedAt": "2026-08-18T13:05:57.232Z",
       "usage": {
-        "inputTokens": 6940,
-        "outputTokens": 4355,
-        "costUsd": 0.006614
+        "inputTokens": 6718,
+        "outputTokens": 3806,
+        "costUsd": 0.005911
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-18T11:34:12.621Z",
+  "generatedAt": "2026-08-18T13:05:57.232Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8395,22 +8401,22 @@
       "costUsd": 0.028832
     },
     "2026-08-18": {
-      "inputTokens": 19428,
-      "outputTokens": 15787,
-      "requests": 7,
-      "costUsd": 0.02283
+      "inputTokens": 29045,
+      "outputTokens": 23863,
+      "requests": 10,
+      "costUsd": 0.034445
     }
   },
   "lastRun": {
-    "inputTokens": 1368,
-    "outputTokens": 1043,
-    "requests": 1,
-    "costUsd": 0.001525
+    "inputTokens": 9617,
+    "outputTokens": 8076,
+    "requests": 3,
+    "costUsd": 0.011615
   },
   "totalUsage": {
-    "inputTokens": 2838397,
-    "outputTokens": 1426980,
-    "requests": 231,
-    "costUsd": 2.280055
+    "inputTokens": 2848014,
+    "outputTokens": 1435056,
+    "requests": 234,
+    "costUsd": 2.29167
   }
 }

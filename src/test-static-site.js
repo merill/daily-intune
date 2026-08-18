@@ -639,7 +639,8 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.doesNotMatch(aboutHtml, /Stay current with Microsoft Intune/);
   assert.doesNotMatch(aboutHtml, /id="stay-current"/);
   assert.match(aboutHtml, /Get daily email updates/);
-  assert.match(aboutHtml, /Subscribe to the weekly update/);
+  assert.doesNotMatch(aboutHtml, /Subscribe to the weekly update|Join the Intune Discord/);
+  assert.doesNotMatch(indexHtml, /Intune\.Admin\.News weekly/);
   assert.match(indexHtml, /href="\/about\/\?subscribe=daily"[^>]*data-daily-email-open[^>]*>Get daily email updates<\/a>/);
   assert.match(docDetailHtml, /href="\/about\/\?subscribe=daily"[^>]*data-daily-email-open[^>]*>Get daily email updates<\/a>/);
   assert.match(messageDetailHtml, /href="\/about\/\?subscribe=daily"[^>]*data-daily-email-open[^>]*>Get daily email updates<\/a>/);
@@ -655,7 +656,7 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.match(siteJs, /history\.replaceState\(null,''/);
   assert.match(siteJs, /data-kit-daily-form/);
   assert.doesNotMatch(aboutHtml, /Bookmark|updates are posted daily/);
-  assert.match(aboutHtml, /github\.com\/merill\/daily-intune\/issues/);
+  assert.doesNotMatch(aboutHtml, /github\.com\/merill\/daily-intune/);
   assert.match(indexHtml, /href="\/about\/"/);
   assert.match(indexHtml, /data-nav="compare"[^>]*aria-label="View full page diff"/);
   assert.match(compareHtml, /See what changed on a Microsoft Learn page/);

@@ -6429,6 +6429,28 @@
         "outputTokens": 2003,
         "costUsd": 0.00267
       }
+    },
+    "2026-08-17": {
+      "headline": "Intune’s consolidated single-device page will replace the legacy view in September",
+      "overview": "Microsoft plans to make the new Intune single device page the default in the September (2609) release, replacing the legacy page. The new experience provides a consolidated device management view, while existing management features remain available.",
+      "adminImpact": "Administrators should familiarize themselves with the new interface and update internal documentation before the 2609 rollout. The announcement does not indicate that management capabilities are being removed or migrated.",
+      "keyChanges": [
+        {
+          "title": "New single device page becomes the default",
+          "detail": "This is a planned default-view change: the new consolidated Intune device page will replace the legacy page in September (2609). Microsoft states that all management features remain available, but recommends preparation before the change.",
+          "product": "Intune",
+          "sourceId": "MC1456780"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-18T01:48:46.428Z",
+      "usage": {
+        "inputTokens": 948,
+        "outputTokens": 559,
+        "costUsd": 0.00086
+      }
     }
   },
   "weeks": {
@@ -7901,6 +7923,28 @@
         "outputTokens": 4821,
         "costUsd": 0.006139
       }
+    },
+    "2026-08-17": {
+      "headline": "New Intune single-device page becomes default in September 2609 release",
+      "overview": "Microsoft plans to make the new Intune single device page the default view in the September (2609) release, replacing the legacy page. The consolidated experience retains all management features.",
+      "adminImpact": "Before the 2609 release, administrators should familiarize themselves with the new interface and update internal procedures or documentation that reference the legacy device page. No feature loss is indicated.",
+      "keyChanges": [
+        {
+          "title": "New single device page will replace the legacy default",
+          "detail": "The new consolidated Intune device management view is planned to become the default in September (2609). Existing management features remain available; the main administrator impact is a change in the page experience and related documentation or training.",
+          "product": "Intune",
+          "sourceId": "MC1456780"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-18T01:48:46.428Z",
+      "usage": {
+        "inputTokens": 761,
+        "outputTokens": 467,
+        "costUsd": 0.000713
+      }
     }
   },
   "months": {
@@ -8227,37 +8271,37 @@
       }
     },
     "2026-08": {
-      "headline": "Intune plans higher Apple OS floors as Sync preview guidance broadens device scope",
-      "overview": "August was update-heavy rather than launch-heavy: 41 Learn pages were updated, with no new or removed records, alongside two Message Center Plan for Change notices. The most consequential items are future iOS/iPadOS and macOS support floors, clarified limits on MDM Firewall and ASR reporting, preview Sync guidance, and registry-inventory security disclosure. Most other edits involved links, metadata, labels, examples, or scope clarification. No supplied item establishes a general-availability launch or product retirement.",
-      "adminImpact": "Begin Apple compatibility and enrollment inventory work, especially for iOS/iPadOS and macOS devices approaching the announced floors; the notices provide post-release timing but no exact enforcement date. Set accurate reporting expectations for MDM Firewall Rules and ASR Rules, enable Preview new device view when evaluating the documented Sync improvements, and review which administrators can access registry inventory through existing Device Inventory permissions. Mechanical documentation edits generally require no tenant action.",
+      "headline": "Intune plans Apple OS floors as its new device page becomes default",
+      "overview": "August’s most consequential Intune developments are three planned changes rather than a new general-availability launch: an iOS/iPadOS 18-or-later requirement after Apple releases iOS/iPadOS 27, macOS 15-or-later support after macOS Golden Gate 27, and the new single-device page becoming the default in the September 2609 release. Documentation also clarified that MDM-managed Firewall Rules and ASR Rules provide only policy-level reporting, while registry inventory can expose sensitive configuration data through existing Device Inventory permissions. The remaining updates were largely operational guidance, links, metadata, or terminology changes.",
+      "adminImpact": "Inventory Apple OS versions and plan upgrades, including the specific requirements for userless Automated Device Enrollment devices. Prepare administrators and internal procedures for the 2609 single-device page switch; no feature loss is indicated. Set accurate reporting expectations for MDM Firewall Rules and ASR Rules: per-setting status requires Defender for Endpoint security settings management. Review access to registry inventory and its security and privacy implications. Separately, the documented Sync improvements for Windows and iOS/iPadOS require the Preview new device view toggle; this is guidance for a preview-gated experience, not evidence of general availability.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS support floor moves to 18 after iOS/iPadOS 27",
-          "detail": "Plan for Change: after Apple releases iOS/iPadOS 27 later this year, Intune will require iOS/iPadOS 18 or higher. Check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have separate OS requirements. This is a future support-policy change, not a current general-availability feature announcement.",
+          "title": "Planned iOS/iPadOS support floor moves to version 18",
+          "detail": "A Plan for Change notice says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Administrators should check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements. This is a future support change, not a current launch.",
           "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "macOS 15 becomes the future enrollment floor after Golden Gate 27",
-          "detail": "Plan for Change: after macOS Golden Gate 27 releases, Intune will support macOS 15 and later. Devices already enrolled on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed. This is a planned enrollment-behavior change; no exact enforcement date is supplied.",
+          "title": "Planned macOS support floor moves to version 15",
+          "detail": "After the macOS Golden Gate 27 release later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below will remain enrolled, but new enrollments on those versions will no longer be allowed. Identify affected devices and plan upgrades before the change.",
           "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "MDM Firewall and ASR policies remain limited to policy-level reporting",
-          "detail": "Documentation clarification: most Endpoint Security policies have per-setting reporting, but Firewall Rules and Attack Surface Reduction (ASR) Rules managed through MDM expose only policy-level status. Per-setting status requires devices to be enrolled with Defender for Endpoint security settings management. The change clarifies reporting expectations rather than policy enforcement.",
+          "title": "New single-device page becomes the default in September 2609",
+          "detail": "The new Intune single-device page, which provides a consolidated device-management view, is planned to replace the legacy page as the default in the September 2609 release. The notice says all management features remain available, so the administrator impact is interface familiarization and updating internal procedures rather than feature migration.",
+          "product": "Intune",
+          "sourceId": "MC1456780"
+        },
+        {
+          "title": "MDM Firewall Rules and ASR Rules lack per-setting reporting",
+          "detail": "The Firewall guidance now states that per-setting reporting is available for most Endpoint Security policies, but MDM-managed Firewall Rules and Attack Surface Reduction (ASR) Rules provide only policy-level status and no per-setting reporting statuses. Per-setting status requires devices enrolled with Defender for Endpoint security settings management. This is a reporting limitation clarification, not a new feature announcement.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         },
         {
-          "title": "Sync preview guidance now covers Windows and iOS/iPadOS devices",
-          "detail": "Documentation clarification: the Sync behavior and Device sync status tab are now described as applying to Windows and iOS/iPadOS, rather than Windows only. Administrators must enable the Preview new device view toggle to see the described improvements. This is preview guidance, not evidence of general availability.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-14-sync-04"
-        },
-        {
-          "title": "Registry inventory guidance flags sensitive configuration exposure",
-          "detail": "Security and privacy guidance now states that collected registry key inventory is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. The guidance identifies this as an accepted risk and calls for reviewing the security and privacy implications. It does not show that permissions or inventory behavior changed.",
+          "title": "Registry inventory exposure is documented as a security and privacy risk",
+          "detail": "The Collect Device Properties guidance now states that registry key inventory is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Microsoft identifies this as an accepted risk and calls for reviewing the security and privacy implications. Review which administrators can access registry inventory before expanding its use.",
           "product": "Intune",
           "sourceId": "doc-2026-08-12-collect-device-properties-01"
         }
@@ -8265,16 +8309,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-14T20:43:26.306Z",
+      "generatedAt": "2026-08-18T01:48:46.428Z",
       "usage": {
-        "inputTokens": 6668,
-        "outputTokens": 6809,
-        "costUsd": 0.009504
+        "inputTokens": 6779,
+        "outputTokens": 6462,
+        "costUsd": 0.00911
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-14T20:43:26.306Z",
+  "generatedAt": "2026-08-18T01:48:46.428Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8303,18 +8347,24 @@
       "outputTokens": 20919,
       "requests": 6,
       "costUsd": 0.028832
+    },
+    "2026-08-18": {
+      "inputTokens": 8488,
+      "outputTokens": 7488,
+      "requests": 3,
+      "costUsd": 0.010683
     }
   },
   "lastRun": {
-    "inputTokens": 9771,
-    "outputTokens": 13633,
+    "inputTokens": 8488,
+    "outputTokens": 7488,
     "requests": 3,
-    "costUsd": 0.018314
+    "costUsd": 0.010683
   },
   "totalUsage": {
-    "inputTokens": 2818969,
-    "outputTokens": 1411193,
-    "requests": 224,
-    "costUsd": 2.257225
+    "inputTokens": 2827457,
+    "outputTokens": 1418681,
+    "requests": 227,
+    "costUsd": 2.267908
   }
 }

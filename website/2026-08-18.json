@@ -1,6 +1,107 @@
 {
   "newFiles": [],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-management/actions/delete.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-management/actions/delete.md b/intune/device-management/actions/delete.md\nindex dc58b66a80..a394cafd78 100644\n--- a/intune/device-management/actions/delete.md\n+++ b/intune/device-management/actions/delete.md\n@@ -1,7 +1,7 @@\n ---\n title: \"Device Action: Delete\"\n description: Learn how to delete devices with Microsoft Intune.\n-ms.date: 07/10/2026\n+ms.date: 08/06/2026\n ms.topic: how-to\n zone_pivot_groups: 51e33912-415a-402f-8201-8acebf3e4991\n ---\n@@ -10,6 +10,9 @@ zone_pivot_groups: 51e33912-415a-402f-8201-8acebf3e4991\n \n Use the *delete* action in Intune to permanently remove devices that are no longer needed, being repurposed, or missing. This action helps cleanup your device inventory and ensures that unmanaged or obsolete devices no longer appear in the admin center.\n \n+> [!IMPORTANT]\n+> A tenant can submit up to 1,000 Delete actions per day. This tenant-wide limit is cumulative across individual device actions, bulk device actions, and Microsoft Graph API requests. The Delete limit applies to Delete requests even when deleting a device triggers a Retire or Wipe command. To request a limit change, [contact Microsoft support](../../fundamentals/it-pro-support/get-support-admin-center.md). For all device action limits, see [Daily tenant limits](index.md#daily-tenant-limits).\n+\n ### Delete action behavior by platform\n \n When you use the **Delete** action in Intune, the command that triggers depends on the device platform and, for Android, the enrollment type.\n",
+      "baseCommitSha": "28756e01de0e4ee5fb1f7d0885b07f631e0429a3",
+      "commitSha": "08b47cafadf39d9e658e35b1f5c27b4d8efcc993",
+      "commitMessage": "Document daily Device Action limits (#20618)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-08-17 18:59:54 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/delete.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/delete",
+      "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/delete.md",
+      "firstSeenAt": "2026-08-18T08:52:13.094Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Delete actions now document a 1,000-per-day tenant limit",
+        "summary": "The Delete action documentation was updated on August 6, 2026 to state that a tenant can submit up to 1,000 Delete actions per day. The cumulative limit covers individual actions, bulk actions, and Microsoft Graph requests, including Deletes that trigger Retire or Wipe.",
+        "adminImpact": "Administrators should account for this tenant-wide daily limit across all Delete action submission methods.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/index.md",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 1,
+      "changes": 17,
+      "patch": "diff --git a/intune/device-management/actions/index.md b/intune/device-management/actions/index.md\nindex faba23d821..b72d9e88c4 100644\n--- a/intune/device-management/actions/index.md\n+++ b/intune/device-management/actions/index.md\n@@ -1,7 +1,7 @@\n ---\n title: Device Actions - Wipe, Lock, Locate, and More\n description: Discover how to use Microsoft Intune to remotely manage, wipe, lock, restart, and secure Android, iOS/iPadOS, tvOS, visionOS, macOS, Windows, and ChromeOS devices. Learn about available device actions, prerequisites, and bulk actions for IT admins.\n-ms.date: 07/10/2026\n+ms.date: 08/06/2026\n ms.topic: overview\n ---\n \n@@ -149,6 +149,18 @@ Every device action has its own steps, which the respective documentation detail\n > [!NOTE]\n > The **Retire**, **Wipe**, and **Delete** actions take precedence over all other actions. A device with multiple pending actions only carries out a Retire, Wipe, or Delete. The system ignores all other pending actions.\n \n+## Daily tenant limits\n+\n+Intune limits the number of Wipe, Retire, and Delete device actions that can be submitted in a tenant each day.\n+\n+| Device action | Daily limit per tenant |\n+| --- | ---: |\n+| Wipe | 500 |\n+| Retire | 1,000 |\n+| Delete | 1,000 |\n+\n+The limit for each action is cumulative across all submission methods, including actions for individual devices, bulk device actions, and Microsoft Graph API requests. To request a change to one of these limits, [contact Microsoft support](../../fundamentals/it-pro-support/get-support-admin-center.md).\n+\n ## Check the status of the action\n \n To check the status of the action, select **Devices** > [**Device actions**].\n@@ -160,6 +172,9 @@ To check the status of the action, select **Devices** > [**Device actions**].\n \n Managing devices at scale is a common challenge for IT pros, especially in environments like schools, enterprises, or frontline operations. Microsoft Intune supports bulk device actions, so IT admins can perform tasks on up to 100 devices at the same time. This capability streamlines operations, reduces manual effort, and ensures consistent policy enforcement across large device fleets.\n \n+> [!NOTE]\n+> Bulk Wipe, Retire, and Delete requests count toward the [daily tenant limit](#daily-tenant-limits) for each action.\n+\n For example, at the end of a school year, IT admins can use bulk wipe to securely reset student devices before reassigning them for the next term. This approach saves time and ensures that sensitive data is removed efficiently across all devices.\n \n Select one of the following tabs to learn more about the available bulk device actions for each platform:\n",
+      "baseCommitSha": "28756e01de0e4ee5fb1f7d0885b07f631e0429a3",
+      "commitSha": "08b47cafadf39d9e658e35b1f5c27b4d8efcc993",
+      "commitMessage": "Document daily Device Action limits (#20618)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-08-17 18:59:54 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/index",
+      "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/index.md",
+      "firstSeenAt": "2026-08-18T08:52:13.105Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Intune documents daily device action limits",
+        "summary": "The documentation now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Limits apply cumulatively across individual, bulk, and Microsoft Graph submissions.",
+        "adminImpact": "Administrators should include all submission methods when tracking these limits. The documentation says to contact Microsoft support to request a limit change.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/retire.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-management/actions/retire.md b/intune/device-management/actions/retire.md\nindex 8975a718cc..987776e231 100644\n--- a/intune/device-management/actions/retire.md\n+++ b/intune/device-management/actions/retire.md\n@@ -1,7 +1,7 @@\n ---\n title: \"Device Action: Retire\"\n description: Learn how to retire device using Microsoft Intune.\n-ms.date: 10/27/2025\n+ms.date: 08/06/2026\n ms.topic: how-to\n zone_pivot_groups: 51e33912-415a-402f-8201-8acebf3e4991\n ---\n@@ -12,6 +12,9 @@ The *retire* action in Intune removes company data from a device without perform\n \n Unlike the **Wipe** action, which resets the device to factory settings, **Retire** keeps user content intact. The action is triggered the next time the device checks in with Intune. Until then, the device might still appear in the admin center. If you need to remove a device immediately, consider using the [delete device action](delete.md) instead.\n \n+> [!IMPORTANT]\n+> A tenant can submit up to 1,000 Retire actions per day. This tenant-wide limit is cumulative across individual device actions, bulk device actions, and Microsoft Graph API requests. To request a limit change, [contact Microsoft support](../../fundamentals/it-pro-support/get-support-admin-center.md). For all device action limits, see [Daily tenant limits](index.md#daily-tenant-limits).\n+\n ::: zone pivot=\"windows\"\n \n ## Before retiring or deleting a Microsoft Entra joined device\n",
+      "baseCommitSha": "28756e01de0e4ee5fb1f7d0885b07f631e0429a3",
+      "commitSha": "08b47cafadf39d9e658e35b1f5c27b4d8efcc993",
+      "commitMessage": "Document daily Device Action limits (#20618)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-08-17 18:59:54 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/retire.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/retire",
+      "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/retire.md",
+      "firstSeenAt": "2026-08-18T08:52:13.116Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Intune documents a 1,000-per-day Retire action limit",
+        "summary": "The Retire documentation now states that each tenant can submit up to 1,000 Retire actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests.",
+        "adminImpact": "Administrators should account for this tenant-wide limit and contact Microsoft support to request a limit change if needed.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/actions/wipe.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-management/actions/wipe.md b/intune/device-management/actions/wipe.md\nindex 23843524d9..09701e0bec 100644\n--- a/intune/device-management/actions/wipe.md\n+++ b/intune/device-management/actions/wipe.md\n@@ -1,7 +1,7 @@\n ---\n title: \"Device Action: Wipe\"\n description: Learn how to wipe, or factory reset, devices with Microsoft Intune.\n-ms.date: 11/14/2025\n+ms.date: 08/06/2026\n ms.topic: how-to\n zone_pivot_groups: c5fbc3ee-cfe5-494a-b441-d95cbed3128c\n ---\n@@ -12,6 +12,9 @@ Use the *Wipe* action in Intune to factory reset a device, restoring it to its d\n \n Depending on the platform, you can customize the wipe behavior to meet your organization's needs.\n \n+> [!IMPORTANT]\n+> A tenant can submit up to 500 Wipe actions per day. This tenant-wide limit is cumulative across individual device actions, bulk device actions, and Microsoft Graph API requests. To request a limit change, [contact Microsoft support](../../fundamentals/it-pro-support/get-support-admin-center.md). For all device action limits, see [Daily tenant limits](index.md#daily-tenant-limits).\n+\n ## Prerequisites\n \n :::row:::\n",
+      "baseCommitSha": "28756e01de0e4ee5fb1f7d0885b07f631e0429a3",
+      "commitSha": "08b47cafadf39d9e658e35b1f5c27b4d8efcc993",
+      "commitMessage": "Document daily Device Action limits (#20618)",
+      "commitAuthor": "Matt Call",
+      "commitDate": "2026-08-17 18:59:54 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/actions/wipe.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/actions/wipe",
+      "eventId": "intune-docs:08b47cafadf39d9e658e35b1f5c27b4d8efcc993:modified:intune/device-management/actions/wipe.md",
+      "firstSeenAt": "2026-08-18T08:52:13.126Z",
+      "englishSummary": {
+        "category": "Documentation change",
+        "headline": "Wipe documentation adds a 500-actions-per-day tenant limit",
+        "summary": "The documentation now states that a tenant can submit up to 500 Wipe actions daily, cumulatively across individual device actions, bulk actions, and Microsoft Graph API requests. It also documents contacting Microsoft support to request a limit change.",
+        "adminImpact": "Plan wipe operations within the daily tenant-wide limit; contact Microsoft support if a different limit is needed.",
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [
     {
@@ -42,14 +143,34 @@
     }
   ],
   "summary": {
-    "totalCommits": 0,
-    "totalFiles": 0,
-    "authors": []
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "Matt Call"
+    ]
   },
   "englishSummary": {
-    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
-    "groups": [],
-    "highlights": [],
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Documentation change",
+        "title": "intune/device-management",
+        "summary": "The Delete action documentation was updated on August 6, 2026 to state that a tenant can submit up to 1,000 Delete actions per day. The cumulative limit covers individual actions, bulk actions, and Microsoft Graph requests, including Deletes that trigger Retire or Wipe. The documentation now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Limits apply cumulatively across individual, bulk, and Microsoft Graph submissions. The Retire documentation now states that each tenant can submit up to 1,000 Retire actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The documentation now states that a tena",
+        "sourceFiles": [
+          "intune/device-management/actions/delete.md",
+          "intune/device-management/actions/index.md",
+          "intune/device-management/actions/retire.md",
+          "intune/device-management/actions/wipe.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Documentation change",
+        "headline": "intune/device-management",
+        "detail": "The Delete action documentation was updated on August 6, 2026 to state that a tenant can submit up to 1,000 Delete actions per day. The cumulative limit covers individual actions, bulk actions, and Microsoft Graph requests, including Deletes that trigger Retire or Wipe. The documentation now lists per-tenant daily limits of 500 Wipe actions, 1,000 Retire actions, and 1,000 Delete actions. Limits apply cumulatively across individual, bulk, and Microsoft Graph submissions. The Retire documentation now states that each tenant can submit up to 1,000 Retire actions per day, cumulatively across individual actions, bulk actions, and Microsoft Graph requests. The documentation now states that a tena"
+      }
+    ],
     "generatedBy": "fallback"
   }
 }

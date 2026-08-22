@@ -6533,19 +6533,19 @@
       }
     },
     "2026-08-21": {
-      "headline": "Defender Antivirus guidance clarifies catch-up scan defaults and two-miss trigger",
-      "overview": "Two device-security documentation updates clarify Defender Antivirus catch-up scan behavior. Intune guidance explains how the “Disable catch-up...” settings map Yes and No to scan behavior, while tenant-attached Configuration Manager guidance documents the defaults, trigger, and scheduling prerequisite.",
-      "adminImpact": "Review existing Defender Antivirus policies to ensure configured values produce the intended catch-up behavior. The updated guidance states that Not Configured disables full-scan catch-up, while quick-scan catch-up remains enabled by default; no immediate administrator action is stated.",
+      "headline": "Defender catch-up scan guidance distinguishes disabled defaults and two-miss triggers",
+      "overview": "Two device-security updates clarify Defender Antivirus catch-up scans for Intune and Configuration Manager tenant-attached devices. The guidance explains the inverse Yes/No semantics of settings named “Disable catch-up...”, documents different full- and quick-scan defaults, and specifies when catch-up scans run.",
+      "adminImpact": "Review Defender Antivirus policy values, particularly full-scan catch-up settings. In Intune, an unconfigured full-scan catch-up setting is documented as disabled while quick-scan catch-up remains enabled by default. The updates do not state that immediate administrator action is required.",
       "keyChanges": [
         {
-          "title": "Intune guidance maps catch-up settings to actual scan behavior",
-          "detail": "The Windows Antivirus policy settings page now explains that Yes disables and No enables catch-up scans because the settings are named “Disable catch-up...”. Full-scan catch-up is disabled when the setting is not configured, while quick-scan catch-up is enabled by default. Catch-up scans trigger after two missed scheduled scans.",
+          "title": "Intune guidance clarifies inverse catch-up scan setting values",
+          "detail": "For settings named “Disable catch-up...”, Yes disables catch-up scans and No enables them. Full-scan catch-up is disabled when not configured, while quick-scan catch-up is enabled by default; catch-up runs after two missed scheduled scans.",
           "product": "Intune",
           "sourceId": "doc-2026-08-21-windows-antivirus-policy-settings-for-microsoft-defender-antivirus-for-intune-02"
         },
         {
           "title": "Tenant-attached Configuration Manager guidance changes the documented full-scan default",
-          "detail": "The guidance now documents catch-up full scans as disabled by default when not configured, with catch-up quick scans still enabled by default. Catch-up scans occur after two consecutive missed scheduled scans and require a scheduled scan to be configured.",
+          "detail": "The documented default for catch-up full scans is now disabled, while catch-up quick scans remain enabled by default. Catch-up scans require a configured scheduled scan and occur after two consecutive missed scheduled scans.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-08-21-windows-antivirus-policy-settings-from-microsoft-defender-antivirus-for-tenant-attached-devices-01"
         }
@@ -6553,11 +6553,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-21T08:56:33.835Z",
+      "generatedAt": "2026-08-22T08:45:34.871Z",
       "usage": {
         "inputTokens": 1233,
-        "outputTokens": 872,
-        "costUsd": 0.001293
+        "outputTokens": 864,
+        "costUsd": 0.001283
       }
     }
   },
@@ -8033,49 +8033,49 @@
       }
     },
     "2026-08-17": {
-      "headline": "Intune’s new device page becomes default in September 2609",
-      "overview": "Intune’s consolidated single-device page is slated to replace the legacy view and become the default in the September (2609) release, while retaining existing management features. The period also brought tenant-wide device-action caps, clarified Defender Antivirus catch-up settings, a PowerShell group-mapping path for MBAM migrations, and a deprecation notice for the Policy Configuration Agent.",
-      "adminImpact": "Prepare runbooks and administrators for the 2609 device-page change. Plan Wipe, Retire, and Delete campaigns within the documented tenant-wide daily limits, counting individual, bulk, and Microsoft Graph submissions together. Review Defender Antivirus policy values because settings named “Disable catch-up...” use Yes to disable and No to enable catch-up scans. During MBAM migrations, use the documented PowerShell retrieval and group-mapping process, and review the Policy Configuration Agent deprecation notice when planning continued use.",
+      "headline": "Intune’s single-device page becomes default, replacing legacy view in September 2609",
+      "overview": "The period’s clearest operational change is Intune’s new single-device page becoming the default in the September (2609) release, replacing the legacy page while retaining all management features. Updated guidance also documents tenant-wide device-action quotas and clarifies easy-to-misread Defender Antivirus catch-up settings. Security Copilot’s Change Review Agent documentation now carries a deprecation notice, while Configuration Manager guidance improves MBAM migration group mapping.",
+      "adminImpact": "Prepare administrators and internal runbooks for the September 2609 page change, and schedule large device-action batches within the documented daily quotas. Review Defender Antivirus policy values to confirm the intended catch-up behavior. Administrators using or referencing the Change Review Agent should review its deprecation notice; no deadline is supplied. MBAM migration teams can reuse existing groups when mapping them to Configuration Manager BitLocker portal groups.",
       "keyChanges": [
         {
-          "title": "The new single-device page will replace the legacy view",
-          "detail": "The new Intune single device page will become the default in the September (2609) release and replace the legacy page. Existing management features remain available, but Microsoft recommends updating internal documentation and familiarizing administrators with the new interface beforehand.",
+          "title": "The new single-device view becomes Intune’s default in September 2609",
+          "detail": "The new Intune single device page will become the default in the September (2609) release and replace the legacy page. All management features remain available, but administrators should update internal documentation and familiarize themselves with the new interface beforehand.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Intune documents cumulative daily caps for device actions",
-          "detail": "The tenant-wide limits are 500 Wipe actions and 1,000 each for Retire and Delete per day. Individual, bulk, and Microsoft Graph submissions count toward the same cumulative totals.",
+          "title": "Device-action documentation now lists cumulative tenant-wide daily quotas",
+          "detail": "The updated Device Actions guidance lists daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions count cumulatively toward the tenant-wide totals.",
           "product": "Intune",
           "sourceId": "doc-2026-08-18-device-actions-wipe-lock-locate-and-more-02"
         },
         {
-          "title": "Defender catch-up scan settings now explain their inverted labels",
-          "detail": "Because the settings are named “Disable catch-up...”, Yes disables catch-up scans and No enables them. Full-scan catch-up is disabled when not configured, quick-scan catch-up is enabled by default, and catch-up occurs after two missed scheduled scans.",
+          "title": "Defender Antivirus guidance clarifies inverse catch-up scan settings",
+          "detail": "Because the settings are named “Disable catch-up...”, Yes disables catch-up scans and No enables them. Full-scan catch-up is disabled when not configured, quick-scan catch-up is enabled by default, and catch-up runs after two missed scheduled scans.",
           "product": "Intune",
           "sourceId": "doc-2026-08-21-windows-antivirus-policy-settings-for-microsoft-defender-antivirus-for-intune-02"
         },
         {
-          "title": "MBAM migration guidance adds PowerShell group mapping",
-          "detail": "Configuration Manager’s migration guidance now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent Configuration Manager BitLocker portal groups, allowing existing access groups to be reused during migration.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-08-18-migrate-from-mbam-05"
+          "title": "Change Review Agent documentation now carries a deprecation notice",
+          "detail": "The Security Copilot Change Review Agent overview now includes an agent-deprecation notice while its Intune admin center link remains unchanged. The supplied update gives no deprecation deadline or required administrator action.",
+          "product": "Security Copilot",
+          "sourceId": "doc-2026-08-20-change-review-agent-overview-05"
         },
         {
-          "title": "Policy Configuration Agent guidance now carries a deprecation notice",
-          "detail": "The Security Copilot page for Policy Configuration Agent now includes an agent-deprecation notice while retaining the Intune admin center link. The supplied update specifies no required action or deadline.",
-          "product": "Security Copilot",
-          "sourceId": "doc-2026-08-20-policy-configuration-agent-in-microsoft-intune-04"
+          "title": "MBAM migration guidance adds PowerShell group retrieval and mapping",
+          "detail": "Configuration Manager’s migration guidance now explains how to retrieve existing MBAM groups with PowerShell and map them to equivalent Configuration Manager BitLocker portal groups, allowing migrating administrators to reuse existing access groups.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-08-18-migrate-from-mbam-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-21T08:56:33.835Z",
+      "generatedAt": "2026-08-22T08:45:34.871Z",
       "usage": {
         "inputTokens": 2482,
-        "outputTokens": 4123,
-        "costUsd": 0.005444
+        "outputTokens": 3739,
+        "costUsd": 0.004983
       }
     }
   },
@@ -8403,37 +8403,37 @@
       }
     },
     "2026-08": {
-      "headline": "Intune plans iOS 18 and macOS 15 support floors later this year",
-      "overview": "August’s biggest Intune planning items were two Apple OS-version floors and a scheduled device-page switch. Intune plans to require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27, support macOS 15 and later after macOS Golden Gate 27, and make the new single-device page the default in September (2609). Other high-value guidance covered cumulative device-action caps, the MDM Firewall Rules and ASR Rules reporting boundary, Defender catch-up scan semantics, expanded Multi Admin Approval coverage, and a Security Copilot agent-deprecation notice.",
-      "adminImpact": "Begin compatibility inventory and upgrade planning for iOS/iPadOS and macOS, including userless Automated Device Enrollment cases. macOS 14.x-and-earlier devices will remain enrolled but cannot be newly enrolled after the macOS change. Prepare September 2609 runbooks for the new device page. Schedule Wipe, Retire, and Delete campaigns within the 500, 1,000, and 1,000 cumulative daily limits, respectively. Set reporting expectations for MDM Firewall Rules and ASR Rules: per-setting status requires devices enrolled with Defender for Endpoint security settings management. Review Defender catch-up values and the Security Copilot deprecation notice where those capabilities are in use.",
+      "headline": "Intune plans Apple OS floors as its single-device page becomes default",
+      "overview": "August’s consequential Intune updates were mostly forward-looking service changes and concrete operational guidance. Intune plans to require iOS/iPadOS 18 or later after Apple releases iOS/iPadOS 27, and to support macOS 15 or later after macOS Golden Gate 27. The new single-device page is planned to replace the legacy view as the default in September 2609. Updated guidance also specifies tenant-wide device-action quotas and the reporting boundary for MDM Firewall Rules and ASR Rules. Security Copilot pages added an agent-deprecation notice, but the supplied record gives no deadline.",
+      "adminImpact": "Begin Apple device compatibility and upgrade planning, using Intune reports to identify affected devices and checking the separate OS requirements for userless Automated Device Enrollment. For macOS, existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will be blocked after the change. Prepare administrator runbooks for the September 2609 device-page transition. Schedule Wipe, Retire, and Delete operations within the documented cumulative tenant-wide limits of 500, 1,000, and 1,000 actions per day respectively. For MDM-managed Firewall Rules and ASR Rules, expect policy-level rather than per-setting reporting unless devices use Defender for Endpoint security settings management.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS 18 becomes the planned Intune support floor",
-          "detail": "Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Use Intune reports to identify affected devices and include the separate OS-version requirements for userless Automated Device Enrollment devices in compatibility planning.",
+          "title": "iOS/iPadOS support floor moves to version 18",
+          "detail": "A Message Center plan says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Use compatibility checks and Intune reports to identify affected devices; userless Automated Device Enrollment devices have additional OS-version requirements.",
           "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "macOS 15 becomes the enrollment floor for new devices",
-          "detail": "After macOS Golden Gate 27 releases later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed; identify and upgrade affected devices beforehand.",
+          "title": "macOS 15 becomes the supported enrollment floor",
+          "detail": "After macOS Golden Gate 27 releases later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed.",
           "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "The new single-device page becomes default in September 2609",
-          "detail": "The new Intune single-device page is planned to become the default view in the September (2609) release, replacing the legacy page. All management features remain, but administrators should update internal documentation and familiarize themselves with the consolidated interface before the change.",
+          "title": "The single-device page becomes default in September 2609",
+          "detail": "The new Intune single-device page will replace the legacy page as the default view in the September 2609 release. All management features remain available, so administrators should update internal procedures and familiarize users with the new interface.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Intune documents cumulative daily caps for Wipe, Retire, and Delete",
-          "detail": "Updated Device Actions guidance states tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions count together, so large campaigns must be planned against cumulative totals.",
+          "title": "Device-action guidance documents cumulative daily tenant limits",
+          "detail": "The updated Device Actions guidance specifies daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions count toward the same tenant-wide totals.",
           "product": "Intune",
           "sourceId": "doc-2026-08-18-device-actions-wipe-lock-locate-and-more-02"
         },
         {
-          "title": "Per-setting Firewall and ASR reporting requires Defender security settings management",
-          "detail": "The updated guidance says most Endpoint Security policies provide per-setting reporting, but MDM-managed Firewall Rules and Attack Surface Reduction (ASR) Rules policies expose only policy-level status, without per-setting statuses. Devices must be enrolled with Defender for Endpoint security settings management to view per-setting status for those policies.",
+          "title": "MDM Firewall and ASR reporting is limited to policy-level status",
+          "detail": "The updated Firewall guidance specifies that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies do not provide per-setting reporting statuses. Devices must use Defender for Endpoint security settings management to view per-setting status for those policies.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
         }
@@ -8441,16 +8441,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-21T08:56:33.835Z",
+      "generatedAt": "2026-08-22T08:45:34.871Z",
       "usage": {
-        "inputTokens": 6777,
-        "outputTokens": 9029,
-        "costUsd": 0.01219
+        "inputTokens": 6775,
+        "outputTokens": 4671,
+        "costUsd": 0.00696
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-21T08:56:33.835Z",
+  "generatedAt": "2026-08-22T08:45:34.871Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8497,18 +8497,24 @@
       "outputTokens": 14024,
       "requests": 3,
       "costUsd": 0.018927
+    },
+    "2026-08-22": {
+      "inputTokens": 10490,
+      "outputTokens": 9274,
+      "requests": 3,
+      "costUsd": 0.013227
     }
   },
   "lastRun": {
-    "inputTokens": 10492,
-    "outputTokens": 14024,
+    "inputTokens": 10490,
+    "outputTokens": 9274,
     "requests": 3,
-    "costUsd": 0.018927
+    "costUsd": 0.013227
   },
   "totalUsage": {
-    "inputTokens": 2869031,
-    "outputTokens": 1462648,
-    "requests": 240,
-    "costUsd": 2.328984
+    "inputTokens": 2879521,
+    "outputTokens": 1471922,
+    "requests": 243,
+    "costUsd": 2.342211
   }
 }

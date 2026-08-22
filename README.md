@@ -4,7 +4,7 @@ An automated GitHub Actions workflow that monitors the [Microsoft Intune documen
 
 ## 🚀 Features
 
-- **📅 Four-hour Monitoring**: Refreshes at six UTC slots and reconciles the daily subscriber email from 8:15 AM onward
+- **📅 Six-hour Monitoring**: Refreshes at four UTC slots and reconciles the daily subscriber email from 8:15 AM onward
 - **🗞️ Subscriber Email**: Concise Kit broadcasts for confirmed subscribers, with links to the full daily evidence
 - **🔍 Smart Analysis**: Categorizes changes into new files, modifications, and deletions
 - **💡 Change Summaries**: Provides detailed summaries of what changed in each modified file
@@ -83,7 +83,7 @@ The documentation notification contains the grouped English digest and one link 
 
 ### Kit (formerly ConvertKit) daily email setup
 
-The public daily list is intentionally separate from the human-curated weekly Intune.Admin.News newsletter. Every successful scheduled refresh calls the separate `daily-kit-broadcast.yml` workflow. Before 08:15 UTC it verifies the previous delivery without creating today's broadcast; at and after 08:15 it reconciles today's report. The later 12:15, 16:15, and 20:15 runs therefore recover an email missed because an earlier Actions run was delayed, dropped, or failed.
+The public daily list is intentionally separate from the human-curated weekly Intune.Admin.News newsletter. Every successful scheduled refresh calls the separate `daily-kit-broadcast.yml` workflow. Before 08:15 UTC it verifies the previous delivery without creating today's broadcast; at and after 08:15 it reconciles today's report. The later 14:15 and 20:15 runs therefore recover an email missed because an earlier Actions run was delayed, dropped, or failed.
 
 1. Create a dedicated Kit Newsletter account, set its business details and timezone, and complete Kit's sending approval. Kit's [new-account checklist](https://help.kit.com/en/articles/14005977-how-to-set-up-your-new-kit-account-a-complete-checklist) shows the current navigation.
 2. In **Settings → Email**, add and confirm `updates@daily.intune.admin.news` as the default sending address. The API publisher omits `email_address`, allowing Kit to use this verified default. Set `KIT_SENDER_EMAIL` only if you intentionally need another sending address that is already verified in the same Kit account.
@@ -107,7 +107,7 @@ Later reconciliations query Kit's delivery stats. `completed` verifies success; 
 ### 3. **External heartbeat setup**
 
 1. Create a Healthchecks.io check named `Daily.Intune.Admin.News scheduled pipeline`.
-2. Use cron schedule `15 0,4,8,12,16,20 * * *`, timezone `UTC`, and a three-hour grace period. This absorbs normal GitHub Actions scheduling delays while still alerting before the next four-hour slot.
+2. Use cron schedule `15 2,8,14,20 * * *`, timezone `UTC`, and a four-hour grace period. This absorbs normal GitHub Actions scheduling delays while still alerting before the next six-hour slot.
 3. Enable the desired email notification integration.
 4. Save the check's private ping URL as the repository secret `HEALTHCHECKS_PING_URL`.
 
@@ -115,14 +115,14 @@ Scheduled runs send `/start`, success, and `/fail` signals. Non-draft manual Kit
 
 ### 4. **Customize (Optional)**
 Edit `.github/workflows/daily-docs-monitor.yml` to:
-- Change the four-hour schedule (currently 00:15 through 20:15 UTC)
+- Change the six-hour schedule (currently 02:15 through 20:15 UTC)
 - Change the 08:15 UTC automatic email cutoff
 
 ## 🕒 Optimal Timing
 
 Analysis of 838 merge commits in `MicrosoftDocs/memdocs` from May through early August 2026 found recurring publish/sync cycles around 07:30, 12:30, 17:30, and 22:30 UTC. The 07:30 cycle consistently includes the late Pacific-day changes and its repository sync normally completes by approximately 07:38 UTC.
 
-- **Chosen schedule**: 00:15, 04:15, 08:15, 12:15, 16:15, and 20:15 UTC
+- **Chosen schedule**: 02:15, 08:15, 14:15, and 20:15 UTC
 - **Why**: Captures each recurring publish/sync cycle soon after it settles while retaining 08:15 UTC as the complete daily email slot
 - **Visitor display**: The generated site converts refresh timestamps and daily-page dates to the reader's local timezone in the browser
 
@@ -196,7 +196,7 @@ daily-intune/
 
 ## 🛠️ How It Works
 
-1. **GitHub Actions Trigger**: Runs every four hours at `:15`
+1. **GitHub Actions Trigger**: Runs every six hours at `:15`
 2. **Fetch New Events**: Continues from a persisted documentation commit cursor and Message Center version map
 3. **Filter Files**: Focuses on `.md` files in the `docs/` directory
 4. **Analyze Changes**: Categorizes file modifications and asks Luna for one English summary per material diff

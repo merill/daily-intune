@@ -14,7 +14,7 @@ const {
   formattedDiff,
   renderMarkdownDiff,
   renderDailyRss
-} = require('./static-site');
+} = require('@merill/dailynews-engine/static-site');
 
 test('Message Center filter matches standalone Intune in service or title', () => {
   assert.equal(isProductMessage({ Services: ['Microsoft Intune'], Title: 'A change' }), true);
@@ -252,7 +252,7 @@ test('UserJot is configured from a validated project ID and omitted safely other
 test('the workflow forwards the UserJot repository variable to site builds', async () => {
   const workflow = await fs.readFile(path.join(__dirname, '..', '.github', 'workflows', 'daily-docs-monitor.yml'), 'utf8');
   assert.equal((workflow.match(/USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/g) || []).length, 2);
-  assert.match(workflow, /- name: Build the static site through the latest refresh date\n\s+env:[\s\S]*?run: npm run build:site/);
+  assert.match(workflow, /- name: Build the static site through the latest refresh date\n\s+env:[\s\S]*?run: dailynews build-site && dailynews search-index/);
   assert.doesNotMatch(workflow, /- name: Build the static site through the latest refresh date\n\s+if:/);
 });
 
@@ -261,7 +261,11 @@ test('the generated-site workflow runs only for build inputs and cannot retrigge
   assert.match(workflow, /push:\n\s+branches:\n\s+- main\n\s+paths:/);
   assert.match(workflow, /'\.github\/workflows\/build-static-website\.yml'/);
   assert.match(workflow, /'assets\/site\/\*\*'/);
-  assert.match(workflow, /'src\/static-site\.js'/);
+  // The generator is in the engine, so what can change this site from inside
+  // this repository is its configuration and its assets — and the workflow
+  // itself, which is where the engine version is pinned.
+  assert.match(workflow, /'dailynews\.config\.js'/);
+  assert.doesNotMatch(workflow, /'src\/|'scripts\//);
   assert.doesNotMatch(workflow, /'reports\/\*\*'|'website\/\*\*'/);
   assert.match(workflow, /group: intune-docs-monitor/);
   assert.match(workflow, /MC_DATA_PATH: '\.\/mc\/@data'/);
@@ -786,10 +790,18 @@ test('every workflow that builds the site forwards the UserJot variable', async 
   // widget from every page. Missing it in one of the building workflows is
   // invisible until the site is compared against a rebuild.
   const dir = path.join(__dirname, '..', '.github', 'workflows');
+  // Matching on the build command means renaming it empties this loop and the
+  // guard silently passes over nothing — which is what happened when the build
+  // moved from `npm run build:site` to `dailynews build-site`. So the set of
+  // workflows it covers is asserted too.
+  const builds = /run: (npm run build:site|dailynews build-site)/;
+  const covered = [];
   for (const name of await fs.readdir(dir)) {
     const workflow = await fs.readFile(path.join(dir, name), 'utf8');
-    if (!/run: npm run build:site/.test(workflow)) continue;
+    if (!builds.test(workflow)) continue;
+    covered.push(name);
     assert.match(workflow, /USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/,
       `${name} builds the site but does not forward USERJOT_PROJECT_ID`);
   }
+  assert.ok(covered.length >= 2, `this guard covers only ${covered.length} workflow(s): ${covered}`);
 });

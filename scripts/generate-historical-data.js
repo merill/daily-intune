@@ -7,10 +7,10 @@ const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
 const moment = require('moment-timezone');
-const DocsMonitor = require('../src/monitor-docs');
-const { StaticSiteGenerator } = require('../src/static-site');
-const { selectPeriodEvidence } = require('../src/period-summaries');
-const { documentationEventId, nextScheduledRefresh } = require('../src/update-state');
+const DocsMonitor = require('@merill/dailynews-engine/monitor-docs');
+const { StaticSiteGenerator } = require('@merill/dailynews-engine/static-site');
+const { selectPeriodEvidence } = require('@merill/dailynews-engine/period-summaries');
+const { documentationEventId, nextScheduledRefresh } = require('@merill/dailynews-engine/update-state');
 
 const MAX_BUFFER = 256 * 1024 * 1024;
 

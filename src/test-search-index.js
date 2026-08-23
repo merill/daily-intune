@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { cleanPatch, buildUpdateRecord, buildBriefRecord, groupUpdateRecords } = require('./search-index');
+const { cleanPatch, buildUpdateRecord, buildBriefRecord, groupUpdateRecords } = require('@merill/dailynews-engine/search-index');
 
 const product = { name: 'Microsoft Intune', short: 'Intune', slug: 'intune', icon: 'intune.svg' };
 const topic = { name: 'Compliance', slug: 'compliance', icon: '/assets/topics/compliance.svg' };

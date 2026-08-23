@@ -168,38 +168,45 @@ module.exports = {
 
   taxonomy: {
     products: [
-    { slug: 'intune', name: 'Microsoft Intune', short: 'Intune', learn: 'https://learn.microsoft.com/en-us/intune/' },
-    { slug: 'windows-autopilot', name: 'Windows Autopilot', short: 'Windows Autopilot', learn: 'https://learn.microsoft.com/en-us/autopilot/' },
-    { slug: 'configuration-manager', name: 'Microsoft Configuration Manager', short: 'Configuration Manager', learn: 'https://learn.microsoft.com/en-us/intune/configmgr/' },
-    { slug: 'intune-suite', name: 'Microsoft Intune Suite', short: 'Intune Suite', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-add-ons' },
-    { slug: 'endpoint-privilege-management', name: 'Endpoint Privilege Management', short: 'Endpoint Privilege Management', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/protect/epm-overview' },
-    { slug: 'remote-help', name: 'Microsoft Intune Remote Help', short: 'Remote Help', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remote-help' },
-    { slug: 'advanced-analytics', name: 'Microsoft Intune Advanced Analytics', short: 'Advanced Analytics', learn: 'https://learn.microsoft.com/en-us/intune/analytics/advanced-endpoint-analytics' },
-    { slug: 'cloud-pki', name: 'Microsoft Cloud PKI', short: 'Cloud PKI', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-cloud-pki-overview' },
-    { slug: 'enterprise-app-management', name: 'Enterprise App Management', short: 'Enterprise App Management', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-enterprise-app-management' },
-    { slug: 'security-copilot', name: 'Microsoft Security Copilot in Intune', short: 'Security Copilot', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/copilot/security-copilot' }
+    { slug: 'intune', name: 'Microsoft Intune', short: 'Intune', icon: { sourceName: 'Microsoft Intune', sourcePath: 'intune/Microsoft-intune.svg', match: 'exact' }, learn: 'https://learn.microsoft.com/en-us/intune/' },
+    { slug: 'windows-autopilot', name: 'Windows Autopilot', short: 'Windows Autopilot', icon: { file: 'autopilot.svg', sourceName: 'Automanaged VM', sourcePath: 'compute/02112-icon-service-Automanaged-VM.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/autopilot/' },
+    { slug: 'configuration-manager', name: 'Microsoft Configuration Manager', short: 'Configuration Manager', icon: { sourceName: 'OSConfig', sourcePath: 'other/03365-icon-service-OSConfig.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/configmgr/' },
+    { slug: 'intune-suite', name: 'Microsoft Intune Suite', short: 'Intune Suite', icon: { file: 'intune.svg', sourceName: 'Microsoft Intune', sourcePath: 'intune/Microsoft-intune.svg', match: 'shared' }, learn: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-add-ons' },
+    { slug: 'endpoint-privilege-management', name: 'Endpoint Privilege Management', short: 'Endpoint Privilege Management', icon: { file: 'epm.svg', sourceName: 'Application Security Groups', sourcePath: 'security/10244-icon-service-Application-Security-Groups.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/intune-service/protect/epm-overview' },
+    { slug: 'remote-help', name: 'Microsoft Intune Remote Help', short: 'Remote Help', icon: { sourceName: 'Help and Support', sourcePath: 'general/10013-icon-service-Help-and-Support.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remote-help' },
+    { slug: 'advanced-analytics', name: 'Microsoft Intune Advanced Analytics', short: 'Advanced Analytics', icon: { sourceName: 'Log Analytics Workspaces', sourcePath: 'analytics/00009-icon-service-Log-Analytics-Workspaces.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/analytics/advanced-endpoint-analytics' },
+    { slug: 'cloud-pki', name: 'Microsoft Cloud PKI', short: 'Cloud PKI', icon: { sourceName: 'Certificate', sourcePath: 'Microsoft/light-blue-Certificate.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-cloud-pki-overview' },
+    { slug: 'enterprise-app-management', name: 'Enterprise App Management', short: 'Enterprise App Management', icon: { sourceName: 'Managed Applications Center', sourcePath: 'management-governance/10313-icon-service-Managed-Applications-Center.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-enterprise-app-management' },
+    { slug: 'security-copilot', name: 'Microsoft Security Copilot in Intune', short: 'Security Copilot', icon: { file: 'copilot.svg', sourceName: 'Copilot color', sourcePath: 'fabric/copilot_color.svg', match: 'closest' }, learn: 'https://learn.microsoft.com/en-us/intune/intune-service/copilot/security-copilot' }
     ],
     defaultProduct: 'intune',
 
     topics: [
-    { slug: 'app-management', name: 'App management' },
-    { slug: 'device-configuration', name: 'Device configuration' },
-    { slug: 'device-enrollment', name: 'Device enrollment' },
-    { slug: 'device-security', name: 'Device security' },
-    { slug: 'compliance', name: 'Compliance' },
-    { slug: 'endpoint-analytics', name: 'Endpoint analytics' },
-    { slug: 'device-updates', name: 'Device updates' },
-    { slug: 'tenant-administration', name: 'Tenant administration' },
-    { slug: 'windows', name: 'Windows' },
-    { slug: 'android', name: 'Android' },
-    { slug: 'apple', name: 'Apple' },
-    { slug: 'linux', name: 'Linux' },
-    { slug: 'fundamentals', name: 'Fundamentals' },
-    { slug: 'troubleshooting', name: 'Troubleshooting' },
-    { slug: 'developer', name: 'Developer' },
-    { slug: 'general', name: 'General' }
+    { slug: 'app-management', name: 'App management', icon: { sourceName: 'Client Apps', sourcePath: 'intune/10331-icon-service-Client-Apps.svg', match: 'exact' } },
+    { slug: 'device-configuration', name: 'Device configuration', icon: { sourceName: 'Device Configuration', sourcePath: 'intune/10338-icon-service-Device-Configuration.svg', match: 'exact' } },
+    { slug: 'device-enrollment', name: 'Device enrollment', icon: { sourceName: 'Device Enrollment', sourcePath: 'intune/10337-icon-service-Device-Enrollment.svg', match: 'exact' } },
+    { slug: 'device-security', name: 'Device security', icon: { sourceName: 'Security Baselines', sourcePath: 'intune/10336-icon-service-Security-Baselines.svg', match: 'closest' } },
+    { slug: 'compliance', name: 'Compliance', icon: { sourceName: 'Device Compliance', sourcePath: 'intune/10333-icon-service-Device-Compliance.svg', match: 'exact' } },
+    { slug: 'endpoint-analytics', name: 'Endpoint analytics', icon: { sourceName: 'Endpoint Analytics', sourcePath: 'analytics/00562-icon-service-Endpoint-Analytics.svg', match: 'exact' } },
+    { slug: 'device-updates', name: 'Device updates', icon: { sourceName: 'Software Updates', sourcePath: 'intune/10335-icon-service-Software-Updates.svg', match: 'exact' } },
+    { slug: 'tenant-administration', name: 'Tenant administration', icon: { sourceName: 'Intune Identity Roles and Administrators', sourcePath: 'intune/10340-icon-service-Intune-Identity-Roles-and-Administrators.svg', match: 'closest' } },
+    { slug: 'windows', name: 'Windows', icon: { sourceName: 'Device Security Windows', sourcePath: 'intune/00399-icon-service-Device-Security-Windows.svg', match: 'closest' } },
+    { slug: 'android', name: 'Android', icon: { sourceName: 'Device Security Google', sourcePath: 'intune/00399-icon-service-Device-Security-Google.svg', match: 'closest' } },
+    { slug: 'apple', name: 'Apple', icon: { sourceName: 'Device Security Apple', sourcePath: 'intune/00399-icon-service-Device-Security-Apple.svg', match: 'closest' } },
+    { slug: 'linux', name: 'Linux', icon: { sourceName: 'Azure Linux', sourcePath: 'new-icons/03645-icon-service-Azure-Linux.svg', match: 'closest' } },
+    { slug: 'fundamentals', name: 'Fundamentals', icon: { sourceName: 'Guide', sourcePath: 'general/10810-icon-service-Guide.svg', match: 'closest' } },
+    { slug: 'troubleshooting', name: 'Troubleshooting', icon: { sourceName: 'Troubleshoot', sourcePath: 'general/10341-icon-service-Troubleshoot.svg', match: 'exact' } },
+    { slug: 'developer', name: 'Developer', icon: { sourceName: 'Code', sourcePath: 'general/10787-icon-service-Code.svg', match: 'closest' } },
+    { slug: 'general', name: 'General', icon: { sourceName: 'Information', sourcePath: 'general/10005-icon-service-Information.svg', match: 'closest' } }
     ],
     defaultTopic: 'general',
+
+    // Where the SVGs under assets/site were taken from, pinned so the set can be
+    // resynced against the same revision it was drawn from.
+    iconSource: {
+      repository: 'https://github.com/DanielBradley1/msicons',
+      revision: '3d57443ed4445be9465ee2fee6a6ce6fd02cf90c'
+    },
 
     stopwords: 'microsoft intune documentation docs update updated updates change changes new for with from into about that this your their has have will are and the how use using overview configure configuration guide learn overview support service services preview',
 

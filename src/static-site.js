@@ -5,8 +5,6 @@ const { marked } = require('marked');
 const { parse } = require('node-html-parser');
 const htmlDiff = require('node-htmldiff');
 const simpleGit = require('simple-git');
-const { productIcon } = require('./product-icons');
-const { topicIconPath } = require('./topic-icons');
 const { nextScheduledRefresh, readJson, writeJsonAtomic } = require('./update-state');
 const { getConfig, runRules } = require('./config');
 
@@ -20,9 +18,9 @@ function dateAtRefresh(date) {
   return `${date}T${String(REFRESH_SCHEDULE_UTC.hour).padStart(2, '0')}:${String(REFRESH_SCHEDULE_UTC.minute).padStart(2, '0')}:00Z`;
 }
 
-const PRODUCTS = config.taxonomy.products.map(product => ({ ...product, icon: product.icon || productIcon(product.slug).file }));
+const PRODUCTS = config.taxonomy.products.map(product => ({ ...product, icon: product.icon.file }));
 
-const TOPICS = config.taxonomy.topics.map(topic => ({ ...topic, icon: topicIconPath(topic.slug) }));
+const TOPICS = config.taxonomy.topics.map(topic => ({ ...topic, icon: `/assets/topics/${topic.icon.file}` }));
 
 const STOPWORDS = config.taxonomy.stopwords;
 

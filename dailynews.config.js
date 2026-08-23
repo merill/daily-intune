@@ -18,6 +18,8 @@ module.exports = {
     wordmark: 'Daily Intune News',
     ogAlt: 'Daily Intune News \u2014 Microsoft Intune change intelligence',
     themeStorageKey: 'intune-news-theme',
+    logo: 'intune-news-icon-64.png',
+    extraCss: "",
     emailEyebrow: 'Daily Intune News',
     tokenStorageKey: 'intune-news-github-token'
   },
@@ -31,6 +33,18 @@ module.exports = {
   ai: {
     schemaPrefix: 'intune',
     impactBoost: /autopilot|app protection|endpoint privilege|remote help|cloud pki|compliance|settings catalog|device enrollment/
+  },
+
+  // How the generator reaches the documentation clone, and how far back it
+  // renders a page per change rather than linking to the full-page diff.
+  build: {
+    docsCloneDir: 'memdocs',
+    detailDays: 14
+  },
+
+  links: {
+    // Utility icons in the header. Each icon must exist in assets/site/ui.
+    related: []
   },
 
   analytics: {

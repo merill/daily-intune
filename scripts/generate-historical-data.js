@@ -1,12 +1,20 @@
 #!/usr/bin/env node
 
-require('dotenv').config();
+// Optional: this is a one-shot local tool and reads no secrets, but a .env is
+// convenient when pointing it at a checkout elsewhere. dotenv belongs to the
+// engine, so a product repo will not have it.
+try { require('dotenv').config(); } catch { /* no .env support available */ }
 
 const { execFileSync } = require('child_process');
 const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
-const moment = require('moment-timezone');
+// moment belongs to the engine's dependency tree, not this repository's — a
+// product installs nothing of its own. Resolving it through the engine keeps
+// this one-shot tool runnable without reintroducing a dependency here.
+const engineDir = path.dirname(require.resolve('@merill/dailynews-engine/package.json'));
+const fromEngine = name => require(require.resolve(name, { paths: [engineDir] }));
+const moment = fromEngine('moment-timezone');
 const DocsMonitor = require('@merill/dailynews-engine/monitor-docs');
 const { StaticSiteGenerator } = require('@merill/dailynews-engine/static-site');
 const { selectPeriodEvidence } = require('@merill/dailynews-engine/period-summaries');
@@ -101,10 +109,10 @@ function periodSummary(kind, key, items, generatedAt) {
   const messageText = counts.messageCenter ? ` and ${counts.messageCenter} relevant Message Center announcement${counts.messageCenter === 1 ? '' : 's'}` : '';
   const headline = items.length === 1
     ? clean(lead.title, 180)
-    : clean(`${lead.title} leads ${items.length} Intune updates`, 180);
+    : clean(`${lead.title} leads ${items.length} ${getConfig().ai.subject} updates`, 180);
   return {
     headline,
-    overview: `${label} recorded ${changeSummary || `${items.length} tracked`} Microsoft Intune documentation change${items.length === 1 ? '' : 's'}${messageText}.${activeProducts.length ? ` The most active areas were ${activeProducts.join(', ')}.` : ''}`,
+    overview: `${label} recorded ${changeSummary || `${items.length} tracked`} ${getConfig().site.productName} documentation change${items.length === 1 ? '' : 's'}${messageText}.${activeProducts.length ? ` The most active areas were ${activeProducts.join(', ')}.` : ''}`,
     adminImpact: 'Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.',
     keyChanges: selected.map(item => ({
       title: clean(item.title, 180),
@@ -176,7 +184,7 @@ async function main() {
     const [hash, parents, date, author, ...subject] = record.split('\x1f');
     return { hash, parent: String(parents || '').split(/\s+/)[0], date, author, subject: subject.join('\x1f') };
   });
-  console.log(`Backfilling ${start} through ${end} from ${commits.length} Intune documentation commits in ${repo}`);
+  console.log(`Backfilling ${start} through ${end} from ${commits.length} ${config.site.productName} documentation commits in ${repo}`);
 
   const analyses = new Map();
   for (let day = moment.utc(start); day.isSameOrBefore(moment.utc(end)); day.add(1, 'day')) {
@@ -254,7 +262,15 @@ async function main() {
   console.log(`Wrote ${analyses.size} daily reports and deterministic briefs for ${briefs.days} active days, ${briefs.weeks} weeks, and ${briefs.months} months (${briefs.items} source items).`);
 }
 
-main().catch(error => {
-  console.error(`Backfill failed: ${error.message}`);
-  process.exitCode = 1;
-});
+// Guarded. This script rewrites every dated report in website/, so it must not
+// run merely because something required it — a `require()` of this file used to
+// silently overwrite the whole archive, replacing curated summaries with
+// deterministic fallbacks.
+if (require.main === module) {
+  main().catch(error => {
+    console.error(`Backfill failed: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { main };

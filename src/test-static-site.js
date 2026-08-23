@@ -574,7 +574,6 @@ test('static generator writes indexable archive and detail pages', async () => {
   assert.doesNotMatch(monthHtml, /<h2 class="rail-heading">By topic<\/h2>/);
   assert.match(monthHtml, /class="period-nav-previous" href="\/month\/2026-07\/">← Previous month<\/a>/);
   assert.match(monthHtml, /<span class="period-nav-next"><\/span>/);
-  assert.equal(generator.resolveDayDate([{ date: '2026-08-01' }], '2026-08-04'), '2026-08-01');
   const calendarHtml = generator.miniMonthCalendar([
     { date: '2026-07-31' },
     { date: '2026-08-01' },

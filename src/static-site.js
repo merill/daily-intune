@@ -963,13 +963,6 @@ class StaticSiteGenerator {
     }).join('')}</section>`;
   }
 
-  resolveDayDate(items, requestedDate) {
-    const dates = [...new Set(items.map(item => item.date).filter(Boolean))].sort();
-    if (!dates.length) return requestedDate;
-    if (dates.includes(requestedDate)) return requestedDate;
-    return dates.filter(date => date <= requestedDate).at(-1) || dates[0];
-  }
-
   miniMonthCalendar(items, selectedDate) {
     const first = moment(`${selectedDate.slice(0,7)}-01`);
     const start = first.clone().startOf('isoWeek');

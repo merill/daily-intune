@@ -7,7 +7,7 @@ const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
 const moment = require('moment-timezone');
-const IntuneDocsMonitor = require('../src/monitor-docs');
+const DocsMonitor = require('../src/monitor-docs');
 const { StaticSiteGenerator } = require('../src/static-site');
 const { selectPeriodEvidence } = require('../src/period-summaries');
 const { documentationEventId, nextScheduledRefresh } = require('../src/update-state');
@@ -164,7 +164,7 @@ async function main() {
   if (!fs.existsSync(path.join(repo, '.git'))) throw new Error(`Git repository not found at ${repo}`);
   await fsp.mkdir(websiteDir, { recursive: true });
 
-  const monitor = new IntuneDocsMonitor({ websiteDir, reportsDir: path.join(websiteDir, '.reports') });
+  const monitor = new DocsMonitor({ websiteDir, reportsDir: path.join(websiteDir, '.reports') });
   monitor.targetRepo = { owner: 'MicrosoftDocs', repo: 'memdocs' };
   const generatedAt = new Date().toISOString();
   const until = moment.utc(end).add(1, 'day').format('YYYY-MM-DD');

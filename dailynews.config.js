@@ -19,6 +19,10 @@ module.exports = {
     ogAlt: 'Daily Intune News \u2014 Microsoft Intune change intelligence',
     themeStorageKey: 'intune-news-theme',
     logo: 'intune-news-icon-64.png',
+    // Icon beside the About page kicker.
+    aboutIcon: '/assets/ui/intune-news-icon-64.png',
+    // UI assets copied on top of the set the generator always copies.
+    uiAssets: ['intune-news-icon-64.png', 'envelope-open.svg'],
     extraCss: "",
     emailEyebrow: 'Daily Intune News',
     tokenStorageKey: 'intune-news-github-token'
@@ -32,7 +36,33 @@ module.exports = {
   // in the code; only the subject and the openers to avoid differ.
   ai: {
     schemaPrefix: 'intune',
+    subject: 'Intune',
+    // Headline openers the model must avoid, on top of the neutral ones the
+    // prompt always forbids.
+    forbiddenOpeners: ['Microsoft Intune documentation', 'Intune documentation'],
     impactBoost: /autopilot|app protection|endpoint privilege|remote help|cloud pki|compliance|settings catalog|device enrollment/
+  },
+
+  // Which repository paths become articles on Microsoft Learn, how a path maps
+  // to its public URL, and how a path maps to a report heading. `learnRoutes`
+  // and `areas.rules` are ordered: first match wins, and $1, $2, ... carry the
+  // captured groups into the template.
+  docs: {
+    trackedPaths: /^(intune|autopilot)\//,
+    learnRoutes: [
+      { match: /^(.*)\.md$/, path: '$1' }
+    ],
+    areas: {
+      // memdocs paths are already Learn paths, so nothing is stripped.
+      stripPrefix: null,
+      rules: [
+        { match: /^(autopilot)\/([^/]+)\/.*$/, name: '$1/$2' },
+        { match: /^autopilot(?:\/|$)/, name: 'Windows Autopilot' },
+        { match: /^(intune)\/([^/]+)\/.*$/, name: '$1/$2' },
+        { match: /^intune(?:\/|$)/, name: 'Microsoft Intune' }
+      ],
+      fallback: 'General Intune documentation'
+    }
   },
 
   // How the generator reaches the documentation clone, and how far back it
@@ -44,7 +74,88 @@ module.exports = {
 
   links: {
     // Utility icons in the header. Each icon must exist in assets/site/ui.
-    related: []
+    related: [],
+
+    // Product links appended to the footer navigation.
+    footer: [
+      { url: 'https://intune.chat', label: 'Intune.Chat podcast' }
+    ],
+
+    // Extra entries under "Stay current" in the About sidebar. A product with
+    // nothing beyond the daily email leaves this empty.
+    stayCurrent: [],
+
+    // The "Follow the project" list in the About sidebar.
+    followProject: [
+      { url: 'https://intune.chat', label: 'Intune.Chat podcast' }
+    ]
+  },
+
+  // Page prose. The generator holds the markup; every product-specific
+  // sentence lives here.
+  copy: {
+    rssFeedLabel: 'Subscribe to the Daily Intune News RSS feed',
+
+    landing: {
+      heading: 'Keep up with Microsoft Intune',
+      blurb: 'Daily highlights from Microsoft Learn and Message Center.'
+    },
+
+    directory: {
+      productsLede: 'Follow changes across Intune, Windows Autopilot, Configuration Manager, and the Intune Suite.',
+      topicsLede: 'Use topics to follow app management, enrollment, configuration, security, analytics, updates, and supported platforms.'
+    },
+
+    search: {
+      inputLabel: 'Search Intune changes',
+      placeholder: 'Try Autopilot, settings catalog, or app protection\u2026'
+    },
+
+    compare: {
+      pageTitle: 'Compare an Intune Learn page',
+      lede: 'Paste an Intune article URL. This page finds the source in MicrosoftDocs/memdocs, loads its latest two revisions from GitHub, and builds a visual and Markdown diff entirely in your browser.',
+      placeholderUrl: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/what-is-intune',
+      mapping: '<code>/en-us/intune/intune-service/example</code> maps to <code>intune/intune-service/example.md</code> in <a href="https://github.com/MicrosoftDocs/memdocs" target="_blank" rel="noopener noreferrer">MicrosoftDocs/memdocs</a>.'
+    },
+
+    dailyEmail: {
+      eyebrow: 'Daily Intune.Admin.News',
+      intro: 'Get a concise summary of the latest Microsoft Intune updates delivered straight to your inbox.'
+    },
+
+    detail: {
+      adminHeading: 'What Intune admins need to know',
+      summaryLabel: 'Editorial summary',
+      summaryDisclosure: 'This summary was assembled from the tracked documentation change. Verify important details in the full Microsoft Learn article.'
+    },
+
+    footer: {
+      featureBlurb: 'Everyone loves using Maester to track their Microsoft Intune and Microsoft 365 tenant security configuration. Maester Cloud turns those daily results into a continuous security record, with 5+ years of history, drift detection, and alerts when your posture changes.',
+      tagline: 'Independent change tracking for Microsoft Intune administrators.'
+    },
+
+    about: {
+      heading: 'Built for the die-hard Microsoft Intune community.',
+      lede: 'This site is dedicated to the people who want to know what changed in Microsoft Intune\u2014not just what the documentation says today. It is built by <a href="https://merill.net">Merill Fernando</a> for Intune admins, architects, developers, and fellow device-management enthusiasts.',
+      whyItExists: [
+        'Microsoft Intune moves quickly. Documentation pages, guidance, previews, and service announcements change every day, but those changes can be difficult to spot once a page has been updated.',
+        'Daily Intune News keeps a readable record of those changes so you can catch up by day, week, month, product, or topic\u2014and then open the source material when something matters to you.'
+      ],
+      howItWorks: [
+        'A scheduled workflow watches the public Microsoft Intune documentation, records additions and updates, and brings in relevant Microsoft 365 Message Center announcements.',
+        'Plain-English summaries make the daily changes easier to scan. Every documentation item keeps the readable change and Markdown diff available, so the source evidence is always close at hand.'
+      ],
+      emailEyebrow: 'Automated when Intune changes',
+      emailBody: 'Receive the concise Day in brief summary with links to the full evidence. Emails are sent only on days with meaningful Microsoft Intune documentation or Message Center updates, so quiet days stay quiet.',
+      // About sections this product runs and another may not. An empty list is
+      // how a product opts out; the generator renders whatever is declared.
+      extraSections: [],
+      community: [
+        'This is an independent community project, not a Microsoft product or service. It is built in the open for people who care deeply about endpoint management and want a calmer way to keep up with constant change.'
+      ],
+      quote: 'For the Intune fans who read release notes for fun, notice the small changes, and help everyone else understand why they matter.',
+      bio: '<a href="https://merill.net">Merill Fernando</a> builds tools and writes about Microsoft Intune and Microsoft 365 for the endpoint-management community.'
+    }
   },
 
   analytics: {

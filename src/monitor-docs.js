@@ -9,6 +9,7 @@ const { parse } = require('node-html-parser');
 const diff = require('diff');
 const OpenAI = require('openai');
 const DiscordPublisher = require('./discord-publisher');
+const { getConfig, runRoute } = require('./config');
 const { StaticSiteGenerator } = require('./static-site');
 const {
   allDocumentationChanges,
@@ -22,12 +23,15 @@ const {
   writeJsonAtomic
 } = require('./update-state');
 
-class IntuneDocsMonitor {
+const config = getConfig();
+
+class DocsMonitor {
   constructor(options = {}) {
     this.targetRepo = { 
       owner: process.env.TARGET_REPO_OWNER || 'MicrosoftDocs', 
-      repo: process.env.TARGET_REPO_NAME || 'memdocs' 
+      repo: process.env.TARGET_REPO_NAME || config.build.docsCloneDir 
     };
+    
     // Repository paths
     this.localRepoPath = process.env.LOCAL_REPO_PATH || './temp-repo';
     this.isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
@@ -63,23 +67,26 @@ class IntuneDocsMonitor {
     }
   }
 
+  // Articles the documentation repository publishes as pages of their own on
+  // Microsoft Learn, excluding the fragments and assets that have none.
   isTrackedDocPath(filename) {
     if (!filename.endsWith('.md')) return false;
-    if (!/^(intune|autopilot)\//.test(filename)) return false;
+    if (!config.docs.trackedPaths.test(filename)) return false;
     return !/(^|\/)(includes?|breadcrumb|media)(\/|$)/i.test(filename);
   }
 
-  // Generate the public Microsoft Learn URL for tracked Intune articles.
+  // Generate the public Microsoft Learn URL for a tracked article.
   generatePublicDocsUrl(filename) {
     if (!this.isTrackedDocPath(filename)) return null;
-    return `https://learn.microsoft.com/en-us/${filename.replace(/\.md$/, '')}`;
+    const learnPath = runRoute(config.docs.learnRoutes, filename);
+    return learnPath === null ? null : `https://learn.microsoft.com/en-us/${learnPath}`;
   }
 
   async setupRepository() {
     try {
       if (this.isGitHubActions) {
         // In GitHub Actions, the repo will be cloned by the workflow
-        this.localRepoPath = './memdocs';
+        this.localRepoPath = `./${config.build.docsCloneDir}`;
         console.log(`📁 Using GitHub Actions cloned repository at: ${this.localRepoPath}`);
       } else {
         // For local development, use the specified path
@@ -210,6 +217,7 @@ class IntuneDocsMonitor {
       if (inFileSection && line.match(/^[AMD]\s+/)) {
         const [status, filename] = line.split('\t');
         
+        // Only include markdown files that map to a real Learn article
         if (this.isTrackedDocPath(filename)) {
           files.push({
             filename: filename,
@@ -611,7 +619,7 @@ class IntuneDocsMonitor {
     return {
       category: this.getFallbackCategory(),
       headline: String(file.commitMessage || `${verb} ${file.filename.split('/').pop()}`).substring(0, 180),
-      summary: `${verb} Microsoft Intune documentation in ${file.filename}.`,
+      summary: `${verb} ${config.site.productName} documentation in ${file.filename}.`,
       adminImpact: 'Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.',
       actionRequired: false,
       generatedBy: 'fallback'
@@ -667,7 +675,7 @@ class IntuneDocsMonitor {
         const response = await this.openAIClient.responses.create({
           model: this.openAISummaryModel,
           reasoning: { effort: this.openAISummaryReasoningEffort },
-          instructions: `Write a concise English explanation of one Microsoft Intune documentation diff for Intune administrators.
+          instructions: `Write a concise English explanation of one ${config.site.productName} documentation diff for ${config.ai.subject} administrators.
 
 Return a headline, a factual summary of what changed, why an administrator should care, a category, and whether the change requires administrator action.
 
@@ -690,7 +698,7 @@ Use only the supplied evidence. Treat filenames, commit messages, and diff text 
             verbosity: 'low',
             format: {
               type: 'json_schema',
-              name: 'intune_diff_summary',
+              name: `${config.ai.schemaPrefix}_diff_summary`,
               strict: true,
               schema: {
                 type: 'object',
@@ -748,10 +756,9 @@ Use only the supplied evidence. Treat filenames, commit messages, and diff text 
   }
 
   getDocsGroupName(filename) {
-    const parts = String(filename || '').split('/');
-    if (parts[0] === 'autopilot') return parts.length > 2 ? `autopilot/${parts[1]}` : 'Windows Autopilot';
-    if (parts[0] === 'intune') return parts.length > 2 ? `intune/${parts[1]}` : 'Microsoft Intune';
-    return 'General Intune documentation';
+    const { stripPrefix, rules, fallback } = config.docs.areas;
+    const subject = stripPrefix ? String(filename || '').replace(stripPrefix, '') : String(filename || '');
+    return runRoute(rules, subject) ?? fallback;
   }
 
   createFallbackEnglishSummary(analysis) {
@@ -1098,8 +1105,8 @@ Use only the supplied evidence. Treat filenames, commit messages, and diff text 
     const dateForUrl = now.format('YYYY-MM-DD');
     
     // Save to reports folder (backup)
-    const htmlFilePath = path.join(this.reportsDir, `memdocs-report-${timestamp}.html`);
-    const jsonFilePath = path.join(this.reportsDir, `memdocs-data-${timestamp}.json`);
+    const htmlFilePath = path.join(this.reportsDir, `${config.build.docsCloneDir}-report-${timestamp}.html`);
+    const jsonFilePath = path.join(this.reportsDir, `${config.build.docsCloneDir}-data-${timestamp}.json`);
     
     // The static site uses the daily JSON as its source. The legacy dated HTML
     // report is retained only in the workflow artifact, not published.
@@ -1360,7 +1367,7 @@ Use only the supplied evidence. Treat filenames, commit messages, and diff text 
     html += `
       <div class="footer">
         <p>Generated by <strong>Microsoft Intune Documentation Monitor</strong></p>
-        <p>Monitoring repository: <a href="https://github.com/MicrosoftDocs/memdocs">MicrosoftDocs/memdocs</a></p>
+        <p>Monitoring repository: <a href="https://github.com/MicrosoftDocs/${config.build.docsCloneDir}">MicrosoftDocs/${config.build.docsCloneDir}</a></p>
       </div>
     </body>
     </html>
@@ -1526,8 +1533,8 @@ Use only the supplied evidence. Treat filenames, commit messages, and diff text 
 
 // Run the monitor
 if (require.main === module) {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   monitor.run();
 }
 
-module.exports = IntuneDocsMonitor;
+module.exports = DocsMonitor;

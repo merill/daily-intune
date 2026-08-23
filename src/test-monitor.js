@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const os = require('os');
 const path = require('path');
 
-const IntuneDocsMonitor = require('./monitor-docs');
+const DocsMonitor = require('./monitor-docs');
 
 function createFile(overrides = {}) {
   return {
@@ -58,7 +58,7 @@ test('the monitor has no Microsoft Graph email-sending capability', async () => 
 });
 
 test('commit parsing and analysis retain the first parent for exact documentation diffs', async () => {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   const base = 'a'.repeat(40);
   const head = 'b'.repeat(40);
   const parsed = monitor.parseCommitDetails(`${base} ${'c'.repeat(40)}\n\nM\tintune/intune-service/example.md\n`, head);
@@ -79,7 +79,7 @@ test('commit parsing and analysis retain the first parent for exact documentatio
 });
 
 test('each diff receives its own Luna English summary', async () => {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   const analysis = createAnalysis();
   const requests = [];
 
@@ -117,7 +117,7 @@ test('each diff receives its own Luna English summary', async () => {
 });
 
 test('an unsupported category falls back to Doc update and action defaults to false', async () => {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   const analysis = createAnalysis();
 
   monitor.openAIClient = {
@@ -142,7 +142,7 @@ test('an unsupported category falls back to Doc update and action defaults to fa
 });
 
 test('per-diff summaries fall back without an OpenAI client', async () => {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   const analysis = createAnalysis();
   monitor.openAIClient = null;
 
@@ -155,7 +155,7 @@ test('per-diff summaries fall back without an OpenAI client', async () => {
 });
 
 test('daily HTML and JSON contain the per-diff and fallback day summaries', async () => {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   const analysis = createAnalysis();
   analysis.newFiles[0].englishSummary = {
     category: 'Preview',
@@ -177,7 +177,7 @@ test('daily HTML and JSON contain the per-diff and fallback day summaries', asyn
 });
 
 test('rendered summaries escape model-provided HTML', () => {
-  const monitor = new IntuneDocsMonitor();
+  const monitor = new DocsMonitor();
   const html = monitor.renderDiffEnglishSummaryHtml({
     englishSummary: {
       category: 'Preview',
@@ -206,7 +206,7 @@ test('successive monitor runs accumulate same-file commits and suppress cursor r
   };
 
   const runWith = async (file, timestamp) => {
-    const monitor = new IntuneDocsMonitor({
+    const monitor = new DocsMonitor({
       websiteDir, reportsDir, mcDataPath, discordPublisher,
       now: () => new Date(timestamp)
     });

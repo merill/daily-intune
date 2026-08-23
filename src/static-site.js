@@ -8,13 +8,11 @@ const simpleGit = require('simple-git');
 const { productIcon } = require('./product-icons');
 const { topicIconPath } = require('./topic-icons');
 const { nextScheduledRefresh, readJson, writeJsonAtomic } = require('./update-state');
+const { getConfig, runRules } = require('./config');
 
-const SITE = {
-  name: 'Daily Intune News',
-  host: 'daily.intune.admin.news',
-  url: 'https://daily.intune.admin.news',
-  description: 'A readable record of what changed across Microsoft Intune documentation and Message Center.'
-};
+const config = getConfig();
+
+const SITE = config.site;
 
 const REFRESH_SCHEDULE_UTC = { hour: 8, minute: 15 };
 
@@ -22,39 +20,11 @@ function dateAtRefresh(date) {
   return `${date}T${String(REFRESH_SCHEDULE_UTC.hour).padStart(2, '0')}:${String(REFRESH_SCHEDULE_UTC.minute).padStart(2, '0')}:00Z`;
 }
 
-const PRODUCTS = [
-  { slug: 'intune', name: 'Microsoft Intune', short: 'Intune', learn: 'https://learn.microsoft.com/en-us/intune/' },
-  { slug: 'windows-autopilot', name: 'Windows Autopilot', short: 'Windows Autopilot', learn: 'https://learn.microsoft.com/en-us/autopilot/' },
-  { slug: 'configuration-manager', name: 'Microsoft Configuration Manager', short: 'Configuration Manager', learn: 'https://learn.microsoft.com/en-us/intune/configmgr/' },
-  { slug: 'intune-suite', name: 'Microsoft Intune Suite', short: 'Intune Suite', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/intune-add-ons' },
-  { slug: 'endpoint-privilege-management', name: 'Endpoint Privilege Management', short: 'Endpoint Privilege Management', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/protect/epm-overview' },
-  { slug: 'remote-help', name: 'Microsoft Intune Remote Help', short: 'Remote Help', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remote-help' },
-  { slug: 'advanced-analytics', name: 'Microsoft Intune Advanced Analytics', short: 'Advanced Analytics', learn: 'https://learn.microsoft.com/en-us/intune/analytics/advanced-endpoint-analytics' },
-  { slug: 'cloud-pki', name: 'Microsoft Cloud PKI', short: 'Cloud PKI', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-cloud-pki-overview' },
-  { slug: 'enterprise-app-management', name: 'Enterprise App Management', short: 'Enterprise App Management', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-enterprise-app-management' },
-  { slug: 'security-copilot', name: 'Microsoft Security Copilot in Intune', short: 'Security Copilot', learn: 'https://learn.microsoft.com/en-us/intune/intune-service/copilot/security-copilot' }
-].map(product => ({ ...product, icon: productIcon(product.slug).file }));
+const PRODUCTS = config.taxonomy.products.map(product => ({ ...product, icon: product.icon || productIcon(product.slug).file }));
 
-const TOPICS = [
-  { slug: 'app-management', name: 'App management' },
-  { slug: 'device-configuration', name: 'Device configuration' },
-  { slug: 'device-enrollment', name: 'Device enrollment' },
-  { slug: 'device-security', name: 'Device security' },
-  { slug: 'compliance', name: 'Compliance' },
-  { slug: 'endpoint-analytics', name: 'Endpoint analytics' },
-  { slug: 'device-updates', name: 'Device updates' },
-  { slug: 'tenant-administration', name: 'Tenant administration' },
-  { slug: 'windows', name: 'Windows' },
-  { slug: 'android', name: 'Android' },
-  { slug: 'apple', name: 'Apple' },
-  { slug: 'linux', name: 'Linux' },
-  { slug: 'fundamentals', name: 'Fundamentals' },
-  { slug: 'troubleshooting', name: 'Troubleshooting' },
-  { slug: 'developer', name: 'Developer' },
-  { slug: 'general', name: 'General' }
-].map(topic => ({ ...topic, icon: topicIconPath(topic.slug) }));
+const TOPICS = config.taxonomy.topics.map(topic => ({ ...topic, icon: topicIconPath(topic.slug) }));
 
-const STOPWORDS = new Set('microsoft intune documentation docs update updated updates change changes new for with from into about that this your their has have will are and the how use using overview configure configuration guide learn overview support service services preview'.split(' '));
+const STOPWORDS = config.taxonomy.stopwords;
 
 function escapeHtml(value = '') {
   return String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
@@ -198,48 +168,16 @@ function slugify(value = '') {
 }
 
 function isIntuneMessage(message) {
-  const pattern = /\bIntune\b/i;
+  const pattern = config.messageCenter.servicePattern;
   return (message.Services || []).some(service => pattern.test(String(service))) || pattern.test(String(message.Title || ''));
 }
 
 function classifyProduct(filename = '', title = '', body = '') {
-  const text = `${filename} ${title} ${body}`.toLowerCase();
-  const rules = [
-    ['windows-autopilot', /(^|\/)autopilot\/|windows autopilot|device preparation/],
-    ['configuration-manager', /(^|\/)configmgr\/|configuration manager|\bconfigmgr\b|co-management/],
-    ['endpoint-privilege-management', /(^|\/)epm\/|endpoint privilege management|elevation rules?/],
-    ['remote-help', /(^|\/)remote-help\/|remote help/],
-    ['advanced-analytics', /(^|\/)advanced-analytics\/|advanced analytics/],
-    ['cloud-pki', /(^|\/)cloud-pki\/|cloud pki/],
-    ['enterprise-app-management', /enterprise app management|enterprise app catalog/],
-    ['security-copilot', /(^|\/)copilot\/|security copilot|copilot in intune/],
-    ['intune-suite', /intune suite|intune add-ons?|advanced endpoint analytics/]
-  ];
-  const hit = rules.find(([, pattern]) => pattern.test(text));
-  return PRODUCTS.find(product => product.slug === (hit ? hit[0] : 'intune'));
+  return runRules(config.classify.products, PRODUCTS, config.taxonomy.defaultProduct, filename, title, body);
 }
 
 function classifyTopic(filename = '', title = '', body = '') {
-  const text = `${filename} ${title} ${body}`.toLowerCase();
-  const rules = [
-    ['app-management', /(^|\/)app-management\/|(^|\/)apps?\/|app protection|managed apps?|win32 app|mobile application management/],
-    ['device-enrollment', /(^|\/)device-enrollment\/|(^|\/)autopilot\/|enroll|enrollment|provisioning package/],
-    ['device-security', /(^|\/)device-security\/|(^|\/)protect\/|endpoint security|antivirus|firewall|attack surface|privilege/],
-    ['compliance', /compliance|conditional access/],
-    ['endpoint-analytics', /(^|\/)endpoint-analytics\/|(^|\/)advanced-analytics\/|endpoint analytics|analytics|report|monitor/],
-    ['device-updates', /(^|\/)device-updates\/|windows update|feature update|quality update|driver update/],
-    ['tenant-administration', /(^|\/)governance\/|tenant admin|role-based access|\brbac\b|scope tag|audit log/],
-    ['android', /android|aosp/],
-    ['apple', /\bios\b|ipados|macos|apple|iphone|ipad/],
-    ['linux', /\blinux\b|ubuntu|red hat/],
-    ['windows', /windows|surface hub/],
-    ['device-configuration', /(^|\/)device-configuration\/|configuration profile|settings catalog|administrative template|policy csp/],
-    ['fundamentals', /fundamental|what is|overview|concept/],
-    ['troubleshooting', /troubleshoot|error|diagnos|remediat/],
-    ['developer', /(^|\/)developer\/|developer|graph api|sdk|powershell|code sample/]
-  ];
-  const hit = rules.find(([, pattern]) => pattern.test(text));
-  return TOPICS.find(topic => topic.slug === (hit ? hit[0] : 'general'));
+  return runRules(config.classify.topics, TOPICS, config.taxonomy.defaultTopic, filename, title, body);
 }
 
 function humanizeFilename(filename = '') {
@@ -600,8 +538,8 @@ const SEARCH_LOADING_CSS = `
 `;
 
 const JS = `
-const THEME_STORAGE_KEY='intune-news-theme';
-const GITHUB_TOKEN_STORAGE_KEY='intune-news-github-token';
+const THEME_STORAGE_KEY='${config.brand.themeStorageKey}';
+const GITHUB_TOKEN_STORAGE_KEY='${config.brand.tokenStorageKey}';
 function applyTheme(theme,persist){const value=theme==='dark'?'dark':'light';document.documentElement.dataset.theme=value;document.documentElement.style.colorScheme=value;document.querySelectorAll('[data-theme-option]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeOption===value)));if(persist){try{localStorage.setItem(THEME_STORAGE_KEY,value)}catch{}}}
 document.querySelectorAll('[data-theme-option]').forEach(button=>button.addEventListener('click',()=>applyTheme(button.dataset.themeOption,true)));
 applyTheme(document.documentElement.dataset.theme||'light',false);
@@ -663,7 +601,7 @@ const controls=[...searchRoot.querySelectorAll('[data-search-filter]')];let page
 const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const safeExcerpt=value=>escape(value||'').replace(/&lt;mark&gt;/g,'<mark>').replace(/&lt;\\\/mark&gt;/g,'</mark>');
 const formatDate=value=>{if(!value)return'';const date=new Date(value+'T12:00:00');return Number.isNaN(date.getTime())?value:new Intl.DateTimeFormat(undefined,{day:'numeric',month:'short',year:'numeric'}).format(date)};
-const expandedQuery=value=>{const aliases={mdm:'mobile device management',mam:'mobile application management',epm:'endpoint privilege management',wufb:'windows update for business',laps:'local administrator password solution',autopilot:'windows autopilot'};const normalized=value.trim();const alias=aliases[normalized.toLowerCase()];return alias?normalized+' '+alias:normalized};
+const expandedQuery=value=>{const aliases=${JSON.stringify(config.taxonomy.searchAliases)};const normalized=value.trim();const alias=aliases[normalized.toLowerCase()];return alias?normalized+' '+alias:normalized};
 const hasQuery=()=>Boolean(input.value.trim());
 function setUrl(){const params=new URLSearchParams();if(hasQuery())params.set('q',input.value.trim());controls.forEach(control=>{if(control.value&&control.value!==defaultControlValues[control.name])params.set(control.name,control.value)});const next=location.pathname+(params.size?'?'+params:'');history.replaceState(null,'',next)}
 function filters(){const values={};controls.forEach(control=>{if(control.dataset.searchFilter==='filter'&&control.value&&control.value!=='all')values[control.name]=[control.value]});return values}
@@ -898,7 +836,7 @@ class StaticSiteGenerator {
     const userJot = this.userJotProjectId
       ? `<script>window.$ujq=window.$ujq||[];window.uj=window.uj||new Proxy({},{get:(_,property)=>(...args)=>window.$ujq.push([property,...args])});document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://cdn.userjot.com/sdk/v2/uj.js',type:'module',async:true}));</script><script>window.uj.init('${this.userJotProjectId}',{widget:true,theme:'auto',position:'right'});</script>`
       : '';
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(safeTitle)}</title><meta name="description" content="${safeDescription}"><link rel="canonical" href="${SITE.url}${canonical}"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><script>try{const saved=localStorage.getItem('intune-news-theme');document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme='light'}</script><script defer data-site="fmqjf1u7" data-domain="daily.intune.admin.news" src="https://piqo.app/piqo.js"></script>${userJot}<link rel="stylesheet" href="/assets/site.css"><link rel="alternate" type="application/rss+xml" title="${SITE.name}" href="/rss.xml"><meta property="og:site_name" content="${SITE.name}"><meta property="og:title" content="${escapeHtml(safeTitle)}"><meta property="og:description" content="${safeDescription}"><meta property="og:url" content="${SITE.url}${canonical}"><meta property="og:type" content="article"><meta property="og:image" content="${SITE.url}/og-image.png"><meta property="og:image:secure_url" content="${SITE.url}/og-image.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Daily Intune News — Microsoft Intune change intelligence"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(safeTitle)}"><meta name="twitter:description" content="${safeDescription}"><meta name="twitter:image" content="${SITE.url}/og-image.png"><meta name="twitter:image:alt" content="Daily Intune News — Microsoft Intune change intelligence"></head><body>${this.header(active)}${active==='compare'?this.githubTokenDrawer():''}`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(safeTitle)}</title><meta name="description" content="${safeDescription}"><link rel="canonical" href="${SITE.url}${canonical}"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><script>try{const saved=localStorage.getItem('${config.brand.themeStorageKey}');document.documentElement.dataset.theme=saved==='light'||saved==='dark'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme='light'}</script><script defer data-site="${config.analytics.piqoSite}" data-domain="${SITE.host}" src="https://piqo.app/piqo.js"></script>${userJot}<link rel="stylesheet" href="/assets/site.css"><link rel="alternate" type="application/rss+xml" title="${SITE.name}" href="/rss.xml"><meta property="og:site_name" content="${SITE.name}"><meta property="og:title" content="${escapeHtml(safeTitle)}"><meta property="og:description" content="${safeDescription}"><meta property="og:url" content="${SITE.url}${canonical}"><meta property="og:type" content="article"><meta property="og:image" content="${SITE.url}/og-image.png"><meta property="og:image:secure_url" content="${SITE.url}/og-image.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${config.brand.ogAlt}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(safeTitle)}"><meta name="twitter:description" content="${safeDescription}"><meta name="twitter:image" content="${SITE.url}/og-image.png"><meta name="twitter:image:alt" content="${config.brand.ogAlt}"></head><body>${this.header(active)}${active==='compare'?this.githubTokenDrawer():''}`;
   }
 
   header(active = '') {
@@ -908,7 +846,7 @@ class StaticSiteGenerator {
     const settings = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.09a2 2 0 0 1 1 1.74v.5a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
     const githubSettings = active==='compare'?`<button class="token-drawer-trigger" type="button" data-github-token-open aria-haspopup="dialog" aria-controls="github-token-drawer" aria-expanded="false" title="GitHub API settings" aria-label="Configure GitHub API settings">${settings}</button>`:'';
     const themePicker = `<div class="theme-picker" role="group" aria-label="Color theme"><button class="theme-option" type="button" data-theme-option="light" aria-pressed="false" title="Use light theme">${sun}<span>Light</span></button><button class="theme-option" type="button" data-theme-option="dark" aria-pressed="false" title="Use dark theme">${moon}<span>Dark</span></button></div>`;
-    return `<header class="site-header"><a class="brand" href="/"><img class="brand-logo" src="/assets/ui/intune-news-icon-64.png" alt=""><span>Daily Intune News</span></a><nav class="main-nav" aria-label="Primary">${nav.map(item=>{const accessibleLabel=item.key==='compare'?'View full page diff':item.label;return `<a href="${item.url}" data-nav="${item.key}"${item.external?' target="_blank" rel="noopener noreferrer"':''}${item.key==='compare'||item.key==='search'?' class="nav-icon"':''}${active===item.key?' aria-current="page"':''} aria-label="${accessibleLabel}" title="${accessibleLabel}"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">${item.label}</span></a>`}).join('')}</nav><div class="utility"><a class="site-link" href="/about/"${active==='about'?' aria-current="page"':''}>About</a><a class="site-link" href="https://merill.net" target="_blank" rel="noopener noreferrer">merill.net</a><a class="icon-link" href="/rss.xml" title="Subscribe to the daily RSS feed" aria-label="Subscribe to the Daily Intune News RSS feed"><img src="/assets/ui/rss.svg" alt=""></a>${githubSettings}${themePicker}</div></header>`;
+    return `<header class="site-header"><a class="brand" href="/"><img class="brand-logo" src="/assets/ui/intune-news-icon-64.png" alt=""><span>${config.brand.wordmark}</span></a><nav class="main-nav" aria-label="Primary">${nav.map(item=>{const accessibleLabel=item.key==='compare'?'View full page diff':item.label;return `<a href="${item.url}" data-nav="${item.key}"${item.external?' target="_blank" rel="noopener noreferrer"':''}${item.key==='compare'||item.key==='search'?' class="nav-icon"':''}${active===item.key?' aria-current="page"':''} aria-label="${accessibleLabel}" title="${accessibleLabel}"><span class="nav-mobile-icon" aria-hidden="true"></span><span class="nav-label">${item.label}</span></a>`}).join('')}</nav><div class="utility"><a class="site-link" href="/about/"${active==='about'?' aria-current="page"':''}>About</a><a class="site-link" href="https://merill.net" target="_blank" rel="noopener noreferrer">merill.net</a><a class="icon-link" href="/rss.xml" title="Subscribe to the daily RSS feed" aria-label="Subscribe to the Daily Intune News RSS feed"><img src="/assets/ui/rss.svg" alt=""></a>${githubSettings}${themePicker}</div></header>`;
   }
 
   githubTokenDrawer() {

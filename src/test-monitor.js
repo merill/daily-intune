@@ -39,18 +39,22 @@ function createAnalysis(files = [createFile()]) {
 
 test('the monitor has no Microsoft Graph email-sending capability', async () => {
   const root = path.join(__dirname, '..');
-  const [monitorSource, monitorWorkflow, kitWorkflow, packageJson] = await Promise.all([
+  const [monitorSource, monitorWorkflow, kitWorkflow, packageJson, lockfile] = await Promise.all([
     fs.readFile(path.join(__dirname, 'monitor-docs.js'), 'utf8'),
     fs.readFile(path.join(root, '.github', 'workflows', 'daily-docs-monitor.yml'), 'utf8'),
     fs.readFile(path.join(root, '.github', 'workflows', 'daily-kit-broadcast.yml'), 'utf8'),
-    fs.readFile(path.join(root, 'package.json'), 'utf8')
+    fs.readFile(path.join(root, 'package.json'), 'utf8'),
+    fs.readFile(path.join(root, 'package-lock.json'), 'utf8')
   ]);
-  const graphEmailPattern = /@azure\/msal-node|@microsoft\/microsoft-graph-client|graph\.microsoft\.com|sendMail|AZURE_CLIENT_ID|Mail\.Send|send-workflow-failure-email/;
+  // The lockfile is checked too: once shared code moves behind a dependency,
+  // package.json alone stops naming what actually gets installed.
+  const graphEmailPattern = /@azure\/msal-node|@microsoft\/microsoft-graph-client|graph\.microsoft\.com|sendMail|AZURE_CLIENT_ID|Mail\.Send|send-workflow-failure-email|notify-failure|FAILURE_RECIPIENT_EMAIL/;
 
   assert.doesNotMatch(monitorSource, graphEmailPattern);
   assert.doesNotMatch(monitorWorkflow, graphEmailPattern);
   assert.doesNotMatch(kitWorkflow, graphEmailPattern);
   assert.doesNotMatch(packageJson, graphEmailPattern);
+  assert.doesNotMatch(lockfile, graphEmailPattern);
 });
 
 test('commit parsing and analysis retain the first parent for exact documentation diffs', async () => {

@@ -14,7 +14,7 @@ const {
   formattedDiff,
   renderMarkdownDiff,
   renderDailyRss
-} = require('./static-site');
+} = require('@merill/dailynews-engine/static-site');
 
 test('Message Center filter matches standalone Intune in service or title', () => {
   assert.equal(isProductMessage({ Services: ['Microsoft Intune'], Title: 'A change' }), true);
@@ -252,7 +252,7 @@ test('UserJot is configured from a validated project ID and omitted safely other
 test('the workflow forwards the UserJot repository variable to site builds', async () => {
   const workflow = await fs.readFile(path.join(__dirname, '..', '.github', 'workflows', 'daily-docs-monitor.yml'), 'utf8');
   assert.equal((workflow.match(/USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/g) || []).length, 2);
-  assert.match(workflow, /- name: Build the static site through the latest refresh date\n\s+env:[\s\S]*?run: npm run build:site/);
+  assert.match(workflow, /- name: Build the static site through the latest refresh date\n\s+env:[\s\S]*?run: dailynews build-site && dailynews search-index/);
   assert.doesNotMatch(workflow, /- name: Build the static site through the latest refresh date\n\s+if:/);
 });
 
@@ -261,7 +261,11 @@ test('the generated-site workflow runs only for build inputs and cannot retrigge
   assert.match(workflow, /push:\n\s+branches:\n\s+- main\n\s+paths:/);
   assert.match(workflow, /'\.github\/workflows\/build-static-website\.yml'/);
   assert.match(workflow, /'assets\/site\/\*\*'/);
-  assert.match(workflow, /'src\/static-site\.js'/);
+  // The generator is in the engine, so what can change this site from inside
+  // this repository is its configuration and its assets — and the workflow
+  // itself, which is where the engine version is pinned.
+  assert.match(workflow, /'dailynews\.config\.js'/);
+  assert.doesNotMatch(workflow, /'src\/|'scripts\//);
   assert.doesNotMatch(workflow, /'reports\/\*\*'|'website\/\*\*'/);
   assert.match(workflow, /group: intune-docs-monitor/);
   assert.match(workflow, /MC_DATA_PATH: '\.\/mc\/@data'/);

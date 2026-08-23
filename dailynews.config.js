@@ -47,7 +47,20 @@ module.exports = {
   // to its public URL, and how a path maps to a report heading. `learnRoutes`
   // and `areas.rules` are ordered: first match wins, and $1, $2, ... carry the
   // captured groups into the template.
+  // Identity written into persisted state and into published records. This is
+  // not prose: change one of these and the code stops recognising what it wrote
+  // before — re-emitting every event, or re-sending a broadcast that already
+  // went out — so a product's values are fixed for the life of the site.
+  identity: {
+    docEventPrefix: 'intune-docs',
+    batchEventPrefix: 'intune-news',
+    // The double-send guard for the daily email. Kit is re-listed by this marker
+    // before a broadcast is created.
+    kitMarkerPrefix: 'daily-intune-news'
+  },
+
   docs: {
+    learnRootUrl: 'https://learn.microsoft.com/en-us/intune/',
     trackedPaths: /^(intune|autopilot)\//,
     learnRoutes: [
       { match: /^(.*)\.md$/, path: '$1' }
@@ -95,6 +108,7 @@ module.exports = {
   // sentence lives here.
   copy: {
     rssFeedLabel: 'Subscribe to the Daily Intune News RSS feed',
+    messageCenterHeading: 'Intune in Message Center',
 
     landing: {
       heading: 'Keep up with Microsoft Intune',
@@ -125,6 +139,7 @@ module.exports = {
 
     detail: {
       adminHeading: 'What Intune admins need to know',
+      adminImpactLabel: 'For Intune administrators',
       summaryLabel: 'Editorial summary',
       summaryDisclosure: 'This summary was assembled from the tracked documentation change. Verify important details in the full Microsoft Learn article.'
     },

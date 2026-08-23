@@ -18,7 +18,19 @@ module.exports = {
     wordmark: 'Daily Intune News',
     ogAlt: 'Daily Intune News \u2014 Microsoft Intune change intelligence',
     themeStorageKey: 'intune-news-theme',
+    emailEyebrow: 'Daily Intune News',
     tokenStorageKey: 'intune-news-github-token'
+  },
+
+  discord: {
+    botName: 'Intune Scout'
+  },
+
+  // Prompt fragments. The instructions themselves are product-neutral and live
+  // in the code; only the subject and the openers to avoid differ.
+  ai: {
+    schemaPrefix: 'intune',
+    impactBoost: /autopilot|app protection|endpoint privilege|remote help|cloud pki|compliance|settings catalog|device enrollment/
   },
 
   analytics: {

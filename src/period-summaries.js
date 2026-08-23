@@ -2,6 +2,9 @@ const fs = require('fs').promises;
 const path = require('path');
 const moment = require('moment-timezone');
 const OpenAI = require('openai');
+const { getConfig } = require('./config');
+
+const config = getConfig();
 const { StaticSiteGenerator } = require('./static-site');
 
 const PERIOD_SUMMARY_PROMPT = `Write an editorial briefing for Microsoft Intune administrators about the supplied period.
@@ -24,7 +27,7 @@ function periodImpact(item) {
   let score = item.source === 'mc' && item.changeType === 'Major update' ? 8 : 0;
   if (/retire|deprecat|breaking|mandatory|action required|security|vulnerab|risk|deadline|migrat|opt.?out/.test(text)) score += 10;
   if (/preview|general availability|\bga\b|new feature|launch|rollout/.test(text)) score += 6;
-  if (/autopilot|app protection|endpoint privilege|remote help|cloud pki|compliance|settings catalog|device enrollment/.test(text)) score += 3;
+  if (config.ai.impactBoost.test(text)) score += 3;
   score += Math.min(3, Number(item.additions || 0) / 30);
   return score;
 }

@@ -265,7 +265,7 @@ test('the generated-site workflow runs only for build inputs and cannot retrigge
   assert.doesNotMatch(workflow, /'reports\/\*\*'|'website\/\*\*'/);
   assert.match(workflow, /group: intune-docs-monitor/);
   assert.match(workflow, /MC_DATA_PATH: '\.\/mc\/@data'/);
-  assert.match(workflow, /run: npm run build:site/);
+  assert.match(workflow, /run: dailynews build-site/);
   assert.match(workflow, /git add website\//);
 });
 

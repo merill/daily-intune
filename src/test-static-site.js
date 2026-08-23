@@ -780,3 +780,16 @@ test('static generator writes indexable archive and detail pages', async () => {
   await assert.rejects(fs.stat(path.join(websiteDir, '2026-07-31.html')), { code: 'ENOENT' });
   assert.equal((await fs.readFile(path.join(websiteDir, 'CNAME'), 'utf8')).trim(), 'daily.intune.admin.news');
 });
+
+test('every workflow that builds the site forwards the UserJot variable', async () => {
+  // The variable is read at build time, and an unset value silently drops the
+  // widget from every page. Missing it in one of the building workflows is
+  // invisible until the site is compared against a rebuild.
+  const dir = path.join(__dirname, '..', '.github', 'workflows');
+  for (const name of await fs.readdir(dir)) {
+    const workflow = await fs.readFile(path.join(dir, name), 'utf8');
+    if (!/run: npm run build:site/.test(workflow)) continue;
+    assert.match(workflow, /USERJOT_PROJECT_ID: \$\{\{ vars\.USERJOT_PROJECT_ID \}\}/,
+      `${name} builds the site but does not forward USERJOT_PROJECT_ID`);
+  }
+});

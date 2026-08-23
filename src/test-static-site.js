@@ -5,7 +5,7 @@ const os = require('os');
 const path = require('path');
 const {
   StaticSiteGenerator,
-  isIntuneMessage,
+  isProductMessage,
   classifyProduct,
   classifyTopic,
   extractMarkdownMetadata,
@@ -17,9 +17,9 @@ const {
 } = require('./static-site');
 
 test('Message Center filter matches standalone Intune in service or title', () => {
-  assert.equal(isIntuneMessage({ Services: ['Microsoft Intune'], Title: 'A change' }), true);
-  assert.equal(isIntuneMessage({ Services: ['Microsoft Purview'], Title: 'Purview integrates with Intune GSA' }), true);
-  assert.equal(isIntuneMessage({ Services: ['Microsoft 365'], Title: 'Intunenced by a new feature' }), false);
+  assert.equal(isProductMessage({ Services: ['Microsoft Intune'], Title: 'A change' }), true);
+  assert.equal(isProductMessage({ Services: ['Microsoft Purview'], Title: 'Purview integrates with Intune GSA' }), true);
+  assert.equal(isProductMessage({ Services: ['Microsoft 365'], Title: 'Intunenced by a new feature' }), false);
 });
 
 test('product classification recognizes Intune add-ons and Autopilot', () => {

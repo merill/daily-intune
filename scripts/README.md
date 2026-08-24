@@ -1,21 +1,16 @@
-# Historical backfill
+# scripts
 
-`generate-historical-data.js` converts the local `MicrosoftDocs/memdocs` Git history into daily source reports and deterministic day, week, and month briefs. It records quiet calendar days too, so the archive has continuous date coverage.
+Product-local tooling. The generator's own commands come from the engine —
+`dailynews monitor`, `build-site`, `search-index`, `summaries`, `publish-kit`,
+`regenerate-diffs`, `serve`.
 
-```bash
-node scripts/generate-historical-data.js \
-  --repo=/Users/merill/github/memdocs \
-  --start=2026-01-01 \
-  --end=2026-08-07 \
-  --website=website
+| | |
+|---|---|
+| `link-engine.js` | points `node_modules/@merill/dailynews-engine` at a sibling checkout, for local development. CI does this through the engine's setup action instead. |
+| `generate-historical-data.js` | one-shot: walks the documentation history and writes deterministic daily reports and period briefs. No OpenAI calls, so it costs nothing — and claims nothing it cannot support, marking every brief `deterministic-backfill`. |
+| `apply-codex-backfill-batch.js` | applies a curated summary batch from `backfill/codex/` over the reports. |
+| `requeue-generic-codex-summaries.js` | finds summaries too generic to keep and queues them for another pass. |
 
-npm run build:site
-```
-
-Arguments:
-
-- `--repo`: local `memdocs` checkout
-- `--start` and `--end`: inclusive dates in `YYYY-MM-DD` format
-- `--website`: output directory for source reports and the static site
-
-The backfill reads Git locally and does not require an OpenAI API key. Each generated brief is marked `deterministic-backfill`; scheduled monitoring can use AI summaries when `OPENAI_API_KEY` is configured.
+`generate-historical-data.js` **rewrites every dated report in `website/`**. It
+only runs when invoked directly — it used to run on `require`, which meant
+loading it was enough to overwrite the archive.

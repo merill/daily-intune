@@ -6559,6 +6559,52 @@
         "outputTokens": 864,
         "costUsd": 0.001283
       }
+    },
+    "2026-08-25": {
+      "headline": "Vulnerability Remediation Agent guidance adds an Intune license prerequisite and tenant exception",
+      "overview": "The period’s most consequential guidance change concerns Security Copilot’s Vulnerability Remediation Agent: the agentic user must have an Intune license unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings. Intune guidance also spells out tighter unattended-access role and endpoint prerequisites, replaces an Incident ID with log-collection status in Monitor, and removes one Diagnostic Endpoint from Microsoft Tunnel prerequisites.",
+      "adminImpact": "Validate the agentic user’s licensing or enable the named tenant setting. Review custom-role permissions and scopes for unattended access, verify that the required Remote Help endpoints are permitted in the network configuration, use collection status and verbose logs during troubleshooting, and refresh local Microsoft Tunnel references that include the removed endpoint.",
+      "keyChanges": [
+        {
+          "title": "Vulnerability Remediation Agent licensing prerequisite is now explicit",
+          "detail": "Security Copilot guidance states that the agentic user must have an Intune license, unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings. Check this prerequisite before relying on the agent.",
+          "product": "Security Copilot",
+          "sourceId": "doc-2026-08-25-vulnerability-remediation-agent-01"
+        },
+        {
+          "title": "Custom-role guidance separates Android unattended control from Windows remote sign-in",
+          "detail": "The Intune custom-role guidance distinguishes Android unattended control, which requires a dedicated Intune-enrolled device, and adds Windows unattended remote sign-in for targeted physical corporate-owned devices. Both permissions must be explicitly assigned and scoped.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-create-a-custom-role-in-intune-04"
+        },
+        {
+          "title": "Remote Help Windows Remote Sign-in requires Azure Virtual Desktop session-host endpoints",
+          "detail": "The Intune network-endpoints guidance now states that Remote Sign-in for Remote Help on Windows requires Azure Virtual Desktop session host endpoints. Administrators using unattended access should verify that these endpoints are permitted in their network configuration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-network-endpoints-for-microsoft-intune-05"
+        },
+        {
+          "title": "Monitor replaces Incident ID with log-collection status",
+          "detail": "The Monitor guidance now shows whether log collection is completed, failed, or in progress instead of displaying an Incident ID. It also says Microsoft can use logs collected after an issue is reproduced during verbose log collection for investigation.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-monitor-02"
+        },
+        {
+          "title": "Microsoft Tunnel prerequisites drop powerlift-frontdesk.acompli.net",
+          "detail": "The Prerequisites page no longer lists `powerlift-frontdesk.acompli.net` as a Diagnostic Endpoint. Administrators maintaining local Microsoft Tunnel log-collection guidance should remove the endpoint from those references.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-prerequisites-03"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-25T20:46:29.609Z",
+      "usage": {
+        "inputTokens": 1485,
+        "outputTokens": 2477,
+        "costUsd": 0.003269
+      }
     }
   },
   "weeks": {
@@ -8077,6 +8123,52 @@
         "outputTokens": 3739,
         "costUsd": 0.004983
       }
+    },
+    "2026-08-24": {
+      "headline": "Vulnerability Remediation Agent licensing and Remote Help role prerequisites sharpen Intune guidance",
+      "overview": "The strongest edits clarify documented prerequisites for Security Copilot’s Vulnerability Remediation Agent, Intune custom roles, and Windows Remote Help sign-in. Additional Intune guidance replaces an Incident ID with log-collection status and removes one Diagnostic Endpoint from the prerequisites list.",
+      "adminImpact": "Review agent licensing and the tenant exception setting, reassess custom-role permissions and scopes, and verify Azure Virtual Desktop session-host endpoints for applicable Remote Help deployments. Update troubleshooting procedures to use collection status and remove the deleted endpoint from local prerequisite notes where applicable.",
+      "keyChanges": [
+        {
+          "title": "Agentic user licensing and tenant-setting prerequisite",
+          "detail": "The Vulnerability Remediation Agent guidance now says the agentic user must have an Intune license unless Tenant administration > Roles > Settings has Allow admins without an Intune license enabled. Check this prerequisite before relying on the agent.",
+          "product": "Security Copilot",
+          "sourceId": "doc-2026-08-25-vulnerability-remediation-agent-01"
+        },
+        {
+          "title": "Custom roles separate Android control from Windows remote sign-in",
+          "detail": "The custom-role guidance distinguishes Android unattended control, which requires a dedicated Intune-enrolled device, from Windows unattended remote sign-in for targeted physical corporate-owned devices. Both permissions must be explicitly assigned and scoped.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-create-a-custom-role-in-intune-04"
+        },
+        {
+          "title": "Remote Help Windows sign-in points to AVD session-host endpoints",
+          "detail": "Network endpoint guidance now says Remote Sign-in for Remote Help on Windows requires Azure Virtual Desktop session host endpoints. Administrators using unattended access should verify that these endpoints are permitted in their network configuration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-network-endpoints-for-microsoft-intune-05"
+        },
+        {
+          "title": "Monitor replaces Incident ID with collection status",
+          "detail": "The Monitor guidance now lists log collection as completed, failed, or in progress instead of showing an Incident ID. It also says Microsoft can use logs collected after reproducing an issue during verbose log collection for investigation.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-monitor-02"
+        },
+        {
+          "title": "Prerequisites removes one Diagnostic Endpoint",
+          "detail": "The prerequisites page no longer lists `powerlift-frontdesk.acompli.net` as a Diagnostic Endpoint. Update local Microsoft Tunnel log collection notes that still include this endpoint.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-25-prerequisites-03"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-25T20:46:29.609Z",
+      "usage": {
+        "inputTokens": 1288,
+        "outputTokens": 2267,
+        "costUsd": 0.002978
+      }
     }
   },
   "months": {
@@ -8403,54 +8495,54 @@
       }
     },
     "2026-08": {
-      "headline": "Intune plans Apple OS floors as its single-device page becomes default",
-      "overview": "August’s consequential Intune updates were mostly forward-looking service changes and concrete operational guidance. Intune plans to require iOS/iPadOS 18 or later after Apple releases iOS/iPadOS 27, and to support macOS 15 or later after macOS Golden Gate 27. The new single-device page is planned to replace the legacy view as the default in September 2609. Updated guidance also specifies tenant-wide device-action quotas and the reporting boundary for MDM Firewall Rules and ASR Rules. Security Copilot pages added an agent-deprecation notice, but the supplied record gives no deadline.",
-      "adminImpact": "Begin Apple device compatibility and upgrade planning, using Intune reports to identify affected devices and checking the separate OS requirements for userless Automated Device Enrollment. For macOS, existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will be blocked after the change. Prepare administrator runbooks for the September 2609 device-page transition. Schedule Wipe, Retire, and Delete operations within the documented cumulative tenant-wide limits of 500, 1,000, and 1,000 actions per day respectively. For MDM-managed Firewall Rules and ASR Rules, expect policy-level rather than per-setting reporting unless devices use Defender for Endpoint security settings management.",
+      "headline": "Intune plans iOS/iPadOS 18 and macOS 15 floors as device page becomes default",
+      "overview": "August’s strongest signals are two planned Apple OS floors and a scheduled Intune interface change. After Apple releases iOS/iPadOS 27 later this year, Intune plans to require iOS/iPadOS 18 or later; after macOS Golden Gate 27, it plans to support macOS 15 and later, while macOS 14.x-and-below devices remain enrolled but cannot be newly enrolled. In September (2609), the new single-device page is slated to replace the legacy page as the default while retaining all management features. Most other high-value edits are operational clarifications covering Firewall and ASR reporting scope, tenant-wide device-action quotas, and Security Copilot agent lifecycle and licensing guidance.",
+      "adminImpact": "Start Apple OS inventory and upgrade planning, including validation of the specific OS requirements for userless Automated Device Enrollment devices. For macOS, account for the continued enrollment of existing 14.x-and-below devices while planning around the block on new enrollments. Update internal runbooks and familiarize administrators with the new single-device page before September 2609. Set reporting expectations for MDM-managed Firewall Rules and ASR Rules: the documented view is policy-level status, while per-setting status requires Defender for Endpoint security settings management enrollment. Schedule device operations within the tenant-wide daily caps of 500 Wipe actions and 1,000 each for Retire and Delete, cumulative across individual, bulk, and Microsoft Graph submissions. In",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS support floor moves to version 18",
-          "detail": "A Message Center plan says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Use compatibility checks and Intune reports to identify affected devices; userless Automated Device Enrollment devices have additional OS-version requirements.",
+          "title": "iOS/iPadOS support floor rises to 18 after Apple’s 27 release",
+          "detail": "The Message Center Plan for Change says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. It directs organizations to check device compatibility and Intune reports; userless devices enrolled through Automated Device Enrollment have specific OS-version requirements.",
           "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "macOS 15 becomes the supported enrollment floor",
-          "detail": "After macOS Golden Gate 27 releases later this year, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed.",
+          "title": "macOS 15 becomes the enrollment floor after macOS Golden Gate 27",
+          "detail": "Intune will support macOS 15 and later after macOS Golden Gate 27 releases later this year. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will no longer be allowed.",
           "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "The single-device page becomes default in September 2609",
-          "detail": "The new Intune single-device page will replace the legacy page as the default view in the September 2609 release. All management features remain available, so administrators should update internal procedures and familiarize users with the new interface.",
+          "title": "New single-device page becomes Intune’s default in September 2609",
+          "detail": "The new single-device page will replace the legacy page as the default view in the September (2609) release. The Message Center notice says all management features remain available and recommends updating internal documentation and familiarizing administrators with the new interface beforehand.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Device-action guidance documents cumulative daily tenant limits",
-          "detail": "The updated Device Actions guidance specifies daily limits of 500 Wipe actions and 1,000 each for Retire and Delete. Individual, bulk, and Microsoft Graph submissions count toward the same tenant-wide totals.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-18-device-actions-wipe-lock-locate-and-more-02"
-        },
-        {
-          "title": "MDM Firewall and ASR reporting is limited to policy-level status",
-          "detail": "The updated Firewall guidance specifies that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies do not provide per-setting reporting statuses. Devices must use Defender for Endpoint security settings management to view per-setting status for those policies.",
+          "title": "Firewall guidance sets policy-level reporting expectations for MDM rules",
+          "detail": "The updated guidance says per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction Rules managed through MDM provide only policy-level status. Per-setting status requires devices to be enrolled with Defender for Endpoint security settings management.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
+        },
+        {
+          "title": "Intune documents tenant-wide daily caps for Wipe, Retire, and Delete",
+          "detail": "The device-actions guidance lists a cumulative daily limit of 500 Wipe actions and 1,000 each for Retire and Delete. The counts include individual, bulk, and Microsoft Graph submissions.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-18-device-actions-wipe-lock-locate-and-more-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-22T08:45:34.871Z",
+      "generatedAt": "2026-08-25T20:46:29.609Z",
       "usage": {
-        "inputTokens": 6775,
-        "outputTokens": 4671,
-        "costUsd": 0.00696
+        "inputTokens": 6962,
+        "outputTokens": 10089,
+        "costUsd": 0.013499
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-22T08:45:34.871Z",
+  "generatedAt": "2026-08-25T20:46:29.609Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8503,18 +8595,24 @@
       "outputTokens": 9274,
       "requests": 3,
       "costUsd": 0.013227
+    },
+    "2026-08-25": {
+      "inputTokens": 9735,
+      "outputTokens": 14833,
+      "requests": 3,
+      "costUsd": 0.019747
     }
   },
   "lastRun": {
-    "inputTokens": 10490,
-    "outputTokens": 9274,
+    "inputTokens": 9735,
+    "outputTokens": 14833,
     "requests": 3,
-    "costUsd": 0.013227
+    "costUsd": 0.019747
   },
   "totalUsage": {
-    "inputTokens": 2879521,
-    "outputTokens": 1471922,
-    "requests": 243,
-    "costUsd": 2.342211
+    "inputTokens": 2889256,
+    "outputTokens": 1486755,
+    "requests": 246,
+    "costUsd": 2.361958
   }
 }

@@ -1,0 +1,195 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/copilot/agents/vulnerability-remediation-agent.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/copilot/agents/vulnerability-remediation-agent.md b/intune/copilot/agents/vulnerability-remediation-agent.md\nindex 3715daa81f..99c02adde5 100644\n--- a/intune/copilot/agents/vulnerability-remediation-agent.md\n+++ b/intune/copilot/agents/vulnerability-remediation-agent.md\n@@ -150,8 +150,8 @@ For information about other Security Copilot Agents in Intune and common feature\n :::column-end:::\n :::row-end:::\n > [!IMPORTANT]\n-> Permissions assigned through an Intune RBAC role may take several minutes to take effect after the agentic user is added to the group.\n-> \n+> Permissions assigned through an Intune RBAC role may take several minutes to take effect after the agentic user is added to the group. The agentic user must be licensed if **Allow admins without an Intune license** is not enabled under **Tenant administration** > **Roles > Settings**.\n+\n ## How the agent works\n \n The Vulnerability Remediation Agent performs automated evaluations to identify and prioritize vulnerabilities on your managed devices. Here's how it works:\n",
+      "baseCommitSha": "c1538f1dfcb8353a091d4f6d2a77abaff14e512c",
+      "commitSha": "78772957452ffb8318153fa0fc4e2ceeb5e16926",
+      "commitMessage": "Update vulnerability-remediation-agent.md (#20681)",
+      "commitAuthor": "cbrito-github",
+      "commitDate": "2026-08-25 13:11:38 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/copilot/agents/vulnerability-remediation-agent.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/copilot/agents/vulnerability-remediation-agent",
+      "eventId": "intune-docs:78772957452ffb8318153fa0fc4e2ceeb5e16926:modified:intune/copilot/agents/vulnerability-remediation-agent.md",
+      "firstSeenAt": "2026-08-25T20:46:15.118Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Licensing requirement added for the vulnerability remediation agent",
+        "summary": "The documentation now states that the agentic user must have an Intune license unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings.",
+        "adminImpact": "Ensure the agentic user is licensed or enable the specified tenant setting before relying on the agent.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/monitor.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/monitor.md b/intune/device-security/microsoft-tunnel/monitor.md\nindex 59d535f960..269ed4c1a2 100644\n--- a/intune/device-security/microsoft-tunnel/monitor.md\n+++ b/intune/device-security/microsoft-tunnel/monitor.md\n@@ -234,11 +234,11 @@ Each set of logs that Intune collects and uploads is identified as a separate se\n - A *start* and *end* time of the log collection\n - When the upload was generated\n - The log sets *verbosity level*\n-- An *Incident ID* that can be used to identify that specific log set\n+- The log collection *status* (completed, failed, or in progress)\n \n :::image type=\"content\" source=\"./media/monitor/send-server-logs-tab.png\" alt-text=\"Screen capture that shows the Send verbose server logs interface.\":::\n \n-After capturing an issue while running verbose log collection, you can provide the *Incident id* of that log set to Microsoft to help with investigation.\n+After you reproduce an issue during verbose log collection phase, Microsoft can use the collected logs to investigate it.\n \n ### About log collection\n \n",
+      "baseCommitSha": "54d70ae24c295735c3e662ec7127e9e8ae99929d",
+      "commitSha": "03252bd7146848c1ee2c64ceb8dd48a164a37f58",
+      "commitMessage": "Update Microsoft Tunnel log collection guidance (#20627)",
+      "commitAuthor": "nbagdwal",
+      "commitDate": "2026-08-24 13:16:57 -0500",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/monitor.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/monitor",
+      "eventId": "intune-docs:03252bd7146848c1ee2c64ceb8dd48a164a37f58:modified:intune/device-security/microsoft-tunnel/monitor.md",
+      "firstSeenAt": "2026-08-25T20:46:15.250Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Microsoft Tunnel log collection guidance now shows collection status",
+        "summary": "The monitoring guidance now lists log collection status—completed, failed, or in progress—instead of an Incident ID. It also says Microsoft can use logs collected after reproducing an issue during verbose log collection for investigation.",
+        "adminImpact": "Admins can use the displayed status to understand whether collection succeeded and provide the collected logs to Microsoft when investigating reproduced issues.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/prerequisites.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 1,
+      "changes": 1,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/prerequisites.md b/intune/device-security/microsoft-tunnel/prerequisites.md\nindex b4ac701987..0068900620 100644\n--- a/intune/device-security/microsoft-tunnel/prerequisites.md\n+++ b/intune/device-security/microsoft-tunnel/prerequisites.md\n@@ -286,7 +286,6 @@ To access the security token service and Azure storage for logs, provide access\n - Microsoft authentication: `login.microsoftonline.com`\n - Microsoft Graph: `graph.microsoft.com`\n - Configure firewall rules to support the configurations detailed in [Microsoft Artifact Registry (MAR) Client Firewall Rules Configuration](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md).\n-- Diagnostic Endpoint: `powerlift-frontdesk.acompli.net`\n \n ## Proxy\n \n",
+      "baseCommitSha": "54d70ae24c295735c3e662ec7127e9e8ae99929d",
+      "commitSha": "03252bd7146848c1ee2c64ceb8dd48a164a37f58",
+      "commitMessage": "Update Microsoft Tunnel log collection guidance (#20627)",
+      "commitAuthor": "nbagdwal",
+      "commitDate": "2026-08-24 13:16:57 -0500",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-security/microsoft-tunnel/prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/prerequisites",
+      "eventId": "intune-docs:03252bd7146848c1ee2c64ceb8dd48a164a37f58:modified:intune/device-security/microsoft-tunnel/prerequisites.md",
+      "firstSeenAt": "2026-08-25T20:46:15.256Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Microsoft Tunnel documentation removes a diagnostic endpoint",
+        "summary": "The prerequisites page no longer lists `powerlift-frontdesk.acompli.net` as a Diagnostic Endpoint.",
+        "adminImpact": "Administrators referencing Microsoft Tunnel log collection guidance should update their local documentation if it includes this endpoint.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/intune/fundamentals/role-based-access-control/create-custom-role.md b/intune/fundamentals/role-based-access-control/create-custom-role.md\nindex 3831be8f1a..63bcad865c 100644\n--- a/intune/fundamentals/role-based-access-control/create-custom-role.md\n+++ b/intune/fundamentals/role-based-access-control/create-custom-role.md\n@@ -1,7 +1,7 @@\n ---\n title: Create a custom role in Intune\n description: Learn how to create a custom role in Microsoft Intune.\n-ms.date: 03/24/2026\n+ms.date: 08/21/2026\n ms.topic: article\n ---\n \n@@ -459,7 +459,8 @@ The following permissions are available when creating custom roles.\n | --- | --- | --- |\n | Remote Help app | Elevation | For Windows devices, elevation allows the helper to enter UAC credentials when prompted on the sharer's device when remote help is enabled. Enabling elevation also allows the helper to view and control the sharer's device when the sharer grants the helper access. |\n | Remote Help app | Take full control | Take full control allows the helper to view and control the sharer's device when Remote Help is enabled for all platforms we support. |\n-| Remote Help app | Unattended control | For Android devices, unattended control starts Remote Help as soon as the helper selects a new session, without a sharer having to grant access. |\n+| Remote Help app | Android unattended control | Allows the helper to connect to Android devices without requiring the sharer to accept the connection each time. This capability requires the Android device to be enrolled in Intune as a dedicated device. Assign this permission explicitly and scope it to the specific devices that can receive unattended support. |\n+| Remote Help app | Windows unattended control remote sign-in | Allows the helper to start an unattended remote sign-in session to a targeted, physical, corporate-owned Windows device without requiring the sharer to accept the connection each time. Assign this permission explicitly and scope it to the specific devices that can receive unattended support. |\n | Remote Help app | View screen | View screen allows the helper to view the sharer's device when Remote Help is enabled for all platforms we support. |\n \n ### Remote tasks\n",
+      "baseCommitSha": "5b1f65ef5db2e08da005c64276c2f334b5857f1d",
+      "commitSha": "bcc5a54393dc64ad66925aa69384d324c9aa238a",
+      "commitMessage": "Update Remote Help unattended RBAC permissions",
+      "commitAuthor": "Kara Wang",
+      "commitDate": "2026-08-21 17:51:50 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/role-based-access-control/create-custom-role",
+      "eventId": "intune-docs:bcc5a54393dc64ad66925aa69384d324c9aa238a:modified:intune/fundamentals/role-based-access-control/create-custom-role.md",
+      "firstSeenAt": "2026-08-25T20:46:15.263Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remote Help unattended-control RBAC permissions expanded",
+        "summary": "The documentation now distinguishes Android unattended control, which requires a dedicated Intune-enrolled device, and adds Windows unattended remote sign-in for targeted physical corporate-owned devices. Both permissions must be explicitly assigned and scoped.",
+        "adminImpact": "Review custom roles and update permission assignments and scopes; ensure applicable Android devices are enrolled as dedicated devices.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/endpoints.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/fundamentals/endpoints.md b/intune/fundamentals/endpoints.md\nindex 3bb1814992..2e3eacfe5c 100644\n--- a/intune/fundamentals/endpoints.md\n+++ b/intune/fundamentals/endpoints.md\n@@ -2,7 +2,7 @@\n title: Network endpoints for Microsoft Intune\n description: Review endpoints for Intune. This page lists IP addresses and port settings needed for proxy settings in your Intune deployments.\n ms.author: lanewsad\n-ms.date: 03/24/2026\n+ms.date: 08/21/2026\n ms.topic: reference\n ms.reviewer: angrobe\n ---\n@@ -154,6 +154,7 @@ In addition to configuring the network requirements listed in the following tabl\n 181 | MEM - Remote Help Feature| Default<BR>Required | False |`*.support.services.microsoft.com`<BR>`remoteassistance.support.services.microsoft.com`<BR>`teams.microsoft.com`<BR>`remoteassistanceprodacs.communication.azure.com`<BR>`edge.skype.com`<BR>`aadcdn.msftauth.net`<BR>`aadcdn.msauth.net`<BR>`alcdn.msauth.net`<BR>`wcpstatic.microsoft.com`<BR>`*.aria.microsoft.com`<BR>`browser.pipe.aria.microsoft.com`<BR>`*.events.data.microsoft.com`<BR>`v10c.events.data.microsoft.com`<BR>`*.monitor.azure.com`<BR>`js.monitor.azure.com`<BR>`edge.microsoft.com`<BR>`*.trouter.communication.microsoft.com`<BR>`*.trouter.teams.microsoft.com`<BR>`*.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026)<BR>`go-amer.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026, only for NA, ROW customers)<BR>`go-apac.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026, only for APAC customers)<BR>`go-eu.trouter.communications.svc.cloud.microsoft`(rolling out March through June 2026, only for EU customers)<BR>`api.flightproxy.skype.com`<BR>`ecs.communication.microsoft.com`<BR>`remotehelp.microsoft.com`<BR>`remoteassistanceprodacseu.communication.azure.com`(this endpoint is only for EU customers)<BR> | **TCP:** 443 |\n 187 | Dependency - Remote Help web pubsub | Default<BR>Required | False | `*.webpubsub.azure.com`<BR> `AMSUA0101-RemoteAssistService-pubsub.webpubsub.azure.com`<BR>| **TCP:** 443 |\n 188 | Remote Help Dependency for GCC customers| Default<BR>Required | False |`remoteassistanceweb-gcc.usgov.communication.azure.us`<BR>`gcc.remotehelp.microsoft.com`<BR>`gcc.relay.remotehelp.microsoft.com`<BR>`*.gov.teams.microsoft.us` | **TCP:** 443 |\n+N/A | Remote Help for Windows unattended access - Remote Sign-in dependencies | Default<BR>Required | N/A | See Notes | See Notes | Remote Sign-in requires the [Azure Virtual Desktop session host endpoints](/azure/virtual-desktop/required-fqdn-endpoint#session-host-virtual-machines). Commercial customers should use the **Azure cloud** endpoints. Government Community Cloud (GCC) customers should use the **Azure for US Government** endpoints. |\n \n ### Windows Autopilot dependencies\n \n",
+      "baseCommitSha": "54d70ae24c295735c3e662ec7127e9e8ae99929d",
+      "commitSha": "5b1f65ef5db2e08da005c64276c2f334b5857f1d",
+      "commitMessage": "Document Remote Help unattended endpoint dependencies",
+      "commitAuthor": "Kara Wang",
+      "commitDate": "2026-08-21 17:47:46 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/endpoints",
+      "eventId": "intune-docs:5b1f65ef5db2e08da005c64276c2f334b5857f1d:modified:intune/fundamentals/endpoints.md",
+      "firstSeenAt": "2026-08-25T20:46:15.269Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remote Help unattended access now lists required endpoints",
+        "summary": "The endpoints documentation now states that Remote Sign-in for Remote Help on Windows requires Azure Virtual Desktop session host endpoints.",
+        "adminImpact": "Administrators using unattended access should verify that these endpoints are permitted in their network configuration.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 4,
+    "totalFiles": 5,
+    "authors": [
+      "Kara Wang",
+      "cbrito-github",
+      "nbagdwal"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/copilot",
+        "summary": "The documentation now states that the agentic user must have an Intune license unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings.",
+        "sourceFiles": [
+          "intune/copilot/agents/vulnerability-remediation-agent.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The monitoring guidance now lists log collection status—completed, failed, or in progress—instead of an Incident ID. It also says Microsoft can use logs collected after reproducing an issue during verbose log collection for investigation. The prerequisites page no longer lists `powerlift-frontdesk.acompli.net` as a Diagnostic Endpoint.",
+        "sourceFiles": [
+          "intune/device-security/microsoft-tunnel/monitor.md",
+          "intune/device-security/microsoft-tunnel/prerequisites.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "The documentation now distinguishes Android unattended control, which requires a dedicated Intune-enrolled device, and adds Windows unattended remote sign-in for targeted physical corporate-owned devices. Both permissions must be explicitly assigned and scoped. The endpoints documentation now states that Remote Sign-in for Remote Help on Windows requires Azure Virtual Desktop session host endpoints.",
+        "sourceFiles": [
+          "intune/fundamentals/role-based-access-control/create-custom-role.md",
+          "intune/fundamentals/endpoints.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/copilot",
+        "detail": "The documentation now states that the agentic user must have an Intune license unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The monitoring guidance now lists log collection status—completed, failed, or in progress—instead of an Incident ID. It also says Microsoft can use logs collected after reproducing an issue during verbose log collection for investigation. The prerequisites page no longer lists `powerlift-frontdesk.acompli.net` as a Diagnostic Endpoint."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "The documentation now distinguishes Android unattended control, which requires a dedicated Intune-enrolled device, and adds Windows unattended remote sign-in for targeted physical corporate-owned devices. Both permissions must be explicitly assigned and scoped. The endpoints documentation now states that Remote Sign-in for Remote Help on Windows requires Azure Virtual Desktop session host endpoints."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

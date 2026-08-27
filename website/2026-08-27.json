@@ -51,6 +51,188 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/38982839.md",
+      "status": "added",
+      "additions": 66,
+      "deletions": 0,
+      "changes": 66,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38982839.md b/intune/configmgr/hotfix/2603/38982839.md\nnew file mode 100644\nindex 0000000000..68bca19497\n--- /dev/null\n+++ b/intune/configmgr/hotfix/2603/38982839.md\n@@ -0,0 +1,66 @@\n+---\n+title: Security update for the SMS Provider and administration service\n+description: Security update for the SMS Provider and administration service\n+ms.date: 08/17/2026\n+ms.subservice: core-infra\n+ms.topic: reference\n+ms.service: configuration-manager\n+---\n+\n+# Security update for the SMS Provider and administration service\n+\n+*Applies to: Configuration Manager (current branch, version 2603, and versions 2509 and 2503 with update rollup installed)*\n+\n+## Summary of KB38982839\n+\n+This update fixes the following security issues in Configuration Manager:\n+\n+- An issue with the SMS Provider.\n+- An issue with the administration service. This is a defense-in-depth fix related to a Windows SMB Server issue, addressed separately by [CVE-2026-26128](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26128). We strongly recommend that you also install the applicable Windows security update.\n+\n+## Hotfixes that are included in this update\n+\n+For Configuration Manager version 2503:\n+\n+- KB [37447175](../../hotfix/2503/37447175.md): Security update to harden access to Network Access Account information\n+\n+### Update information for Microsoft Configuration Manager current branch\n+\n+This update is available in the **Updates and Servicing** node of the Configuration Manager console for version 2603 directly, and for versions 2509 and 2503 with the following update rollups installed:\n+\n+- KB [37864969](../../hotfix/2509/37864969.md): Second update rollup for Microsoft Configuration Manager version 2509\n+- KB [32851084](../../hotfix/2503/32851084.md): Update rollup for Microsoft Configuration Manager version 2503\n+\n+### Restart information\n+\n+This update doesn't require a computer restart, but does require a [site reset](../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) after installation.\n+\n+### Additional installation information\n+\n+After you install this update on a primary site, preexisting secondary sites must be manually updated. To update a secondary site in the Configuration Manager console, select **Administration** > **Site Configuration** > **Sites** > **Recover Secondary Site**, and then select the secondary site. The primary site then reinstalls that secondary site by using the updated files. This reinstallation doesn't affect configurations and settings for the secondary site. New, upgraded, and reinstalled secondary sites under that primary site automatically receive this update.\n+\n+Run the following SQL Server command on the site database to check whether the update version of a secondary site matches that of its parent primary site:\n+\n+```sql\n+select dbo.fnGetSecondarySiteCMUpdateStatus ('SiteCode_of_secondary_site')\n+```\n+\n+If the value 1 is returned, the site is up to date, with all the hotfixes applied on its parent primary site.\n+\n+If the value 0 is returned, all the fixes that are applied to the primary site aren't installed for the secondary site. Use the **Recover Secondary Site** option to update the secondary site.\n+\n+## File information\n+\n+File information is available in the following downloadable text files:\n+\n+- [KB38982839_2503_FileList.txt](https://aka.ms/KB38982839_2503_FileList)\n+- [KB38982839_2509_FileList.txt](https://aka.ms/KB38982839_2509_FileList)\n+- [KB38982839_2603_FileList.txt](https://aka.ms/KB38982839_2603_FileList)\n+\n+## Release history\n+\n+- August 2026: Initial hotfix release\n+\n+## References\n+\n+- [Updates and servicing for Configuration Manager](../../core/servers/manage/updates.md)\n",
+      "baseCommitSha": "a1e18858827a9c5a440fec2ba5a3049de5a428d0",
+      "commitSha": "5573d027c093e2a7cf78f0c1e3aaef226ae2dfda",
+      "commitMessage": "Add security update for the SMS Provider and administration service (#20644)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-08-27 13:48:29 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2603/38982839.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38982839",
+      "eventId": "intune-docs:5573d027c093e2a7cf78f0c1e3aaef226ae2dfda:added:intune/configmgr/hotfix/2603/38982839.md",
+      "firstSeenAt": "2026-08-27T23:47:26.330Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "KB38982839 documents security fixes for Configuration Manager",
+        "summary": "The new page documents security fixes for the SMS Provider and administration service, applicable to Configuration Manager versions 2603, 2509, and 2503 with required rollups. Installation requires a site reset and manual updating of existing secondary sites.",
+        "adminImpact": "Administrators should install the update through Updates and Servicing, perform the required site reset, and use Recover Secondary Site to update secondary sites.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/faq.md",
+      "status": "added",
+      "additions": 41,
+      "deletions": 0,
+      "changes": 41,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/faq.md b/autopilot/device-preparation/device-association/faq.md\nnew file mode 100644\nindex 0000000000..e39b4dcf39\n--- /dev/null\n+++ b/autopilot/device-preparation/device-association/faq.md\n@@ -0,0 +1,41 @@\n+---\n+title: Windows Autopilot device association FAQ\n+description: Frequently asked questions about Windows Autopilot device association, including exported CSV content, corporate identifiers, OEM support, and virtual machines.\n+ms.date: 08/07/2026\n+ms.topic: faq\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n+---\n+\n+# Windows Autopilot device association frequently asked questions\n+\n+This article answers common questions about Windows Autopilot device association.\n+\n+## General\n+\n+### Why did the CSV content for association change?\n+\n+If you export the device information CSV multiple times, the exported information may look different because the DeviceLink contains metadata timestamps. This behavior is expected, and the device's hardware identity doesn't change.\n+\n+A changed CSV doesn't invalidate an existing pre-association on its own. A pre-association is invalidated only when the device's hardware identity changes—for example, after you run a PowerShell script to remove association, reset the BIOS/UEFI settings, or change the Secure Boot configuration. After the identity is cleared on the device, you can export a new DeviceLink CSV and upload it to pre-associate the device again.\n+\n+### How do I get the DeviceLink CSV for a device that's already set up?\n+\n+For existing devices that are past the out-of-box experience (OOBE), you can export the device information from the device's Autopilot diagnostic logs instead of using the OOBE Autopilot menu. On the device, go to **Settings** > **Accounts** > **Access work or school**, select **Export your management logs** under **Related settings**, and then retrieve the DeviceLink CSV from the exported diagnostics. You can also run `MdmDiagnosticsTool.exe -area Autopilot -cab <path>` from an elevated command prompt, or collect the diagnostics remotely from the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) (**Devices** > select the device > **Collect diagnostics**). Upload the exported CSV in Intune to pre-associate the device. For more information, see [Associate devices](../tutorial/user-driven/entra-join-device-association.md).\n+\n+### Do I need to upload corporate identifiers if my devices are pre-associated?\n+\n+No. Pre-associated and associated devices are automatically marked as corporate-owned, so you don't need to upload corporate identifiers for them—even if you use enrollment restrictions to block personal device enrollments. Corporate identifiers and device association are two alternative ways to make sure only trusted devices are onboarded; you don't need both.\n+\n+### Can an OEM, reseller, or partner associate devices before shipment?\n+\n+At this time, device uploads are only supported through Intune. In the future, OEMs and partners will also be able to pre-associate devices.\n+\n+### Are virtual machines supported for testing?\n+\n+No. Device association requires a physical Windows 11 device with TPM 2.0 in a good state. This is the only way to guarantee that the device identity can be securely verified.\n+\n+## Related content\n+\n+- [Overview of Windows Autopilot device association](overview.md)\n+- [Device association lifecycle management](lifecycle-management.md)\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/faq.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/faq",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:added:autopilot/device-preparation/device-association/faq.md",
+      "firstSeenAt": "2026-08-27T23:47:26.365Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Windows Autopilot device association FAQ added",
+        "summary": "A new FAQ explains DeviceLink CSV timestamp changes, exporting device information after OOBE, corporate identifier requirements, OEM and partner support, and virtual machine limitations.",
+        "adminImpact": "Administrators can use the guidance to interpret CSV differences, retrieve device data, understand when corporate identifiers are unnecessary, and plan testing on physical Windows 11 devices with TPM 2.0.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/lifecycle-management.md",
+      "status": "added",
+      "additions": 65,
+      "deletions": 0,
+      "changes": 65,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/lifecycle-management.md b/autopilot/device-preparation/device-association/lifecycle-management.md\nnew file mode 100644\nindex 0000000000..f94efda3dc\n--- /dev/null\n+++ b/autopilot/device-preparation/device-association/lifecycle-management.md\n@@ -0,0 +1,65 @@\n+---\n+title: Device association lifecycle management\n+description: Manage the Windows Autopilot device association lifecycle, including resetting devices, uploading updated device information, working with registered Windows Autopilot devices, stale records, and decommissioning.\n+ms.date: 08/07/2026\n+ms.topic: concept-article\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n+---\n+\n+# Device association lifecycle management\n+\n+This article describes how to manage common events throughout the device association lifecycle.\n+\n+## Resetting an associated device\n+\n+The tenant affinity created by device association is stored in the device's UEFI firmware, so it persists across a device reset, a Windows reinstall, and enrollment removal. Resetting the device alone doesn't remove the association.\n+\n+> [!NOTE]\n+>\n+> After a device is reset and re-enrolled, its Microsoft Entra ID and Intune device records aren't reused—new records are created for the device. We recommend that you clean up the stale Microsoft Entra ID and Intune device records.\n+\n+To fully remove the association, clear the tenant affinity on the device itself by clearing the association information—for example, by running a PowerShell script to remove association. This requires physical access to the device. For instructions, see [Remove association from a device](remove-association.md).\n+\n+> [!IMPORTANT]\n+>\n+> Physical access to the device is required to clear the device's tenant affinity. The person with physical access to a device is treated as its owner from an association security perspective.\n+\n+## Removing association locally on a device\n+\n+If the association information is cleared locally on the device—for example, by running a PowerShell script to remove association—the behavior depends on whether the device is still enrolled with its mobile device management (MDM) provider:\n+\n+- **The device is still enrolled with its MDM provider.** The MDM provider attempts to re-associate the device on its next check-in.\n+- **The device is no longer enrolled with its MDM provider.** The MDM provider doesn't know that the association information was removed, so the device's association record remains stale.\n+\n+## Uploading a new CSV file for an already pre-associated device\n+\n+If a device already has a pre-association record in your tenant and you upload a new CSV for the same device:\n+\n+- **If the device's hardware identity hasn't changed**, the existing pre-association record is updated. For example, if you're assigning a different device preparation policy, the record is updated in place.\n+- **If the device's hardware identity has changed**—which happens when someone clears UEFI via PowerShell script, resets the BIOS/UEFI settings, or toggles Secure Boot—the service can no longer match the new submission to the original device. In this case, a new pre-association record is created and the original record becomes stale. The new record is associated during OOBE as normal.\n+\n+## Pre-associating a device that is registered for Windows Autopilot\n+\n+If a device is already registered for Windows Autopilot, you can still pre-associate it. When the device goes through OOBE, the device association takes precedence. The device is enrolled using the device preparation policy. For guidance on exporting device information from an existing device, see [How do I get the DeviceLink CSV for a device that's already set up?](faq.md#how-do-i-get-the-devicelink-csv-for-a-device-thats-already-set-up).\n+\n+## Managing stale records\n+\n+A pre-association record becomes stale when:\n+\n+- A new pre-association record is created for the same device because the hardware identity changed.\n+- The device was pre-associated and then associated with a different tenant.\n+\n+> [!NOTE]\n+>\n+> Stale pre-associated device records are automatically deleted after 360 days. No manual cleanup is required.\n+\n+## Decommissioning a device\n+\n+You only need to remove association when the device is permanently leaving your tenant. To do so, follow the steps in [Remove association from a device](remove-association.md).\n+\n+## Next steps\n+\n+- [Overview of Windows Autopilot device association](overview.md)\n+- [Requirements for Windows Autopilot device association](requirements.md)\n+- [Remove association from a device](remove-association.md)\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/lifecycle-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/lifecycle-management",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:added:autopilot/device-preparation/device-association/lifecycle-management.md",
+      "firstSeenAt": "2026-08-27T23:47:26.368Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "New guidance covers Windows Autopilot device association lifecycle management",
+        "summary": "The new article documents device resets, local association removal, CSV updates, Autopilot registration, stale records, and decommissioning. It notes that associations persist through resets and that stale records are automatically deleted after 360 days.",
+        "adminImpact": "Administrators can use this guidance to understand record creation and cleanup requirements, including when physical device access is needed to remove an association.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/overview.md",
+      "status": "added",
+      "additions": 84,
+      "deletions": 0,
+      "changes": 84,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/overview.md b/autopilot/device-preparation/device-association/overview.md\nnew file mode 100644\nindex 0000000000..03578ffd0c\n--- /dev/null\n+++ b/autopilot/device-preparation/device-association/overview.md\n@@ -0,0 +1,84 @@\n+---\n+title: Overview of Windows Autopilot device association\n+description: Device association binds a Windows device to your organization before enrollment by stamping tenant affinity into the device's UEFI, enabling a streamlined OOBE, device naming, device-based policy targeting, and stronger onboarding security.\n+ms.date: 08/25/2026\n+ms.topic: overview\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n+---\n+\n+# Overview of Windows Autopilot device association\n+\n+Device association is a feature of Windows Autopilot device preparation that binds a Windows device to your organization *before* the device enrolls with a mobile device management (MDM) provider, such as Microsoft Intune. It establishes a verifiable link between a physical device and your tenant by writing a tenant affinity marker into the device's UEFI firmware, making the device recognizable and authenticatable by the MDM provider before enrollment begins. By establishing this trusted relationship early in the provisioning process, device association unlocks a streamlined out-of-box experience (OOBE) and strengthens the security of onboarding.\n+\n+## Benefits\n+\n+Device association provides the following benefits:\n+\n+- **Streamlined out-of-box experience (OOBE)** - Because the device is recognized as an organizational device before enrollment, OOBE can present a simpler, more consistent set of pages to the end user. You can preconfigure settings such as language, keyboard layout, and skipping the license and privacy pages.\n+- **Device naming before enrollment** - Apply a device name using a template before the device enrolls, so the device carries the correct name from the start of its lifecycle.\n+- **Device-based policy targeting** - Target device preparation policies directly to devices instead of relying solely on user group assignments, so the correct policy is applied regardless of which user signs in.\n+- **Automatic corporate marking** - Associated devices are automatically marked as corporate-owned, so they aren't blocked by [personal device enrollment restrictions](/intune/device-enrollment/restrictions#personally-owned-devices)—no separate [corporate identifier](/intune/device-enrollment/add-corporate-identifiers#add-windows-corporate-identifiers) upload needed.\n+- **Stronger onboarding security** - Device identity is verified before enrollment through hardware-based attestation and TPM-backed cryptographic validation, helping ensure that only trusted devices can access organizational resources.\n+\n+## How device association works\n+\n+Device association uses the device's TPM-backed identity to establish a trusted association between the device and your tenant. It involves three lifecycle operations:\n+\n+| Operation | Performed by | Description |\n+|---|---|---|\n+| **Pre-associate** | Administrator in Intune | Stores the intent to create a TPM-backed association between the device and your tenant in a central service before the association is written to UEFI. |\n+| **Associate** | Automatic—triggered by the technician after pre-associating, or when the device connects to a network in OOBE | Verifies that the device presents the expected TPM-backed identity, and then writes a marker containing tenant affinity information to the device's UEFI. The marker is used to attest the device's affinity at enrollment. |\n+| **Remove association** | Admin, OEM vendor, or partner, by running a PowerShell script on the device | Deletes the UEFI marker used to verify the device's association, clearing the trusted tenant affiliation from UEFI storage. |\n+\n+The high-level workflow is:\n+\n+1. **Create a device preparation policy** with the deployment and OOBE experience settings you want to apply.\n+1. **Export device information** from the device during OOBE.\n+1. **Pre-associate the device** in Intune by uploading the exported CSV, and optionally assign a device preparation policy.\n+1. **Associate the device.** Association happens automatically when the device connects to a network in OOBE. A technician can also trigger it manually in OOBE, immediately after pre-associating. Associating the device stamps the UEFI marker.\n+1. **Enroll the device.** It receives the device-targeted policy, is marked as corporate-owned, and has the configured OOBE customizations applied.\n+1. **Remove association** when the device is permanently leaving your tenant, such as when you decommission it.\n+\n+## Key capabilities\n+\n+### Device-targeted policy assignment\n+\n+Assign a device preparation policy directly to a pre-associated device, so the correct policy applies regardless of which user signs in. One user can enroll multiple devices, each with a different policy.\n+\n+### OOBE customization\n+\n+Device association enables the following settings in the device preparation user-driven policy, applied before enrollment:\n+\n+- **Language (Region)** - Select the language to use for the device.\n+- **Automatically configure keyboard** - When a language is selected, skip the keyboard selection page.\n+\n+  > [!NOTE]\n+  >\n+  > When the device uses a Wi-Fi network connection during OOBE, the language and keyboard selection screens aren't hidden.\n+\n+- **Hide Microsoft Software License Terms** - Skip the End-User License Agreement (EULA) page during OOBE.\n+- **Hide privacy settings** - Skip the privacy settings page during OOBE. When privacy settings are hidden, location services are disabled by default.\n+- **Hide change account options** - Prevent change account options from appearing on the company sign-in and domain error pages. This setting requires company branding to be configured in Microsoft Entra ID.\n+- **Apply device name template** - Name the device during enrollment by using a template. Names can be up to 63 characters long and can contain letters, numbers, and hyphens, but can't contain only numbers. Use `%SERIAL%` to include the device serial number or `%RAND:x%` to include a random numeric string, where `x` is the number of digits.\n+\n+> [!NOTE]\n+>\n+> On Windows Professional editions, the **Personal account / Work and school account** page is hidden by default for all associated devices.\n+\n+### Device monitoring\n+\n+Monitor the status of pre-associated and associated devices from the **Device association** blade in Intune under **Devices** > **Enrollment** > **Device association** > **Devices**. The blade shows each device's association state and assigned device preparation policy, and lets you filter by state, policy, manufacturer, and model.\n+\n+## Limitations\n+\n+The following limitations apply in the current release:\n+\n+- Removing association from Intune isn't supported. To remove an association, clear the association information on the device instead. For more information, see [Remove association from a device](remove-association.md).\n+- Device association doesn't apply to Windows 365 devices because they're already marked as trusted corporate devices.\n+\n+## Next steps\n+\n+- [Requirements for Windows Autopilot device association](requirements.md)\n+- [Tutorial: Set up Windows Autopilot device preparation with device association](../tutorial/user-driven/entra-join-workflow.md)\n+- [Remove association from a device](remove-association.md)\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/overview",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:added:autopilot/device-preparation/device-association/overview.md",
+      "firstSeenAt": "2026-08-27T23:47:26.372Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot device association binds devices before enrollment",
+        "summary": "The documentation describes TPM-backed association that writes tenant affinity to UEFI before enrollment, enabling device-targeted policies, device naming, OOBE customization, corporate marking, and stronger onboarding security.",
+        "adminImpact": "Administrators can pre-associate devices in Intune, assign device preparation policies, and manage association removal when devices leave the tenant. No mandatory action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/remove-association.md",
+      "status": "added",
+      "additions": 95,
+      "deletions": 0,
+      "changes": 95,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/remove-association.md b/autopilot/device-preparation/device-association/remove-association.md\nnew file mode 100644\nindex 0000000000..cc243e14f9\n--- /dev/null\n+++ b/autopilot/device-preparation/device-association/remove-association.md\n@@ -0,0 +1,95 @@\n+---\n+title: Remove a Windows Autopilot device association\n+description: Remove a Windows Autopilot device association by deleting the device from the Device association list in Intune or by clearing the Device Link UEFI variables on the device with sample PowerShell commands.\n+ms.date: 08/07/2026\n+ms.topic: how-to\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n+---\n+\n+# Remove association from a device\n+\n+When a device permanently leaves your organization—for example, when it's decommissioned or transferred to another organization—remove its Windows Autopilot device association so the device is no longer tied to your tenant. For an associated device, removal clears the trusted tenant affiliation from the device's UEFI storage. How you remove the association depends on whether the device has completed association in the out-of-box experience (OOBE).\n+\n+> [!NOTE]\n+>\n+> Removing a device from the **Device association** list in Intune doesn't clear the tenant affinity that's stored on an already associated device. To fully remove the association from an associated device, clear the association information on the device itself, and then delete the device from the **Device association** list.\n+\n+## Remove device in a pre-associated state\n+\n+If the device hasn't completed association in OOBE yet (its state is **Pre-associated**), delete it directly from the device list:\n+\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n+1. Go to **Devices** > **Enrollment** > **Device association** > **Devices**.\n+1. Select the device, and then select **Delete**.\n+\n+The device is removed from the list immediately.\n+\n+## Remove device in an associated state\n+\n+If the device already completed association (its state is **Associated**), the tenant affinity is stored in the device's UEFI firmware. Clear the association information on the device first, and then delete the device from Intune.\n+\n+Before clearing the association, make sure the device is no longer enrolled with its mobile device management (MDM) provider as part of your decommissioning process. If the device remains enrolled, the MDM provider attempts to re-associate it on its next check-in.\n+\n+The association is stored in **Device Link** UEFI variables, which bind the device to your tenant.\n+\n+Read and clear these variables with the [UEFI PowerShell module](https://www.powershellgallery.com/packages/UEFI). The following sections show sample commands that you can run interactively or adapt into your own removal script. Run them from an elevated Windows PowerShell prompt on the device.\n+\n+### Prerequisites\n+\n+Install the UEFI module from the PowerShell Gallery (first run only):\n+\n+```powershell\n+Install-Module UEFI -Force\n+```\n+\n+Define the namespace and variable names for the Device Link variables:\n+\n+```powershell\n+# Device Link (tenant association)\n+$deviceLinkNamespace = \"{B3DE75DA-819C-4FD5-9F01-C3D49E8CBBD7}\"\n+$deviceLinkVariables = \"DeviceLinkId\", \"DeviceLinkBlob\", \"DeviceLinkUtc\"\n+```\n+\n+### Query the current association\n+\n+Before you clear anything, confirm which variables are set on the device. Querying doesn't require an elevated session:\n+\n+```powershell\n+Write-Host \"Device Link:\"\n+foreach ($name in $deviceLinkVariables) {\n+    Get-UEFIVariable -Namespace $deviceLinkNamespace -VariableName $name -ErrorAction SilentlyContinue\n+}\n+```\n+\n+### Clear the Device Link variables\n+\n+Clearing the Device Link variables removes the tenant association:\n+\n+```powershell\n+foreach ($name in $deviceLinkVariables) {\n+    Set-UEFIVariable -Namespace $deviceLinkNamespace -VariableName $name -Value $null\n+}\n+```\n+\n+> [!IMPORTANT]\n+>\n+> - Run the clear commands from an elevated (Administrator) PowerShell session. Querying variables doesn't require elevation.\n+> - Clearing the Device Link UEFI variables only removes the association. It doesn't reset the TPM, unenroll the device, or delete the device's Microsoft Entra ID or Intune records.\n+\n+### Delete the device from Intune\n+\n+After you clear the association information on the device, remove the device record from Intune:\n+\n+1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Devices** > **Enrollment** > **Device association** > **Devices**.\n+1. Select the device. The **Association state** changes to **Pending removal**.\n+1. Select **Delete** to remove the device from the list.\n+\n+   > [!NOTE]\n+   >\n+   > The **Pending removal** state indicates that the removal request was submitted. The device disappears from the list once the process completes.\n+\n+## Related content\n+\n+- [Overview of Windows Autopilot device association](overview.md)\n+- [Device association lifecycle management](lifecycle-management.md)\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/remove-association.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/remove-association",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:added:autopilot/device-preparation/device-association/remove-association.md",
+      "firstSeenAt": "2026-08-27T23:47:26.376Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Guidance added for removing Windows Autopilot device associations",
+        "summary": "The new article explains how to remove pre-associated devices from Intune and how to clear Device Link UEFI variables before deleting associated devices from Intune.",
+        "adminImpact": "Administrators decommissioning or transferring devices can use the documented process to remove tenant affinity. Associated devices must be unenrolled from MDM and have their UEFI association cleared before deletion.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/requirements.md",
+      "status": "added",
+      "additions": 124,
+      "deletions": 0,
+      "changes": 124,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/requirements.md b/autopilot/device-preparation/device-association/requirements.md\nnew file mode 100644\nindex 0000000000..c186a9c684\n--- /dev/null\n+++ b/autopilot/device-preparation/device-association/requirements.md\n@@ -0,0 +1,124 @@\n+---\n+title: Requirements for Windows Autopilot device association\n+description: Software, networking, licensing, and RBAC requirements for Windows Autopilot device association.\n+ms.date: 08/25/2026\n+ms.collection:\n+  - M365-modern-desktop\n+ms.topic: article\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n+---\n+\n+# Requirements for Windows Autopilot device association\n+\n+The list of requirements for Windows Autopilot device association is organized into four categories:\n+\n+- **Software** - OS requirements.\n+- **Networking** - Networking requirements.\n+- **Licensing** - Licensing requirements.\n+- **RBAC** - RBAC permissions required for Windows Autopilot device association.\n+\n+Select the appropriate tab to see the relevant requirements:\n+\n+## [:::image type=\"icon\" source=\"../../images/icons/software-18.svg\"::: **Software**](#tab/software)\n+\n+### Software requirements\n+\n+> [!IMPORTANT]\n+>\n+> Device association requires a **physical device**. Virtual machines aren't supported.\n+\n+#### Windows 11\n+\n+- Windows 11, version 25H2 with [KB5120998](https://support.microsoft.com/help/5120998) or later.\n+- Windows 11, version 24H2 with [KB5120998](https://support.microsoft.com/help/5120998) or later.\n+\n+The following editions are supported:\n+\n+- Windows 11 Pro.\n+- Windows 11 Pro Education.\n+- Windows 11 Pro for Workstations.\n+- Windows 11 Enterprise.\n+- Windows 11 Education.\n+- [Windows 11 Enterprise LTSC](/windows/whats-new/ltsc/overview).\n+\n+#### Trusted Platform Module (TPM)\n+\n+Device association requires a **physical device**—virtual machines aren't supported. Each device must have **TPM 2.0**, enabled and in a good state. The TPM shouldn't be in **Reduced Functionality Mode**. TPM attestation is enforced during association: device association uses the TPM to attest the device's identity before enrollment.\n+\n+## [:::image type=\"icon\" source=\"../../images/icons/wifi-ethernet-18.svg\"::: **Networking**](#tab/networking)\n+\n+### Networking requirements\n+\n+Device association builds on Windows Autopilot device preparation and has the same baseline networking requirements. For the full list of endpoints and network configuration, see [Windows Autopilot device preparation requirements](../requirements.md?tabs=networking).\n+\n+In addition to the baseline requirements, allow HTTPS access over TCP port 443 to the following endpoints:\n+\n+- `https://ztd.dds.microsoft.com`\n+- `https://peapdamaa1.eus2.attest.azure.net`\n+- `https://peapdamaa2.wus2.attest.azure.net`\n+- `https://peapdamaa3.cus.attest.azure.net`\n+- `https://peapdamaa5.cus.attest.azure.net`\n+- `https://peapdamaa6.neu.attest.azure.net`\n+- `https://peapdamaa7.weu.attest.azure.net`\n+- `https://peapdamaa8.sasia.attest.azure.net`\n+- `https://peapdamaa9.eau.attest.azure.net`\n+- `https://peapdamaa19.wus2.attest.azure.net`\n+- `https://peapdamaa86.cin.attest.azure.net`\n+- `https://peapdamaa89.jpe.attest.azure.net`\n+- `https://peapdamaa93.weu.attest.azure.net`\n+\n+## [:::image type=\"icon\" source=\"../../images/icons/license-18.svg\"::: **Licensing**](#tab/licensing)\n+\n+### Licensing requirements\n+\n+Device association is part of Windows Autopilot device preparation and has the same licensing requirements. For the full list of supported subscriptions, see [Windows Autopilot device preparation requirements](../requirements.md?tabs=licensing).\n+\n+## [:::image type=\"icon\" source=\"../../images/icons/permissions-18.svg\"::: **RBAC**](#tab/rbac)\n+\n+### Required RBAC permissions\n+\n+The following role-based access control (RBAC) permissions are required in an Intune role for Windows Autopilot device association.\n+\n+#### Required for configuring the device preparation policy\n+\n+- **Device configurations**\n+  - Read\n+  - Delete\n+  - Create\n+  - Update\n+- **Enrollment programs**\n+  - Enrollment time device membership assignment\n+- **Managed apps**\n+  - Read\n+- **Mobile apps**\n+  - Read\n+- **Organization**\n+  - Read\n+\n+#### Required for managing associated devices\n+\n+- **Enrollment programs**\n+  - Read device\n+  - Create device\n+  - Delete device\n+- **Device configurations**\n+  - Assign\n+\n+To create a custom role with these permissions for use with Windows Autopilot device association:\n+\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n+1. Select **Tenant administration** > **Roles**.\n+1. Select **Create** > **Intune role**.\n+1. On the **Basics** page, enter a name and description for the custom role, and then select **Next**.\n+1. On the **Permissions** page, set each of the permissions listed previously to **Yes**. Leave all other permissions at the default of **No**.\n+1. On the **Scope tags** page, select **Next**.\n+1. On the **Review + create** page, verify that all permissions are correct, and then select **Create**.\n+\n+The new custom role can now be assigned to users who manage Windows Autopilot device association. For more information, see [Role-based access control (RBAC) with Microsoft Intune](/intune/fundamentals/role-based-access-control/overview).\n+\n+---\n+\n+## Next steps\n+\n+[Tutorial: Set up Windows Autopilot device preparation with device association](../tutorial/user-driven/entra-join-workflow.md)\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/requirements.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/requirements",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:added:autopilot/device-preparation/device-association/requirements.md",
+      "firstSeenAt": "2026-08-27T23:47:26.380Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot device association requirements are documented",
+        "summary": "The page specifies Windows 11, physical-device, TPM 2.0, networking, licensing, and Intune RBAC requirements, including custom-role setup steps.",
+        "adminImpact": "Administrators can validate device, network, subscription, and role prerequisites before configuring or managing device association.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md",
+      "status": "added",
+      "additions": 114,
+      "deletions": 0,
+      "changes": 114,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md\nnew file mode 100644\nindex 0000000000..3a43280b8e\n--- /dev/null\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md\n@@ -0,0 +1,114 @@\n+---\n+title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 7 - Associate devices\n+description: Associate devices to your tenant as an alternative to corporate identifiers, including exporting device information, pre-associating in Intune, completing association, and reviewing associated devices.\n+ms.date: 08/07/2026\n+ms.topic: tutorial\n+appliesto:\n+  - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n+---\n+\n+# Windows Autopilot device preparation user-driven Microsoft Entra join: Associate devices\n+\n+Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n+\n+- Step 1: [Set up Windows automatic Intune enrollment](entra-join-automatic-enrollment.md)\n+- Step 2: [Allow users to join devices to Microsoft Entra ID](entra-join-allow-users-to-join.md)\n+- Step 3: [Create an assigned device group](entra-join-device-group.md)\n+- Step 4: [Create a user group](entra-join-user-group.md)\n+- Step 5: [Assign applications and PowerShell scripts to device group](entra-join-assign-apps-scripts.md)\n+- Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+\n+> [!div class=\"checklist\"]\n+>\n+> - **Step 7, option 2: Associate devices**\n+\n+For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n+\n+Device association is an **optional** feature of Windows Autopilot device preparation and an alternative to [adding corporate identifiers](entra-join-corporate-identifier.md). It binds a device to your tenant before enrollment, and it unlocks additional device preparation policy settings—such as OOBE customization and device naming—that are only available to associated devices.\n+\n+> [!IMPORTANT]\n+>\n+> If you use Intune enrollment restrictions to block personal device enrollments, you must configure **either** corporate identifiers **or** device association for each device before deployment. You don't need both. If a device is associated, you don't need to upload a corporate identifier for it—associated devices are automatically marked as corporate-owned.\n+\n+To associate devices, complete the following tasks in this step.\n+\n+## Export device information from OOBE\n+\n+> [!NOTE]\n+>\n+> We recommend using a USB drive formatted with the NTFS file system.\n+\n+1. Turn on the device and boot into OOBE. Stop at the region selection page—don't complete OOBE setup.\n+1. Press the **Windows** key five times quickly. The Autopilot menu opens.\n+\n+   > [!NOTE]\n+   >\n+   > The OOBE Autopilot menu includes two options: **Scan QR code** and **Export device information**. Currently, Intune supports uploading only the CSV file created by option 2, **Export device information**. Option 1, **Scan QR code**, can be used with a custom app that calls Microsoft Graph to pre-associate the device.\n+\n+1. From the Autopilot menu, select **Export device information**.\n+1. Insert a USB drive into the device.\n+1. In the Autopilot menu, select **Export device information**. The device information file is saved to the USB drive.\n+1. Remove the USB drive and copy the exported CSV file to a computer that has access to the Microsoft Intune admin center.\n+\n+## Export device information from an existing device\n+\n+For existing devices that are already past the out-of-box experience (OOBE), you can't open the Autopilot menu. Instead, collect the device's Autopilot diagnostic logs by using one of the following methods, and then retrieve the DeviceLink CSV from the collected diagnostics:\n+\n+- **On the device, from Settings:** Go to **Settings** > **Accounts** > **Access work or school**, and under **Related settings**, select **Export your management logs** > **Export**. Follow the displayed path to retrieve the exported diagnostics.\n+- **On the device, from a command prompt:** From an elevated command prompt, run `MdmDiagnosticsTool.exe -area Autopilot -cab C:\\Diagnostics\\Autopilot.cab`.\n+- **Remotely from Intune:** In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Devices** > **All devices**, select the device, and then select **Collect diagnostics**. When the upload finishes, download the diagnostics from the device's **Device diagnostics** view.\n+\n+After you collect the diagnostics, locate the DeviceLink CSV file and copy it to a computer that has access to the Microsoft Intune admin center.\n+\n+## Pre-associate the device in Intune\n+\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n+1. Go to **Devices** > **Enrollment** > **Device association** > **Devices**.\n+1. Select **Add**.\n+1. On the **Import CSV** page, select **Browse** and upload the CSV file exported in the previous task.\n+1. Select **Next**.\n+1. On the **Assign device preparation policy** page, optionally select the device preparation policy you created in [Step 6: Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md) to assign to this device. Assigning a policy here ensures the device gets the correct policy without relying on a user-group assignment.\n+\n+   > [!NOTE]\n+   >\n+   > If you don't assign a policy here, the device uses the device preparation policy assigned to the user who signs in during enrollment. If that user has no assigned policy, no device preparation policy is applied to the device.\n+\n+1. Select **Next**, review the import summary, and then select **Add**.\n+\n+The device appears in the **Device association** list with an **Association state** of **Pre-associated**.\n+\n+> [!NOTE]\n+>\n+> At this time, only one device per CSV file is allowed. Upload a separate CSV file for each device.\n+\n+## Complete device association\n+\n+Device association happens automatically for pre-associated devices when the device connects to a network in OOBE. Alternatively, association can be completed on the device in OOBE.\n+\n+To trigger association manually on the device in OOBE:\n+\n+1. On the device, return to the Autopilot menu and select **Next** after pre-associating the device.\n+1. The device contacts the Windows Autopilot service and finds the pre-association record. If the device matches, the OOBE screen shows **Association complete**.\n+\n+## Review associated devices\n+\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\n+1. Go to **Devices** > **Enrollment** > **Device association** > **Devices**.\n+\n+The list shows all pre-associated and associated devices in your tenant. Use the **Search** box to find devices by serial number or device name, and use the column filters to narrow results by association state, policy, manufacturer, or model. Each device shows the following association states:\n+\n+| State | Description |\n+|---|---|\n+| **Pre-associated** | The device was added via CSV and is waiting to complete association in OOBE. |\n+| **Associated** | The device completed the OOBE association step. It's ready for enrollment. |\n+| **Pending removal** | A remove-association request was submitted and is being processed. |\n+\n+## Next steps\n+\n+Because associated devices are automatically treated as corporate-owned, you don't need to add [Windows corporate identifiers](entra-join-corporate-identifier.md) for them. Once devices are associated, proceed with deploying the device.\n+\n+## Related content\n+\n+- [Overview of Windows Autopilot device association](../../device-association/overview.md)\n+- [Device association lifecycle management](../../device-association/lifecycle-management.md)\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-device-association",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:added:autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md",
+      "firstSeenAt": "2026-08-27T23:47:26.406Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot device association workflow documented",
+        "summary": "A new Step 7 guide explains associating devices for user-driven Microsoft Entra join, including exporting device information, importing it into Intune, and reviewing associations. Association is an optional alternative to corporate identifiers.",
+        "adminImpact": "Administrators who block personal enrollments must configure either device association or corporate identifiers for each device before deployment.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "modifiedFiles": [
@@ -235,24 +417,364 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2503/37447175.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 3,
+      "changes": 10,
+      "patch": "diff --git a/intune/configmgr/hotfix/2503/37447175.md b/intune/configmgr/hotfix/2503/37447175.md\nindex 1d68e250c6..7998803e58 100644\n--- a/intune/configmgr/hotfix/2503/37447175.md\n+++ b/intune/configmgr/hotfix/2503/37447175.md\n@@ -1,10 +1,10 @@\n ---\n title: Security update for Microsoft Configuration Manager versions 2409, 2503\n description: Security update to harden access to Network Access Account information\n-ms.date: 04/14/2026\n-ms.subservice: core-infrastructure\n+ms.date: 08/17/2026\n+ms.subservice: core-infra\n ms.topic: reference\n-ms.service: microsoft-endpoint-configuration-manager\n+ms.service: configuration-manager\n ---\n \n # Security update for Microsoft Configuration Manager versions 2409, 2503\n@@ -15,6 +15,9 @@ ms.service: microsoft-endpoint-configuration-manager\n \n This update enhances security in Configuration Manager by improving access controls for the Network Access Account (NAA).\n \n+> [!IMPORTANT]\n+> For Configuration Manager version 2503, this update is superseded by [KB 38982839](../../hotfix/2603/38982839.md). This update remains applicable to version 2409.\n+\n > [!NOTE]\n > This same update is included with upcoming Microsoft Configuration Manager current branch, version 2603, and in the hotfix rollup for version 2509. A separate out of band hotfix is not required for versions 2509 and 2603.\n \n@@ -65,6 +68,7 @@ File information is available in the following downloadable files.\n ## Release history\n \n - April 2026: Initial hotfix release\n+- August 2026: Added supersedence information for KB 38982839\n \n ## References\n \n",
+      "baseCommitSha": "a1e18858827a9c5a440fec2ba5a3049de5a428d0",
+      "commitSha": "5573d027c093e2a7cf78f0c1e3aaef226ae2dfda",
+      "commitMessage": "Add security update for the SMS Provider and administration service (#20644)",
+      "commitAuthor": "QianDong Ni (Doc)",
+      "commitDate": "2026-08-27 13:48:29 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/configmgr/hotfix/2503/37447175.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2503/37447175",
+      "eventId": "intune-docs:5573d027c093e2a7cf78f0c1e3aaef226ae2dfda:modified:intune/configmgr/hotfix/2503/37447175.md",
+      "firstSeenAt": "2026-08-27T23:47:26.326Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Supersedence guidance added for Configuration Manager 2503",
+        "summary": "The documentation now states that KB 37447175 is superseded by KB 38982839 for version 2503, while remaining applicable to version 2409.",
+        "adminImpact": "Administrators should verify their Configuration Manager version when evaluating this update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/compare.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 4,
+      "changes": 9,
+      "patch": "diff --git a/autopilot/device-preparation/compare.md b/autopilot/device-preparation/compare.md\nindex 41c7ad1273..72b4ae608a 100644\n--- a/autopilot/device-preparation/compare.md\n+++ b/autopilot/device-preparation/compare.md\n@@ -1,7 +1,7 @@\n ---\n title: Compare Windows Autopilot device preparation and Windows Autopilot\n description: Compare Windows Autopilot device preparation and Windows Autopilot features and when to use each.\n-ms.date: 04/02/2025\n+ms.date: 08/07/2026\n ms.topic: overview\n ms.collection:\n   - M365-modern-desktop\n@@ -19,12 +19,13 @@ appliesto:\n | Features | <ul><li>Support for Government Community Cloud High (GCCH) and Department of Defense (DoD) environments.</li><li>Faster, more consistent provisioning experience.</li><li>Near real-time monitoring and troubleshooting info.</li></ul> | <ul><li>Support for multiple device types ([HoloLens](/hololens/hololens2-autopilot), [Teams Meeting Room](/microsoftteams/rooms/autopilot-autologin)).</li><li>Many customization options for the provisioning experience.</li></ul> |\n | Supported modes | <ul><li>[User-driven](tutorial/user-driven/entra-join-workflow.md).</li><li>Automatic.</li></ul> | <ul><li>[User-driven](../tutorial/user-driven/azure-ad-join-workflow.md).</li><li>[Pre-provisioned](../tutorial/pre-provisioning/azure-ad-join-workflow.md).</li><li>[Self-deploying](../tutorial/self-deploying/self-deploying-workflow.md).</li><li>[Existing devices](../tutorial/existing-devices/existing-devices-workflow.md).</li></ul>|\n | Join types supported | <ul><li>Microsoft Entra join.</li></ul> | <ul><li>Microsoft Entra join.</li><li>Microsoft Entra hybrid join.</li></ul> |\n-|Device registration required? | No. | Yes. |\n+| Device registration required? | No. | Yes. |\n+| Is it possible to bind devices to my tenant before enrollment? | Yes, you can [associate devices](tutorial/user-driven/entra-join-device-association.md). | Yes, you can [register devices](../registration-overview.md). |\n | What do admins need to configure? | <ul><li>Windows Autopilot device preparation policy.</li><li>Device security group with **Intune Provisioning Client** as owner.</li></ul> | <ul><li>Windows Autopilot deployment profile.</li><li>Enrollment Status Page (ESP).</li></ul> |\n | What configurations can be delivered during provisioning? | <ul><li>Device-based only during the out-of-box experience (OOBE).</li><li>Up to 25 essential applications (line-of-business (LOB), Win32, Microsoft Store, Microsoft 365).</li><li>Up to 10 essential PowerShell scripts.</li></ul> | <ul><li>Device-based during device ESP.</li><li>User-based during user ESP.</li><li>Up to [100 applications](/intune/intune-service/enrollment/windows-enrollment-status#block-access-to-a-device-until-a-specific-application-is-installed).</li></ul> |\n | Reporting & troubleshooting |  Windows Autopilot device preparation deployment report:<ul><li>Shows all Windows Autopilot device preparation deployments.</li><li>More data available.</li><li>Near real-time.</li></ul> | Windows Autopilot deployment report:<ul><li>Only shows Windows Autopilot registered devices.</li><li>Not real-time.</li></ul> |\n | Supports LOB and Win32 applications in same deployment? | Yes. | No. |\n-| Supported versions of Windows | <ul><li>Windows 11, version 24H2 or later.</li><li>Windows 11, version 23H2 with [KB5035942](https://support.microsoft.com/topic/march-26-2024-kb5035942-os-builds-22621-3374-and-22631-3374-preview-3ad9affc-1a91-4fcb-8f98-1fe3be91d8df) or later.</li><li> Windows 11, version 22H2 with [KB5035942](https://support.microsoft.com/topic/march-26-2024-kb5035942-os-builds-22621-3374-and-22631-3374-preview-3ad9affc-1a91-4fcb-8f98-1fe3be91d8df) or later.</li></ul> | <ul><li>All [currently supported](/windows/release-health/supported-versions-windows-client#windows-11-supported-versions) versions of Windows 11 General Availability Channel.</li><li>All [currently supported](/windows/release-health/supported-versions-windows-client#windows-10-supported-versions) versions of Windows 10 General Availability Channel.</li></ul> |\n+| Supported versions of Windows | <ul><li>Windows 11, version 24H2 or later.</li><li>Windows 11, version 23H2 with [KB5035942](https://support.microsoft.com/topic/march-26-2024-kb5035942-os-builds-22621-3374-and-22631-3374-preview-3ad9affc-1a91-4fcb-8f98-1fe3be91d8df) or later.</li><li> Windows 11, version 22H2 with [KB5035942](https://support.microsoft.com/topic/march-26-2024-kb5035942-os-builds-22621-3374-and-22631-3374-preview-3ad9affc-1a91-4fcb-8f98-1fe3be91d8df) or later.</li></ul> | <ul><li>All [currently supported](/windows/release-health/supported-versions-windows-client#windows-11-supported-versions-by-servicing-option) versions of Windows 11 General Availability Channel.</li><li>All [currently supported](/windows/release-health/supported-versions-windows-client#windows-10-supported-versions-by-servicing-option) versions of Windows 10 General Availability Channel.</li></ul> |\n \n ## Which Windows Autopilot solution to use\n \n@@ -61,4 +62,4 @@ In general, the following are some of the major factors when considering between\n \n ## Using Windows Autopilot device preparation and Windows Autopilot concurrently\n \n-Windows Autopilot device preparation and Windows autopilot can be used concurrently and side by side within an organization. However, any one device in an environment can only run one of the two solutions. Windows Autopilot profiles take precedence over Windows Autopilot device preparation policies. If a Windows Autopilot registered device needs to go through a Windows Autopilot device preparation deployment, it must first be removed as a Windows Autopilot device. For more information, see [Deregister a device](../registration-overview.md#deregister-a-device).\n+Windows Autopilot device preparation and Windows Autopilot can be used concurrently and side by side within an organization. However, any one device in an environment can only run one of the two solutions. For a device that's registered with Windows Autopilot, which deployment runs depends on the device's association state. If the device isn't associated with the tenant, the Windows Autopilot profile takes precedence. If the device is associated, device association takes precedence and the Windows Autopilot device preparation deployment runs. To use Windows Autopilot device preparation on a registered device without associating it, first [deregister the device](../registration-overview.md#deregister-a-device).\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/compare.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/compare",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/compare.md",
+      "firstSeenAt": "2026-08-27T23:47:26.361Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Autopilot comparison adds device association details",
+        "summary": "The comparison now documents that device preparation devices can be associated with a tenant before enrollment, while Windows Autopilot devices can be registered. It also updates the explanation of deployment selection for Autopilot-registered devices.",
+        "adminImpact": "Admins can use the updated comparison to understand pre-enrollment device binding and how deployment selection is described.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/overview.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/autopilot/device-preparation/overview.md b/autopilot/device-preparation/overview.md\nindex 292b874421..601a9c6f27 100644\n--- a/autopilot/device-preparation/overview.md\n+++ b/autopilot/device-preparation/overview.md\n@@ -1,7 +1,7 @@\n ﻿---\n title: Overview of Windows Autopilot device preparation\n description: Windows Autopilot device preparation is used to set up and configure new devices, getting them ready for productive use.\n-ms.date: 04/02/2025\n+ms.date: 08/07/2026\n ms.topic: overview\n ms.collection:\n   - M365-modern-desktop\n@@ -35,7 +35,7 @@ This article explores the capabilities of the Windows Autopilot device preparati\n \n - Microsoft Entra ID - only Microsoft Entra join is supported.\n \n-- Device shouldn't be registered or added as a Windows Autopilot device - if the device is registered or added as Windows Autopilot device, the Windows Autopilot profile takes precedence over the Windows Autopilot device preparation policy. If a device needs to be removed as a Windows Autopilot device, see [Deregister a device](../registration-overview.md#deregister-a-device).\n+- If the device is registered as a Windows Autopilot device, which deployment runs depends on the device's association state. If the device isn't associated with the tenant, the Windows Autopilot profile takes precedence. If the device is associated, device association takes precedence and the Windows Autopilot device preparation deployment runs. To use Windows Autopilot device preparation on a registered device without associating it, first [deregister the device](../registration-overview.md#deregister-a-device).\n \n For additional detailed requirements, see [Windows Autopilot device preparation requirements](requirements.md).\n \n@@ -139,6 +139,10 @@ Windows Autopilot device preparation only requires corporate identifiers for Win\n - [What are enrollment restrictions?](/intune/intune-service/enrollment/enrollment-restrictions-set).\n - [Create device platform restrictions](/intune/intune-service/enrollment/create-device-platform-restrictions).\n \n+### Device association\n+\n+Windows Autopilot device preparation supports device association, which binds a physical Windows 11 device to your tenant before enrollment. Associated devices are automatically marked as corporate-owned and can receive device-targeted policy assignments and additional OOBE customizations. For more information, see [Overview of Windows Autopilot device association](device-association/overview.md).\n+\n ## Tutorial\n \n For tutorials with detailed instructions on configuring Windows Autopilot device preparation, see [Windows Autopilot device preparation scenarios](tutorial/scenarios.md).\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/overview",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/overview.md",
+      "firstSeenAt": "2026-08-27T23:47:26.383Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot device association is now documented",
+        "summary": "The documentation explains that association state determines whether the Windows Autopilot profile or device association takes precedence. Associated physical Windows 11 devices are marked corporate-owned and can receive device-targeted policies and additional OOBE customizations.",
+        "adminImpact": "Review deployment precedence and consider device association when targeting policies or customizing OOBE.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md\nindex 50e4231cc9..9400ffca48 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 2 of 7 - Allow users to join devices to Microsoft Entra ID\n description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 2 of 7 - Allow users to join devices to Microsoft Entra ID.\n-ms.date: 04/04/2025\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -21,7 +21,8 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n - Step 4: [Create a user group](entra-join-user-group.md)\n - Step 5: [Assign applications and PowerShell scripts to device group](entra-join-assign-apps-scripts.md)\n - Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n-- Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 2: [Associate devices](entra-join-device-association.md)\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md",
+      "firstSeenAt": "2026-08-27T23:47:26.387Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "User-driven Entra join tutorial adds a device association option",
+        "summary": "Step 7 now offers two paths: add a Windows corporate identifier or associate devices. The page’s update date was also refreshed.",
+        "adminImpact": "Administrators following the tutorial can choose the device association path when appropriate; no required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 6,
+      "changes": 13,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md\nindex f90b38e1c0..52786b9bc3 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 5 of 7 - Assign applications and PowerShell scripts to device group\n description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 5 of 7 - Assign applications and PowerShell scripts to device group.\n-ms.date: 01/30/2026\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -21,7 +21,8 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n > - **Step 5: Assign applications and PowerShell scripts to device group**\n \n - Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n-- Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 2: [Associate devices](entra-join-device-association.md)\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n@@ -36,16 +37,16 @@ The applications and PowerShell scripts specified should be the essential applic\n \n Any applications installed or PowerShell scripts that run during a Windows Autopilot device preparation deployment should be configured to install in the **System** context since the applications are installed and the PowerShell scripts ran during OOBE when no user is signed in.\n \n-For applications to install and PowerShell scripts work successfully, they must be assigned to the device group created for Windows Autopilot device preparation in [Step 3: Create an assigned device group](entra-join-device-group.md).\n+For applications to install and PowerShell scripts to run successfully, they must be assigned to the device group created for Windows Autopilot device preparation in [Step 3: Create an assigned device group](entra-join-device-group.md).\n \n-For applications to install and PowerShell scripts work successfully during a Windows Autopilot device preparation deployment, two steps need to be taken:\n+For applications to install and PowerShell scripts to run successfully during a Windows Autopilot device preparation deployment, complete two steps:\n \n 1. They must be assigned to the device group created for Windows Autopilot device preparation in [Step 3: Create an assigned device group](entra-join-device-group.md). This step is covered in this article.\n 2. They must be specified as part of the Windows Autopilot device preparation policy. This step is covered in the next step [Step 5: Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md).\n \n > [!NOTE]\n >\n-> The below steps assume that the applications or PowerShell scripts that will be deployed during Windows Autopilot device preparation deployment are already added to Intune. For more information on how to add applications and PowerShell scripts to Intune if they aren't already created, see [Add apps to Microsoft Intune](/intune/app-management/deployment/index) and [Use PowerShell scripts on Windows devices in Intune](/intune/device-management/tools/management-extension-windows).\n+> The following steps assume that the applications or PowerShell scripts that will be deployed during Windows Autopilot device preparation deployment are already added to Intune. For more information on how to add applications and PowerShell scripts to Intune if they aren't already created, see [Add apps to Microsoft Intune](/intune/app-management/deployment/) and [Use PowerShell scripts on Windows devices in Intune](/intune/device-management/tools/management-extension-windows).\n \n ### Applications\n \n@@ -134,7 +135,7 @@ To assign the desired PowerShell scripts to the device group created for Windows\n \n ## Related content\n \n-- [Add apps to Microsoft Intune](/intune/app-management/deployment/index).\n+- [Add apps to Microsoft Intune](/intune/app-management/deployment/).\n - [Use PowerShell scripts on Windows devices in Intune](/intune/device-management/tools/management-extension-windows).\n - [Assign apps to groups with Microsoft Intune](/intune/app-management/deployment/assign-groups).\n - [Win32 app management in Microsoft Intune](/intune/app-management/deployment/win32).\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+      "firstSeenAt": "2026-08-27T23:47:26.391Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Tutorial adds device association as a Windows Autopilot setup option",
+        "summary": "The tutorial now lists device association as an alternative to adding a Windows corporate identifier and clarifies the steps for deploying apps and PowerShell scripts.",
+        "adminImpact": "Administrators have an additional documented setup path to follow when preparing devices; app and script assignments still target the designated device group.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md\nindex e668fc6002..9c3bb3dae2 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 1 of 7 - Set up Windows automatic Intune enrollment\n description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 1 of 7 - Set up Windows automatic Intune enrollment.\n-ms.date: 04/04/2025\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -20,7 +20,8 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n - Step 4: [Create a user group](entra-join-user-group.md)\n - Step 5: [Assign applications and PowerShell scripts to device group](entra-join-assign-apps-scripts.md)\n - Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n-- Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 2: [Associate devices](entra-join-device-association.md)\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md",
+      "firstSeenAt": "2026-08-27T23:47:26.395Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Autopilot tutorial adds a device association option",
+        "summary": "Step 7 now offers two options: add a Windows corporate identifier or associate devices. The document date was also updated.",
+        "adminImpact": "Administrators following the tutorial can access device association guidance directly from Step 7.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+      "status": "modified",
+      "additions": 50,
+      "deletions": 10,
+      "changes": 60,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md\nindex 265975c45d..5ae22fedb9 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md\n@@ -1,7 +1,7 @@\n ---\n-title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 6 of 7 - Create a Windows Autopilot device preparation policy\n-description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 6 of 7 - Create a Windows Autopilot device preparation policy.\n-ms.date: 06/11/2025\n+title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 6 - Create a Windows Autopilot device preparation policy\n+description: Create a Windows Autopilot device preparation policy for a user-driven Microsoft Entra join deployment.\n+ms.date: 08/25/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -21,7 +21,8 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n >\n > - **Step 6: Create Windows Autopilot device preparation policy**\n \n-- Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 2: [Associate devices](entra-join-device-association.md)\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n@@ -103,9 +104,29 @@ In the **Configuration settings** page:\n \n       If there's a deployment failure, setting this option to **Yes** displays a link at the deployment failure page allowing the end-user to retrieve diagnostic logs.\n \n+   > [!IMPORTANT]\n+   >\n+   > The out-of-box experience settings that follow—**Language (Region)**, **Automatically configure keyboard**, **Hide Microsoft Software License Terms**, **Hide privacy settings**, **Hide change account options**, and **Apply device name template**—are **only available to associated devices**. They take effect only when the device is bound to your tenant using [device association](entra-join-device-association.md), and they have no effect on devices that aren't associated, such as devices onboarded with corporate identifiers only. This limitation doesn't apply to the **Apps** or **Scripts** sections, which apply to all Windows Autopilot device preparation deployments.\n+\n+   1. **Language (Region)** - Sets the language and region applied to the device during OOBE.\n+\n+   1. **Automatically configure keyboard** - Skips the keyboard selection page in OOBE.\n+\n+      > [!NOTE]\n+      >\n+      > When the device uses a Wi-Fi network connection during OOBE, the language and keyboard selection screens aren't hidden.\n+\n+   1. **Hide Microsoft Software License Terms** - Hides the Microsoft Software License Terms (EULA) page in OOBE.\n+\n+   1. **Hide privacy settings** - Hides the privacy settings page in OOBE.\n+\n+   1. **Hide change account options** - Prevents change account options from appearing on the company sign-in and domain error pages. This setting requires company branding to be configured in Microsoft Entra ID.\n+\n+   1. **Apply device name template** - Renames the device before enrollment using a custom prefix combined with `%RAND:4%` (four random characters) or `%SERIAL%` (the device serial number). The resulting device name can be up to 63 characters long.\n+\n 1. Expand the **Apps** section by selecting it:\n \n-   The **Apps** section allows selection of up to 25 managed applications reference with the deployment. The applications specified here should be the essential applications that should be installed on the device before the end-user can start using the device.\n+   The **Apps** section lets you select up to 25 managed applications to install during deployment. Select the essential applications that must be installed before the end user can use the device.\n \n    > [!IMPORTANT]\n    >\n@@ -157,20 +178,39 @@ In the **Configuration settings** page:\n \n > [!IMPORTANT]\n >\n-> Make sure that the device that the Windows Autopilot device preparation deployment is run on isn't registered or added as a Windows Autopilot device. If the device is registered or added as a Windows Autopilot device, the Windows Autopilot profile takes precedence over the Windows Autopilot device preparation policy. In this scenario, the Windows Autopilot deployment runs instead of the Windows Autopilot device preparation deployment. If a device needs to be removed as a Windows Autopilot device, see [Deregister a device](../../../registration-overview.md#deregister-a-device).\n+> If a device is registered as a Windows Autopilot device, whether the Windows Autopilot deployment or the Windows Autopilot device preparation deployment runs depends on the device's association state:\n+>\n+> - **The device isn't associated with your tenant.** Windows Autopilot registration takes precedence, and the Windows Autopilot deployment runs instead of the device preparation deployment.\n+> - **The device is associated with your tenant.** Device association takes precedence, and the Windows Autopilot device preparation deployment runs.\n+>\n+> To run device preparation on a registered device without associating it, first remove the device's Windows Autopilot registration. For more information, see [Deregister a device](../../../registration-overview.md#deregister-a-device).\n \n ## Policy priority\n \n-If multiple Windows Autopilot device preparation polices are deployed to a user, the policy with the highest priority as displayed in the **Home** > **Enroll devices | Windows enrollment** > **Device preparation policies** screen gets priority. The policy with the highest priority is higher in the list and has the smallest number under the **Priority** column. To change a policy's priority, move it in the list by dragging the policy within the list.\n+If multiple Windows Autopilot device preparation policies are assigned to a user, the policy with the highest priority takes precedence. On the **Home** > **Enroll devices | Windows enrollment** > **Device preparation policies** screen, the highest-priority policy appears at the top of the list and has the smallest number in the **Priority** column. To change a policy's priority, drag it to a different position in the list.\n+\n+A device preparation policy can be assigned to a device or to a user. When a device has both a device-based assignment and a user-based assignment, the **device-based assignment takes precedence**. For example, if you assign a device preparation policy directly to a device when you [pre-associate the device](entra-join-device-association.md), that policy is used instead of any policy assigned to the user who signs in during enrollment.\n+\n+## Next step: Onboard trusted devices\n+\n+After you create the device preparation policy, choose **one** of the following methods to make sure only trusted devices are prepared. You don't need to use both:\n+\n+- **Corporate identifiers** (optional) - Upload device identifiers so only trusted devices can enroll when personal-device enrollment is blocked.\n+- **Device association** (optional) - Bind devices to your tenant before enrollment. Associated devices are automatically treated as corporate-owned, so you **don't** need to upload corporate identifiers for them. Device association also enables the out-of-box experience settings that are only available to associated devices.\n+\n+To use corporate identifiers:\n+\n+> [!div class=\"nextstepaction\"]\n+> [Step 7, option 1: Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n \n-## Next step: Add Windows corporate identifier to device\n+To use device association instead:\n \n > [!div class=\"nextstepaction\"]\n-> [Step 7: Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+> [Step 7, option 2: Associate devices](entra-join-device-association.md)\n \n > [!NOTE]\n >\n-> Windows Autopilot device preparation only requires [corporate identifiers for Windows](../../overview.md#corporate-identifiers-for-windows) if Intune enrollment restrictions are being used to block personal device enrollments. If Intune enrollment restrictions aren't being used to block personal device enrollments, then the next step is to deploy the device.\n+> Windows Autopilot device preparation only requires [corporate identifiers for Windows](../../overview.md#corporate-identifiers-for-windows) if Intune enrollment restrictions are being used to block personal device enrollments. If enrollment restrictions aren't blocking personal devices and you aren't using device association, then the next step is to deploy the device.\n \n <!--links-->\n \n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+      "firstSeenAt": "2026-08-27T23:47:26.398Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot device association is now documented",
+        "summary": "Step 7 now includes device association as an alternative to corporate identifiers. The documentation explains associated-device OOBE settings, deployment precedence, and device- versus user-based policy assignment.",
+        "adminImpact": "Review association and assignment precedence when configuring device preparation policies to ensure the intended deployment and OOBE experience.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 8,
+      "changes": 20,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md\nindex 5c00b16f8d..851dcef167 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md\n@@ -1,7 +1,7 @@\n ---\n-title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 7 of 7 - Add Windows corporate identifier to device\n-description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 7 of 7 - Add Windows corporate identifier to device.\n-ms.date: 04/04/2025\n+title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 7 - Add Windows corporate identifier to device\n+description: Add a Windows corporate identifier as one option for onboarding trusted devices with Windows Autopilot device preparation.\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -20,13 +20,17 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n \n > [!div class=\"checklist\"]\n >\n-> - **Step 7: Add Windows corporate identifier to device**\n+> - **Step 7, option 1: Add Windows corporate identifier to device**\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n ## Add Windows corporate identifier for devices\n \n-Corporate identifiers in Intune allows pre-uploading of Windows device identifiers (serial number, manufacturer, model) and ensures only trusted Windows devices can be enrolled in Intune. If Intune enrollment restrictions are being used to block personal device enrollments, corporate identifiers need to be uploaded for all devices that are enrolled through Windows Autopilot device preparation before deployment. To add corporate identifier for devices in Intune, see [Add Windows corporate identifiers](/intune/intune-service/enrollment/corporate-identifiers-add#add-windows-corporate-identifiers).\n+Corporate identifiers in Intune allows pre-uploading of Windows device identifiers (serial number, manufacturer, model) and ensures only trusted Windows devices can be enrolled in Intune. If Intune enrollment restrictions are being used to block personal device enrollments, corporate identifiers need to be uploaded for all devices that are enrolled through Windows Autopilot device preparation before deployment. To add corporate identifier for devices in Intune, see [Add Windows corporate identifiers](/intune/device-enrollment/add-corporate-identifiers#add-windows-corporate-identifiers).\n+\n+> [!NOTE]\n+>\n+> Adding corporate identifiers is **one** of two ways to make sure only trusted devices are prepared. The other way is [device association](entra-join-device-association.md), which is optional. You don't need to use both. If you associate devices, they're automatically treated as corporate-owned, so you **don't** need to upload corporate identifiers for those devices. To use device association instead, see [Step 7, option 2: Associate devices](entra-join-device-association.md).\n \n > [!IMPORTANT]\n >\n@@ -34,8 +38,8 @@ Corporate identifiers in Intune allows pre-uploading of Windows device identifie\n \n For more information, see:\n \n-- [Identify devices as corporate-owned](/intune/intune-service/enrollment/corporate-identifiers-add).\n-- [What are enrollment restrictions?](/intune/intune-service/enrollment/enrollment-restrictions-set).\n-- [Create device platform restrictions](/intune/intune-service/enrollment/create-device-platform-restrictions).\n+- [Identify devices as corporate-owned](/intune/device-enrollment/add-corporate-identifiers).\n+- [What are enrollment restrictions?](/intune/device-enrollment/restrictions).\n+- [Create device platform restrictions](/intune/device-enrollment/create-platform-restrictions).\n \n Once the corporate identifier is added for the device, then proceed with deploying the device.\n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md",
+      "firstSeenAt": "2026-08-27T23:47:26.402Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Windows Autopilot guide adds device association as an alternative",
+        "summary": "Step 7 now identifies corporate identifiers as one option and links to optional device association as another. Associated devices are automatically treated as corporate-owned, and enrollment links were updated.",
+        "adminImpact": "Administrators can choose either method for preparing trusted devices; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md\nindex 476256a2f4..12d1857278 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 3 of 7 - Create an assigned device group\n description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 3 of 7 - Create an assigned device group.\n-ms.date: 04/04/2025\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -21,7 +21,8 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n - Step 4: [Create a user group](entra-join-user-group.md)\n - Step 5: [Assign applications and PowerShell scripts to device group](entra-join-assign-apps-scripts.md)\n - Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n-- Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 2: [Associate devices](entra-join-device-association.md)\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-device-group",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md",
+      "firstSeenAt": "2026-08-27T23:47:26.410Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Autopilot tutorial adds a device association option",
+        "summary": "Step 7 now presents two options: adding a Windows corporate identifier or associating devices. The documentation date was also updated.",
+        "adminImpact": "Administrators following the tutorial can use the newly documented device association path as an alternative in Step 7.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md\nindex 895dd3eda4..efdea4562e 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot device preparation user-driven Microsoft Entra join - Step 4 of 7 - Create a user group\n description: How to - Windows Autopilot device preparation user-driven Microsoft Entra join - Step 4 of 7 - Create a user group.\n-ms.date: 04/04/2025\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -21,7 +21,8 @@ Windows Autopilot device preparation user-driven Microsoft Entra join steps:\n \n - Step 5: [Assign applications and PowerShell scripts to device group](entra-join-assign-apps-scripts.md)\n - Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n-- Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+- Step 7, option 2: [Associate devices](entra-join-device-association.md)\n \n For an overview of the Windows Autopilot device preparation user-driven Microsoft Entra join workflow, see [Windows Autopilot device preparation user-driven Microsoft Entra join overview](entra-join-workflow.md#workflow).\n \n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-user-group",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md",
+      "firstSeenAt": "2026-08-27T23:47:26.413Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "User-driven Entra join tutorial adds a device association option",
+        "summary": "Step 7 now documents two options: adding a Windows corporate identifier or using Associate devices. The page date was also updated.",
+        "adminImpact": "Administrators can use the newly documented Associate devices path when following the tutorial.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 10,
+      "changes": 28,
+      "patch": "diff --git a/autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md b/autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md\nindex 4772a9d650..51be2a818a 100644\n--- a/autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md\n+++ b/autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md\n@@ -1,19 +1,19 @@\n ---\n title: Overview for Windows Autopilot device preparation user-driven Microsoft Entra join in Intune\n description: Overview for Windows Autopilot device preparation user-driven Microsoft Entra join in Intune.\n-ms.date: 03/27/2025\n+ms.date: 08/07/2026\n ms.topic: tutorial\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n ---\n \n-# Step by step tutorial for Windows Autopilot device preparation user-driven Microsoft Entra join in Intune\n+# Step-by-step tutorial for Windows Autopilot device preparation user-driven Microsoft Entra join in Intune\n \n-This step by step tutorial guides through using Intune to perform a Windows Autopilot device preparation user-driven scenario when the devices are Microsoft Entra joined.\n+This tutorial guides you through using Intune to deploy Windows Autopilot device preparation in a user-driven Microsoft Entra join scenario.\n \n-The purpose of this tutorial is a step by step guide for all the configuration steps required for a successful Windows Autopilot device preparation user-driven Microsoft Entra join deployment using Intune. The tutorial is also designed as a walkthrough in a lab or testing scenario, but can be expanded for use in a production environment.\n+The tutorial covers all configuration steps required for a successful Windows Autopilot device preparation user-driven Microsoft Entra join deployment. Although the walkthrough is suitable for a lab or test environment, you can also use it in production.\n \n-Before beginning, refer to the [How to: Plan your Microsoft Entra join implementation](/azure/active-directory/devices/azureadjoin-plan) to make sure all requirements are met for joining devices to Microsoft Entra ID.\n+Before beginning, refer to [Plan your Microsoft Entra device deployment](/entra/identity/devices/device-join-plan) to make sure all requirements are met for joining devices to Microsoft Entra ID.\n \n ## Windows Autopilot device preparation user-driven Microsoft Entra join overview\n \n@@ -28,7 +28,7 @@ Windows Autopilot device preparation user-driven deployments can perform the fol\n \n - Joins the device to Microsoft Entra ID.\n - Enrolls the device in Intune.\n-- Installs up to 10 essential applications.\n+- Installs up to 25 essential applications.\n - Runs up to 10 essential PowerShell scripts.\n \n Once the Windows Autopilot device preparation user-driven deployment is complete, the device is ready for the end-user to use and they're immediately sent to the desktop.\n@@ -63,7 +63,7 @@ During the out-of-box experience (OOBE), a user authenticates with their corpora\n \n ## Workflow\n \n-The following steps are needed to configure and then perform a Windows Autopilot device preparation user-driven Microsoft Entra join in Intune:\n+Steps 1–6 configure your environment and the Windows Autopilot device preparation policy. They're required for all deployments:\n \n > [!div class=\"checklist\"]\n >\n@@ -73,11 +73,19 @@ The following steps are needed to configure and then perform a Windows Autopilot\n > - Step 4: [Create a user group](entra-join-user-group.md)\n > - Step 5: [Assign applications and PowerShell scripts to device group](entra-join-assign-apps-scripts.md)\n > - Step 6: [Create Windows Autopilot device preparation policy](entra-join-autopilot-policy.md)\n-> - Step 7: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n \n-> [!NOTE]\n+### Step 7 (optional): Make sure only trusted devices are onboarded\n+\n+If you use Intune enrollment restrictions to block personal device enrollments, you must configure **either** corporate identifiers **or** device association for each device before deployment. You don't need both. If a device is associated, you don't need to upload a corporate identifier for it. If personal devices aren't blocked in your environment, you can skip this step and deploy the device.\n+\n+Choose one of the following options:\n+\n+> [!div class=\"checklist\"]\n >\n-> Although the workflow is designed for lab or testing scenarios, it can also be used in a production environment.\n+> - Step 7, option 1: [Add Windows corporate identifier to device](entra-join-corporate-identifier.md)\n+> - Step 7, option 2: [Associate devices](entra-join-device-association.md)\n+\n+Device association also unlocks additional device preparation policy settings—such as OOBE customization and device naming—that are only available to associated devices.\n \n ## Walkthrough\n \n",
+      "baseCommitSha": "8033ee493f3bc78002c836a99569e7c979ab111d",
+      "commitSha": "6b57bab338907b32036b1a875715eaea395ad1cd",
+      "commitMessage": "Add Windows Autopilot device association documentation (#20628)",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:22:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/tutorial/user-driven/entra-join-workflow",
+      "eventId": "intune-docs:6b57bab338907b32036b1a875715eaea395ad1cd:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md",
+      "firstSeenAt": "2026-08-27T23:47:26.417Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Autopilot device preparation documents higher app limits and device association",
+        "summary": "The tutorial now documents support for up to 25 essential applications, up from 10, and adds device association as an alternative to corporate identifiers. Associated devices can use settings such as OOBE customization and device naming.",
+        "adminImpact": "If enrollment restrictions block personal devices, configure either corporate identifiers or device association for each device before deployment. Review the updated setup options and app limit for existing deployments.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/whats-new.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/autopilot/whats-new.md b/autopilot/whats-new.md\nindex b383541d70..6499d3e5d8 100644\n--- a/autopilot/whats-new.md\n+++ b/autopilot/whats-new.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Windows Autopilot\n description: News and resources about the latest updates and past versions of Windows Autopilot. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 08/20/2026\n+ms.date: 08/27/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: whats-new\n@@ -26,7 +26,7 @@ appliesto:\n \n ## Windows Autopilot device association\n \n-Date added: *August 20, 2026*\n+Date added: *August 27, 2026*\n \n Windows Autopilot device preparation now supports device association, which binds a physical Windows 11 device to your organization before enrollment. Associated devices are automatically marked as corporate-owned and can receive device-targeted policy assignments, device naming, and additional out-of-box experience (OOBE) customizations.\n \n",
+      "baseCommitSha": "af51447e5bb58c8781f0af8cfdababa9a4cb5ef5",
+      "commitSha": "bc45b278ed0f17b4164ec8a1789cad16aad4a149",
+      "commitMessage": "Update device association announcement date",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-27 12:04:05 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/whats-new",
+      "eventId": "intune-docs:bc45b278ed0f17b4164ec8a1789cad16aad4a149:modified:autopilot/whats-new.md",
+      "firstSeenAt": "2026-08-27T23:47:26.428Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated device association announcement date",
+        "summary": "The documentation date and “Date added” value changed from August 20, 2026, to August 27, 2026.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/whats-new.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "patch": "diff --git a/autopilot/whats-new.md b/autopilot/whats-new.md\nindex 1f0fd080b8..b383541d70 100644\n--- a/autopilot/whats-new.md\n+++ b/autopilot/whats-new.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Windows Autopilot\n description: News and resources about the latest updates and past versions of Windows Autopilot. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 06/18/2026\n+ms.date: 08/20/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: whats-new\n@@ -24,6 +24,14 @@ appliesto:\n >\n > For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.  \n \n+## Windows Autopilot device association\n+\n+Date added: *August 20, 2026*\n+\n+Windows Autopilot device preparation now supports device association, which binds a physical Windows 11 device to your organization before enrollment. Associated devices are automatically marked as corporate-owned and can receive device-targeted policy assignments, device naming, and additional out-of-box experience (OOBE) customizations.\n+\n+For requirements, lifecycle information, and setup guidance, see [Overview of Windows Autopilot device association](device-preparation/device-association/overview.md).\n+\n ## New Intune connector for Active Directory update available\n \n Date added: *June 18, 2026*   \n",
+      "baseCommitSha": "badb12ffb89e9dcbf6726d8d91634b9d4fd8f7a4",
+      "commitSha": "af51447e5bb58c8781f0af8cfdababa9a4cb5ef5",
+      "commitMessage": "Add device association to Autopilot What's New",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-20 10:43:28 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/whats-new",
+      "eventId": "intune-docs:af51447e5bb58c8781f0af8cfdababa9a4cb5ef5:modified:autopilot/whats-new.md",
+      "firstSeenAt": "2026-08-27T23:47:26.436Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot adds device association",
+        "summary": "Windows Autopilot device preparation now supports associating physical Windows 11 devices with an organization before enrollment. Associated devices are automatically marked corporate-owned and can receive device-targeted policies and naming.",
+        "adminImpact": "Administrators can use device association to identify corporate devices and target enrollment-related configurations before enrollment.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 7,
-    "totalFiles": 9,
+    "totalCommits": 11,
+    "totalFiles": 29,
     "authors": [
       "Aasawari Navathe",
       "Albert Cabello Serrano",
       "Benjamin Flamm",
       "CharlotteChristenson-MSFT",
       "Gracey Wilson",
+      "Maggie Dakeva",
+      "QianDong Ni (Doc)",
       "RFC2784"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 2 new, 7 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
+    "overview": "Today's report includes 9 new, 20 updated, and 0 removed Microsoft Intune documentation files across 9 documentation areas.",
     "groups": [
       {
         "category": "New feature",
@@ -270,6 +792,38 @@
           "intune/device-security/security-baselines/ref-windows-365-agents-settings.md",
           "intune/device-security/security-baselines/configure-baselines.md",
           "intune/device-security/security-baselines/overview.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The new page documents security fixes for the SMS Provider and administration service, applicable to Configuration Manager versions 2603, 2509, and 2503 with required rollups. Installation requires a site reset and manual updating of existing secondary sites. The documentation now states that KB 37447175 is superseded by KB 38982839 for version 2503, while remaining applicable to version 2409.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2603/38982839.md",
+          "intune/configmgr/hotfix/2503/37447175.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "autopilot/device-preparation",
+        "summary": "A new FAQ explains DeviceLink CSV timestamp changes, exporting device information after OOBE, corporate identifier requirements, OEM and partner support, and virtual machine limitations. The new article documents device resets, local association removal, CSV updates, Autopilot registration, stale records, and decommissioning. It notes that associations persist through resets and that stale records are automatically deleted after 360 days. The documentation describes TPM-backed association that writes tenant affinity to UEFI before enrollment, enabling device-targeted policies, device naming, OOBE customization, corporate marking, and stronger onboarding security. The new article explains how",
+        "sourceFiles": [
+          "autopilot/device-preparation/device-association/faq.md",
+          "autopilot/device-preparation/device-association/lifecycle-management.md",
+          "autopilot/device-preparation/device-association/overview.md",
+          "autopilot/device-preparation/device-association/remove-association.md",
+          "autopilot/device-preparation/device-association/requirements.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-device-association.md",
+          "autopilot/device-preparation/compare.md",
+          "autopilot/device-preparation/overview.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-allow-users-to-join.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-automatic-enrollment.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-autopilot-policy.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-corporate-identifier.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-device-group.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-user-group.md",
+          "autopilot/device-preparation/tutorial/user-driven/entra-join-workflow.md"
         ]
       },
       {
@@ -304,6 +858,15 @@
         "sourceFiles": [
           "intune/fundamentals/endpoints.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Windows Autopilot",
+        "summary": "The documentation date and “Date added” value changed from August 20, 2026, to August 27, 2026. Windows Autopilot device preparation now supports associating physical Windows 11 devices with an organization before enrollment. Associated devices are automatically marked corporate-owned and can receive device-targeted policies and naming.",
+        "sourceFiles": [
+          "autopilot/whats-new.md",
+          "autopilot/whats-new.md"
+        ]
       }
     ],
     "highlights": [
@@ -316,6 +879,16 @@
         "category": "Doc update",
         "headline": "intune/device-security",
         "detail": "Intune now documents the Windows 365 for Agents security baseline version 24H1, including default settings for Cloud PCs running agentic workloads across Windows 11, Microsoft Edge, and Microsoft Defender for Endpoint. The Configure baselines documentation now links to the Windows 365 for Agents security baseline settings reference. The security baselines overview now links to the Windows 365 for Agents security baseline, including its Version 24H1 settings reference."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The new page documents security fixes for the SMS Provider and administration service, applicable to Configuration Manager versions 2603, 2509, and 2503 with required rollups. Installation requires a site reset and manual updating of existing secondary sites. The documentation now states that KB 37447175 is superseded by KB 38982839 for version 2503, while remaining applicable to version 2409."
+      },
+      {
+        "category": "Doc update",
+        "headline": "autopilot/device-preparation",
+        "detail": "A new FAQ explains DeviceLink CSV timestamp changes, exporting device information after OOBE, corporate identifier requirements, OEM and partner support, and virtual machine limitations. The new article documents device resets, local association removal, CSV updates, Autopilot registration, stale records, and decommissioning. It notes that associations persist through resets and that stale records are automatically deleted after 360 days. The documentation describes TPM-backed association that writes tenant affinity to UEFI before enrollment, enabling device-targeted policies, device naming, OOBE customization, corporate marking, and stronger onboarding security. The new article explains how"
       },
       {
         "category": "Doc update",
@@ -336,6 +909,11 @@
         "category": "Feature update",
         "headline": "intune/fundamentals",
         "detail": "The Intune client and host service endpoint entry now includes 150.171.109.0/24 and 150.171.110.0/24."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Windows Autopilot",
+        "detail": "The documentation date and “Date added” value changed from August 20, 2026, to August 27, 2026. Windows Autopilot device preparation now supports associating physical Windows 11 devices with an organization before enrollment. Associated devices are automatically marked corporate-owned and can receive device-targeted policies and naming."
       }
     ],
     "generatedBy": "fallback"

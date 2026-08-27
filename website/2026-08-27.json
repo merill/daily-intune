@@ -209,23 +209,50 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/fundamentals/endpoints.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/fundamentals/endpoints.md b/intune/fundamentals/endpoints.md\nindex 2e3eacfe5c..2fcdd7b364 100644\n--- a/intune/fundamentals/endpoints.md\n+++ b/intune/fundamentals/endpoints.md\n@@ -62,7 +62,7 @@ The data columns shown in the tables are:\n \n | ID | Desc | Category | ER | Addresses | Ports |\n |----|------|----------|----|-----------|-------|\n-| 163 | Intune client and host service| Allow<BR>Required | False | `*.manage.microsoft.com`<BR>`manage.microsoft.com`<BR>`*.dm.microsoft.com`<BR>`EnterpriseEnrollment.manage.microsoft.com`<BR>`104.46.162.96/27, 13.67.13.176/28, 13.67.15.128/27, 13.69.231.128/28, 13.69.67.224/28, 13.70.78.128/28, 13.70.79.128/27, 13.74.111.192/27, 13.77.53.176/28, 13.86.221.176/28,13.89.174.240/28, 13.89.175.192/28, 20.189.229.0/25, 20.191.167.0/25, 20.37.153.0/24, 20.37.192.128/25, 20.38.81.0/24, 20.41.1.0/24, 20.42.1.0/24, 20.42.130.0/24, 20.42.224.128/25, 20.43.129.0/24, 20.44.19.224/27, 40.119.8.128/25, 40.67.121.224/27, 40.70.151.32/28, 40.71.14.96/28, 40.74.25.0/24, 40.78.245.240/28, 40.78.247.128/27, 40.79.197.64/27, 40.79.197.96/28, 40.80.180.208/28, 40.80.180.224/27, 40.80.184.128/25, 40.82.248.224/28, 40.82.249.128/25, 52.150.137.0/25, 52.162.111.96/28, 52.168.116.128/27, 52.182.141.192/27, 52.236.189.96/27, 52.240.244.160/27, 20.204.193.12/30, 20.204.193.10/31, 20.192.174.216/29, 20.192.159.40/29, 104.208.197.64/27, 172.160.217.160/27, 172.201.237.160/27, 172.202.86.192/27, 172.205.63.0/25, 172.212.214.0/25, 172.215.131.0/27, 20.168.189.128/27, 20.199.207.192/28, 20.204.194.128/31, 20.208.149.192/27, 20.208.157.128/27, 20.214.131.176/29, 20.43.129.0/24, 20.91.147.72/29, 4.145.74.224/27, 4.150.254.64/27, 4.154.145.224/27, 4.200.254.32/27, 4.207.244.0/27, 4.213.25.64/27, 4.213.86.128/25, 4.216.205.32/27, 4.237.143.128/25, 40.84.70.128/25, 48.218.252.128/25, 57.151.0.192/27, 57.153.235.0/25, 57.154.140.128/25, 57.154.195.0/25, 57.155.45.128/25, 68.218.134.96/27, 74.224.214.64/27, 74.242.35.0/25, 172.208.170.0/25, 74.241.231.0/25, 74.242.184.128/25`<br><br>`Azure Front Door Endpoints:`<br>` 13.107.219.0/24, 13.107.227.0/24, 13.107.228.0/23, 150.171.97.0/24, 2620:1ec:40::/48, 2620:1ec:49::/48, 2620:1ec:4a::/47` | **TCP:** 80, 443 |\n+| 163 | Intune client and host service| Allow<BR>Required | False | `*.manage.microsoft.com`<BR>`manage.microsoft.com`<BR>`*.dm.microsoft.com`<BR>`EnterpriseEnrollment.manage.microsoft.com`<BR>`104.46.162.96/27, 13.67.13.176/28, 13.67.15.128/27, 13.69.231.128/28, 13.69.67.224/28, 13.70.78.128/28, 13.70.79.128/27, 13.74.111.192/27, 13.77.53.176/28, 13.86.221.176/28,13.89.174.240/28, 13.89.175.192/28, 20.189.229.0/25, 20.191.167.0/25, 20.37.153.0/24, 20.37.192.128/25, 20.38.81.0/24, 20.41.1.0/24, 20.42.1.0/24, 20.42.130.0/24, 20.42.224.128/25, 20.43.129.0/24, 20.44.19.224/27, 40.119.8.128/25, 40.67.121.224/27, 40.70.151.32/28, 40.71.14.96/28, 40.74.25.0/24, 40.78.245.240/28, 40.78.247.128/27, 40.79.197.64/27, 40.79.197.96/28, 40.80.180.208/28, 40.80.180.224/27, 40.80.184.128/25, 40.82.248.224/28, 40.82.249.128/25, 52.150.137.0/25, 52.162.111.96/28, 52.168.116.128/27, 52.182.141.192/27, 52.236.189.96/27, 52.240.244.160/27, 20.204.193.12/30, 20.204.193.10/31, 20.192.174.216/29, 20.192.159.40/29, 104.208.197.64/27, 172.160.217.160/27, 172.201.237.160/27, 172.202.86.192/27, 172.205.63.0/25, 172.212.214.0/25, 172.215.131.0/27, 20.168.189.128/27, 20.199.207.192/28, 20.204.194.128/31, 20.208.149.192/27, 20.208.157.128/27, 20.214.131.176/29, 20.43.129.0/24, 20.91.147.72/29, 4.145.74.224/27, 4.150.254.64/27, 4.154.145.224/27, 4.200.254.32/27, 4.207.244.0/27, 4.213.25.64/27, 4.213.86.128/25, 4.216.205.32/27, 4.237.143.128/25, 40.84.70.128/25, 48.218.252.128/25, 57.151.0.192/27, 57.153.235.0/25, 57.154.140.128/25, 57.154.195.0/25, 57.155.45.128/25, 68.218.134.96/27, 74.224.214.64/27, 74.242.35.0/25, 172.208.170.0/25, 74.241.231.0/25, 74.242.184.128/25`<br><br>`Azure Front Door Endpoints:`<br>` 13.107.219.0/24, 13.107.227.0/24, 13.107.228.0/23, 150.171.97.0/24, 150.171.109.0/24, 150.171.110.0/24, 2620:1ec:40::/48, 2620:1ec:49::/48, 2620:1ec:4a::/47` | **TCP:** 80, 443 |\n | 172 | MDM Delivery Optimization | Default<BR>Required | False | `*.do.dsp.mp.microsoft.com`<BR> `*.dl.delivery.mp.microsoft.com`<BR> | **TCP:** 80, 443 |\n | 170 | MEM - Win32Apps | Default<BR>Required | False | `swda01-mscdn.manage.microsoft.com`<br>`swda02-mscdn.manage.microsoft.com`<br>`swdb01-mscdn.manage.microsoft.com`<br>`swdb02-mscdn.manage.microsoft.com`<br>`swdc01-mscdn.manage.microsoft.com`<br>`swdc02-mscdn.manage.microsoft<.com`<br>`swdd01-mscdn.manage.microsoft.com`<br>`swdd02-mscdn.manage.microsoft.com`<br>`swdin01-mscdn.manage.microsoft.com`<br>`swdin02-mscdn.manage.microsoft.com`<br>`aam-content-cdn.manage.microsoft.com`(this endpoint is only for Enterprise App Catalog apps) | **TCP:** 80, 443 |\n | 97 | Consumer Outlook.com, OneDrive, Device authentication, and Microsoft account | Default<BR>Required | False | `account.live.com`<BR>`login.live.com`<BR> | **TCP:** 443 |\n@@ -617,6 +617,8 @@ IP Subnets\n 13.107.227.0/24\n 13.107.228.0/23\n 150.171.97.0/24\n+150.171.109.0/24\n+150.171.110.0/24 \n 2620:1ec:40::/48\n 2620:1ec:49::/48\n 2620:1ec:4a::/47\n",
+      "baseCommitSha": "1027f687b828193d79d030ad3d73a6129b159ea8",
+      "commitSha": "7e120c565376329f92bf6b7f281637c2e7c8a11e",
+      "commitMessage": "Update Intune endpoints with new Azure Front Door IPs (#5231)",
+      "commitAuthor": "RFC2784",
+      "commitDate": "2026-08-27 09:45:55 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/endpoints",
+      "eventId": "intune-docs:7e120c565376329f92bf6b7f281637c2e7c8a11e:modified:intune/fundamentals/endpoints.md",
+      "firstSeenAt": "2026-08-27T19:05:57.771Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Two IP ranges added to Intune service endpoints",
+        "summary": "The Intune client and host service endpoint entry now includes 150.171.109.0/24 and 150.171.110.0/24.",
+        "adminImpact": "Review firewall and proxy allowlists if your organization restricts outbound Intune traffic.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 6,
-    "totalFiles": 8,
+    "totalCommits": 7,
+    "totalFiles": 9,
     "authors": [
       "Aasawari Navathe",
       "Albert Cabello Serrano",
       "Benjamin Flamm",
       "CharlotteChristenson-MSFT",
-      "Gracey Wilson"
+      "Gracey Wilson",
+      "RFC2784"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 2 new, 6 updated, and 0 removed Microsoft Intune documentation files across 5 documentation areas.",
+    "overview": "Today's report includes 2 new, 7 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
     "groups": [
       {
         "category": "New feature",
@@ -269,6 +296,14 @@
         "sourceFiles": [
           "intune/whats-new/index.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "The Intune client and host service endpoint entry now includes 150.171.109.0/24 and 150.171.110.0/24.",
+        "sourceFiles": [
+          "intune/fundamentals/endpoints.md"
+        ]
       }
     ],
     "highlights": [
@@ -296,6 +331,11 @@
         "category": "Doc update",
         "headline": "intune/whats-new",
         "detail": "The page now states that the listed eSIM features are rolling out and might not yet be available to all tenants. The page date and authoring metadata were also updated."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "The Intune client and host service endpoint entry now includes 150.171.109.0/24 and 150.171.110.0/24."
       }
     ],
     "generatedBy": "fallback"

@@ -6651,6 +6651,52 @@
         "outputTokens": 8911,
         "costUsd": 0.011321
       }
+    },
+    "2026-08-27": {
+      "headline": "Windows 365 for Agents baseline and Apple log collection gain detailed Intune guidance",
+      "overview": "Two new reference articles are the period's clearest additions: a version 24H1 Windows 365 for Agents security-baseline settings list and an Apple enhanced-log-collection procedure. Other updates document DDM constraints for VPP tokens, add Samsung browser to web-based Personal Work Profile enrollment guidance, expand the protected-apps reference, and mark listed eSIM features as rolling out across tenants.",
+      "adminImpact": "Use the baseline settings and linked CSP details when reviewing or customizing the Windows 365 for Agents baseline. For Apple log collection, administrators need the required remote-task permissions and an AppleCare token when triggering collection. VPP configurations using DDM on iOS/iPadOS 18 and later support only Required or Uninstall assignments. Enrollment guidance should reflect the revised browser and MFA wording, while eSIM planning should account for phased tenant availability. The expanded protected-apps reference can support app protection policy reviews.",
+      "keyChanges": [
+        {
+          "title": "Windows 365 for Agents gets a documented version 24H1 baseline settings list",
+          "detail": "The new settings reference covers default security-baseline settings for Cloud PCs running agentic workloads across Windows 11, Microsoft Edge, and Microsoft Defender for Endpoint, with linked CSP details for review before deploying or customizing the baseline.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-27-settings-list-for-the-windows-365-for-agents-security-baseline-in-intune-02"
+        },
+        {
+          "title": "Enhanced Apple log collection guidance covers supervised OS 27 or later devices",
+          "detail": "A new procedure explains how to trigger or cancel remote enhanced log collection from a device overview page for supervised macOS 27+, iOS 27+, and iPadOS 27+ devices. Triggering requires remote-task permissions and an AppleCare token, and sends logs directly to Apple for support analysis.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-27-device-action-enhanced-log-collection-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "VPP token guidance defines DDM mode and its assignment limits",
+          "detail": "The Management type option is now documented as MDM, the default, or DDM. DDM applies to app deployment and configuration on iOS/iPadOS 18 and later and supports only Required or Uninstall assignments; Available assignments aren't supported in DDM mode.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-27-manage-vpp-apple-05"
+        },
+        {
+          "title": "Personal Work Profile enrollment guidance adds Samsung browser support",
+          "detail": "The web-based enrollment guidance now lists Chrome, Edge, and Samsung browser as supported options. It also removes the note that phone-call MFA could break enrollment and the associated workaround.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-27-setup-personal-work-profile-04"
+        },
+        {
+          "title": "Intune’s eSIM guidance now flags phased tenant availability",
+          "detail": "The What's new page now states that its listed eSIM features are rolling out and might not yet be available to all tenants, giving administrators a clearer availability caveat when evaluating the features.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-27-what-s-new-in-microsoft-intune-08"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-08-27T12:46:33.939Z",
+      "usage": {
+        "inputTokens": 1888,
+        "outputTokens": 5296,
+        "costUsd": 0.006733
+      }
     }
   },
   "weeks": {
@@ -8171,37 +8217,37 @@
       }
     },
     "2026-08-24": {
-      "headline": "Unattended Remote Help deployment guidance and Apple iOS 27 migration lead Intune updates",
-      "overview": "This week’s meaningful changes are operational: Remote Help deployment guidance now specifies Windows unattended-support prerequisites; Apple DDM App Settings guidance covers supervised iOS/iPadOS 27+ and macOS 27+ devices; and Android eSIM guidance details activation, removal, permissions, and device eligibility. Intune also deprecated osVersion for new assignment filters, while Security Copilot documented an Intune licensing gate for its Vulnerability Remediation Agent. Other edits mainly refine enrollment, schema, monitoring, and reference pages, including removal of a planned Linux Defender Antivirus Audit entry from the in-development page.",
-      "adminImpact": "Review Remote Help custom-role permissions, Azure Virtual Desktop agent and bootloader sequencing, and required session-host endpoints before enabling unattended access. Plan migration of iOS app-launch restrictions from the deprecated Restrictions profile settings in iOS 27. Use operatingSystemVersion for new assignment filters; existing osVersion filters continue to work. For Security Copilot, license the agentic user or enable Allow admins without an Intune license under Tenant administration > Roles > Settings. Android eSIM actions require supported corporate-owned Android Enterprise devices, required permissions, an activation code, and an inventory-reported ICCID.",
+      "headline": "Apple DDM controls and unattended Remote Help headline Intune’s latest guidance",
+      "overview": "The strongest administrator-facing updates define Apple DDM controls, unattended Remote Help deployment requirements, Android eSIM operations, and a licensing condition for Security Copilot’s Vulnerability Remediation Agent. The practical value is in the newly specified platform scope, assignment limits, prerequisites, permissions, and tenant settings.",
+      "adminImpact": "Plan the iOS 27 migration from Restrictions-profile app-launch settings and verify platform scope before using Apple DDM. For Remote Help, review custom-role permissions and preserve the agent-before-bootloader deployment dependency. Validate Android device support, Android version, activation code, and ICCID before eSIM actions. For VPP DDM, use only Required or Uninstall assignments. Teams using the Vulnerability Remediation Agent should license the agentic user or enable the named tenant setting.",
       "keyChanges": [
         {
-          "title": "Windows unattended Remote Help deployment requirements are now explicit",
-          "detail": "The updated deployment guidance specifies required permissions, Azure Virtual Desktop agent and bootloader prerequisites, and Win32 deployment steps. To enable unattended control, create a custom Intune role with the required permission, deploy the agent before the bootloader, and make the bootloader depend on the agent.",
-          "product": "Remote Help",
-          "sourceId": "doc-2026-08-26-deploy-remote-help-with-microsoft-intune-09"
-        },
-        {
-          "title": "Apple DDM App Settings cover supervised iOS/iPadOS 27+ and macOS 27+",
-          "detail": "The new Settings catalog guidance covers allowed or denied apps and binaries, along with managed-app allowances. Existing iOS app-launch restrictions in the Restrictions profile must be migrated because those settings are deprecated in iOS 27.",
+          "title": "Apple DDM app settings cover supervised iOS/iPadOS 27+ and macOS 27+",
+          "detail": "A new Intune article documents Settings catalog controls for allowing or denying apps and binaries and for managed-app allowances on supervised devices. It also says existing iOS app-launch restrictions in the Restrictions profile must be migrated because those settings are deprecated in iOS 27.",
           "product": "Intune",
           "sourceId": "doc-2026-08-26-app-settings-configuration-for-apple-devices-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Android Enterprise eSIM guidance adds activation and removal requirements",
-          "detail": "The updated workflow applies to supported corporate-owned Android Enterprise devices and documents supported Android versions, activation-code and inventory-reported ICCID requirements, device-view steps, and required permissions.",
+          "title": "Remote Help documents unattended Windows deployment and prerequisite ordering",
+          "detail": "The updated deployment procedure covers Windows unattended support, including required permissions, Azure Virtual Desktop agent and bootloader prerequisites, and Win32 deployment steps. The agent must be deployed first, with the bootloader configured to depend on it; a custom Intune role with the required permission is also needed.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-08-26-deploy-remote-help-with-microsoft-intune-09"
+        },
+        {
+          "title": "VPP tokens gain a DDM management type with assignment limits",
+          "detail": "VPP token settings now offer Management type MDM, the default, or DDM. DDM applies to app deployment and configuration on iOS/iPadOS 18 and later, but supports only Required or Uninstall assignments; Available assignments aren't supported.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-27-manage-vpp-apple-05"
+        },
+        {
+          "title": "Intune documents Android eSIM activation and removal for corporate-owned devices",
+          "detail": "Updated guidance covers eSIM activation and removal on supported Android Enterprise corporate-owned devices, including supported Android versions, activation-code and ICCID requirements, device-view procedures, and required permissions.",
           "product": "Intune",
           "sourceId": "doc-2026-08-26-manage-esim-plans-in-microsoft-intune-05"
         },
         {
-          "title": "New assignment filters must use operatingSystemVersion instead of osVersion",
-          "detail": "The osVersion property is now documented as deprecated. New assignment filters can’t use it, while existing filters continue to work. Use operatingSystemVersion when creating new filters; no immediate migration is required for current filters.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-26-assignment-filter-properties-and-operators-reference-14"
-        },
-        {
-          "title": "Vulnerability Remediation Agent documentation adds an Intune licensing gate",
-          "detail": "The agentic user must have an Intune license unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings. Verify one of those conditions before relying on the agent.",
+          "title": "Vulnerability Remediation Agent guidance specifies an Intune licensing gate",
+          "detail": "The updated Security Copilot guidance states that the agentic user must have an Intune license unless Allow admins without an Intune license is enabled under Tenant administration > Roles > Settings.",
           "product": "Security Copilot",
           "sourceId": "doc-2026-08-25-vulnerability-remediation-agent-01"
         }
@@ -8209,11 +8255,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-26T09:00:52.863Z",
+      "generatedAt": "2026-08-27T12:46:33.939Z",
       "usage": {
-        "inputTokens": 3517,
-        "outputTokens": 6643,
-        "costUsd": 0.008675
+        "inputTokens": 4493,
+        "outputTokens": 6264,
+        "costUsd": 0.008415
       }
     }
   },
@@ -8541,54 +8587,54 @@
       }
     },
     "2026-08": {
-      "headline": "Future Apple OS minimums, DDM guidance, and unattended Remote Help shape Intune planning",
-      "overview": "August was update-heavy, but the consequential items are concrete: Intune plans to raise iOS/iPadOS and macOS support or enrollment floors later this year; a new Apple DDM App Settings article covers OS 27+ app and binary controls and the iOS 27 migration from Restrictions-profile app-launch settings; and Remote Help guidance details unattended Windows deployment. Firewall guidance also clarifies when per-setting status is available, while the new single-device page is slated to replace the legacy view as the default in September 2609.",
-      "adminImpact": "Inventory iOS/iPadOS and macOS fleets and plan upgrades against the later Apple releases, including the separate OS requirements for userless Automated Device Enrollment devices. Migrate iOS Restrictions-profile app-launch controls to Apple DDM App Settings for iOS 27. For unattended Remote Help, create the required custom role and deploy the Azure Virtual Desktop agent before the bootloader, with the bootloader dependent on the agent. Set reporting expectations for MDM Firewall Rules and ASR Rules to policy-level unless devices use Defender for Endpoint security settings management. Update runbooks and brief administrators before the September 2609 device-page change.",
+      "headline": "Apple OS floors, September’s device page, and unattended Remote Help lead August",
+      "overview": "August’s highest-impact Intune developments are two planned Apple support-floor changes and an upcoming interface switch. After Apple releases iOS/iPadOS 27 later this year, Intune will require iOS/iPadOS 18 or later; after macOS Golden Gate 27, new macOS enrollments below macOS 15 will be blocked while existing macOS 14-and-below devices remain enrolled. The new single-device page is planned to become the default in September 2609. New and expanded guidance also covers Apple DDM app controls for supervised iOS/iPadOS 27+ and macOS 27+ devices, plus unattended Remote Help deployment prerequisites. Most of the remaining period was documentation maintenance, with notable clarifications for security reporting, device-action quotas, assignment filters, and Security Copilot agent lifecycle requirements.",
+      "adminImpact": "Inventory Apple OS versions and plan upgrades before the support and enrollment changes, including the separate requirements for userless iOS/iPadOS devices enrolled through Automated Device Enrollment. Update runbooks and administrator training for the September 2609 device-page change. For Apple DDM, review supervised-device scope and migrate existing iOS app-launch Restrictions profiles because those settings are deprecated in iOS 27. For unattended Remote Help, create the required custom Intune role and deploy the Azure Virtual Desktop agent before the bootloader, preserving the documented dependency. Also plan around tenant-wide daily limits of 500 Wipe actions and 1,000 each for Retire and Delete, cumulative across individual, bulk, and Microsoft Graph submissions. For MDM-managed ​​",
       "keyChanges": [
         {
-          "title": "Intune will require iOS/iPadOS 18 or later after iOS/iPadOS 27",
-          "detail": "A Message Center plan says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. It calls for compatibility checks and Intune report review; userless devices enrolled through Automated Device Enrollment have separate OS requirements.",
+          "title": "iOS/iPadOS 18 becomes Intune’s minimum after Apple’s iOS/iPadOS 27 release",
+          "detail": "Microsoft’s plan says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Administrators should use compatibility checks and Intune reports to identify affected devices; userless devices enrolled through Automated Device Enrollment have specific OS requirements.",
           "product": "Intune",
           "sourceId": "MC1454371"
         },
         {
-          "title": "macOS 15 becomes the future Intune minimum for new enrollments",
-          "detail": "After macOS Golden Gate 27 releases later this year, Intune will support macOS 15 and later. Devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed.",
+          "title": "macOS 15 will gate new enrollments after macOS Golden Gate 27",
+          "detail": "After macOS Golden Gate 27 releases this year, Intune will support macOS 15 and later. Devices already enrolled on macOS 14.x or below remain enrolled, but new enrollments on those versions will no longer be allowed.",
           "product": "Intune",
           "sourceId": "MC1454370"
         },
         {
-          "title": "Apple DDM App Settings guidance covers app and binary controls on OS 27 devices",
-          "detail": "A new Intune article documents Apple DDM App Settings in the Settings catalog for supervised iOS/iPadOS 27+ and macOS 27+ devices, including allowed or denied apps and binaries and managed-app allowances. Existing iOS app-launch restrictions in Restrictions profiles must be migrated because those settings are deprecated in iOS 27.",
+          "title": "Intune’s single-device page becomes the default in September 2609",
+          "detail": "The new consolidated single-device management page will replace the legacy view as the default in the September 2609 release. Microsoft says management features remain available, so the immediate preparation is to update internal procedures and familiarize administrators with the new interface.",
+          "product": "Intune",
+          "sourceId": "MC1456780"
+        },
+        {
+          "title": "Apple DDM App Settings guidance targets supervised 27-plus devices",
+          "detail": "The new Intune guidance documents Settings catalog controls for allowed or denied apps, binaries, and managed-app allowances on supervised iOS/iPadOS 27+ and macOS 27+ devices. Existing iOS app-launch restrictions configured through the Restrictions profile must be migrated because those settings are deprecated in iOS 27.",
           "product": "Intune",
           "sourceId": "doc-2026-08-26-app-settings-configuration-for-apple-devices-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Remote Help guidance specifies unattended Windows deployment prerequisites",
-          "detail": "The updated deployment guidance covers Windows unattended support and specifies required custom Intune-role permissions, the Azure Virtual Desktop agent and bootloader prerequisites, and Win32 deployment steps. The agent must be deployed before the bootloader, with the bootloader configured to depend on the agent.",
+          "title": "Unattended Remote Help guidance specifies an agent-before-bootloader deployment",
+          "detail": "Updated Remote Help deployment guidance covers Windows unattended support and specifies required permissions, Azure Virtual Desktop agent and bootloader prerequisites, and Win32 deployment steps. The bootloader must depend on the agent so the agent is deployed first.",
           "product": "Remote Help",
           "sourceId": "doc-2026-08-26-deploy-remote-help-with-microsoft-intune-09"
-        },
-        {
-          "title": "MDM Firewall Rules and ASR Rules have policy-level reporting limits",
-          "detail": "The Firewall guidance states that per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM provide only policy-level status, not per-setting statuses. Per-setting status requires devices enrolled with Defender for Endpoint security settings management.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-06-firewall-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-26T09:00:52.863Z",
+      "generatedAt": "2026-08-27T12:46:33.939Z",
       "usage": {
-        "inputTokens": 7151,
-        "outputTokens": 10782,
-        "costUsd": 0.014369
+        "inputTokens": 7005,
+        "outputTokens": 8079,
+        "costUsd": 0.011096
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-26T09:00:52.863Z",
+  "generatedAt": "2026-08-27T12:46:33.939Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8653,18 +8699,24 @@
       "outputTokens": 26336,
       "requests": 3,
       "costUsd": 0.034365
+    },
+    "2026-08-27": {
+      "inputTokens": 20391,
+      "outputTokens": 31639,
+      "requests": 4,
+      "costUsd": 0.042045
     }
   },
   "lastRun": {
-    "inputTokens": 13809,
-    "outputTokens": 26336,
-    "requests": 3,
-    "costUsd": 0.034365
+    "inputTokens": 20391,
+    "outputTokens": 31639,
+    "requests": 4,
+    "costUsd": 0.042045
   },
   "totalUsage": {
-    "inputTokens": 2903065,
-    "outputTokens": 1513091,
-    "requests": 249,
-    "costUsd": 2.396323
+    "inputTokens": 2923456,
+    "outputTokens": 1544730,
+    "requests": 253,
+    "costUsd": 2.438368
   }
 }

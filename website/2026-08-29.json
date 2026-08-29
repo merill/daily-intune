@@ -1,0 +1,100 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "autopilot/device-preparation/whats-new.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "patch": "diff --git a/autopilot/device-preparation/whats-new.md b/autopilot/device-preparation/whats-new.md\nindex 8ba34fd687..f25ac79ab3 100644\n--- a/autopilot/device-preparation/whats-new.md\n+++ b/autopilot/device-preparation/whats-new.md\n@@ -1,7 +1,7 @@\n ﻿---\n title: What's new in Windows Autopilot device preparation\n description: News and resources about the latest updates of Windows Autopilot device preparation. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 04/10/2026\n+ms.date: 08/27/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: whats-new\n@@ -23,6 +23,14 @@ appliesto:\n >\n > For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.  \n \n+## Windows Autopilot device association\n+\n+Date added: *August 27, 2026*\n+\n+Windows Autopilot device preparation now supports device association, which binds a physical Windows 11 device to your organization before enrollment. Associated devices are automatically marked as corporate-owned and can receive device-targeted policy assignments, device naming, and additional out-of-box experience (OOBE) customizations.\n+\n+For requirements, lifecycle information, and setup guidance, see [Overview of Windows Autopilot device association](device-association/overview.md).\n+\n ## Windows Autopilot device preparation in automatic mode for Windows 365 general availability<!-- 30057449 -->  \n \n **Date added:** May 11, 2026  \n",
+      "baseCommitSha": "51052ad73287b53494fd1697c225c8e9cb7b6b42",
+      "commitSha": "0d0453ec3517e738bf843997d4d6de86800b150e",
+      "commitMessage": "Move device association to device preparation What's New",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-28 15:18:55 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/whats-new",
+      "eventId": "intune-docs:0d0453ec3517e738bf843997d4d6de86800b150e:modified:autopilot/device-preparation/whats-new.md",
+      "firstSeenAt": "2026-08-29T02:49:27.114Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Windows Autopilot device association documented",
+        "summary": "Windows Autopilot device preparation now supports associating physical Windows 11 devices with an organization before enrollment. Associated devices are marked corporate-owned and can receive device-targeted policies and naming.",
+        "adminImpact": "Administrators can review the linked requirements and setup guidance when planning to use device association.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/whats-new.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 9,
+      "changes": 10,
+      "patch": "diff --git a/autopilot/whats-new.md b/autopilot/whats-new.md\nindex 6499d3e5d8..1f0fd080b8 100644\n--- a/autopilot/whats-new.md\n+++ b/autopilot/whats-new.md\n@@ -1,7 +1,7 @@\n ---\n title: What's new in Windows Autopilot\n description: News and resources about the latest updates and past versions of Windows Autopilot. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 08/27/2026\n+ms.date: 06/18/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: whats-new\n@@ -24,14 +24,6 @@ appliesto:\n >\n > For more information on using RSS for notifications, see [How to use the docs](/intune/use-docs#notifications) in the Intune documentation.  \n \n-## Windows Autopilot device association\n-\n-Date added: *August 27, 2026*\n-\n-Windows Autopilot device preparation now supports device association, which binds a physical Windows 11 device to your organization before enrollment. Associated devices are automatically marked as corporate-owned and can receive device-targeted policy assignments, device naming, and additional out-of-box experience (OOBE) customizations.\n-\n-For requirements, lifecycle information, and setup guidance, see [Overview of Windows Autopilot device association](device-preparation/device-association/overview.md).\n-\n ## New Intune connector for Active Directory update available\n \n Date added: *June 18, 2026*   \n",
+      "baseCommitSha": "51052ad73287b53494fd1697c225c8e9cb7b6b42",
+      "commitSha": "0d0453ec3517e738bf843997d4d6de86800b150e",
+      "commitMessage": "Move device association to device preparation What's New",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-08-28 15:18:55 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/whats-new.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/whats-new",
+      "eventId": "intune-docs:0d0453ec3517e738bf843997d4d6de86800b150e:modified:autopilot/whats-new.md",
+      "firstSeenAt": "2026-08-29T02:49:27.117Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Windows Autopilot device association entry moved",
+        "summary": "The device association entry was removed from the Windows Autopilot What's New page and moved to Device preparation What's New. The page date was also changed to June 18, 2026.",
+        "adminImpact": "Admins tracking device association should consult the Device preparation What's New documentation for updates and guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "Maggie Dakeva"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "New feature",
+        "title": "autopilot/device-preparation",
+        "summary": "Windows Autopilot device preparation now supports associating physical Windows 11 devices with an organization before enrollment. Associated devices are marked corporate-owned and can receive device-targeted policies and naming.",
+        "sourceFiles": [
+          "autopilot/device-preparation/whats-new.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Windows Autopilot",
+        "summary": "The device association entry was removed from the Windows Autopilot What's New page and moved to Device preparation What's New. The page date was also changed to June 18, 2026.",
+        "sourceFiles": [
+          "autopilot/whats-new.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New feature",
+        "headline": "autopilot/device-preparation",
+        "detail": "Windows Autopilot device preparation now supports associating physical Windows 11 devices with an organization before enrollment. Associated devices are marked corporate-owned and can receive device-targeted policies and naming."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Windows Autopilot",
+        "detail": "The device association entry was removed from the Windows Autopilot What's New page and moved to Device preparation What's New. The page date was also changed to June 18, 2026."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

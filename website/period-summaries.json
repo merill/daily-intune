@@ -6755,31 +6755,43 @@
       }
     },
     "2026-09-01": {
-      "headline": "iOS app protection clarifies Screen capture defaults and blocking behavior",
-      "overview": "The day’s meaningful Intune change is a clearer iOS app protection reference for Screen capture: Block prevents capture of work or school data, while Allow remains the default and permits capture and sharing without restrictions. Most other activity was Configuration Manager documentation metadata normalization, replacing older service identifiers with configuration-manager and core-infra across a broad set of pages.",
-      "adminImpact": "When configuring iOS app protection policies, administrators should use the clarified Screen capture behavior to confirm that the selected value matches their data-protection requirements. The Configuration Manager metadata changes do not indicate a product configuration change or required administrator action.",
+      "headline": "Autopilot guidance flags hybrid-join pre-provisioning failures when policies need domain controllers",
+      "overview": "The period was overwhelmingly mechanical: 863 of 873 updates were Configuration Manager entries, with representative pages standardizing documentation metadata from `core-infrastructure`/`microsoft-endpoint-configuration-manager` to `core-infra`/`configuration-manager`. The meaningful administrator-facing changes covered an Autopilot pre-provisioning failure condition, Remote Help licensing for Android COSU devices, and a more prominent Intune servicing warning.",
+      "adminImpact": "For Windows Autopilot hybrid-join pre-provisioning, avoid assigning policies that require domain controller connectivity during technician flow, particularly where a bring-your-own VPN is unavailable. For supported Zebra and Samsung Android Dedicated Device deployments, license Helpers for Remote Help; Sharers do not require a license. Review the Intune servicing note when assessing required Microsoft cloud-service communication.",
       "keyChanges": [
         {
-          "title": "iOS app protection reference defines Screen capture values",
-          "detail": "The Screen capture entry now states that Block prevents capture of work or school data. Allow is the default and permits capture and sharing without restrictions.",
-          "product": "Intune",
-          "sourceId": "doc-2026-09-01-ref-settings-ios-01"
+          "title": "Autopilot documents a hybrid-join pre-provisioning failure condition",
+          "detail": "The Windows Autopilot known-issues guidance now explains that pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, especially when a BYO VPN is unavailable during technician flow.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         },
         {
-          "title": "Configuration Manager documentation adopts new service identifiers",
-          "detail": "Updated pages replace ms.service microsoft-endpoint-configuration-manager with configuration-manager and ms.subservice core-infrastructure with core-infra. The change affects documentation metadata rather than documented Configuration Manager behavior.",
+          "title": "Remote Help licensing is clarified for Android COSU deployments",
+          "detail": "Supported Zebra and Samsung devices running Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-09-01-plan-871"
+        },
+        {
+          "title": "Intune servicing guidance raises its callout from Caution to Important",
+          "detail": "The Servicing Information page changed the callout from Caution to Important. The message itself is unchanged: required Microsoft cloud-service communication can affect updates, reliability, security mitigations, and feature enablement.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-servicing-information-869"
+        },
+        {
+          "title": "Configuration Manager documentation adopts new service metadata identifiers",
+          "detail": "Representative Configuration Manager pages now use `ms.subservice: core-infra` and `ms.service: configuration-manager` instead of `core-infrastructure` and `microsoft-endpoint-configuration-manager`. This is a documentation classification change with no specified administrator action.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
+          "sourceId": "doc-2026-09-01-a-name-bkmk-atp-a-get-started-create-and-deploy-endpoint-security-policies-from-the-admin-center-680"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-01T07:48:51.122Z",
+      "generatedAt": "2026-09-01T22:36:42.136Z",
       "usage": {
-        "inputTokens": 5174,
-        "outputTokens": 1335,
-        "costUsd": 0.002637
+        "inputTokens": 5160,
+        "outputTokens": 1584,
+        "costUsd": 0.002933
       }
     }
   },
@@ -8347,31 +8359,49 @@
       }
     },
     "2026-08-31": {
-      "headline": "iOS app protection clarifies Screen capture blocking and default sharing behavior",
-      "overview": "The week’s most consequential Intune change is updated iOS app protection guidance for Screen capture: Block prevents capture of work or school data, while Allow is the default and permits capture and sharing without restrictions. The period was otherwise dominated by mechanical classification updates, including 863 Configuration Manager changes; two Intune and two Windows Autopilot updates were counted overall.",
-      "adminImpact": "Review iOS app protection policies that use Screen capture. Apply the updated distinction when validating policy intent: Block prevents capture of work or school data, while Allow permits capture and sharing without restrictions and remains the default.",
+      "headline": "Windows Autopilot known-issues guidance flags hybrid-join pre-provisioning failures as Intune details upcoming changes",
+      "overview": "This was a largely mechanical week: 863 of 873 updates were Configuration Manager items, with representative pages changing service metadata from `core-infrastructure` and `microsoft-endpoint-configuration-manager` to `core-infra` and `configuration-manager`. The meaningful administrator-facing exceptions were a Windows Autopilot hybrid-join pre-provisioning failure condition, a broad set of Intune capabilities listed as in development, a Remote Help licensing clarification for Android COSU, and a stronger servicing-information callout.",
+      "adminImpact": "Review Windows Autopilot technician-flow policy assignments and avoid policies that require domain controller connectivity when that connectivity may be unavailable, particularly with a BYO VPN. Use Intune’s in-development list for planning platform support, enrollment, app rollout, device administration, and admin center changes rather than treating those items as current availability announcements. For supported Zebra and Samsung Android COSU deployments, ensure Helpers have Remote Help licenses; Sharers don't require one. Also review the Important servicing note concerning required Microsoft cloud services. The Configuration Manager metadata updates do not indicate product configuration changes.",
       "keyChanges": [
         {
-          "title": "iOS app protection reference updates the Screen capture setting",
-          "detail": "The iOS app protection settings reference now states that Block prevents capture of work or school data. Allow is documented as the default and permits capture and sharing without restrictions.",
-          "product": "Intune",
-          "sourceId": "doc-2026-09-01-ref-settings-ios-01"
+          "title": "Hybrid-join pre-provisioning has a documented domain-connectivity failure condition",
+          "detail": "Windows Autopilot known-issues guidance now explains that pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during the technician flow. The guidance says to avoid assigning policies that require domain controller connectivity during that flow.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         },
         {
-          "title": "Configuration Manager pages adopt standardized service metadata",
-          "detail": "The representative Administration service and CMPivot security page changed its metadata from ms.subservice: core-infrastructure and ms.service: microsoft-endpoint-configuration-manager to ms.subservice: core-infra and ms.service: configuration-manager. The period contains 863 Configuration Manager updates of this classification type, with no documented administrator action.",
+          "title": "Intune’s in-development list expands enrollment, app, and recovery planning",
+          "detail": "The in-development page now lists MHS authentication for protected app activities, declarative VPP downloads, deployment plans, Defender launch during Android setup, bulk eSIM actions, new Apple settings, and Quick Machine Recovery policies. It also records future macOS and iOS/iPadOS support changes and the September 2609 default for the single-device page.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-in-development-microsoft-intune-868"
+        },
+        {
+          "title": "Remote Help licensing for Android COSU places the requirement on Helpers",
+          "detail": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license. Administrators should recheck licensing plans for these deployments and ensure Helpers are licensed.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-09-01-plan-871"
+        },
+        {
+          "title": "Intune servicing guidance changes its cloud-service callout to Important",
+          "detail": "The Servicing Information page changes its callout from Caution to Important. The message itself remains about impacts to updates, reliability, security mitigations, and feature enablement when required Microsoft cloud services aren't reachable.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-servicing-information-869"
+        },
+        {
+          "title": "Configuration Manager guidance adopts the core-infra service classification",
+          "detail": "The dominant Configuration Manager update set changes affected pages to `ms.subservice: core-infra` and `ms.service: configuration-manager`, replacing `core-infrastructure` and `microsoft-endpoint-configuration-manager`. The representative updates describe documentation metadata changes and no administrator action.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
+          "sourceId": "doc-2026-09-01-a-name-bkmk-atp-a-get-started-create-and-deploy-endpoint-security-policies-from-the-admin-center-680"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-01T07:48:51.122Z",
+      "generatedAt": "2026-09-01T22:36:42.136Z",
       "usage": {
-        "inputTokens": 8669,
-        "outputTokens": 1885,
-        "costUsd": 0.003996
+        "inputTokens": 8746,
+        "outputTokens": 4162,
+        "costUsd": 0.006744
       }
     }
   },
@@ -8745,42 +8775,48 @@
       }
     },
     "2026-09": {
-      "headline": "iOS Screen capture guidance clarifies work or school data blocking and default sharing",
-      "overview": "The standout administrator-facing change was updated Intune iOS app protection guidance for Screen capture: Block prevents capture of work or school data, while Allow is the default and permits capture and sharing without restrictions. The 867-update period was otherwise dominated by Configuration Manager metadata reclassification, with a similar service-label update for Windows Autopilot co-management content.",
-      "adminImpact": "Review iOS app protection policies that use Screen capture and validate them against the clarified Block and Allow behavior. No product configuration change or administrator action is indicated for the Configuration Manager and Windows Autopilot metadata updates.",
+      "headline": "Autopilot hybrid-join failures, Remote Help licensing, and servicing guidance stand out in September",
+      "overview": "September was dominated by documentation maintenance rather than product rollouts: 863 of 873 recorded updates affected Configuration Manager, with no new or removed items and no Message Center updates. The meaningful administrator-facing changes were a Windows Autopilot technician-flow failure condition, a Remote Help licensing clarification for Android COSU devices, and a stronger callout on Intune servicing requirements. Configuration Manager updates largely standardized Microsoft Learn metadata.",
+      "adminImpact": "Review Windows Autopilot technician-flow policy assignments, especially where a BYO VPN may be unavailable, and avoid policies requiring domain controller connectivity during pre-provisioning. For supported Zebra and Samsung Android Dedicated Device deployments, ensure Helpers have Remote Help licenses; Sharers do not require one. Review the Important servicing note when evaluating communication with required Microsoft cloud services. The Configuration Manager metadata changes do not indicate configuration changes.",
       "keyChanges": [
         {
-          "title": "iOS app protection clarifies Screen capture behavior",
-          "detail": "The Screen capture reference now states that Block prevents capture of work or school data. Allow remains the default and permits capture and sharing without restrictions. Review policies using this setting against the intended data-protection outcome.",
-          "product": "Intune",
-          "sourceId": "doc-2026-09-01-ref-settings-ios-01"
-        },
-        {
-          "title": "Configuration Manager pages adopt new service metadata identifiers",
-          "detail": "The documentation changes `ms.subservice` from `core-infrastructure` to `core-infra` and `ms.service` from `microsoft-endpoint-configuration-manager` to `configuration-manager`. The supplied guidance identifies this as a metadata update with no administrator action required.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
-        },
-        {
-          "title": "Windows Autopilot co-management content receives the Configuration Manager label",
-          "detail": "The Windows Autopilot enrollment article changes its `ms.service` metadata from `microsoft-endpoint-configuration-manager` to `configuration-manager` for co-management content. No administrator action is indicated.",
+          "title": "Autopilot documents a hybrid-join pre-provisioning failure condition",
+          "detail": "Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during the technician flow. The guidance says to avoid assigning policies with that dependency during technician flow.",
           "product": "Windows Autopilot",
-          "sourceId": "doc-2026-09-01-how-to-enroll-with-windows-autopilot-694"
+          "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
+        },
+        {
+          "title": "Remote Help clarifies Android COSU license requirements",
+          "detail": "Supported Zebra and Samsung devices running Android Dedicated Device (COSU) mode don't require a Sharer license. Only the Helper needs a Remote Help license.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-09-01-plan-871"
+        },
+        {
+          "title": "Intune servicing guidance receives a stronger callout",
+          "detail": "The Servicing Information page changed its callout from Caution to Important. The underlying message is unchanged: impacts can affect updates, reliability, security mitigations, and feature enablement, depending on communication with required Microsoft cloud services.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-servicing-information-869"
+        },
+        {
+          "title": "Configuration Manager pages adopt updated service metadata",
+          "detail": "The period's dominant Configuration Manager updates largely standardized Microsoft Learn classification. On the endpoint-security-policy page, metadata changed to `ms.subservice: core-infra` and `ms.service: configuration-manager` from the previous values.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-01-a-name-bkmk-atp-a-get-started-create-and-deploy-endpoint-security-policies-from-the-admin-center-680"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-01T07:48:51.122Z",
+      "generatedAt": "2026-09-01T22:36:42.136Z",
       "usage": {
-        "inputTokens": 5124,
-        "outputTokens": 1972,
-        "costUsd": 0.003391
+        "inputTokens": 5220,
+        "outputTokens": 2107,
+        "costUsd": 0.003572
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-01T07:48:51.122Z",
+  "generatedAt": "2026-09-01T22:36:42.136Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8865,22 +8901,22 @@
       "costUsd": 0.044051
     },
     "2026-09-01": {
-      "inputTokens": 37949,
-      "outputTokens": 10043,
-      "requests": 6,
-      "costUsd": 0.019642
+      "inputTokens": 57075,
+      "outputTokens": 17896,
+      "requests": 9,
+      "costUsd": 0.032891
     }
   },
   "lastRun": {
-    "inputTokens": 18967,
-    "outputTokens": 5192,
+    "inputTokens": 19126,
+    "outputTokens": 7853,
     "requests": 3,
-    "costUsd": 0.010024
+    "costUsd": 0.013249
   },
   "totalUsage": {
-    "inputTokens": 3047349,
-    "outputTokens": 1662617,
-    "requests": 273,
-    "costUsd": 2.604611
+    "inputTokens": 3066475,
+    "outputTokens": 1670470,
+    "requests": 276,
+    "costUsd": 2.61786
   }
 }

@@ -22542,21 +22542,179 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/whats-new/in-development.md",
+      "status": "modified",
+      "additions": 120,
+      "deletions": 2,
+      "changes": 122,
+      "patch": "diff --git a/intune/whats-new/in-development.md b/intune/whats-new/in-development.md\nindex 5622e6abad..404fdb5f5c 100644\n--- a/intune/whats-new/in-development.md\n+++ b/intune/whats-new/in-development.md\n@@ -1,7 +1,7 @@\n ---\n title: In development - Microsoft Intune\n description: This article describes Microsoft Intune features that are in development.\n-ms.date: 08/21/2026\n+ms.date: 09/01/2026\n ms.topic: whats-new\n ai-usage: ai-assisted\n ms.reviewer: intuner\n@@ -49,12 +49,40 @@ We're fixing how scope tags work with Endpoint Privilege Management (EPM) report\n \n <!-- ***********************************************-->\n \n-<!-- ## App management -->\n+## App management\n+\n+### Require Managed Home Screen authentication for protected app activities<!-- 35765469 -->\n+\n+For Android Enterprise dedicated devices using Managed Home Screen (MHS) with Microsoft Entra shared device mode, Intune will allow admins to requiring users to complete MHS authentication state before allowing protected activities in MAM-integrated apps. When MHS requires sign-in or session PIN authentication, users will still be able to complete limited actions, such as accepting or declining incoming calls. If a user tries to open another protected activity, the app will return them to MHS to authenticate. After authentication, protected app activities will become available normally. This behavior will help prevent users from bypassing the MHS session PIN while preserving critical communication actions.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Android Enterprise corporate-owned dedicated devices using Managed Home Screen with Microsoft Entra shared device mode\n+\n+### Declarative VPP app download in Company Portal<!-- 30483698 -->\n+\n+The iOS/iPadOS Company Portal will support Declarative Volume-Purchased Program (VPP) app downloads from the Apps tab. Declarative VPP apps provide an improved end-user experience by reducing app installation latency, allowing for automatic overnight app updates, and providing the end user with a live status of an app installation. If you choose not to use Declarative VPP apps, there will be no changes to the admin and user experience.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - iOS/iPadOS\n \n <!-- *********************************************** -->\n \n ## Device configuration\n \n+### New Apple settings in the Settings Catalog for iOS/iPadOS and macOS<!-- 39430305 -->\n+\n+Microsoft Intune will add new Apple settings for supported iOS/iPadOS and macOS devices. You'll be able to configure the new options by using Settings Catalog profiles in the Microsoft Intune admin center. These settings will expand the device management controls available through Intune and help you manage Apple devices with a consistent policy workflow. To see these settings, go to **Devices** > **Manage devices** > **Configuration** > **Create** > **New policy** > **iOS/iPadOS** or **macOS** for platform > **Settings catalog** for profile type.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - iOS/iPadOS\n+> - macOS\n+\n ### Enforce Routes capability in iOS/iPadOS and macOS VPN profiles<!-- 28869584 -->\n \n Microsoft Intune will support Apple's **[Enforce Routes](https://developer.apple.com/documentation/networkextension/nevpnprotocol/enforceroutes)** feature in iOS/iPadOS and macOS VPN profiles.\n@@ -94,8 +122,71 @@ For more information, see:\n \n <!-- *********************************************** -->\n \n+## Device enrollment\n+\n+### Automatically launch Microsoft Defender for Endpoint during Android Enterprise device setup<!-- 38079776 -->\n+\n+You'll be able to configure Microsoft Defender for Endpoint to open automatically during out-of-box setup for supported corporate-owned Android Enterprise devices. After you configure the Defender for Endpoint connector, turn on **Grant MTD role permissions**, and assign the Defender app as required, you'll enable this experience from **Endpoint security** > **Defender for Endpoint**. Intune will open Defender during enrollment so users can complete its initial configuration as part of device setup. If configuration isn't completed, the Intune setup step will remain available so users can open Defender again. This experience will help ensure that Defender is configured before enrollment finishes.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Android Enterprise corporate-owned fully managed devices (COBO)\n+> - Android Enterprise corporate-owned devices with a work profile (COPE)\n+\n+<!-- *********************************************** -->\n+\n ## Device management\n \n+### Updated minimum supported version for macOS<!-- 38259939 -->\n+\n+Microsoft Intune will update its minimum supported macOS version after Apple releases macOS 27. Intune, the Company Portal, and the Intune management agent will support macOS 15 and later. Devices running macOS 14 or earlier that are already enrolled will remain enrolled, but new devices on those versions won't be able to enroll. You'll be able to use Intune reporting to identify affected devices and plan upgrades. Devices enrolled without user affinity have a separate support statement.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - macOS\n+\n+### Updated minimum supported version for iOS and iPadOS<!-- 38546204 -->\n+\n+Microsoft Intune will update its minimum supported operating-system version after Apple releases iOS and iPadOS 27. Intune device management, the Company Portal, and app protection policies will require iOS/iPadOS 18 or later for standard supported scenarios. You'll be able to use Intune reports to identify affected devices and users and plan operating-system upgrades before the change. Userless devices enrolled through Automated Device Enrollment have a separate support statement and should be evaluated using the applicable guidance.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - iOS/iPadOS\n+\n+### New single device page becomes the default experience in the Intune admin center<!-- 16532161 -->\n+\n+Starting with Intune's September (2609) release, the new single device page in the Intune admin center will become the default experience for all admins, and the previous device page will no longer be available. When you go to **Devices** > **All devices** and select a device, you'll use a consolidated view to find device details and properties, monitor activity, access tools and reports, and perform device actions. A consistent layout across platforms will group actions by purpose and show only supported and permitted actions, helping you find information and complete common device-management tasks more efficiently. Existing device-management capabilities will remain available in the redesigned experience.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - All platforms\n+\n+### Stage app and policy rollout with deployment plans<!-- 33144262 -->\n+\n+Deployments and Deployments plans will give you a new way to roll out apps and configuration policies in Intune. Instead of assigning to all targeted groups at once, you'll be able to stage a rollout across multiple rings, control the timing of each ring, and monitor progress from a new **Deployments** experience in the Intune admin center. Plans provide reusable templates that define standardized rollout patterns for delivering a payload across devices in controlled stages, or rings. Deployments integrate with Multiple Admin Approval for change control. This helps you reduce risk when introducing changes to large device fleets.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+> - Win32 and Enterprise app catalog apps\n+> - Settings catalog and Endpoint security policies\n+\n+### Bulk eSIM activation and wipe options for corporate-owned Android Enterprise devices<!-- 39365748 -->\n+\n+You'll be able to use Microsoft Intune bulk device actions to activate eSIMs on up to 100 supported corporate-owned Android Enterprise devices running Android 15 or later by using a carrier activation server URL. When you bulk wipe supported devices, Intune will preserve eSIM data plans by default, and you'll be able to choose to remove them when needed. These bulk actions will help you deploy or retire devices more efficiently without configuring each device individually. Personally owned Android Enterprise work profile devices won't be supported.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Android Enterprise corporate-owned fully managed devices (COBO)\n+> - Android Enterprise corporate-owned dedicated devices (COSU)\n+> - Android Enterprise corporate-owned devices with a work profile (COPE)\n+\n ### Device query for multiple devices for app inventory on Windows<!-- 25850932 -->\n \n Advanced Analytics will extend device query for multiple devices to cover app inventory data on Windows. Building on the existing multi-device query for hardware inventory, you'll be able to use Kusto Query Language (KQL) to investigate installed applications across your entire Windows fleet—identifying versions, surfacing outdated or unwanted software, and producing detailed reports without targeting devices one at a time. Multi-device app inventory queries will run against collected inventory data, so you get fleet-wide answers for compliance reviews, vulnerability triage, and license-tracking scenarios.\n@@ -115,6 +206,22 @@ For existing agents, admins will be able to transition to an agentic identity fr\n \n ## Device security\n \n+### Configure Quality Update approvals and policies for Quick Machine Recovery (QMR)<!-- 33856442, 32995296 -->\n+\n+Windows Autopatch currently offers limited control over the deployment of quality updates. Today, the *expedite mechanism* focuses on deploying the latest security update and doesn't let admins select specific quality update releases or apply different deployment schedules, which can limit compliance, validation, and operational planning scenarios.\n+\n+Soon, Windows Autopatch will let you explicitly approve, auto-approve, reject, and schedule quality updates by update type, using the same approval infrastructure used for driver updates. This unified model helps you control what content is deployed and when, so you can align rollout timing with testing, compliance, and business readiness requirements. You'll be able to independently manage:\n+\n+- Monthly security updates\n+- Monthly non-security updates\n+- Out-of-band security updates\n+- Out-of-band non-security updates\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Windows\n+\n ### Associate devices to your organization with Windows Autopilot device preparation<!-- 17307894 -->\n \n A new capability for Windows Autopilot device preparation will be available soon: *device association*. Device association binds a Windows device to your organization and enables advanced functionality such as streamlined out-of-box experience (OOBE) pages, device naming before enrollment, and device-based targeting. It also improves onboarding security by verifying device identity before enrollment through hardware-based attestation and TPM-backed cryptographic validation, helping ensure that only trusted devices can access organizational resources.\n@@ -164,6 +271,17 @@ Microsoft Intune will introduce client-driven compliance evaluation for Windows\n \n ## Monitor and troubleshoot\n \n+### Remote Help support in GCCH<!-- 23122683 -->\n+\n+You'll be able to use Remote Help in US Government Community Cloud High (GCCH) environments. This expansion extends the same secure, cloud-based remote assistance capabilities currently available in GCC to GCCH tenants. IT support staff will be able to establish Remote Help sessions with end users on GCCH-enrolled devices, providing real-time troubleshooting with role-based access controls through Intune. Both helpers and sharers must sign in with their organization's Microsoft Entra ID accounts.\n+\n+> [!div class=\"checklist\"]\n+> Applies to:\n+>\n+> - Android\n+> - macOS\n+> - Windows\n+\n ### Certificate connector health monitoring in the Microsoft Intune admin center<!-- 37746972 -->\n \n The Certificate Connector for Microsoft Intune will surface new health and status signals in the admin center, so you can spot certificate-issuance problems early. You'll get clear indicators for common failure conditions — such as the connector being unable to reach the certification authority (CA), the connector's service account lacking permission to issue or revoke certificates, or certificate requests being rejected because of a template mismatch with your SCEP or PKCS profile. Each signal includes guidance to help you investigate and remediate before devices relying on certificate-based authentication hit access, sign-in, or compliance issues.\n",
+      "baseCommitSha": "b10ccf4098604706ded2b8761086454c2bb19b18",
+      "commitSha": "532f475631582080b03254e6be3804dd9d9ddd44",
+      "commitMessage": "2609: Stage ID-ready blurbs (all writers) (#20728) (#20730)",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-09-01 14:41:05 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/whats-new/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
+      "eventId": "intune-docs:532f475631582080b03254e6be3804dd9d9ddd44:modified:intune/whats-new/in-development.md",
+      "firstSeenAt": "2026-09-01T22:36:26.329Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Intune in-development documentation adds upcoming management capabilities",
+        "summary": "The page adds upcoming features including MHS authentication for protected app activities, declarative VPP downloads, deployment plans, Defender launch during Android setup, bulk eSIM actions, new Apple settings, and Quick Machine Recovery policies. It also documents future macOS and iOS/iPadOS support changes and the September 2609 single-device page default.",
+        "adminImpact": "Administrators should review the upcoming platform support requirements and plan for changes to device administration, app rollout, enrollment, and the Intune admin center experience.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/servicing-information.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/fundamentals/servicing-information.md b/intune/fundamentals/servicing-information.md\nindex a0d13336c8..ef01b661f3 100644\n--- a/intune/fundamentals/servicing-information.md\n+++ b/intune/fundamentals/servicing-information.md\n@@ -79,7 +79,8 @@ For post-incident actions, Microsoft emails service administrators using the ema\n \n Intune uses Experimentation and Configuration Service (ECS) to request and receive service configuration payloads that help maintain service reliability, security, compliance, and customer experience. These payloads can include service configurations, controlled feature rollouts, and experimentation data.\n \n-[!CAUTION] Disabling communication with required Microsoft cloud services can affect Microsoft's ability to deliver critical service updates, reliability improvements, security mitigations, and feature enablement for Intune-managed devices.\n+> [!IMPORTANT]\n+> Disabling communication with required Microsoft cloud services can affect Microsoft's ability to deliver critical service updates, reliability improvements, security mitigations, and feature enablement for Intune-managed devices.\n \n ### Configurations\n \n",
+      "baseCommitSha": "3803b1f5ba7acc45ae4ea0928ebe8a82a0be9691",
+      "commitSha": "b10ccf4098604706ded2b8761086454c2bb19b18",
+      "commitMessage": "Update caution note to important note in documentation (#20623)",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-09-01 13:11:15 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/fundamentals/servicing-information.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/servicing-information",
+      "eventId": "intune-docs:b10ccf4098604706ded2b8761086454c2bb19b18:modified:intune/fundamentals/servicing-information.md",
+      "firstSeenAt": "2026-09-01T22:36:26.338Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Cloud-service communication warning is now an Important note",
+        "summary": "The servicing information page changed the callout from Caution to Important; its message about impacts to updates, reliability, security mitigations, and feature enablement remains the same.",
+        "adminImpact": "Administrators should review the Important note when assessing communication with required Microsoft cloud services.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/lifecycle-management.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 5,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/lifecycle-management.md b/autopilot/device-preparation/device-association/lifecycle-management.md\nindex f94efda3dc..ed8bcf260a 100644\n--- a/autopilot/device-preparation/device-association/lifecycle-management.md\n+++ b/autopilot/device-preparation/device-association/lifecycle-management.md\n@@ -1,7 +1,7 @@\n ---\n title: Device association lifecycle management\n description: Manage the Windows Autopilot device association lifecycle, including resetting devices, uploading updated device information, working with registered Windows Autopilot devices, stale records, and decommissioning.\n-ms.date: 08/07/2026\n+ms.date: 09/01/2026\n ms.topic: concept-article\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -15,10 +15,6 @@ This article describes how to manage common events throughout the device associa\n \n The tenant affinity created by device association is stored in the device's UEFI firmware, so it persists across a device reset, a Windows reinstall, and enrollment removal. Resetting the device alone doesn't remove the association.\n \n-> [!NOTE]\n->\n-> After a device is reset and re-enrolled, its Microsoft Entra ID and Intune device records aren't reused—new records are created for the device. We recommend that you clean up the stale Microsoft Entra ID and Intune device records.\n-\n To fully remove the association, clear the tenant affinity on the device itself by clearing the association information—for example, by running a PowerShell script to remove association. This requires physical access to the device. For instructions, see [Remove association from a device](remove-association.md).\n \n > [!IMPORTANT]\n",
+      "baseCommitSha": "bd2a93f67c90e8139551aaa92e7efbb1ab46e3ab",
+      "commitSha": "95036a3e5f8a9b4c7b7e97109964bf2356f8868b",
+      "commitMessage": "Repo sync for protected branch (#5247)",
+      "commitAuthor": "learn-build-service-prod[bot]",
+      "commitDate": "2026-09-01 13:53:49 -0500",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/lifecycle-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/lifecycle-management",
+      "eventId": "intune-docs:95036a3e5f8a9b4c7b7e97109964bf2356f8868b:modified:autopilot/device-preparation/device-association/lifecycle-management.md",
+      "firstSeenAt": "2026-09-01T22:36:26.394Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Lifecycle management guidance updated",
+        "summary": "The page’s update date changed from August 7, 2026, to September 1, 2026, and the note about new Microsoft Entra ID and Intune records after reset and re-enrollment—and cleaning up stale records—was removed.",
+        "adminImpact": "Administrators reviewing this guidance will no longer see the removed note; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/remote-help/plan.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/remote-help/plan.md b/intune/remote-help/plan.md\nindex 9c759703ca..91ba62552e 100644\n--- a/intune/remote-help/plan.md\n+++ b/intune/remote-help/plan.md\n@@ -256,7 +256,9 @@ If your organization restricts Remote Help to enrolled devices, the following re\n \n ### [:::image type=\"icon\" source=\"../media/icons/16/android.svg\"::: **Android**](#tab/android)\n \n-Remote Help only supports enrolled Android devices.\n+- Remote Help only supports enrolled Android devices.\n+\n+- Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode do not require a Sharer license because no user is signed in. Only the Helper requires a Remote Help license.\n \n ### [:::image type=\"icon\" source=\"../media/icons/16/globe.svg\"::: **Web App**](#tab/webapp)\n \n",
+      "baseCommitSha": "51ff7c930740125ecf182c4426a1b7700bc20e43",
+      "commitSha": "077295a680d2d2a2b7bcaad14418c998bf7a42ca",
+      "commitMessage": "Update Remote Help support details for Android",
+      "commitAuthor": "Albert Cabello Serrano",
+      "commitDate": "2026-09-01 11:36:44 -0700",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/remote-help/plan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/remote-help/plan",
+      "eventId": "intune-docs:077295a680d2d2a2b7bcaad14418c998bf7a42ca:modified:intune/remote-help/plan.md",
+      "firstSeenAt": "2026-09-01T22:36:26.406Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remote Help licensing clarified for Android COSU devices",
+        "summary": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license.",
+        "adminImpact": "Review licensing plans for supported Android COSU deployments and ensure Helpers are licensed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/device-preparation/device-association/lifecycle-management.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 5,
+      "changes": 6,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/lifecycle-management.md b/autopilot/device-preparation/device-association/lifecycle-management.md\nindex f94efda3dc..ed8bcf260a 100644\n--- a/autopilot/device-preparation/device-association/lifecycle-management.md\n+++ b/autopilot/device-preparation/device-association/lifecycle-management.md\n@@ -1,7 +1,7 @@\n ---\n title: Device association lifecycle management\n description: Manage the Windows Autopilot device association lifecycle, including resetting devices, uploading updated device information, working with registered Windows Autopilot devices, stale records, and decommissioning.\n-ms.date: 08/07/2026\n+ms.date: 09/01/2026\n ms.topic: concept-article\n appliesto:\n   - ✅ <a href=\"https://learn.microsoft.com/windows/release-health/supported-versions-windows-client\" target=\"_blank\">Windows 11</a>\n@@ -15,10 +15,6 @@ This article describes how to manage common events throughout the device associa\n \n The tenant affinity created by device association is stored in the device's UEFI firmware, so it persists across a device reset, a Windows reinstall, and enrollment removal. Resetting the device alone doesn't remove the association.\n \n-> [!NOTE]\n->\n-> After a device is reset and re-enrolled, its Microsoft Entra ID and Intune device records aren't reused—new records are created for the device. We recommend that you clean up the stale Microsoft Entra ID and Intune device records.\n-\n To fully remove the association, clear the tenant affinity on the device itself by clearing the association information—for example, by running a PowerShell script to remove association. This requires physical access to the device. For instructions, see [Remove association from a device](remove-association.md).\n \n > [!IMPORTANT]\n",
+      "baseCommitSha": "75bd03788096f09e777ed33a5cd11699e0750793",
+      "commitSha": "14ea29109cffb1011eb2b300b6afae6adf60ff6b",
+      "commitMessage": "Remove stale device records cleanup note",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-09-01 11:07:13 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/device-preparation/device-association/lifecycle-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/lifecycle-management",
+      "eventId": "intune-docs:14ea29109cffb1011eb2b300b6afae6adf60ff6b:modified:autopilot/device-preparation/device-association/lifecycle-management.md",
+      "firstSeenAt": "2026-09-01T22:36:26.424Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Lifecycle management guidance updated",
+        "summary": "The page date was updated, and the note about new device records being created after reset and re-enrollment, including the recommendation to clean up stale records, was removed.",
+        "adminImpact": "Administrators will no longer find that stale-record cleanup recommendation on this page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/known-issues.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 1,
+      "changes": 14,
+      "patch": "diff --git a/autopilot/known-issues.md b/autopilot/known-issues.md\nindex 85202b4b26..f894cd2895 100644\n--- a/autopilot/known-issues.md\n+++ b/autopilot/known-issues.md\n@@ -1,7 +1,7 @@\n ---\n title: Windows Autopilot known issues\n description: Be informed about known issues that might occur during Windows Autopilot deployment. # RSS subscription is based on this description so don't change. If the description needs to change, update RSS URL in the Tip in the article.\n-ms.date: 06/18/2026\n+ms.date: 09/01/2026\n ms.collection:\n   - M365-modern-desktop\n ms.topic: troubleshooting\n@@ -32,6 +32,18 @@ This article describes known issues that can often be resolved with configuratio\n \n ## Known issues  \n \n+### Pre-provisioning fails for Microsoft Entra hybrid join when policy conflict resolution requires domain controller connectivity\n+\n+Date added: *September 1, 2026*\n+\n+During Windows Autopilot pre-provisioning for Microsoft Entra hybrid join, the technician flow might fail when an assigned policy requires the client device management (DM) stack to resolve a policy conflict by contacting an Active Directory domain controller. The event log contains an error similar to the following example:\n+\n+`MDM PolicyManager: Merge string, Area: (UserRights), Policy: (DenyLocalLogOn), Result:(0x800706FD) The trust relationship between this workstation and the primary domain failed.`\n+\n+This behavior is expected when the device doesn't have line-of-sight to a domain controller during pre-provisioning. In off-premises scenarios that use a bring-your-own (BYO) VPN, the VPN connection isn't available during the technician flow, so the device can't resolve the policy state.\n+\n+This scenario is a known limitation of using pre-provisioning with Microsoft Entra hybrid join when assigned policies require conflict resolution in the client DM stack. To avoid the failure, don't assign policies that require domain controller connectivity during the technician flow, or pre-provision the device on a network that has line-of-sight to a domain controller.\n+\n ### ODJ Connector configuration fails with a SeLogonAsServicePrivilege error when using your own gMSA   \n \n Date added: *June 18, 2026*\n",
+      "baseCommitSha": "75bd03788096f09e777ed33a5cd11699e0750793",
+      "commitSha": "b729f2c4e2be02ba339c9296cc3fd56d0c6ce277",
+      "commitMessage": "Document HAADJ pre-provisioning policy conflict limitation",
+      "commitAuthor": "Maggie Dakeva",
+      "commitDate": "2026-09-01 11:04:52 -0400",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/autopilot/known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/known-issues",
+      "eventId": "intune-docs:b729f2c4e2be02ba339c9296cc3fd56d0c6ce277:modified:autopilot/known-issues.md",
+      "firstSeenAt": "2026-09-01T22:36:26.432Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Known limitation added for hybrid join pre-provisioning",
+        "summary": "The known-issues documentation now explains that Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during technician flow.",
+        "adminImpact": "Avoid assigning policies that require domain controller connectivity during the technician flow to prevent pre-provisioning failure.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 8,
-    "totalFiles": 867,
+    "totalCommits": 14,
+    "totalFiles": 873,
     "authors": [
+      "Albert Cabello Serrano",
       "Chevelyn De Mello",
       "Jon Callahan",
+      "Maggie Dakeva",
       "learn-build-service-prod[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 867 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "overview": "Today's report includes 0 new, 873 updated, and 0 removed Microsoft Intune documentation files across 8 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -23445,6 +23603,47 @@
         "sourceFiles": [
           "intune/device-management/tools/deploy-remediations.md"
         ]
+      },
+      {
+        "category": "New feature",
+        "title": "intune/whats-new",
+        "summary": "The page adds upcoming features including MHS authentication for protected app activities, declarative VPP downloads, deployment plans, Defender launch during Android setup, bulk eSIM actions, new Apple settings, and Quick Machine Recovery policies. It also documents future macOS and iOS/iPadOS support changes and the September 2609 single-device page default.",
+        "sourceFiles": [
+          "intune/whats-new/in-development.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/fundamentals",
+        "summary": "The servicing information page changed the callout from Caution to Important; its message about impacts to updates, reliability, security mitigations, and feature enablement remains the same.",
+        "sourceFiles": [
+          "intune/fundamentals/servicing-information.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "autopilot/device-preparation",
+        "summary": "The page’s update date changed from August 7, 2026, to September 1, 2026, and the note about new Microsoft Entra ID and Intune records after reset and re-enrollment—and cleaning up stale records—was removed. The page date was updated, and the note about new device records being created after reset and re-enrollment, including the recommendation to clean up stale records, was removed.",
+        "sourceFiles": [
+          "autopilot/device-preparation/device-association/lifecycle-management.md",
+          "autopilot/device-preparation/device-association/lifecycle-management.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/remote-help",
+        "summary": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license.",
+        "sourceFiles": [
+          "intune/remote-help/plan.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Windows Autopilot",
+        "summary": "The known-issues documentation now explains that Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during technician flow.",
+        "sourceFiles": [
+          "autopilot/known-issues.md"
+        ]
       }
     ],
     "highlights": [
@@ -23462,6 +23661,31 @@
         "category": "Doc update",
         "headline": "intune/device-management",
         "detail": "The page now recommends limiting script assignments, avoiding resource-intensive or frequent schedules, and using stable, actionable detection-script results to reduce device performance impact."
+      },
+      {
+        "category": "New feature",
+        "headline": "intune/whats-new",
+        "detail": "The page adds upcoming features including MHS authentication for protected app activities, declarative VPP downloads, deployment plans, Defender launch during Android setup, bulk eSIM actions, new Apple settings, and Quick Machine Recovery policies. It also documents future macOS and iOS/iPadOS support changes and the September 2609 single-device page default."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/fundamentals",
+        "detail": "The servicing information page changed the callout from Caution to Important; its message about impacts to updates, reliability, security mitigations, and feature enablement remains the same."
+      },
+      {
+        "category": "Doc update",
+        "headline": "autopilot/device-preparation",
+        "detail": "The page’s update date changed from August 7, 2026, to September 1, 2026, and the note about new Microsoft Entra ID and Intune records after reset and re-enrollment—and cleaning up stale records—was removed. The page date was updated, and the note about new device records being created after reset and re-enrollment, including the recommendation to clean up stale records, was removed."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/remote-help",
+        "detail": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Windows Autopilot",
+        "detail": "The known-issues documentation now explains that Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during technician flow."
       }
     ],
     "generatedBy": "fallback"

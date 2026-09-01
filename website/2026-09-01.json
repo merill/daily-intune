@@ -22516,20 +22516,47 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/device-management/tools/deploy-remediations.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-management/tools/deploy-remediations.md b/intune/device-management/tools/deploy-remediations.md\nindex 2cae5fd09e..e862565ab2 100644\n--- a/intune/device-management/tools/deploy-remediations.md\n+++ b/intune/device-management/tools/deploy-remediations.md\n@@ -104,12 +104,20 @@ When you configure the assignment of a script package, you can define how often\n \n - **Daily** – Execute the remediation daily at a specified time.\n \n-Execution behavior:\n+#### Execution behavior:\n \n - Remediations run based on the device's local time, by default. To schedule by Coordinated Universal Time, select **Use UTC**.\n - If a scheduled run is missed, the remediation runs when the device is online, and as soon as possible.\n - For nonurgent or resource-heavy scripts, use less frequent schedules (such as every seven days) to reduce performance effects on the device.\n \n+### Performance recommendations\n+\n+To reduce the effect of Remediations on device performance:\n+\n+- Assign only the script packages that each device requires. Every script runs in PowerShell and consumes CPU and battery resources.\n+- Avoid resource-intensive scripts and frequent schedules. For nonurgent or resource-intensive scripts, use a less frequent schedule, such as every 7 days.\n+- Configure detection scripts to return stable, actionable results. Avoid values that change with every run, such as timestamps.\n+\n ## Create and deploy custom script packages\n \n The **Microsoft Intune Management Extension** service gets the scripts from Intune and runs them. The scripts are rerun every 24 hours. You can copy the provided scripts and deploy them, or you can create your own script packages. To deploy script packages, follow the instructions in the next section.\n",
+      "baseCommitSha": "d3432a8c0e9a1b8706eff71005a6b7ca53c35f98",
+      "commitSha": "f25f92b42414c97655664fe94eddeab015d5aa71",
+      "commitMessage": "Learn Editor: Update deploy-remediations.md",
+      "commitAuthor": "Jon Callahan",
+      "commitDate": "2026-08-31 17:31:41 +0000",
+      "githubUrl": "https://github.com/MicrosoftDocs/memdocs/blob/main/intune/device-management/tools/deploy-remediations.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/tools/deploy-remediations",
+      "eventId": "intune-docs:f25f92b42414c97655664fe94eddeab015d5aa71:modified:intune/device-management/tools/deploy-remediations.md",
+      "firstSeenAt": "2026-09-01T07:48:44.761Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Performance recommendations added to Remediations documentation",
+        "summary": "The page now recommends limiting script assignments, avoiding resource-intensive or frequent schedules, and using stable, actionable detection-script results to reduce device performance impact.",
+        "adminImpact": "Administrators can review Remediation assignments, schedules, and detection scripts against these recommendations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 7,
-    "totalFiles": 866,
+    "totalCommits": 8,
+    "totalFiles": 867,
     "authors": [
       "Chevelyn De Mello",
+      "Jon Callahan",
       "learn-build-service-prod[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 866 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 867 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -23410,6 +23437,14 @@
           "intune/configmgr/osd/understand/user-experience.md",
           "intune/configmgr/osd/understand/using-task-sequence-variables.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-management",
+        "summary": "The page now recommends limiting script assignments, avoiding resource-intensive or frequent schedules, and using stable, actionable detection-script results to reduce device performance impact.",
+        "sourceFiles": [
+          "intune/device-management/tools/deploy-remediations.md"
+        ]
       }
     ],
     "highlights": [
@@ -23422,6 +23457,11 @@
         "category": "Doc update",
         "headline": "intune/configmgr",
         "detail": "The page metadata now uses `core-infra` with `configuration-manager` instead of `core-infrastructure` with `microsoft-endpoint-configuration-manager`. The page metadata now uses `core-infra` and `configuration-manager` instead of `core-infrastructure` and `microsoft-endpoint-configuration-manager`. The article’s service metadata changed from `microsoft-endpoint-configuration-manager` to `configuration-manager`, and its subservice metadata changed from `core-infrastructure` to `core-infra`. The page metadata now uses `core-infra` with `configuration-manager` instead of `core-infrastructure` with `microsoft-endpoint-configuration-manager`. The page metadata changed from `core-infrastructure` a"
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-management",
+        "detail": "The page now recommends limiting script assignments, avoiding resource-intensive or frequent schedules, and using stable, actionable detection-script results to reduce device performance impact."
       }
     ],
     "generatedBy": "fallback"

@@ -6753,6 +6753,34 @@
         "outputTokens": 1571,
         "costUsd": 0.002119
       }
+    },
+    "2026-09-01": {
+      "headline": "iOS app protection guidance clarifies Screen capture defaults and blocking behavior",
+      "overview": "The period was dominated by mechanical documentation reclassification: 863 Configuration Manager pages changed their service identifiers from `microsoft-endpoint-configuration-manager` and `core-infrastructure` to `configuration-manager` and `core-infra`. The meaningful Intune change updates the iOS app protection Screen capture setting: Allow is the default and permits unrestricted capture and sharing, while Block prevents capture of work or school data. Two Windows Autopilot updates also changed article metadata for co-management content.",
+      "adminImpact": "Review iOS app protection policies where work or school data capture must be restricted, and verify that the Screen capture setting matches the intended policy. The Configuration Manager and Windows Autopilot metadata changes do not indicate product configuration changes or required administrator action.",
+      "keyChanges": [
+        {
+          "title": "iOS app protection Screen capture guidance now states the exact default and restriction",
+          "detail": "The iOS app protection reference documents Allow as the default, permitting capture and sharing without restrictions. Block prevents capture of work or school data. Administrators should use this clarified behavior when reviewing app protection policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-ref-settings-ios-01"
+        },
+        {
+          "title": "Configuration Manager documentation adopts new service and subservice identifiers",
+          "detail": "Across the period’s Configuration Manager updates, metadata changes from `ms.service: microsoft-endpoint-configuration-manager` and `ms.subservice: core-infrastructure` to `ms.service: configuration-manager` and `ms.subservice: core-infra`. The representative administration-service article records the same identifier change; its documented product guidance is otherwise unchanged.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-01T00:14:11.281Z",
+      "usage": {
+        "inputTokens": 5174,
+        "outputTokens": 901,
+        "costUsd": 0.002116
+      }
     }
   },
   "weeks": {
@@ -8317,6 +8345,40 @@
         "outputTokens": 6970,
         "costUsd": 0.010249
       }
+    },
+    "2026-08-31": {
+      "headline": "iOS Screen capture guidance clarifies defaults amid Configuration Manager metadata reclassification",
+      "overview": "The period is overwhelmingly documentation housekeeping: 863 Configuration Manager updates and two Windows Autopilot updates sit alongside one Intune update. The representative entries show service-classification changes for Configuration Manager and Windows Autopilot, while the Intune update adds concrete behavior guidance for iOS app protection: Allow is the default, and Block prevents capture of work or school data.",
+      "adminImpact": "Review the updated iOS app protection Screen capture guidance when configuring policies. The supplied evidence does not specify a required change to existing policies. Administrators who reference or filter Microsoft Learn metadata should use the newer identifiers where applicable; no product configuration action is indicated for the classification updates.",
+      "keyChanges": [
+        {
+          "title": "iOS app protection now spells out Screen capture behavior",
+          "detail": "The iOS app protection reference says Block prevents capture of work or school data. Allow is the default and permits capture and sharing without restrictions. Review this wording when configuring iOS app protection policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-ref-settings-ios-01"
+        },
+        {
+          "title": "Configuration Manager pages adopt new service metadata identifiers",
+          "detail": "Representative Configuration Manager pages now use `ms.subservice: core-infra` and `ms.service: configuration-manager`, replacing `core-infrastructure` and `microsoft-endpoint-configuration-manager`. The change affects documentation classification rather than documented settings or behavior.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
+        },
+        {
+          "title": "Windows Autopilot co-management guidance receives the same service rename",
+          "detail": "The Windows Autopilot enrollment article's `ms.service` metadata changed from `microsoft-endpoint-configuration-manager` to `configuration-manager` for co-management content. No administrator action is indicated.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-09-01-how-to-enroll-with-windows-autopilot-694"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-01T00:14:11.281Z",
+      "usage": {
+        "inputTokens": 8669,
+        "outputTokens": 1982,
+        "costUsd": 0.004112
+      }
     }
   },
   "months": {
@@ -8687,10 +8749,38 @@
         "outputTokens": 12155,
         "costUsd": 0.015934
       }
+    },
+    "2026-09": {
+      "headline": "iOS app protection guidance clarifies Screen capture defaults and Block’s work-data restriction",
+      "overview": "September was largely documentation housekeeping: 863 Configuration Manager updates and two Windows Autopilot updates mainly changed service-classification metadata. The one Intune update is more useful operationally: its iOS app protection reference now states that Allow is the default for Screen capture and permits capture and sharing without restrictions, while Block prevents capture of work or school data.",
+      "adminImpact": "Review the updated Screen capture guidance when configuring iOS app protection policies. No change to existing policies is specified. The Configuration Manager and Windows Autopilot metadata reclassification updates do not call for product configuration action.",
+      "keyChanges": [
+        {
+          "title": "iOS Screen capture reference documents Allow default and Block behavior",
+          "detail": "The iOS app protection settings reference states that Allow is the default and permits capture and sharing without restrictions. Block prevents capture of work or school data. Review this guidance when configuring app protection policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-01-ref-settings-ios-01"
+        },
+        {
+          "title": "Configuration Manager pages adopt new service and subservice identifiers",
+          "detail": "Representative Configuration Manager pages changed their metadata from ms.subservice `core-infrastructure` and ms.service `microsoft-endpoint-configuration-manager` to `core-infra` and `configuration-manager`. The change is documentation classification only, with no administrator action specified.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-01T00:14:11.281Z",
+      "usage": {
+        "inputTokens": 5139,
+        "outputTokens": 1968,
+        "costUsd": 0.003389
+      }
     }
   },
   "version": 3,
-  "generatedAt": "2026-08-29T02:49:35.568Z",
+  "generatedAt": "2026-09-01T00:14:11.281Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8773,18 +8863,24 @@
       "outputTokens": 32696,
       "requests": 4,
       "costUsd": 0.044051
+    },
+    "2026-09-01": {
+      "inputTokens": 18982,
+      "outputTokens": 4851,
+      "requests": 3,
+      "costUsd": 0.009618
     }
   },
   "lastRun": {
-    "inputTokens": 24079,
-    "outputTokens": 32696,
-    "requests": 4,
-    "costUsd": 0.044051
+    "inputTokens": 18982,
+    "outputTokens": 4851,
+    "requests": 3,
+    "costUsd": 0.009618
   },
   "totalUsage": {
-    "inputTokens": 3009400,
-    "outputTokens": 1652574,
-    "requests": 267,
-    "costUsd": 2.584969
+    "inputTokens": 3028382,
+    "outputTokens": 1657425,
+    "requests": 270,
+    "costUsd": 2.594587
   }
 }

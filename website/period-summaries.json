@@ -6793,6 +6793,52 @@
         "outputTokens": 1584,
         "costUsd": 0.002933
       }
+    },
+    "2026-09-02": {
+      "headline": "Configuration Manager guidance details co-management limits and reporting gaps for Windows Update policies",
+      "overview": "The period’s main development is a rewritten Configuration Manager article covering co-management scenarios, scan-source policies, troubleshooting, and the effects of receiving Windows updates directly from Windows Update. The former Windows Update for Business article was deleted, while Advanced Analytics Device Query guidance tightens documented role requirements and Intune corrects the Microsoft Graph hostname for China environments.",
+      "adminImpact": "Review devices using Windows Update client policies because affected updates may appear as Unknown, with documented limitations for compliance reporting, Microsoft app updates, third-party updates, and software-update-based client deployment. Check Device Query custom-role assignments, use https://graph.chinacloudapi.cn for China connections, and replace bookmarks or references to the deleted Windows Update for Business article.",
+      "keyChanges": [
+        {
+          "title": "Windows Update client policies gain expanded co-management guidance",
+          "detail": "The new Configuration Manager article covers co-management scenarios, scan-source policies, common pitfalls, troubleshooting, and the effects of receiving Windows updates directly from Windows Update. It notes potential Unknown status for affected updates and limitations involving compliance reporting, Microsoft app updates, third-party updates, and software-update-based client deployment.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-02-integrate-windows-update-client-policies-01"
+        },
+        {
+          "title": "Former Windows Update for Business guidance was deleted",
+          "detail": "The article covering Windows Update client policies, co-management considerations, limitations, prerequisites, and client-identification procedures was removed. Administrators relying on it should locate the current guidance and update saved references.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-02-integrate-windows-update-for-business-windows-10-11"
+        },
+        {
+          "title": "Multi-device Device Query roles now require managed-device access",
+          "detail": "Advanced Analytics guidance now describes custom roles as needing permissions to view and access managed devices, giving Organization/Read and Managed devices/Read as examples. The separate Managed Devices/Query permission is no longer listed.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-09-02-device-query-for-multiple-devices-09"
+        },
+        {
+          "title": "Device Query guidance now requires a custom role",
+          "detail": "The Device Query article now specifies that users must be assigned a custom role and no longer lists Help Desk Operator as a role option. Review assignments for administrators who need to use Device Query.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-09-02-device-query-10"
+        },
+        {
+          "title": "Intune’s China endpoint list switches Microsoft Graph hostnames",
+          "detail": "The China endpoints page now lists https://graph.chinacloudapi.cn instead of https://graph.chinacloudapi.us. Update configurations or connection references that still use the previous hostname.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-02-endpoints-china-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-02T17:54:35.821Z",
+      "usage": {
+        "inputTokens": 2196,
+        "outputTokens": 3182,
+        "costUsd": 0.004258
+      }
     }
   },
   "weeks": {
@@ -8359,49 +8405,49 @@
       }
     },
     "2026-08-31": {
-      "headline": "Windows Autopilot known-issues guidance flags hybrid-join pre-provisioning failures as Intune details upcoming changes",
-      "overview": "This was a largely mechanical week: 863 of 873 updates were Configuration Manager items, with representative pages changing service metadata from `core-infrastructure` and `microsoft-endpoint-configuration-manager` to `core-infra` and `configuration-manager`. The meaningful administrator-facing exceptions were a Windows Autopilot hybrid-join pre-provisioning failure condition, a broad set of Intune capabilities listed as in development, a Remote Help licensing clarification for Android COSU, and a stronger servicing-information callout.",
-      "adminImpact": "Review Windows Autopilot technician-flow policy assignments and avoid policies that require domain controller connectivity when that connectivity may be unavailable, particularly with a BYO VPN. Use Intune’s in-development list for planning platform support, enrollment, app rollout, device administration, and admin center changes rather than treating those items as current availability announcements. For supported Zebra and Samsung Android COSU deployments, ensure Helpers have Remote Help licenses; Sharers don't require one. Also review the Important servicing note concerning required Microsoft cloud services. The Configuration Manager metadata updates do not indicate product configuration changes.",
+      "headline": "Windows Autopilot policy conflicts can break hybrid-join pre-provisioning",
+      "overview": "The week’s clearest operational change is new Windows Autopilot failure guidance: Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity and a bring-your-own VPN is unavailable during technician flow. Intune also expanded its in-development planning page, while Remote Help licensing and Advanced Analytics Device Query permissions received useful administrator guidance. The period was otherwise dominated by low-impact Configuration Manager metadata reclassification, with 870 of 884 changes categorized under Configuration Manager.",
+      "adminImpact": "Review technician-flow policies that require domain-controller connectivity, particularly where a BYO VPN may be unavailable. Audit Device Query custom roles for managed-device view and access permissions, ensure Helpers are licensed for supported Android COSU Remote Help deployments, and use the Intune in-development page to plan for upcoming enrollment, app, platform, and recovery changes. Review the Important servicing note when assessing communication with required Microsoft cloud services.",
       "keyChanges": [
         {
-          "title": "Hybrid-join pre-provisioning has a documented domain-connectivity failure condition",
-          "detail": "Windows Autopilot known-issues guidance now explains that pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during the technician flow. The guidance says to avoid assigning policies that require domain controller connectivity during that flow.",
+          "title": "Windows Autopilot documents a policy-conflict pre-provisioning failure condition",
+          "detail": "The known-issues guidance says Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain-controller connectivity, particularly when a BYO VPN is unavailable during technician flow. It advises avoiding policies that require domain-controller connectivity during that flow.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         },
         {
-          "title": "Intune’s in-development list expands enrollment, app, and recovery planning",
-          "detail": "The in-development page now lists MHS authentication for protected app activities, declarative VPP downloads, deployment plans, Defender launch during Android setup, bulk eSIM actions, new Apple settings, and Quick Machine Recovery policies. It also records future macOS and iOS/iPadOS support changes and the September 2609 default for the single-device page.",
+          "title": "Intune’s in-development roadmap spans app protection, enrollment, and recovery",
+          "detail": "The page adds upcoming MHS authentication for protected app activities, declarative VPP downloads, deployment plans, Defender launch during Android setup, bulk eSIM actions, new Apple settings, and Quick Machine Recovery policies. It also documents future macOS and iOS/iPadOS support changes and the September 2609 single-device page default.",
           "product": "Intune",
           "sourceId": "doc-2026-09-01-in-development-microsoft-intune-868"
         },
         {
-          "title": "Remote Help licensing for Android COSU places the requirement on Helpers",
-          "detail": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license. Administrators should recheck licensing plans for these deployments and ensure Helpers are licensed.",
+          "title": "Device Query role guidance now emphasizes managed-device read permissions",
+          "detail": "For multi-device queries, custom roles are documented as needing permissions to view and access managed devices, with Organization/Read and Managed devices/Read given as examples. The separate Managed Devices/Query permission is no longer listed.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-09-02-device-query-for-multiple-devices-09"
+        },
+        {
+          "title": "Remote Help guidance says Android COSU Sharers need no license",
+          "detail": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode don't require a Sharer license; only the Helper needs a Remote Help license. Administrators should reflect that distinction in licensing plans for supported deployments.",
           "product": "Remote Help",
           "sourceId": "doc-2026-09-01-plan-871"
         },
         {
-          "title": "Intune servicing guidance changes its cloud-service callout to Important",
-          "detail": "The Servicing Information page changes its callout from Caution to Important. The message itself remains about impacts to updates, reliability, security mitigations, and feature enablement when required Microsoft cloud services aren't reachable.",
+          "title": "Intune’s servicing warning is now labeled Important",
+          "detail": "The Servicing Information page changed its callout from Caution to Important. The accompanying message continues to cover impacts to updates, reliability, security mitigations, and feature enablement, and administrators are directed to consider communication with required Microsoft cloud services.",
           "product": "Intune",
           "sourceId": "doc-2026-09-01-servicing-information-869"
-        },
-        {
-          "title": "Configuration Manager guidance adopts the core-infra service classification",
-          "detail": "The dominant Configuration Manager update set changes affected pages to `ms.subservice: core-infra` and `ms.service: configuration-manager`, replacing `core-infrastructure` and `microsoft-endpoint-configuration-manager`. The representative updates describe documentation metadata changes and no administrator action.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-01-a-name-bkmk-atp-a-get-started-create-and-deploy-endpoint-security-policies-from-the-admin-center-680"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-01T22:36:42.136Z",
+      "generatedAt": "2026-09-02T17:54:35.821Z",
       "usage": {
-        "inputTokens": 8746,
-        "outputTokens": 4162,
-        "costUsd": 0.006744
+        "inputTokens": 8772,
+        "outputTokens": 3901,
+        "costUsd": 0.006436
       }
     }
   },
@@ -8775,48 +8821,54 @@
       }
     },
     "2026-09": {
-      "headline": "Autopilot hybrid-join failures, Remote Help licensing, and servicing guidance stand out in September",
-      "overview": "September was dominated by documentation maintenance rather than product rollouts: 863 of 873 recorded updates affected Configuration Manager, with no new or removed items and no Message Center updates. The meaningful administrator-facing changes were a Windows Autopilot technician-flow failure condition, a Remote Help licensing clarification for Android COSU devices, and a stronger callout on Intune servicing requirements. Configuration Manager updates largely standardized Microsoft Learn metadata.",
-      "adminImpact": "Review Windows Autopilot technician-flow policy assignments, especially where a BYO VPN may be unavailable, and avoid policies requiring domain controller connectivity during pre-provisioning. For supported Zebra and Samsung Android Dedicated Device deployments, ensure Helpers have Remote Help licenses; Sharers do not require one. Review the Important servicing note when evaluating communication with required Microsoft cloud services. The Configuration Manager metadata changes do not indicate configuration changes.",
+      "headline": "Autopilot hybrid-join pre-provisioning can fail when technician-flow policies need domain connectivity",
+      "overview": "September was dominated by low-impact documentation maintenance: 870 of 884 recorded changes were Configuration Manager entries, with representative pages repeatedly standardizing metadata from `core-infrastructure`/`microsoft-endpoint-configuration-manager` to `core-infra`/`configuration-manager`. The meaningful administrator guidance covered an Autopilot hybrid-join pre-provisioning failure condition, Remote Help licensing for Android COSU, Advanced Analytics Device Query permissions, and a stronger Intune servicing warning.",
+      "adminImpact": "Review technician-flow policies that require domain-controller connectivity, especially where a BYO VPN may be unavailable. Audit custom roles used for multi-device Device Query, ensure Helpers are licensed for supported Android COSU Remote Help deployments, and review the Intune Important note when assessing communication with required Microsoft cloud services. The Configuration Manager metadata changes do not indicate configuration work.",
       "keyChanges": [
         {
-          "title": "Autopilot documents a hybrid-join pre-provisioning failure condition",
-          "detail": "Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain controller connectivity, particularly when a BYO VPN is unavailable during the technician flow. The guidance says to avoid assigning policies with that dependency during technician flow.",
+          "title": "Hybrid-join pre-provisioning failure condition",
+          "detail": "Windows Autopilot guidance says Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity, particularly when a BYO VPN is unavailable during technician flow. Avoid assigning policies that require that connectivity during the technician flow.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         },
         {
-          "title": "Remote Help clarifies Android COSU license requirements",
-          "detail": "Supported Zebra and Samsung devices running Android Dedicated Device (COSU) mode don't require a Sharer license. Only the Helper needs a Remote Help license.",
+          "title": "Remote Help licensing for Android COSU",
+          "detail": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode do not require a Sharer license; only the Helper needs a Remote Help license. Review licensing plans for these deployments and ensure Helpers are licensed.",
           "product": "Remote Help",
           "sourceId": "doc-2026-09-01-plan-871"
         },
         {
-          "title": "Intune servicing guidance receives a stronger callout",
-          "detail": "The Servicing Information page changed its callout from Caution to Important. The underlying message is unchanged: impacts can affect updates, reliability, security mitigations, and feature enablement, depending on communication with required Microsoft cloud services.",
+          "title": "Device Query custom-role permissions",
+          "detail": "Advanced Analytics guidance for multi-device queries now describes custom roles as needing permissions to view and access managed devices, with Organization/Read and Managed devices/Read given as examples. The separate Managed Devices/Query permission is no longer listed; review affected custom roles against the documented permissions.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-09-02-device-query-for-multiple-devices-09"
+        },
+        {
+          "title": "Intune servicing warning raised to Important",
+          "detail": "The Intune Servicing Information page changed its callout from Caution to Important. The message remains that communication problems with required Microsoft cloud services can affect updates, reliability, security mitigations, and feature enablement.",
           "product": "Intune",
           "sourceId": "doc-2026-09-01-servicing-information-869"
         },
         {
-          "title": "Configuration Manager pages adopt updated service metadata",
-          "detail": "The period's dominant Configuration Manager updates largely standardized Microsoft Learn classification. On the endpoint-security-policy page, metadata changed to `ms.subservice: core-infra` and `ms.service: configuration-manager` from the previous values.",
+          "title": "Configuration Manager service metadata standardized",
+          "detail": "The Administration service and CMPivot security update page now uses `ms.subservice: core-infra` and `ms.service: configuration-manager`, replacing `core-infrastructure` and `microsoft-endpoint-configuration-manager`. The change is documentation classification only.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-01-a-name-bkmk-atp-a-get-started-create-and-deploy-endpoint-security-policies-from-the-admin-center-680"
+          "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-01T22:36:42.136Z",
+      "generatedAt": "2026-09-02T17:54:35.821Z",
       "usage": {
-        "inputTokens": 5220,
-        "outputTokens": 2107,
-        "costUsd": 0.003572
+        "inputTokens": 5212,
+        "outputTokens": 3133,
+        "costUsd": 0.004802
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-01T22:36:42.136Z",
+  "generatedAt": "2026-09-02T17:54:35.821Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -8905,18 +8957,24 @@
       "outputTokens": 17896,
       "requests": 9,
       "costUsd": 0.032891
+    },
+    "2026-09-02": {
+      "inputTokens": 16180,
+      "outputTokens": 10216,
+      "requests": 3,
+      "costUsd": 0.015495
     }
   },
   "lastRun": {
-    "inputTokens": 19126,
-    "outputTokens": 7853,
+    "inputTokens": 16180,
+    "outputTokens": 10216,
     "requests": 3,
-    "costUsd": 0.013249
+    "costUsd": 0.015495
   },
   "totalUsage": {
-    "inputTokens": 3066475,
-    "outputTokens": 1670470,
-    "requests": 276,
-    "costUsd": 2.61786
+    "inputTokens": 3082655,
+    "outputTokens": 1680686,
+    "requests": 279,
+    "costUsd": 2.633355
   }
 }

@@ -40,6 +40,43 @@
       "version": "2026-09-16T22:29:15.723Z",
       "eventId": "message-center:MC1473156:2026-09-16T22:29:15.723Z",
       "firstSeenAt": "2026-09-17T07:37:44.590Z"
+    },
+    {
+      "id": "MC1473600",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-17",
+      "title": "Intune: Windows Health Attestation Migration to Microsoft Azure Attestation",
+      "summary": "What and why: Microsoft Intune will migrate Windows Health Attestation compliance evaluation from the current Device Health Attestation (DHA) service to Microsoft Azure Attestation (MAA).  This is an Intune service-side change that will happen automatically.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "device-security",
+        "name": "Device security",
+        "icon": "/assets/topics/device-security.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1473600/",
+      "originalUrl": "https://mc.merill.net/message/MC1473600",
+      "body": "<div><b>What and why:</b>&nbsp;</div><div>Microsoft Intune will migrate Windows Health Attestation compliance evaluation from the current Device Health Attestation (DHA) service to Microsoft Azure Attestation (MAA). This is an Intune service-side change that will happen automatically.</div><div>&nbsp;</div><div><b>Rollout schedule:</b>&nbsp;</div><div>We are targeting this migration at the end of Q1 in 2027.&nbsp;</div><div>&nbsp;</div><div><b>Impact on your organization:</b>&nbsp;</div><div>This change affects evaluation of Windows compliance policies that rely on Health Attestation signals. Action is required to avoid interruption. Organizations that don’t allow access to the required Azure Attestation endpoints will experience issues with Health Attestation-based compliance evaluation after the migration is completed.&nbsp;&nbsp;</div><div>&nbsp;</div><div><b>Action required/recommendations:</b>&nbsp;</div><div>Review your network, firewall, proxy, and endpoint access configurations. Specifically, verify that your environment allows devices to access the required Microsoft Azure Attestation endpoints. For detailed guidance, including the required endpoints and configuration recommendations, consult <a href=\"https://learn.microsoft.com/intune/fundamentals/endpoints?#migrating-device-health-attestation-compliance-policies-to-microsoft-azure-attestation\" rel=\"noopener noreferrer\">Configure endpoints for Azure Attestation migration</a>.&nbsp;</div><div>&nbsp;</div><div><b>Compliance considerations:</b>&nbsp;</div><div>If unaddressed, Windows 11 devices with assigned compliance policies using any of the device health settings (BitLocker, Secure Boot, Code Integrity) will fall out of compliance.</div>",
+      "category": "planForChange",
+      "services": [
+        "Windows"
+      ],
+      "tags": [
+        "Admin impact"
+      ],
+      "startDate": "2026-09-17T18:25:35.063Z",
+      "endDate": "2027-09-17T18:25:35.06Z",
+      "lastModifiedDateTime": "2026-09-17T18:25:36.137Z",
+      "version": "2026-09-17T18:25:36.137Z",
+      "eventId": "message-center:MC1473600:2026-09-17T18:25:36.137Z",
+      "firstSeenAt": "2026-09-17T22:51:04.019Z"
     }
   ],
   "summary": {

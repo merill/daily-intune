@@ -6839,6 +6839,28 @@
         "outputTokens": 3182,
         "costUsd": 0.004258
       }
+    },
+    "2026-09-16": {
+      "headline": "Intune will move Windows 11 health attestation to Azure Attestation by early 2027",
+      "overview": "Microsoft’s Message Center announced a planned Intune migration from Device Health Attestation to Microsoft Azure Attestation for Windows 11 devices. The change affects compliance evaluation for devices using health-based policies and introduces a network-access dependency on Azure Attestation endpoints.",
+      "adminImpact": "Administrators should plan to permit network access to the required Azure Attestation endpoints before the early 2027 migration. Without that access, Windows 11 devices using health-based policies may experience compliance-evaluation failures.",
+      "keyChanges": [
+        {
+          "title": "Windows Health Attestation is moving to Microsoft Azure Attestation",
+          "detail": "Intune plans to migrate Windows Health Attestation from Device Health Attestation to Microsoft Azure Attestation by early 2027. Windows 11 devices using health-based compliance policies could fail compliance evaluation if they cannot reach Azure Attestation endpoints.",
+          "product": "Intune",
+          "sourceId": "MC1473156"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-17T07:37:44.776Z",
+      "usage": {
+        "inputTokens": 1033,
+        "outputTokens": 465,
+        "costUsd": 0.000765
+      }
     }
   },
   "weeks": {
@@ -8449,6 +8471,28 @@
         "outputTokens": 3901,
         "costUsd": 0.006436
       }
+    },
+    "2026-09-14": {
+      "headline": "Intune plans Windows 11 health attestation migration to Azure Attestation by 2027",
+      "overview": "Microsoft plans to move Intune Windows Health Attestation for Windows 11 devices from Device Health Attestation to Microsoft Azure Attestation by early 2027. Devices using health-based compliance policies could fail compliance evaluation if required Azure Attestation network access is unavailable.",
+      "adminImpact": "Administrators should ensure that managed Windows 11 devices can reach the Azure Attestation endpoints before the migration, then monitor health-based compliance evaluation for failures as the change approaches.",
+      "keyChanges": [
+        {
+          "title": "Windows Health Attestation is moving to Microsoft Azure Attestation",
+          "detail": "The planned migration affects Windows 11 devices whose Intune compliance evaluation uses health-based policies. Maintaining network access to Azure Attestation endpoints is required to avoid compliance failures.",
+          "product": "Intune",
+          "sourceId": "MC1473156"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-17T07:37:44.776Z",
+      "usage": {
+        "inputTokens": 835,
+        "outputTokens": 444,
+        "costUsd": 0.0007
+      }
     }
   },
   "months": {
@@ -8821,37 +8865,37 @@
       }
     },
     "2026-09": {
-      "headline": "Autopilot hybrid-join pre-provisioning can fail when technician-flow policies need domain connectivity",
-      "overview": "September was dominated by low-impact documentation maintenance: 870 of 884 recorded changes were Configuration Manager entries, with representative pages repeatedly standardizing metadata from `core-infrastructure`/`microsoft-endpoint-configuration-manager` to `core-infra`/`configuration-manager`. The meaningful administrator guidance covered an Autopilot hybrid-join pre-provisioning failure condition, Remote Help licensing for Android COSU, Advanced Analytics Device Query permissions, and a stronger Intune servicing warning.",
-      "adminImpact": "Review technician-flow policies that require domain-controller connectivity, especially where a BYO VPN may be unavailable. Audit custom roles used for multi-device Device Query, ensure Helpers are licensed for supported Android COSU Remote Help deployments, and review the Intune Important note when assessing communication with required Microsoft cloud services. The Configuration Manager metadata changes do not indicate configuration work.",
+      "headline": "Windows 11 health attestation migration to Azure Attestation targets early 2027",
+      "overview": "September’s clearest Intune operational change is a planned migration of Windows Health Attestation from Device Health Attestation to Microsoft Azure Attestation for Windows 11 devices by early 2027. Health-based compliance policies could fail evaluation if devices cannot reach the required Azure Attestation endpoints. Other meaningful guidance covers Windows Autopilot hybrid-join pre-provisioning, Remote Help licensing for Android COSU devices, and Advanced Analytics Device Query roles. Most activity was instead concentrated in Configuration Manager: 870 of 885 entries, with representative pages repeatedly adopting the `core-infra` and `configuration-manager` metadata identifiers.",
+      "adminImpact": "Ensure Windows 11 devices using health-based compliance policies can reach Azure Attestation endpoints before the migration. Review Autopilot technician-flow policies that require domain-controller connectivity, particularly where a BYO VPN may be unavailable. For supported Zebra and Samsung Android COSU deployments, ensure Remote Help Helpers are licensed. Audit Device Query custom roles for managed-device view and access permissions. The Configuration Manager metadata reclassification does not specify a configuration change.",
       "keyChanges": [
         {
-          "title": "Hybrid-join pre-provisioning failure condition",
-          "detail": "Windows Autopilot guidance says Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity, particularly when a BYO VPN is unavailable during technician flow. Avoid assigning policies that require that connectivity during the technician flow.",
+          "title": "Intune plans Windows 11 attestation migration to Azure Attestation",
+          "detail": "A Microsoft 365 Message Center plan says Intune will migrate Windows Health Attestation from Device Health Attestation to Microsoft Azure Attestation by early 2027 for Windows 11 devices. Organizations must provide network access to Azure Attestation endpoints to maintain compliance evaluation for health-based policies or risk compliance failures.",
+          "product": "Intune",
+          "sourceId": "MC1473156"
+        },
+        {
+          "title": "Autopilot guidance identifies hybrid-join pre-provisioning policy failures",
+          "detail": "Windows Autopilot known-issues guidance explains that Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity and a BYO VPN is unavailable during technician flow. Avoid assigning policies that require domain-controller connectivity during that flow.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         },
         {
-          "title": "Remote Help licensing for Android COSU",
-          "detail": "Supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode do not require a Sharer license; only the Helper needs a Remote Help license. Review licensing plans for these deployments and ensure Helpers are licensed.",
+          "title": "Remote Help clarifies licensing for Android Dedicated Device mode",
+          "detail": "For supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode, the Sharer does not require a Remote Help license; only the Helper needs one. Review licensing plans for these deployments and ensure Helpers are licensed.",
           "product": "Remote Help",
           "sourceId": "doc-2026-09-01-plan-871"
         },
         {
-          "title": "Device Query custom-role permissions",
-          "detail": "Advanced Analytics guidance for multi-device queries now describes custom roles as needing permissions to view and access managed devices, with Organization/Read and Managed devices/Read given as examples. The separate Managed Devices/Query permission is no longer listed; review affected custom roles against the documented permissions.",
+          "title": "Device Query role guidance now emphasizes managed-device permissions",
+          "detail": "Advanced Analytics documentation describes custom roles as needing permissions to view and access managed devices, with Organization/Read and Managed devices/Read provided as examples. The separate Managed Devices/Query permission is no longer listed in the guidance.",
           "product": "Advanced Analytics",
           "sourceId": "doc-2026-09-02-device-query-for-multiple-devices-09"
         },
         {
-          "title": "Intune servicing warning raised to Important",
-          "detail": "The Intune Servicing Information page changed its callout from Caution to Important. The message remains that communication problems with required Microsoft cloud services can affect updates, reliability, security mitigations, and feature enablement.",
-          "product": "Intune",
-          "sourceId": "doc-2026-09-01-servicing-information-869"
-        },
-        {
-          "title": "Configuration Manager service metadata standardized",
-          "detail": "The Administration service and CMPivot security update page now uses `ms.subservice: core-infra` and `ms.service: configuration-manager`, replacing `core-infrastructure` and `microsoft-endpoint-configuration-manager`. The change is documentation classification only.",
+          "title": "Configuration Manager pages adopt new service metadata identifiers",
+          "detail": "The representative Configuration Manager page changes replace `ms.subservice: core-infrastructure` with `core-infra` and `ms.service: microsoft-endpoint-configuration-manager` with `configuration-manager`. The update changes documentation classification metadata; no administrator action is specified.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-01-administration-service-and-cmpivot-security-update-for-microsoft-configuration-manager-651"
         }
@@ -8859,39 +8903,21 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-02T17:54:35.821Z",
+      "generatedAt": "2026-09-17T07:37:44.776Z",
       "usage": {
-        "inputTokens": 5212,
-        "outputTokens": 3133,
-        "costUsd": 0.004802
+        "inputTokens": 5349,
+        "outputTokens": 3245,
+        "costUsd": 0.004964
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-02T17:54:35.821Z",
+  "generatedAt": "2026-09-17T07:37:44.776Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-07": {
-      "inputTokens": 2784399,
-      "outputTokens": 1377578,
-      "requests": 212,
-      "costUsd": 2.209973
-    },
-    "2026-08-11": {
-      "inputTokens": 7638,
-      "outputTokens": 9519,
-      "requests": 3,
-      "costUsd": 0.01295
-    },
-    "2026-08-12": {
-      "inputTokens": 8286,
-      "outputTokens": 3177,
-      "requests": 3,
-      "costUsd": 0.00547
-    },
     "2026-08-14": {
       "inputTokens": 18646,
       "outputTokens": 20919,
@@ -8963,18 +8989,24 @@
       "outputTokens": 10216,
       "requests": 3,
       "costUsd": 0.015495
+    },
+    "2026-09-17": {
+      "inputTokens": 7217,
+      "outputTokens": 4154,
+      "requests": 3,
+      "costUsd": 0.006428
     }
   },
   "lastRun": {
-    "inputTokens": 16180,
-    "outputTokens": 10216,
+    "inputTokens": 7217,
+    "outputTokens": 4154,
     "requests": 3,
-    "costUsd": 0.015495
+    "costUsd": 0.006428
   },
   "totalUsage": {
-    "inputTokens": 3082655,
-    "outputTokens": 1680686,
-    "requests": 279,
-    "costUsd": 2.633355
+    "inputTokens": 3089872,
+    "outputTokens": 1684840,
+    "requests": 282,
+    "costUsd": 2.639783
   }
 }

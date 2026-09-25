@@ -6885,25 +6885,31 @@
       }
     },
     "2026-09-24": {
-      "headline": "Security Copilot is now included in Microsoft 365 E5 and E7 plans",
-      "overview": "Microsoft 365 E5 and E7 plans now include Security Copilot, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. Microsoft says no purchase or administrative action is required.",
-      "adminImpact": "Organizations receive monthly Security Compute Units and developer tools as part of the inclusion. Additional paid features can be explored, while organizations that want to opt out must contact support.",
+      "headline": "Security Copilot joins E5/E7 while Autopatch adds granular update approvals",
+      "overview": "The period brings two substantive Message Center announcements: Security Copilot is included with Microsoft 365 E5/E7 plans, while Windows Autopatch is rolling out more detailed control over update approvals and recovery management.",
+      "adminImpact": "Microsoft 365 E5/E7 organizations do not need to purchase or take action to receive Security Copilot, including monthly Security Compute Units and developer tools. Intune administrators can use the Autopatch enhancements to customize approvals, deferrals, and pauses for supported updates, with per-device reporting available as the rollout continues through October 15, 2026.",
       "keyChanges": [
         {
-          "title": "Security Copilot joins E5 and E7 plan entitlements",
-          "detail": "The Message Center announcement adds Security Copilot to Microsoft 365 E5/E7 plans and includes integrations across Defender, Entra, Intune, Purview, and the Security Copilot portal. Included organizations receive monthly Security Compute Units and developer tools; no purchase or action is required.",
+          "title": "Security Copilot is included with Microsoft 365 E5/E7",
+          "detail": "Security Copilot is now part of Microsoft 365 E5/E7, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. Included benefits are monthly Security Compute Units and developer tools; additional paid features remain available, and organizations can opt out through support.",
           "product": "Security Copilot",
           "sourceId": "MC1478465"
+        },
+        {
+          "title": "Windows Autopatch expands update approval and recovery controls",
+          "detail": "Enhancements rolling out from September 1 through October 15, 2026 add customizable automatic or manual approvals, deferral settings, update pausing, and per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates.",
+          "product": "Intune",
+          "sourceId": "MC1478956"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-24T18:25:16.105Z",
+      "generatedAt": "2026-09-25T07:46:20.810Z",
       "usage": {
-        "inputTokens": 1040,
-        "outputTokens": 726,
-        "costUsd": 0.001079
+        "inputTokens": 1173,
+        "outputTokens": 843,
+        "costUsd": 0.001246
       }
     }
   },
@@ -8539,13 +8545,19 @@
       }
     },
     "2026-09-21": {
-      "headline": "Security Copilot now included with Microsoft 365 E5 and E7 plans",
-      "overview": "Security Copilot is now included with Microsoft 365 E5 and E7 plans, integrating agents across Defender, Entra, Intune, Purview, and the Security Copilot portal. The inclusion provides organizations with monthly Security Compute Units and developer tools, while additional paid features remain available.",
-      "adminImpact": "No purchase or administrator action is required. Intune administrators should be aware that their organizations receive the included Security Copilot capability, monthly Security Compute Units, and developer tools. Organizations can opt out by contacting support.",
+      "headline": "Windows Autopatch adds approval controls as Security Copilot joins E5/E7 plans",
+      "overview": "This week brought two substantive Message Center announcements: Windows Autopatch is gaining more granular update governance, while Security Copilot is now included with Microsoft 365 E5 and E7 plans. The Autopatch rollout runs from September 1 through October 15, 2026; Security Copilot requires no purchase or administrator action for inclusion.",
+      "adminImpact": "Autopatch administrators can use customizable automatic or manual approvals, deferrals, update pausing, and per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates. Microsoft 365 E5/E7 organizations receive monthly Security Compute Units and developer tools, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal; additional paid features remain optional.",
       "keyChanges": [
         {
-          "title": "Security Copilot entitlement expands to E5 and E7",
-          "detail": "The Microsoft 365 E5 and E7 plans now include Security Copilot, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. The plans also provide monthly Security Compute Units and developer tools; additional paid features can be explored separately.",
+          "title": "Windows Autopatch expands update approval and recovery controls",
+          "detail": "Rolling out September 1–October 15, 2026, the enhancements add customizable automatic or manual approvals, deferral settings, update pausing, and detailed per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates. Administrators can use these controls to manage update timing and monitor device-level results more precisely.",
+          "product": "Intune",
+          "sourceId": "MC1478956"
+        },
+        {
+          "title": "Security Copilot is included with Microsoft 365 E5 and E7",
+          "detail": "Security Copilot is now included in Microsoft 365 E5/E7 plans, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. Organizations receive monthly Security Compute Units and developer tools; no purchase or action is needed, while additional paid features can be explored separately or organizations can opt out through support.",
           "product": "Security Copilot",
           "sourceId": "MC1478465"
         }
@@ -8553,11 +8565,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-24T18:25:16.105Z",
+      "generatedAt": "2026-09-25T07:46:20.810Z",
       "usage": {
-        "inputTokens": 843,
-        "outputTokens": 745,
-        "costUsd": 0.001063
+        "inputTokens": 976,
+        "outputTokens": 775,
+        "costUsd": 0.001125
       }
     }
   },
@@ -8931,65 +8943,59 @@
       }
     },
     "2026-09": {
-      "headline": "Intune plans early-2027 Azure Attestation migration for Windows health compliance",
-      "overview": "Intune’s most consequential change is a planned migration of Windows Health Attestation compliance evaluation from the Device Health Attestation service to Microsoft Azure Attestation for Windows 11 devices. The service-side migration is planned by early 2027, and devices using health-based compliance policies need network access to Azure Attestation endpoints to avoid compliance failures. Security Copilot also became included with Microsoft 365 E5 and E7 plans, while Windows Autopilot, Remote Help, and Advanced Analytics guidance added concrete operational details. The 887-change period was otherwise dominated by Configuration Manager activity, including representative metadata-only relabeling from core-infrastructure/microsoft-endpoint-configuration-manager to core-infra/configuration-manager.",
-      "adminImpact": "Verify network access to Azure Attestation endpoints for Windows 11 devices using health-based compliance policies. Review Windows Autopilot technician-flow policies that require domain-controller connectivity, especially where a BYO VPN may be unavailable. For Remote Help, ensure Helpers are licensed for supported Android COSU deployments; supported Zebra and Samsung COSU devices do not require a Sharer license. Review custom roles used for multi-device queries against the documented Organization/Read and Managed devices/Read permissions. No purchase or immediate action is required for the E5/E7 Security Copilot inclusion, and the Configuration Manager metadata edits do not call for configuration changes.",
+      "headline": "Intune shifts Windows Health Attestation to Azure Attestation by early 2027",
+      "overview": "The month’s most consequential Intune change is an automatic, service-side migration of Windows Health Attestation from Device Health Attestation to Microsoft Azure Attestation for Windows 11. Administrators also received new Windows Autopatch update-governance controls, a Security Copilot entitlement change for Microsoft 365 E5/E7, and targeted guidance for Autopilot and Remote Help deployments. Most remaining entries were Configuration Manager metadata reclassification, changing identifiers to `core-infra` and `configuration-manager` without indicating configuration changes.",
+      "adminImpact": "Verify that Windows 11 devices using health-based compliance policies can reach Azure Attestation endpoints before the early-2027 migration. If using Windows Autopatch, review approval, deferral, pause, and reporting workflows. Audit Autopilot technician-flow policies for domain-controller connectivity dependencies, and ensure Helpers—not Sharers—have Remote Help licenses for supported Android COSU deployments. Microsoft 365 E5/E7 organizations need no purchase or administrator action to receive the included Security Copilot capabilities.",
       "keyChanges": [
         {
-          "title": "Windows Health Attestation moves to Azure Attestation by early 2027",
-          "detail": "Intune will migrate Windows Health Attestation compliance evaluation for Windows 11 from the current Device Health Attestation service to Microsoft Azure Attestation by early 2027. Organizations using health-based policies must ensure network access to Azure Attestation endpoints to maintain evaluation; without that access, compliance failures are possible.",
-          "product": "Intune",
+          "title": "Azure Attestation endpoint access becomes the Windows compliance dependency",
+          "detail": "Intune will automatically migrate Windows Health Attestation evaluation from the current Device Health Attestation service to Microsoft Azure Attestation by early 2027. Windows 11 devices using health-based compliance policies may fail compliance evaluation if the organization does not allow access to Azure Attestation endpoints.",
+          "product": "Intune — Windows Health Attestation",
           "sourceId": "MC1473156"
         },
         {
+          "title": "Windows Autopatch adds granular approval and recovery-update controls",
+          "detail": "Rolling out from September 1 through October 15, 2026, Windows Autopatch adds customizable automatic or manual approvals, deferral settings, update pausing, and per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates.",
+          "product": "Intune — Windows Autopatch",
+          "sourceId": "MC1478956"
+        },
+        {
           "title": "Security Copilot joins Microsoft 365 E5 and E7 entitlements",
-          "detail": "Security Copilot is now included with Microsoft 365 E5 and E7 plans, integrating agents across Defender, Entra, Intune, Purview, and the Security Copilot portal. The inclusion provides monthly Security Compute Units and developer tools; additional paid features remain available, and organizations can opt out by contacting support. No purchase or action is needed.",
-          "product": "Security Copilot",
+          "detail": "Security Copilot is included with Microsoft 365 E5 and E7 plans, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. The inclusion provides monthly Security Compute Units and developer tools; additional paid features remain optional, and no purchase or action is required.",
+          "product": "Security Copilot — Intune-integrated agents",
           "sourceId": "MC1478465"
         },
         {
-          "title": "Autopilot guidance flags a hybrid-join pre-provisioning failure condition",
-          "detail": "Windows Autopilot’s known-issues guidance states that Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity and a BYO VPN is unavailable during technician flow. The documented mitigation is to avoid assigning policies that require domain-controller connectivity during technician flow.",
-          "product": "Windows Autopilot",
+          "title": "Autopilot guidance flags domain-controller policy conflicts during technician flow",
+          "detail": "The Windows Autopilot known-issues guidance explains that Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity, particularly when a bring-your-own VPN is unavailable during technician flow. Avoid assigning policies with that dependency during the flow.",
+          "product": "Windows Autopilot — pre-provisioning",
           "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         },
         {
-          "title": "Remote Help clarifies licensing for Android COSU deployments",
-          "detail": "Remote Help planning guidance says supported Zebra and Samsung devices in Android Dedicated Device (COSU) mode do not require a Sharer license; only the Helper needs a Remote Help license. Licensing plans should reflect that distinction.",
-          "product": "Remote Help",
+          "title": "Remote Help licensing is reduced for supported Android COSU devices",
+          "detail": "For supported Zebra and Samsung devices running Android Dedicated Device (COSU) mode, the Sharer does not require a Remote Help license; only the Helper needs one. Licensing plans should reflect that distinction for eligible deployments.",
+          "product": "Remote Help — Android Dedicated Device mode",
           "sourceId": "doc-2026-09-01-plan-871"
-        },
-        {
-          "title": "Device Query guidance specifies managed-device read permissions",
-          "detail": "The Device Query for Multiple Devices documentation now describes custom roles as needing permissions to view and access managed devices, with Organization/Read and Managed devices/Read as examples. It no longer lists a separate Managed Devices/Query permission.",
-          "product": "Advanced Analytics",
-          "sourceId": "doc-2026-09-02-device-query-for-multiple-devices-09"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-24T18:25:16.105Z",
+      "generatedAt": "2026-09-25T07:46:20.810Z",
       "usage": {
-        "inputTokens": 5540,
-        "outputTokens": 4397,
-        "costUsd": 0.006384
+        "inputTokens": 5610,
+        "outputTokens": 4931,
+        "costUsd": 0.007039
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-24T18:25:16.105Z",
+  "generatedAt": "2026-09-25T07:46:20.810Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-20": {
-      "inputTokens": 10525,
-      "outputTokens": 13568,
-      "requests": 3,
-      "costUsd": 0.018387
-    },
     "2026-08-21": {
       "inputTokens": 10492,
       "outputTokens": 14024,
@@ -9055,18 +9061,24 @@
       "outputTokens": 5868,
       "requests": 3,
       "costUsd": 0.008526
+    },
+    "2026-09-25": {
+      "inputTokens": 7759,
+      "outputTokens": 6549,
+      "requests": 3,
+      "costUsd": 0.009411
     }
   },
   "lastRun": {
-    "inputTokens": 7423,
-    "outputTokens": 5868,
+    "inputTokens": 7759,
+    "outputTokens": 6549,
     "requests": 3,
-    "costUsd": 0.008526
+    "costUsd": 0.009411
   },
   "totalUsage": {
-    "inputTokens": 3104630,
-    "outputTokens": 1695382,
-    "requests": 288,
-    "costUsd": 2.655385
+    "inputTokens": 3112389,
+    "outputTokens": 1701931,
+    "requests": 291,
+    "costUsd": 2.664796
   }
 }

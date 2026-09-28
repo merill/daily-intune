@@ -6911,6 +6911,52 @@
         "outputTokens": 843,
         "costUsd": 0.001246
       }
+    },
+    "2026-09-28": {
+      "headline": "Configuration Manager 2609 sets new SQL prerequisites and retires Asset Intelligence reporting",
+      "overview": "Configuration Manager 2609 is the clear story for this period. The version table records build 5.00.9152.1000 as released on 28 September 2026, with support through 28 March 2028, while the accompanying guidance establishes new SQL and ODBC gates, changes database-driver handling, removes Asset Intelligence surfaces, and narrows client support. The practical impact is concentrated in Configuration Manager infrastructure used alongside Intune.",
+      "adminImpact": "Before installing or updating to 2609, verify SQL Server 2017 CU2 or later, ODBC Driver 18.6.2.1 or later, and the documented incompatible-driver exclusions; unsupported versions can block setup. Confirm that secondary sites meet the SQL Server 2017 Express CU2 requirement and update the Visual C++ Redistributable where required. Review procedures that depend on SQL Server Native Client, inventory Asset Intelligence reporting dependencies and affected Windows Server 2012-era clients, and apply the version-specific TRUSTWORTHY instruction: omit it for 2609 and later, but retain it for 2603 and earlier.",
+      "keyChanges": [
+        {
+          "title": "ODBC Driver 18.6.2.1 and SQL Server 2017 CU2 become 2609 gates",
+          "detail": "The prerequisite-check guidance requires ODBC Driver 18.6.2.1 or later for 2609 and later, and SQL Server 2017 CU2 or later starting with 2609. Unsupported versions can block installation or upgrades, and the page identifies incompatible ODBC releases.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-list-of-prerequisite-checks-16"
+        },
+        {
+          "title": "2609 installs Microsoft OLE DB Driver and drops SQL Server Native Client",
+          "detail": "Starting in 2609, Configuration Manager automatically installs the Microsoft OLE DB Driver for SQL Server and no longer requires SQL Server Native Client. Configuration Manager 2603 and earlier retain the previous Native Client behavior.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-site-and-site-system-prerequisites-05"
+        },
+        {
+          "title": "Asset Intelligence home-page sections and reports are removed in 2609",
+          "detail": "Catalog Synchronization and Inventoried Software Status are removed from the Asset Intelligence home page, along with Asset Intelligence reports. The earlier procedures apply only to 2603 and earlier; the updated page points administrators to the product lifecycle dashboard and Asset Intelligence client settings.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-operations-for-asset-intelligence-03"
+        },
+        {
+          "title": "TRUSTWORTHY is no longer required for 2609 SQLCLR loading",
+          "detail": "For 2609 and later, TRUSTWORTHY isn't needed to load Microsoft-signed SQLCLR assemblies, including databases using SQL Server Always On availability groups. Configuration Manager 2603 and earlier still require TRUSTWORTHY to be enabled.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-supported-configurations-for-sql-server-12"
+        },
+        {
+          "title": "Windows Server 2012 family leaves the 2609 client-support matrix",
+          "detail": "Starting with Configuration Manager 2609, Windows Server 2012, Windows Server 2012 R2, and their Windows Storage Server editions are no longer supported as client operating systems.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-supported-operating-systems-for-clients-and-devices-13"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-28T16:44:35.444Z",
+      "usage": {
+        "inputTokens": 3856,
+        "outputTokens": 9733,
+        "costUsd": 0.012451
+      }
     }
   },
   "weeks": {
@@ -8571,6 +8617,52 @@
         "outputTokens": 775,
         "costUsd": 0.001125
       }
+    },
+    "2026-09-28": {
+      "headline": "Configuration Manager 2609 raises SQL prerequisites and retires Asset Intelligence reporting",
+      "overview": "The supplied week is a Configuration Manager 2609 readiness story rather than an Intune service update. The release table records build 5.00.9152.1000 as released September 28, 2026, with support through March 28, 2028; the consequential guidance adds SQL and ODBC gates, changes the SQL driver model, removes Asset Intelligence reporting, and drops support for older Windows Server client operating systems.",
+      "adminImpact": "Administrators running Configuration Manager in an Intune environment should inventory SQL Server and ODBC versions before installing or updating to 2609, then review dependencies on Asset Intelligence reports and older Windows Server clients. Apply the 2609-specific SQL database instructions, since Native Client and TRUSTWORTHY requirements differ from Configuration Manager 2603 and earlier. The supplied material identifies no Intune-only action.",
+      "keyChanges": [
+        {
+          "title": "SQL Server 2017 CU2 and ODBC 18.6.2.1 become 2609 gates",
+          "detail": "For Configuration Manager 2609 and later, the prerequisite-check guidance requires SQL Server 2017 CU2 or later and ODBC Driver 18.6.2.1 or later. Unsupported versions can block installation or upgrades, and the page identifies incompatible ODBC releases to avoid.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-list-of-prerequisite-checks-16"
+        },
+        {
+          "title": "2609 removes SQL Server Native Client from new site prerequisites",
+          "detail": "Starting in version 2609, Configuration Manager automatically installs the Microsoft OLE DB Driver for SQL Server and no longer requires SQL Server Native Client. Configuration Manager 2603 and earlier retain the previous Native Client behavior.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-site-and-site-system-prerequisites-05"
+        },
+        {
+          "title": "2609 removes the Asset Intelligence category and its 67 reports",
+          "detail": "Starting with version 2609, the Asset Intelligence report category and all 67 reports are removed. The documentation specifies that these reports apply to Configuration Manager 2603 and earlier.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-list-of-reports-18"
+        },
+        {
+          "title": "TRUSTWORTHY is no longer required for 2609 SQLCLR loading",
+          "detail": "Starting with Configuration Manager 2609, the TRUSTWORTHY database property is not required to load Microsoft-signed SQLCLR assemblies, including for databases using SQL Server Always On availability groups. Configuration Manager 2603 and earlier still require TRUSTWORTHY to be enabled.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-supported-configurations-for-sql-server-12"
+        },
+        {
+          "title": "Older Windows Server client operating systems lose 2609 support",
+          "detail": "Starting with Configuration Manager 2609, Windows Server 2012, Windows Server 2012 R2, and their Windows Storage Server editions are no longer supported as client operating systems.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-supported-operating-systems-for-clients-and-devices-13"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-28T16:44:35.444Z",
+      "usage": {
+        "inputTokens": 3657,
+        "outputTokens": 6360,
+        "costUsd": 0.008363
+      }
     }
   },
   "months": {
@@ -8943,71 +9035,59 @@
       }
     },
     "2026-09": {
-      "headline": "Intune shifts Windows Health Attestation to Azure Attestation by early 2027",
-      "overview": "The month’s most consequential Intune change is an automatic, service-side migration of Windows Health Attestation from Device Health Attestation to Microsoft Azure Attestation for Windows 11. Administrators also received new Windows Autopatch update-governance controls, a Security Copilot entitlement change for Microsoft 365 E5/E7, and targeted guidance for Autopilot and Remote Help deployments. Most remaining entries were Configuration Manager metadata reclassification, changing identifiers to `core-infra` and `configuration-manager` without indicating configuration changes.",
-      "adminImpact": "Verify that Windows 11 devices using health-based compliance policies can reach Azure Attestation endpoints before the early-2027 migration. If using Windows Autopatch, review approval, deferral, pause, and reporting workflows. Audit Autopilot technician-flow policies for domain-controller connectivity dependencies, and ensure Helpers—not Sharers—have Remote Help licenses for supported Android COSU deployments. Microsoft 365 E5/E7 organizations need no purchase or administrator action to receive the included Security Copilot capabilities.",
+      "headline": "Windows Health Attestation shifts to Azure Attestation as Autopatch gains approval controls",
+      "overview": "September’s strongest Intune signal is a planned Windows Health Attestation migration: compliance evaluation moves from Device Health Attestation to Microsoft Azure Attestation for Windows 11, with Azure Attestation network access required by early 2027. Windows Autopatch is rolling out more granular approval, deferral, pause, and per-device reporting controls, while Security Copilot is now included with Microsoft 365 E5/E7. Outside Intune, the actionable Configuration Manager 2609 guidance covers SQL readiness and removal of built-in Asset Intelligence reports; much of the remaining Configuration Manager activity is metadata reclassification.",
+      "adminImpact": "Prioritize network access to Azure Attestation endpoints for Windows 11 devices using health-based compliance policies; failure to provide it can cause compliance failures. During the Autopatch rollout, review approval, deferral, pause, and reporting controls against your update process. For Configuration Manager 2609, upgrade SQL Server editions earlier than SQL Server 2017 CU2, including deprecated 2016 variants, and update the Visual C++ Redistributable on secondary sites; also inventory dependencies on Asset Intelligence reports. For Autopilot, avoid technician-flow policies that require domain-controller connectivity when the required VPN may be unavailable. Microsoft 365 E5/E7 organizations need no purchase or action for Security Copilot inclusion.",
       "keyChanges": [
         {
-          "title": "Azure Attestation endpoint access becomes the Windows compliance dependency",
-          "detail": "Intune will automatically migrate Windows Health Attestation evaluation from the current Device Health Attestation service to Microsoft Azure Attestation by early 2027. Windows 11 devices using health-based compliance policies may fail compliance evaluation if the organization does not allow access to Azure Attestation endpoints.",
-          "product": "Intune — Windows Health Attestation",
+          "title": "Health-based compliance will move from DHA to Azure Attestation",
+          "detail": "Intune plans to migrate Windows Health Attestation compliance evaluation from Device Health Attestation to Microsoft Azure Attestation by early 2027. Windows 11 devices using health-based policies need network access to Azure Attestation endpoints or they risk compliance failures.",
+          "product": "Intune",
           "sourceId": "MC1473156"
         },
         {
-          "title": "Windows Autopatch adds granular approval and recovery-update controls",
-          "detail": "Rolling out from September 1 through October 15, 2026, Windows Autopatch adds customizable automatic or manual approvals, deferral settings, update pausing, and per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates.",
-          "product": "Intune — Windows Autopatch",
+          "title": "Windows Autopatch adds approval, deferral, pause, and reporting controls",
+          "detail": "The September 1–October 15, 2026 rollout adds customizable automatic or manual approvals, deferral settings, update pausing, and per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates.",
+          "product": "Intune",
           "sourceId": "MC1478956"
         },
         {
           "title": "Security Copilot joins Microsoft 365 E5 and E7 entitlements",
-          "detail": "Security Copilot is included with Microsoft 365 E5 and E7 plans, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. The inclusion provides monthly Security Compute Units and developer tools; additional paid features remain optional, and no purchase or action is required.",
-          "product": "Security Copilot — Intune-integrated agents",
+          "detail": "Security Copilot is included with Microsoft 365 E5/E7 with no purchase or administrator action required. The inclusion provides monthly Security Compute Units and developer tools, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal.",
+          "product": "Security Copilot",
           "sourceId": "MC1478465"
         },
         {
-          "title": "Autopilot guidance flags domain-controller policy conflicts during technician flow",
-          "detail": "The Windows Autopilot known-issues guidance explains that Microsoft Entra hybrid-join pre-provisioning can fail when policy conflict resolution requires domain-controller connectivity, particularly when a bring-your-own VPN is unavailable during technician flow. Avoid assigning policies with that dependency during the flow.",
-          "product": "Windows Autopilot — pre-provisioning",
-          "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
+          "title": "Configuration Manager 2609 support guidance raises SQL upgrade requirements",
+          "detail": "SQL Server 2016 and SQL Server 2016 Express are marked deprecated in version 2609. SQL Server editions earlier than SQL Server 2017 CU2 must be upgraded before installing or updating to 2609, and the Visual C++ Redistributable on secondary sites must also be updated.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-support-for-sql-server-versions-06"
         },
         {
-          "title": "Remote Help licensing is reduced for supported Android COSU devices",
-          "detail": "For supported Zebra and Samsung devices running Android Dedicated Device (COSU) mode, the Sharer does not require a Remote Help license; only the Helper needs one. Licensing plans should reflect that distinction for eligible deployments.",
-          "product": "Remote Help — Android Dedicated Device mode",
-          "sourceId": "doc-2026-09-01-plan-871"
+          "title": "Autopilot guidance flags hybrid-join pre-provisioning failure conditions",
+          "detail": "The known-issues guidance explains that Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain-controller connectivity, particularly when a bring-your-own VPN is unavailable during technician flow. Avoid assigning policies that require domain-controller connectivity during that flow.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-25T07:46:20.810Z",
+      "generatedAt": "2026-09-28T16:44:35.444Z",
       "usage": {
-        "inputTokens": 5610,
-        "outputTokens": 4931,
-        "costUsd": 0.007039
+        "inputTokens": 5909,
+        "outputTokens": 9518,
+        "costUsd": 0.012603
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-25T07:46:20.810Z",
+  "generatedAt": "2026-09-28T16:44:35.444Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-21": {
-      "inputTokens": 10492,
-      "outputTokens": 14024,
-      "requests": 3,
-      "costUsd": 0.018927
-    },
-    "2026-08-22": {
-      "inputTokens": 10490,
-      "outputTokens": 9274,
-      "requests": 3,
-      "costUsd": 0.013227
-    },
     "2026-08-25": {
       "inputTokens": 9735,
       "outputTokens": 14833,
@@ -9067,18 +9147,24 @@
       "outputTokens": 6549,
       "requests": 3,
       "costUsd": 0.009411
+    },
+    "2026-09-28": {
+      "inputTokens": 13422,
+      "outputTokens": 25611,
+      "requests": 3,
+      "costUsd": 0.033418
     }
   },
   "lastRun": {
-    "inputTokens": 7759,
-    "outputTokens": 6549,
+    "inputTokens": 13422,
+    "outputTokens": 25611,
     "requests": 3,
-    "costUsd": 0.009411
+    "costUsd": 0.033418
   },
   "totalUsage": {
-    "inputTokens": 3112389,
-    "outputTokens": 1701931,
-    "requests": 291,
-    "costUsd": 2.664796
+    "inputTokens": 3125811,
+    "outputTokens": 1727542,
+    "requests": 294,
+    "costUsd": 2.698214
   }
 }

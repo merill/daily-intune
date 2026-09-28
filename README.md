@@ -22,8 +22,17 @@ the engine.
 
 ## What it tracks
 
-`MicrosoftDocs/memdocs` (branch `main`), the `intune/` and `autopilot/` subtrees, plus the Microsoft 365
-Message Center archive at `merill/mc`.
+The `intune/` and `autopilot/` subtrees of
+[`merill/intune-docs-mirror`](https://github.com/merill/intune-docs-mirror), plus
+the Microsoft 365 Message Center archive at `merill/mc`.
+
+`MicrosoftDocs/memdocs` was archived on 2 September 2026 and no longer changes.
+The mirror rebuilds it from Microsoft Learn:
+[learn-mirror](https://github.com/merill/learn-mirror) fetches each page as
+Markdown four times a day and writes it to the path of the source file Learn
+built it from, so the layout is memdocs'. Changes published between the
+archive on 2 September and the switch to the mirror on 28 September 2026 were
+not recorded.
 
 ## Working on it
 
@@ -38,11 +47,11 @@ npm test
 including the `.bin` shim so `npm run build:site` works. In CI the engine's
 setup action does the same thing.
 
-To rebuild the site locally you need a clone of the documentation repository:
+To rebuild the site locally you need a clone of the documentation mirror:
 
 ```bash
 git clone --filter=blob:limit=100k --single-branch \
-  https://github.com/MicrosoftDocs/memdocs.git ../memdocs
+  https://github.com/merill/intune-docs-mirror.git ../memdocs
 TZ=UTC DOCS_REPO_PATH=../memdocs npm run build:site
 ```
 

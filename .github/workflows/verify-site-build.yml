@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Clone Intune Docs repository
-        run: git clone --filter=blob:limit=100k --single-branch https://github.com/MicrosoftDocs/memdocs.git memdocs
+        run: git clone --filter=blob:limit=100k --single-branch https://github.com/merill/intune-docs-mirror.git memdocs
 
       - name: Clone Message Center repository
         run: git clone --depth 1 https://github.com/merill/mc.git mc

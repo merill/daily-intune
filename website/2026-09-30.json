@@ -1,0 +1,193 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/configuration/configure-managed-home-screen.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/app-management/configuration/configure-managed-home-screen.md b/intune/app-management/configuration/configure-managed-home-screen.md\nindex 1065a43..b02eb90 100644\n--- a/intune/app-management/configuration/configure-managed-home-screen.md\n+++ b/intune/app-management/configuration/configure-managed-home-screen.md\n@@ -16,9 +16,9 @@ ms.subservice: apps\n description: Learn how to configure the Microsoft Managed Home Screen app.\n ms.date: 2026-09-23T00:00:00.0000000Z\n ms.topic: how-to\n-ms.reviewer: abigailstein\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1028\n+ms.reviewer: abigailstein\n locale: en-us\n document_id: 5f1cbc09-34f3-e954-098e-9b98d740518a\n document_version_independent_id: 5f1cbc09-34f3-e954-098e-9b98d740518a\n@@ -228,7 +228,7 @@ The automatic relaunch functionality requires granting exact alarm permission (O\n | Set to the url of wallpaper | string |  | Allows you to set a wallpaper of your choice for the sign in screen. To use this setting, enter the URL of the image that you want set for the sign-in screen wallpaper. This image can be different than the Managed Home Screen wallpaper that is configured with **Set device wallpaper**. This setting can only be used if **Enable sign in** is set to True. | ✔️ |\r\n | Enable show organization logo on sign in page | bool | TRUE | Turn this setting to True to use a company logo that appears on the sign-in screen. This setting is used with **Organization logo on sign in page** and can only be used if **Enable sign in** is set to TRUE. | ✔️ |\r\n | Organization logo on sign in page | string |  | Allows you to brand your device with a logo of your choice on the Managed Home Screen sign-in screen. To use this setting, enter the URL of the image that you want set for the logo. This setting can only be used if **Enable show organization logo on sign in page** and **Enable sign in** is set to True. | ✔️ |\r\n-| Enable session PIN | bool | FALSE | Turn this setting to True if you want end-users to get prompted to create a local Session PIN after they successfully sign in to Managed Home Screen. The Session PIN prompt appears before end-user gets access to the home screen, and can be used in conjunction with other features. The Session PIN lasts during a user's sign in and clears upon sign out. By default, this setting is off. This setting can only be used if **Enable sign in** is set to True. | ✔️ <br>**Note:** On devices that have a device configuration profile with the [**Enabled System Navigation Features** setting](../../device-configuration/templates/ref-device-restrictions-android-enterprise) set to **Home and Overview buttons** or [**System notifications and information** setting](../../device-configuration/templates/ref-device-restrictions-android-enterprise) set to **Show system notifications and information in device's status bar**, end users can ignore and skip the session PIN screen. |\r\n+| Enable session PIN | bool | FALSE | Turn this setting to True if you want end-users to get prompted to create a local Session PIN after they successfully sign in to Managed Home Screen. The Session PIN prompt appears before end-user gets access to the home screen, and can be used in conjunction with other features. The Session PIN lasts during a user's sign in and clears upon sign out. By default, this setting is off. This setting can only be used if **Enable sign in** is set to True. | ✔️ <br>**Note:** On devices that have a device configuration profile with the [**Enabled System Navigation Features** setting](../../device-configuration/templates/ref-device-restrictions-android-enterprise) set to **Home and Overview buttons** or [**System notifications and information** setting](../../device-configuration/templates/ref-device-restrictions-android-enterprise) set to **Show system notifications and information in device's status bar**, end users can dismiss the session PIN screen without entering the PIN. To restrict apps while Managed Home Screen requires authentication, enable **Silence apps while Managed Home Screen requires authentication**. Use **Exclude these apps from the silence setting** for apps that must remain active. |\r\n | Complexity of session PIN | string |  | Choose whether the local session PIN should be **simple**, **complex**, **complex numeric only**, or **alphanumeric complex**. If you choose **simple**, users are required to enter a numeric PIN. If you choose **complex**, users get prompted to create a PIN with alphanumeric characters and no repeating (444) or ordered sequences (123, 432, 246) are allowed. Evaluation of repeating and sequential patterns begins at three (3) digits/characters. If you choose **complex numeric only**, users get prompted to create a PIN with numerals only and no repeating (444) or ordered sequences (123, 432, 246) are allowed. Evaluation of repeating and sequential patterns begins at three (3) digits/characters. If you choose **alphanumeric complex**, then users get prompted to create a PIN with alphanumeric characters, and at least one symbol or letter is required. No repeating (444) or ordered sequences (123, 432, 246) are allowed. Evaluation of repeating and sequential patterns begins at three (3) characters. The default value for this setting is one (1), where one (1) means that the user must have at least one character in their Session PIN. This setting can only be used if **Enable session PIN** and **Enable sign in** are set to True. | ✔️ <br>**Note:** The **complex numeric only** and **alphanumeric complex** options are only available in app config today. |\r\n | Minimum length for session PIN | string |  | Define the minimum length a user's session PIN must adhere to. This setting can be used with any of the complexity values for session PIN. This setting can only be used if **Enable session PIN** and **Enable sign in** is set to True. | ❌ |\r\n | Maximum number of attempts for session PIN | string |  | Define the maximum number of times a user can attempt to enter their session PIN before getting automatically logged out from Managed Home Screen. The default value is zero (0), where zero (0) means the user gets infinite tries. This setting can be used with any of the complexity values for session PIN. This setting can only be used if **Enable session PIN** and **Enable sign in** is set to True. | ❌ |\r\n@@ -244,7 +244,7 @@ The automatic relaunch functionality requires granting exact alarm permission (O\n | Offline work time before required sign-in | Integer | 60 | Set the time (in seconds) users can stay offline after the network is detected before they must sign in. This setting only applies when **Configure offline app access** is set to true for at least one application. | ❌ |\r\n | Configure app access without sign in | bundleArray | See **Enter JSON Data** section of this document | Select which apps are available to users from the sign-in screen before signing in to Managed Home Screen. These apps are available via entry point on the top bar regardless of network status. This setting can only be used if **Enable sign in** is set to true. | ✔️ |\r\n | Silence apps while Managed Home Screen requires authentication | bool | FALSE | Silence apps whenever MHS is prompting the user for authentication, such as during the sign-in or session PIN screens. Silenced apps can't start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing. Apps are automatically unsilenced when the device is unlocked. | ❌ |\r\n-| Exclude these apps from the silence setting | bundleArray | See **Enter JSON Data** section of this document | Specify apps to exclude from silencing while MHS is requiring authentication. These apps can start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing while the device is locked. You can specify the apps by entering the app package name of the apps that you want to be excluded. | ❌ |\r\n+| Exclude these apps from the silence setting | bundleArray | See **Enter JSON Data** section of this document | Specify apps to exclude from silencing while Managed Home Screen requires authentication. These apps can start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing while the device is locked. Specify the apps by entering the package name for each app that you want to exclude. <br>**Note:** For MAM-integrated apps that you exclude from silencing, assign an [Intune app protection policy](../protection/create-policy) to both the app and the signed-in user. No specific app protection policy setting is required. If a user opens protected app content while Managed Home Screen requires sign-in or session PIN authentication, the app redirects the user to Managed Home Screen to authenticate. | ❌ |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "568b30d63d6eeffe071b1ca5cf52989208e632ea",
+      "commitSha": "9031e0f1488d65c1214aa1b94c7b37a69df22591",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:19:35 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/configuration/configure-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-home-screen",
+      "eventId": "intune-docs:9031e0f1488d65c1214aa1b94c7b37a69df22591:modified:intune/app-management/configuration/configure-managed-home-screen.md",
+      "firstSeenAt": "2026-09-30T23:47:00.572Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Managed Home Screen authentication wording clarified",
+        "summary": "The app-exclusion setting description now spells out “Managed Home Screen” instead of using the abbreviation “MHS” when referring to authentication.",
+        "adminImpact": "Administrators can more easily identify that the setting applies while Managed Home Screen requires authentication.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/add-managed-google-play.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/app-management/deployment/add-managed-google-play.md b/intune/app-management/deployment/add-managed-google-play.md\nindex 60082ab..8b855d5 100644\n--- a/intune/app-management/deployment/add-managed-google-play.md\n+++ b/intune/app-management/deployment/add-managed-google-play.md\n@@ -275,7 +275,7 @@ By default, an Android Enterprise fully managed device doesn't allow employees t\n \r\n Note\r\n \r\n-The Microsoft Intune app, Microsoft Authenticator app, and the Company Portal app are installed as required apps on all fully managed and corporate-owned work profile devices during onboarding. Having these apps automatically installed provides Conditional Access support, and Microsoft Intune app users can see and resolve compliance issues.\r\n+The Microsoft Intune app, Microsoft Authenticator app, and the Company Portal app are installed as required apps on all fully managed, dedicated and corporate-owned work profile devices during onboarding. Having these apps automatically installed provides Conditional Access support, and Microsoft Intune app users can see and resolve compliance issues.\r\n \r\n ## Update a Managed Google Play app\r\n \r\n",
+      "baseCommitSha": "568b30d63d6eeffe071b1ca5cf52989208e632ea",
+      "commitSha": "9031e0f1488d65c1214aa1b94c7b37a69df22591",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:19:35 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/deployment/add-managed-google-play.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-managed-google-play",
+      "eventId": "intune-docs:9031e0f1488d65c1214aa1b94c7b37a69df22591:modified:intune/app-management/deployment/add-managed-google-play.md",
+      "firstSeenAt": "2026-09-30T23:47:00.576Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Required apps now include dedicated devices",
+        "summary": "During onboarding, the Intune, Microsoft Authenticator, and Company Portal apps are installed as required apps on dedicated devices, in addition to fully managed and corporate-owned work profile devices.",
+        "adminImpact": "Administrators managing dedicated devices should expect these apps to be installed automatically, supporting Conditional Access.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/app-management/deployment/add-unmanaged-pkg-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/app-management/deployment/add-unmanaged-pkg-macos.md b/intune/app-management/deployment/add-unmanaged-pkg-macos.md\nindex 720072a..9e9eac1 100644\n--- a/intune/app-management/deployment/add-unmanaged-pkg-macos.md\n+++ b/intune/app-management/deployment/add-unmanaged-pkg-macos.md\n@@ -179,7 +179,7 @@ The app you have created appears in the apps list where you can assign it to the\n \r\n ## Troubleshooting\r\n \r\n-macOS app installation may not be successful due to any of the following reasons provided in the table below. To resolve these errors, follow the remediation steps. If the app remains assigned, failed installations are retried at the next agent check-in.\r\n+macOS app installation may not be successful due to any of the following reasons provided in the table below. To resolve these errors, follow the remediation steps. If the app remains assigned, failed installations are retried at the next agent check-in with up to three time retries.\r\n \r\n | Error code | Error message | Remediation steps |\r\n | --- | --- | --- |\r\n",
+      "baseCommitSha": "568b30d63d6eeffe071b1ca5cf52989208e632ea",
+      "commitSha": "9031e0f1488d65c1214aa1b94c7b37a69df22591",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:19:35 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/deployment/add-unmanaged-pkg-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-unmanaged-pkg-macos",
+      "eventId": "intune-docs:9031e0f1488d65c1214aa1b94c7b37a69df22591:modified:intune/app-management/deployment/add-unmanaged-pkg-macos.md",
+      "firstSeenAt": "2026-09-30T23:47:00.579Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "macOS app installations retry up to three times",
+        "summary": "The documentation now states that failed macOS app installations are retried at the next agent check-in, with up to three retries while the app remains assigned.",
+        "adminImpact": "Administrators should account for these additional installation retry attempts when monitoring deployment failures.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-windows-11.md b/intune/configmgr/core/plan-design/configs/support-for-windows-11.md\nindex 6f53b27..e287424 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-windows-11.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-windows-11.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Learn about the Windows 11 versions that are supported as clients with Configuration Manager.\n-ms.date: 2026-09-22T00:00:00.0000000Z\n+ms.date: 2026-09-29T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: article\n ms.collection: tier3\n@@ -75,6 +75,7 @@ The following table lists the versions of Windows 11 that you can use as a clien\n \r\n | Windows 11 version | ConfigMgr 2509 | ConfigMgr 2603 | ConfigMgr 2609 |\r\n | --- | --- | --- | --- |\r\n+| **26H2**(10.0.26300) | ❌ | ✅ | ✅ |\r\n | **25H2**(10.0.26200) | ✅ | ✅ | ✅ |\r\n | **24H2**(10.0.26100) | ✅ | ✅ | ✅ |\r\n | **23H2**(10.0.22631) | ✅ | ✅ | ✅ |\r\n",
+      "baseCommitSha": "568b30d63d6eeffe071b1ca5cf52989208e632ea",
+      "commitSha": "9031e0f1488d65c1214aa1b94c7b37a69df22591",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:19:35 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-windows-11",
+      "eventId": "intune-docs:9031e0f1488d65c1214aa1b94c7b37a69df22591:modified:intune/configmgr/core/plan-design/configs/support-for-windows-11.md",
+      "firstSeenAt": "2026-09-30T23:47:00.583Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Windows 11 26H2 added to the support matrix",
+        "summary": "The documentation now lists Windows 11 version 26H2 (build 10.0.26300) with support indicators shown as ❌, ✅, and ✅.",
+        "adminImpact": "Administrators can use the updated matrix when evaluating Windows 11 26H2 support.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-ios.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 9,
+      "changes": 14,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-ios.md b/intune/device-enrollment/apple/setup-automated-ios.md\nindex af36bd8..881d2f0 100644\n--- a/intune/device-enrollment/apple/setup-automated-ios.md\n+++ b/intune/device-enrollment/apple/setup-automated-ios.md\n@@ -148,15 +148,7 @@ This article reflects the updated policy creation experience (**Enrollment progr\n     Important\r\n \r\n     We recommend using **Setup Assistant with modern authentication** for your Apple devices for ADE (automated device enrollment) scenarios with user device affinity. Legacy authentication is deprecated and we don't recommend its use.\r\n-13. If you select a token for **Install Company Portal with VPP**, you can lock the device in Single App Mode (specifically, the Company Portal app) right after the Setup Assistant completes. Select **Yes** for **Run Company Portal in Single App Mode until authentication** to set this option. To use the device, the user must first authenticate by signing in to the Company Portal.\r\n-\r\n-    Note\r\n-\r\n-    Multifactor authentication isn't supported on a single device locked in Single App Mode. This limitation exists because the device can't switch to a different app to complete the second factor of authentication. If you want multifactor authentication on a Single App Mode device, the second factor must be on a different device.\r\n-\r\n-    This feature is supported only for iOS/iPadOS 11.3.1 and later.\r\n-\r\n-    ![Screenshot that shows the Run Company Portal in Single App Mode option.](media/setup-automated-ios/single-app-mode.png)\r\n+13. The **Run Company Portal in Single App Mode until authentication** option is no longer supported and will soon be removed. This option must be set to **No**.\r\n 14. If you want devices using this policy to be supervised, select **Yes** in the **Supervised** list.\r\n \r\n     Supervised devices give you more management options and disabled Activation Lock by default. We recommend that you use ADE as the mechanism for enabling supervised mode, especially if you're deploying large numbers of iOS/iPadOS devices. Apple Shared iPad for Business devices must be supervised.\r\n@@ -173,6 +165,10 @@ This article reflects the updated policy creation experience (**Enrollment progr\n     Important\r\n \r\n     This setting is different from the remove and reset options in the Company Portal app. Regardless of how you configure locked enrollment, the **Remove Device** or **Factory Reset** options in the Company Portal app remain unavailable on devices enrolled through automated device enrollment. Users won't be able to remove the device on the Company Portal website either. For more information about the self-service actions available on enrolled devices, see [Self-service actions](../../app-management/configuration/configure-company-portal#self-service-actions).\r\n+\r\n+    Note\r\n+\r\n+    The **Sync with computers** setting was deprecated by Apple in iOS 13 and is not included in enrollment policies.\r\n 16. If you selected **Enroll without User Affinity** and **Supervised** in the previous steps, you need to decide whether to configure the devices to be [Apple Shared iPad for Business devices](https://support.apple.com/guide/deployment/shared-ipad-overview-dep9a34c2ba2/web). Select **Yes** for **Shared iPad** to enable multiple users to sign in to a single device. Users authenticate by using their Managed Apple IDs and federated authentication accounts or by using a temporary session (like the Guest account). This option requires iOS/iPadOS 13.4 or later. With Shared iPad, all Setup Assistant panes after activation are automatically skipped.\r\n \r\n     Note\r\n",
+      "baseCommitSha": "568b30d63d6eeffe071b1ca5cf52989208e632ea",
+      "commitSha": "9031e0f1488d65c1214aa1b94c7b37a69df22591",
+      "commitMessage": "Mirror Learn: 5 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-09-30 23:19:35 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-enrollment/apple/setup-automated-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-ios",
+      "eventId": "intune-docs:9031e0f1488d65c1214aa1b94c7b37a69df22591:modified:intune/device-enrollment/apple/setup-automated-ios.md",
+      "firstSeenAt": "2026-09-30T23:47:00.587Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Single App Mode authentication option is no longer supported",
+        "summary": "The option must be set to No and will soon be removed. The Sync with computers setting was deprecated by Apple in iOS 13 and is no longer included in enrollment policies.",
+        "adminImpact": "Set Run Company Portal in Single App Mode until authentication to No in applicable enrollment policies.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 5,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/app-management",
+        "summary": "The app-exclusion setting description now spells out “Managed Home Screen” instead of using the abbreviation “MHS” when referring to authentication. During onboarding, the Intune, Microsoft Authenticator, and Company Portal apps are installed as required apps on dedicated devices, in addition to fully managed and corporate-owned work profile devices. The documentation now states that failed macOS app installations are retried at the next agent check-in, with up to three retries while the app remains assigned.",
+        "sourceFiles": [
+          "intune/app-management/configuration/configure-managed-home-screen.md",
+          "intune/app-management/deployment/add-managed-google-play.md",
+          "intune/app-management/deployment/add-unmanaged-pkg-macos.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "The documentation now lists Windows 11 version 26H2 (build 10.0.26300) with support indicators shown as ❌, ✅, and ✅.",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/configs/support-for-windows-11.md"
+        ]
+      },
+      {
+        "category": "Retirement",
+        "title": "intune/device-enrollment",
+        "summary": "The option must be set to No and will soon be removed. The Sync with computers setting was deprecated by Apple in iOS 13 and is no longer included in enrollment policies.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-automated-ios.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/app-management",
+        "detail": "The app-exclusion setting description now spells out “Managed Home Screen” instead of using the abbreviation “MHS” when referring to authentication. During onboarding, the Intune, Microsoft Authenticator, and Company Portal apps are installed as required apps on dedicated devices, in addition to fully managed and corporate-owned work profile devices. The documentation now states that failed macOS app installations are retried at the next agent check-in, with up to three retries while the app remains assigned."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "The documentation now lists Windows 11 version 26H2 (build 10.0.26300) with support indicators shown as ❌, ✅, and ✅."
+      },
+      {
+        "category": "Retirement",
+        "headline": "intune/device-enrollment",
+        "detail": "The option must be set to No and will soon be removed. The Sync with computers setting was deprecated by Apple in iOS 13 and is no longer included in enrollment policies."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

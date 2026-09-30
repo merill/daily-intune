@@ -7003,6 +7003,52 @@
         "outputTokens": 2243,
         "costUsd": 0.003725
       }
+    },
+    "2026-09-30": {
+      "headline": "Intune iOS enrollment requires the deprecated computer-sync setting set to No",
+      "overview": "The period contains five updated pages and no new or removed items. The most consequential Intune change is enrollment guidance requiring Run Company Portal in Single App Mode until authentication to be set to No; the page says Apple deprecated Sync with computers in iOS 13 and that it is no longer included in enrollment policies. Other updates clarify Managed Google Play onboarding scope, macOS PKG retry behavior, and Managed Home Screen terminology, while a Configuration Manager matrix adds Windows 11 26H2 support indicators.",
+      "adminImpact": "Set Run Company Portal in Single App Mode until authentication to No in applicable iOS enrollment policies. For other changes, account for required app installation on dedicated devices and up to three retries for failed macOS app installations while the app remains assigned. Use the updated Configuration Manager matrix when evaluating Windows 11 26H2 support.",
+      "keyChanges": [
+        {
+          "title": "iOS enrollment setting is marked for removal",
+          "detail": "The updated Setup Automated iOS guidance says Run Company Portal in Single App Mode until authentication must be set to No. It also records that Apple deprecated Sync with computers in iOS 13 and that the setting is no longer included in enrollment policies; administrators should apply No in applicable policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-30-setup-automated-ios-05"
+        },
+        {
+          "title": "macOS PKG guidance documents repeated installation retries",
+          "detail": "Failed macOS app installations are retried at the next agent check-in, with up to three retries while the app remains assigned. Administrators should account for these attempts when monitoring deployment failures.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-30-add-unmanaged-pkg-macos-03"
+        },
+        {
+          "title": "Managed Google Play onboarding guidance includes dedicated devices",
+          "detail": "During onboarding, Intune, Microsoft Authenticator, and Company Portal are installed as required apps on dedicated devices, in addition to fully managed and corporate-owned work profile devices. Dedicated-device administrators should expect these installations, which support Conditional Access.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-30-add-managed-google-play-02"
+        },
+        {
+          "title": "Configuration Manager matrix lists Windows 11 26H2",
+          "detail": "The Support for Windows 11 matrix now lists Windows 11 version 26H2, build 10.0.26300, with support indicators shown as ❌, ✅, and ✅. Administrators can use the revised matrix when evaluating 26H2 support.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-30-support-for-windows-11-04"
+        },
+        {
+          "title": "Managed Home Screen setting now uses the full product name",
+          "detail": "The app-exclusion setting description spells out Managed Home Screen instead of using MHS when referring to authentication, making the applicable setting easier to identify.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-30-configure-managed-home-screen-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-09-30T23:47:11.920Z",
+      "usage": {
+        "inputTokens": 1479,
+        "outputTokens": 2695,
+        "costUsd": 0.00353
+      }
     }
   },
   "weeks": {
@@ -8665,49 +8711,49 @@
       }
     },
     "2026-09-28": {
-      "headline": "Configuration Manager 2609 removes Asset Intelligence reports and tightens SQL and ODBC prerequisites",
-      "overview": "Configuration Manager 2609 is the week's clear operational theme: its upgrade checks now name explicit version floors, Asset Intelligence surfaces are removed, and SQL database setup and trust guidance change. Intune's broader update stream is mostly navigation, link, and device-action guidance; the strongest operational exception is an Apple DDM/VPP token warning, alongside new device-management and rename reference pages.",
-      "adminImpact": "Before installing or upgrading to Configuration Manager 2609, verify SQL Server and ODBC requirements, avoid incompatible ODBC releases, and review dependencies on Asset Intelligence reports and catalog/status pages. Align SQLCLR procedures with the Configuration Manager version, and account for automatic OLE DB installation and SQL Server Native Client removal. For Intune Apple app management, don't re-upload an existing VPP token for DDM when available assignments must be preserved; use a separate Apple Business token for DDM and MDM for available assignments or apps requiring app configuration policies.",
+      "headline": "Configuration Manager 2609 guidance sets new SQL floors and removes Asset Intelligence reports",
+      "overview": "The substantive story is Configuration Manager 2609 readiness: prerequisite guidance now specifies ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later, while Asset Intelligence and SQLCLR procedures change by product version. Intune also added device-management, renaming, and device-property guidance, but most Intune activity revised device-action paths, labels, and links. The main operational exceptions were Apple VPP token handling and automated iOS enrollment settings.",
+      "adminImpact": "Before deploying or updating to Configuration Manager 2609, verify SQL Server and ODBC versions, review dependencies on Asset Intelligence reports, and apply the TRUSTWORTHY procedure that matches the installed version. In Intune, avoid re-uploading VPP tokens with existing available assignments, set Run Company Portal in Single App Mode until authentication to No in applicable enrollment policies, and use the revised device-action paths under menus such as Remove data, Secure, Remote actions, and Microsoft Defender.",
       "keyChanges": [
         {
-          "title": "Configuration Manager 2609 sets explicit SQL Server and ODBC minimums",
-          "detail": "For version 2609 and later, prerequisite checks require ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later. The guidance identifies incompatible ODBC releases, and unsupported versions can block installation or upgrades.",
+          "title": "2609 prerequisite checks now set higher ODBC and SQL version floors",
+          "detail": "The 2609-and-later prerequisite guidance requires ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later. Unsupported versions can block installation or upgrades, and the guidance identifies incompatible ODBC releases to avoid.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-list-of-prerequisite-checks-16"
         },
         {
-          "title": "Asset Intelligence catalog, status, and reporting surfaces are removed in 2609",
-          "detail": "Starting in version 2609, the Catalog Synchronization and Inventoried Software Status sections are removed from the Asset Intelligence home page, and Asset Intelligence reports are removed from Monitoring > Reporting > Reports. Earlier procedures apply only to version 2603 and earlier.",
+          "title": "2609 guidance records Asset Intelligence section and report removals",
+          "detail": "Starting in version 2609, Catalog Synchronization and Inventoried Software Status are removed from the Asset Intelligence home page, and Asset Intelligence reports are removed from Monitoring > Reporting > Reports. Earlier procedures apply only to version 2603 and earlier.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-operations-for-asset-intelligence-03"
         },
         {
-          "title": "Configuration Manager 2609 removes the TRUSTWORTHY requirement for SQLCLR loading",
-          "detail": "For 2609 and later, the TRUSTWORTHY database property isn't required to load Microsoft-signed SQLCLR assemblies, including with SQL Server Always On availability groups. Configuration Manager 2603 and earlier still require TRUSTWORTHY to be enabled.",
+          "title": "Configuration Manager 2609 changes the SQLCLR TRUSTWORTHY requirement",
+          "detail": "The SQL Server support guidance says TRUSTWORTHY isn't required in version 2609 and later to load Microsoft-signed SQLCLR assemblies, including with SQL Server Always On availability groups. Configuration Manager 2603 and earlier still require TRUSTWORTHY to be enabled.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-supported-configurations-for-sql-server-12"
         },
         {
-          "title": "2609 site setup automatically installs OLE DB and drops SQL Native Client",
-          "detail": "Starting in version 2609, Configuration Manager automatically installs the Microsoft OLE DB Driver for SQL Server and no longer requires SQL Server Native Client. Versions 2603 and earlier retain the previous Native Client behavior; the site prerequisites also specify the Microsoft ODBC Driver for SQL Server.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-28-site-and-site-system-prerequisites-05"
-        },
-        {
-          "title": "Intune warns that re-uploading VPP tokens for DDM loses available assignments",
-          "detail": "The Apple VPP guidance now states that re-uploading an existing VPP token for DDM causes available app assignments to be lost. It recommends creating a new Apple Business token for DDM and using MDM for available assignments and apps that require app configuration policies.",
+          "title": "DDM deployments now require separate Apple Business tokens to preserve assignments",
+          "detail": "Re-uploading an existing VPP token for DDM causes available app assignments to be lost. The guidance recommends creating a new Apple Business token for DDM, while using MDM for available assignments and apps that require app configuration policies.",
           "product": "Intune",
           "sourceId": "doc-2026-09-29-manage-vpp-apple-05"
+        },
+        {
+          "title": "Automated iOS enrollment guidance requires the authentication setting to be No",
+          "detail": "The Run Company Portal in Single App Mode until authentication option must be set to No and will soon be removed. Sync with computers is no longer included in enrollment policies because Apple deprecated it in iOS 13.",
+          "product": "Intune",
+          "sourceId": "doc-2026-09-30-setup-automated-ios-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T23:42:03.670Z",
+      "generatedAt": "2026-09-30T23:47:11.920Z",
       "usage": {
-        "inputTokens": 8985,
-        "outputTokens": 10376,
-        "costUsd": 0.014248
+        "inputTokens": 9069,
+        "outputTokens": 7429,
+        "costUsd": 0.010729
       }
     }
   },
@@ -9081,65 +9127,59 @@
       }
     },
     "2026-09": {
-      "headline": "Intune Health Attestation migration sets an early-2027 network deadline for Windows 11",
-      "overview": "September’s clearest Intune planning item is the migration of Windows Health Attestation compliance evaluation from Device Health Attestation to Microsoft Azure Attestation by early 2027; Windows 11 devices using health-based compliance policies need access to Azure Attestation endpoints to avoid compliance failures. Windows Autopatch has a September 1–October 15 rollout of finer approval, deferral, pause, and per-device reporting controls. Security Copilot is now included with Microsoft 365 E5 and E7. The rest of the period was largely mechanical documentation maintenance, especially Configuration Manager metadata, apart from Windows Autopilot hybrid-join failure guidance and Configuration Manager 2609 retirement details.",
-      "adminImpact": "Prioritize network-access review for Azure Attestation endpoints on Windows 11 deployments using health-based compliance policies. Evaluate Autopatch approval, deferral, pause, and reporting workflows as the rollout progresses. E5 and E7 organizations need no purchase or action to receive Security Copilot inclusion. For hybrid-join pre-provisioning, avoid policies requiring domain-controller connectivity during technician flow when a BYO VPN may be unavailable. Configuration Manager teams planning version 2609 should account for removed Asset Intelligence reports and catalog/status sections.",
+      "headline": "Intune’s Windows Health Attestation migration requires Azure endpoint access by early 2027",
+      "overview": "September’s most consequential Intune change is the planned migration of Windows Health Attestation compliance evaluation for Windows 11 from Device Health Attestation to Microsoft Azure Attestation. The service-side migration is automatic, but affected environments need network access to Azure Attestation endpoints. Intune also gained more granular Windows Autopatch approval and reporting controls, while Security Copilot became included with Microsoft 365 E5 and E7 plans. Most remaining activity was Configuration Manager documentation maintenance, with meaningful 2609 guidance covering SQL prerequisites and the removal of Asset Intelligence reporting.",
+      "adminImpact": "Prioritize Azure Attestation endpoint access for Windows 11 devices using health-based compliance policies. Review Windows Autopatch approval, deferral, pause, and reporting options during its September 1–October 15 rollout. For Configuration Manager 2609 plans, validate SQL Server and secondary-site Visual C++ prerequisites and assess dependencies on Asset Intelligence reports. Microsoft 365 E5/E7 organizations receive Security Copilot, monthly Security Compute Units, and developer tools without a new purchase or required action.",
       "keyChanges": [
         {
-          "title": "Windows Health Attestation moves to Azure Attestation by early 2027",
-          "detail": "Intune will move Windows Health Attestation compliance evaluation from the Device Health Attestation service to Microsoft Azure Attestation. Windows 11 devices using health-based compliance policies need network access to Azure Attestation endpoints; otherwise, compliance evaluation can fail.",
+          "title": "Windows Health Attestation is moving to Microsoft Azure Attestation",
+          "detail": "Intune plans to migrate Windows Health Attestation compliance evaluation for Windows 11 from the Device Health Attestation service to Microsoft Azure Attestation by early 2027. The migration occurs automatically on the service side, but organizations must provide network access to Azure Attestation endpoints or health-based compliance evaluation can fail.",
           "product": "Intune",
           "sourceId": "MC1473156"
         },
         {
-          "title": "Windows Autopatch adds granular update governance",
-          "detail": "The September 1–October 15, 2026 rollout adds customizable automatic or manual approvals, deferral settings, update pausing, and detailed per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates.",
-          "product": "Intune / Windows Autopatch",
+          "title": "Windows Autopatch adds granular approval and recovery-update controls",
+          "detail": "Rolling out from September 1 through October 15, 2026, the enhancements add customizable automatic or manual approvals, deferral settings, update pausing, and per-device reporting for Windows quality, .NET Framework, and quick machine recovery updates.",
+          "product": "Windows Autopatch",
           "sourceId": "MC1478956"
         },
         {
-          "title": "Security Copilot joins Microsoft 365 E5 and E7 entitlements",
-          "detail": "Security Copilot is included with Microsoft 365 E5 and E7, with agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. Included benefits cover monthly Security Compute Units and developer tools; no purchase or administrator action is required for inclusion.",
-          "product": "Security Copilot",
-          "sourceId": "MC1478465"
+          "title": "Configuration Manager 2609 guidance raises the SQL Server support floor",
+          "detail": "The updated support guidance marks SQL Server 2016 and SQL Server 2016 Express as deprecated in version 2609. SQL Server editions earlier than SQL Server 2017 CU2 must be upgraded before installing or updating to 2609, and the Visual C++ Redistributable on secondary sites must also be updated.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-09-28-support-for-sql-server-versions-06"
         },
         {
-          "title": "Autopilot guidance flags a hybrid-join pre-provisioning failure mode",
-          "detail": "Windows Autopilot pre-provisioning for Microsoft Entra hybrid join can fail when policy conflict resolution requires domain-controller connectivity and a BYO VPN is unavailable during technician flow. The guidance advises avoiding policies with that connectivity requirement during the technician flow.",
-          "product": "Windows Autopilot",
-          "sourceId": "doc-2026-09-01-windows-autopilot-known-issues-873"
-        },
-        {
-          "title": "Configuration Manager 2609 removes Asset Intelligence reporting surfaces",
-          "detail": "Starting in version 2609, Catalog Synchronization and Inventoried Software Status sections and Asset Intelligence reports are removed. Procedures on the page apply to version 2603 and earlier, with newer guidance pointing administrators to deprecation and lifecycle information.",
+          "title": "Configuration Manager 2609 removes documented Asset Intelligence reporting",
+          "detail": "The updated operations guidance says that, starting in version 2609, the Catalog Synchronization and Inventoried Software Status sections and Asset Intelligence reports are removed. Procedures on the page apply to version 2603 and earlier, so administrators should review reporting dependencies before upgrading.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-operations-for-asset-intelligence-03"
+        },
+        {
+          "title": "Security Copilot is included with Microsoft 365 E5 and E7",
+          "detail": "Security Copilot is now included in Microsoft 365 E5 and E7 plans, with monthly Security Compute Units, developer tools, and agents integrated across Defender, Entra, Intune, Purview, and the Security Copilot portal. No purchase or administrator action is required for the included capability; additional paid features remain optional.",
+          "product": "Security Copilot",
+          "sourceId": "MC1478465"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-29T23:42:03.670Z",
+      "generatedAt": "2026-09-30T23:47:11.920Z",
       "usage": {
-        "inputTokens": 5999,
-        "outputTokens": 6863,
-        "costUsd": 0.009435
+        "inputTokens": 6017,
+        "outputTokens": 3831,
+        "costUsd": 0.005801
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-29T23:42:03.670Z",
+  "generatedAt": "2026-09-30T23:47:11.920Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-25": {
-      "inputTokens": 9735,
-      "outputTokens": 14833,
-      "requests": 3,
-      "costUsd": 0.019747
-    },
     "2026-08-26": {
       "inputTokens": 13809,
       "outputTokens": 26336,
@@ -9205,18 +9245,24 @@
       "outputTokens": 39637,
       "requests": 6,
       "costUsd": 0.055618
+    },
+    "2026-09-30": {
+      "inputTokens": 16565,
+      "outputTokens": 13955,
+      "requests": 3,
+      "costUsd": 0.020059
     }
   },
   "lastRun": {
-    "inputTokens": 20149,
-    "outputTokens": 19482,
+    "inputTokens": 16565,
+    "outputTokens": 13955,
     "requests": 3,
-    "costUsd": 0.027408
+    "costUsd": 0.020059
   },
   "totalUsage": {
-    "inputTokens": 3166081,
-    "outputTokens": 1767179,
-    "requests": 300,
-    "costUsd": 2.753832
+    "inputTokens": 3182646,
+    "outputTokens": 1781134,
+    "requests": 303,
+    "costUsd": 2.773891
   }
 }

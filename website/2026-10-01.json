@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/whats-new/in-development.md",
+      "status": "modified",
+      "additions": 42,
+      "deletions": 3,
+      "changes": 45,
+      "patch": "diff --git a/intune/whats-new/in-development.md b/intune/whats-new/in-development.md\nindex 70667bb..5a86726 100644\n--- a/intune/whats-new/in-development.md\n+++ b/intune/whats-new/in-development.md\n@@ -10,7 +10,7 @@ manager: laurawi\n author: lenewsad\n ms.author: lanewsad\n description: This article describes Microsoft Intune features that are in development.\n-ms.date: 2026-09-24T00:00:00.0000000Z\n+ms.date: 2026-09-30T00:00:00.0000000Z\n ms.topic: whats-new\n ai-usage: ai-assisted\n ms.reviewer: intuner\n@@ -35,12 +35,12 @@ item_type: Content\n source_path: intune/whats-new/in-development.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/68e4b2d8-b70c-4019-b49a-d1f8881e2aea\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/68e4b2d8-b70c-4019-b49a-d1f8881e2aea\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/67b2ba1a-6f74-4044-a48a-f0f8ad076b8f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/67b2ba1a-6f74-4044-a48a-f0f8ad076b8f\n platformId: c5eb57bc-c27a-1714-8de9-d23a130c0177\n ---\n \n@@ -78,6 +78,22 @@ Applies to:\n \r\n ## Device configuration\r\n \r\n+### Apple OS 27 DDM status data in device inventory\r\n+\r\n+Microsoft Intune will add Apple OS 27 declarative device management (DDM) status data to device inventory. You'll be able to review system health information for supported hardware components, content cache details, and MDM state such as enrollment type, awaiting configuration, Return to Service, Shared iPad, and Lockdown Mode. Reported values will depend on the device's supported operating system, hardware, enrollment type, and available DDM capabilities.\r\n+\r\n+Applies to:\r\n+\r\n+- Apple devices running OS 27\r\n+\r\n+### Add support for the MEFERI OEMConfig app on Android Enterprise\r\n+\r\n+Intune will add support for the MEFERI OEMConfig app (`com.meferi.oemconfig`) for Android Enterprise devices. Once onboarded, admins will be able to use Intune's OEMConfig workflow to deploy and manage the device settings that MEFERI exposes through its OEM-provided schema. This update will expand the catalog of supported OEMConfig apps and reduce the need for custom management workarounds when organizations use MEFERI hardware. Admins will continue using the same OEMConfig pattern in Intune by adding the app from Managed Google Play, assigning it to devices, and creating OEMConfig profiles against the supported bundle.\r\n+\r\n+Applies to:\r\n+\r\n+- Android Enterprise\r\n+\r\n ### Enforce Routes capability in iOS/iPadOS and macOS VPN profiles\r\n \r\n Microsoft Intune will support Apple's **[Enforce Routes](https://developer.apple.com/documentation/networkextension/nevpnprotocol/enforceroutes)** feature in iOS/iPadOS and macOS VPN profiles.\r\n@@ -113,6 +129,29 @@ Applies to:\n \r\n ## Device management\r\n \r\n+### Remove legacy Apple MDM software update workloads from Intune\r\n+\r\n+Intune will remove legacy Apple MDM software update workloads after Apple retires the underlying MDM update commands and payloads. This change will help keep the Intune admin experience, Graph surface, and documentation aligned to what Apple still supports, instead of leaving behind settings that no longer have a valid backend. Organizations that still depend on the older workflows will need to finish moving remaining Apple software update scenarios to declarative device management (DDM). By cleaning up the outdated path, Intune will reduce confusion and make the supported Apple update model clearer for administrators planning future update deployments.\r\n+\r\n+Applies to:\r\n+\r\n+- Apple software updates in Microsoft Intune\r\n+\r\n+### New settings for Administrator protection in endpoint security Account Protection policy\r\n+\r\n+We’re adding two settings to Intune's Endpoint security [Account Protection profile](../device-configuration/endpoint-security/account-protection#account-protection-profiles). These settings enhance device security by requiring user authentication for administrator level actions. This authentication request helps to safeguard devices from unauthorized changes and malware.\r\n+\r\n+The two new settings are already available in the Intune [settings catalog](/en-us/intune/intune-service/configuration/settings-catalog). Selecting the setting name link opens its entry in the LocalPoliciesSecurityOptions CSP documentation:\r\n+\r\n+- [**User Account Control Type Of Admin Approval Mode**](/en-us/windows/client-management/mdm/policy-csp-localpoliciessecurityoptions#useraccountcontrol_typeofadminapprovalmode)\r\n+- [**User Account Control Behavior Of The Elevation Prompt For Administrator Protection**](/en-us/windows/client-management/mdm/policy-csp-localpoliciessecurityoptions#useraccountcontrol_behavioroftheelevationpromptforadministratorprotection)\r\n+\r\n+To learn more about the Administrator protection scenario, see [Administrator protection on Windows 11](https://techcommunity.microsoft.com/blog/windows-itpro-blog/administrator-protection-on-windows-11/4303482) on the Windows IT Pro Blog.\r\n+\r\n+Applies to:\r\n+\r\n+- Windows 11 (24H2 and 25H2)\r\n+\r\n ### Updated minimum supported version for macOS\r\n \r\n Microsoft Intune will update its minimum supported macOS version after Apple releases macOS 27. Intune, the Company Portal, and the Intune management agent will support macOS 15 and later. Devices running macOS 14 or earlier that are already enrolled will remain enrolled, but new devices on those versions won't be able to enroll. You'll be able to use Intune reporting to identify affected devices and plan upgrades. Devices enrolled without user affinity have a separate support statement.\r\n",
+      "baseCommitSha": "9031e0f1488d65c1214aa1b94c7b37a69df22591",
+      "commitSha": "e28607d35f5c70ff8a7f0fd31616b035340902a4",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-01 07:55:02 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
+      "eventId": "intune-docs:e28607d35f5c70ff8a7f0fd31616b035340902a4:modified:intune/whats-new/in-development.md",
+      "firstSeenAt": "2026-10-01T08:53:40.773Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "In-development updates add Apple, Android, and Windows management capabilities",
+        "summary": "The page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2.",
+        "adminImpact": "Administrators should track these planned changes for device inventory, OEMConfig deployments, Apple update management, and Windows Account Protection policies. No action or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "New feature",
+        "title": "intune/whats-new",
+        "summary": "The page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2.",
+        "sourceFiles": [
+          "intune/whats-new/in-development.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New feature",
+        "headline": "intune/whats-new",
+        "detail": "The page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -7049,6 +7049,46 @@
         "outputTokens": 2695,
         "costUsd": 0.00353
       }
+    },
+    "2026-10-01": {
+      "headline": "Apple OS 27 inventory and MEFERI OEMConfig join Intune’s development roadmap",
+      "overview": "Intune’s In Development page now lists four planned areas: Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2.",
+      "adminImpact": "Administrators should track these planned changes when managing device inventory, OEMConfig deployments, Apple software updates, and Windows Account Protection policies. No action or deadline is stated.",
+      "keyChanges": [
+        {
+          "title": "Apple OS 27 DDM inventory data is listed for future Intune support",
+          "detail": "The In Development page now includes Apple OS 27 DDM inventory data. Administrators planning Apple device-inventory coverage should track this item; no action or deadline is stated.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        },
+        {
+          "title": "MEFERI OEMConfig support is planned for Android Enterprise",
+          "detail": "Intune now lists MEFERI OEMConfig support for Android Enterprise among its planned changes, relevant to administrators managing OEMConfig deployments.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        },
+        {
+          "title": "Legacy Apple MDM software-update workloads are listed for removal",
+          "detail": "The page identifies removal of legacy Apple MDM software-update workloads as planned. Administrators responsible for Apple update management should track the change.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        },
+        {
+          "title": "Two Administrator protection settings are planned for Windows 11",
+          "detail": "The In Development list adds two Administrator protection settings for Windows 11 24H2 and 25H2, relevant to future Windows Account Protection policy planning.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-01T08:53:50.907Z",
+      "usage": {
+        "inputTokens": 1043,
+        "outputTokens": 1925,
+        "costUsd": 0.002519
+      }
     }
   },
   "weeks": {
@@ -8711,37 +8751,37 @@
       }
     },
     "2026-09-28": {
-      "headline": "Configuration Manager 2609 guidance sets new SQL floors and removes Asset Intelligence reports",
-      "overview": "The substantive story is Configuration Manager 2609 readiness: prerequisite guidance now specifies ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later, while Asset Intelligence and SQLCLR procedures change by product version. Intune also added device-management, renaming, and device-property guidance, but most Intune activity revised device-action paths, labels, and links. The main operational exceptions were Apple VPP token handling and automated iOS enrollment settings.",
-      "adminImpact": "Before deploying or updating to Configuration Manager 2609, verify SQL Server and ODBC versions, review dependencies on Asset Intelligence reports, and apply the TRUSTWORTHY procedure that matches the installed version. In Intune, avoid re-uploading VPP tokens with existing available assignments, set Run Company Portal in Single App Mode until authentication to No in applicable enrollment policies, and use the revised device-action paths under menus such as Remove data, Secure, Remote actions, and Microsoft Defender.",
+      "headline": "Configuration Manager 2609 raises upgrade prerequisites while Intune guidance flags Apple VPP assignment loss",
+      "overview": "The strongest changes this week are upgrade-readiness and retirement guidance rather than a broad Intune feature rollout. Configuration Manager 2609 gets concrete ODBC and SQL prerequisites, Asset Intelligence removals, and a version-specific SQLCLR security-setting change. Intune’s most consequential Apple updates warn about VPP/DDM assignment loss and require a specific automated iOS enrollment value; other edits largely clarify existing administration paths and support boundaries.",
+      "adminImpact": "For Configuration Manager 2609 planning, validate ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later, review Asset Intelligence dependencies, and apply the version-specific TRUSTWORTHY guidance. For Intune Apple administration, do not re-upload VPP tokens that carry available assignments; create a separate token for DDM, and set Run Company Portal in Single App Mode until authentication to No in applicable enrollment policies.",
       "keyChanges": [
         {
-          "title": "2609 prerequisite checks now set higher ODBC and SQL version floors",
-          "detail": "The 2609-and-later prerequisite guidance requires ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later. Unsupported versions can block installation or upgrades, and the guidance identifies incompatible ODBC releases to avoid.",
+          "title": "2609 prerequisite checks now gate supported ODBC and SQL versions",
+          "detail": "For Configuration Manager 2609 and later, the prerequisite guidance requires ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later. Unsupported versions can block installation or upgrades, and the page identifies incompatible ODBC releases.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-list-of-prerequisite-checks-16"
         },
         {
-          "title": "2609 guidance records Asset Intelligence section and report removals",
-          "detail": "Starting in version 2609, Catalog Synchronization and Inventoried Software Status are removed from the Asset Intelligence home page, and Asset Intelligence reports are removed from Monitoring > Reporting > Reports. Earlier procedures apply only to version 2603 and earlier.",
+          "title": "Asset Intelligence surfaces are removed in Configuration Manager 2609",
+          "detail": "Starting in version 2609, the Catalog Synchronization and Inventoried Software Status sections, along with Asset Intelligence reports, are removed. The earlier procedures apply only to version 2603 and earlier.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-operations-for-asset-intelligence-03"
         },
         {
-          "title": "Configuration Manager 2609 changes the SQLCLR TRUSTWORTHY requirement",
-          "detail": "The SQL Server support guidance says TRUSTWORTHY isn't required in version 2609 and later to load Microsoft-signed SQLCLR assemblies, including with SQL Server Always On availability groups. Configuration Manager 2603 and earlier still require TRUSTWORTHY to be enabled.",
+          "title": "SQLCLR assembly loading no longer requires TRUSTWORTHY in 2609",
+          "detail": "For Configuration Manager 2609 and later, the TRUSTWORTHY database property isn't required to load Microsoft-signed SQLCLR assemblies, including with SQL Server Always On availability groups. Version 2603 and earlier still requires TRUSTWORTHY to be enabled.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-supported-configurations-for-sql-server-12"
         },
         {
-          "title": "DDM deployments now require separate Apple Business tokens to preserve assignments",
-          "detail": "Re-uploading an existing VPP token for DDM causes available app assignments to be lost. The guidance recommends creating a new Apple Business token for DDM, while using MDM for available assignments and apps that require app configuration policies.",
+          "title": "VPP token reuse can discard available DDM app assignments",
+          "detail": "Intune warns that re-uploading an existing VPP token for DDM causes available app assignments to be lost. The guidance recommends a new Apple Business token for DDM, while MDM remains the path for available assignments and apps requiring app configuration policies.",
           "product": "Intune",
           "sourceId": "doc-2026-09-29-manage-vpp-apple-05"
         },
         {
-          "title": "Automated iOS enrollment guidance requires the authentication setting to be No",
-          "detail": "The Run Company Portal in Single App Mode until authentication option must be set to No and will soon be removed. Sync with computers is no longer included in enrollment policies because Apple deprecated it in iOS 13.",
+          "title": "Automated iOS enrollment guidance sets the Company Portal authentication option to No",
+          "detail": "The Run Company Portal in Single App Mode until authentication option must be set to No and will soon be removed. Sync with computers was deprecated by Apple in iOS 13 and is no longer included in enrollment policies.",
           "product": "Intune",
           "sourceId": "doc-2026-09-30-setup-automated-ios-05"
         }
@@ -8749,11 +8789,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-09-30T23:47:11.920Z",
+      "generatedAt": "2026-10-01T08:53:50.907Z",
       "usage": {
-        "inputTokens": 9069,
-        "outputTokens": 7429,
-        "costUsd": 0.010729
+        "inputTokens": 9111,
+        "outputTokens": 9345,
+        "costUsd": 0.013036
       }
     }
   },
@@ -9171,21 +9211,55 @@
         "outputTokens": 3831,
         "costUsd": 0.005801
       }
+    },
+    "2026-10": {
+      "headline": "Intune’s development page now lists Apple OS 27 inventory and Windows protection settings",
+      "overview": "October’s sole Intune change updates the In Development page with planned additions spanning Apple device inventory, Android Enterprise OEMConfig, Apple software-update management, and Windows Account Protection. The page lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2.",
+      "adminImpact": "Administrators should track these planned changes for device inventory, OEMConfig deployments, Apple update management, and Windows Account Protection policies. The supplied evidence states no action or deadline.",
+      "keyChanges": [
+        {
+          "title": "Apple OS 27 DDM inventory data is listed for development",
+          "detail": "The In Development page now lists Apple OS 27 DDM inventory data, signaling planned expansion of the inventory information available through Apple device management.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        },
+        {
+          "title": "MEFERI OEMConfig support is listed for Android Enterprise",
+          "detail": "The development list adds MEFERI OEMConfig support for Android Enterprise, relevant to administrators planning OEMConfig deployments on supported MEFERI devices.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        },
+        {
+          "title": "Legacy Apple MDM software-update workloads are slated for removal",
+          "detail": "The page lists removal of legacy Apple MDM software-update workloads, affecting how administrators track planned Apple update-management changes.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        },
+        {
+          "title": "Two Administrator protection settings are listed for Windows 11",
+          "detail": "The development list includes two Administrator protection settings for Windows 11 versions 24H2 and 25H2, relevant to future Windows Account Protection policy planning.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-01-in-development-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-01T08:53:50.907Z",
+      "usage": {
+        "inputTokens": 1064,
+        "outputTokens": 933,
+        "costUsd": 0.001332
+      }
     }
   },
   "version": 3,
-  "generatedAt": "2026-09-30T23:47:11.920Z",
+  "generatedAt": "2026-10-01T08:53:50.907Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-26": {
-      "inputTokens": 13809,
-      "outputTokens": 26336,
-      "requests": 3,
-      "costUsd": 0.034365
-    },
     "2026-08-27": {
       "inputTokens": 60703,
       "outputTokens": 90974,
@@ -9251,18 +9325,24 @@
       "outputTokens": 13955,
       "requests": 3,
       "costUsd": 0.020059
+    },
+    "2026-10-01": {
+      "inputTokens": 11218,
+      "outputTokens": 12203,
+      "requests": 3,
+      "costUsd": 0.016887
     }
   },
   "lastRun": {
-    "inputTokens": 16565,
-    "outputTokens": 13955,
+    "inputTokens": 11218,
+    "outputTokens": 12203,
     "requests": 3,
-    "costUsd": 0.020059
+    "costUsd": 0.016887
   },
   "totalUsage": {
-    "inputTokens": 3182646,
-    "outputTokens": 1781134,
-    "requests": 303,
-    "costUsd": 2.773891
+    "inputTokens": 3193864,
+    "outputTokens": 1793337,
+    "requests": 306,
+    "costUsd": 2.790778
   }
 }

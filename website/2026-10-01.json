@@ -26,19 +26,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/app-management/configuration/configure-managed-home-screen.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/app-management/configuration/configure-managed-home-screen.md b/intune/app-management/configuration/configure-managed-home-screen.md\nindex b02eb90..2b89cf2 100644\n--- a/intune/app-management/configuration/configure-managed-home-screen.md\n+++ b/intune/app-management/configuration/configure-managed-home-screen.md\n@@ -17,7 +17,7 @@ description: Learn how to configure the Microsoft Managed Home Screen app.\n ms.date: 2026-09-23T00:00:00.0000000Z\n ms.topic: how-to\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1028\n+ms.custom: msecd-doc-authoring-1023\n ms.reviewer: abigailstein\n locale: en-us\n document_id: 5f1cbc09-34f3-e954-098e-9b98d740518a\n@@ -244,7 +244,7 @@ The automatic relaunch functionality requires granting exact alarm permission (O\n | Offline work time before required sign-in | Integer | 60 | Set the time (in seconds) users can stay offline after the network is detected before they must sign in. This setting only applies when **Configure offline app access** is set to true for at least one application. | ❌ |\r\n | Configure app access without sign in | bundleArray | See **Enter JSON Data** section of this document | Select which apps are available to users from the sign-in screen before signing in to Managed Home Screen. These apps are available via entry point on the top bar regardless of network status. This setting can only be used if **Enable sign in** is set to true. | ✔️ |\r\n | Silence apps while Managed Home Screen requires authentication | bool | FALSE | Silence apps whenever MHS is prompting the user for authentication, such as during the sign-in or session PIN screens. Silenced apps can't start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing. Apps are automatically unsilenced when the device is unlocked. | ❌ |\r\n-| Exclude these apps from the silence setting | bundleArray | See **Enter JSON Data** section of this document | Specify apps to exclude from silencing while Managed Home Screen requires authentication. These apps can start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing while the device is locked. Specify the apps by entering the package name for each app that you want to exclude. <br>**Note:** For MAM-integrated apps that you exclude from silencing, assign an [Intune app protection policy](../protection/create-policy) to both the app and the signed-in user. No specific app protection policy setting is required. If a user opens protected app content while Managed Home Screen requires sign-in or session PIN authentication, the app redirects the user to Managed Home Screen to authenticate. | ❌ |\r\n+| Exclude these apps from the silence setting | bundleArray | See **Enter JSON Data** section of this document | Specify apps to exclude from silencing while Managed Home Screen requires authentication. These apps can start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing while the device is locked. Specify the apps by entering the package name for each app that you want to exclude. <br>**Note:** On devices running Android 11 and later, if a user opens protected content in a MAM-integrated app while Managed Home Screen requires sign-in or session PIN authentication, the app redirects the user to Managed Home Screen to authenticate. To use this behavior, exclude the MAM-integrated app from silencing and assign an [Intune app protection policy](../protection/create-policy) to both the app and the signed-in user. No specific app protection policy setting is required. | ❌ |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "e28607d35f5c70ff8a7f0fd31616b035340902a4",
+      "commitSha": "1a71d3f9ef4078c0bf131977edb6643df0f60eb0",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-01 23:32:06 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/configuration/configure-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-home-screen",
+      "eventId": "intune-docs:1a71d3f9ef4078c0bf131977edb6643df0f60eb0:modified:intune/app-management/configuration/configure-managed-home-screen.md",
+      "firstSeenAt": "2026-10-01T23:52:30.690Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Managed Home Screen documentation updated",
+        "summary": "The page’s authoring metadata changed, and the description for excluding apps from the silence setting was revised.",
+        "adminImpact": "No administrator action is indicated; review the updated documentation if configuring this setting.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 2,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "New feature",
@@ -47,6 +73,14 @@
         "sourceFiles": [
           "intune/whats-new/in-development.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/app-management",
+        "summary": "The page’s authoring metadata changed, and the description for excluding apps from the silence setting was revised.",
+        "sourceFiles": [
+          "intune/app-management/configuration/configure-managed-home-screen.md"
+        ]
       }
     ],
     "highlights": [
@@ -54,6 +88,11 @@
         "category": "New feature",
         "headline": "intune/whats-new",
         "detail": "The page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/app-management",
+        "detail": "The page’s authoring metadata changed, and the description for excluding apps from the silence setting was revised."
       }
     ],
     "generatedBy": "fallback"

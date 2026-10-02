@@ -1,0 +1,206 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/epm/manage-system-settings.md",
+      "status": "added",
+      "additions": 136,
+      "deletions": 0,
+      "changes": 136,
+      "patch": "diff --git a/intune/epm/manage-system-settings.md b/intune/epm/manage-system-settings.md\nnew file mode 100644\nindex 0000000..6204f59\n--- /dev/null\n+++ b/intune/epm/manage-system-settings.md\n@@ -0,0 +1,136 @@\n+---\n+layout: Conceptual\n+title: Manage system settings with Endpoint Privilege Management - Microsoft Intune | Microsoft Learn\n+canonicalUrl: https://learn.microsoft.com/en-us/intune/epm/manage-system-settings\n+breadcrumb_path: /intune/breadcrumb/toc.json\n+uhfHeaderId: MSDocsHeader-Intune\n+feedback_system: Standard\n+ms.service: microsoft-intune\n+manager: laurawi\n+author: lenewsad\n+ms.author: lanewsad\n+ms.collection:\n+- tier 1\n+- M365-identity-device-management\n+- sub-intune-suite\n+ms.reviewer: ochukwunyere\n+ms.subservice: suite\n+description: Use an elevation system settings policy with Endpoint Privilege Management to let standard users change network settings, like IPv4, IPv6, and DNS, that normally require administrator rights.\n+ms.date: 2026-06-24T00:00:00.0000000Z\n+ms.topic: how-to\n+ai-usage: ai-assisted\n+locale: en-us\n+document_id: 2dcf1e6b-180b-df11-efc9-659d88609046\n+document_version_independent_id: 2dcf1e6b-180b-df11-efc9-659d88609046\n+original_content_git_url: https://github.com/MicrosoftDocs/memdocs-pr/blob/live/intune/epm/manage-system-settings.md\n+site_name: Docs\n+depot_name: MSDN.memdocs\n+page_type: conceptual\n+toc_rel: ../toc.json\n+pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/MSDN.memdocs/{branchName}{pdfName}\n+feedback_product_url: ''\n+feedback_help_link_type: ''\n+feedback_help_link_url: ''\n+asset_id: epm/manage-system-settings\n+moniker_range_name: \n+monikers: []\n+item_type: Content\n+source_path: intune/epm/manage-system-settings.md\n+cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+platformId: 4ef8a5ae-a078-1f1b-231f-4932ff9672b3\n+---\n+\n+# Manage system settings with Endpoint Privilege Management - Microsoft Intune | Microsoft Learn\n+\n+With Microsoft Intune **Endpoint Privilege Management (EPM)** your organization's users can run as a standard user (without administrator rights) and complete tasks that require elevated privileges. For more information, see [EPM Overview](overview).\r\n+\r\n+Applies to:\r\n+\r\n+- Windows\r\n+\r\n+An *elevation system settings policy* lets Endpoint Privilege Management (EPM) grant standard users access to specific Windows system settings that normally require administrator rights. This policy type supports *network settings*, which let a standard user change IPv4, IPv6, and DNS server values for the network adapters on their device.\r\n+\r\n+Some everyday tasks, like changing an IP address or DNS server, require administrator rights. A standard user who tries to change these values in Windows is blocked by a User Account Control (UAC) prompt. With an elevation system settings policy, you let standard users make these specific changes through EPM, without granting broad administrator rights and without a separate app deployment.\r\n+\r\n+A common scenario is a user who travels between sites. To connect a device at a new location, the user might need to set a static IP address or DNS server before the device is online. An elevation system settings policy lets the user make that change, even when the device is offline.\r\n+\r\n+For elevation system settings policies to take effect, devices must also have an *elevation settings policy* targeted that enables EPM. For more information, see [Manage elevation settings](manage-elevation-settings).\r\n+\r\n+## About elevation system settings policy\r\n+\r\n+An *elevation system settings policy* identifies a category of Windows system settings and the elevation behavior that applies when a standard user changes those settings. Each policy contains one or more *rules*. Each rule defines:\r\n+\r\n+- **System setting** - The category of settings the rule applies to. **Network settings** covers IPv4, IPv6, and DNS server configuration for the device's network adapters.\r\n+- **Elevation type** - How EPM responds when the user changes a setting. **User confirmed** requires the user to act on a confirmation prompt before the change is applied.\r\n+- **Validation** - Optional requirements the user must satisfy when *User confirmed* is selected. You can require a business justification, Windows authentication, or both. A business justification is visible in reporting.\r\n+\r\n+When a device receives an elevation system settings policy, users access the supported settings from a single entry point in the Windows Company Portal. EPM shows only the settings categories that the device has a policy for. For example, if a device has a policy for network settings, the user sees only the network settings experience.\r\n+\r\n+## Create an elevation system settings policy\r\n+\r\n+1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) and go to **Endpoint security** &gt; **Endpoint Privilege Management** &gt; select the **Policies** tab &gt; and then select **Create Policy**.\r\n+\r\n+    Set the *Platform* to **Windows**, *Profile* to **Elevation system settings policy**, and then select **Create**.\r\n+2. On **Basics**, enter the following properties:\r\n+\r\n+    - **Name**: Enter a descriptive name for the profile. Name profiles so you can easily identify them later.\r\n+    - **Description**: Enter a description for the profile. This setting is optional but recommended.\r\n+3. On **Configuration settings**, add a rule that defines the system settings users can change:\r\n+\r\n+    1. Select **Add**, and then select **Edit instance** to open the **Rule properties** pane.\r\n+    2. Configure the rule:\r\n+\r\n+        - **Rule name**: Enter a descriptive name for the rule. This field is required.\r\n+        - **Description**: Enter an optional description for the rule.\r\n+        - **System setting**: Select **Network settings**. This option lets users change IPv4, IPv6, and DNS server values for the device's network adapters.\r\n+        - **Elevation type**: Select **User confirmed**. The user must act on a confirmation prompt before a change is applied.\r\n+        - **Validation**: Optionally require the user to provide more confirmation when they make a change. Options include:\r\n+\r\n+            - **Business justification**: Require the user to enter a justification for the change. The justification is saved and can be reviewed in reporting.\r\n+            - **Windows authentication**: Require the user to authenticate with their organization credentials before the change is applied.\r\n+\r\n+            Note\r\n+\r\n+            You can select multiple validation options. If you don't select any, the user only needs to confirm their intent to apply the change.\r\n+    3. Select **Save** to save the rule, and then select **Next**.\r\n+4. On the **Scope tags** page, select any desired scope tags to apply, then select **Next**.\r\n+5. For **Assignments**, select the groups that receive the policy. For more information on assigning profiles, see [Assign user and device profiles](../device-configuration/assign-device-profile). Select **Next**.\r\n+6. For **Review + create**, review your settings and then select **Create**. When you select *Create*, your changes are saved, and the profile is assigned. The policy is also shown in the policy list with a *Policy type* of **Elevation system settings policy**.\r\n+\r\n+After the device's next policy sync, the user can change the configured system settings from the Windows Company Portal.\r\n+\r\n+## End-user experience in the Company Portal\r\n+\r\n+Changing these settings is an end-user task that takes place in the Windows Company Portal, not something you complete in the Intune admin center. The steps in this section describe what your users see and do on their own devices. Share these steps with your users so they know what to expect and how to change the settings you allow.\r\n+\r\n+After a user's device has an assigned elevation system settings policy and completes its next policy sync, the user changes the configured settings:\r\n+\r\n+1. In the Windows Company Portal, the user goes to **Help & support**, and then in the **System settings** tile, selects **Edit settings**.\r\n+\r\n+    The **System settings** tile is the single entry point for all system settings that EPM manages on the device. EPM shows only the settings categories that the device has a policy for.\r\n+2. The **Endpoint Privilege Management - Network Settings** window opens and lists the network adapters available on the device. The user selects an adapter, like **Ethernet**.\r\n+3. The adapter details show the current IPv4, IPv6, and DNS server values, along with hardware properties for the adapter. The user selects **Edit** next to the section they want to change.\r\n+4. In the edit dialog, the user selects how the setting is assigned:\r\n+\r\n+    - **Automatic (DHCP)**: The adapter obtains the values automatically.\r\n+    - **Manual**: The user enters the values. For IPv4, the fields are:\r\n+\r\n+        - **IP Address**\r\n+        - **Subnet Mask**\r\n+        - **Gateway**\r\n+        - **Preferred DNS**\r\n+        - **Alternate DNS**\r\n+\r\n+        For IPv6, the fields are:\r\n+\r\n+        - **IPv6 Address**\r\n+        - **Prefix Length**\r\n+        - **Gateway**\r\n+        - **Preferred DNS**\r\n+        - **Alternate DNS**\r\n+5. The user selects **Save**. Depending on the policy's validation options, the user might need to provide a business justification, authenticate, or both before the change is applied.\n\\ No newline at end of file\n",
+      "baseCommitSha": "1a71d3f9ef4078c0bf131977edb6643df0f60eb0",
+      "commitSha": "8b0a577c6001fb41537265f889d9c9b60e7a8993",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-02 23:22:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/epm/manage-system-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/epm/manage-system-settings",
+      "eventId": "intune-docs:8b0a577c6001fb41537265f889d9c9b60e7a8993:added:intune/epm/manage-system-settings.md",
+      "firstSeenAt": "2026-10-02T23:45:40.176Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "EPM adds elevation system settings policies",
+        "summary": "The documentation describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both.",
+        "adminImpact": "Administrators can delegate specific network changes while retaining elevation controls. Devices also need an EPM elevation settings policy enabled.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/advanced-analytics/ref-data-platform-schema.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/ref-data-platform-schema.md b/intune/advanced-analytics/ref-data-platform-schema.md\nindex 494e29f..14ec7a9 100644\n--- a/intune/advanced-analytics/ref-data-platform-schema.md\n+++ b/intune/advanced-analytics/ref-data-platform-schema.md\n@@ -437,7 +437,7 @@ On Android Enterprise personally owned devices with a work profile (BYOD), only\n \r\n Note\r\n \r\n-`SimInfo` isn't supported for Android Enterprise personally owned devices with a work profile (BYOD).\r\n+`SimInfo` isn't supported for Android Enterprise personally owned devices with a work profile (BYOD). ICCID isn't supported on Windows.\r\n \r\n ## `SystemEnclosure`\r\n \r\n",
+      "baseCommitSha": "1a71d3f9ef4078c0bf131977edb6643df0f60eb0",
+      "commitSha": "8b0a577c6001fb41537265f889d9c9b60e7a8993",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-02 23:22:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/advanced-analytics/ref-data-platform-schema.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/ref-data-platform-schema",
+      "eventId": "intune-docs:8b0a577c6001fb41537265f889d9c9b60e7a8993:modified:intune/advanced-analytics/ref-data-platform-schema.md",
+      "firstSeenAt": "2026-10-02T23:45:39.944Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "ICCID support limitation documented for Windows",
+        "summary": "The schema documentation now states that ICCID isn’t supported on Windows. It continues to note that SimInfo isn’t supported for Android Enterprise personally owned devices with a work profile.",
+        "adminImpact": "Administrators should not expect ICCID data on Windows or SimInfo data for the specified Android Enterprise BYOD devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md b/intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md\nindex 6f4a402..ad4fc17 100644\n--- a/intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md\n+++ b/intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md\n@@ -13,7 +13,7 @@ ms.collection:\n - M365-identity-device-management\n ms.subservice: configuration\n description: On Android Enterprise or Android for Work devices owned by your organization, you can restrict settings on the device using Microsoft Intune. Allow copy and paste, notifications, app permissions, data sharing, password length, sign in failures, use fingerprint to unlock, reuse passwords, and enable bluetooth sharing of work contacts. Configure devices as a dedicated device kiosk to run one app, or multiple apps.\n-ms.date: 2026-09-23T00:00:00.0000000Z\n+ms.date: 2026-10-02T00:00:00.0000000Z\n ms.topic: reference\n ms.reviewer: cchristenson, arnab\n ai-usage: ai-assisted\n@@ -142,10 +142,12 @@ For corporate-owned devices with a work profile, some settings only apply in the\n \r\n     | Enrollment method | Settings &gt; Factory data reset | Settings &gt; Recovery/bootloader | Intune[wipe](../../device-management/actions/wipe) |\r\n     | --- | --- | --- | --- |\r\n-    | **Corporate-owned devices with work profile** (COPE) | ![error-icon](../../media/icons/16/error.svg) no factory reset protection | ![check-icon](../../media/icons/16/check.svg) factory reset protection | ![error-icon](../../media/icons/16/error.svg) no factory reset protection |\r\n+    | **Corporate-owned devices with work profile** (COPE) | ![check-icon](../../media/icons/16/check.svg) factory reset protection | ![check-icon](../../media/icons/16/check.svg) factory reset protection | ![error-icon](../../media/icons/16/error.svg) no factory reset protection |\r\n     | **Fully managed** (COBO) | ![error-icon](../../media/icons/16/error.svg) no factory reset protection | ![check-icon](../../media/icons/16/check.svg) factory reset protection | ![error-icon](../../media/icons/16/error.svg) no factory reset protection |\r\n     | **Dedicate** (COSU) | ![error-icon](../../media/icons/16/error.svg) no factory reset protection | ![check-icon](../../media/icons/16/check.svg) factory reset protection | ![error-icon](../../media/icons/16/error.svg) no factory reset protection |\r\n \r\n+    For COPE devices, a Settings reset doesn't enforce FRP when **Factory reset protection emails** is **Not configured**.\r\n+\r\n     For background and guidance, see **[Factory reset protection (FRP) enforcement behavior for Android Enterprise](/en-us/troubleshoot/mem/intune/device-configuration/factory-reset-protection-emails-not-enforced)**.\r\n - **System update**: Choose an option to define how the device handles over-the-air updates. Your options\r\n \r\n",
+      "baseCommitSha": "1a71d3f9ef4078c0bf131977edb6643df0f60eb0",
+      "commitSha": "8b0a577c6001fb41537265f889d9c9b60e7a8993",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-02 23:22:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/ref-device-restrictions-android-enterprise",
+      "eventId": "intune-docs:8b0a577c6001fb41537265f889d9c9b60e7a8993:modified:intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md",
+      "firstSeenAt": "2026-10-02T23:45:40.168Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "COPE factory reset protection guidance updated",
+        "summary": "The documentation updates the COPE device table and explains that a Settings reset doesn’t enforce factory reset protection when Factory reset protection emails is Not configured.",
+        "adminImpact": "Administrators should use the revised guidance when reviewing COPE reset and factory reset protection settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/android/ref-corporate-methods.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-enrollment/android/ref-corporate-methods.md b/intune/device-enrollment/android/ref-corporate-methods.md\nindex a19732e..8acd0dd 100644\n--- a/intune/device-enrollment/android/ref-corporate-methods.md\n+++ b/intune/device-enrollment/android/ref-corporate-methods.md\n@@ -13,7 +13,7 @@ ms.collection:\n - M365-identity-device-management\n ms.subservice: enrollment\n description: Learn how to enroll Android Enterprise dedicated, fully managed, or corporate-owned work profile devices in Intune.\n-ms.date: 2025-12-04T00:00:00.0000000Z\n+ms.date: 2026-10-02T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: grwilson\n locale: en-us\n@@ -64,7 +64,9 @@ If you have a Microsoft Entra Conditional Access policy defined that uses the *r\n | **Fully managed** (COBO) | ❌ no factory reset protection | ✅ factory reset protection | ❌ no factory reset protection |\r\n | **Dedicated** (COSU) | ❌ no factory reset protection | ✅ factory reset protection | ❌ no factory reset protection |\r\n \r\n-For corporate owned devices with a work profile running Android 15, you will need to re-enter the Google account associated with the configuration after any reset done via the Settings app. It's important to plan your reprovisioning workflow (such as applying an Intune wipe or resetting via the Settings app) accordingly so that you can provide the required credentials if needed. For background and guidance, see [Factory reset protection (FRP) enforcement behavior for Android Enterprise](/en-us/troubleshoot/mem/intune/device-configuration/factory-reset-protection-emails-not-enforced).\r\n+For corporate-owned devices with a work profile, a Settings reset doesn't enforce FRP when **Factory reset protection emails** is **Not configured**.\r\n+\r\n+For corporate owned devices with a work profile running Android 15, when **Factory reset protection emails** is configured with a Google account email address, you will need to re-enter the Google account associated with the configuration after a reset done via the Settings app. It's important to plan your reprovisioning workflow (such as applying an Intune wipe or resetting via the Settings app) accordingly so that you can provide the required credentials if needed. For background and guidance, see [Factory reset protection (FRP) enforcement behavior for Android Enterprise](/en-us/troubleshoot/mem/intune/device-configuration/factory-reset-protection-emails-not-enforced).\r\n \r\n ## Prerequisites\r\n \r\n",
+      "baseCommitSha": "1a71d3f9ef4078c0bf131977edb6643df0f60eb0",
+      "commitSha": "8b0a577c6001fb41537265f889d9c9b60e7a8993",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-02 23:22:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-enrollment/android/ref-corporate-methods.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/ref-corporate-methods",
+      "eventId": "intune-docs:8b0a577c6001fb41537265f889d9c9b60e7a8993:modified:intune/device-enrollment/android/ref-corporate-methods.md",
+      "firstSeenAt": "2026-10-02T23:45:40.172Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation clarifies FRP behavior after Settings resets",
+        "summary": "The page now explains that Settings resets don't enforce FRP when Factory reset protection emails is Not configured. For Android 15 devices with a configured Google account email, the account must be re-entered after the reset.",
+        "adminImpact": "Administrators can align reprovisioning workflows with the configured FRP email setting and account re-entry requirement.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/epm/overview.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/intune/epm/overview.md b/intune/epm/overview.md\nindex 829ecb9..458fb6c 100644\n--- a/intune/epm/overview.md\n+++ b/intune/epm/overview.md\n@@ -14,8 +14,9 @@ ms.collection:\n ms.reviewer: mikedano\n ms.subservice: suite\n description: To enhance the security of your organization, set your users to run with standard permissions while Endpoint Privilege Management ensures those users can seamlessly run specified files with elevated rights.\n-ms.date: 2025-10-20T00:00:00.0000000Z\n+ms.date: 2026-06-23T00:00:00.0000000Z\n ms.topic: how-to\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 6b134145-8b5b-c1a2-10e7-901014a46c9f\n document_version_independent_id: 6b134145-8b5b-c1a2-10e7-901014a46c9f\n@@ -73,10 +74,11 @@ EPM elevation can be triggered using two methods:\n - Automatically, or;\r\n - User initiated.\r\n \r\n-EPM can be configured using two types of policies, which both can be targeted at groups of users or devices:\r\n+EPM can be configured using three types of policies, which all can be targeted at groups of users or devices:\r\n \r\n-- **Elevation settings policy** - controls the EPM client, reporting level and default elevation capability.\r\n-- **Elevation rules policy** - defines elevation behavior for binaries or scripts based on criteria.\r\n+- **[Elevation settings policy](manage-elevation-settings)** - controls the EPM client, reporting level and default elevation capability.\r\n+- **[Elevation rules policy](create-elevation-rules)** - defines elevation behavior for binaries or scripts based on criteria.\r\n+- **[Elevation system settings policy](manage-system-settings)** - lets standard users change selected Windows system settings that normally require administrator rights. This policy type supports network settings, which include IPv4, IPv6, and DNS server configuration.\r\n \r\n To perform the elevation on the device, the EPM service uses a virtual account for most elevation types, which is isolated from the logged on users' account. Neither of these accounts are added to the local administrators group. An exception to use of the virtual account is the *Elevate as current user* elevation type, which is explained in more detail in the following section.\r\n \r\n",
+      "baseCommitSha": "1a71d3f9ef4078c0bf131977edb6643df0f60eb0",
+      "commitSha": "8b0a577c6001fb41537265f889d9c9b60e7a8993",
+      "commitMessage": "Mirror Learn: 4 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-02 23:22:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/epm/overview.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/epm/overview",
+      "eventId": "intune-docs:8b0a577c6001fb41537265f889d9c9b60e7a8993:modified:intune/epm/overview.md",
+      "firstSeenAt": "2026-10-02T23:45:40.180Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Elevation system settings policies are now documented",
+        "summary": "The EPM overview now lists three policy types and adds an Elevation system settings policy for allowing standard users to change selected Windows settings, including IPv4, IPv6, and DNS configuration.",
+        "adminImpact": "Administrators can target this policy to user or device groups to delegate selected network-setting changes without granting administrator rights.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 5,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 4 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "New feature",
+        "title": "intune/epm",
+        "summary": "The documentation describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both. The EPM overview now lists three policy types and adds an Elevation system settings policy for allowing standard users to change selected Windows settings, including IPv4, IPv6, and DNS configuration.",
+        "sourceFiles": [
+          "intune/epm/manage-system-settings.md",
+          "intune/epm/overview.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "The schema documentation now states that ICCID isn’t supported on Windows. It continues to note that SimInfo isn’t supported for Android Enterprise personally owned devices with a work profile.",
+        "sourceFiles": [
+          "intune/advanced-analytics/ref-data-platform-schema.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-configuration",
+        "summary": "The documentation updates the COPE device table and explains that a Settings reset doesn’t enforce factory reset protection when Factory reset protection emails is Not configured.",
+        "sourceFiles": [
+          "intune/device-configuration/templates/ref-device-restrictions-android-enterprise.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-enrollment",
+        "summary": "The page now explains that Settings resets don't enforce FRP when Factory reset protection emails is Not configured. For Android 15 devices with a configured Google account email, the account must be re-entered after the reset.",
+        "sourceFiles": [
+          "intune/device-enrollment/android/ref-corporate-methods.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "New feature",
+        "headline": "intune/epm",
+        "detail": "The documentation describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both. The EPM overview now lists three policy types and adds an Elevation system settings policy for allowing standard users to change selected Windows settings, including IPv4, IPv6, and DNS configuration."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "The schema documentation now states that ICCID isn’t supported on Windows. It continues to note that SimInfo isn’t supported for Android Enterprise personally owned devices with a work profile."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-configuration",
+        "detail": "The documentation updates the COPE device table and explains that a Settings reset doesn’t enforce factory reset protection when Factory reset protection emails is Not configured."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-enrollment",
+        "detail": "The page now explains that Settings resets don't enforce FRP when Factory reset protection emails is Not configured. For Android 15 devices with a configured Google account email, the account must be re-entered after the reset."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

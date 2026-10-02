@@ -7077,6 +7077,40 @@
         "outputTokens": 1359,
         "costUsd": 0.001859
       }
+    },
+    "2026-10-02": {
+      "headline": "EPM system-settings policy covers controlled IPv4, IPv6, and DNS changes",
+      "overview": "The period’s most consequential update centers on Endpoint Privilege Management’s Elevation system settings policy, which documents how standard Windows users can make selected network changes under administrator-defined controls. Intune guidance also tightens Android reset and factory reset protection expectations, while Advanced Analytics documents unavailable device identifiers.",
+      "adminImpact": "EPM administrators can delegate IPv4, IPv6, and DNS changes while requiring confirmation, business justification, Windows authentication, or both; an EPM elevation settings policy must be enabled. Android administrators should review Factory reset protection emails configuration and Android 15 post-reset account re-entry requirements. Analytics consumers should account for unavailable ICCID and SimInfo data in the documented device populations.",
+      "keyChanges": [
+        {
+          "title": "EPM documents controlled network-setting delegation",
+          "detail": "A new Endpoint Privilege Management page describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and devices need an EPM elevation settings policy enabled.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Android reset guidance links FRP enforcement to email configuration",
+          "detail": "The Corporate Methods guidance states that Settings resets don’t enforce factory reset protection when Factory reset protection emails is Not configured. For Android 15 devices with a configured Google account email, the account must be re-entered after the reset.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-02-ref-corporate-methods-04"
+        },
+        {
+          "title": "Advanced Analytics records ICCID and SimInfo data limitations",
+          "detail": "The schema reference now states that ICCID isn’t supported on Windows. It also continues to specify that SimInfo isn’t supported for Android Enterprise personally owned devices with a work profile.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-10-02-ref-data-platform-schema-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-02T23:45:53.284Z",
+      "usage": {
+        "inputTokens": 1545,
+        "outputTokens": 1989,
+        "costUsd": 0.002696
+      }
     }
   },
   "weeks": {
@@ -8739,49 +8773,49 @@
       }
     },
     "2026-09-28": {
-      "headline": "Configuration Manager 2609 removes Asset Intelligence reports and raises upgrade prerequisites",
-      "overview": "The week’s highest-impact guidance centers on Configuration Manager 2609: it is listed as released September 28, 2026, with support through March 28, 2028; prerequisite checks now set newer SQL and ODBC floors, and Asset Intelligence reporting is removed. Intune’s material changes concern Apple DDM/MDM app-management boundaries and a VPP-token assignment risk, while many other edits mainly update device-action paths, labels, and links.",
-      "adminImpact": "Configuration Manager teams planning 2609 should verify SQL Server and ODBC versions before installation or upgrade, plan for the loss of Asset Intelligence sections and reports, and apply the version-specific SQL database guidance. Intune Apple administrators should keep DDM and MDM token and app workflows separate: use a new Apple Business token for DDM, preserve MDM for available assignments and app-configuration scenarios, and do not send DDM apps through app configuration policies.",
+      "headline": "Configuration Manager 2609 raises SQL prerequisites and removes legacy Asset Intelligence reporting",
+      "overview": "The week’s consequential changes center on the Configuration Manager 2609 transition: stricter SQL and ODBC prerequisites and the removal of Asset Intelligence reporting components. Intune guidance also sharpens Apple DDM and enrollment boundaries, while a new Endpoint Privilege Management article documents controlled network-setting changes for standard users. Most remaining edits involve navigation, links, menu labels, and procedural wording.",
+      "adminImpact": "For Configuration Manager 2609 planning, verify SQL Server and ODBC versions and identify dependencies on Asset Intelligence reports. In Intune, avoid re-uploading existing VPP tokens for DDM, set the specified Automated Device Enrollment option to No, and use MDM for assignments or app configuration scenarios covered by the guidance. EPM administrators need an enabled elevation settings policy before delegating IPv4, IPv6, or DNS changes.",
       "keyChanges": [
         {
-          "title": "Configuration Manager 2609 raises the SQL and ODBC prerequisite floor",
-          "detail": "For Configuration Manager 2609 and later, prerequisite checks require ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later. Unsupported versions can block installation or upgrade, and the guidance identifies incompatible ODBC releases plus a non-blocking automatic client approval warning.",
+          "title": "Configuration Manager 2609 now requires newer SQL and ODBC versions",
+          "detail": "The prerequisite guidance requires ODBC Driver 18.6.2.1 or later and SQL Server 2017 CU2 or later for Configuration Manager 2609 and later. Unsupported versions can block installation or upgrades, and the guidance identifies incompatible ODBC releases.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-list-of-prerequisite-checks-16"
         },
         {
-          "title": "Asset Intelligence reporting is removed starting with Configuration Manager 2609",
-          "detail": "Starting in version 2609, the Catalog Synchronization and Inventoried Software Status sections and Asset Intelligence reports are removed. Procedures on the page apply only to version 2603 and earlier, with links provided to the product lifecycle dashboard and Asset Intelligence client settings.",
+          "title": "Asset Intelligence reporting components are removed in Configuration Manager 2609",
+          "detail": "Starting in version 2609, Catalog Synchronization and Inventoried Software Status are removed from the Asset Intelligence home page, and Asset Intelligence reports are removed from Monitoring > Reporting > Reports. Earlier procedures apply only to version 2603 and earlier.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-09-28-operations-for-asset-intelligence-03"
         },
         {
-          "title": "2609 drops the TRUSTWORTHY requirement for Microsoft-signed SQLCLR assemblies",
-          "detail": "Configuration Manager 2609 and later no longer require the TRUSTWORTHY database property to load Microsoft-signed SQLCLR assemblies, including with SQL Server Always On availability groups. Configuration Manager 2603 and earlier still require TRUSTWORTHY to be enabled.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-09-28-supported-configurations-for-sql-server-12"
+          "title": "New EPM guidance documents controlled IPv4, IPv6, and DNS changes",
+          "detail": "The new article describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices also need an Endpoint Privilege Management elevation settings policy enabled.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Re-uploading a VPP token for DDM can erase available assignments",
-          "detail": "The Intune Apple guidance warns that re-uploading an existing VPP token for DDM causes available app assignments to be lost. It recommends creating a new Apple Business token for DDM, while using MDM for available assignments and apps that require app configuration policies.",
+          "title": "Intune warns that reusing a VPP token for DDM loses available assignments",
+          "detail": "Re-uploading an existing VPP token for Declarative Device Management causes available app assignments to be lost. The guidance recommends a new Apple Business token for DDM, while MDM remains the path for available assignments and apps requiring app configuration policies.",
           "product": "Intune",
           "sourceId": "doc-2026-09-29-manage-vpp-apple-05"
         },
         {
-          "title": "Managed iOS guidance draws an MDM-only app-configuration boundary",
-          "detail": "The documentation now states that app configuration policies support only MDM-managed apps and cannot configure DDM apps. Administrators selecting an app configuration policy path should therefore account for that DDM limitation.",
+          "title": "Automated iOS enrollment sets a Company Portal option to No",
+          "detail": "The Run Company Portal in Single App Mode until authentication option must be set to No and will soon be removed. The Sync with computers setting, deprecated by Apple in iOS 13, is no longer included in enrollment policies.",
           "product": "Intune",
-          "sourceId": "doc-2026-09-29-configure-managed-ios-04"
+          "sourceId": "doc-2026-09-30-setup-automated-ios-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-01T23:52:37.974Z",
+      "generatedAt": "2026-10-02T23:45:53.284Z",
       "usage": {
-        "inputTokens": 9109,
-        "outputTokens": 5620,
-        "costUsd": 0.008566
+        "inputTokens": 9272,
+        "outputTokens": 4822,
+        "costUsd": 0.007641
       }
     }
   },
@@ -9201,47 +9235,53 @@
       }
     },
     "2026-10": {
-      "headline": "Intune roadmap adds Apple OS 27 inventory, MEFERI OEMConfig, and protections",
-      "overview": "October was a quiet Intune period with two updated pages. The substantive change expands the In Development list with planned Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, planned removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2. The Managed Home Screen page also received metadata and wording changes for its app-exclusion silence setting.",
-      "adminImpact": "Administrators should track the planned Apple, Android Enterprise, and Windows changes; no action or deadline is stated. Managed Home Screen administrators should review the revised exclusion description when configuring the silence setting.",
+      "headline": "Endpoint Privilege Management documents controlled network changes for standard Windows users",
+      "overview": "October’s clearest administrator-facing development is new Endpoint Privilege Management guidance for an Elevation system settings policy. It allows standard Windows users to change IPv4, IPv6, and DNS settings under confirmation, business-justification, Windows-authentication, or combined controls, with an EPM elevation settings policy enabled. Intune’s In Development page also lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support, planned removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2. Android reset guidance and Advanced Analytics schema limitations were also made more explicit. The Managed Home Screen edit only changes authoring metadata and wording around excluding apps from the silence setting.",
+      "adminImpact": "Administrators designing delegated network changes should enable the required EPM elevation settings policy and select the appropriate confirmation, justification, and authentication controls. The In Development entries are planning signals; the supplied update gives no action or deadline. For Android 15 reset workflows, account for the configured Factory reset protection emails setting and required Google account re-entry. Analytics consumers should not expect ICCID on Windows or SimInfo for Android Enterprise personally owned devices with a work profile.",
       "keyChanges": [
         {
-          "title": "In Development list expands planned platform and management changes",
-          "detail": "The page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2.",
+          "title": "EPM documents an elevation policy for controlled IPv4, IPv6, and DNS changes",
+          "detail": "The new Endpoint Privilege Management guidance describes allowing standard Windows users to change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both; devices also need an enabled EPM elevation settings policy.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Intune’s development roadmap lists Apple, Android, and Windows administration changes",
+          "detail": "The In Development page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2. No action or deadline is stated.",
           "product": "Intune",
           "sourceId": "doc-2026-10-01-in-development-01"
         },
         {
-          "title": "Managed Home Screen revises app-exclusion silence guidance",
-          "detail": "The page’s authoring metadata changed, and the description for excluding apps from the silence setting was revised.",
+          "title": "Android reset guidance defines the Factory reset protection emails behavior",
+          "detail": "The documentation states that a Settings reset doesn’t enforce factory reset protection when Factory reset protection emails is Not configured. On Android 15 devices with a configured Google account email, that account must be re-entered after the reset.",
           "product": "Intune",
-          "sourceId": "doc-2026-10-01-configure-managed-home-screen-02"
+          "sourceId": "doc-2026-10-02-ref-corporate-methods-04"
+        },
+        {
+          "title": "Advanced Analytics schema guidance excludes ICCID on Windows",
+          "detail": "The schema documentation now states that ICCID isn’t supported on Windows. It also continues to identify SimInfo as unsupported for Android Enterprise personally owned devices with a work profile.",
+          "product": "Advanced Analytics",
+          "sourceId": "doc-2026-10-02-ref-data-platform-schema-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-01T23:52:37.974Z",
+      "generatedAt": "2026-10-02T23:45:53.284Z",
       "usage": {
-        "inputTokens": 1163,
-        "outputTokens": 1303,
-        "costUsd": 0.001796
+        "inputTokens": 1779,
+        "outputTokens": 2718,
+        "costUsd": 0.003617
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-01T23:52:37.974Z",
+  "generatedAt": "2026-10-02T23:45:53.284Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-27": {
-      "inputTokens": 60703,
-      "outputTokens": 90974,
-      "requests": 11,
-      "costUsd": 0.121309
-    },
     "2026-08-28": {
       "inputTokens": 21553,
       "outputTokens": 15813,
@@ -9307,18 +9347,24 @@
       "outputTokens": 20485,
       "requests": 6,
       "costUsd": 0.029108
+    },
+    "2026-10-02": {
+      "inputTokens": 12596,
+      "outputTokens": 9529,
+      "requests": 3,
+      "costUsd": 0.013954
     }
   },
   "lastRun": {
-    "inputTokens": 11412,
-    "outputTokens": 8282,
+    "inputTokens": 12596,
+    "outputTokens": 9529,
     "requests": 3,
-    "costUsd": 0.012221
+    "costUsd": 0.013954
   },
   "totalUsage": {
-    "inputTokens": 3205276,
-    "outputTokens": 1801619,
-    "requests": 309,
-    "costUsd": 2.802999
+    "inputTokens": 3217872,
+    "outputTokens": 1811148,
+    "requests": 312,
+    "costUsd": 2.816953
   }
 }

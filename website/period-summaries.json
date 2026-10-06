@@ -7111,6 +7111,52 @@
         "outputTokens": 1989,
         "costUsd": 0.002696
       }
+    },
+    "2026-10-06": {
+      "headline": "Intune's Windows 11 26H2 baseline reference adds new settings and updated defaults",
+      "overview": "The period's strongest Intune change is expanded Windows 11 26H2 security-baseline and Settings Catalog guidance, including new settings, updated defaults, and revised instructions. Existing baseline profiles do not update automatically. Remote Help is now documented as available for Android and Windows devices in GCCH environments. Configuration Manager 2609 guidance adds upgrade prerequisites, records several security and operational behavior changes, and drops support for older Windows Server client operating systems.",
+      "adminImpact": "Admins who want the 26H2 baseline must create a new profile or update an existing one. GCCH support teams can use Remote Help for enrolled Android and Windows devices with role-based access and Microsoft Entra ID sign-in. Configuration Manager administrators planning the 2609 update should use a top-level service connection point, manually update secondary sites after their parent site, review the documented behavior changes, and identify affected Windows Server 2012, Windows Server 2012 R2, and Windows Storage Server clients for upgrade.",
+      "keyChanges": [
+        {
+          "title": "Windows 11 26H2 baseline and Settings Catalog coverage",
+          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators wanting the 26H2 baseline must create a new profile or update an existing one.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-06"
+        },
+        {
+          "title": "Remote Help guidance covers GCCH Android and Windows devices",
+          "detail": "The documentation now states that Remote Help is available in US Government Community Cloud High environments for Android and Windows devices. GCCH support staff can provide real-time troubleshooting for enrolled devices using role-based access controls and Microsoft Entra ID sign-in.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-07"
+        },
+        {
+          "title": "Configuration Manager 2609 checklist sets hierarchy prerequisites",
+          "detail": "The 2609 update checklist requires a top-level service connection point. After the parent site is updated, secondary sites require manual updating.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
+        },
+        {
+          "title": "Configuration Manager 2609 changes security and approval behavior",
+          "detail": "The 2609 change summary records CMPivot clients trusting its signing certificate, removal of the SQLCLR TRUSTWORTHY requirement, automatic disabling of CMG storage shared-key access, and upgrade checks that warn about automatic computer approval. The related guidance also calls out planned removal of automatic approval for all computers.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-summary-of-changes-in-configuration-manager-current-branch-version-2609-configuration-manager-mi-03"
+        },
+        {
+          "title": "Configuration Manager 2609 drops older Windows Server client support",
+          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and move them to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-06T08:57:30.921Z",
+      "usage": {
+        "inputTokens": 1769,
+        "outputTokens": 3794,
+        "costUsd": 0.004907
+      }
     }
   },
   "weeks": {
@@ -8817,6 +8863,52 @@
         "outputTokens": 4822,
         "costUsd": 0.007641
       }
+    },
+    "2026-10-05": {
+      "headline": "Intune 26H2 baseline profiles need updates as Configuration Manager 2609 drops Server 2012 clients",
+      "overview": "The period's strongest Intune item is new guidance for the Windows 11 version 26H2 security baseline and Settings Catalog support. It explicitly says existing baseline profiles don't update automatically, so adopting the 26H2 baseline means creating a new profile or updating an existing one. Remote Help availability is also documented for GCCH Android and Windows devices. For administrators who operate Configuration Manager, version 2609 adds a hierarchy-update prerequisite, changes several security and approval behaviors, and removes support for the listed Windows Server 2012 client operating systems.",
+      "adminImpact": "Intune administrators targeting 26H2 should create a new baseline profile or update an existing one; profiles won't update automatically. GCCH support teams can use Remote Help for enrolled Android and Windows devices with role-based access controls and Microsoft Entra ID sign-in. Configuration Manager teams planning 2609 should use a top-level service connection point, manually update secondary sites after their parent, review the changed behaviors, and identify affected Server 2012 devices for upgrade to a supported Windows Server version.",
+      "keyChanges": [
+        {
+          "title": "26H2 baseline profiles require explicit administrator updates",
+          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don't update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-06"
+        },
+        {
+          "title": "Configuration Manager 2609 ends Server 2012 client support",
+          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and upgrade them to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "2609 hierarchy updates require a top-level service connection point",
+          "detail": "The 2609 update checklist requires a top-level service connection point. After the parent site is updated, secondary sites require manual updating.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
+        },
+        {
+          "title": "2609 changes CMPivot, SQLCLR, CMG, and approval behavior",
+          "detail": "The 2609 documentation records that CMPivot clients trust its signing certificate, SQLCLR no longer requires TRUSTWORTHY, and CMG storage shared-key access is automatically disabled. Upgrade checks warn about automatic computer approval, with the planned removal of automatic approval for all computers also called out.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-summary-of-changes-in-configuration-manager-current-branch-version-2609-configuration-manager-mi-03"
+        },
+        {
+          "title": "Remote Help availability covers GCCH Android and Windows devices",
+          "detail": "Remote Help is stated as available in US Government Community Cloud High (GCCH) for Android and Windows devices. GCCH IT support staff can provide real-time troubleshooting for enrolled devices using role-based access controls and Microsoft Entra ID sign-in.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-07"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-06T08:57:30.921Z",
+      "usage": {
+        "inputTokens": 1576,
+        "outputTokens": 6420,
+        "costUsd": 0.008019
+      }
     }
   },
   "months": {
@@ -9235,65 +9327,59 @@
       }
     },
     "2026-10": {
-      "headline": "Endpoint Privilege Management documents controlled network changes for standard Windows users",
-      "overview": "October’s clearest administrator-facing development is new Endpoint Privilege Management guidance for an Elevation system settings policy. It allows standard Windows users to change IPv4, IPv6, and DNS settings under confirmation, business-justification, Windows-authentication, or combined controls, with an EPM elevation settings policy enabled. Intune’s In Development page also lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support, planned removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2. Android reset guidance and Advanced Analytics schema limitations were also made more explicit. The Managed Home Screen edit only changes authoring metadata and wording around excluding apps from the silence setting.",
-      "adminImpact": "Administrators designing delegated network changes should enable the required EPM elevation settings policy and select the appropriate confirmation, justification, and authentication controls. The In Development entries are planning signals; the supplied update gives no action or deadline. For Android 15 reset workflows, account for the configured Factory reset protection emails setting and required Google account re-entry. Analytics consumers should not expect ICCID on Windows or SimInfo for Android Enterprise personally owned devices with a work profile.",
+      "headline": "26H2 baseline adoption needs profile changes as Configuration Manager 2609 drops Server 2012 clients",
+      "overview": "October’s most consequential administrator impact centers on Windows 11 version 26H2 baseline guidance and the Configuration Manager 2609 transition. Intune guidance covers 26H2 Settings Catalog support, new settings, updated defaults, and revised guidance, while existing baseline profiles do not update automatically. Configuration Manager 2609 requires specific hierarchy-update planning, drops support for Windows Server 2012 client operating systems, and changes several security and approval behaviors. Endpoint Privilege Management guidance also documents controlled IPv4, IPv6, and DNS changes for standard users. Other updates document Remote Help availability in GCCH and clarify Android 15 factory-reset account re-entry; the remaining items are chiefly planning or reference clarifications.",
+      "adminImpact": "For Intune, create a new 26H2 baseline profile or update an existing one because profiles do not update automatically. Configuration Manager administrators should verify a top-level service connection point, plan manual secondary-site updates, identify unsupported Windows Server 2012, 2012 R2, and Windows Storage Server client editions, and review the documented CMPivot, SQLCLR, CMG, and computer-approval behavior changes. EPM administrators need an enabled elevation settings policy before delegating network-setting changes. GCCH support teams can use Remote Help for enrolled Android and Windows devices with role-based access controls and Microsoft Entra ID sign-in. For Android 15 reset workflows, a configured Google account email must be re-entered after the reset.",
       "keyChanges": [
         {
-          "title": "EPM documents an elevation policy for controlled IPv4, IPv6, and DNS changes",
-          "detail": "The new Endpoint Privilege Management guidance describes allowing standard Windows users to change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both; devices also need an enabled EPM elevation settings policy.",
+          "title": "Windows 11 26H2 baseline adoption requires explicit profile changes",
+          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to adopt the 26H2 baseline.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-06"
+        },
+        {
+          "title": "Configuration Manager 2609 upgrades require a top-level service connection point",
+          "detail": "The 2609 upgrade checklist specifies a top-level service connection point. After the parent site is updated, secondary sites require manual updating, making hierarchy sequencing part of the upgrade plan.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
+        },
+        {
+          "title": "Configuration Manager 2609 drops Windows Server 2012 client support",
+          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices must be identified and upgraded to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Configuration Manager 2609 changes CMPivot, SQLCLR, CMG, and approval behavior",
+          "detail": "The 2609 changes include CMPivot clients trusting its signing certificate, SQLCLR no longer requiring TRUSTWORTHY, automatic disabling of CMG storage shared-key access, and upgrade checks warning about automatic computer approval. The guidance also calls out planned removal of automatic approval for all computers.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-summary-of-changes-in-configuration-manager-current-branch-version-2609-configuration-manager-mi-03"
+        },
+        {
+          "title": "Endpoint Privilege Management documents controlled network-setting elevation",
+          "detail": "The new EPM guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices must have an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
-        },
-        {
-          "title": "Intune’s development roadmap lists Apple, Android, and Windows administration changes",
-          "detail": "The In Development page now lists Apple OS 27 DDM inventory data, MEFERI OEMConfig support for Android Enterprise, removal of legacy Apple MDM software-update workloads, and two Administrator protection settings for Windows 11 24H2 and 25H2. No action or deadline is stated.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-01-in-development-01"
-        },
-        {
-          "title": "Android reset guidance defines the Factory reset protection emails behavior",
-          "detail": "The documentation states that a Settings reset doesn’t enforce factory reset protection when Factory reset protection emails is Not configured. On Android 15 devices with a configured Google account email, that account must be re-entered after the reset.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-02-ref-corporate-methods-04"
-        },
-        {
-          "title": "Advanced Analytics schema guidance excludes ICCID on Windows",
-          "detail": "The schema documentation now states that ICCID isn’t supported on Windows. It also continues to identify SimInfo as unsupported for Android Enterprise personally owned devices with a work profile.",
-          "product": "Advanced Analytics",
-          "sourceId": "doc-2026-10-02-ref-data-platform-schema-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-02T23:45:53.284Z",
+      "generatedAt": "2026-10-06T08:57:30.921Z",
       "usage": {
-        "inputTokens": 1779,
-        "outputTokens": 2718,
-        "costUsd": 0.003617
+        "inputTokens": 2891,
+        "outputTokens": 8606,
+        "costUsd": 0.010905
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-02T23:45:53.284Z",
+  "generatedAt": "2026-10-06T08:57:30.921Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-08-28": {
-      "inputTokens": 21553,
-      "outputTokens": 15813,
-      "requests": 3,
-      "costUsd": 0.023286
-    },
-    "2026-08-29": {
-      "inputTokens": 24079,
-      "outputTokens": 32696,
-      "requests": 4,
-      "costUsd": 0.044051
-    },
     "2026-09-01": {
       "inputTokens": 57075,
       "outputTokens": 17896,
@@ -9353,18 +9439,24 @@
       "outputTokens": 9529,
       "requests": 3,
       "costUsd": 0.013954
+    },
+    "2026-10-06": {
+      "inputTokens": 6236,
+      "outputTokens": 18820,
+      "requests": 3,
+      "costUsd": 0.023831
     }
   },
   "lastRun": {
-    "inputTokens": 12596,
-    "outputTokens": 9529,
+    "inputTokens": 6236,
+    "outputTokens": 18820,
     "requests": 3,
-    "costUsd": 0.013954
+    "costUsd": 0.023831
   },
   "totalUsage": {
-    "inputTokens": 3217872,
-    "outputTokens": 1811148,
-    "requests": 312,
-    "costUsd": 2.816953
+    "inputTokens": 3224108,
+    "outputTokens": 1829968,
+    "requests": 315,
+    "costUsd": 2.840784
   }
 }

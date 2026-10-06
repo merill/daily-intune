@@ -183,19 +183,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/device-security/mobile-threat-defense/enable-connector.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-security/mobile-threat-defense/enable-connector.md b/intune/device-security/mobile-threat-defense/enable-connector.md\nindex 41f1e66..6731ca8 100644\n--- a/intune/device-security/mobile-threat-defense/enable-connector.md\n+++ b/intune/device-security/mobile-threat-defense/enable-connector.md\n@@ -151,6 +151,11 @@ For more information about using Mobile Threat Defense connectors for Intune App\n     - Android Enterprise corporate-owned work profile\r\n \r\n     The Mobile Threat Defense role requires devices enrolled through the [Android Management API](https://developers.google.com/android/management). Personally-owned work profiles aren't currently supported.\r\n+- **Automatically launch Defender for Endpoint during setup on Android COBO and COPE devices**: This toggle is available only for the Defender for Endpoint connector. When you turn on this option, the Defender for Endpoint app automatically launches during the device setup process on Android Enterprise COBO and COPE devices, allowing Defender for Endpoint to complete its initial configuration without requiring the user to manually open it.\r\n+\r\n+    Note\r\n+\r\n+    This toggle requires that the **Grant MTD role permissions** toggle is also turned on for Defender for Endpoint.\r\n \r\n ### Shared settings\r\n \r\n",
+      "baseCommitSha": "cf39ff2cc96b9ed5835c4588419e9db3081ba461",
+      "commitSha": "6b78a6709f6b74b31791efba4dc460c83dac2644",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-06 19:11:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/mobile-threat-defense/enable-connector.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/mobile-threat-defense/enable-connector",
+      "eventId": "intune-docs:6b78a6709f6b74b31791efba4dc460c83dac2644:modified:intune/device-security/mobile-threat-defense/enable-connector.md",
+      "firstSeenAt": "2026-10-06T19:31:11.968Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation adds Android Defender for Endpoint setup details",
+        "summary": "The article now explains that the Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices. It also requires Grant MTD role permissions to be enabled.",
+        "adminImpact": "Administrators can use the documented prerequisite when configuring this connector option.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 2,
-    "totalFiles": 7,
+    "totalCommits": 3,
+    "totalFiles": 8,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 3 new, 4 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "overview": "Today's report includes 3 new, 5 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
@@ -210,10 +236,11 @@
       {
         "category": "Doc update",
         "title": "intune/device-security",
-        "summary": "The overview now links to Version 26H2 Windows MDM settings and updates its documentation metadata. The documentation now includes the Windows 11 version 26H2 security baseline and its default settings across areas including SMB, network security, DNS, and Windows Connection Manager.",
+        "summary": "The overview now links to Version 26H2 Windows MDM settings and updates its documentation metadata. The documentation now includes the Windows 11 version 26H2 security baseline and its default settings across areas including SMB, network security, DNS, and Windows Connection Manager. The article now explains that the Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices. It also requires Grant MTD role permissions to be enabled.",
         "sourceFiles": [
           "intune/device-security/security-baselines/overview.md",
-          "intune/device-security/security-baselines/ref-windows-mdm-settings.md"
+          "intune/device-security/security-baselines/ref-windows-mdm-settings.md",
+          "intune/device-security/mobile-threat-defense/enable-connector.md"
         ]
       },
       {
@@ -235,7 +262,7 @@
       {
         "category": "Doc update",
         "headline": "intune/device-security",
-        "detail": "The overview now links to Version 26H2 Windows MDM settings and updates its documentation metadata. The documentation now includes the Windows 11 version 26H2 security baseline and its default settings across areas including SMB, network security, DNS, and Windows Connection Manager."
+        "detail": "The overview now links to Version 26H2 Windows MDM settings and updates its documentation metadata. The documentation now includes the Windows 11 version 26H2 security baseline and its default settings across areas including SMB, network security, DNS, and Windows Connection Manager. The article now explains that the Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices. It also requires Grant MTD role permissions to be enabled."
       },
       {
         "category": "Feature update",

@@ -7113,37 +7113,37 @@
       }
     },
     "2026-10-06": {
-      "headline": "Windows 11 26H2 baseline guidance expands as Configuration Manager 2609 drops older servers",
-      "overview": "The period’s strongest changes center on Intune guidance for the Windows 11 version 26H2 security baseline and Configuration Manager 2609 upgrade planning. Intune also documents a required Android connector permission and Remote Help coverage in GCCH environments, while Configuration Manager 2609 identifies legacy server client support that must be addressed.",
-      "adminImpact": "Review existing Windows security baseline profiles because they do not update automatically for 26H2. Verify the Grant MTD role permissions prerequisite before enabling the Defender for Endpoint connector option on Android COBO or COPE devices. For Configuration Manager 2609, use a top-level service connection point, plan manual secondary-site updates, and identify Windows Server 2012-era client devices before upgrading.",
+      "headline": "Windows 11 26H2 baseline settings and GCCH Remote Help guidance lead Intune updates",
+      "overview": "Intune’s most consequential update documents the Windows 11 version 26H2 security baseline, including Settings Catalog support, new settings, updated defaults, and revised guidance. Existing baseline profiles do not update automatically. The period also records Remote Help availability in US Government Community Cloud High for Android and Windows, clarifies Defender for Endpoint connector behavior on Android COBO and COPE devices, and previews a November 2026 Purview DLP and Intune approval workflow improvement. Configuration Manager 2609 guidance records a significant Windows Server client-support cutoff.",
+      "adminImpact": "Review existing security baseline profiles before adopting the 26H2 baseline; create a new profile or update an existing one because profiles do not update automatically. When configuring the Defender for Endpoint connector for Android COBO or COPE, enable Grant MTD role permissions. GCCH support teams can use Remote Help for enrolled Android and Windows devices with role-based access and Microsoft Entra ID sign-in. Purview and Intune administrators can prepare for the November 2026 setup and approval workflow changes without changing existing policies or enforcement. Configuration Manager administrators planning version 2609 should identify Windows Server 2012, Windows Server 2012 R2, and Storage Server clients and upgrade them to a supported Windows Server version.",
       "keyChanges": [
         {
-          "title": "Windows 11 26H2 baseline adds Settings Catalog coverage and revised defaults",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline, including Settings Catalog support, new settings, updated defaults, and revised guidance. Existing security baseline profiles don’t update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
+          "title": "26H2 security baseline guidance requires explicit profile action",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators adopting 26H2 must create a new profile or update an existing one.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Defender for Endpoint setup now documents automatic Android app launch behavior",
-          "detail": "On Android COBO and COPE devices, enabling the Defender for Endpoint toggle during connector setup automatically launches the app. Grant MTD role permissions must also be enabled.",
+          "title": "Defender for Endpoint setup documents Android COBO and COPE behavior",
+          "detail": "The connector guidance states that enabling the Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices. Grant MTD role permissions must also be enabled.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-enable-connector-08"
         },
         {
-          "title": "Remote Help guidance covers Android and Windows devices in GCCH",
-          "detail": "Intune now states that Remote Help is available in US Government Community Cloud High environments for Android and Windows devices. GCCH support staff can use real-time troubleshooting with role-based access controls and Microsoft Entra ID sign-in.",
+          "title": "Remote Help is available in GCCH for Android and Windows",
+          "detail": "Intune guidance now states that Remote Help is available in US Government Community Cloud High environments for Android and Windows devices, enabling GCCH IT support staff to provide real-time troubleshooting with role-based access controls and Microsoft Entra ID sign-in.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-07"
         },
         {
-          "title": "Configuration Manager 2609 sets hierarchy update and secondary-site requirements",
-          "detail": "The 2609 upgrade checklist requires a top-level service connection point. Secondary sites must be updated manually after their parent site is updated.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
+          "title": "Purview DLP will add Intune multi-admin approval for Edge unmanaged apps",
+          "detail": "Starting November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement will not change.",
+          "product": "Intune",
+          "sourceId": "MC1489971"
         },
         {
-          "title": "Configuration Manager 2609 drops Windows Server 2012 client support",
-          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices should be moved to a supported Windows Server version.",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices must be moved to a supported Windows Server version.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
         }
@@ -7151,11 +7151,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T19:31:19.047Z",
+      "generatedAt": "2026-10-07T08:37:04.224Z",
       "usage": {
-        "inputTokens": 1876,
-        "outputTokens": 3589,
-        "costUsd": 0.004682
+        "inputTokens": 2000,
+        "outputTokens": 4533,
+        "costUsd": 0.00584
       }
     }
   },
@@ -8865,49 +8865,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Windows 11 26H2 baseline guidance joins Configuration Manager 2609 requirements",
-      "overview": "Intune’s Windows 11 version 26H2 security-baseline guidance now covers Settings Catalog support, new settings, updated defaults, and revised recommendations; existing baseline profiles do not update automatically. Configuration Manager 2609 adds specific hierarchy-upgrade prerequisites and a client operating-system support change, while smaller Intune updates clarify Android Defender connector setup and Remote Help’s GCCH scope.",
-      "adminImpact": "Review existing Intune security-baseline profiles and create a new 26H2 profile or update an existing one if the new baseline is required. Before a Configuration Manager 2609 upgrade, use the checklist, provide a top-level service connection point, and plan to update secondary sites manually after their parent site. Identify Windows Server 2012, Windows Server 2012 R2, and related Storage Server client devices that must move to a supported Windows Server version. For Android COBO or COPE connector setup, enable Grant MTD role permissions when using the Defender for Endpoint toggle.",
+      "headline": "Windows 11 26H2 baseline needs a new or updated Intune profile",
+      "overview": "The most actionable Intune update is the Windows 11 version 26H2 security-baseline guidance: it adds Settings Catalog coverage, new settings, and revised defaults, while existing baseline profiles require a new profile or an update to use 26H2. The period also clarifies Android Defender for Endpoint connector setup, records Remote Help availability in US Government Community Cloud High (GCCH) for Android and Windows, and announces a November 2026 Purview DLP change for unmanaged apps in Edge for Business. Configuration Manager 2609 guidance separately identifies legacy Windows Server client support that administrators must address.",
+      "adminImpact": "Review security baseline profiles that need Windows 11 version 26H2 coverage and create a new profile or update an existing one. When configuring the Defender for Endpoint toggle on Android COBO or COPE devices, enable Grant MTD role permissions. GCCH support teams can use Remote Help for enrolled Android and Windows devices. For Configuration Manager 2609, identify affected Windows Server 2012, Windows Server 2012 R2, and Windows Storage Server clients and upgrade them to a supported Windows Server version. The November Purview DLP change adds setup and multi-admin coordination improvements while leaving existing policies and enforcement unchanged.",
       "keyChanges": [
         {
-          "title": "Intune’s 26H2 baseline guidance adds Settings Catalog detail",
-          "detail": "Updated Intune material covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don’t update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
-          "product": "Intune — security baselines and Settings Catalog",
+          "title": "Windows 11 26H2 baseline guidance adds Settings Catalog detail",
+          "detail": "Updated Intune guidance covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don't update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
+          "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Android Defender connector instructions specify an MTD permission prerequisite",
-          "detail": "The connector guidance states that the Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices. Grant MTD role permissions must be enabled when configuring this option.",
-          "product": "Intune — Android Enterprise and Defender for Endpoint connector",
-          "sourceId": "doc-2026-10-06-enable-connector-08"
+          "title": "Purview DLP will add Intune multi-admin approval for Edge unmanaged apps",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval. The change includes clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
+          "product": "Intune / Microsoft Purview DLP",
+          "sourceId": "MC1489971"
         },
         {
-          "title": "Remote Help documentation now includes GCCH coverage for Android and Windows",
-          "detail": "The updated Intune documentation states that Remote Help is available in US Government Community Cloud High environments for Android and Windows devices, with role-based access controls and Microsoft Entra ID sign-in supporting real-time troubleshooting.",
-          "product": "Intune — Remote Help",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager current branch version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices need to be upgraded to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Remote Help availability is documented for GCCH Android and Windows devices",
+          "detail": "The updated Intune material states that Remote Help is available in US Government Community Cloud High for Android and Windows devices. GCCH support staff can troubleshoot enrolled devices in real time using role-based access controls and Microsoft Entra ID sign-in.",
+          "product": "Intune",
           "sourceId": "doc-2026-10-06-index-07"
         },
         {
-          "title": "Configuration Manager 2609 upgrade guidance requires hierarchy planning",
-          "detail": "The new 2609 checklist documents a top-level service connection point prerequisite. After the parent site is updated, secondary sites require manual updating.",
-          "product": "Configuration Manager — version 2609 upgrade",
-          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
-        },
-        {
-          "title": "Configuration Manager 2609 drops older Windows Server client support",
-          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices need to be moved to a supported Windows Server version.",
-          "product": "Configuration Manager — version 2609 client operating-system support",
-          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+          "title": "Defender for Endpoint connector guidance adds an Android prerequisite",
+          "detail": "For Android COBO and COPE devices, enabling the Defender for Endpoint toggle automatically launches the app during setup. Grant MTD role permissions must also be enabled when configuring this connector option.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-enable-connector-08"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T19:31:19.047Z",
+      "generatedAt": "2026-10-07T08:37:04.224Z",
       "usage": {
-        "inputTokens": 1683,
-        "outputTokens": 4834,
-        "costUsd": 0.006137
+        "inputTokens": 1807,
+        "outputTokens": 5808,
+        "costUsd": 0.007331
       }
     }
   },
@@ -9327,65 +9327,59 @@
       }
     },
     "2026-10": {
-      "headline": "Windows 11 26H2 baselines and Configuration Manager 2609 drive October planning",
-      "overview": "October’s most consequential guidance covers the Windows 11 version 26H2 security baseline and Configuration Manager 2609. Intune now documents 26H2 Settings Catalog support, new settings, updated defaults, and revised guidance, while existing baseline profiles do not update automatically. Configuration Manager 2609 guidance defines hierarchy-update prerequisites, removes support for several older Windows Server client operating systems, and records security and approval-behavior changes. A new Endpoint Privilege Management article also documents controlled IPv4, IPv6, and DNS changes for standard users.",
-      "adminImpact": "For Intune, compare existing security-baseline profiles with the 26H2 guidance and create a new profile or update an existing one when the new baseline is required. For Configuration Manager 2609, use a top-level service connection point, plan manual secondary-site updates after the parent site, inventory affected Windows Server clients, and review the documented behavior changes. For EPM, enable an elevation settings policy before delegating network-setting changes.",
+      "headline": "Windows 11 26H2 baseline profiles require a new or updated Intune profile",
+      "overview": "October’s most consequential Intune change is the Windows 11 version 26H2 security-baseline guidance: existing profiles do not update automatically, so administrators must create a new profile or update an existing one. The period also documents EPM delegation of selected network settings, Configuration Manager 2609’s loss of legacy Windows Server client support, Remote Help availability in GCCH, and a November 2026 Purview DLP workflow change for unmanaged Edge for Business apps.",
+      "adminImpact": "Review existing Windows 11 security-baseline profiles and plan a new or updated profile for 26H2. Enable an EPM elevation settings policy before delegating network changes, identify affected legacy Windows Server clients before moving to Configuration Manager 2609, and use the new GCCH Remote Help coverage where applicable. The November Purview DLP change improves setup and administrator coordination without changing existing policies or enforcement.",
       "keyChanges": [
         {
-          "title": "26H2 baseline guidance adds Settings Catalog coverage and non-automatic profile updates",
-          "detail": "Intune’s updated guidance covers the Windows 11 version 26H2 security baseline, including Settings Catalog support, new settings, updated defaults, and revised guidance. Existing security-baseline profiles do not update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
+          "title": "26H2 baseline profiles do not update automatically",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security-baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use 26H2.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Configuration Manager 2609 requires top-level connection and manual secondary-site updates",
-          "detail": "The new 2609 upgrade checklist requires a top-level service connection point. Secondary sites require manual updating after their parent site is updated.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
-        },
-        {
-          "title": "Configuration Manager 2609 drops older Windows Server client operating systems",
-          "detail": "The 2609 guidance states that Windows Server 2012, Windows Server 2012 R2, and their Windows Storage Server editions are no longer supported as client operating systems. Administrators should identify affected devices and move them to a supported Windows Server version.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
-        },
-        {
-          "title": "Endpoint Privilege Management documents controlled network changes for standard users",
-          "detail": "A new EPM article describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices also need an EPM elevation settings policy enabled.",
+          "title": "EPM documents controlled IPv4, IPv6, and DNS delegation",
+          "detail": "The new Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both; devices also need an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Configuration Manager 2609 records certificate, SQLCLR, CMG, and approval changes",
-          "detail": "The 2609 change summary records CMPivot clients trusting its signing certificate, SQLCLR no longer requiring TRUSTWORTHY, automatic disabling of CMG storage shared-key access, and upgrade checks that warn about automatic computer approval. It also documents the planned removal of automatic approval for all computers.",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and upgrade them to a supported Windows Server version.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-summary-of-changes-in-configuration-manager-current-branch-version-2609-configuration-manager-mi-03"
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Remote Help becomes available in GCCH for Android and Windows",
+          "detail": "Intune guidance now states that Remote Help is available in US Government Community Cloud High environments for Android and Windows devices. GCCH support staff can provide real-time troubleshooting using role-based access controls and Microsoft Entra ID sign-in.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-07"
+        },
+        {
+          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
+          "detail": "Starting November 2026, Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement remain unchanged.",
+          "product": "Intune",
+          "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-06T19:31:19.047Z",
+      "generatedAt": "2026-10-07T08:37:04.224Z",
       "usage": {
-        "inputTokens": 2978,
-        "outputTokens": 4693,
-        "costUsd": 0.006227
+        "inputTokens": 3154,
+        "outputTokens": 4727,
+        "costUsd": 0.006303
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-06T19:31:19.047Z",
+  "generatedAt": "2026-10-07T08:37:04.224Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-01": {
-      "inputTokens": 57075,
-      "outputTokens": 17896,
-      "requests": 9,
-      "costUsd": 0.032891
-    },
     "2026-09-02": {
       "inputTokens": 16180,
       "outputTokens": 10216,
@@ -9445,18 +9439,24 @@
       "outputTokens": 31936,
       "requests": 6,
       "costUsd": 0.040878
+    },
+    "2026-10-07": {
+      "inputTokens": 6961,
+      "outputTokens": 15068,
+      "requests": 3,
+      "costUsd": 0.019474
     }
   },
   "lastRun": {
-    "inputTokens": 6537,
-    "outputTokens": 13116,
+    "inputTokens": 6961,
+    "outputTokens": 15068,
     "requests": 3,
-    "costUsd": 0.017047
+    "costUsd": 0.019474
   },
   "totalUsage": {
-    "inputTokens": 3230645,
-    "outputTokens": 1843084,
-    "requests": 318,
-    "costUsd": 2.857831
+    "inputTokens": 3237606,
+    "outputTokens": 1858152,
+    "requests": 321,
+    "costUsd": 2.877305
   }
 }

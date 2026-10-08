@@ -7179,6 +7179,46 @@
         "outputTokens": 485,
         "costUsd": 0.000785
       }
+    },
+    "2026-10-08": {
+      "headline": "Intune guidance sees broad author-metadata reassignment across compliance, security, and enrollment",
+      "overview": "This was a maintenance-heavy period: all 42 recorded items were updates, including 40 for Intune and one each for Endpoint Privilege Management and Windows Autopilot. The supplied changes primarily revise page authors, `ms.author` values, and—in one Intune case—two DevRel ontology links. The evidence does not identify changes to Intune settings, features, availability, or device behavior.",
+      "adminImpact": "No administrator action is required for the documented changes. They affect documentation ownership and links rather than policies, configurations, or deployed capabilities.",
+      "keyChanges": [
+        {
+          "title": "Compliance guidance changes author ownership metadata",
+          "detail": "The `Deploy Compliance Step 3` page changes its author and `ms.author` metadata from `lenewsad` to `paolomatarazzo`. No administrator action is required.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-08-deploy-compliance-step-3-17"
+        },
+        {
+          "title": "Email protection guidance updates DevRel ontology links",
+          "detail": "`Protect Email Unmanaged Devices` updates its page author metadata and two DevRel ontology links. No administrator action is specified.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-08-protect-email-unmanaged-devices-41"
+        },
+        {
+          "title": "EPM Admin Tasks changes the Microsoft author alias",
+          "detail": "The Endpoint Privilege Management `Admin Tasks` article changes its `ms.author` value from `lanewsad` to `paoloma`. No administrator action is indicated.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-08-admin-tasks-35"
+        },
+        {
+          "title": "Autopilot cloud-native tutorial changes page attribution",
+          "detail": "The Windows Autopilot `Tutorial Cloud Native Setup` page changes its author metadata from Scott Breen to Paolo Marotta. No administrator action is required.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-10-08-tutorial-cloud-native-setup-36"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-08T00:12:22.032Z",
+      "usage": {
+        "inputTokens": 4423,
+        "outputTokens": 2504,
+        "costUsd": 0.003889
+      }
     }
   },
   "weeks": {
@@ -8887,49 +8927,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "Windows 11 26H2 baseline guidance details Intune settings, defaults, and profile updates",
-      "overview": "The period’s leading Intune change is expanded Windows 11 version 26H2 security-baseline and Settings Catalog guidance, with profiles requiring deliberate updates. Other actionable updates cover the Defender for Endpoint connector prerequisite and a consolidated network endpoint entry. A November 2026 Message Center notice previews Purview DLP and Intune multi-admin approval for unmanaged apps in Edge for Business. Configuration Manager 2609 guidance also identifies legacy Windows Server client support that is ending.",
-      "adminImpact": "Administrators adopting the 26H2 baseline must create a new profile or update an existing one because existing profiles do not update automatically. Teams configuring the Defender for Endpoint toggle on Android COBO or COPE devices must enable Grant MTD role permissions. Network teams maintaining allowlists should review the endpoint table, while Configuration Manager administrators planning version 2609 should identify affected Windows Server devices and upgrade them to a supported version.",
+      "headline": "Windows 11 26H2 baseline and Configuration Manager 2609 upgrade guidance headline the week",
+      "overview": "The week was dominated by mechanical documentation maintenance, especially author-metadata changes across Intune pages. The substantive items were Windows 11 26H2 baseline and Settings Catalog guidance, three new Configuration Manager 2609 articles covering upgrade planning and compatibility, Intune endpoint and GCCH Remote Help references, and a November 2026 Purview DLP and Intune workflow update.",
+      "adminImpact": "Action is concentrated in baseline and Configuration Manager planning: 26H2 profiles require explicit creation or updating; 2609 teams should verify service-connection-point and site-update sequencing, review documented behavior changes, and identify unsupported server clients. Administrators maintaining network allowlists should review the endpoint guidance, while GCCH support teams can use the documented Remote Help availability for enrolled Android and Windows devices. The November DLP notice is a coordination item; existing policies and enforcement remain unchanged. Author-metadata edits require no operational response.",
       "keyChanges": [
         {
-          "title": "26H2 baseline guidance adds updated settings, defaults, and profile requirements",
-          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
-          "product": "Intune — Windows security baselines",
+          "title": "Intune’s Windows 11 26H2 baseline requires deliberate profile adoption",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don’t update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
+          "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Purview DLP plans Intune approval support for unmanaged Edge apps",
-          "detail": "Starting November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval, with clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement will not change.",
-          "product": "Microsoft Purview DLP and Intune — Edge for Business",
-          "sourceId": "MC1489971"
+          "title": "Configuration Manager 2609 upgrade planning gains explicit hierarchy prerequisites",
+          "detail": "The new 2609 checklist requires a top-level service connection point when updating a Configuration Manager hierarchy. Secondary sites require manual updating after their parent site is updated.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Defender for Endpoint connector setup documents an Android MTD prerequisite",
-          "detail": "The Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices. The documented configuration also requires Grant MTD role permissions to be enabled.",
-          "product": "Intune — Defender for Endpoint connector",
-          "sourceId": "doc-2026-10-06-enable-connector-08"
+          "title": "Configuration Manager 2609 documents security and approval behavior changes",
+          "detail": "The 2609 change summary says CMPivot clients trust its signing certificate, SQLCLR no longer requires TRUSTWORTHY, and CMG storage shared-key access is automatically disabled. Upgrade checks warn about automatic computer approval, alongside guidance about its planned removal for all computers.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-summary-of-changes-in-configuration-manager-current-branch-version-2609-configuration-manager-mi-03"
         },
         {
-          "title": "Intune endpoint guidance replaces three regional entries with one wildcard",
-          "detail": "The endpoints table adds `*.trouter.communications.svc.cloud.microsoft` for all regions and removes the separate `go-amer`, `go-eu`, and `go-apac` entries. Administrators maintaining network allowlists should review the updated endpoint guidance.",
-          "product": "Intune — network endpoints",
-          "sourceId": "doc-2026-10-07-endpoints-01"
-        },
-        {
-          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
-          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators planning the update should identify affected devices and upgrade them to a supported Windows Server version.",
-          "product": "Configuration Manager — version 2609",
+          "title": "Configuration Manager 2609 drops older Windows Server client operating systems",
+          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and move them to a supported Windows Server version.",
+          "product": "Configuration Manager",
           "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Purview DLP will add Intune multi-admin approval support in November",
+          "detail": "Starting November 2026, Purview DLP will improve setup for unmanaged apps in Edge for Business with clearer status, detailed errors, and Intune multi-admin approval support. The update coordinates tasks between Purview and Intune administrators without changing existing policies or enforcement.",
+          "product": "Intune",
+          "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-07T19:59:15.211Z",
+      "generatedAt": "2026-10-08T00:12:22.032Z",
       "usage": {
-        "inputTokens": 1915,
-        "outputTokens": 4705,
-        "costUsd": 0.006029
+        "inputTokens": 5621,
+        "outputTokens": 7430,
+        "costUsd": 0.01004
       }
     }
   },
@@ -9349,65 +9389,59 @@
       }
     },
     "2026-10": {
-      "headline": "Windows 11 26H2 baseline and EPM network controls shape October’s endpoint changes",
-      "overview": "Intune’s Windows 11 26H2 baseline and Settings Catalog coverage now includes new settings, revised defaults, and profile-handling guidance; Endpoint Privilege Management guidance documents controlled standard-user changes to IPv4, IPv6, and DNS settings. The period also records a concrete Defender for Endpoint connector prerequisite, Configuration Manager 2609’s removal of legacy Windows Server client support, and a planned November 2026 Purview DLP and Intune approval change.",
-      "adminImpact": "Administrators adopting the 26H2 baseline must create a new profile or update an existing one because profiles do not update automatically. EPM deployments require an enabled elevation settings policy and configured confirmation, justification, or authentication controls. Android COBO and COPE connector setup requires Grant MTD role permissions. Configuration Manager teams should identify affected Windows Server devices, while Purview and Intune teams can plan for the November 2026 change without revising existing policies or enforcement.",
+      "headline": "Windows 11 26H2 baseline, Configuration Manager 2609 and EPM guidance headline October updates",
+      "overview": "October was dominated by author-metadata and other mechanical documentation maintenance. The meaningful operational items were updated Windows 11 26H2 baseline guidance, Configuration Manager 2609 upgrade and compatibility requirements, controlled network-setting delegation through Endpoint Privilege Management, and a November Microsoft Purview DLP workflow change involving Intune.",
+      "adminImpact": "Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current baseline profiles do not update automatically. Configuration Manager teams should verify the top-level service connection point, manually update secondary sites after their parent site, and identify unsupported Windows Server 2012-era clients before moving to 2609. EPM deployments need an enabled elevation settings policy before delegating network changes. The November Purview DLP update is a coordination item for Purview and Intune administrators; existing policies and enforcement remain unchanged.",
       "keyChanges": [
         {
-          "title": "Windows 11 26H2 baseline guidance adds revised defaults and deliberate profile updates",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators wanting the 26H2 baseline must create a new profile or update an existing one.",
+          "title": "26H2 baseline profiles require explicit administrator updates",
+          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new 26H2 profile or update an existing profile to use it.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Endpoint Privilege Management delegates IPv4, IPv6, and DNS changes",
-          "detail": "New EPM guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices also need an EPM elevation settings policy enabled.",
-          "product": "Endpoint Privilege Management",
-          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
+          "title": "Configuration Manager 2609 adds explicit hierarchy update sequencing",
+          "detail": "The 2609 upgrade checklist specifies that the hierarchy must use a top-level service connection point. After the parent site is updated, secondary sites require manual updating.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Defender for Endpoint connector setup requires Grant MTD role permissions",
-          "detail": "For Android COBO and COPE devices, enabling the Defender for Endpoint toggle automatically launches the app during setup. The documented configuration also requires Grant MTD role permissions to be enabled.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-06-enable-connector-08"
-        },
-        {
-          "title": "Configuration Manager 2609 drops Windows Server 2012 and 2012 R2 client support",
-          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators need to identify affected devices and move them to a supported Windows Server version.",
+          "title": "Configuration Manager 2609 drops Windows Server 2012-era client support",
+          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices need to be identified and moved to a supported Windows Server version.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
         },
         {
-          "title": "November 2026 Purview DLP update adds Intune approval for unmanaged Edge apps",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will support Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement are unchanged.",
-          "product": "Intune",
+          "title": "EPM guidance documents controlled delegation of network settings",
+          "detail": "Endpoint Privilege Management policies can let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices must have an EPM elevation settings policy enabled.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "November DLP workflow adds Intune multi-admin approval for Edge",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval, with clearer status, detailed errors, and coordination between Purview and Intune administrators. Existing policies and enforcement do not change.",
+          "product": "Intune and Microsoft Purview DLP",
           "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-07T19:59:15.211Z",
+      "generatedAt": "2026-10-08T00:12:22.032Z",
       "usage": {
-        "inputTokens": 3196,
-        "outputTokens": 3812,
-        "costUsd": 0.005214
+        "inputTokens": 5221,
+        "outputTokens": 5858,
+        "costUsd": 0.008074
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-07T19:59:15.211Z",
+  "generatedAt": "2026-10-08T00:12:22.032Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-02": {
-      "inputTokens": 16180,
-      "outputTokens": 10216,
-      "requests": 3,
-      "costUsd": 0.015495
-    },
     "2026-09-17": {
       "inputTokens": 14552,
       "outputTokens": 8828,
@@ -9467,18 +9501,24 @@
       "outputTokens": 24070,
       "requests": 6,
       "costUsd": 0.031502
+    },
+    "2026-10-08": {
+      "inputTokens": 15265,
+      "outputTokens": 15792,
+      "requests": 3,
+      "costUsd": 0.022003
     }
   },
   "lastRun": {
-    "inputTokens": 6127,
-    "outputTokens": 9002,
+    "inputTokens": 15265,
+    "outputTokens": 15792,
     "requests": 3,
-    "costUsd": 0.012028
+    "costUsd": 0.022003
   },
   "totalUsage": {
-    "inputTokens": 3243733,
-    "outputTokens": 1867154,
-    "requests": 324,
-    "costUsd": 2.889333
+    "inputTokens": 3258998,
+    "outputTokens": 1882946,
+    "requests": 327,
+    "costUsd": 2.911336
   }
 }

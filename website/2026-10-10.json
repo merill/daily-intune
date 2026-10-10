@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/remote-help/plan.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/remote-help/plan.md b/intune/remote-help/plan.md\nindex a132ff7..4d2dc7f 100644\n--- a/intune/remote-help/plan.md\n+++ b/intune/remote-help/plan.md\n@@ -173,6 +173,7 @@ Remote Help has the following limitations:\n \r\n - You can't establish a Remote Help session from one tenant to a different tenant.\r\n - Remote Help might not be available in all markets or localizations.\r\n+- Windows unattended remote sign-in isn't available for tenants in the Switzerland North datacenter region.\r\n - Remote Help is supported in Government Community Cloud (GCC) and GCC High environments on the following platforms:\r\n     - Windows\r\n     - Windows on ARM64 devices\r\n",
+      "baseCommitSha": "eef940cb4e77e978c604d5c4bb257c8c73cce6b5",
+      "commitSha": "67b36f1469bd68550900dbfba7e768e2ce940699",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-09 23:36:48 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/remote-help/plan.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/remote-help/plan",
+      "eventId": "intune-docs:67b36f1469bd68550900dbfba7e768e2ce940699:modified:intune/remote-help/plan.md",
+      "firstSeenAt": "2026-10-10T00:02:10.832Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Windows unattended remote sign-in is unavailable in Switzerland North",
+        "summary": "The Remote Help planning documentation now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in.",
+        "adminImpact": "Administrators in this region should account for this limitation when planning Remote Help usage. No action is required by the update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/remote-help",
+        "summary": "The Remote Help planning documentation now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in.",
+        "sourceFiles": [
+          "intune/remote-help/plan.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/remote-help",
+        "detail": "The Remote Help planning documentation now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

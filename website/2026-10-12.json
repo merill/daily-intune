@@ -1,0 +1,133 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1476216",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-21",
+      "title": "Plan for Change: Web based device enrollment will become default method for iOS/iPadOS device enrollment",
+      "summary": "Starting early 2027, web-based device enrollment will be the default for new iOS/iPadOS enrollment profiles in Intune. Existing profiles remain unchanged. Admins must deploy the SSO extension policy for just-in-time registration. Company Portal remains available but is not required for enrollment. Update documentation accordingly.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "device-enrollment",
+        "name": "Device enrollment",
+        "icon": "/assets/topics/device-enrollment.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1476216/",
+      "originalUrl": "https://mc.merill.net/message/MC1476216",
+      "body": "<p>Today, when creating iOS/iPadOS enrollment profiles, “Device enrollment with Company Portal” is preselected as the default method. Starting in early 2027, the default method will change to “Web based device enrollment” during profile creation. Additionally for new tenants, if no enrollment profile is created, the user will enroll using web-based device enrollment.</p><p><b>Important:</b> For web enrollment, admins need to deploy the single sign-on (SSO) extension policy to enable just in time (JIT) registration, for more information review: <a href=\"https://learn.microsoft.com/intune/device-enrollment/apple/setup-just-in-time-registration\" rel=\"noopener noreferrer\">Set up just in time registration in Microsoft Intune</a></p><p><b>How this will affect your organization:</b></p><p>Existing enrollment profiles are not affected. This change updates the Intune admin experience for creating new iOS/iPadOS enrollment profiles. \"Web based device enrollment\" will be displayed and selected as the default enrollment method during profile creation.</p><p><b>User impact:</b> Users enrolling through profiles that use web-based device enrollment or if no enrollment profile is completed, users will complete enrollment through the web-based flow.</p><p><b>Note:</b> This change does not deprecate Company Portal for iOS/iPadOS. Company Portal will remain available because it supports experiences beyond device enrollment. However, Company Portal is not required to complete web-based device enrollment. If your organization uses Company Portal after enrollment, we recommend deploying it as a required or available app so users can continue accessing those experiences.</p><p><b>What you need to do to prepare:</b></p><p>Update your documentation and user guidance as needed. If you currently use device enrollment with Company Portal, we recommend moving to web-based device enrollment and deploying the SSO extension policy to enable JIT registration.</p><p>If your organization uses Company Portal after enrollment, deploy it as a required or available app. If JIT registration and Microsoft Authenticator are not configured, users may be unable to complete device registration and access protected organizational resources.</p><p>Additional information:</p><ul><li><a href=\"https://learn.microsoft.com/intune/device-enrollment/apple/setup-just-in-time-registration\" rel=\"noopener noreferrer\">Set up just in time registration in Microsoft Intune</a></li><li><a href=\"https://learn.microsoft.com/intune/device-enrollment/apple/setup-web-based-ios\" rel=\"noopener noreferrer\">Set up web-based device enrollment for iOS</a></li></ul>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-21T22:07:56Z",
+      "endDate": "2027-05-31T07:00:00Z",
+      "lastModifiedDateTime": "2026-09-21T22:09:21.1Z",
+      "version": "2026-09-21T22:09:21.1Z",
+      "eventId": "message-center:MC1476216:2026-09-21T22:09:21.1Z",
+      "firstSeenAt": "2026-10-12T09:09:21.732Z"
+    },
+    {
+      "id": "MC1470869",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-09-11",
+      "title": "Plan for Change: Removal of legacy Apple MDM software updates",
+      "summary": "Apple has ended support for legacy MDM software update commands with OS 27. Intune will remove the legacy update UI in its October release. Admins must switch to declarative device management (DDM) for Apple software updates to ensure devices continue updating properly. Review and update policies accordingly.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "endpoint-analytics",
+        "name": "Endpoint analytics",
+        "icon": "/assets/topics/endpoint-analytics.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1470869/",
+      "originalUrl": "https://mc.merill.net/message/MC1470869",
+      "body": "<p>As previously announced, Apple ended support for legacy mobile device management (MDM) software update commands with OS 26 and Intune also ended support soon after the release. Apple has removed these settings and commands with the release of OS 27.</p><p>Starting with Intune's October (2610) service release, we will remove the associated legacy software update UI from the Intune admin center. For supported Apple software update workflows, we recommend moving to declarative device management (DDM) software update settings. For more details, refer to <a href=\"https://techcommunity.microsoft.com/blog/intunecustomersuccess/support-tip-move-to-declarative-device-management-for-apple-software-updates/4432177\" rel=\"noopener noreferrer\">Support tip: Move to declarative device management for Apple software updates</a></p><p><b>How this will affect your organization:</b></p><p>After this change, admins will no longer be able to use the legacy UI for the affected Apple software update policies and reporting experiences in the Intune admin center. If you do not update your policies to use DDM, the devices may fail to update after this change.</p><p>This change affects the following legacy MDM software update experiences:</p><ul><li>iOS/iPadOS update policies</li><li>macOS update policies</li><li>Software update settings in the iOS/iPadOS and macOS Device restrictions templates</li><li>Software settings for iOS/iPadOS and macOS in the settings catalog under 'Restrictions'</li><li>Software payload settings for macOS in the settings catalog</li><li>Per-device macOS software updates report</li><li>iOS/iPadOS update installation failures report</li><li>macOS update installation failures report</li></ul><p>Supported Apple software update management is available through declarative device management (DDM) settings in Intune.</p><p><b>What you need to do to prepare:</b></p><p>Review your existing iOS/iPadOS and macOS software update workflows and move to DDM-based software update management before the legacy UI is removed. If you enforce DDM software update policies, devices use the DDM update settings rather than legacy MDM update settings.</p><p>Review <b>Managed software updates</b> in the settings catalog and the <a href=\"https://techcommunity.microsoft.com/blog/intunecustomersuccess/support-tip-move-to-declarative-device-management-for-apple-software-updates/4432177\" rel=\"noopener noreferrer\">blog</a> for moving to declarative device management for Apple software updates.</p><p><b>Additional information:</b></p><ul><li><a href=\"https://learn.microsoft.com/intune/device-updates/apple/?tabs=automatic-updates\" rel=\"noopener noreferrer\">Configure update policies for Apple devices | Microsoft Learn</a></li><li><a href=\"https://support.apple.com/guide/deployment/depd638aa061/1/web/1.0#depd478f87b8\" rel=\"noopener noreferrer\">Apple WWDC information about legacy MDM software update commands</a></li></ul>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-09-11T23:07:16Z",
+      "endDate": "2026-12-19T08:00:00Z",
+      "lastModifiedDateTime": "2026-09-11T23:08:03.367Z",
+      "version": "2026-09-11T23:08:03.367Z",
+      "eventId": "message-center:MC1470869:2026-09-11T23:08:03.367Z",
+      "firstSeenAt": "2026-10-12T09:09:21.732Z"
+    },
+    {
+      "id": "MC1435779",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-07-30",
+      "title": "(Update) Ending support for Setup Assistant (legacy) auth method in ADE and Apple Configurator for iOS/iPadOS and macOS",
+      "summary": "Intune will end support for Setup Assistant (legacy) authentication in iOS/iPadOS and macOS ADE, and Apple Configurator Setup Assistant enrollment for iOS/iPadOS devices with user device affinity with the October 2610 release. They will be replaced with Setup Assistant and Apple Configurator Company Portal enrollment, using modern authentication for improved security. Existing devices remain enrolled; profiles will auto-update, but reviewing and testing updates is recommended.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "device-enrollment",
+        "name": "Device enrollment",
+        "icon": "/assets/topics/device-enrollment.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1435779/",
+      "originalUrl": "https://mc.merill.net/message/MC1435779",
+      "body": "<p>Updated July 30, 2026: We have updated the content for clarity. Thank you for your patience.&nbsp;</p><p>Expected with Intune’s October (2610) service release, to help improve security and align with modern authentication standards, Intune is ending support for the <b>Setup Assistant (legacy)</b> authentication method for iOS/iPadOS and macOS Automated Device Enrollment (ADE) and Apple Configurator Setup Assistant enrollment for iOS/iPadOS devices with user device affinity. These legacy methods do not support multifactor authentication or Conditional Access and have been superseded by <b>Setup Assistant with modern authentication </b>for ADE and Apple Configurator Company Portal enrollment, which provides a more secure and seamless enrollment experience for devices enrolling with user affinity.&nbsp;</p><p><b>How this will affect your organization:</b></p><p>There is no impact to existing devices, they will remain enrolled.</p><p>All existing ADE enrollment profiles with user affinity that use <b>Setup Assistant (legacy)</b> will be automatically updated to use <b>Setup Assistant with modern authentication</b>. The Setup Assistant (legacy) authentication option will be removed from the creation and edit experience for new ADE enrollment profiles.</p><p>All existing Apple Configurator enrollment profiles for iOS/iPadOS with user affinity that use <b>Setup Assistant</b> will be automatically updated to use Company Portal for authentication. The Setup Assistant authentication option will be removed from the creation and edit experience for new Apple Configurator enrollment profiles.</p><p><b>What you need to do to prepare:</b></p><p>Review your iOS/iPadOS and macOS enrollment profiles in the Intune admin center to understand which profiles currently use <b>Setup Assistant (legacy) </b>for ADE and <b>Setup Assistant</b> for Apple Configurator enrollment. We recommend updating your enrollment profiles to use <b>Setup Assistant with modern authentication </b>for ADE and <b>Company Portal</b> for Apple Configurator and testing these changes in your environment. If no action is taken, these profiles will be automatically updated as part of this change.&nbsp;</p><p>Learn more about using Setup Assistant with modern authentication to provide the most secure and best enrollment experience for ADE devices for iOS/iPadOS and macOS in this blog: <a href=\"https://techcommunity.microsoft.com/blog/intunecustomersuccess/transforming-the-iosipados-ade-experience-in-microsoft-intune/4013312\" rel=\"noopener noreferrer\">Transforming the iOS/iPadOS ADE experience in Microsoft Intune</a></p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "Updated message",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-07-21T22:08:21Z",
+      "endDate": "2026-12-04T08:00:00Z",
+      "lastModifiedDateTime": "2026-07-30T18:33:46.027Z",
+      "version": "2026-07-30T18:33:46.027Z",
+      "eventId": "message-center:MC1435779:2026-07-30T18:33:46.027Z",
+      "firstSeenAt": "2026-10-12T09:09:21.732Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}

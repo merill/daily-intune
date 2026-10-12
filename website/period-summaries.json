@@ -7255,13 +7255,13 @@
       }
     },
     "2026-10-10": {
-      "headline": "Remote Help planning documents Switzerland North’s Windows unattended sign-in limitation",
-      "overview": "The Remote Help Plan documentation now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in. This is the period’s sole change.",
-      "adminImpact": "Administrators in Switzerland North should account for the limitation when planning Remote Help usage. The update requires no administrative action.",
+      "headline": "Remote Help planning guidance now flags unattended sign-in limits in Switzerland North",
+      "overview": "Remote Help’s planning guidance now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in. The update is a regional planning limitation for administrators using the capability.",
+      "adminImpact": "Administrators with tenants in Switzerland North should account for the limitation when planning Remote Help usage. No action is required because of the documentation update itself.",
       "keyChanges": [
         {
-          "title": "Switzerland North limitation added to Remote Help planning guidance",
-          "detail": "The planning documentation now specifies that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in.",
+          "title": "Switzerland North tenants cannot use Windows unattended remote sign-in",
+          "detail": "The Remote Help Plan documentation now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in. Administrators should consider this limitation when planning Remote Help deployments in that region.",
           "product": "Remote Help",
           "sourceId": "doc-2026-10-10-plan-01"
         }
@@ -7269,11 +7269,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-10T00:02:18.795Z",
+      "generatedAt": "2026-10-12T09:09:22.125Z",
       "usage": {
         "inputTokens": 1004,
-        "outputTokens": 439,
-        "costUsd": 0.000728
+        "outputTokens": 421,
+        "costUsd": 0.000706
       }
     }
   },
@@ -8983,49 +8983,49 @@
       }
     },
     "2026-10-05": {
-      "headline": "26H2 security baselines and Configuration Manager 2609 sharpen upgrade planning",
-      "overview": "The period was dominated by routine ownership and metadata edits, but several entries have direct planning consequences. Intune's 26H2 guidance now covers the Windows 11 security baseline and Settings Catalog support, while stating that existing baseline profiles do not update automatically. New Configuration Manager 2609 guidance records an older Windows Server client-support break and hierarchy-update prerequisites. Intune's Android Defender connector guidance clarifies a required role permission, and a Message Center notice previews November 2026 multi-admin approval support for unmanaged apps in Edge for Business.",
-      "adminImpact": "Create a new 26H2 security baseline profile or update an existing one if that baseline is needed. For Configuration Manager 2609, identify Windows Server 2012, Windows Server 2012 R2, and Windows Storage Server client devices, plan upgrades to supported Windows Server versions, verify a top-level service connection point, and schedule manual secondary-site updates after parent-site updates. For Android COBO and COPE Defender setup, enable Grant MTD role permissions. Track the November 2026 Purview and Intune workflow update; existing policies and enforcement remain unchanged.",
+      "headline": "Purview DLP will add Intune multi-admin approval for Edge unmanaged apps",
+      "overview": "The week is dominated by author and ownership metadata maintenance, but several updates have direct planning value. Starting in November 2026, Purview DLP will add Intune multi-admin approval for unmanaged apps in Edge for Business. Intune also documented Windows 11 version 26H2 baseline guidance, changed its endpoint allowlist guidance, and recorded a regional Remote Help limitation. Adjacent Configuration Manager documentation describes version 2609 support changes, including the removal of legacy Windows Server client operating systems.",
+      "adminImpact": "Admins adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. Network teams should reconcile allowlists with the revised endpoint table. Remote Help planners in Switzerland North must account for the Windows unattended sign-in restriction. Configuration Manager teams should identify affected legacy server clients and upgrade them. The Purview change affects setup and approval coordination, while existing policies and enforcement remain unchanged.",
       "keyChanges": [
         {
-          "title": "Windows 11 26H2 baseline adoption now has explicit profile guidance",
-          "detail": "Intune guidance covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; adopting the 26H2 baseline requires creating a new profile or updating an existing one.",
-          "product": "Intune",
+          "title": "Purview DLP adds a November 2026 Intune approval workflow for Edge unmanaged apps",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status, detailed errors, and task coordination between Purview and Intune administrators; existing policies and enforcement remain unchanged.",
+          "product": "Microsoft Purview DLP / Intune",
+          "sourceId": "MC1489971"
+        },
+        {
+          "title": "Windows 11 26H2 baseline guidance now covers Settings Catalog support",
+          "detail": "Intune guidance now documents the Windows 11 version 26H2 security baseline, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; adopting the 26H2 baseline requires creating a new profile or updating an existing one.",
+          "product": "Intune — Security baselines and Settings Catalog",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Configuration Manager 2609 ends support for older Windows Server clients",
-          "detail": "The 2609 guidance says Windows Server 2012, Windows Server 2012 R2, and their Windows Storage Server editions are no longer supported as client operating systems. Administrators should identify affected devices and upgrade them to a supported Windows Server version.",
+          "title": "Endpoint guidance replaces regional allowlist entries with a global trouter wildcard",
+          "detail": "The Intune endpoints table adds `*.trouter.communications.svc.cloud.microsoft` for all regions and removes the separate `go-amer`, `go-eu`, and `go-apac` entries. Administrators maintaining network allowlists should review them against the revised table.",
+          "product": "Intune — Network endpoints",
+          "sourceId": "doc-2026-10-07-endpoints-01"
+        },
+        {
+          "title": "Remote Help documents a Switzerland North limit on Windows unattended sign-in",
+          "detail": "Remote Help planning guidance now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in. That regional limitation needs to be included when planning Remote Help coverage.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-10-10-plan-01"
+        },
+        {
+          "title": "Configuration Manager 2609 ends support for legacy Windows Server client OSes",
+          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Teams planning the upgrade should identify affected devices and move them to a supported Windows Server version.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
-        },
-        {
-          "title": "Configuration Manager 2609 hierarchy updates require top-level service connection points",
-          "detail": "The new 2609 checklist documents a top-level service connection point requirement for updating a hierarchy. Secondary sites must be updated manually after their parent site is updated.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
-        },
-        {
-          "title": "Android Defender connector guidance specifies a role-permission prerequisite",
-          "detail": "The Intune connector guidance specifies that the Defender for Endpoint toggle automatically launches the app during setup on Android COBO and COPE devices, and that Grant MTD role permissions must be enabled.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-06-enable-connector-08"
-        },
-        {
-          "title": "Edge for Business DLP workflows gain Intune multi-admin approval in November",
-          "detail": "Starting November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business, adding clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
-          "product": "Intune and Microsoft Purview DLP",
-          "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-10T00:02:18.795Z",
+      "generatedAt": "2026-10-12T09:09:22.125Z",
       "usage": {
         "inputTokens": 6060,
-        "outputTokens": 10033,
-        "costUsd": 0.013252
+        "outputTokens": 5995,
+        "costUsd": 0.008406
       }
     }
   },
@@ -9445,54 +9445,54 @@
       }
     },
     "2026-10": {
-      "headline": "Configuration Manager 2609 tightens upgrade planning as Windows 11 26H2 guidance expands",
-      "overview": "October’s meaningful administrator-facing updates centered on Windows 11 26H2 baseline planning, Configuration Manager 2609 upgrades, Endpoint Privilege Management network-setting delegation, and an upcoming Purview DLP workflow change. Much of the remaining activity was routine ownership, metadata, and reference maintenance.",
-      "adminImpact": "Review whether existing Intune security baseline profiles need to be created or updated for Windows 11 26H2. For Configuration Manager 2609, verify hierarchy prerequisites, plan manual secondary-site updates, and identify unsupported Windows Server clients. Ensure an EPM elevation settings policy is enabled before delegating network changes. Track the November 2026 Purview DLP and Intune approval update; existing policies and enforcement remain unchanged.",
+      "headline": "Windows 11 26H2 baseline guidance expands alongside EPM network-setting controls",
+      "overview": "October was largely documentation maintenance, especially author and ownership metadata, with no retirements recorded. The substantive administrator-facing changes covered the Windows 11 version 26H2 security baseline, Endpoint Privilege Management network-setting elevation, a November Purview DLP approval change, revised endpoint allowlist guidance, and a Switzerland North Remote Help limitation.",
+      "adminImpact": "Create or update a security baseline profile if adopting Windows 11 26H2; existing profiles do not update automatically. Ensure an EPM elevation settings policy is enabled before delegating network changes, reconcile network allowlists with the revised endpoint table, and account for the Switzerland North Remote Help limitation. Purview and Intune administrators should coordinate the new approval workflow beginning in November 2026; existing policies and enforcement remain unchanged.",
       "keyChanges": [
         {
-          "title": "Windows 11 26H2 baseline guidance requires profile action",
-          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators who need the 26H2 baseline must create a new profile or update an existing one.",
+          "title": "Windows 11 26H2 security baseline and Settings Catalog coverage",
+          "detail": "Intune guidance now includes the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Configuration Manager 2609 adds hierarchy-update prerequisites",
-          "detail": "The new 2609 checklist requires a top-level service connection point for the update. After a parent site is updated, secondary sites require manual updating.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-checklist-for-2609-configuration-manager-microsoft-learn-02"
-        },
-        {
-          "title": "Configuration Manager 2609 drops three Windows Server client families",
-          "detail": "Version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Affected devices need to move to a supported Windows Server version.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
-        },
-        {
-          "title": "EPM documents controlled delegation of network settings",
-          "detail": "New Endpoint Privilege Management guidance describes policies that let standard users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices also need an enabled EPM elevation settings policy.",
+          "title": "Elevation system settings policy for IPv4, IPv6, and DNS",
+          "detail": "New Endpoint Privilege Management guidance describes a policy that lets standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and the device must have an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Purview DLP will add Intune approval coordination in November",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
-          "product": "Intune",
+          "title": "Purview DLP adds Intune multi-admin approval for Edge unmanaged apps",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and add Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status information, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
+          "product": "Intune / Microsoft Purview DLP",
           "sourceId": "MC1489971"
+        },
+        {
+          "title": "Endpoint allowlist moves to a regional wildcard",
+          "detail": "The Intune endpoint table adds `*.trouter.communications.svc.cloud.microsoft` for all regions and removes the separate `go-amer`, `go-eu`, and `go-apac` entries. Network teams maintaining allowlists should reconcile their rules with the revised table.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-07-endpoints-01"
+        },
+        {
+          "title": "Remote Help documents a Switzerland North limitation",
+          "detail": "Remote Help planning guidance now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-10-10-plan-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-10T00:02:18.795Z",
+      "generatedAt": "2026-10-12T09:09:22.125Z",
       "usage": {
-        "inputTokens": 5379,
-        "outputTokens": 2646,
-        "costUsd": 0.004251
+        "inputTokens": 5344,
+        "outputTokens": 7893,
+        "costUsd": 0.01054
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-10T00:02:18.795Z",
+  "generatedAt": "2026-10-12T09:09:22.125Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9575,18 +9575,24 @@
       "outputTokens": 13118,
       "requests": 3,
       "costUsd": 0.01823
+    },
+    "2026-10-12": {
+      "inputTokens": 12408,
+      "outputTokens": 14309,
+      "requests": 3,
+      "costUsd": 0.019652
     }
   },
   "lastRun": {
-    "inputTokens": 12443,
-    "outputTokens": 13118,
+    "inputTokens": 12408,
+    "outputTokens": 14309,
     "requests": 3,
-    "costUsd": 0.01823
+    "costUsd": 0.019652
   },
   "totalUsage": {
-    "inputTokens": 3283954,
-    "outputTokens": 1910293,
-    "requests": 333,
-    "costUsd": 2.949143
+    "inputTokens": 3296362,
+    "outputTokens": 1924602,
+    "requests": 336,
+    "costUsd": 2.968795
   }
 }

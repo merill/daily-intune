@@ -7275,6 +7275,28 @@
         "outputTokens": 421,
         "costUsd": 0.000706
       }
+    },
+    "2026-10-12": {
+      "headline": "Managed Google Play guidance specifies a 3,000-app per-device targeting limit",
+      "overview": "The Add Managed Google Play guidance now states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+      "adminImpact": "Administrators should account for the 3,000-app limit when targeting apps to affected Android Enterprise devices. No administrator action is explicitly required.",
+      "keyChanges": [
+        {
+          "title": "Android Enterprise app-targeting limit is documented",
+          "detail": "The Intune app-management guidance specifies a maximum of 3,000 targeted apps per device for the covered corporate-owned and personally owned work profile scenarios.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-12-add-managed-google-play-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-12T22:08:13.392Z",
+      "usage": {
+        "inputTokens": 1011,
+        "outputTokens": 478,
+        "costUsd": 0.000776
+      }
     }
   },
   "weeks": {
@@ -9027,6 +9049,28 @@
         "outputTokens": 5995,
         "costUsd": 0.008406
       }
+    },
+    "2026-10-12": {
+      "headline": "Intune documents a 3,000-app targeting limit for selected Android Enterprise scenarios",
+      "overview": "The week's only change updates the Add Managed Google Play guidance to state that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+      "adminImpact": "Administrators targeting these scenarios should account for the 3,000-app-per-device limit when planning app assignments. The supplied evidence identifies no explicit required action.",
+      "keyChanges": [
+        {
+          "title": "Managed Google Play guidance specifies the app-targeting ceiling",
+          "detail": "The updated Intune documentation states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-12-add-managed-google-play-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-12T22:08:13.392Z",
+      "usage": {
+        "inputTokens": 820,
+        "outputTokens": 698,
+        "costUsd": 0.001002
+      }
     }
   },
   "months": {
@@ -9445,54 +9489,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows 11 26H2 baseline guidance expands alongside EPM network-setting controls",
-      "overview": "October was largely documentation maintenance, especially author and ownership metadata, with no retirements recorded. The substantive administrator-facing changes covered the Windows 11 version 26H2 security baseline, Endpoint Privilege Management network-setting elevation, a November Purview DLP approval change, revised endpoint allowlist guidance, and a Switzerland North Remote Help limitation.",
-      "adminImpact": "Create or update a security baseline profile if adopting Windows 11 26H2; existing profiles do not update automatically. Ensure an EPM elevation settings policy is enabled before delegating network changes, reconcile network allowlists with the revised endpoint table, and account for the Switzerland North Remote Help limitation. Purview and Intune administrators should coordinate the new approval workflow beginning in November 2026; existing policies and enforcement remain unchanged.",
+      "headline": "Windows 11 26H2 baseline and EPM network controls headline October’s administrator guidance",
+      "overview": "October was maintenance-heavy: the supplied Intune updates include many author and ownership metadata changes. The administrator-relevant changes are more specific, covering Windows 11 version 26H2 security-baseline guidance, controlled EPM network-setting changes, Configuration Manager 2609 client support, a November Purview DLP approval workflow, and a 3,000-app limit for selected Android Enterprise scenarios.",
+      "adminImpact": "Review Intune security-baseline profiles because existing profiles don't update automatically; create a new 26H2 profile or update an existing one if adopting it. Before delegating IPv4, IPv6, or DNS changes through EPM, enable an EPM elevation settings policy. For Configuration Manager 2609, identify affected Windows Server 2012, Windows Server 2012 R2, and Windows Storage Server clients and move them to a supported Windows Server version. For the November Purview DLP change, plan coordination between Purview and Intune administrators; keep selected Android Enterprise assignments within 3,000 targeted apps per device.",
       "keyChanges": [
         {
-          "title": "Windows 11 26H2 security baseline and Settings Catalog coverage",
-          "detail": "Intune guidance now includes the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Intune documents the Windows 11 26H2 security baseline",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don't update automatically; adopting the 26H2 baseline requires creating a new profile or updating an existing one.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Elevation system settings policy for IPv4, IPv6, and DNS",
-          "detail": "New Endpoint Privilege Management guidance describes a policy that lets standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and the device must have an EPM elevation settings policy enabled.",
+          "title": "EPM guidance enables controlled IPv4, IPv6, and DNS changes",
+          "detail": "A new Endpoint Privilege Management article describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while allowing administrators to require confirmation, business justification, Windows authentication, or both. Devices also need an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for Edge unmanaged apps",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and add Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status information, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
-          "product": "Intune / Microsoft Purview DLP",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and upgrade them to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Purview DLP schedules Intune approval for Edge unmanaged apps",
+          "detail": "Starting November 2026, Microsoft Purview DLP will improve setup and add Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators.",
+          "product": "Intune",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Endpoint allowlist moves to a regional wildcard",
-          "detail": "The Intune endpoint table adds `*.trouter.communications.svc.cloud.microsoft` for all regions and removes the separate `go-amer`, `go-eu`, and `go-apac` entries. Network teams maintaining allowlists should reconcile their rules with the revised table.",
+          "title": "Android Enterprise guidance sets a 3,000-app device limit",
+          "detail": "Add Managed Google Play guidance states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios. Assignment planning for those scenarios should account for that ceiling.",
           "product": "Intune",
-          "sourceId": "doc-2026-10-07-endpoints-01"
-        },
-        {
-          "title": "Remote Help documents a Switzerland North limitation",
-          "detail": "Remote Help planning guidance now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in.",
-          "product": "Remote Help",
-          "sourceId": "doc-2026-10-10-plan-01"
+          "sourceId": "doc-2026-10-12-add-managed-google-play-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-12T09:09:22.125Z",
+      "generatedAt": "2026-10-12T22:08:13.392Z",
       "usage": {
-        "inputTokens": 5344,
-        "outputTokens": 7893,
-        "costUsd": 0.01054
+        "inputTokens": 5465,
+        "outputTokens": 5350,
+        "costUsd": 0.007513
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-12T09:09:22.125Z",
+  "generatedAt": "2026-10-12T22:08:13.392Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9577,22 +9621,22 @@
       "costUsd": 0.01823
     },
     "2026-10-12": {
-      "inputTokens": 12408,
-      "outputTokens": 14309,
-      "requests": 3,
-      "costUsd": 0.019652
+      "inputTokens": 19704,
+      "outputTokens": 20835,
+      "requests": 6,
+      "costUsd": 0.028942
     }
   },
   "lastRun": {
-    "inputTokens": 12408,
-    "outputTokens": 14309,
+    "inputTokens": 7296,
+    "outputTokens": 6526,
     "requests": 3,
-    "costUsd": 0.019652
+    "costUsd": 0.00929
   },
   "totalUsage": {
-    "inputTokens": 3296362,
-    "outputTokens": 1924602,
-    "requests": 336,
-    "costUsd": 2.968795
+    "inputTokens": 3303658,
+    "outputTokens": 1931128,
+    "requests": 339,
+    "costUsd": 2.978085
   }
 }

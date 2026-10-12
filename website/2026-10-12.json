@@ -1,6 +1,33 @@
 {
   "newFiles": [],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/deployment/add-managed-google-play.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/intune/app-management/deployment/add-managed-google-play.md b/intune/app-management/deployment/add-managed-google-play.md\nindex 8b855d5..d8c72a3 100644\n--- a/intune/app-management/deployment/add-managed-google-play.md\n+++ b/intune/app-management/deployment/add-managed-google-play.md\n@@ -75,6 +75,10 @@ Note\n \r\n When you work with Microsoft Intune, we recommend that you use either the Microsoft Edge or Google Chrome browser.\r\n \r\n+Note\r\n+\r\n+Android Management API policies support a maximum of 3,000 targeted apps per device. This limit applies to Android Enterprise corporate-owned fully managed, dedicated, corporate-owned work profile, and personally owned work profile devices that use Android Management API. The limit includes apps and web links that Intune targets to the device. Apps installed on the device but not included in the policy don't count toward the limit. For more information, see Google's [Android Management API policy resource](https://developers.google.com/android/management/reference/rest/v1/enterprises.policies).\r\n+\r\n ## Managed Google Play app types\r\n \r\n There are three types of apps that are available with Managed Google Play:\r\n",
+      "baseCommitSha": "c25a0f45822f2643ee51fc36ebc6a56bc126672a",
+      "commitSha": "87ecf42ffbb436000b8f60bc65bb3774ee7be267",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-12 21:59:28 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/deployment/add-managed-google-play.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/add-managed-google-play",
+      "eventId": "intune-docs:87ecf42ffbb436000b8f60bc65bb3774ee7be267:modified:intune/app-management/deployment/add-managed-google-play.md",
+      "firstSeenAt": "2026-10-12T22:08:05.354Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Android Management API policies have a 3,000-app targeting limit",
+        "summary": "The documentation states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+        "adminImpact": "Account for this limit when targeting apps to affected Android Enterprise devices. No administrator action is explicitly required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [
     {
@@ -120,14 +147,31 @@
     }
   ],
   "summary": {
-    "totalCommits": 0,
-    "totalFiles": 0,
-    "authors": []
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
   },
   "englishSummary": {
-    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
-    "groups": [],
-    "highlights": [],
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/app-management",
+        "summary": "The documentation states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+        "sourceFiles": [
+          "intune/app-management/deployment/add-managed-google-play.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/app-management",
+        "detail": "The documentation states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios."
+      }
+    ],
     "generatedBy": "fallback"
   }
 }

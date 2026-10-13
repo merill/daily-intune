@@ -1,0 +1,139 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/fundamentals/licensing.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/licensing.md b/intune/fundamentals/licensing.md\nindex 127d31b..7193b69 100644\n--- a/intune/fundamentals/licensing.md\n+++ b/intune/fundamentals/licensing.md\n@@ -79,7 +79,7 @@ Intune offers a *device-only subscription* for managing devices that aren't affi\n Assign device licenses based on your estimated usage. Device licenses apply when a device is enrolled through any of the following methods:\r\n \r\n - [Windows Autopilot Self-Deploying mode](/en-us/autopilot/self-deploying)\r\n-- [Apple Device Enrollment Program without user affinity](../device-enrollment/apple/setup-automated-ios)\r\n+- [Apple Device Enrollment Program without user affinity or Entra Shared Device Mode](../device-enrollment/apple/setup-automated-ios)\r\n - [Apple School Manager without user affinity](../device-enrollment/apple/school-manager)\r\n - [Apple Configurator without user affinity](../device-enrollment/apple/setup-configurator-ios)\r\n - [Android Enterprise dedicated](../device-enrollment/android/setup-dedicated)\r\n",
+      "baseCommitSha": "87ecf42ffbb436000b8f60bc65bb3774ee7be267",
+      "commitSha": "667c3bb2d5932b9f4b5574cae8ae706bb49e49d7",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-13 08:33:09 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/fundamentals/licensing.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/licensing",
+      "eventId": "intune-docs:667c3bb2d5932b9f4b5574cae8ae706bb49e49d7:modified:intune/fundamentals/licensing.md",
+      "firstSeenAt": "2026-10-13T09:23:42.805Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Licensing documentation adds Entra Shared Device Mode",
+        "summary": "The Apple Device Enrollment Program entry now also references enrollment without user affinity or Entra Shared Device Mode.",
+        "adminImpact": "Administrators can use the updated entry to identify the relevant Apple enrollment scenario.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/solutions/azure-virtual-desktop-multi-session.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "changes": 5,
+      "patch": "diff --git a/intune/solutions/azure-virtual-desktop-multi-session.md b/intune/solutions/azure-virtual-desktop-multi-session.md\nindex f6f41c1..f1bffc8 100644\n--- a/intune/solutions/azure-virtual-desktop-multi-session.md\n+++ b/intune/solutions/azure-virtual-desktop-multi-session.md\n@@ -230,10 +230,7 @@ The following Windows desktop device remote actions aren't supported and will be\n \r\n ## Retirement\r\n \r\n-Deleting VMs from Azure will leave orphaned device records in the Microsoft Intune admin center. AVD machines are deleted automatically after 30 days and removed permanently after 60 days. For more information, see:\r\n-\r\n-- [Using Intune device cleanup rules](https://techcommunity.microsoft.com/t5/device-management-in-microsoft/using-intune-device-cleanup-rules-updated-version/ba-p/3760854).\r\n-- [Automatically remove devices with cleanup rules](../governance/configure-cleanup-rules)\r\n+Deleting VMs from Azure will leave orphaned device records in the Microsoft Intune admin center. Intune attempts to permanently delete device records for devices that have been inactive for 60 days or more. This process is separate from admin-configured device cleanup rules. Device record deletion isn't guaranteed at 60 days and can take longer.\r\n \r\n ## Security baselines\r\n \r\n",
+      "baseCommitSha": "87ecf42ffbb436000b8f60bc65bb3774ee7be267",
+      "commitSha": "667c3bb2d5932b9f4b5574cae8ae706bb49e49d7",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-13 08:33:09 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/solutions/azure-virtual-desktop-multi-session.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/azure-virtual-desktop-multi-session",
+      "eventId": "intune-docs:667c3bb2d5932b9f4b5574cae8ae706bb49e49d7:modified:intune/solutions/azure-virtual-desktop-multi-session.md",
+      "firstSeenAt": "2026-10-13T09:23:42.808Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Intune device-record deletion timing is clarified",
+        "summary": "The documentation now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules.",
+        "adminImpact": "Administrators should use the 60-day inactivity threshold when planning orphaned-device record retention.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 1,
+      "changes": 14,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 4165a3d..229a484 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -10,7 +10,7 @@ manager: laurawi\n author: lenewsad\n ms.author: lanewsad\n description: Find out what's new in Microsoft Intune.\n-ms.date: 2026-10-05T00:00:00.0000000Z\n+ms.date: 2026-10-12T00:00:00.0000000Z\n ms.topic: whats-new\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1030\n@@ -69,6 +69,18 @@ For new information about Windows Autopilot solutions, see:\n \r\n You can use RSS to be notified when this page is updated. For more information, see [How to use the docs](../fundamentals/use-docs#notifications).\r\n \r\n+## Week of October 12, 2026\r\n+\r\n+### Advanced capabilities (formerly \"Microsoft Intune Suite\")\r\n+\r\n+#### New Remote Help for Windows version available\r\n+\r\n+Remote Help for Windows version 5.2.1210.0 is now available. This release includes stability and observability improvements.\r\n+\r\n+Applies to:\r\n+\r\n+- Windows\r\n+\r\n ## Week of October 5, 2026\r\n \r\n ### Device security\r\n",
+      "baseCommitSha": "87ecf42ffbb436000b8f60bc65bb3774ee7be267",
+      "commitSha": "667c3bb2d5932b9f4b5574cae8ae706bb49e49d7",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-13 08:33:09 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:667c3bb2d5932b9f4b5574cae8ae706bb49e49d7:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-10-13T09:23:43.102Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Remote Help for Windows version 5.2.1210.0 is available",
+        "summary": "The Intune What's New documentation announces Remote Help for Windows version 5.2.1210.0, which includes stability and observability improvements. It applies to Windows.",
+        "adminImpact": "Administrators can review the new Remote Help version and its improvements for Windows deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/fundamentals",
+        "summary": "The Apple Device Enrollment Program entry now also references enrollment without user affinity or Entra Shared Device Mode.",
+        "sourceFiles": [
+          "intune/fundamentals/licensing.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "The documentation now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules.",
+        "sourceFiles": [
+          "intune/solutions/azure-virtual-desktop-multi-session.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "The Intune What's New documentation announces Remote Help for Windows version 5.2.1210.0, which includes stability and observability improvements. It applies to Windows.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/fundamentals",
+        "detail": "The Apple Device Enrollment Program entry now also references enrollment without user affinity or Entra Shared Device Mode."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "The documentation now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "The Intune What's New documentation announces Remote Help for Windows version 5.2.1210.0, which includes stability and observability improvements. It applies to Windows."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

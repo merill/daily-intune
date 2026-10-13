@@ -7297,6 +7297,40 @@
         "outputTokens": 478,
         "costUsd": 0.000776
       }
+    },
+    "2026-10-13": {
+      "headline": "Remote Help 5.2.1210.0 and 60-day device deletion guidance lead Intune updates",
+      "overview": "The period’s substantive updates are concentrated in Microsoft Learn: the What's New index now names Remote Help for Windows 5.2.1210.0 and its stability and observability improvements; Azure Virtual Desktop multi-session guidance adds a 60-day inactivity deletion threshold; and Apple enrollment licensing guidance now references enrollment without user affinity and Entra Shared Device Mode.",
+      "adminImpact": "Windows deployment teams can review the listed Remote Help version and improvements. Azure Virtual Desktop multi-session administrators should factor the documented 60-day inactivity threshold into device-record retention planning. Apple enrollment planners can use the licensing entry when identifying no-user-affinity or Entra Shared Device Mode scenarios.",
+      "keyChanges": [
+        {
+          "title": "Remote Help for Windows index now lists version 5.2.1210.0",
+          "detail": "The Intune What's New index announces Remote Help for Windows version 5.2.1210.0 and identifies stability and observability improvements. Administrators can review the version when assessing Windows deployments.",
+          "product": "Remote Help for Windows",
+          "sourceId": "doc-2026-10-13-index-03"
+        },
+        {
+          "title": "Azure Virtual Desktop multi-session guidance documents a separate 60-day deletion attempt",
+          "detail": "The guidance states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. This threshold should be included in orphaned-device record retention planning.",
+          "product": "Azure Virtual Desktop multi-session",
+          "sourceId": "doc-2026-10-13-azure-virtual-desktop-multi-session-02"
+        },
+        {
+          "title": "Apple enrollment licensing guidance adds two enrollment scenarios",
+          "detail": "The Apple Device Enrollment Program entry now also references enrollment without user affinity and enrollment with Entra Shared Device Mode, helping administrators identify the relevant licensing scenario.",
+          "product": "Apple Device Enrollment Program",
+          "sourceId": "doc-2026-10-13-licensing-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-13T09:23:52.854Z",
+      "usage": {
+        "inputTokens": 1208,
+        "outputTokens": 1451,
+        "costUsd": 0.001983
+      }
     }
   },
   "weeks": {
@@ -9051,25 +9085,43 @@
       }
     },
     "2026-10-12": {
-      "headline": "Intune documents a 3,000-app targeting limit for selected Android Enterprise scenarios",
-      "overview": "The week's only change updates the Add Managed Google Play guidance to state that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
-      "adminImpact": "Administrators targeting these scenarios should account for the 3,000-app-per-device limit when planning app assignments. The supplied evidence identifies no explicit required action.",
+      "headline": "Intune guidance now cites 60-day device deletion and 3,000-app targeting limits",
+      "overview": "The week's four Intune updates were documentation changes, with two operationally important constraints standing out. Azure Virtual Desktop multi-session guidance says Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. Android Enterprise guidance documents support for up to 3,000 targeted apps per device in specified corporate-owned and personally owned work-profile scenarios. The period also records Remote Help for Windows version 5.2.1210.0 with stability and observability improvements, and adds Apple enrollment-without-user-affinity and Entra Shared Device Mode references to the licensing entry.",
+      "adminImpact": "Factor the 60-day inactivity threshold into orphaned-device retention planning and the 3,000-app limit into targeting plans for affected Android Enterprise scenarios. Administrators can review the Remote Help version for Windows deployments and use the revised Apple licensing entry to identify the relevant enrollment scenario.",
       "keyChanges": [
         {
-          "title": "Managed Google Play guidance specifies the app-targeting ceiling",
-          "detail": "The updated Intune documentation states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+          "title": "Azure Virtual Desktop multi-session guidance states a 60-day inactivity threshold",
+          "detail": "The documentation now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. Use this threshold when planning orphaned-device record retention.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-13-azure-virtual-desktop-multi-session-02"
+        },
+        {
+          "title": "Android Enterprise guidance documents up to 3,000 targeted apps per device",
+          "detail": "The Add Managed Google Play guidance says policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work-profile scenarios. Administrators should account for the limit when targeting apps to affected devices.",
           "product": "Intune",
           "sourceId": "doc-2026-10-12-add-managed-google-play-01"
+        },
+        {
+          "title": "Remote Help for Windows 5.2.1210.0 brings stability and observability improvements",
+          "detail": "The Intune What's New index announces Remote Help for Windows version 5.2.1210.0 and identifies stability and observability improvements. Administrators can review the version for Windows deployments.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-13-index-03"
+        },
+        {
+          "title": "Apple licensing guidance adds enrollment-without-user-affinity scenarios",
+          "detail": "The Apple Device Enrollment Program entry now also references enrollment without user affinity and Entra Shared Device Mode, helping administrators identify the relevant Apple enrollment scenario in the licensing guidance.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-13-licensing-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-12T22:08:13.392Z",
+      "generatedAt": "2026-10-13T09:23:52.854Z",
       "usage": {
-        "inputTokens": 820,
-        "outputTokens": 698,
-        "costUsd": 0.001002
+        "inputTokens": 1128,
+        "outputTokens": 1819,
+        "costUsd": 0.002408
       }
     }
   },
@@ -9489,54 +9541,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows 11 26H2 baseline and EPM network controls headline October’s administrator guidance",
-      "overview": "October was maintenance-heavy: the supplied Intune updates include many author and ownership metadata changes. The administrator-relevant changes are more specific, covering Windows 11 version 26H2 security-baseline guidance, controlled EPM network-setting changes, Configuration Manager 2609 client support, a November Purview DLP approval workflow, and a 3,000-app limit for selected Android Enterprise scenarios.",
-      "adminImpact": "Review Intune security-baseline profiles because existing profiles don't update automatically; create a new 26H2 profile or update an existing one if adopting it. Before delegating IPv4, IPv6, or DNS changes through EPM, enable an EPM elevation settings policy. For Configuration Manager 2609, identify affected Windows Server 2012, Windows Server 2012 R2, and Windows Storage Server clients and move them to a supported Windows Server version. For the November Purview DLP change, plan coordination between Purview and Intune administrators; keep selected Android Enterprise assignments within 3,000 targeted apps per device.",
+      "headline": "Windows 11 26H2 baseline, EPM network controls and Purview approvals shape October",
+      "overview": "October’s substantive Intune items center on Windows 11 version 26H2 security-baseline guidance, controlled standard-user network changes through Endpoint Privilege Management, and an announced November 2026 Purview DLP workflow for Edge for Business unmanaged apps. Remote Help planning records a Switzerland North restriction on Windows unattended sign-in. Configuration Manager 2609 separately ends support for several legacy Windows Server client operating systems. Most remaining updates involve metadata, ownership, links, and navigation.",
+      "adminImpact": "Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. EPM devices need an elevation settings policy before delegating IPv4, IPv6, or DNS changes. Teams using Edge for Business unmanaged-app DLP can plan for the November approval and setup changes; existing policies and enforcement remain unchanged. Remote Help planners in Switzerland North must account for the unattended sign-in limitation, while Configuration Manager teams should identify and upgrade affected legacy Windows Server clients before moving to version 2609.",
       "keyChanges": [
         {
-          "title": "Intune documents the Windows 11 26H2 security baseline",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don't update automatically; adopting the 26H2 baseline requires creating a new profile or updating an existing one.",
+          "title": "26H2 baseline profiles require explicit administrator updates",
+          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings and updated defaults. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "EPM guidance enables controlled IPv4, IPv6, and DNS changes",
-          "detail": "A new Endpoint Privilege Management article describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while allowing administrators to require confirmation, business justification, Windows authentication, or both. Devices also need an EPM elevation settings policy enabled.",
+          "title": "EPM documents controlled IPv4, IPv6, and DNS changes",
+          "detail": "Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and devices need an enabled EPM elevation settings policy.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
-          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and upgrade them to a supported Windows Server version.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
-        },
-        {
-          "title": "Purview DLP schedules Intune approval for Edge unmanaged apps",
-          "detail": "Starting November 2026, Microsoft Purview DLP will improve setup and add Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators.",
+          "title": "November adds Intune multi-admin approval to Edge unmanaged-app DLP",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval. The change adds clearer status, detailed errors, and coordination between Purview and Intune administrators without changing existing policies or enforcement.",
           "product": "Intune",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Android Enterprise guidance sets a 3,000-app device limit",
-          "detail": "Add Managed Google Play guidance states that policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios. Assignment planning for those scenarios should account for that ceiling.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-12-add-managed-google-play-01"
+          "title": "Switzerland North tenants cannot use Windows unattended Remote Help sign-in",
+          "detail": "Remote Help planning guidance now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in. Teams planning Remote Help in that region must account for the limitation.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-10-10-plan-01"
+        },
+        {
+          "title": "Configuration Manager 2609 removes legacy Windows Server client support",
+          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and move them to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-12T22:08:13.392Z",
+      "generatedAt": "2026-10-13T09:23:52.854Z",
       "usage": {
-        "inputTokens": 5465,
-        "outputTokens": 5350,
-        "costUsd": 0.007513
+        "inputTokens": 5587,
+        "outputTokens": 5371,
+        "costUsd": 0.007563
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-12T22:08:13.392Z",
+  "generatedAt": "2026-10-13T09:23:52.854Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9625,18 +9677,24 @@
       "outputTokens": 20835,
       "requests": 6,
       "costUsd": 0.028942
+    },
+    "2026-10-13": {
+      "inputTokens": 7923,
+      "outputTokens": 8641,
+      "requests": 3,
+      "costUsd": 0.011954
     }
   },
   "lastRun": {
-    "inputTokens": 7296,
-    "outputTokens": 6526,
+    "inputTokens": 7923,
+    "outputTokens": 8641,
     "requests": 3,
-    "costUsd": 0.00929
+    "costUsd": 0.011954
   },
   "totalUsage": {
-    "inputTokens": 3303658,
-    "outputTokens": 1931128,
-    "requests": 339,
-    "costUsd": 2.978085
+    "inputTokens": 3311581,
+    "outputTokens": 1939769,
+    "requests": 342,
+    "costUsd": 2.990039
   }
 }

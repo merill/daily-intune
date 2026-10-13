@@ -78,19 +78,97 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 13,
+      "changes": 27,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md b/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md\nindex 29198f9..d31b9c5 100644\n--- a/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md\n+++ b/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md\n@@ -19,7 +19,7 @@ ms.reviewer:\n description: Learn about the features that Configuration Manager no longer supports.\n ms.subservice: core-infra\n ms.topic: article\n-ms.date: 2024-12-04T00:00:00.0000000Z\n+ms.date: 2026-10-06T00:00:00.0000000Z\n ms.collection: tier3\n locale: en-us\n document_id: 02d90277-801f-f70c-63e5-2e295c99fe47\n@@ -40,11 +40,11 @@ source_path: intune/configmgr/core/plan-design/changes/deprecated/removed-and-de\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/6ab06385-661e-4214-8870-bbe4071c960d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/aa9d0281-4c35-44bb-8c75-a0920bde2014\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/131ba09e-4280-4ae7-8622-1f9f1c0daad1\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/c7449412-70b0-48ea-831f-3b132eafb97e\n platformId: 3656e636-9d35-478e-5ce9-d14da45267b2\n ---\n \n@@ -63,18 +63,8 @@ The following features are deprecated. You can still use them now, but Microsoft\n | Feature | Deprecation first announced | Planned end of support |\r\n | --- | --- | --- |\r\n | **Microsoft Connected Cache (MCC)** integration in Configuration Manager will be deprecated in a future release of Configuration Manager. After deprecation, no further feature development or updates will be provided for Microsoft Connected Cache within Configuration Manager. Customers should begin transitioning to the standalone version of Microsoft Connected Cache to continue receiving ongoing improvements and support. For more information, see [Microsoft Connected Cache](/en-us/windows/deployment/do/waas-microsoft-connected-cache). | June 2026 | TBD |\r\n-| The **MDT Integration with CM and Standalone** is no longer supported with Configuration Manager. Customers should remove MDT TS steps, followed by removing MDT integration, to avoid TS corruption and modification failures. More information on the MDT retirement [here](/en-us/troubleshoot/mem/configmgr/mdt/mdt-retirement). | Dec 2024 | The first release after Oct 10, 2025 |\r\n-| **Office 365 Client Management dashboard add-in support statement**. For more information, see [Office 365 Client Management dashboard](../../../../sum/deploy-use/office-365-dashboard). | April 2024 | The first release after April 1, 2025 |\r\n | Windows Information Protection | July 2022 | TBD |\r\n-| The site system roles for on-premises MDM and macOS clients: **enrollment proxy point and enrollment point**. | January 2022 | Mar 31, 2024 |\r\n-| The **Microsoft Store for Business and Education**. For more information, see [Manage apps from the Microsoft Store for Business and Education with Configuration Manager](../../../../apps/deploy-use/manage-apps-from-the-windows-store-for-business). | November 2021 | The first release after March 1, 2023 |\r\n-| **Asset intelligence**. For more information, see [Asset intelligence deprecation](../../../clients/manage/asset-intelligence/deprecation). | November 2021 | The first release after November 1, 2022 |\r\n-| **On-premises MDM**. For more information, see [On-premises MDM in Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure). | November 2021 | The first release after November 1, 2022 |\r\n-| Azure Active Directory (Azure AD) Graph API and Azure AD Authentication Library (ADAL), which is used by Configuration Manager for some cloud-attached scenarios. If you use cloud-attached features such as co-management, tenant attach, or Microsoft Entra discovery, starting June 30, 2022, these features may not work correctly in Configuration Manager version 2107 or earlier. Stay current with Configuration Manager to make sure these features continue to work. For more information, see [CMG FAQ](../../../clients/manage/cmg/cloud-management-gateway-faq#do-i-need-to-do-anything-with-the-deprecation-of-the-azure-ad-graph-api-and-azure-ad-authentication-library--adal--). | July 2021 | June 30, 2022 |\r\n-| The BitLocker management implementation for the [recovery service](../../../../protect/deploy-use/bitlocker/recovery-service) has changed. The legacy MBAM-based service is replaced by the messaging processing engine on the management point. | March 2021 | The first release after Mar 2025 |\r\n | Older style of console extensions that haven't been approved in the **Console Extension** node, will no longer be supported. For more information about new console extensions, see [Manage console extensions](../../../servers/manage/admin-console-extensions). | April 2021 | TBD^Note 1^ |\r\n-| The implementation for sharing content from Azure has changed. Use a content-enabled cloud management gateway. Starting in version 2107, you can't create a traditional cloud distribution point. | February 2019 | The first release after October 5, 2022 |\r\n-| Cloud management gateway and cloud distribution point deployments with Azure Service Manager using a management certificate. For more information, see [Plan for CMG](../../../clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager). | November 2018 | The first release after October 5, 2022 |\r\n \r\n ### Note 1: Support removed TBD\r\n \r\n@@ -86,6 +76,17 @@ The following features are no longer supported. In some cases, they're no longer\n \r\n | Feature | Deprecation first announced | Support removed |\r\n | --- | --- | --- |\r\n+| The **MDT Integration with CM and Standalone** is no longer supported with Configuration Manager. Customers should remove MDT TS steps, followed by removing MDT integration, to avoid TS corruption and modification failures. More information on the MDT retirement [here](/en-us/troubleshoot/mem/configmgr/mdt/mdt-retirement). | Dec 2024 | The first release after Oct 10, 2025 |\r\n+| **Office 365 Client Management dashboard add-in support statement**. For more information, see [Office 365 Client Management dashboard](../../../../sum/deploy-use/office-365-dashboard). | April 2024 | The first release after April 1, 2025 |\r\n+| The site system roles for on-premises MDM and macOS clients: **enrollment proxy point and enrollment point**. | January 2022 | Mar 31, 2024 |\r\n+| The **Microsoft Store for Business and Education**. For more information, see [Manage apps from the Microsoft Store for Business and Education with Configuration Manager](../../../../apps/deploy-use/manage-apps-from-the-windows-store-for-business). | November 2021 | The first release after March 1, 2023 |\r\n+| **Asset intelligence**. For more information, see [Asset intelligence deprecation](../../../clients/manage/asset-intelligence/deprecation). | November 2021 | The first release after November 1, 2022 |\r\n+| **On-premises MDM**. For more information, see [On-premises MDM in Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure). | November 2021 | The first release after November 1, 2022 |\r\n+| **Exchange Server connector**. For more information, see [Supported clients and devices: Exchange Server connector](../../configs/supported-operating-systems-for-clients-and-devices#bkmk_ExSrvConOS). | November 2021 | The first release after November 1, 2022 |\r\n+| Azure Active Directory (Azure AD) Graph API and Azure AD Authentication Library (ADAL), which is used by Configuration Manager for some cloud-attached scenarios. If you use cloud-attached features such as co-management, tenant attach, or Microsoft Entra discovery, starting June 30, 2022, these features may not work correctly in Configuration Manager version 2107 or earlier. Stay current with Configuration Manager to make sure these features continue to work. For more information, see [CMG FAQ](../../../clients/manage/cmg/cloud-management-gateway-faq#do-i-need-to-do-anything-with-the-deprecation-of-the-azure-ad-graph-api-and-azure-ad-authentication-library--adal--). | July 2021 | June 30, 2022 |\r\n+| The BitLocker management implementation for the [recovery service](../../../../protect/deploy-use/bitlocker/recovery-service) has changed. The legacy MBAM-based service is replaced by the messaging processing engine on the management point. | March 2021 | The first release after Mar 2025 |\r\n+| The implementation for sharing content from Azure has changed. Use a content-enabled cloud management gateway. Starting in version 2107, you can't create a traditional cloud distribution point. | February 2019 | The first release after October 5, 2022 |\r\n+| Cloud management gateway and cloud distribution point deployments with Azure Service Manager using a management certificate. For more information, see [Plan for CMG](../../../clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager). | November 2018 | The first release after October 5, 2022 |\r\n | [System Center Update Publisher (SCUP) and integration with ConfigMgr](../../../../sum/tools/updates-publisher) | October 2023 | Jan 31, 2024 |\r\n | Sites that allow HTTP client communication. Configure the site for HTTPS or Enhanced HTTP. For more information, see [Enable the site for HTTPS-only or enhanced HTTP](../../../servers/deploy/install/list-of-prerequisite-checks#enable-site-system-roles-for-https-or-enhanced-http). | March 2021 | The first release after April 1, 2024 |\r\n | Upgrade from any version of System Center 2012 Configuration Manager to current branch. For more information, see [Upgrade to Configuration Manager current branch](../../../servers/deploy/install/upgrade-to-configuration-manager) | April 2022 | Version 2303 |\r\n",
+      "baseCommitSha": "667c3bb2d5932b9f4b5574cae8ae706bb49e49d7",
+      "commitSha": "83de3ac5a3c55526e0abef59a0d6f60e3aad6cf9",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-13 20:04:43 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures",
+      "eventId": "intune-docs:83de3ac5a3c55526e0abef59a0d6f60e3aad6cf9:modified:intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+      "firstSeenAt": "2026-10-13T20:14:37.400Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Exchange Server connector added to the deprecated features list",
+        "summary": "The Configuration Manager documentation now lists the Exchange Server connector as deprecated, dated November 2021, with removal in the first release after November 1, 2022. Documentation metadata and reference links were also refreshed.",
+        "adminImpact": "Administrators using the Exchange Server connector should account for its documented retirement timeline when planning Configuration Manager deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md b/intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md\nindex 42ab138..d1c7c85 100644\n--- a/intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md\n+++ b/intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Learn which OS versions Configuration Manager supports for clients and devices.\n-ms.date: 2026-09-21T00:00:00.0000000Z\n+ms.date: 2026-10-06T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n ms.collection: tier3\n@@ -221,6 +221,10 @@ Configuration Manager has built-in capabilities for managing mobile devices that\n \r\n ## Exchange Server connector\r\n \r\n+Important\r\n+\r\n+Starting in November 2021, this feature of Configuration Manager is [deprecated](../changes/deprecated/removed-and-deprecated-cmfeatures).\r\n+\r\n Configuration Manager supports limited management of devices that connect to your Exchange Server, without installing the Configuration Manager client. For more information, see [Manage mobile devices with Configuration Manager and Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync).\r\n \r\n ### Supported versions of Exchange Server\r\n",
+      "baseCommitSha": "667c3bb2d5932b9f4b5574cae8ae706bb49e49d7",
+      "commitSha": "83de3ac5a3c55526e0abef59a0d6f60e3aad6cf9",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-13 20:04:43 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices",
+      "eventId": "intune-docs:83de3ac5a3c55526e0abef59a0d6f60e3aad6cf9:modified:intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md",
+      "firstSeenAt": "2026-10-13T20:14:37.402Z",
+      "englishSummary": {
+        "category": "Retirement",
+        "headline": "Configuration Manager feature marked deprecated",
+        "summary": "The documentation now states that this Configuration Manager feature has been deprecated starting in November 2021.",
+        "adminImpact": "Administrators should account for this deprecation when planning Configuration Manager deployments and support.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/manage-devices-tokens-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/apple/manage-devices-tokens-macos.md b/intune/device-enrollment/apple/manage-devices-tokens-macos.md\nindex f8cba3d..c953877 100644\n--- a/intune/device-enrollment/apple/manage-devices-tokens-macos.md\n+++ b/intune/device-enrollment/apple/manage-devices-tokens-macos.md\n@@ -84,7 +84,7 @@ To comply with Apple's terms for acceptable enrollment program traffic, Microsof\n \r\n     If you delete a device from Intune but it remains assigned to the ADE token in Apple Business, the device reappears in Intune on the next full sync. If you don't want the device to reappear, unassign it from the Apple MDM server in Apple Business first.\r\n - If a device is released from Apple Business, it can take up to 45 days for it to be automatically deleted from the **Devices** page in Intune. You can manually delete released devices one by one if needed. Released devices are reported as *removed* from Apple Business in Intune until they're automatically deleted within 30–45 days.\r\n-- A sync runs automatically every 24 hours. You can also trigger a sync manually by selecting **Sync**, no more than once every 15 minutes. All sync requests have 15 minutes to finish. The **Sync** button becomes inactive until the sync completes.\r\n+- A sync runs automatically every 12 hours. You can also trigger a sync manually by selecting **Sync**, no more than once every 15 minutes. All sync requests have 15 minutes to finish. The **Sync** button becomes inactive until the sync completes.\r\n \r\n ## Distribute devices\r\n \r\n",
+      "baseCommitSha": "667c3bb2d5932b9f4b5574cae8ae706bb49e49d7",
+      "commitSha": "83de3ac5a3c55526e0abef59a0d6f60e3aad6cf9",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-13 20:04:43 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-enrollment/apple/manage-devices-tokens-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/manage-devices-tokens-macos",
+      "eventId": "intune-docs:83de3ac5a3c55526e0abef59a0d6f60e3aad6cf9:modified:intune/device-enrollment/apple/manage-devices-tokens-macos.md",
+      "firstSeenAt": "2026-10-13T20:14:37.405Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Automatic sync now runs every 12 hours",
+        "summary": "The automatic sync interval changed from every 24 hours to every 12 hours. Manual sync limits and completion behavior are unchanged.",
+        "adminImpact": "No administrator action is required. Changes will synchronize automatically twice as often.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 3,
+    "totalCommits": 2,
+    "totalFiles": 6,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Intune documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -115,6 +193,23 @@
         "sourceFiles": [
           "intune/whats-new/index.md"
         ]
+      },
+      {
+        "category": "Retirement",
+        "title": "intune/configmgr",
+        "summary": "The Configuration Manager documentation now lists the Exchange Server connector as deprecated, dated November 2021, with removal in the first release after November 1, 2022. Documentation metadata and reference links were also refreshed. The documentation now states that this Configuration Manager feature has been deprecated starting in November 2021.",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures.md",
+          "intune/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "The automatic sync interval changed from every 24 hours to every 12 hours. Manual sync limits and completion behavior are unchanged.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/manage-devices-tokens-macos.md"
+        ]
       }
     ],
     "highlights": [
@@ -132,6 +227,16 @@
         "category": "Feature update",
         "headline": "intune/whats-new",
         "detail": "The Intune What's New documentation announces Remote Help for Windows version 5.2.1210.0, which includes stability and observability improvements. It applies to Windows."
+      },
+      {
+        "category": "Retirement",
+        "headline": "intune/configmgr",
+        "detail": "The Configuration Manager documentation now lists the Exchange Server connector as deprecated, dated November 2021, with removal in the first release after November 1, 2022. Documentation metadata and reference links were also refreshed. The documentation now states that this Configuration Manager feature has been deprecated starting in November 2021."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "The automatic sync interval changed from every 24 hours to every 12 hours. Manual sync limits and completion behavior are unchanged."
       }
     ],
     "generatedBy": "fallback"

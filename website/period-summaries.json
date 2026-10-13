@@ -7299,37 +7299,49 @@
       }
     },
     "2026-10-13": {
-      "headline": "Remote Help 5.2.1210.0 and 60-day device deletion guidance lead Intune updates",
-      "overview": "The period’s substantive updates are concentrated in Microsoft Learn: the What's New index now names Remote Help for Windows 5.2.1210.0 and its stability and observability improvements; Azure Virtual Desktop multi-session guidance adds a 60-day inactivity deletion threshold; and Apple enrollment licensing guidance now references enrollment without user affinity and Entra Shared Device Mode.",
-      "adminImpact": "Windows deployment teams can review the listed Remote Help version and improvements. Azure Virtual Desktop multi-session administrators should factor the documented 60-day inactivity threshold into device-record retention planning. Apple enrollment planners can use the licensing entry when identifying no-user-affinity or Entra Shared Device Mode scenarios.",
+      "headline": "60-day AVD retention threshold, 12-hour macOS sync, and Remote Help 5.2.1210.0 lead updates",
+      "overview": "This was a detail-focused period for Intune. The What's New index lists Windows Remote Help 5.2.1210.0 with stability and observability improvements; Azure Virtual Desktop multi-session guidance specifies a 60-day inactivity threshold for permanent device-record deletion; and macOS token guidance specifies automatic synchronization every 12 hours. Apple enrollment terminology and Configuration Manager deprecation entries were also refreshed.",
+      "adminImpact": "Use the 60-day inactivity threshold when planning Azure Virtual Desktop multi-session record retention and review the listed Remote Help version for Windows deployments. The macOS guidance requires no administrator action: manual sync limits and completion behavior are unchanged. Apple enrollment planners can use the licensing entry to identify enrollment without user affinity or Entra Shared Device Mode. Configuration Manager administrators using the Exchange Server connector should account for its documented retirement timeline.",
       "keyChanges": [
         {
-          "title": "Remote Help for Windows index now lists version 5.2.1210.0",
-          "detail": "The Intune What's New index announces Remote Help for Windows version 5.2.1210.0 and identifies stability and observability improvements. Administrators can review the version when assessing Windows deployments.",
-          "product": "Remote Help for Windows",
+          "title": "Windows Remote Help entry names version 5.2.1210.0",
+          "detail": "The Intune What's New index now lists Remote Help for Windows version 5.2.1210.0 and describes stability and observability improvements. Administrators can review the version for Windows deployments.",
+          "product": "Intune",
           "sourceId": "doc-2026-10-13-index-03"
         },
         {
-          "title": "Azure Virtual Desktop multi-session guidance documents a separate 60-day deletion attempt",
-          "detail": "The guidance states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. This threshold should be included in orphaned-device record retention planning.",
-          "product": "Azure Virtual Desktop multi-session",
+          "title": "AVD multi-session guidance specifies a 60-day inactivity threshold",
+          "detail": "The guidance now states that Intune attempts to permanently delete device records inactive for 60 days or more. This threshold is separate from administrator-configured cleanup rules and should be included in orphaned-device retention planning.",
+          "product": "Intune",
           "sourceId": "doc-2026-10-13-azure-virtual-desktop-multi-session-02"
         },
         {
-          "title": "Apple enrollment licensing guidance adds two enrollment scenarios",
-          "detail": "The Apple Device Enrollment Program entry now also references enrollment without user affinity and enrollment with Entra Shared Device Mode, helping administrators identify the relevant licensing scenario.",
-          "product": "Apple Device Enrollment Program",
+          "title": "macOS token guidance specifies 12-hour automatic synchronization",
+          "detail": "The automatic sync interval is now specified as every 12 hours instead of every 24 hours. Manual sync limits and completion behavior remain unchanged, and no administrator action is required.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-13-manage-devices-tokens-macos-06"
+        },
+        {
+          "title": "Apple enrollment licensing guidance adds shared-device scenarios",
+          "detail": "The Apple Device Enrollment Program entry now also references enrollment without user affinity or Entra Shared Device Mode, helping administrators identify the relevant enrollment scenario.",
+          "product": "Intune",
           "sourceId": "doc-2026-10-13-licensing-01"
+        },
+        {
+          "title": "Configuration Manager entry records the Exchange connector’s deprecation timeline",
+          "detail": "The entry lists the Exchange Server connector as deprecated, dated November 2021, with removal in the first release after November 1, 2022. Administrators using the connector should account for this documented retirement timeline.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-13-removed-and-deprecated-cmfeatures-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-13T09:23:52.854Z",
+      "generatedAt": "2026-10-13T20:14:53.440Z",
       "usage": {
-        "inputTokens": 1208,
-        "outputTokens": 1451,
-        "costUsd": 0.001983
+        "inputTokens": 1552,
+        "outputTokens": 4751,
+        "costUsd": 0.006012
       }
     }
   },
@@ -9085,43 +9097,49 @@
       }
     },
     "2026-10-12": {
-      "headline": "Intune guidance now cites 60-day device deletion and 3,000-app targeting limits",
-      "overview": "The week's four Intune updates were documentation changes, with two operationally important constraints standing out. Azure Virtual Desktop multi-session guidance says Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. Android Enterprise guidance documents support for up to 3,000 targeted apps per device in specified corporate-owned and personally owned work-profile scenarios. The period also records Remote Help for Windows version 5.2.1210.0 with stability and observability improvements, and adds Apple enrollment-without-user-affinity and Entra Shared Device Mode references to the licensing entry.",
-      "adminImpact": "Factor the 60-day inactivity threshold into orphaned-device retention planning and the 3,000-app limit into targeting plans for affected Android Enterprise scenarios. Administrators can review the Remote Help version for Windows deployments and use the revised Apple licensing entry to identify the relevant enrollment scenario.",
+      "headline": "Azure Virtual Desktop guidance details a 60-day-or-more inactivity deletion threshold",
+      "overview": "The week of 12 October 2026 brought several concrete Intune administration details through documentation updates: Azure Virtual Desktop multi-session guidance says Intune attempts to permanently delete device records inactive for 60 days or more, Android Enterprise policies support up to 3,000 targeted apps per device in specified scenarios, and macOS token synchronization changes from 24 hours to 12. Remote Help for Windows is listed at version 5.2.1210.0 with stability and observability improvements. Configuration Manager separately records the Exchange Server connector's deprecation and removal timeline.",
+      "adminImpact": "Use the 60-day threshold in orphaned-device retention planning and check affected Android Enterprise targeting designs against the 3,000-app limit. Remote Help administrators can review Windows version 5.2.1210.0. The macOS synchronization change requires no administrator action; manual sync limits and completion behavior are unchanged. Administrators still using the Configuration Manager Exchange Server connector should account for its documented removal timeline.",
       "keyChanges": [
         {
-          "title": "Azure Virtual Desktop multi-session guidance states a 60-day inactivity threshold",
-          "detail": "The documentation now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. Use this threshold when planning orphaned-device record retention.",
+          "title": "Azure Virtual Desktop multi-session device records",
+          "detail": "The guidance now states that Intune attempts to permanently delete Azure Virtual Desktop device records inactive for 60 days or more, separately from administrator-configured cleanup rules.",
           "product": "Intune",
           "sourceId": "doc-2026-10-13-azure-virtual-desktop-multi-session-02"
         },
         {
-          "title": "Android Enterprise guidance documents up to 3,000 targeted apps per device",
-          "detail": "The Add Managed Google Play guidance says policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work-profile scenarios. Administrators should account for the limit when targeting apps to affected devices.",
+          "title": "Managed Google Play app-targeting limit",
+          "detail": "The documentation states that policies support up to 3,000 targeted apps per device for the specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
           "product": "Intune",
           "sourceId": "doc-2026-10-12-add-managed-google-play-01"
         },
         {
-          "title": "Remote Help for Windows 5.2.1210.0 brings stability and observability improvements",
-          "detail": "The Intune What's New index announces Remote Help for Windows version 5.2.1210.0 and identifies stability and observability improvements. Administrators can review the version for Windows deployments.",
+          "title": "macOS device-management token synchronization",
+          "detail": "The automatic sync interval changed from every 24 hours to every 12 hours. Manual sync limits and completion behavior remain unchanged.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-13-manage-devices-tokens-macos-06"
+        },
+        {
+          "title": "Remote Help for Windows version 5.2.1210.0",
+          "detail": "The Intune What's New index announces Remote Help for Windows version 5.2.1210.0, which includes stability and observability improvements.",
           "product": "Intune",
           "sourceId": "doc-2026-10-13-index-03"
         },
         {
-          "title": "Apple licensing guidance adds enrollment-without-user-affinity scenarios",
-          "detail": "The Apple Device Enrollment Program entry now also references enrollment without user affinity and Entra Shared Device Mode, helping administrators identify the relevant Apple enrollment scenario in the licensing guidance.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-13-licensing-01"
+          "title": "Exchange Server connector deprecation timeline",
+          "detail": "Configuration Manager guidance lists the Exchange Server connector as deprecated, dated November 2021, with removal in the first release after November 1, 2022. Documentation metadata and reference links were also refreshed.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-13-removed-and-deprecated-cmfeatures-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-13T09:23:52.854Z",
+      "generatedAt": "2026-10-13T20:14:53.440Z",
       "usage": {
-        "inputTokens": 1128,
-        "outputTokens": 1819,
-        "costUsd": 0.002408
+        "inputTokens": 1472,
+        "outputTokens": 7781,
+        "costUsd": 0.009632
       }
     }
   },
@@ -9541,54 +9559,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows 11 26H2 baseline, EPM network controls and Purview approvals shape October",
-      "overview": "October’s substantive Intune items center on Windows 11 version 26H2 security-baseline guidance, controlled standard-user network changes through Endpoint Privilege Management, and an announced November 2026 Purview DLP workflow for Edge for Business unmanaged apps. Remote Help planning records a Switzerland North restriction on Windows unattended sign-in. Configuration Manager 2609 separately ends support for several legacy Windows Server client operating systems. Most remaining updates involve metadata, ownership, links, and navigation.",
-      "adminImpact": "Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. EPM devices need an elevation settings policy before delegating IPv4, IPv6, or DNS changes. Teams using Edge for Business unmanaged-app DLP can plan for the November approval and setup changes; existing policies and enforcement remain unchanged. Remote Help planners in Switzerland North must account for the unattended sign-in limitation, while Configuration Manager teams should identify and upgrade affected legacy Windows Server clients before moving to version 2609.",
+      "headline": "November Purview DLP approvals join Windows 11 26H2 baseline guidance",
+      "overview": "October was dominated by routine documentation maintenance, particularly author metadata, navigation, and link changes. The substantive updates included Windows 11 26H2 security-baseline guidance, a new Endpoint Privilege Management path for controlled network-setting changes, Configuration Manager 2609 support changes, a November 2026 Purview DLP and Intune approval workflow update, and a documented 3,000-app targeting limit for specified Android Enterprise scenarios.",
+      "adminImpact": "Review whether existing Windows security baseline profiles need to be recreated or updated for 26H2, and assess EPM, Configuration Manager, Purview DLP, and Android app-targeting implications where applicable. The evidence does not indicate a broad migration deadline beyond the stated November 2026 Purview timing and the Configuration Manager support changes.",
       "keyChanges": [
         {
-          "title": "26H2 baseline profiles require explicit administrator updates",
-          "detail": "Intune guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings and updated defaults. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Purview DLP will add Intune approval coordination in November 2026",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval. The update adds clearer status information, detailed errors, and task coordination between Purview and Intune administrators while leaving existing policies and enforcement unchanged.",
+          "product": "Intune / Microsoft Purview DLP",
+          "sourceId": "MC1489971"
+        },
+        {
+          "title": "Windows 11 26H2 baseline guidance adds settings and revised defaults",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "EPM documents controlled IPv4, IPv6, and DNS changes",
-          "detail": "Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and devices need an enabled EPM elevation settings policy.",
+          "title": "EPM guidance enables controlled IPv4, IPv6, and DNS changes",
+          "detail": "New Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and the device must have an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "November adds Intune multi-admin approval to Edge unmanaged-app DLP",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval. The change adds clearer status, detailed errors, and coordination between Purview and Intune administrators without changing existing policies or enforcement.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
-        },
-        {
-          "title": "Switzerland North tenants cannot use Windows unattended Remote Help sign-in",
-          "detail": "Remote Help planning guidance now states that tenants in the Switzerland North datacenter region cannot use Windows unattended remote sign-in. Teams planning Remote Help in that region must account for the limitation.",
-          "product": "Remote Help",
-          "sourceId": "doc-2026-10-10-plan-01"
-        },
-        {
-          "title": "Configuration Manager 2609 removes legacy Windows Server client support",
-          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and move them to a supported Windows Server version.",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Teams planning the upgrade should identify affected devices and move them to a supported Windows Server version.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Android Enterprise targeting guidance specifies a 3,000-app limit",
+          "detail": "Managed Google Play guidance now states that policies support up to 3,000 targeted apps per device in specified Android Enterprise corporate-owned and personally owned work-profile scenarios. Administrators should account for that limit when designing app-targeting assignments.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-12-add-managed-google-play-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-13T09:23:52.854Z",
+      "generatedAt": "2026-10-13T20:14:53.440Z",
       "usage": {
-        "inputTokens": 5587,
-        "outputTokens": 5371,
-        "costUsd": 0.007563
+        "inputTokens": 5685,
+        "outputTokens": 4316,
+        "costUsd": 0.006316
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-13T09:23:52.854Z",
+  "generatedAt": "2026-10-13T20:14:53.440Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9679,22 +9697,22 @@
       "costUsd": 0.028942
     },
     "2026-10-13": {
-      "inputTokens": 7923,
-      "outputTokens": 8641,
-      "requests": 3,
-      "costUsd": 0.011954
+      "inputTokens": 16632,
+      "outputTokens": 25489,
+      "requests": 6,
+      "costUsd": 0.033913
     }
   },
   "lastRun": {
-    "inputTokens": 7923,
-    "outputTokens": 8641,
+    "inputTokens": 8709,
+    "outputTokens": 16848,
     "requests": 3,
-    "costUsd": 0.011954
+    "costUsd": 0.021959
   },
   "totalUsage": {
-    "inputTokens": 3311581,
-    "outputTokens": 1939769,
-    "requests": 342,
-    "costUsd": 2.990039
+    "inputTokens": 3320290,
+    "outputTokens": 1956617,
+    "requests": 345,
+    "costUsd": 3.011998
   }
 }

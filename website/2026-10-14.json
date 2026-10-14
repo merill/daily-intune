@@ -1,0 +1,100 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/plan-design/changes/whats-new-version-2609.md",
+      "status": "modified",
+      "additions": 41,
+      "deletions": 0,
+      "changes": 41,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/changes/whats-new-version-2609.md b/intune/configmgr/core/plan-design/changes/whats-new-version-2609.md\nindex e2dc8c5..3a7378c 100644\n--- a/intune/configmgr/core/plan-design/changes/whats-new-version-2609.md\n+++ b/intune/configmgr/core/plan-design/changes/whats-new-version-2609.md\n@@ -139,6 +139,10 @@ When you update to version 2609, existing CMG deployments are automatically migr\n \r\n Important\r\n \r\n+Before updating to version 2609, check the vCPU quotas and availability of the new VM sizes in each Azure subscription and region where you deploy a CMG. The VM scale set migration uses a new VM family. Ensure that both the **standard Dadv6 Family vCPUs** quota and the **Total Regional vCPUs** quota have enough available quota for the new instances, with additional headroom for temporary instances during upgrade or maintenance. Quota is the number of vCPUs your subscription is allowed to use. Azure must also have enough resources available in the region to deploy the new VM instances.\r\n+\r\n+Important\r\n+\r\n Upgrade the Configuration Manager console after updating to version 2609. The updated console is required to display the new CMG VM sizes correctly.\r\n \r\n | CMG tier | Previous VM size | Previous vCPU | Previous memory | New VM size | New vCPU | New memory |\r\n@@ -149,6 +153,43 @@ Upgrade the Configuration Manager console after updating to version 2609. The up\n \r\n Retirement dates are subject to change. For the current retirement date and other VM series retirement details, see [Retired Azure VM size series](/en-us/azure/virtual-machines/sizes/lifecycle/retired-sizes-list). VM pricing varies by region. For current pricing, see [Azure Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).\r\n \r\n+#### Check CMG capacity and vCPU quotas before upgrading\r\n+\r\n+To identify the subscription, region, current VM size, and instance count for each CMG, run the following read-only SQL query against the site database at your top-level site:\r\n+\r\n+```sql\r\n+SELECT Name, Region, SubscriptionId, VmSize, NumberOfInstances\r\n+FROM Azure_Service;\r\n+```\r\n+\r\n+Use the VM size mapping in the preceding table to calculate the required vCPUs for each CMG: multiply the **New vCPU** value by **NumberOfInstances**. Add the requirements for all CMGs in the same subscription and region, account for other workloads that consume these quotas, and allow additional headroom for temporary instances during CMG upgrade or maintenance.\r\n+\r\n+In the Azure portal, check the **standard Dadv6 Family vCPUs** and **Total Regional vCPUs** quotas for each subscription and region identified by the query. Request any necessary increases before upgrading. For instructions, see [Increase regional vCPU quotas - Azure Quotas | Microsoft Learn](/en-us/azure/quotas/regional-quota-requests).\r\n+\r\n+You can also run the following Azure CLI commands from PowerShell to check quota usage and limits. Sign in to Azure CLI first, and replace the placeholders with your subscription ID and Azure region name:\r\n+\r\n+```powershell\r\n+$subscriptionId = '<subscription ID>'\r\n+$region = '<region name>'\r\n+$usage = az vm list-usage --location $region --query \"[?name.value=='standardDadv6Family']\" --output json --subscription $subscriptionId\r\n+$usage\r\n+\r\n+az vm list-usage --location $region --query \"[?name.value=='cores']\" --output json --subscription $subscriptionId\r\n+```\r\n+\r\n+If there isn't enough available quota, the CMG migration can fail with a `QuotaExceeded` error in **CloudMgr.log**. For example, the log might include the following details:\r\n+\r\n+```json\r\n+{\r\n+  \"details\": [\r\n+    {\r\n+      \"code\": \"QuotaExceeded\",\r\n+      \"message\": \"Operation could not be completed as it results in exceeding approved Total Regional Cores quota. Additional details - Deployment Model: Resource Manager, Location: <Your location>, Current Limit: 10, Current Usage: 8, Additional Required: 8, (Minimum) New Limit Required: 16.\"\r\n+    }\r\n+  ]\r\n+}\r\n+```\r\n+\r\n ## Asset Intelligence\r\n \r\n ### Asset Intelligence reports removed\r\n",
+      "baseCommitSha": "7ac99a1ad79f9573f75046d51411a86e3b296d9e",
+      "commitSha": "bac3f9e80594dbe4a4c7d4aeb72968e489163c67",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:12:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/changes/whats-new-version-2609.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/changes/whats-new-version-2609",
+      "eventId": "intune-docs:bac3f9e80594dbe4a4c7d4aeb72968e489163c67:modified:intune/configmgr/core/plan-design/changes/whats-new-version-2609.md",
+      "firstSeenAt": "2026-10-14T13:40:05.445Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Version 2609 CMG upgrades add vCPU quota checks",
+        "summary": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error.",
+        "adminImpact": "Before upgrading, administrators should verify quota availability for each CMG subscription and region and obtain increases where needed to avoid migration failure.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-macos.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-macos.md b/intune/device-enrollment/apple/setup-automated-macos.md\nindex c1bfcf5..3932837 100644\n--- a/intune/device-enrollment/apple/setup-automated-macos.md\n+++ b/intune/device-enrollment/apple/setup-automated-macos.md\n@@ -116,7 +116,7 @@ This article reflects the updated policy creation experience (**Enrollment progr\n \r\n     Important\r\n \r\n-    Do not target Platform SSO (PSSO) configuration profiles that enable PSSO registration during Setup Assistant to userless Automated Device Enrollment (ADE) devices. Doing so can cause unexpected enrollment behavior and results in the device losing expected affinity. See [Configure platform SSO during enrollment](/en-us/configure-platform-sso-during-enrollment)\r\n+    Do not target Platform SSO (PSSO) configuration profiles that enable PSSO registration during Setup Assistant to userless Automated Device Enrollment (ADE) devices. Doing so can cause unexpected enrollment behavior and results in the device losing expected affinity. See [Configure platform SSO during enrollment](/en-us/intune/device-configuration/settings-catalog/configure-platform-sso-during-enrollment)\r\n \r\n     - **Enroll with User Affinity**: Enroll devices that are associated with an assigned user. Choose this option for work devices that belong to users, and if you want to require users to have the Company Portal app to install apps. Multifactor authentication (MFA) is available with this option. Enrolling with user affinity is also referred to as enrolling with a *user*.\r\n \r\n",
+      "baseCommitSha": "7ac99a1ad79f9573f75046d51411a86e3b296d9e",
+      "commitSha": "bac3f9e80594dbe4a4c7d4aeb72968e489163c67",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 13:12:51 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-enrollment/apple/setup-automated-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-macos",
+      "eventId": "intune-docs:bac3f9e80594dbe4a4c7d4aeb72968e489163c67:modified:intune/device-enrollment/apple/setup-automated-macos.md",
+      "firstSeenAt": "2026-10-14T13:40:05.449Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "macOS ADE guidance warns against PSSO targeting",
+        "summary": "The updated guidance warns not to target PSSO profiles that enable registration during Setup Assistant to userless ADE devices, as this can cause unexpected enrollment behavior and loss of expected affinity.",
+        "adminImpact": "Review assignments and remove this targeting for userless ADE devices to avoid enrollment issues.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error.",
+        "sourceFiles": [
+          "intune/configmgr/core/plan-design/changes/whats-new-version-2609.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-enrollment",
+        "summary": "The updated guidance warns not to target PSSO profiles that enable registration during Setup Assistant to userless ADE devices, as this can cause unexpected enrollment behavior and loss of expected affinity.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-automated-macos.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-enrollment",
+        "detail": "The updated guidance warns not to target PSSO profiles that enable registration during Setup Assistant to userless ADE devices, as this can cause unexpected enrollment behavior and loss of expected affinity."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

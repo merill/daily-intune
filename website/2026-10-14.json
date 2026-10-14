@@ -52,26 +52,107 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+      "status": "modified",
+      "additions": 20,
+      "deletions": 12,
+      "changes": 32,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md b/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md\nindex deb2e19..1dcbc28 100644\n--- a/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md\n+++ b/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Learn about the Windows Assessment and Deployment Kit (ADK) versions that are supported for OS deployment with Configuration Manager.\n-ms.date: 2026-09-22T00:00:00.0000000Z\n+ms.date: 2026-10-13T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: article\n ms.collection: tier3\n@@ -56,18 +56,17 @@ When you deploy operating systems with Configuration Manager, the Windows Assess\n     Important\r\n \r\n     - Windows PE is a separate installer. Make sure to download both the **Windows ADK** and the **Windows PE add-on for the ADK**.\r\n-    - **ADK 10.1.26100.X (May 2024, Dec 2024)** (10.1.26100.X) or newer is required to deploy Windows ARM64 operating systems on Configuration Manager 2403 or newer.\r\n+    - **ADK 10.1.26100.x (May 2024, December 2024, September 2026)** is required to deploy Windows ARM64 operating systems on Configuration Manager 2403 or newer. See the following table for supported ADK versions.\r\n \r\n ## Windows ADK versions\r\n \r\n-The following table lists the versions of the Windows ADK that you can use with different versions of Configuration Manager.\r\n+The following table lists the versions of the Windows ADK that you can use with different versions of Configuration Manager. Numbered references link to the applicable support notes.\r\n \r\n | Windows ADK version | ConfigMgr 2509 | ConfigMgr 2603 | ConfigMgr 2609 |\r\n | --- | --- | --- | --- |\r\n | **ADK 10.1.28000.1 (Updated Nov 2025)**(10.1.28000.1) | ❌ | ❌ | ❌ |\r\n-| **ADK 10.1.26100.2454 (Updated Dec 2024)**(10.1.26100.X) | ✅ | ✅ | ✅ |\r\n-| **ADK 10.1.26100.1 (May 2024)**(10.1.26100.1) | ✅ | ✅ | ✅ |\r\n-| **ADK 10.1.25398.1 (updated September 2023)**(10.1.25398.1) | ❌ | ❌ | ❌ |\r\n+| **ADK 10.1.26100.x**10.1.26100.1 (May 2024)10.1.26100.2454 (Updated December 2024)10.1.26100.9457 (Current: September 2026) [1] | ✅ | ✅ | ✅ |\r\n+| **ADK 10.1.25398.1 (updated September 2023)**(10.1.25398.1) [2] | ❌ | ❌ | ❌ |\r\n | **ADK for Windows 11, version 22H2**(10.1.22621.1) | ✅ | ✅ | ✅ |\r\n | **ADK for Windows 11, version 21H1**(10.1.22000) | ✅ | ✅ | ✅ |\r\n | **ADK for Windows Server 2022**(10.1.20348) | ✅ | ✅ | ✅ |\r\n@@ -81,14 +80,23 @@ The following table lists the versions of the Windows ADK that you can use with\n \r\n ## Support notes\r\n \r\n-- **ADK 10.1.25398.1 (updated September 2023)** Windows PE boot images aren't supported for use with Configuration Manager due to known issues:\r\n+### Note 1: ADK 10.1.26100.x releases\r\n \r\n-    - VBScript doesn't work in WinPE.\r\n-    - The **Pre-provision BitLocker** task doesn't work in WinPE.\r\n-    - Devices with UFS storage, such as the Surface Go 4, don't work in WinPE.\r\n+All ADK 10.1.26100.x releases (May 2024, December 2024, and September 2026) ship the same Windows PE binaries, **10.1.26100.1**. Only the Deployment Tools were updated between these releases. Earlier releases are no longer available for download. For the current release, see [Download the ADK 10.1.26100.9457 (September 2026)](https://aka.ms/ConfigMgrADKDownload9457).\r\n \r\n-        Instead use the **ADK 10.1.26100.X (May 2024, Dec 2024)** (10.1.26100.X) or newer where these issues are resolved.\r\n-- For information on applying the [BlackLotus UEFI bootkit vulnerability](https://support.microsoft.com/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d) security updates to boot images from the ADKs before the **ADK 10.1.26100.1 (May 2024, Dec 2024)** (10.1.26100.1), see [Customize Windows PE boot images](/en-us/windows/deployment/customize-boot-image). Boot images from the **ADK 10.1.26100.1 (May 2024, Dec 2024)** (10.1.26100.1) and newer already have the BlackLotus UEFI bootkit vulnerability security update applied to them. For this reason, it's recommended to use boot images from the **ADK 10.1.26100.1 (May 2024, Dec 2024)** (10.1.26100.X) or newer.\r\n+### Note 2: ADK 10.1.25398.1 Windows PE issues\r\n+\r\n+**ADK 10.1.25398.1 (updated September 2023)** Windows PE boot images aren't supported for use with Configuration Manager due to known issues:\r\n+\r\n+- VBScript doesn't work in WinPE.\r\n+- The **Pre-provision BitLocker** task doesn't work in WinPE.\r\n+- Devices with UFS storage, such as the Surface Go 4, don't work in WinPE.\r\n+\r\n+Instead use **ADK 10.1.26100.x (May 2024, December 2024, September 2026)** where these issues are resolved.\r\n+\r\n+### General guidance\r\n+\r\n+- For information on applying the [BlackLotus UEFI bootkit vulnerability](https://support.microsoft.com/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d) security updates to boot images from ADKs before **ADK 10.1.26100.1 (May 2024)**, see [Customize Windows PE boot images](/en-us/windows/deployment/customize-boot-image). Boot images from **ADK 10.1.26100.x (May 2024, December 2024, September 2026)** and newer already have the BlackLotus UEFI bootkit vulnerability security update applied to them. For this reason, it's recommended to use boot images from **ADK 10.1.26100.x**.\r\n - Windows Server builds have the same Windows ADK requirement as the associated Windows client version. For example, Windows Server 2016 is the same build version as Windows 10 LTSB 2016.\r\n \r\n - The last supported version of 32-bit WinPE is available in the **WinPE add-on for Windows 10, version 2004** (10.1.19041). Versions of the WinPE add-on for the ADK after the **ADK for Windows 10, version 2004** (10.1.19041) no longer support 32-bit versions of Windows PE (WinPE). For more information, see [Download and install the Windows ADK](/en-us/windows-hardware/get-started/adk-install).\r\n",
+      "baseCommitSha": "ad90bf4be7d1f0bc49a977daa1b63f680d7dbaba",
+      "commitSha": "3656ea2964ca9fb332efd8954a81295ddfc8a01c",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 22:44:42 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/configs/support-for-windows-adk",
+      "eventId": "intune-docs:3656ea2964ca9fb332efd8954a81295ddfc8a01c:modified:intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+      "firstSeenAt": "2026-10-14T23:12:15.303Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Windows ADK guidance adds the September 2026 release",
+        "summary": "The support matrix now lists ADK 10.1.26100.9457 as the current September 2026 release and explains that 10.1.26100.x releases share the same Windows PE binaries. It also groups the known Windows PE issues for ADK 10.1.25398.1 and directs administrators to the 10.1.26100.x family.",
+        "adminImpact": "Administrators can use the updated compatibility guidance when selecting an ADK for Configuration Manager deployments; ADK 10.1.25398.1 remains unsuitable for Windows PE boot images.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/38982839.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38982839.md b/intune/configmgr/hotfix/2603/38982839.md\nindex 7b75c07..c93f5a4 100644\n--- a/intune/configmgr/hotfix/2603/38982839.md\n+++ b/intune/configmgr/hotfix/2603/38982839.md\n@@ -38,12 +38,12 @@ item_type: Content\n source_path: intune/configmgr/hotfix/2603/38982839.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/4c50f262-d533-4ba4-9d4a-08899ec3a3d1\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/691e3042-55ad-4ce1-b5e9-649b1cc47b5c\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/6a8c83be-f1de-4e90-bde0-bd097999a60c\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/b7d11190-096c-4ddb-87db-63764f603aac\n platformId: 17bdafc0-4c46-c89a-be26-d632cd7a83c9\n ---\n \n@@ -59,7 +59,7 @@ This update is superseded by [KB 39398030](39398030).\n \r\n This update fixes the following security issues in Configuration Manager:\r\n \r\n-- An issue with the SMS Provider.\r\n+- An issue with the SMS Provider. This update addresses the elevation of privilege vulnerability described in [CVE-2026-88075](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-88075).\r\n - An issue with the administration service. This is a defense-in-depth fix related to a Windows SMB Server issue, addressed separately by [CVE-2026-26128](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26128). We strongly recommend that you also install the applicable Windows security update.\r\n \r\n ## Hotfixes that are included in this update\r\n",
+      "baseCommitSha": "ad90bf4be7d1f0bc49a977daa1b63f680d7dbaba",
+      "commitSha": "3656ea2964ca9fb332efd8954a81295ddfc8a01c",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 22:44:42 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/38982839.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38982839",
+      "eventId": "intune-docs:3656ea2964ca9fb332efd8954a81295ddfc8a01c:modified:intune/configmgr/hotfix/2603/38982839.md",
+      "firstSeenAt": "2026-10-14T23:12:15.306Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "SMS Provider issue now references CVE-2026-88075",
+        "summary": "The documentation now states that the update addresses the elevation-of-privilege vulnerability described in CVE-2026-88075.",
+        "adminImpact": "Administrators can use the CVE reference to identify the security issue addressed by this update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/39398030.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/39398030.md b/intune/configmgr/hotfix/2603/39398030.md\nindex 793eec5..8c110f1 100644\n--- a/intune/configmgr/hotfix/2603/39398030.md\n+++ b/intune/configmgr/hotfix/2603/39398030.md\n@@ -38,8 +38,10 @@ item_type: Content\n source_path: intune/configmgr/hotfix/2603/39398030.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/4c50f262-d533-4ba4-9d4a-08899ec3a3d1\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/6a8c83be-f1de-4e90-bde0-bd097999a60c\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 80f38da6-0710-8f1e-4570-80dea56adb77\n ---\n \n@@ -53,7 +55,7 @@ This update supersedes [KB 38982839](38982839) and [KB 38232642](38232642) and i\n \r\n - An issue with scripts.\r\n - An issue with the SMS Provider.\r\n-- An issue with the Message Processing Engine.\r\n+- An issue with the Message Processing Engine. This update addresses the elevation of privilege vulnerability described in [CVE-2026-70049](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70049).\r\n - An issue with Discovery Data Record (DDR) processing.\r\n \r\n ## Hotfixes that are included in this update\r\n",
+      "baseCommitSha": "ad90bf4be7d1f0bc49a977daa1b63f680d7dbaba",
+      "commitSha": "3656ea2964ca9fb332efd8954a81295ddfc8a01c",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-14 22:44:42 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/39398030.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/39398030",
+      "eventId": "intune-docs:3656ea2964ca9fb332efd8954a81295ddfc8a01c:modified:intune/configmgr/hotfix/2603/39398030.md",
+      "firstSeenAt": "2026-10-14T23:12:15.309Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Hotfix documentation now identifies CVE-2026-70049",
+        "summary": "The Message Processing Engine issue entry now states that the update addresses the elevation-of-privilege vulnerability described in CVE-2026-70049.",
+        "adminImpact": "Administrators can use the CVE reference to assess the security relevance of this hotfix.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 5,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
         "title": "intune/configmgr",
-        "summary": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error.",
+        "summary": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error. The support matrix now lists ADK 10.1.26100.9457 as the current September 2026 release and explains that 10.1.26100.x releases share the same Windows PE binaries. It also groups the known Windows PE issues for ADK 10.1.25398.1 and directs administrators to the 10.1.26100.x family. The documentation now states that the update addresses the elevation-of-privilege vulnerability described in CVE-2026-88075. The Message Processing Engine issu",
         "sourceFiles": [
-          "intune/configmgr/core/plan-design/changes/whats-new-version-2609.md"
+          "intune/configmgr/core/plan-design/changes/whats-new-version-2609.md",
+          "intune/configmgr/core/plan-design/configs/support-for-windows-adk.md",
+          "intune/configmgr/hotfix/2603/38982839.md",
+          "intune/configmgr/hotfix/2603/39398030.md"
         ]
       },
       {
@@ -87,7 +168,7 @@
       {
         "category": "Feature update",
         "headline": "intune/configmgr",
-        "detail": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error."
+        "detail": "The documentation adds pre-upgrade steps for CMG VM scale set migration, including identifying CMGs, calculating required vCPUs, checking standard Dadv6 Family and regional quotas, and requesting increases. Insufficient quota can cause a QuotaExceeded error. The support matrix now lists ADK 10.1.26100.9457 as the current September 2026 release and explains that 10.1.26100.x releases share the same Windows PE binaries. It also groups the known Windows PE issues for ADK 10.1.25398.1 and directs administrators to the 10.1.26100.x family. The documentation now states that the update addresses the elevation-of-privilege vulnerability described in CVE-2026-88075. The Message Processing Engine issu"
       },
       {
         "category": "Doc update",

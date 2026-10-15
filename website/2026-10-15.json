@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-security/compliance/third-party-partners.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 12,
+      "changes": 25,
+      "patch": "diff --git a/intune/device-security/compliance/third-party-partners.md b/intune/device-security/compliance/third-party-partners.md\nindex a6406ab..4e2e120 100644\n--- a/intune/device-security/compliance/third-party-partners.md\n+++ b/intune/device-security/compliance/third-party-partners.md\n@@ -64,24 +64,25 @@ With these tasks complete, the device compliance partner sends device state deta\n \r\n The following compliance partners are supported as generally available:\r\n \r\n-- 42Gears SureMDM\r\n+- [42Gears SureMDM](https://docs.42gears.com/suremdm/docs/SureMDM/ConditionalAccessintheSureMDMCon.html)\r\n - 7P\r\n-- Addigy\r\n-- BlackBerry UEM\r\n-- Citrix Workspace device compliance\r\n-- CLOMO MDM\r\n-- Fleet\r\n+- [Addigy](https://support.addigy.com/hc/en-us/articles/12346305032211)\r\n+- [BlackBerry UEM](https://docs.blackberry.com/en/id-comm-collab/blackberry-workspaces/blackberry-workspaces-plug-in-for-blackberry-uem/4_10/compatibility-matrix/imm1460398825659/ioz1460399956336)\r\n+- [Citrix Endpoint Management integration with Microsoft Endpoint Manager](https://docs.citrix.com/en-us/citrix-endpoint-management/integration-with-mem.html)\r\n+- [CLOMO MDM](https://support.clomo.com/?page_id=61477)\r\n+- [Fleet](https://fleetdm.com/guides/entra-conditional-access-integration)\r\n - IBM MaaS360\r\n - Jamf Pro\r\n-- Iru\r\n-- Ivanti Neurons for MDM\r\n+- [Iru](https://docs.iru.com/en/endpoint/integrations/microsoft-device-compliance/getting-started-with-microsoft-device-compliance#getting-started-with-microsoft-device-compliance)\r\n+- [Ivanti Neurons for MDM](https://forums.ivanti.com/s/article/MobileIron-Cloud-Azure-Device-Compliance-for-iOS-and-Android)\r\n - Ivanti EPMM\r\n-- mobiconnect\r\n+- [mobiconnect](https://help.mobi-connect.net/function/function_category/c0119/?func_os=ios-ipados)\r\n - Mosyle Fuse\r\n - Mosyle Onek12\r\n-- Omnissa Workspace ONE UEM\r\n-- Scalefusion\r\n-- SOTI MobiControl\r\n+- [Omnissa Workspace ONE UEM](https://docs.omnissa.com/bundle/WorkspaceONE-UEM-Managing-DevicesVSaaS/page/ConditionalAccessMicrosoftEntraID.html)\r\n+- [Samsung Knox Manage (Compliance)](https://docs.samsungknox.com/admin/knox-manage/new-console/connect-with-identity-providers/configure-knox-manage-as-a-compliance-partner-for-microsoft-intune/)\r\n+- [Scalefusion](https://help.scalefusion.com/docs/microsoft-intune-partner-compliance)\r\n+- [SOTI MobiControl](https://pulse.soti.net/support/soti-mobicontrol/help/?T=console%2Fsystem%2Fmicrosoft_365_integration%2Fadd_mc_to_microsoft_intune_and_compliance_partner_configuration)\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "658a813db79c23f3b669003d7b71745150cc8b92",
+      "commitSha": "61b8824b3fc028e8aa5e6bc264c0bf348dfeb41e",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-15 18:00:25 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/compliance/third-party-partners.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners",
+      "eventId": "intune-docs:61b8824b3fc028e8aa5e6bc264c0bf348dfeb41e:modified:intune/device-security/compliance/third-party-partners.md",
+      "firstSeenAt": "2026-10-15T18:16:11.026Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Third-party compliance partner documentation links expanded",
+        "summary": "The partner list now links to setup documentation for existing entries and adds Fleet, Iru, and Samsung Knox Manage (Compliance). The Citrix entry was also renamed and linked.",
+        "adminImpact": "Admins can use the linked partner resources to find integration and configuration guidance. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The partner list now links to setup documentation for existing entries and adds Fleet, Iru, and Samsung Knox Manage (Compliance). The Citrix entry was also renamed and linked.",
+        "sourceFiles": [
+          "intune/device-security/compliance/third-party-partners.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The partner list now links to setup documentation for existing entries and adds Fleet, Iru, and Samsung Knox Manage (Compliance). The Citrix entry was also renamed and linked."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

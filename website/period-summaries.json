@@ -7389,6 +7389,28 @@
         "outputTokens": 2764,
         "costUsd": 0.003629
       }
+    },
+    "2026-10-15": {
+      "headline": "Fleet, Iru, and Samsung Knox Manage (Compliance) join Intune partner guidance",
+      "overview": "Intune’s Third Party Partners page now links existing partner entries to setup documentation and adds Fleet, Iru, and Samsung Knox Manage (Compliance). The Citrix entry was renamed and linked, giving administrators clearer paths to partner integration and configuration guidance.",
+      "adminImpact": "Administrators can use the linked partner resources to find integration and configuration guidance. No required action is stated.",
+      "keyChanges": [
+        {
+          "title": "Partner list expands with setup links",
+          "detail": "The partner list now links setup documentation for existing entries, adds Fleet, Iru, and Samsung Knox Manage (Compliance), and renames and links the Citrix entry.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-15-third-party-partners-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-15T18:16:20.276Z",
+      "usage": {
+        "inputTokens": 1030,
+        "outputTokens": 644,
+        "costUsd": 0.000979
+      }
     }
   },
   "weeks": {
@@ -9143,49 +9165,49 @@
       }
     },
     "2026-10-12": {
-      "headline": "CMG quota checks and macOS PSSO warnings lead this week’s admin guidance",
-      "overview": "This period’s updates contain several concrete operational changes: Configuration Manager 2609 guidance adds CMG VM scale set quota checks, while Intune guidance warns against a specific PSSO assignment to userless ADE devices. Intune also documents a 60-day inactive-record deletion threshold, a 12-hour macOS token sync, and a 3,000-app Android Enterprise targeting limit. Other edits identify CVE-2026-88075 and CVE-2026-70049 in Configuration Manager hotfix entries and announce Remote Help for Windows version 5.2.1210.0 with stability and observability improvements.",
-      "adminImpact": "Before a Configuration Manager upgrade, identify each CMG, calculate required vCPUs, verify standard Dadv6 Family and regional quotas, and request increases where needed. In Intune, review PSSO assignments on userless ADE devices, plan Azure Virtual Desktop multi-session record retention around the 60-day threshold, and keep affected Android Enterprise app assignments within the 3,000-app limit. The macOS token-sync change requires no action; automatic synchronization now runs every 12 hours, with manual-sync limits unchanged.",
+      "headline": "CMG quota checks and macOS PSSO targeting drive this week’s admin guidance",
+      "overview": "The most consequential entries are operational guidance rather than a broad feature rollout: Configuration Manager’s CMG migration instructions now call for a quota-oriented preflight, while Intune warns that a specific PSSO assignment can disrupt userless ADE enrollment. The period also sharpens ADK selection, documents a 60-day AVD record-deletion threshold, and states a 3,000-app per-device limit for specified Android Enterprise scenarios.",
+      "adminImpact": "Before CMG migration, calculate required vCPUs, verify standard Dadv6 Family and regional quotas for each subscription and region, and request increases where necessary. Review and remove the affected PSSO targeting for userless ADE devices. For Configuration Manager boot-image work, use the 10.1.26100.x ADK family; for Intune, plan around 60-day inactive-record deletion and the 3,000-app limit in affected Android Enterprise scenarios.",
       "keyChanges": [
         {
-          "title": "CMG VM scale set migration guidance adds quota prechecks",
-          "detail": "The Configuration Manager 2609 guidance now tells administrators to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases. Insufficient quota can cause a QuotaExceeded error and migration failure, so complete these checks before upgrading.",
-          "product": "Configuration Manager",
+          "title": "CMG VM scale set migration gets a quota preflight",
+          "detail": "Configuration Manager’s pre-upgrade guidance now says to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases. Insufficient quota can trigger a QuotaExceeded error during migration.",
+          "product": "Configuration Manager — CMG",
           "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
         },
         {
-          "title": "PSSO registration profiles should not target userless ADE devices",
-          "detail": "The macOS Setup Assistant guidance warns that targeting PSSO profiles that enable registration during Setup Assistant to userless ADE devices can cause unexpected enrollment behavior and loss of expected affinity. Review assignments and remove that targeting.",
-          "product": "Intune",
+          "title": "PSSO registration profiles should avoid userless ADE targets",
+          "detail": "Intune’s Automated Device Enrollment guidance warns not to target PSSO profiles that enable registration during Setup Assistant to userless ADE devices. This can cause unexpected enrollment behavior and loss of expected affinity.",
+          "product": "Intune — macOS enrollment",
           "sourceId": "doc-2026-10-14-setup-automated-macos-02"
         },
         {
-          "title": "Intune documents a 60-day inactive-record deletion threshold",
-          "detail": "The Azure Virtual Desktop multi-session guidance now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules. Use this threshold when planning orphaned-device retention.",
-          "product": "Intune",
+          "title": "ADK guidance directs deployments to the 10.1.26100.x family",
+          "detail": "The Configuration Manager support matrix lists ADK 10.1.26100.9457 as the current September 2026 release and says 10.1.26100.x releases share the same Windows PE binaries. It groups known Windows PE issues for ADK 10.1.25398.1 and states that version remains unsuitable for Windows PE boot images.",
+          "product": "Configuration Manager — Windows ADK",
+          "sourceId": "doc-2026-10-14-support-for-windows-adk-03"
+        },
+        {
+          "title": "Intune documents permanent deletion after 60 inactive days",
+          "detail": "For Azure Virtual Desktop multi-session, the guidance now states that Intune attempts to permanently delete device records inactive for 60 days or more, separately from administrator-configured cleanup rules.",
+          "product": "Intune — Azure Virtual Desktop multi-session",
           "sourceId": "doc-2026-10-13-azure-virtual-desktop-multi-session-02"
         },
         {
-          "title": "macOS token synchronization moves from 24 hours to 12",
-          "detail": "Automatic synchronization now runs every 12 hours instead of every 24 hours. Manual synchronization limits and completion behavior are unchanged, and no administrator action is required.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-13-manage-devices-tokens-macos-06"
-        },
-        {
-          "title": "Managed Google Play policies support up to 3,000 targeted apps per device",
-          "detail": "The documented limit applies to the specified Android Enterprise corporate-owned and personally owned work profile scenarios. Administrators should account for the limit when targeting apps to affected devices.",
-          "product": "Intune",
+          "title": "Managed Google Play guidance sets a 3,000-app per-device ceiling",
+          "detail": "The Add Managed Google Play guidance says policies support up to 3,000 targeted apps per device for specified Android Enterprise corporate-owned and personally owned work profile scenarios.",
+          "product": "Intune — Android app management",
           "sourceId": "doc-2026-10-12-add-managed-google-play-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-14T23:12:28.922Z",
+      "generatedAt": "2026-10-15T18:16:20.276Z",
       "usage": {
-        "inputTokens": 2113,
-        "outputTokens": 4836,
-        "costUsd": 0.006226
+        "inputTokens": 2227,
+        "outputTokens": 7911,
+        "costUsd": 0.009939
       }
     }
   },
@@ -9605,54 +9627,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows 11 26H2 baseline now requires explicit Intune profile updates",
-      "overview": "October leaned heavily toward documentation maintenance, but several updates carry direct planning value. Intune’s Windows 11 26H2 baseline guidance adds Settings Catalog coverage, while Endpoint Privilege Management guidance covers controlled IPv4, IPv6, and DNS changes for standard users. A November 2026 Purview DLP update will add Intune multi-admin approval for unmanaged apps in Edge for Business; adjacent Configuration Manager 2609 guidance adds CMG quota checks before migration.",
-      "adminImpact": "Review Windows 11 baseline assignments because existing profiles do not update automatically; create a new profile or update an existing one when adopting the 26H2 baseline. Enable an EPM elevation settings policy before delegating network-setting changes. Configuration Manager teams should complete CMG vCPU and quota checks before a 2609 upgrade, while Android administrators should account for the documented 3,000-app-per-device limit in affected scenarios.",
+      "headline": "Windows 11 26H2 baseline and Configuration Manager 2609 drive October administrator guidance",
+      "overview": "The consequential part of an otherwise maintenance-heavy month centers on Windows 11 26H2 baseline planning, controlled network-setting delegation through Endpoint Privilege Management, and Configuration Manager 2609 upgrade readiness. Intune also recorded a November 2026 Purview DLP change that will add multi-admin approval for unmanaged Edge apps, while many other updates were metadata, links, or reference maintenance.",
+      "adminImpact": "Review or create Intune security baseline profiles for Windows 11 26H2 because existing profiles do not update automatically. Before Configuration Manager 2609 work, validate CMG quotas and identify unsupported legacy Windows Server clients; EPM deployments need an enabled elevation settings policy before delegating network changes. Purview and Intune administrators should review their approval workflow ahead of the November 2026 change.",
       "keyChanges": [
         {
-          "title": "26H2 baseline guidance adds Settings Catalog coverage and revised defaults",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically, so adopting the baseline requires a new profile or an update to an existing profile.",
+          "title": "Windows 11 26H2 baseline guidance requires profile updates",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "EPM system-settings policies delegate controlled network changes",
-          "detail": "Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while administrators require confirmation, business justification, Windows authentication, or both. Devices also need an EPM elevation settings policy enabled.",
+          "title": "EPM documents controlled IPv4, IPv6, and DNS delegation",
+          "detail": "A new Endpoint Privilege Management article describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices also need an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Purview DLP will add Intune approval coordination for Edge unmanaged apps",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement remain unchanged.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
-        },
-        {
-          "title": "Configuration Manager 2609 planning adds CMG quota prechecks",
-          "detail": "Before upgrading, administrators are directed to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases where necessary. Insufficient quota can cause a QuotaExceeded error during VM scale set migration.",
+          "title": "Configuration Manager 2609 adds a CMG quota preflight",
+          "detail": "The 2609 upgrade guidance requires administrators to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas for each subscription and region, and request increases where necessary. Insufficient quota can cause a QuotaExceeded error during migration.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
         },
         {
-          "title": "Managed Google Play guidance sets a 3,000-app targeting limit",
-          "detail": "Intune’s Android Enterprise guidance states that policies support up to 3,000 targeted apps per device for the specified corporate-owned and personally owned work-profile scenarios. App administrators should account for that ceiling when targeting affected devices.",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems. Administrators should identify affected devices and move them to a supported Windows Server version.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Purview DLP will add Intune approval for unmanaged Edge apps",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
           "product": "Intune",
-          "sourceId": "doc-2026-10-12-add-managed-google-play-01"
+          "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-14T23:12:28.922Z",
+      "generatedAt": "2026-10-15T18:16:20.276Z",
       "usage": {
-        "inputTokens": 5921,
-        "outputTokens": 6369,
-        "costUsd": 0.008827
+        "inputTokens": 5891,
+        "outputTokens": 3583,
+        "costUsd": 0.005478
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-14T23:12:28.922Z",
+  "generatedAt": "2026-10-15T18:16:20.276Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9753,18 +9775,24 @@
       "outputTokens": 27478,
       "requests": 6,
       "costUsd": 0.036621
+    },
+    "2026-10-15": {
+      "inputTokens": 9148,
+      "outputTokens": 12138,
+      "requests": 3,
+      "costUsd": 0.016395
     }
   },
   "lastRun": {
-    "inputTokens": 9596,
-    "outputTokens": 13969,
+    "inputTokens": 9148,
+    "outputTokens": 12138,
     "requests": 3,
-    "costUsd": 0.018682
+    "costUsd": 0.016395
   },
   "totalUsage": {
-    "inputTokens": 3338525,
-    "outputTokens": 1984095,
-    "requests": 351,
-    "costUsd": 3.048619
+    "inputTokens": 3347673,
+    "outputTokens": 1996233,
+    "requests": 354,
+    "costUsd": 3.065014
   }
 }

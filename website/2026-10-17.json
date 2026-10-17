@@ -1,0 +1,154 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-updates/android/setup-samsung-knox.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 2,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-updates/android/setup-samsung-knox.md b/intune/device-updates/android/setup-samsung-knox.md\nindex a3db334..a0bb875 100644\n--- a/intune/device-updates/android/setup-samsung-knox.md\n+++ b/intune/device-updates/android/setup-samsung-knox.md\n@@ -11,11 +11,11 @@ author: paolomatarazzo\n ms.author: paoloma\n ms.subservice: protect\n description: Learn how to integrate Samsung Knox E-FOTA with Microsoft Intune to register Samsung devices, configure firmware updates, and monitor campaigns.\n-ms.date: 2026-10-02T00:00:00.0000000Z\n+ms.date: 2026-10-16T00:00:00.0000000Z\n ms.topic: how-to\n ms.reviewer: grwilso\n ai-usage: ai-generated\n-ms.custom: msecd-doc-authoring-1017\n+ms.custom: msecd-doc-authoring-1030\n locale: en-us\n document_id: 8222de5b-1057-587a-c8fe-9f1ca9542297\n document_version_independent_id: 8222de5b-1057-587a-c8fe-9f1ca9542297\n@@ -102,6 +102,8 @@ The Microsoft Intune integration brings Knox E-FOTA capabilities into the admin\n \r\n > \r\n > You must configure Managed Google Play for your tenant. For setup instructions, see [Set up Managed Google Play](../../device-enrollment/android/connect-managed-google-play).\r\n+> \r\n+> Each Intune tenant supports only one connected Samsung Knox E-FOTA account. You can't connect multiple Samsung Knox E-FOTA accounts to the same tenant, including separate accounts for different regions.\r\n \r\n ![](../../media/icons/16/cloud.svg)**Cloud requirements**\r\n \r\n@@ -124,6 +126,10 @@ After the devices are registered with Samsung, you can create an E-FOTA deployme\n \r\n In the Microsoft Intune admin center, link Intune and Samsung Knox E-FOTA by creating a connector. The connector allows Intune to communicate with Samsung Knox E-FOTA and manage firmware updates for eligible Samsung devices.\r\n \r\n+Important\r\n+\r\n+Connect the Samsung Knox E-FOTA account and region where your devices are registered. A device's Knox E-FOTA client might enroll in a different account or region from the one connected to Intune. In that case, device registration in Intune can fail even when the connector status is **Connected**.\r\n+\r\n 1. Sign in to the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431).\r\n 2. Select **[Tenant administration](https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminMenu/%7E/tenantStatus)** &gt; **[Connectors and tokens](https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminMenu/%7E/connectorsAndTokens)** &gt; **[Firmware over-the-air update](https://go.microsoft.com/fwlink/?linkid=2109431#view/Microsoft_Intune_DeviceSettings/TenantAdminConnectorsMenu/%7E/fotaUpdate)**.\r\n 3. Select **Samsung**.\r\n",
+      "baseCommitSha": "e87af63a10840bbba9da44074b73741f430059c0",
+      "commitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-17 06:18:59 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-updates/android/setup-samsung-knox.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-updates/android/setup-samsung-knox",
+      "eventId": "intune-docs:5cc1e8c7115cc5020201d9b3b48bb003e438a458:modified:intune/device-updates/android/setup-samsung-knox.md",
+      "firstSeenAt": "2026-10-17T06:54:27.078Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Samsung Knox E-FOTA now documents tenant and region constraints",
+        "summary": "The documentation states that an Intune tenant supports only one connected Samsung Knox E-FOTA account. It also explains that the connected account and region must match where devices are registered; otherwise, device registration can fail even when the connector shows Connected.",
+        "adminImpact": "Verify that the connected Samsung Knox E-FOTA account and region match your device registrations, and plan for one account per tenant.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/epm/create-elevation-rules.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/intune/epm/create-elevation-rules.md b/intune/epm/create-elevation-rules.md\nindex 6272566..ff8b68d 100644\n--- a/intune/epm/create-elevation-rules.md\n+++ b/intune/epm/create-elevation-rules.md\n@@ -14,7 +14,7 @@ ms.collection:\n ms.reviewer: mikedano\n ms.subservice: suite\n description: View guidance on how to create strong file elevation rules with Microsoft Intune Endpoint Privilege Management\n-ms.date: 2025-10-20T00:00:00.0000000Z\n+ms.date: 2026-10-16T00:00:00.0000000Z\n ms.topic: how-to\n locale: en-us\n document_id: 16cf130c-f8d7-d14b-9e9b-d00efb177a63\n@@ -34,9 +34,11 @@ monikers: []\n item_type: Content\n source_path: intune/epm/create-elevation-rules.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5cf46315-b33f-4e99-8224-a1592697eff9\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/715d24c3-3683-4219-82c5-1e3c813fb7fc\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n platformId: d9779182-f582-ced7-ac16-fd29e32d2269\n@@ -189,6 +191,8 @@ Rules deployed to a device apply to *every user* that uses that device. Rules th\n \r\n *Default Elevation behavior* is used only when no rule match can be found. The default elevation behavior only applies when an elevation is triggered with the *Run with elevated access* right-click menu.\r\n \r\n+Unlike elevation rules assigned to groups that contain users, the default elevation response is a device-scoped client setting configured by the *Windows elevation settings policy* and applies to all users on the device. Assigning this policy to a group that contains users doesn't create a per-user default. To provide different application elevation behavior for particular users, assign elevation rules to groups that contain those users. For more information, see [Policy scope and user assignments](manage-elevation-settings#policy-scope-and-user-assignments).\r\n+\r\n ## Create elevation rules policy\r\n \r\n Deploy an *Elevation rules policy* to users or devices to deploy one or more rules for files that are managed for elevation by Endpoint Privilege Management. Each rule you add to this policy:\r\n",
+      "baseCommitSha": "e87af63a10840bbba9da44074b73741f430059c0",
+      "commitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-17 06:18:59 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/epm/create-elevation-rules.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/epm/create-elevation-rules",
+      "eventId": "intune-docs:5cc1e8c7115cc5020201d9b3b48bb003e438a458:modified:intune/epm/create-elevation-rules.md",
+      "firstSeenAt": "2026-10-17T06:54:27.082Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Windows elevation policy scope is clarified",
+        "summary": "The documentation now states that the default elevation response is a device-scoped setting configured by the Windows elevation settings policy and applies to all users on the device. Assigning it to a user group does not create a per-user setting.",
+        "adminImpact": "Administrators should account for device-wide behavior when assigning this policy.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/epm/deployment-planning.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/intune/epm/deployment-planning.md b/intune/epm/deployment-planning.md\nindex be0b261..752827d 100644\n--- a/intune/epm/deployment-planning.md\n+++ b/intune/epm/deployment-planning.md\n@@ -14,7 +14,7 @@ ms.collection:\n ms.reviewer: mikedano\n ms.subservice: suite\n description: Plan your Endpoint Privilege Management deploying by understanding requirements, fundamentals, and security recommendations.\n-ms.date: 2026-01-26T00:00:00.0000000Z\n+ms.date: 2026-10-16T00:00:00.0000000Z\n ms.topic: how-to\n locale: en-us\n document_id: 09329aeb-dc7c-6d88-9ade-6cdd5ad66e72\n@@ -36,11 +36,11 @@ source_path: intune/epm/deployment-planning.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19ec6774-09b8-473e-a17e-b17b518bbad7\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/e0ffb20c-01c6-407b-a9bd-29111652a1dc\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ade36b61-c646-4bd8-87ee-f3a843461962\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/3904bce4-d817-48cf-85fd-b6146fca83b7\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 4c61009c-d834-1911-7163-5095d00803c7\n ---\n \n@@ -183,6 +183,8 @@ Except for the following situations, conflicting policies for EPM are handled li\n \r\n **Windows elevation settings policy**:\r\n \r\n+The client settings configured by the *Windows elevation settings policy* are device-scoped, even when the policy is assigned to a group that contains users. Assigning different policies to groups that contain different users doesn't establish separate per-user default elevation responses. For more information, see [Policy scope and user assignments](manage-elevation-settings#policy-scope-and-user-assignments).\r\n+\r\n When a device receives two separate elevation settings policies with conflicting values, the EPM client reverts to the default client behavior until the conflict is resolved.\r\n \r\n Note\r\n",
+      "baseCommitSha": "e87af63a10840bbba9da44074b73741f430059c0",
+      "commitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-17 06:18:59 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/epm/deployment-planning.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/epm/deployment-planning",
+      "eventId": "intune-docs:5cc1e8c7115cc5020201d9b3b48bb003e438a458:modified:intune/epm/deployment-planning.md",
+      "firstSeenAt": "2026-10-17T06:54:27.087Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Windows elevation policy settings are device-scoped",
+        "summary": "The documentation now states that Windows elevation settings policy client settings remain device-scoped, even when assigned to groups containing users. Assigning different policies to different user groups does not create separate per-user default elevation responses.",
+        "adminImpact": "Administrators should not expect user-based assignments to provide per-user elevation defaults; plan policy assignments with device scope in mind.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/epm/manage-elevation-settings.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 3,
+      "changes": 16,
+      "patch": "diff --git a/intune/epm/manage-elevation-settings.md b/intune/epm/manage-elevation-settings.md\nindex 9e36e1f..55c1984 100644\n--- a/intune/epm/manage-elevation-settings.md\n+++ b/intune/epm/manage-elevation-settings.md\n@@ -14,7 +14,7 @@ ms.collection:\n ms.reviewer: mikedano\n ms.subservice: suite\n description: View guidance on how to manage the Endpoint Privilege Management client, including reporting level and default elevation response.\n-ms.date: 2025-09-10T00:00:00.0000000Z\n+ms.date: 2026-10-16T00:00:00.0000000Z\n ms.topic: how-to\n locale: en-us\n document_id: 1cc9b6fb-3bf5-2d93-60fb-fa5877271488\n@@ -42,7 +42,7 @@ platformId: 3a0d2367-ca3e-84b3-1889-a37d9f5679b2\n \n # Managing Elevation Settings for Endpoint Privilege Management - Microsoft Intune | Microsoft Learn\n \n-To configure Endpoint Privilege Management (EPM) on devices, deploy *Windows elevation settings policy* to users or devices:\r\n+To configure Endpoint Privilege Management (EPM) on devices, deploy *Windows elevation settings policy* to groups that contain users or devices:\r\n \r\n - Enable or disable EPM on a device.\r\n - Set default rules for elevation requests for any files that don't match an elevation rule.\r\n@@ -50,6 +50,16 @@ To configure Endpoint Privilege Management (EPM) on devices, deploy *Windows ele\n \r\n When EPM is enabled, the `C:\\Program Files\\Microsoft EPM Agent` folder is created along with the 'Microsoft EPM Agent Service' service, which is responsible for processing the EPM policies.\r\n \r\n+## Policy scope and user assignments\r\n+\r\n+The *Windows elevation settings policy* configures the EPM client's settings. These client settings, including the default elevation response, are device-scoped and apply to all users on the device.\r\n+\r\n+You can assign a *Windows elevation settings policy* to groups that contain users or devices. Assigning the policy to a group that contains users doesn't change the scope of its settings or create a separate default elevation response for each user. Once applied, the device-scoped configuration remains effective until another configuration is applied. Signing in as a different user doesn't, by itself, replace that configuration.\r\n+\r\n+Important\r\n+\r\n+Don't assign different *Windows elevation settings policies* to groups that contain users to switch the device's default elevation response between users. Instead, configure a consistent device-wide default and use elevation rules assigned to groups that contain users to define how specific applications can be elevated by those users. For more information, see [Deploying elevation rules](create-elevation-rules#deploying-rules-created-with-endpoint-privilege-management).\r\n+\r\n ## About Windows elevation settings policy\r\n \r\n Use *Windows elevation settings policy* when you want to:\r\n@@ -133,5 +143,5 @@ The *default elevation response* applies to all files that don't match an elevat\n \r\n     When ready, select **Next** to continue.\r\n 4. On the **Scope tags** page, select any desired scope tags to apply, then select **Next**.\r\n-5. For **Assignments**, select the groups that receive the policy. For more information on assigning profiles, see [Assign user and device profiles](../device-configuration/assign-device-profile). Select **Next**.\r\n+5. For **Assignments**, select the groups that receive the policy. For more information on assigning profiles, see [Assign user and device profiles](../device-configuration/assign-device-profile). Assigning this policy to a group that contains users doesn't make its settings user-scoped; see Policy scope and user assignments. Select **Next**.\r\n 6. For **Review + create**, review your settings and then select **Create**. When you select *Create*, your changes are saved, and the profile is assigned. The policy is also shown in the policy list.\n\\ No newline at end of file\n",
+      "baseCommitSha": "e87af63a10840bbba9da44074b73741f430059c0",
+      "commitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-17 06:18:59 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/epm/manage-elevation-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/epm/manage-elevation-settings",
+      "eventId": "intune-docs:5cc1e8c7115cc5020201d9b3b48bb003e438a458:modified:intune/epm/manage-elevation-settings.md",
+      "firstSeenAt": "2026-10-17T06:54:27.091Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "EPM policy scope is clarified",
+        "summary": "The documentation now states that Windows elevation settings policies remain device-scoped even when assigned to groups containing users. It also advises against using different policies to vary defaults by user.",
+        "adminImpact": "Review policy assignments and use user-group elevation rules for user-specific application behavior, while keeping the device-wide default consistent.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/device-updates",
+        "summary": "The documentation states that an Intune tenant supports only one connected Samsung Knox E-FOTA account. It also explains that the connected account and region must match where devices are registered; otherwise, device registration can fail even when the connector shows Connected.",
+        "sourceFiles": [
+          "intune/device-updates/android/setup-samsung-knox.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/epm",
+        "summary": "The documentation now states that the default elevation response is a device-scoped setting configured by the Windows elevation settings policy and applies to all users on the device. Assigning it to a user group does not create a per-user setting. The documentation now states that Windows elevation settings policy client settings remain device-scoped, even when assigned to groups containing users. Assigning different policies to different user groups does not create separate per-user default elevation responses. The documentation now states that Windows elevation settings policies remain device-scoped even when assigned to groups containing users. It also advises against using different pol",
+        "sourceFiles": [
+          "intune/epm/create-elevation-rules.md",
+          "intune/epm/deployment-planning.md",
+          "intune/epm/manage-elevation-settings.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/device-updates",
+        "detail": "The documentation states that an Intune tenant supports only one connected Samsung Knox E-FOTA account. It also explains that the connected account and region must match where devices are registered; otherwise, device registration can fail even when the connector shows Connected."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/epm",
+        "detail": "The documentation now states that the default elevation response is a device-scoped setting configured by the Windows elevation settings policy and applies to all users on the device. Assigning it to a user group does not create a per-user setting. The documentation now states that Windows elevation settings policy client settings remain device-scoped, even when assigned to groups containing users. Assigning different policies to different user groups does not create separate per-user default elevation responses. The documentation now states that Windows elevation settings policies remain device-scoped even when assigned to groups containing users. It also advises against using different pol"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

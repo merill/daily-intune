@@ -7417,6 +7417,34 @@
         "outputTokens": 675,
         "costUsd": 0.00104
       }
+    },
+    "2026-10-17": {
+      "headline": "Windows elevation defaults remain device-scoped despite user-group assignments",
+      "overview": "Three Endpoint Privilege Management guidance updates consistently state that Windows elevation settings policies and their default elevation responses apply at device scope, even when assigned to groups containing users. A separate Samsung Knox E-FOTA update documents a one-account-per-tenant limit and region matching requirement.",
+      "adminImpact": "For Endpoint Privilege Management, do not use different user-group policy assignments to create per-user default elevation responses; use user-group elevation rules for user-specific application behavior while keeping the device-wide default consistent. For Samsung Knox E-FOTA, verify that the connected account and region match device registration and plan around one connected account per Intune tenant.",
+      "keyChanges": [
+        {
+          "title": "Endpoint Privilege Management defaults apply to the whole device",
+          "detail": "Windows elevation settings policy client settings remain device-scoped. The default elevation response applies to all users on the device, and assigning the policy to a user group does not make that default per-user.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-17-managing-elevation-settings-for-endpoint-privilege-management-microsoft-intune-microsoft-learn-04"
+        },
+        {
+          "title": "Samsung Knox E-FOTA requires one matching account and region",
+          "detail": "An Intune tenant supports only one connected Samsung Knox E-FOTA account. The account and region must match where devices are registered; otherwise, device registration can fail even when the connector reports Connected.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-17-setup-samsung-knox-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-17T06:54:38.324Z",
+      "usage": {
+        "inputTokens": 1466,
+        "outputTokens": 845,
+        "costUsd": 0.001307
+      }
     }
   },
   "weeks": {
@@ -9171,49 +9199,49 @@
       }
     },
     "2026-10-12": {
-      "headline": "Windows MDM-only enrollment loses CNAME auto-discovery support January 15, 2027",
-      "overview": "Intune’s clearest administrator deadline is the end of DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027. Users will then need to enter the Microsoft enrollment server URL manually, while existing devices and other enrollment methods remain unaffected. The period also adds a macOS enrollment safeguard and Configuration Manager migration and ADK guidance with direct deployment implications.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027. Review PSSO profile assignments for userless ADE devices, and remove profiles that enable registration during Setup Assistant where targeted incorrectly. Configuration Manager administrators should verify CMG quotas before upgrading and use the supported ADK 10.1.26100.x family for Windows PE boot images. No action is required for the macOS token sync interval change.",
+      "headline": "Windows MDM-only enrollment DNS CNAME discovery ends January 15, 2027",
+      "overview": "Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027. Affected organizations will need users to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected. Other high-impact guidance this week clarifies that Endpoint Privilege Management defaults are device-scoped, CMG VM scale set migrations need quota checks, Samsung Knox E-FOTA has a one-account tenant limit, and certain PSSO profiles should not target userless ADE devices.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; no remediation is indicated for existing devices. Review EPM assignments with device-wide behavior in mind, verify CMG quotas before upgrades, confirm Samsung Knox account and region alignment, and remove PSSO registration-profile targeting from userless ADE devices where applicable.",
       "keyChanges": [
         {
-          "title": "Intune ends Windows MDM-only CNAME auto-discovery",
-          "detail": "Starting January 15, 2027, Intune will no longer support DNS CNAME auto-discovery for Windows MDM-only enrollment. Users must manually enter the Microsoft enrollment server URL; existing devices and other enrollment methods are unaffected. Enrollment procedures should be updated.",
+          "title": "Intune is ending DNS CNAME auto-discovery for Windows MDM-only enrollment",
+          "detail": "Starting January 15, 2027, users in organizations that rely on this enrollment method must manually enter the Microsoft enrollment server URL. Existing devices and other enrollment methods are unaffected, but enrollment procedures should be updated.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "PSSO registration profiles should not target userless ADE devices",
-          "detail": "The macOS Setup Assistant guidance warns against targeting userless Automated Device Enrollment devices with PSSO profiles that enable registration during Setup Assistant. That assignment can cause unexpected enrollment behavior and loss of expected affinity; review and remove the targeting where applicable.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-14-setup-automated-macos-02"
+          "title": "Endpoint Privilege Management elevation defaults remain device-scoped",
+          "detail": "Windows elevation settings policies apply their default elevation response to all users on the device, even when assigned to a group containing users. Assigning different policies to different user groups does not create separate per-user defaults; user-group elevation rules are the supported way to vary application behavior by user.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-17-managing-elevation-settings-for-endpoint-privilege-management-microsoft-intune-microsoft-learn-04"
         },
         {
-          "title": "Configuration Manager 2609 upgrades require CMG quota checks",
-          "detail": "Before upgrading, administrators are directed to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases when needed. Insufficient quota can cause a QuotaExceeded error during CMG VM scale set migration.",
+          "title": "CMG migration guidance adds Dadv6 and regional quota checks",
+          "detail": "Before a Cloud Management Gateway VM scale set migration, administrators are directed to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases where needed. Insufficient quota can produce a QuotaExceeded error.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
         },
         {
-          "title": "Configuration Manager guidance directs Windows PE deployments to ADK 10.1.26100.x",
-          "detail": "The support matrix lists ADK 10.1.26100.9457 as the current September 2026 release and explains that 10.1.26100.x releases share the same Windows PE binaries. It groups known Windows PE issues for ADK 10.1.25398.1 and identifies that family as unsuitable for Windows PE boot images.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-14-support-for-windows-adk-03"
+          "title": "Samsung Knox E-FOTA supports one connected account per tenant",
+          "detail": "An Intune tenant can have only one connected Samsung Knox E-FOTA account, and the account and region must match the registration location of the devices. Registration can fail even when the connector reports Connected if those details do not align.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-17-setup-samsung-knox-01"
         },
         {
-          "title": "macOS managed-device token synchronization now runs every 12 hours",
-          "detail": "The automatic synchronization interval changed from every 24 hours to every 12 hours. Manual synchronization limits and completion behavior are unchanged, and the update states that no administrator action is required.",
+          "title": "PSSO registration profiles should not target userless ADE devices",
+          "detail": "The updated macOS enrollment guidance warns against assigning PSSO profiles that enable registration during Setup Assistant to userless Automated Device Enrollment devices, because this can cause unexpected enrollment behavior and loss of expected affinity.",
           "product": "Intune",
-          "sourceId": "doc-2026-10-13-manage-devices-tokens-macos-06"
+          "sourceId": "doc-2026-10-14-setup-automated-macos-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-16T07:07:36.652Z",
+      "generatedAt": "2026-10-17T06:54:38.324Z",
       "usage": {
-        "inputTokens": 2347,
-        "outputTokens": 2227,
-        "costUsd": 0.003142
+        "inputTokens": 2887,
+        "outputTokens": 3246,
+        "costUsd": 0.004473
       }
     }
   },
@@ -9633,54 +9661,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows MDM-only enrollment loses DNS CNAME auto-discovery January 15, 2027",
-      "overview": "October’s clearest operational deadline is Intune’s January 15, 2027 end of DNS CNAME auto-discovery for Windows MDM-only enrollment; affected users will need to enter the Microsoft enrollment server URL manually, while existing devices and other enrollment methods are unaffected. The period also brought Windows 11 version 26H2 baseline guidance, documented controlled network-setting changes through Endpoint Privilege Management, added a Configuration Manager 2609 CMG quota prerequisite, and announced November improvements to Purview DLP setup for unmanaged Edge apps.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027. Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. EPM deployments need an enabled elevation settings policy before delegating network changes, and Configuration Manager teams should validate CMG vCPU and regional quotas before a 2609 upgrade. The Purview DLP change improves setup and approval coordination without changing existing policies or enforcement.",
+      "headline": "Windows MDM-only enrollment DNS discovery ends January 15, 2027",
+      "overview": "Intune’s biggest operational deadline is January 15, 2027: support for DNS CNAME auto-discovery ends for Windows MDM-only enrollment. Affected users will need to enter the Microsoft enrollment server URL manually, while existing devices and other enrollment methods are unaffected. Other substantive updates covered the Windows 11 26H2 baseline, controlled EPM network-setting changes, November’s Purview DLP and Intune approval coordination, and Configuration Manager 2609 CMG quota checks; the remaining activity was largely reference and metadata maintenance.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; the notice leaves existing devices unaffected. For the 26H2 baseline, create a new profile or update an existing one because current profiles do not update automatically. EPM administrators need an enabled elevation settings policy. Before a Configuration Manager 2609 upgrade, calculate CMG vCPU requirements and verify standard Dadv6 Family and regional quotas, requesting increases if needed. Purview and Intune teams should prepare for the November multi-admin approval workflow; existing policies and enforcement remain unchanged.",
       "keyChanges": [
         {
-          "title": "DNS CNAME auto-discovery ends for Windows MDM-only enrollment",
-          "detail": "Starting January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Organizations using it must have users manually enter the Microsoft enrollment server URL; existing devices and other enrollment methods are unaffected.",
+          "title": "Intune ends DNS CNAME auto-discovery for Windows MDM-only enrollment",
+          "detail": "Starting January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Organizations using the method must have users enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "Windows 11 26H2 baseline profiles require explicit administrator action",
-          "detail": "Intune’s guidance now covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Windows 11 26H2 baseline guidance adds settings and updated defaults",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "EPM guidance details controlled delegation of IPv4, IPv6, and DNS changes",
-          "detail": "New Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices need an EPM elevation settings policy enabled.",
+          "title": "EPM documents guarded IPv4, IPv6, and DNS changes for standard users",
+          "detail": "A new Endpoint Privilege Management guide describes an elevation system settings policy that lets standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and the device needs an enabled EPM elevation settings policy.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Configuration Manager 2609 upgrades add a CMG quota check",
-          "detail": "The 2609 pre-upgrade guidance calls for identifying CMGs, calculating required vCPUs, checking Standard Dadv6 Family and regional quotas, and requesting increases where necessary. Insufficient quota can cause a QuotaExceeded error during CMG VM scale set migration.",
+          "title": "Configuration Manager 2609 CMG migration requires Dadv6 quota validation",
+          "detail": "Before upgrading, administrators should identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases where necessary. Insufficient quota can cause a QuotaExceeded error during migration.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup for unmanaged apps in Edge for Business with clearer status, detailed errors, and Intune multi-admin approval that coordinates tasks between Purview and Intune administrators. Existing policies and enforcement remain unchanged.",
-          "product": "Intune / Microsoft Purview DLP",
+          "title": "Purview DLP adds Intune approval coordination for Edge unmanaged apps",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The update adds clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
+          "product": "Intune",
           "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-16T07:07:36.652Z",
+      "generatedAt": "2026-10-17T06:54:38.324Z",
       "usage": {
-        "inputTokens": 5900,
-        "outputTokens": 3756,
-        "costUsd": 0.005687
+        "inputTokens": 6041,
+        "outputTokens": 7224,
+        "costUsd": 0.009877
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-16T07:07:36.652Z",
+  "generatedAt": "2026-10-17T06:54:38.324Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9793,18 +9821,24 @@
       "outputTokens": 6658,
       "requests": 3,
       "costUsd": 0.009869
+    },
+    "2026-10-17": {
+      "inputTokens": 10394,
+      "outputTokens": 11315,
+      "requests": 3,
+      "costUsd": 0.015657
     }
   },
   "lastRun": {
-    "inputTokens": 9397,
-    "outputTokens": 6658,
+    "inputTokens": 10394,
+    "outputTokens": 11315,
     "requests": 3,
-    "costUsd": 0.009869
+    "costUsd": 0.015657
   },
   "totalUsage": {
-    "inputTokens": 3357070,
-    "outputTokens": 2002891,
-    "requests": 357,
-    "costUsd": 3.074883
+    "inputTokens": 3367464,
+    "outputTokens": 2014206,
+    "requests": 360,
+    "costUsd": 3.09054
   }
 }

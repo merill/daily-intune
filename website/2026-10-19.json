@@ -1,0 +1,154 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-enrollment/apple/setup-automated-macos.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-enrollment/apple/setup-automated-macos.md b/intune/device-enrollment/apple/setup-automated-macos.md\nindex 3932837..61243d3 100644\n--- a/intune/device-enrollment/apple/setup-automated-macos.md\n+++ b/intune/device-enrollment/apple/setup-automated-macos.md\n@@ -37,11 +37,11 @@ source_path: intune/device-enrollment/apple/setup-automated-macos.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/837687b0-8846-4eb2-adb6-2b853e8c70c4\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/57eae307-c3a1-4cac-b645-1a899934bac8\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8c797fa2-4419-46e7-a4e3-4c97d0a1f2a0\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ee561821-1ac7-45a8-9409-6ba5eb7a5b97\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 5e648fee-386c-cc85-7b53-30a811efae18\n ---\n \n@@ -86,7 +86,7 @@ At the end of this procedure, you can assign this policy to Microsoft Entra devi\n \r\n Important\r\n \r\n-This article reflects the updated policy creation experience (**Enrollment program tokens** &gt; **Enrollment policies**) for devices going through automated device enrollment. The older experience (**Enrollment program tokens** &gt; **Profiles**) differs and will eventually be retired. The older experience won't receive new features, so be sure to create new policies under **Enrollment policies**. For more information, see [New iOS/iPadOS, visionOS, tvOS and macOS ADE enrollment policies experience](https://techcommunity.microsoft.com/blog/intunecustomersuccess/new-iosipados-visionos-tvos-and-macos-ade-enrollment-policies-experience/4393531).\r\n+This article reflects the updated policy creation experience (**Enrollment program tokens** &gt; **Enrollment policies**) for devices going through automated device enrollment. The older experience (**Enrollment program tokens** &gt; **Profiles**) differs and will eventually be retired. The older experience won't receive new features, so be sure to create new policies under **Enrollment policies**. For more information, see [New iOS/iPadOS, visionOS, tvOS and macOS ADE enrollment policies experience](https://techcommunity.microsoft.com/blog/intunecustomersuccess/new-iosipados-visionos-tvos-and-macos-ade-enrollment-policies-experience/4393531). A script to migrate older enrollment profiles to new enrollment policies is available in the [Microsoft shell-intune-samples repository](https://github.com/microsoft/shell-intune-samples/tree/master/macOS/Tools/EnrollmentProfileMigrationToPolicy).\r\n \r\n 1. In the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431), go to **Devices**.\r\n 2. Expand **Device onboarding**, and then select **Enrollment**.\r\n",
+      "baseCommitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitSha": "d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-19 23:12:38 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-enrollment/apple/setup-automated-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/apple/setup-automated-macos",
+      "eventId": "intune-docs:d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c:modified:intune/device-enrollment/apple/setup-automated-macos.md",
+      "firstSeenAt": "2026-10-19T23:37:53.399Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Automated macOS enrollment article references updated",
+        "summary": "The article updates two DevRel ontology links and refreshes guidance on the Enrollment policies and Profiles experiences.",
+        "adminImpact": "Administrators get updated references and guidance; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/compliance/third-party-partners.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/compliance/third-party-partners.md b/intune/device-security/compliance/third-party-partners.md\nindex 4e2e120..37fd511 100644\n--- a/intune/device-security/compliance/third-party-partners.md\n+++ b/intune/device-security/compliance/third-party-partners.md\n@@ -80,7 +80,7 @@ The following compliance partners are supported as generally available:\n - Mosyle Fuse\r\n - Mosyle Onek12\r\n - [Omnissa Workspace ONE UEM](https://docs.omnissa.com/bundle/WorkspaceONE-UEM-Managing-DevicesVSaaS/page/ConditionalAccessMicrosoftEntraID.html)\r\n-- [Samsung Knox Manage (Compliance)](https://docs.samsungknox.com/admin/knox-manage/new-console/connect-with-identity-providers/configure-knox-manage-as-a-compliance-partner-for-microsoft-intune/)\r\n+- [Samsung Knox Manage](https://docs.samsungknox.com/admin/knox-manage/new-console/connect-with-identity-providers/configure-knox-manage-as-a-compliance-partner-for-microsoft-intune/)\r\n - [Scalefusion](https://help.scalefusion.com/docs/microsoft-intune-partner-compliance)\r\n - [SOTI MobiControl](https://pulse.soti.net/support/soti-mobicontrol/help/?T=console%2Fsystem%2Fmicrosoft_365_integration%2Fadd_mc_to_microsoft_intune_and_compliance_partner_configuration)\r\n \r\n",
+      "baseCommitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitSha": "d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-19 23:12:38 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/compliance/third-party-partners.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners",
+      "eventId": "intune-docs:d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c:modified:intune/device-security/compliance/third-party-partners.md",
+      "firstSeenAt": "2026-10-19T23:37:53.403Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Samsung Knox Manage link label updated",
+        "summary": "The third-party partners documentation now labels the Samsung link “Samsung Knox Manage” instead of “Samsung Knox Manage (Compliance).” The destination URL is unchanged.",
+        "adminImpact": "No administrator action is required; this is a documentation label change.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/laps/setup-macos.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-security/laps/setup-macos.md b/intune/device-security/laps/setup-macos.md\nindex 73b5ca6..8d93f1d 100644\n--- a/intune/device-security/laps/setup-macos.md\n+++ b/intune/device-security/laps/setup-macos.md\n@@ -191,6 +191,10 @@ To use this device action, your account must be assigned the [Intune RBAC permis\n     1. Expand **Monitor** and then select **Passwords and keys**.\r\n     2. On the **Passwords and keys** pane, you can find the last date and time that the password was rotated.\r\n \r\n+Tip\r\n+\r\n+To manage the lockout timer, configure **Failed Attempts Reset In Minutes** in the [settings catalog](../../device-configuration/settings-catalog/) before rotating the password.\r\n+\r\n ## Monitor password rotation\r\n \r\n Password viewing and rotation both create Intune Audit events that you can view from within the Intune admin center.\r\n",
+      "baseCommitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitSha": "d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-19 23:12:38 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/laps/setup-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/laps/setup-macos",
+      "eventId": "intune-docs:d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c:modified:intune/device-security/laps/setup-macos.md",
+      "firstSeenAt": "2026-10-19T23:37:53.406Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "macOS LAPS setup adds lockout timer guidance",
+        "summary": "The setup documentation now directs administrators to configure **Failed Attempts Reset In Minutes** in the Settings catalog before rotating the password to manage the lockout timer.",
+        "adminImpact": "Configure this setting before password rotation if you need to manage the lockout timer.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/prerequisites.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/prerequisites.md b/intune/device-security/microsoft-tunnel/prerequisites.md\nindex cda6ad6..631fbbe 100644\n--- a/intune/device-security/microsoft-tunnel/prerequisites.md\n+++ b/intune/device-security/microsoft-tunnel/prerequisites.md\n@@ -15,10 +15,10 @@ ms.collection:\n ms.reviewer: ochukwunyere\n ms.subservice: protect\n description: Review the prerequisites for installation and use of the Microsoft Tunnel Gateway. These include Linux servers, network, and firewall configurations.\n-ms.date: 2026-09-03T00:00:00.0000000Z\n+ms.date: 2026-10-15T00:00:00.0000000Z\n ms.topic: how-to\n ai-usage: ai-assisted\n-ms.custom: msecd-doc-authoring-1026\n+ms.custom: msecd-doc-authoring-1030\n locale: en-us\n document_id: 5cf9145c-61c9-6921-21a5-001469f0a013\n document_version_independent_id: 5cf9145c-61c9-6921-21a5-001469f0a013\n@@ -38,8 +38,10 @@ item_type: Content\n source_path: intune/device-security/microsoft-tunnel/prerequisites.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 0d8d91b1-91cc-f723-183a-23d04b7b25bb\n ---\n \n@@ -130,6 +132,8 @@ Only the operating systems and container versions that are listed in the followi\n \r\n     Microsoft Tunnel requires Docker or Podman on the Linux server to provide support for containers. Containers provide a consistent execution environment, health monitoring and proactive remediation, and a clean upgrade experience.\r\n \r\n+    Encryption at rest is optional, but we strongly recommend configuring your Docker or Podman environment to encrypt files used by Microsoft Tunnel containers. For information about available options, see the documentation for your Linux distribution and container platform.\r\n+\r\n     For information about installing and configuring Docker or Podman, see:\r\n \r\n     - [Install Docker Engine on CentOS or Red Hat Enterprise Linux 7](https://docs.docker.com/engine/install/centos/).\r\n",
+      "baseCommitSha": "5cc1e8c7115cc5020201d9b3b48bb003e438a458",
+      "commitSha": "d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-19 23:12:38 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/microsoft-tunnel/prerequisites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/prerequisites",
+      "eventId": "intune-docs:d0f1f9c90906fd9cb9d50c750fbdeec2cb80655c:modified:intune/device-security/microsoft-tunnel/prerequisites.md",
+      "firstSeenAt": "2026-10-19T23:37:53.409Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Microsoft Tunnel documentation adds encryption-at-rest guidance",
+        "summary": "The prerequisites page now states that encryption at rest is optional but strongly recommended for files used by Microsoft Tunnel containers, with links to Linux distribution and container platform guidance. Documentation metadata was also updated.",
+        "adminImpact": "Administrators should review available Docker or Podman encryption options and consider configuring them for Microsoft Tunnel container files.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/device-enrollment",
+        "summary": "The article updates two DevRel ontology links and refreshes guidance on the Enrollment policies and Profiles experiences.",
+        "sourceFiles": [
+          "intune/device-enrollment/apple/setup-automated-macos.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The third-party partners documentation now labels the Samsung link “Samsung Knox Manage” instead of “Samsung Knox Manage (Compliance).” The destination URL is unchanged. The setup documentation now directs administrators to configure **Failed Attempts Reset In Minutes** in the Settings catalog before rotating the password to manage the lockout timer. The prerequisites page now states that encryption at rest is optional but strongly recommended for files used by Microsoft Tunnel containers, with links to Linux distribution and container platform guidance. Documentation metadata was also updated.",
+        "sourceFiles": [
+          "intune/device-security/compliance/third-party-partners.md",
+          "intune/device-security/laps/setup-macos.md",
+          "intune/device-security/microsoft-tunnel/prerequisites.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/device-enrollment",
+        "detail": "The article updates two DevRel ontology links and refreshes guidance on the Enrollment policies and Profiles experiences."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The third-party partners documentation now labels the Samsung link “Samsung Knox Manage” instead of “Samsung Knox Manage (Compliance).” The destination URL is unchanged. The setup documentation now directs administrators to configure **Failed Attempts Reset In Minutes** in the Settings catalog before rotating the password to manage the lockout timer. The prerequisites page now states that encryption at rest is optional but strongly recommended for files used by Microsoft Tunnel containers, with links to Linux distribution and container platform guidance. Documentation metadata was also updated."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

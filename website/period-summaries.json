@@ -7445,6 +7445,46 @@
         "outputTokens": 845,
         "costUsd": 0.001307
       }
+    },
+    "2026-10-19": {
+      "headline": "macOS setup guidance adds a lockout-timer setting; Tunnel encryption is strongly recommended",
+      "overview": "The period brought four Intune documentation updates, with the clearest administrator relevance in macOS password-rotation setup and Microsoft Tunnel container security guidance. The remaining changes refine a Samsung Knox label and refresh automated macOS enrollment references.",
+      "adminImpact": "For macOS password rotation, configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password if you need to manage the lockout timer. For Microsoft Tunnel containers, review available Docker or Podman encryption options and consider enabling encryption at rest. The Samsung label and automated enrollment reference updates require no administrator action.",
+      "keyChanges": [
+        {
+          "title": "macOS setup now places the lockout-timer setting before password rotation",
+          "detail": "The setup guidance directs administrators to configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password to manage the lockout timer.",
+          "product": "Intune macOS device security",
+          "sourceId": "doc-2026-10-19-setup-macos-03"
+        },
+        {
+          "title": "Microsoft Tunnel guidance calls encryption at rest optional but strongly recommended",
+          "detail": "The prerequisites guidance now recommends reviewing encryption options for files used by Microsoft Tunnel containers, with links covering Linux distributions and container platforms.",
+          "product": "Microsoft Tunnel",
+          "sourceId": "doc-2026-10-19-prerequisites-04"
+        },
+        {
+          "title": "Samsung integration guidance renames the Knox destination label",
+          "detail": "The third-party partners page now calls the link Samsung Knox Manage instead of Samsung Knox Manage (Compliance); its destination URL is unchanged, so no administrator action is required.",
+          "product": "Intune third-party partner integrations",
+          "sourceId": "doc-2026-10-19-third-party-partners-02"
+        },
+        {
+          "title": "Automated macOS enrollment guidance refreshes policy-profile references",
+          "detail": "The setup article updates two DevRel ontology links and refreshes guidance for the Enrollment policies and Profiles experiences. The update requires no administrator action.",
+          "product": "Intune automated macOS enrollment",
+          "sourceId": "doc-2026-10-19-setup-automated-macos-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-19T23:38:01.428Z",
+      "usage": {
+        "inputTokens": 1340,
+        "outputTokens": 1149,
+        "costUsd": 0.001647
+      }
     }
   },
   "weeks": {
@@ -9243,6 +9283,46 @@
         "outputTokens": 3246,
         "costUsd": 0.004473
       }
+    },
+    "2026-10-19": {
+      "headline": "Intune macOS setup now specifies the lockout-timer setting before password rotation",
+      "overview": "The most consequential update is procedural guidance for macOS password setup: administrators are told to configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password. Microsoft Tunnel prerequisites also now characterize encryption at rest as optional but strongly recommended for container files; the remaining updates are link, label, and experience-reference maintenance.",
+      "adminImpact": "Configure Failed Attempts Reset In Minutes before password rotation when you need to manage the lockout timer. For Microsoft Tunnel containers, review available Docker or Podman encryption options and consider configuring encryption at rest. The Samsung label and automated macOS enrollment reference updates require no action.",
+      "keyChanges": [
+        {
+          "title": "macOS setup specifies the lockout-timer configuration sequence",
+          "detail": "The setup guidance directs administrators to configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password to manage the lockout timer.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-19-setup-macos-03"
+        },
+        {
+          "title": "Microsoft Tunnel prerequisites strongly recommend encryption at rest",
+          "detail": "The prerequisites guidance states that encryption at rest is optional but strongly recommended for files used by Microsoft Tunnel containers, and links to Linux distribution and container platform guidance.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-19-prerequisites-04"
+        },
+        {
+          "title": "Samsung integration link receives a terminology update",
+          "detail": "The third-party partners page now labels the link Samsung Knox Manage instead of Samsung Knox Manage (Compliance); the destination URL is unchanged.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-19-third-party-partners-02"
+        },
+        {
+          "title": "Automated macOS enrollment references are refreshed",
+          "detail": "The article updates two DevRel ontology links and refreshes guidance on the Enrollment policies and Profiles experiences.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-19-setup-automated-macos-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-19T23:38:01.428Z",
+      "usage": {
+        "inputTokens": 1131,
+        "outputTokens": 1444,
+        "costUsd": 0.001959
+      }
     }
   },
   "months": {
@@ -9661,54 +9741,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows MDM-only enrollment DNS discovery ends January 15, 2027",
-      "overview": "Intune’s biggest operational deadline is January 15, 2027: support for DNS CNAME auto-discovery ends for Windows MDM-only enrollment. Affected users will need to enter the Microsoft enrollment server URL manually, while existing devices and other enrollment methods are unaffected. Other substantive updates covered the Windows 11 26H2 baseline, controlled EPM network-setting changes, November’s Purview DLP and Intune approval coordination, and Configuration Manager 2609 CMG quota checks; the remaining activity was largely reference and metadata maintenance.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; the notice leaves existing devices unaffected. For the 26H2 baseline, create a new profile or update an existing one because current profiles do not update automatically. EPM administrators need an enabled elevation settings policy. Before a Configuration Manager 2609 upgrade, calculate CMG vCPU requirements and verify standard Dadv6 Family and regional quotas, requesting increases if needed. Purview and Intune teams should prepare for the November multi-admin approval workflow; existing policies and enforcement remain unchanged.",
+      "headline": "Windows MDM-only enrollment loses DNS CNAME discovery on January 15, 2027",
+      "overview": "The month’s clearest operational deadline is Intune’s January 15, 2027 end of DNS CNAME auto-discovery for Windows MDM-only enrollment: affected users will enter the Microsoft enrollment server URL manually, while existing devices and other enrollment methods are unaffected. Other high-value updates covered Windows 11 26H2 baseline profile handling, controlled IPv4, IPv6, and DNS changes through Endpoint Privilege Management, Configuration Manager 2609 CMG quota preparation, and the macOS password-rotation lockout setting. Most remaining changes involved reference, metadata, link, terminology, or procedural maintenance.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027. To adopt the Windows 11 26H2 security baseline, create a new profile or update an existing one because current profiles do not update automatically. If using EPM network-setting delegation, enable the required elevation settings policy and configure the desired confirmation, justification, or authentication controls. Configuration Manager teams should check standard Dadv6 Family and regional quotas before a 2609 CMG VM scale set migration and request increases where needed. For macOS password management, configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password when the lockout timer must be managed.",
       "keyChanges": [
         {
-          "title": "Intune ends DNS CNAME auto-discovery for Windows MDM-only enrollment",
-          "detail": "Starting January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Organizations using the method must have users enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
+          "title": "Windows MDM-only enrollment switches to manual server entry",
+          "detail": "Starting January 15, 2027, Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment. Users in affected organizations must enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "Windows 11 26H2 baseline guidance adds settings and updated defaults",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Windows 11 26H2 baseline guidance covers new defaults and profile handling",
+          "detail": "Intune’s updated baseline guidance includes Settings Catalog support, new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; adopting 26H2 requires creating a new profile or updating an existing one.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "EPM documents guarded IPv4, IPv6, and DNS changes for standard users",
-          "detail": "A new Endpoint Privilege Management guide describes an elevation system settings policy that lets standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and the device needs an enabled EPM elevation settings policy.",
+          "title": "EPM guidance details controlled IPv4, IPv6, and DNS elevation",
+          "detail": "The new Endpoint Privilege Management article describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices need an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Configuration Manager 2609 CMG migration requires Dadv6 quota validation",
-          "detail": "Before upgrading, administrators should identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases where necessary. Insufficient quota can cause a QuotaExceeded error during migration.",
+          "title": "Configuration Manager 2609 puts CMG quota checks before migration",
+          "detail": "Upgrade guidance for CMG VM scale set migration says to identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases where needed. Insufficient quota can cause QuotaExceeded.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
         },
         {
-          "title": "Purview DLP adds Intune approval coordination for Edge unmanaged apps",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The update adds clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
+          "title": "macOS setup specifies the lockout-timer setting before rotation",
+          "detail": "The Intune macOS setup procedure directs administrators to configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password when they need to manage the lockout timer.",
           "product": "Intune",
-          "sourceId": "MC1489971"
+          "sourceId": "doc-2026-10-19-setup-macos-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-17T06:54:38.324Z",
+      "generatedAt": "2026-10-19T23:38:01.428Z",
       "usage": {
-        "inputTokens": 6041,
-        "outputTokens": 7224,
-        "costUsd": 0.009877
+        "inputTokens": 6203,
+        "outputTokens": 7112,
+        "costUsd": 0.009775
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-17T06:54:38.324Z",
+  "generatedAt": "2026-10-19T23:38:01.428Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9827,18 +9907,24 @@
       "outputTokens": 11315,
       "requests": 3,
       "costUsd": 0.015657
+    },
+    "2026-10-19": {
+      "inputTokens": 8674,
+      "outputTokens": 9705,
+      "requests": 3,
+      "costUsd": 0.013381
     }
   },
   "lastRun": {
-    "inputTokens": 10394,
-    "outputTokens": 11315,
+    "inputTokens": 8674,
+    "outputTokens": 9705,
     "requests": 3,
-    "costUsd": 0.015657
+    "costUsd": 0.013381
   },
   "totalUsage": {
-    "inputTokens": 3367464,
-    "outputTokens": 2014206,
-    "requests": 360,
-    "costUsd": 3.09054
+    "inputTokens": 3376138,
+    "outputTokens": 2023911,
+    "requests": 363,
+    "costUsd": 3.103921
   }
 }

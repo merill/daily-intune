@@ -1,5 +1,32 @@
 {
-  "newFiles": [],
+  "newFiles": [
+    {
+      "filename": "autopilot/device-preparation/device-association/mdm-provider-integration.md",
+      "status": "added",
+      "additions": 101,
+      "deletions": 0,
+      "changes": 101,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/mdm-provider-integration.md b/autopilot/device-preparation/device-association/mdm-provider-integration.md\nnew file mode 100644\nindex 0000000..0048c0a\n--- /dev/null\n+++ b/autopilot/device-preparation/device-association/mdm-provider-integration.md\n@@ -0,0 +1,101 @@\n+---\n+layout: Conceptual\n+title: Integrate an MDM provider with Windows Autopilot device association | Microsoft Learn\n+canonicalUrl: https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/mdm-provider-integration\n+author: lenewsad\n+ms.author: lanewsad\n+ms.reviewer: madakeva\n+manager: laurawi\n+ms.service: windows-client\n+ms.subservice: autopilot\n+ms.suite: ems\n+breadcrumb_path: /autopilot/breadcrumb/toc.json\n+feedback_product_url: https://feedbackportal.microsoft.com/feedback/forum/ef1d6d38-fd1b-ec11-b6e7-0022481f8472\n+feedback_system: Standard\n+permissioned-type: public\n+uhfHeaderId: MSDocsHeader-Windows\n+description: Learn how a mobile device management provider can request limited access to integrate its service with Windows Autopilot device association.\n+ms.date: 2026-10-16T00:00:00.0000000Z\n+ms.topic: how-to\n+locale: en-us\n+document_id: 21f85f33-86f2-39b4-1935-f7ad3105c4e9\n+document_version_independent_id: 21f85f33-86f2-39b4-1935-f7ad3105c4e9\n+original_content_git_url: https://github.com/MicrosoftDocs/memdocs-pr/blob/live/autopilot/device-preparation/device-association/mdm-provider-integration.md\n+site_name: Docs\n+depot_name: MSDN.autopilot\n+page_type: conceptual\n+toc_rel: ../../toc.json\n+pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/MSDN.autopilot/{branchName}{pdfName}\n+feedback_help_link_type: ''\n+feedback_help_link_url: ''\n+asset_id: device-preparation/device-association/mdm-provider-integration\n+moniker_range_name: \n+monikers: []\n+item_type: Content\n+source_path: autopilot/device-preparation/device-association/mdm-provider-integration.md\n+cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/4b132a0c-342a-42eb-91ff-8159e1ed413d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/57eae307-c3a1-4cac-b645-1a899934bac8\n+spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/f2b71146-ce8e-46a8-9965-8aa8b3aa8235\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ee561821-1ac7-45a8-9409-6ba5eb7a5b97\n+platformId: af63f6c6-ea7b-317f-cb49-09cb8f22e66e\n+---\n+\n+# Integrate an MDM provider with Windows Autopilot device association | Microsoft Learn\n+\n+Windows Autopilot device association can support integration with a mobile device management (MDM) provider other than Microsoft Intune. Provider integration is available through a limited-access onboarding process. Microsoft must authorize the Microsoft Entra application that the provider uses before the application can access the device association service.\r\n+\r\n+Important\r\n+\r\n+This process is for MDM providers that are building device association into their service. It doesn't provide an individual customer or administrator with direct access to the device association service.\r\n+\r\n+## Prerequisites\r\n+\r\n+Before requesting access, the MDM provider should:\r\n+\r\n+- Support Windows device enrollment and management by using the Windows MDM protocols. For more information, see [Mobile Device Management overview](/en-us/windows/client-management/mdm-overview).\r\n+- Integrate its MDM service with Microsoft Entra ID. For more information, see [Microsoft Entra integration with MDM](/en-us/windows/client-management/azure-active-directory-integration-with-mdm).\r\n+- Register the Microsoft Entra application that the service uses to call device association APIs.\r\n+- Define how customers authorize the provider to perform device association operations for their tenant.\r\n+\r\n+## Request access\r\n+\r\n+Contact your Microsoft representative to request onboarding for Windows Autopilot device association. Include the following information:\r\n+\r\n+- The provider's legal company name and MDM product name.\r\n+- Primary business and technical contacts.\r\n+- The Microsoft Entra tenant ID for the provider.\r\n+- The application (client) ID for each Microsoft Entra application and environment that requires access.\r\n+- A description of the device association scenarios that the integration supports.\r\n+- The expected customer scale, geographic availability, and planned release timeline.\r\n+\r\n+Microsoft reviews the provider identity, application identity, and proposed use case. Microsoft might request additional technical, security, privacy, or compliance information during the review.\r\n+\r\n+Note\r\n+\r\n+Submitting a request doesn't guarantee approval. Microsoft doesn't publish a fixed review timeline for limited-access onboarding.\r\n+\r\n+## Complete technical onboarding\r\n+\r\n+If the request is approved, Microsoft:\r\n+\r\n+1. Authorizes the approved Microsoft Entra application identity to use the device association service.\r\n+2. Provides the provider with the applicable API, permission, and validation requirements.\r\n+3. Defines the testing and production-readiness steps that must be completed before the integration is made available to customers.\r\n+\r\n+Access is associated with the approved application identity and use case. It isn't transferable to another application or product. Contact Microsoft before changing an approved application ID, adding an environment, or materially changing the integration scenario.\r\n+\r\n+## Provider responsibilities\r\n+\r\n+An approved MDM provider is responsible for:\r\n+\r\n+- Using device association access only for the approved MDM integration and scenarios.\r\n+- Ensuring that each customer authorizes the provider to perform device association operations for the customer's tenant.\r\n+- Requesting only the permissions required for the integration.\r\n+- Protecting credentials and device, tenant, and association data.\r\n+- Maintaining audit records for device association operations.\r\n+- Providing customer support for the provider's implementation.\r\n+- Notifying Microsoft about security incidents, ownership changes, or changes to the approved application identity or use case.\n\\ No newline at end of file\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/autopilot/device-preparation/device-association/mdm-provider-integration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/mdm-provider-integration",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:added:autopilot/device-preparation/device-association/mdm-provider-integration.md",
+      "firstSeenAt": "2026-10-21T23:16:53.670Z",
+      "englishSummary": {
+        "category": "Private preview",
+        "headline": "Windows Autopilot documents MDM provider integration",
+        "summary": "New documentation explains how MDM providers can request limited access to integrate their services with Windows Autopilot device association, including prerequisites, request details, review, and technical onboarding.",
+        "adminImpact": "No action is required for individual administrators. The process is intended for MDM providers building device association into their services and does not provide direct administrator access.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "modifiedFiles": [
     {
       "filename": "intune/app-management/ref-protected-apps.md",
@@ -78,20 +105,210 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/cmpivot.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/cmpivot.md b/intune/configmgr/core/servers/manage/cmpivot.md\nindex 4553b74..9899cc6 100644\n--- a/intune/configmgr/core/servers/manage/cmpivot.md\n+++ b/intune/configmgr/core/servers/manage/cmpivot.md\n@@ -38,9 +38,11 @@ monikers: []\n item_type: Content\n source_path: intune/configmgr/core/servers/manage/cmpivot.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5cf46315-b33f-4e99-8224-a1592697eff9\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1e69816a-aaaa-474e-a36f-3ec7790fadc3\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/715d24c3-3683-4219-82c5-1e3c813fb7fc\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n - https://authoring-docs-microsoft.poolparty.biz/devrel/ae012320-d2b3-47d8-abdc-898a64d069a9\n platformId: 9737938a-4384-d8c3-e0c1-e85b491a6d11\n@@ -71,7 +73,10 @@ The following components are required to use CMPivot:\n     - Connection\r\n     - IPConfig\r\n     - SMBConfig\r\n-- CMPivot and the [Microsoft Edge](../../../apps/deploy-use/deploy-edge) installer are currently signed with the **Microsoft Code Signing PCA 2011** certificate. If you set PowerShell execution policy to **AllSigned**, then you need to make sure that devices trust this signing certificate. You can export the certificate from a computer where you've installed the Configuration Manager console. View the certificate on `\"C:\\Program Files (x86)\\Microsoft Endpoint Manager\\AdminConsole\\bin\\CMPivot.exe\"`, and then export the code signing certificate from the certification path. Then import it to the *machine*'s **Trusted Publishers** store on managed devices. You can use the process in the following blog, but make sure to export the *code signing certificate* from the certification path: [Adding a Certificate to Trusted Publishers using Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/adding-a-certificate-to-trusted-publishers-using-intune/ba-p/1974488).\r\n+- CMPivot is currently signed with the **Microsoft Code Signing PCA 2011** certificate. If you set the PowerShell execution policy to **AllSigned**, devices must trust the certificate used to sign the CMPivot PowerShell script.\r\n+\r\n+    - In [the update rollup for Configuration Manager version 2603](../../../hotfix/2603/39169655) or Configuration Manager version 2609 and later, the Configuration Manager client automatically adds the certificate to the *machine*'s **Trusted Publishers** store before the client runs the script. No manual action is required for CMPivot.\r\n+    - For earlier Configuration Manager versions, export the certificate from a computer where the Configuration Manager console is installed. View the certificate on `<AdminConsoleInstallDir>\\bin\\CMPivot.exe`, where `<AdminConsoleInstallDir>` is the Configuration Manager console installation folder. Export the code signing certificate from the certification path, and then import it to the *machine*'s **Trusted Publishers** store on managed devices. For an example, see [Adding a Certificate to Trusted Publishers using Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/adding-a-certificate-to-trusted-publishers-using-intune/ba-p/1974488). Make sure to export the *code signing certificate* from the certification path.\r\n \r\n ## Permissions\r\n \r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/servers/manage/cmpivot.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/cmpivot",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/configmgr/core/servers/manage/cmpivot.md",
+      "firstSeenAt": "2026-10-21T23:16:53.674Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "CMPivot certificate trust guidance updated",
+        "summary": "CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with the update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export.",
+        "adminImpact": "If PowerShell is set to AllSigned, ensure devices trust the CMPivot signing certificate. Administrators on earlier Configuration Manager versions must export and trust the certificate.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/37942646.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/37942646.md b/intune/configmgr/hotfix/2603/37942646.md\nindex e2919a8..c459ca8 100644\n--- a/intune/configmgr/hotfix/2603/37942646.md\n+++ b/intune/configmgr/hotfix/2603/37942646.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Cloud management gateway virtual machine scale set image update for Configuration Manager versions 2603, 2509, 2503, and 2409\n-ms.date: 2026-06-02T00:00:00.0000000Z\n+ms.date: 2026-09-07T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n locale: en-us\n@@ -65,6 +65,10 @@ This update transitions the CMG virtual machine scale set to use the new Windows\n \r\n Note\r\n \r\n+For Configuration Manager version 2603, this update is included with the update rollup for Configuration Manager version 2603 [KB 39169655](39169655). A separate out of band hotfix isn't required after you install the update rollup.\r\n+\r\n+Note\r\n+\r\n This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../2509/37864969)). A separate out of band hotfix isn't required for version 2509.\r\n \r\n ### Update information for Microsoft Configuration Manager current branch\r\n@@ -103,6 +107,7 @@ File information is available in the following downloadable text files.\n \r\n ## Release history\r\n \r\n+- September 2026: Added inclusion information for KB 39169655\r\n - June 2, 2026: Initial hotfix release\r\n \r\n ## References\r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/37942646.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/37942646",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/configmgr/hotfix/2603/37942646.md",
+      "firstSeenAt": "2026-10-21T23:16:53.678Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Configuration Manager 2603 hotfix included in KB 39169655",
+        "summary": "The documentation now states that this update is included in the Configuration Manager 2603 update rollup, KB 39169655, and that a separate out-of-band hotfix isn't required after installing the rollup.",
+        "adminImpact": "Administrators installing the update rollup don't need to install a separate hotfix.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/38232642.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38232642.md b/intune/configmgr/hotfix/2603/38232642.md\nindex a61ea94..233af99 100644\n--- a/intune/configmgr/hotfix/2603/38232642.md\n+++ b/intune/configmgr/hotfix/2603/38232642.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Security update for importing console extensions\n-ms.date: 2026-06-02T00:00:00.0000000Z\n+ms.date: 2026-09-07T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n locale: en-us\n@@ -57,6 +57,10 @@ An update is available that enhances security in Configuration Manager for impor\n \r\n Note\r\n \r\n+For Configuration Manager version 2603, this update is included with the update rollup for Configuration Manager version 2603 [KB 39169655](39169655). A separate out of band hotfix isn't required after you install the update rollup.\r\n+\r\n+Note\r\n+\r\n This same update is included with the second update rollup for Configuration Manager version 2509 ([KB 37864969](../2509/37864969)). A separate out of band hotfix is not required for version 2509.\r\n \r\n ### Update information for Microsoft Configuration Manager current branch\r\n@@ -79,6 +83,7 @@ File information is available in the following downloadable text files.\n \r\n ## Release history\r\n \r\n+- September 2026: Added inclusion information for KB 39169655\r\n - June 2026: Initial hotfix release\r\n - August 2026: Added supersedence information for KB 39398030\r\n \r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/38232642.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38232642",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/configmgr/hotfix/2603/38232642.md",
+      "firstSeenAt": "2026-10-21T23:16:53.681Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "2603 hotfix included in KB 39169655 rollup",
+        "summary": "The documentation now states that the update is included in the Configuration Manager version 2603 update rollup KB 39169655, so a separate out-of-band hotfix isn’t required after installing the rollup.",
+        "adminImpact": "Admins can avoid installing a separate hotfix when the update rollup is installed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/38982839.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/38982839.md b/intune/configmgr/hotfix/2603/38982839.md\nindex c93f5a4..45c0d1e 100644\n--- a/intune/configmgr/hotfix/2603/38982839.md\n+++ b/intune/configmgr/hotfix/2603/38982839.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Security update for the SMS Provider and administration service\n-ms.date: 2026-08-17T00:00:00.0000000Z\n+ms.date: 2026-09-07T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n locale: en-us\n@@ -62,6 +62,10 @@ This update fixes the following security issues in Configuration Manager:\n - An issue with the SMS Provider. This update addresses the elevation of privilege vulnerability described in [CVE-2026-88075](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-88075).\r\n - An issue with the administration service. This is a defense-in-depth fix related to a Windows SMB Server issue, addressed separately by [CVE-2026-26128](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-26128). We strongly recommend that you also install the applicable Windows security update.\r\n \r\n+Note\r\n+\r\n+For Configuration Manager version 2603, this update is included with the update rollup for Configuration Manager version 2603 [KB 39169655](39169655). A separate out of band hotfix isn't required after you install the update rollup.\r\n+\r\n ## Hotfixes that are included in this update\r\n \r\n For Configuration Manager version 2503:\r\n@@ -103,6 +107,7 @@ File information is available in the following downloadable text files:\n \r\n ## Release history\r\n \r\n+- September 2026: Added inclusion information for KB 39169655\r\n - August 2026: Initial hotfix release\r\n - August 2026: Added supersedence information for KB 39398030\r\n \r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/38982839.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/38982839",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/configmgr/hotfix/2603/38982839.md",
+      "firstSeenAt": "2026-10-21T23:16:53.684Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Configuration Manager 2603 hotfix is included in update rollup KB 39169655",
+        "summary": "The documentation now states that the update is included in the Configuration Manager 2603 update rollup and that a separate out-of-band hotfix is not required after installing the rollup.",
+        "adminImpact": "Administrators can avoid planning a separate hotfix installation when the update rollup is installed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/39398030.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 1,
+      "changes": 7,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/39398030.md b/intune/configmgr/hotfix/2603/39398030.md\nindex 8c110f1..c52856e 100644\n--- a/intune/configmgr/hotfix/2603/39398030.md\n+++ b/intune/configmgr/hotfix/2603/39398030.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Security update for scripts, the SMS Provider, the Message Processing Engine, and Discovery Data Record processing\n-ms.date: 2026-08-27T00:00:00.0000000Z\n+ms.date: 2026-10-13T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n locale: en-us\n@@ -58,6 +58,10 @@ This update supersedes [KB 38982839](38982839) and [KB 38232642](38232642) and i\n - An issue with the Message Processing Engine. This update addresses the elevation of privilege vulnerability described in [CVE-2026-70049](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70049).\r\n - An issue with Discovery Data Record (DDR) processing.\r\n \r\n+Note\r\n+\r\n+For Configuration Manager version 2603, this update is included with the update rollup for Configuration Manager version 2603 [KB 39169655](39169655). A separate out of band hotfix isn't required after you install the update rollup.\r\n+\r\n ## Hotfixes that are included in this update\r\n \r\n - KB [38982839](38982839): Security update for the SMS Provider and administration service\r\n@@ -102,6 +106,7 @@ File information is available in the following downloadable text files:\n \r\n ## Release history\r\n \r\n+- October 2026: Added inclusion information for KB 39169655\r\n - August 2026: Initial hotfix release\r\n \r\n ## References\r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/39398030.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/39398030",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/configmgr/hotfix/2603/39398030.md",
+      "firstSeenAt": "2026-10-21T23:16:53.688Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Configuration Manager 2603 hotfix is included in update rollup",
+        "summary": "The documentation now states that KB 39169655 includes this update for Configuration Manager 2603, so a separate out-of-band hotfix isn't required after installing the rollup.",
+        "adminImpact": "Administrators can use the update rollup instead of deploying a separate hotfix.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/configmgr/hotfix/index.md b/intune/configmgr/hotfix/index.md\nindex c90a5f7..7c15de0 100644\n--- a/intune/configmgr/hotfix/index.md\n+++ b/intune/configmgr/hotfix/index.md\n@@ -63,6 +63,7 @@ Knowledge Base articles for Microsoft Configuration Manager hotfixes, update rol\n - [KB 38232642 Security update for Configuration Manager](2603/38232642)\r\n - [KB 38982839 Security update for the SMS Provider and administration service](2603/38982839)\r\n - [KB 39398030 Security update for scripts, SMS Provider, MPE, and DDR](2603/39398030)\r\n+- [KB 39169655 Update rollup for Microsoft Configuration Manager version 2603](2603/39169655)\r\n \r\n ## Configuration Manager 2509\r\n \r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/index",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/configmgr/hotfix/index.md",
+      "firstSeenAt": "2026-10-21T23:16:53.692Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Configuration Manager 2603 update rollup added",
+        "summary": "The hotfix index now links to KB 39169655, the update rollup for Microsoft Configuration Manager version 2603.",
+        "adminImpact": "Administrators can use the hotfix index to find the new update rollup documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 229a484..db256b5 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -718,15 +718,16 @@ Applies to:\n \r\n - Windows\r\n \r\n-#### Improved on-demand device sync for Windows devices\r\n+#### Improved on-demand device sync for Windows & iOS/iPadOS devices\r\n \r\n-Microsoft Intune now supports a more comprehensive on-demand sync for Windows devices. When you select the **Sync** device action in the Microsoft Intune admin center, Intune initiates a full synchronization across key workloads, including configuration policies, apps, and scripts, so devices reflect your latest changes faster. This capability is especially useful during troubleshooting, incident response, and high-priority rollouts.\r\n+Microsoft Intune now supports a more comprehensive on-demand sync for Windows and iOS/iPadOS devices. When you select the **Sync** device action in the Microsoft Intune admin center, Intune initiates a full synchronization across key workloads, including configuration policies, apps, and scripts, so devices reflect your latest changes faster. This capability is especially useful during troubleshooting, incident response, and high-priority rollouts.\r\n \r\n For more information, see [Device action: sync](../device-management/actions/sync).\r\n \r\n Applies to:\r\n \r\n - Windows\r\n+- iOS/iPadOS\r\n \r\n ### Device security\r\n \r\n",
+      "baseCommitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitMessage": "Mirror Learn: 7 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 22:51:55 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:4acf8f5dbe95ab26807ff011db6788bd6b08c322:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-10-21T23:16:53.801Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "On-demand sync now includes iOS/iPadOS devices",
+        "summary": "Intune’s comprehensive **Sync** device action now applies to Windows and iOS/iPadOS devices, synchronizing key workloads such as configuration policies, apps, and scripts.",
+        "adminImpact": "Administrators can use the Intune admin center’s **Sync** action to initiate this broader synchronization for iOS/iPadOS devices; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 3,
+    "totalCommits": 2,
+    "totalFiles": 11,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 1 new, 10 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
     "groups": [
+      {
+        "category": "Private preview",
+        "title": "autopilot/device-preparation",
+        "summary": "New documentation explains how MDM providers can request limited access to integrate their services with Windows Autopilot device association, including prerequisites, request details, review, and technical onboarding.",
+        "sourceFiles": [
+          "autopilot/device-preparation/device-association/mdm-provider-integration.md"
+        ]
+      },
       {
         "category": "Doc update",
         "title": "intune/app-management",
@@ -103,14 +320,33 @@
       {
         "category": "Doc update",
         "title": "intune/configmgr",
-        "summary": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it. The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues.",
+        "summary": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it. The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues. CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with the update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export. The documentation now states that this update is included in the Configuration Manager 2603 up",
         "sourceFiles": [
           "intune/configmgr/core/get-started/2020/technical-preview-2011.md",
-          "intune/configmgr/core/servers/manage/community-hub.md"
+          "intune/configmgr/core/servers/manage/community-hub.md",
+          "intune/configmgr/core/servers/manage/cmpivot.md",
+          "intune/configmgr/hotfix/2603/37942646.md",
+          "intune/configmgr/hotfix/2603/38232642.md",
+          "intune/configmgr/hotfix/2603/38982839.md",
+          "intune/configmgr/hotfix/2603/39398030.md",
+          "intune/configmgr/hotfix/index.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Intune’s comprehensive **Sync** device action now applies to Windows and iOS/iPadOS devices, synchronizing key workloads such as configuration policies, apps, and scripts.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
         ]
       }
     ],
     "highlights": [
+      {
+        "category": "Private preview",
+        "headline": "autopilot/device-preparation",
+        "detail": "New documentation explains how MDM providers can request limited access to integrate their services with Windows Autopilot device association, including prerequisites, request details, review, and technical onboarding."
+      },
       {
         "category": "Doc update",
         "headline": "intune/app-management",
@@ -119,7 +355,12 @@
       {
         "category": "Doc update",
         "headline": "intune/configmgr",
-        "detail": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it. The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues."
+        "detail": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it. The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues. CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with the update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export. The documentation now states that this update is included in the Configuration Manager 2603 up"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Intune’s comprehensive **Sync** device action now applies to Windows and iOS/iPadOS devices, synchronizing key workloads such as configuration policies, apps, and scripts."
       }
     ],
     "generatedBy": "fallback"

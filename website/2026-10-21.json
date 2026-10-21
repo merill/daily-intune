@@ -1,0 +1,127 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/ref-protected-apps.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 6,
+      "changes": 9,
+      "patch": "diff --git a/intune/app-management/ref-protected-apps.md b/intune/app-management/ref-protected-apps.md\nindex 921db18..9ada4d5 100644\n--- a/intune/app-management/ref-protected-apps.md\n+++ b/intune/app-management/ref-protected-apps.md\n@@ -34,13 +34,13 @@ monikers: []\n item_type: Content\n source_path: intune/app-management/ref-protected-apps.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/7ebba99b-05c3-4387-8883-f7bbf6632cb8\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n - https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/006ab567-b18c-4cf1-9a25-c24daa46ede1\n platformId: 038967bb-30f3-e4bb-df36-099adf958a35\n ---\n \n@@ -135,15 +135,12 @@ The below apps support the core Intune App Protection Policy settings.\n | Field Service (Dynamics 365) | [iOS](https://apps.apple.com/app/field-service-dynamics-365/id1485579247?ls=1) | ✔ | No settings |\r\n | Microsoft 365 Admin | [Android](https://play.google.com/store/apps/details?id=com.ms.office365admin) | ✔ | No settings |\r\n | Microsoft 365 Admin | [iOS](https://apps.apple.com/app/microsoft-365-admin/id761397963) | ✔ | No settings |\r\n-| Microsoft Azure Information Protection Viewer | [iOS](https://apps.apple.com/us/app/rms-sharing/id689516635) | ✔ | No settings |\r\n | Microsoft Dragon Copilot | [Android](https://play.google.com/store/apps/details?id=com.microsoft.dragoncopilot) | ✔ | No settings |\r\n | Microsoft Dragon Copilot | [iOS](https://apps.apple.com/app/microsoft-dragon-copilot/id6737987442) | ✔ | No settings |\r\n | Microsoft Dynamics CRM | [Android](https://play.google.com/store/apps/details?id=com.microsoft.crm.crmphone) | ✔ | No settings |\r\n | Microsoft Dynamics CRM | [iOS](https://apps.apple.com/app/microsoft-dynamics-crm/id678800460) | ✔ | No settings |\r\n | Microsoft PowerApps | [Android](https://play.google.com/store/apps/details?id=com.microsoft.msapps) | ✔ | No settings |\r\n | Microsoft PowerApps | [iOS](https://apps.apple.com/us/app/powerapps/id1047318566) | ✔ | No settings |\r\n-| Microsoft Power Automate | [Android](https://play.google.com/store/apps/details?id=com.microsoft.flow) | ✔ | No settings |\r\n-| Microsoft Power Automate | [iOS](https://apps.apple.com/us/app/microsoft-flow/id1094928825) | ✔ | No settings |\r\n | Microsoft Power BI | [Android](https://play.google.com/store/apps/details?id=com.microsoft.powerbim) | ✔ | No settings |\r\n | Microsoft Power BI | [iOS](https://apps.apple.com/us/app/microsoft-power-bi/id929738808) | ✔ | No settings |\r\n | Microsoft Skype for Business | [Android](https://play.google.com/store/apps/details?id=com.microsoft.office.lync15) | ✔ | No settings |\r\n@@ -233,7 +230,7 @@ Contact the app vendor for specific details on Intune related support.\n | FleetSafer<br>![Partner app - FleetSafer icon](media/ref-protected-apps/icon-p-fleet.png) | FleetSafer is a risk measurement and mitigation tool that enforces communications policies and monitors safe driving practices. FleetSafer requires a Cogosense enterprise account. FleetSafer uses GPS or a connected cogoB smart device to detect driving movement. When movement is detected, the app automatically disables device access and silences all calls and notifications. Calling, text, social, and email functionality is disabled. Driving behavior is monitored. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.aegismobility.guardian),[App Store link (iOS)](https://apps.apple.com/app/id957483278) |\r\n | Foxit PDF Editor<br>![Partner app - Foxit PDF Editor icon](media/ref-protected-apps/icon-p-36621352.png) | Foxit PDF Editor lets you view, edit, and annotate PDF files in a Microsoft Intune managed environment. Available for iOS/iPadOS, Android, and supported Chromebooks. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.foxit.mobile.pdf.lite),[App Store link (iOS)](https://apps.apple.com/us/app/foxit-pdf-editor/id507040546) |\r\n | Freshservice for Intune<br>![Partner app - Freshservice for Intune icon](media/ref-protected-apps/freshservice.png) | Freshservice for Intune is designed for Freshservice customers with Microsoft Intune enabled. This app offers the freedom to request and manage services seamlessly on the go, including incident management, asset management, user management, service catalog, and task management. The app is designed with productivity at its core, delivering everything users need while ensuring efficiency, collaboration, and customer satisfaction. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.freshservice.helpdesk.intune),[App Store link (iOS)](https://apps.apple.com/in/app/freshservice-for-intune/id6475669802) |\r\n-| Fuze Mobile for Intune<br>![Partner app - Fuze Mobile for Intune icon](media/ref-protected-apps/icon-p-fuze.png) | Fuze Mobile for Intune allows end users to communicate using voice calling, video meetings, contact center, chat messaging, and content sharing. Admins can deploy Fuze Mobile securely and at scale in a BYOD context. Fuze Mobile for Intune requires both a Fuze account and a Microsoft managed environment. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.fuze.fuzeapp),[App Store link (iOS)](https://apps.apple.com/app/fuze-mobile/id1160444971) |\r\n+| Fuze Mobile for Intune<br>![Partner app - Fuze Mobile for Intune icon](media/ref-protected-apps/icon-p-fuze.png) | Fuze Mobile for Intune allows end users to communicate using voice calling, video meetings, contact center, chat messaging, and content sharing. Admins can deploy Fuze Mobile securely and at scale in a BYOD context. Fuze Mobile for Intune requires both a Fuze account and a Microsoft managed environment. | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.fuze.fuzeapp) |\r\n | Global Relay<br>![Partner app - Global Relay icon](media/ref-protected-apps/icon-p-globalrelay.png) | Put compliance at the heart of your communication with one powerful app. Global Relay is an enterprise unified communication platform purpose-built for financial and other regulated industries to meet collaboration, compliance, privacy, and security requirements.<br>Global Relay supports BYOD and corporate programs. It ensures compliant communication with customers, colleagues, and industry peers through text, voice, WhatsApp, and other preferred channels.<br><br>The Global Relay App is available for mobile, desktop, and web. And, Global Relay is fully integrated with Microsoft Intune SDK to provide MDM/MAM policy control for IT Administrators.<br><br>**NOTE: You must be a Global Relay customer or partner to use this app.** | [Google Play link (Android)](https://play.google.com/store/apps/details?id=com.globalrelay.message.intune),[App Store link (iOS)](https://apps.apple.com/app/global-relay/id576031737) |\r\n | Goodnotes 6<br>![Partner app - Goodnotes 6 icon](media/ref-protected-apps/icon-p-goodnotes.png) | Goodnotes 6 is a powerful note-taking app designed to provide a seamless and natural handwriting experience on digital paper. This comprehensive solution combines the simplicity of handwriting, the power of digital tools, and advanced AI features to enhance productivity and organization. Whether you're in a meeting, on a call, or brainstorming, Goodnotes keeps your ideas organized and accessible. | [App Store link (iOS)](https://apps.apple.com/us/app/goodnotes-6/id1444383602) |\r\n | HCSS Field: Time, cost, safety<br>![Partner app - HCSS Field: Time, cost, safety icon](media/ref-protected-apps/icon-p-hccsfield-icon.png) | HCSS Field is a mobile app for heavy civil construction. It's designed to replace paper-based processes with digital solutions. It integrates with the HCSS software suite to streamline field operations, project management, safety, and team communication. | [App Store link (iOS)](https://apps.apple.com/app/hcss-field-time-cost-safety/id720784422) |\r\n",
+      "baseCommitSha": "e1b4115cdc0a17384b047f2e8718d435f89aff8b",
+      "commitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:21:09 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/ref-protected-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/ref-protected-apps",
+      "eventId": "intune-docs:8c7c61d1c69d00e357fc517c2f679e1e66b0dc78:modified:intune/app-management/ref-protected-apps.md",
+      "firstSeenAt": "2026-10-21T13:43:46.631Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Protected apps reference list refreshed",
+        "summary": "The page removes entries for Microsoft Azure Information Protection Viewer and Microsoft Power Automate on Android and iOS, and updates the Fuze Mobile for Intune entry and related links.",
+        "adminImpact": "Review the updated reference list if your app protection planning includes these apps. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/get-started/2020/technical-preview-2011.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/get-started/2020/technical-preview-2011.md b/intune/configmgr/core/get-started/2020/technical-preview-2011.md\nindex 6be8b81..83b3039 100644\n--- a/intune/configmgr/core/get-started/2020/technical-preview-2011.md\n+++ b/intune/configmgr/core/get-started/2020/technical-preview-2011.md\n@@ -71,7 +71,7 @@ Admins can choose the types of content their environment displays from the follo\n \r\n ![Hierarchy settings for allowed content sources for Community hub](../media/8052494-community-hub-content-hierarchy-settings.png)\r\n \r\n-Since the content is *open-source* style content, admins should always review what is provided before consuming it. The new curation process is intended to vet the material to make sure there aren't obvious quality or compliance issues, but it will be somewhat of a cursory review. All content stored within GitHub and accessed from the Community hub isn’t supported by Microsoft. Microsoft doesn’t validate content collected from or shared by the general community. For more information, see [GitHub Terms of Service](https://help.github.com/terms) and [GitHub Privacy Statement](https://help.github.com/privacy).\r\n+Since the content is *open-source* style content, admins should always review what is provided before consuming it. The new curation process is intended to vet the material to make sure there aren't obvious quality or compliance issues, but it will be somewhat of a cursory review. All content stored within GitHub and accessed from the Community hub isn’t supported by Microsoft. Microsoft doesn’t validate content collected from or shared by the general community. For more information, see [GitHub Terms of Service](https://docs.github.com/terms) and [GitHub Privacy Statement](https://docs.github.com/privacy).\r\n \r\n ### Try it out!\r\n \r\n",
+      "baseCommitSha": "e1b4115cdc0a17384b047f2e8718d435f89aff8b",
+      "commitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:21:09 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/get-started/2020/technical-preview-2011.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/get-started/2020/technical-preview-2011",
+      "eventId": "intune-docs:8c7c61d1c69d00e357fc517c2f679e1e66b0dc78:modified:intune/configmgr/core/get-started/2020/technical-preview-2011.md",
+      "firstSeenAt": "2026-10-21T13:43:46.634Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Guidance on reviewing open-source-style content was revised",
+        "summary": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it.",
+        "adminImpact": "Administrators should review this content themselves before use; no configuration change is identified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/servers/manage/community-hub.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/community-hub.md b/intune/configmgr/core/servers/manage/community-hub.md\nindex 0e722c4..a91456c 100644\n--- a/intune/configmgr/core/servers/manage/community-hub.md\n+++ b/intune/configmgr/core/servers/manage/community-hub.md\n@@ -192,7 +192,7 @@ Admins can choose the types of content their environment displays from the follo\n \r\n ![Hierarchy settings for allowed content sources for the Community hub](media/8052494-community-hub-content-hierarchy-settings.png)\r\n \r\n-Since the content is *open-source* style content, admins should always review what is provided before consuming it. The new curation process is intended to vet the material to make sure there aren't obvious quality or compliance issues, but it will be somewhat of a cursory review. All content stored within GitHub and accessed from the Community hub isn’t supported by Microsoft. Microsoft doesn’t validate content collected from or shared by the general community. For more information, see [GitHub Terms of Service](https://help.github.com/terms) and [GitHub Privacy Statement](https://help.github.com/privacy).\r\n+Since the content is *open-source* style content, admins should always review what is provided before consuming it. The new curation process is intended to vet the material to make sure there aren't obvious quality or compliance issues, but it will be somewhat of a cursory review. All content stored within GitHub and accessed from the Community hub isn’t supported by Microsoft. Microsoft doesn’t validate content collected from or shared by the general community. For more information, see [GitHub Terms of Service](https://docs.github.com/terms) and [GitHub Privacy Statement](https://docs.github.com/privacy).\r\n \r\n ### Select the content categories to display in Community hub for the environment\r\n \r\n",
+      "baseCommitSha": "e1b4115cdc0a17384b047f2e8718d435f89aff8b",
+      "commitSha": "8c7c61d1c69d00e357fc517c2f679e1e66b0dc78",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-21 13:21:09 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/servers/manage/community-hub.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/community-hub",
+      "eventId": "intune-docs:8c7c61d1c69d00e357fc517c2f679e1e66b0dc78:modified:intune/configmgr/core/servers/manage/community-hub.md",
+      "firstSeenAt": "2026-10-21T13:43:46.638Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Community Hub curation guidance revised",
+        "summary": "The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues.",
+        "adminImpact": "Treat curated content as requiring administrator review; the curation process is not comprehensive.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/app-management",
+        "summary": "The page removes entries for Microsoft Azure Information Protection Viewer and Microsoft Power Automate on Android and iOS, and updates the Fuze Mobile for Intune entry and related links.",
+        "sourceFiles": [
+          "intune/app-management/ref-protected-apps.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it. The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues.",
+        "sourceFiles": [
+          "intune/configmgr/core/get-started/2020/technical-preview-2011.md",
+          "intune/configmgr/core/servers/manage/community-hub.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/app-management",
+        "detail": "The page removes entries for Microsoft Azure Information Protection Viewer and Microsoft Power Automate on Android and iOS, and updates the Fuze Mobile for Intune entry and related links."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The page now describes the curation process as a cursory check for obvious quality or compliance issues and reiterates that administrators should review content before consuming it. The guidance states that administrators should review open-source-style content before using it because curation checks only for obvious quality or compliance issues."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

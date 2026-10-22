@@ -7531,6 +7531,46 @@
         "outputTokens": 3675,
         "costUsd": 0.004855
       }
+    },
+    "2026-10-22": {
+      "headline": "PowerShell sample guidance now points to the mggraph-intune-samples repository",
+      "overview": "The period is documentation maintenance centered on reference destinations. Intune setup, Graph API, and app-management guidance now points to microsoft/mggraph-intune-samples; Apple DDM app-settings guidance moves from the seed_OS_27_0 schema branch to the release branch; and iOS/iPadOS example pages use updated references. Configuration Manager TLS pages retain hotfix IDs 3099842 and 3099844 but remove their direct links.",
+      "adminImpact": "Use microsoft/mggraph-intune-samples when downloading Intune PowerShell samples or importing related policy templates. Administrators following the Configuration Manager TLS guidance must locate the support pages manually using hotfix IDs 3099842 and 3099844. The other reference-link updates do not call for configuration changes.",
+      "keyChanges": [
+        {
+          "title": "PowerShell sample links converge on the mggraph-intune-samples repository",
+          "detail": "Setup Migration now links to microsoft/mggraph-intune-samples instead of microsoftgraph/powershell-intune-samples. Configure Graph API Access and Data Protection Framework guidance also directs administrators to that repository for Intune PowerShell examples and scripts.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-22-setup-migration-11"
+        },
+        {
+          "title": "Apple DDM app-settings schema guidance switches to the release branch",
+          "detail": "The Apple DDM App Settings page changes its app.settings source-schema link from the seed_OS_27_0 branch to the release branch, directing administrators to the release schema reference.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-22-apple-ddm-app-settings-07"
+        },
+        {
+          "title": "Configuration Manager TLS pages retain hotfix IDs but remove direct links",
+          "detail": "Enable TLS 1.2 Client now lists rollups 3099842 and 3099844 as plain text for Windows 8.1, Windows Server 2012 R2, and Windows Server 2012. Administrators must locate the applicable support references manually.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-22-enable-tls-1-2-client-03"
+        },
+        {
+          "title": "iOS/iPadOS supervised examples receive refreshed reference links",
+          "detail": "The Supervised page changes the reference links used in its examples guidance. The guidance on evaluating threat environment, risk appetite, and usability remains unchanged; use the updated links when validating configurations.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-22-ios-ipados-supervised-10"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-22T13:44:58.434Z",
+      "usage": {
+        "inputTokens": 2100,
+        "outputTokens": 3421,
+        "costUsd": 0.004525
+      }
     }
   },
   "weeks": {
@@ -9331,49 +9371,49 @@
       }
     },
     "2026-10-19": {
-      "headline": "Intune’s comprehensive Sync action now covers iOS/iPadOS devices",
-      "overview": "This was chiefly a documentation-maintenance period, with several meaningful administrator-facing exceptions. Intune guidance now covers broader iOS/iPadOS synchronization, specifies a macOS lockout-timer prerequisite, and strongly recommends encryption at rest for Microsoft Tunnel container files. Configuration Manager guidance also clarifies CMPivot certificate trust on devices using PowerShell AllSigned.",
-      "adminImpact": "Use the Intune admin center’s Sync action for iOS/iPadOS devices when you need to synchronize configuration policies, apps, scripts, and other key workloads. For macOS password rotation, configure Failed Attempts Reset In Minutes in the Settings catalog first if lockout timing must be managed. Review Docker or Podman encryption options for Microsoft Tunnel container files. Configuration Manager administrators should verify CMPivot certificate trust on earlier versions or where PowerShell uses AllSigned.",
+      "headline": "CMPivot signing certificate guidance now spells out version-specific trust requirements",
+      "overview": "The clearest operational updates concern CMPivot certificate trust, Intune’s comprehensive Sync scope, macOS password-rotation sequencing, and Configuration Manager 2603 rollup coverage. A new Windows Autopilot page describes prerequisites, request review, and technical onboarding for MDM providers integrating device association into their services. Microsoft also says recipients can safely disregard the Security Copilot E5/E7 inclusion message. Other notable edits are reference maintenance, including Intune sample links moving to `microsoft/mggraph-intune-samples`.",
+      "adminImpact": "If PowerShell is set to AllSigned, ensure devices trust CMPivot’s Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with its update rollup and version 2609 or later add it automatically; earlier versions require manual certificate export. On macOS, configure **Failed Attempts Reset In Minutes** in the Settings catalog before password rotation when lockout-timer control is needed. Administrators can use comprehensive Sync for Windows and iOS/iPadOS without a configuration change. For update 37942646, installing KB 39169655 removes the need for a separate out-of-band hotfix. Individual administrators have no action in the provider-facing Autopilot process, and the updated Security Copilot message should be disregarded.",
       "keyChanges": [
         {
-          "title": "Comprehensive Sync now includes iOS/iPadOS devices",
-          "detail": "The Intune Index states that the comprehensive Sync device action applies to Windows and iOS/iPadOS, synchronizing key workloads such as configuration policies, apps, and scripts. Administrators can initiate the action from the Intune admin center without a configuration change.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-21-index-11"
-        },
-        {
-          "title": "macOS lockout timing requires a Settings catalog value before password rotation",
-          "detail": "The setup guidance directs administrators to configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password when they need to manage the lockout timer.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-19-setup-macos-03"
-        },
-        {
-          "title": "Microsoft Tunnel guidance strongly recommends encryption at rest for container files",
-          "detail": "The prerequisites guidance now describes encryption at rest as optional but strongly recommended for files used by Microsoft Tunnel containers, with links to Linux distribution and container platform guidance.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-19-prerequisites-04"
-        },
-        {
-          "title": "CMPivot certificate trust depends on the Configuration Manager version",
-          "detail": "CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with its update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export. Devices using PowerShell with AllSigned must trust the certificate.",
+          "title": "CMPivot trust handling now depends on Configuration Manager version",
+          "detail": "The updated guidance states that CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with the update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export. Devices using PowerShell with **AllSigned** must trust the certificate.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-21-cmpivot-05"
         },
         {
-          "title": "Configuration Manager 2603 rollup replaces a separate out-of-band hotfix",
-          "detail": "The 37942646 guidance now states that the update is included in the Configuration Manager 2603 update rollup, KB 39169655, so administrators do not need a separate out-of-band hotfix after installing the rollup.",
+          "title": "Intune comprehensive Sync is documented for Windows and iOS/iPadOS",
+          "detail": "The updated Intune index states that the comprehensive **Sync** device action applies to Windows and iOS/iPadOS devices and synchronizes key workloads such as configuration policies, apps, and scripts. Administrators can initiate it from the Intune admin center without changing configuration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-21-index-11"
+        },
+        {
+          "title": "macOS lockout-timer setup must precede password rotation",
+          "detail": "The setup guidance directs administrators to configure **Failed Attempts Reset In Minutes** in the Settings catalog before rotating the password when they need to manage the lockout timer.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-19-setup-macos-03"
+        },
+        {
+          "title": "Configuration Manager 2603 rollup includes update 37942646",
+          "detail": "The 37942646 guidance now states that Configuration Manager 2603 update rollup KB 39169655 includes the update, so a separate out-of-band hotfix is not required after the rollup is installed.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-21-37942646-06"
+        },
+        {
+          "title": "Security Copilot E5/E7 inclusion message should be disregarded",
+          "detail": "The updated October 19 Message Center item says the notice did not reach its intended audience and can safely be disregarded.",
+          "product": "Security Copilot",
+          "sourceId": "MC1478465"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-21T23:17:08.310Z",
+      "generatedAt": "2026-10-22T13:44:58.434Z",
       "usage": {
-        "inputTokens": 2552,
-        "outputTokens": 3203,
-        "costUsd": 0.004354
+        "inputTokens": 3715,
+        "outputTokens": 9105,
+        "costUsd": 0.011669
       }
     }
   },
@@ -9793,54 +9833,54 @@
       }
     },
     "2026-10": {
-      "headline": "Intune will end Windows MDM-only enrollment CNAME discovery on January 15, 2027",
-      "overview": "October was mostly documentation maintenance, but several changes have direct planning value. Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment in January 2027; Windows 11 version 26H2 baseline guidance requires deliberate profile handling; and Microsoft Purview DLP will add Intune multi-admin approval support for unmanaged apps in Edge for Business starting in November 2026. Endpoint Privilege Management guidance also details controlled delegation of network-setting changes, while Configuration Manager 2609 upgrade guidance warns that CMG migration can fail when regional quotas are insufficient.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; existing devices and other enrollment methods are unaffected. For the Windows 11 26H2 baseline, create a new profile or update an existing one because current profiles do not update automatically. Purview’s change affects setup and coordination rather than existing policies or enforcement. EPM devices need an enabled elevation settings policy before administrators delegate network changes. Configuration Manager teams should verify CMG vCPU and regional quotas before VM scale-set migration.",
+      "headline": "Intune ends Windows MDM-only DNS CNAME auto-discovery on January 15, 2027",
+      "overview": "Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027, requiring users to enter the Microsoft enrollment server URL manually. October also documents Windows 11 version 26H2 baseline adoption, controlled network-setting changes through Endpoint Privilege Management, and Configuration Manager 2609 support changes. Purview DLP will add Intune multi-admin approval coordination for unmanaged apps in Edge for Business beginning in November 2026. Much of the remaining period consisted of reference, link, label, and metadata maintenance.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; existing devices and other enrollment methods are unaffected. Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. EPM administrators need an enabled elevation settings policy before delegating IPv4, IPv6, or DNS changes. Configuration Manager teams should identify Windows Server 2012 and 2012 R2 client devices affected by version 2609 and move them to a supported Windows Server version. Purview and Intune administrators should plan the new approval workflow, while existing DLP policies and enforcement remain unchanged.",
       "keyChanges": [
         {
-          "title": "Windows MDM-only enrollment will require manual server URLs",
-          "detail": "Starting January 15, 2027, Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment. Affected users will need to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods remain unaffected.",
+          "title": "Windows MDM-only enrollment loses DNS CNAME auto-discovery",
+          "detail": "Starting January 15, 2027, Intune will no longer support DNS CNAME auto-discovery for Windows MDM-only enrollment. Users will need to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "Windows 11 26H2 baseline profiles require deliberate updates",
-          "detail": "The updated guidance covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically, so administrators must create a new profile or update an existing one to use the 26H2 baseline.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-06-index-06"
-        },
-        {
-          "title": "Purview DLP will add Intune approval coordination for Edge apps",
-          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
+          "title": "Purview DLP adds Intune multi-admin approval for Edge unmanaged apps",
+          "detail": "Beginning in November 2026, Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval, including clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement do not change.",
           "product": "Intune",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Endpoint Privilege Management guidance details controlled network changes",
-          "detail": "EPM policies can let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices must have an EPM elevation settings policy enabled.",
+          "title": "Windows 11 version 26H2 baseline guidance adds Settings Catalog coverage",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-06-index-06"
+        },
+        {
+          "title": "Endpoint Privilege Management documents controlled network changes for standard users",
+          "detail": "New guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices must have an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Configuration Manager 2609 CMG migrations need quota checks",
-          "detail": "Before upgrading, administrators should identify CMGs, calculate required vCPUs, check standard Dadv6 Family and regional quotas, and request increases where needed. Insufficient quota can cause a QuotaExceeded error during migration.",
+          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
+          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
+          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-21T23:17:08.310Z",
+      "generatedAt": "2026-10-22T13:44:58.434Z",
       "usage": {
-        "inputTokens": 6329,
-        "outputTokens": 6919,
-        "costUsd": 0.009569
+        "inputTokens": 6353,
+        "outputTokens": 5402,
+        "costUsd": 0.007753
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-21T23:17:08.310Z",
+  "generatedAt": "2026-10-22T13:44:58.434Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -9977,18 +10017,24 @@
       "outputTokens": 23855,
       "requests": 6,
       "costUsd": 0.032655
+    },
+    "2026-10-22": {
+      "inputTokens": 12168,
+      "outputTokens": 17928,
+      "requests": 3,
+      "costUsd": 0.023947
     }
   },
   "lastRun": {
-    "inputTokens": 11108,
-    "outputTokens": 13797,
+    "inputTokens": 12168,
+    "outputTokens": 17928,
     "requests": 3,
-    "costUsd": 0.018778
+    "costUsd": 0.023947
   },
   "totalUsage": {
-    "inputTokens": 3405240,
-    "outputTokens": 2056791,
-    "requests": 372,
-    "costUsd": 3.149198
+    "inputTokens": 3417408,
+    "outputTokens": 2074719,
+    "requests": 375,
+    "costUsd": 3.173145
   }
 }

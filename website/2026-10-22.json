@@ -1,0 +1,391 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/protection/data-protection-framework.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/app-management/protection/data-protection-framework.md b/intune/app-management/protection/data-protection-framework.md\nindex e02aa64..29a32ab 100644\n--- a/intune/app-management/protection/data-protection-framework.md\n+++ b/intune/app-management/protection/data-protection-framework.md\n@@ -35,8 +35,10 @@ monikers: []\n item_type: Content\n source_path: intune/app-management/protection/data-protection-framework.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n platformId: 0ad3dabf-6402-1813-2939-00e10c35e853\n ---\n@@ -77,7 +79,7 @@ The following App Protection Policy settings should be enabled for the applicabl\n \r\n Microsoft recommends reviewing and categorizing usage scenarios, and then configuring users using the prescriptive guidance for that level. As with any framework, settings within a corresponding level may need to be adjusted based on the needs of the organization as data protection must evaluate the threat environment, risk appetite, and impact to usability.\r\n \r\n-Administrators can incorporate the below configuration levels within their ring deployment methodology for testing and production use by importing the sample Intune App Protection Policy Configuration Framework JSON templates with [Intune's PowerShell scripts](https://github.com/microsoftgraph/powershell-intune-samples).\r\n+Administrators can incorporate the below configuration levels within their ring deployment methodology for testing and production use by importing the sample Intune App Protection Policy Configuration Framework JSON templates with [Intune's PowerShell scripts](https://github.com/microsoft/mggraph-intune-samples).\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/protection/data-protection-framework.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/protection/data-protection-framework",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/app-management/protection/data-protection-framework.md",
+      "firstSeenAt": "2026-10-22T13:44:38.624Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated links in app protection policy framework guidance",
+        "summary": "The documentation updates two authoring references and changes the linked Intune PowerShell scripts repository.",
+        "adminImpact": "Administrators using the sample JSON templates should follow the updated script link when importing policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/misc/in-console-documentation.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 3,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/misc/in-console-documentation.md b/intune/configmgr/core/misc/in-console-documentation.md\nindex 53ad577..7d41e43 100644\n--- a/intune/configmgr/core/misc/in-console-documentation.md\n+++ b/intune/configmgr/core/misc/in-console-documentation.md\n@@ -96,6 +96,4 @@ The complete list of all hotfix and update rollup related articles, starting wit\n \r\n The short form URL for version 2010 and newer hotfix related articles is `https://aka.ms/KB#######`. For example, https://aka.ms/KB9210721. Hotfix related articles for version 2006 and prior are still available on support.microsoft.com.\r\n \r\n-The Microsoft knowledge base articles previously found at support.microsoft.com are published to [Microsoft Configuration Manager troubleshooting](/en-us/troubleshoot/mem/configmgr/welcome-configuration-manager?WT.mc_id=configmgr-console). Troubleshooting articles created after October 2020 don't have a KB article ID.\r\n-\r\n-To subscribe to Atom or RSS notification of new Configuration Manager support articles, see [Support content updates](https://support.microsoft.com/help/4089498/) and select **Microsoft Configuration Manager (current branch)**.\n\\ No newline at end of file\n+The Microsoft knowledge base articles previously found at support.microsoft.com are published to [Microsoft Configuration Manager troubleshooting](/en-us/troubleshoot/mem/configmgr/welcome-configuration-manager?WT.mc_id=configmgr-console). Troubleshooting articles created after October 2020 don't have a KB article ID.\n\\ No newline at end of file\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/misc/in-console-documentation.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/misc/in-console-documentation",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/configmgr/core/misc/in-console-documentation.md",
+      "firstSeenAt": "2026-10-22T13:44:38.627Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated Configuration Manager troubleshooting references",
+        "summary": "The page updates links and guidance for finding Microsoft Configuration Manager troubleshooting articles and subscribing to support-content updates.",
+        "adminImpact": "Administrators can use the revised references to locate troubleshooting information and notifications more easily; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md b/intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md\nindex e0fc889..3756307 100644\n--- a/intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md\n+++ b/intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md\n@@ -109,8 +109,8 @@ Install the .NET updates so you can enable strong cryptography. Some versions of\n \r\n     For your reference, TLS 1.2 was first introduced into .Net Framework 4.5.1 and 4.5.2 with the following hotfix rollups:\r\n \r\n-    - For Windows 8.1 and Server 2012 R2: [Hotfix rollup 3099842](https://support.microsoft.com/topic/hotfix-rollup-3099842-for-the-net-framework-4-5-2-and-the-net-framework-4-5-1-on-windows-7b629c7e-bea4-4838-2512-e22e8bad368a)\r\n-    - For Windows Server 2012: [Hotfix rollup 3099844](https://support.microsoft.com/topic/hotfix-rollup-3099844-for-the-net-framework-4-5-2-4-5-1-and-4-5-on-windows-ee48ac0d-79be-28f7-563d-e7bd46040dd3)\r\n+    - For Windows 8.1 and Server 2012 R2: Hotfix rollup 3099842\r\n+    - For Windows Server 2012: Hotfix rollup 3099844\r\n \r\n ### Configure for strong cryptography\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/security/enable-tls-1-2-client",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md",
+      "firstSeenAt": "2026-10-22T13:44:38.631Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Hotfix rollup references were simplified",
+        "summary": "The documentation now lists hotfix rollups 3099842 and 3099844 as plain text instead of linked references for Windows 8.1, Server 2012 R2, and Windows Server 2012.",
+        "adminImpact": "Administrators can still identify the applicable hotfix rollups, but the direct support links are no longer included.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md b/intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md\nindex ff5e879..b084fa6 100644\n--- a/intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md\n+++ b/intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md\n@@ -83,8 +83,8 @@ Install the .NET updates so you can enable strong cryptography. Some versions of\n \r\n     For your reference, TLS 1.2 was first introduced into .Net Framework 4.5.1 and 4.5.2 with the following hotfix rollups:\r\n \r\n-    - For Windows 8.1 and Server 2012 R2: [Hotfix rollup 3099842](https://support.microsoft.com/topic/hotfix-rollup-3099842-for-the-net-framework-4-5-2-and-the-net-framework-4-5-1-on-windows-7b629c7e-bea4-4838-2512-e22e8bad368a)\r\n-    - For Windows Server 2012: [Hotfix rollup 3099844](https://support.microsoft.com/topic/hotfix-rollup-3099844-for-the-net-framework-4-5-2-4-5-1-and-4-5-on-windows-ee48ac0d-79be-28f7-563d-e7bd46040dd3)\r\n+    - For Windows 8.1 and Server 2012 R2: Hotfix rollup 3099842\r\n+    - For Windows Server 2012: Hotfix rollup 3099844\r\n \r\n ### Configure for strong cryptography\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/plan-design/security/enable-tls-1-2-server",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md",
+      "firstSeenAt": "2026-10-22T13:44:38.634Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Hotfix rollup references are now plain text",
+        "summary": "The page changed the Windows 8.1, Server 2012 R2, and Windows Server 2012 hotfix rollup references from clickable links to plain text.",
+        "adminImpact": "No administrator action is indicated. The hotfix IDs remain available for reference but must be located manually.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/developer/configure-graph-api-access.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/developer/configure-graph-api-access.md b/intune/developer/configure-graph-api-access.md\nindex 8de1cd2..2c6924a 100644\n--- a/intune/developer/configure-graph-api-access.md\n+++ b/intune/developer/configure-graph-api-access.md\n@@ -34,13 +34,13 @@ monikers: []\n item_type: Content\n source_path: intune/developer/configure-graph-api-access.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5fc61396-d075-4560-aece-fdbda73d243f\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/1433a524-c01f-4b87-beab-670c040dea4f\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n - https://authoring-docs-microsoft.poolparty.biz/devrel/ad9437c1-8cda-4537-ad69-b4b263652e13\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/312f1f05-a431-4193-8a4d-e6245d5966de\n platformId: b5d40ced-e7ff-c60d-854c-0a6c5535066e\n ---\n \n@@ -491,7 +491,7 @@ namespace IntuneGraphExample\n \r\n ### Authenticate Microsoft Entra ID using Microsoft Graph PowerShell\r\n \r\n-PowerShell scripts can use the Microsoft Graph PowerShell module for authentication. To learn more, see [Microsoft Graph PowerShell](/en-us/powershell/microsoftgraph/overview) and the [Intune PowerShell examples](https://github.com/microsoftgraph/powershell-intune-samples).\r\n+PowerShell scripts can use the Microsoft Graph PowerShell module for authentication. To learn more, see [Microsoft Graph PowerShell](/en-us/powershell/microsoftgraph/overview) and the [Intune PowerShell examples](https://github.com/microsoft/mggraph-intune-samples).\r\n \r\n ## Support multiple tenants and partners\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/developer/configure-graph-api-access.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/developer/configure-graph-api-access",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/developer/configure-graph-api-access.md",
+      "firstSeenAt": "2026-10-22T13:44:38.638Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Intune PowerShell examples link updated",
+        "summary": "The page now links to the `microsoft/mggraph-intune-samples` repository for Intune PowerShell examples. Internal reference links were also updated.",
+        "adminImpact": "Use the new repository link when accessing the documented Intune PowerShell examples.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/certificates/imported-pfx-profiles.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-configuration/certificates/imported-pfx-profiles.md b/intune/device-configuration/certificates/imported-pfx-profiles.md\nindex 457b5a8..05a770e 100644\n--- a/intune/device-configuration/certificates/imported-pfx-profiles.md\n+++ b/intune/device-configuration/certificates/imported-pfx-profiles.md\n@@ -36,13 +36,13 @@ monikers: []\n item_type: Content\n source_path: intune/device-configuration/certificates/imported-pfx-profiles.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5cf46315-b33f-4e99-8224-a1592697eff9\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/4628cbd9-6f47-4ae1-b371-d34636609eaf\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/715d24c3-3683-4219-82c5-1e3c813fb7fc\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n - https://authoring-docs-microsoft.poolparty.biz/devrel/be21deb8-8c64-44b0-b71f-2dc56ca7364f\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n platformId: 1906661d-a32f-8f0f-13bd-1fcc9c4c89d9\n ---\n \n@@ -201,7 +201,7 @@ Select the Key Storage Provider that matches the provider you used to create the\n \r\n     Note\r\n \r\n-    As the authentication is run against Graph, you must provide permissions to the AppID. If it's the first time you've used this utility, an *Intune administrator* role is required. The PowerShell cmdlets use the same AppID as the one used with [PowerShell Intune Samples](https://github.com/microsoftgraph/powershell-intune-samples).\r\n+    As the authentication is run against Graph, you must provide permissions to the AppID. If it's the first time you've used this utility, an *Intune administrator* role is required. The PowerShell cmdlets use the same AppID as the one used with [PowerShell Intune Samples](https://github.com/microsoft/mggraph-intune-samples).\r\n 5. Convert the password for each PFX file you're importing to a secure string by running `$SecureFilePassword = ConvertTo-SecureString -String \"<PFXPassword>\" -AsPlainText -Force`.\r\n 6. To create a **UserPFXCertificate** object, run `$userPFXObject = New-IntuneUserPfxCertificate -PathToPfxFile \"<FullPathPFXToCert>\" $SecureFilePassword \"<UserUPN>\" \"<ProviderName>\" \"<KeyName>\" \"<IntendedPurpose>\"`\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-configuration/certificates/imported-pfx-profiles.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/certificates/imported-pfx-profiles",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/device-configuration/certificates/imported-pfx-profiles.md",
+      "firstSeenAt": "2026-10-22T13:44:38.641Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Imported PFX profile documentation links updated",
+        "summary": "Updated DevRel metadata references and the PowerShell Intune Samples link in the authentication guidance.",
+        "adminImpact": "No administrator action is indicated; the existing App ID permission guidance remains available.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-configuration/templates/apple-ddm-app-settings.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-configuration/templates/apple-ddm-app-settings.md b/intune/device-configuration/templates/apple-ddm-app-settings.md\nindex 69e429e..fe04b3e 100644\n--- a/intune/device-configuration/templates/apple-ddm-app-settings.md\n+++ b/intune/device-configuration/templates/apple-ddm-app-settings.md\n@@ -122,5 +122,5 @@ App settings assignment status is reported through Apple's DDM status channel. R\n \r\n App settings is defined by Apple as a declarative device management configuration. For the authoritative schema and additional examples, see:\r\n \r\n-- [`app.settings` configuration](https://github.com/apple/device-management/blob/seed_OS_27_0/declarative/declarations/configurations/app.settings.yaml) in Apple's device management GitHub repository—the source schema the settings catalog surfaces.\r\n+- [`app.settings` configuration](https://github.com/apple/device-management/blob/release/declarative/declarations/configurations/app.settings.yaml) in Apple's device management GitHub repository—the source schema the settings catalog surfaces.\r\n - [Allow and deny apps and binaries on Apple devices](https://support.apple.com/en-euro/guide/deployment/dep001044b08/1/web/1.0) in Apple's Deployment Guide—background on app launch control, binary execution control, and privacy consent updates.\n\\ No newline at end of file\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-configuration/templates/apple-ddm-app-settings.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/apple-ddm-app-settings",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/device-configuration/templates/apple-ddm-app-settings.md",
+      "firstSeenAt": "2026-10-22T13:44:38.646Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated Apple app.settings schema link",
+        "summary": "The documentation link for Apple’s app.settings source schema changed from the seed_OS_27_0 branch to the release branch.",
+        "adminImpact": "Administrators using the link will now be directed to the release schema reference. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/security-configurations/ios-ipados-compliance.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-security/security-configurations/ios-ipados-compliance.md b/intune/device-security/security-configurations/ios-ipados-compliance.md\nindex e58bd8c..5ec08fe 100644\n--- a/intune/device-security/security-configurations/ios-ipados-compliance.md\n+++ b/intune/device-security/security-configurations/ios-ipados-compliance.md\n@@ -35,12 +35,12 @@ item_type: Content\n source_path: intune/device-security/security-configurations/ios-ipados-compliance.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/8b9ae643-2e85-42b8-beb2-eef4bae8c4bc\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e047e27d-b5f3-43a8-b4b0-4f6dca95e7c9\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n platformId: afa969be-30fb-cf9f-b8e0-6a232a4a4c09\n ---\n \n@@ -48,7 +48,7 @@ platformId: afa969be-30fb-cf9f-b8e0-6a232a4a4c09\n \n In support of the [Microsoft Zero Trust security model](/en-us/security/zero-trust/zero-trust-identity-device-access-policies-common), this article provides example configurations you can use with Microsoft Intune to configure iOS/iPad device compliance settings for mobile users using personal and supervised devices. These examples include levels of device security configuration that align with Zero Trust principles.\r\n \r\n-When using these examples, work with your security team to evaluate the threat environment, risk appetite, and the effect the different levels and configurations can have on usability. After reviewing and adjusting the examples to meet the needs of your organization, you can incorporate them within a ring deployment methodology for testing and production use by importing the sample [iOS/iPadOS Security Configuration Framework JSON templates](https://github.com/microsoft/Intune-Config-Frameworks/tree/master/iOS) with [Intune's PowerShell scripts](https://github.com/microsoftgraph/powershell-intune-samples).\r\n+When using these examples, work with your security team to evaluate the threat environment, risk appetite, and the effect the different levels and configurations can have on usability. After reviewing and adjusting the examples to meet the needs of your organization, you can incorporate them within a ring deployment methodology for testing and production use by importing the sample [iOS/iPadOS Security Configuration Framework JSON templates](https://github.com/microsoft/Intune-Config-Frameworks/tree/master/iOS) with [Intune's PowerShell scripts](https://github.com/microsoft/mggraph-intune-samples).\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/security-configurations/ios-ipados-compliance.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-configurations/ios-ipados-compliance",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/device-security/security-configurations/ios-ipados-compliance.md",
+      "firstSeenAt": "2026-10-22T13:44:38.654Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated references in iOS/iPadOS compliance guidance",
+        "summary": "The page updates several authoring-document reference links and re-renders the guidance about evaluating compliance examples with the security team.",
+        "adminImpact": "No administrator action is indicated. Use the updated documentation and references when reviewing compliance examples.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/security-configurations/ios-ipados-personal.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-security/security-configurations/ios-ipados-personal.md b/intune/device-security/security-configurations/ios-ipados-personal.md\nindex 36c0ba9..1e6831c 100644\n--- a/intune/device-security/security-configurations/ios-ipados-personal.md\n+++ b/intune/device-security/security-configurations/ios-ipados-personal.md\n@@ -34,13 +34,13 @@ monikers: []\n item_type: Content\n source_path: intune/device-security/security-configurations/ios-ipados-personal.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/3e34b70d-bca0-4369-a01b-71d1edfd427b\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ca32b3f-fa14-46df-b09a-9c4a591d6396\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n platformId: 3bdc122c-ed62-621f-99dd-307d63182bfe\n ---\n \n@@ -48,7 +48,7 @@ platformId: 3bdc122c-ed62-621f-99dd-307d63182bfe\n \n In support of the [Microsoft Zero Trust security model](/en-us/security/zero-trust/zero-trust-identity-device-access-policies-common), this article provides example configurations you can use with Microsoft Intune to configure iOS/iPad device compliance settings for mobile users using personal devices. These examples include three levels of device security configuration that align with Zero Trust principles.\r\n \r\n-When using these examples, work with your security team to evaluate the threat environment, risk appetite, and the effect the different levels and configurations can have on usability. After reviewing and adjusting the examples to meet the needs of your organization, you can incorporate them within a ring deployment methodology for testing and production use by importing the sample [iOS/iPadOS Security Configuration Framework JSON templates](https://github.com/microsoft/Intune-Config-Frameworks/tree/master/iOS) with [Intune's PowerShell scripts](https://github.com/microsoftgraph/powershell-intune-samples).\r\n+When using these examples, work with your security team to evaluate the threat environment, risk appetite, and the effect the different levels and configurations can have on usability. After reviewing and adjusting the examples to meet the needs of your organization, you can incorporate them within a ring deployment methodology for testing and production use by importing the sample [iOS/iPadOS Security Configuration Framework JSON templates](https://github.com/microsoft/Intune-Config-Frameworks/tree/master/iOS) with [Intune's PowerShell scripts](https://github.com/microsoft/mggraph-intune-samples).\r\n \r\n For more information on each policy setting, see [iOS/iPadOS device settings in Microsoft Intune](../../device-configuration/templates/ref-device-restrictions-apple).\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/security-configurations/ios-ipados-personal.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-configurations/ios-ipados-personal",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/device-security/security-configurations/ios-ipados-personal.md",
+      "firstSeenAt": "2026-10-22T13:44:38.658Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Reference links updated for iOS/iPadOS personal security examples",
+        "summary": "The documentation’s internal reference links were updated. Guidance on evaluating threat environment, risk appetite, and usability remains unchanged.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/security-configurations/ios-ipados-supervised.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-security/security-configurations/ios-ipados-supervised.md b/intune/device-security/security-configurations/ios-ipados-supervised.md\nindex ff7fa43..027a7c0 100644\n--- a/intune/device-security/security-configurations/ios-ipados-supervised.md\n+++ b/intune/device-security/security-configurations/ios-ipados-supervised.md\n@@ -34,13 +34,13 @@ monikers: []\n item_type: Content\n source_path: intune/device-security/security-configurations/ios-ipados-supervised.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/3e34b70d-bca0-4369-a01b-71d1edfd427b\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/aebdc4a3-c54b-4eea-94e3-663d5e166f57\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ca32b3f-fa14-46df-b09a-9c4a591d6396\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1baec8e6-ab38-4b56-bb59-f6282d94f311\n platformId: 5181724b-a4d1-5810-db63-db0c83a474d0\n ---\n \n@@ -48,7 +48,7 @@ platformId: 5181724b-a4d1-5810-db63-db0c83a474d0\n \n In support of the [Microsoft Zero Trust security model](/en-us/security/zero-trust/zero-trust-identity-device-access-policies-common), this article provides example configurations you can use with Microsoft Intune to configure iOS/iPad device compliance settings for mobile users using supervised devices. These examples include three levels of device security configuration that align with Zero Trust principles.\r\n \r\n-When using these examples, work with your security team to evaluate the threat environment, risk appetite, and the effect the different levels and configurations can have on usability. After reviewing and adjusting the examples to meet the needs of your organization, you can incorporate them within a ring deployment methodology for testing and production use by importing the sample [iOS/iPadOS Security Configuration Framework JSON templates](https://github.com/microsoft/Intune-Config-Frameworks/tree/master/iOS) with [Intune's PowerShell scripts](https://github.com/microsoftgraph/powershell-intune-samples).\r\n+When using these examples, work with your security team to evaluate the threat environment, risk appetite, and the effect the different levels and configurations can have on usability. After reviewing and adjusting the examples to meet the needs of your organization, you can incorporate them within a ring deployment methodology for testing and production use by importing the sample [iOS/iPadOS Security Configuration Framework JSON templates](https://github.com/microsoft/Intune-Config-Frameworks/tree/master/iOS) with [Intune's PowerShell scripts](https://github.com/microsoft/mggraph-intune-samples).\r\n \r\n For more information on each policy setting, see [iOS/iPadOS device settings in Microsoft Intune](../../device-configuration/templates/ref-device-restrictions-apple).\r\n \r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/security-configurations/ios-ipados-supervised.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-configurations/ios-ipados-supervised",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/device-security/security-configurations/ios-ipados-supervised.md",
+      "firstSeenAt": "2026-10-22T13:44:38.661Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated reference links for supervised iOS/iPadOS security configurations",
+        "summary": "The documentation now uses different reference links in the examples guidance. The guidance on evaluating threat environment, risk appetite, and usability remains unchanged.",
+        "adminImpact": "Administrators reviewing these examples should use the updated reference links when validating configurations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/setup-migration.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "patch": "diff --git a/intune/fundamentals/setup-migration.md b/intune/fundamentals/setup-migration.md\nindex aedd1b3..ae0a0fd 100644\n--- a/intune/fundamentals/setup-migration.md\n+++ b/intune/fundamentals/setup-migration.md\n@@ -272,7 +272,7 @@ This section shows how to use the Microsoft Graph scripts for a tenant to tenant\n \r\n Important\r\n \r\n-- These steps use the [Intune beta Graph samples](https://github.com/microsoftgraph/powershell-intune-samples) on GitHub. The sample scripts make changes to your tenant. They're available as-is, and should be validated using a non-production or \"test\" tenant account. Be sure the scripts meet your organization security guidelines.\r\n+- These steps use the [Intune beta Graph samples](https://github.com/microsoft/mggraph-intune-samples) on GitHub. The sample scripts make changes to your tenant. They're available as-is, and should be validated using a non-production or \"test\" tenant account. Be sure the scripts meet your organization security guidelines.\r\n - The scripts don't export and import every policy, such as certificate profiles. Expect to do more tasks than what's available in these scripts. You will have to recreate some policies.\r\n - Users must unenroll the device from the old tenant, and then re-enroll in the new tenant.\r\n \r\n@@ -286,7 +286,7 @@ Support for AzureAD PowerShell ended in March 2025, and is replaced by Microsoft\n \r\n 1. Download the samples, and use Windows PowerShell to export your policies:\r\n \r\n-    1. Go to [microsoftgraph/powershell-intune-samples](https://github.com/microsoftgraph/powershell-intune-samples), select **Code** &gt; **Download ZIP**. Extract the contents of the `.zip` file.\r\n+    1. Go to [microsoftgraph/powershell-intune-samples](https://github.com/microsoft/mggraph-intune-samples), select **Code** &gt; **Download ZIP**. Extract the contents of the `.zip` file.\r\n     2. Open the Windows PowerShell app as administrator, and change the directory to your folder. For example, enter the following command:\r\n \r\n         `cd C:\\psscripts\\powershell-intune-samples-master`\r\n",
+      "baseCommitSha": "4acf8f5dbe95ab26807ff011db6788bd6b08c322",
+      "commitSha": "74b60b045a5296a2adc8f28ffa070cca0909ae27",
+      "commitMessage": "Mirror Learn: 11 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-22 13:19:20 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/fundamentals/setup-migration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/setup-migration",
+      "eventId": "intune-docs:74b60b045a5296a2adc8f28ffa070cca0909ae27:modified:intune/fundamentals/setup-migration.md",
+      "firstSeenAt": "2026-10-22T13:44:38.664Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Intune migration sample links updated",
+        "summary": "The setup and migration guidance now links to the `microsoft/mggraph-intune-samples` GitHub repository instead of `microsoftgraph/powershell-intune-samples`.",
+        "adminImpact": "Use the updated repository link when downloading the sample scripts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 11,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 11 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/app-management",
+        "summary": "The documentation updates two authoring references and changes the linked Intune PowerShell scripts repository.",
+        "sourceFiles": [
+          "intune/app-management/protection/data-protection-framework.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The page updates links and guidance for finding Microsoft Configuration Manager troubleshooting articles and subscribing to support-content updates. The documentation now lists hotfix rollups 3099842 and 3099844 as plain text instead of linked references for Windows 8.1, Server 2012 R2, and Windows Server 2012. The page changed the Windows 8.1, Server 2012 R2, and Windows Server 2012 hotfix rollup references from clickable links to plain text.",
+        "sourceFiles": [
+          "intune/configmgr/core/misc/in-console-documentation.md",
+          "intune/configmgr/core/plan-design/security/enable-tls-1-2-client.md",
+          "intune/configmgr/core/plan-design/security/enable-tls-1-2-server.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/developer",
+        "summary": "The page now links to the `microsoft/mggraph-intune-samples` repository for Intune PowerShell examples. Internal reference links were also updated.",
+        "sourceFiles": [
+          "intune/developer/configure-graph-api-access.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-configuration",
+        "summary": "Updated DevRel metadata references and the PowerShell Intune Samples link in the authentication guidance. The documentation link for Apple’s app.settings source schema changed from the seed_OS_27_0 branch to the release branch.",
+        "sourceFiles": [
+          "intune/device-configuration/certificates/imported-pfx-profiles.md",
+          "intune/device-configuration/templates/apple-ddm-app-settings.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The page updates several authoring-document reference links and re-renders the guidance about evaluating compliance examples with the security team. The documentation’s internal reference links were updated. Guidance on evaluating threat environment, risk appetite, and usability remains unchanged. The documentation now uses different reference links in the examples guidance. The guidance on evaluating threat environment, risk appetite, and usability remains unchanged.",
+        "sourceFiles": [
+          "intune/device-security/security-configurations/ios-ipados-compliance.md",
+          "intune/device-security/security-configurations/ios-ipados-personal.md",
+          "intune/device-security/security-configurations/ios-ipados-supervised.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/fundamentals",
+        "summary": "The setup and migration guidance now links to the `microsoft/mggraph-intune-samples` GitHub repository instead of `microsoftgraph/powershell-intune-samples`.",
+        "sourceFiles": [
+          "intune/fundamentals/setup-migration.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/app-management",
+        "detail": "The documentation updates two authoring references and changes the linked Intune PowerShell scripts repository."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The page updates links and guidance for finding Microsoft Configuration Manager troubleshooting articles and subscribing to support-content updates. The documentation now lists hotfix rollups 3099842 and 3099844 as plain text instead of linked references for Windows 8.1, Server 2012 R2, and Windows Server 2012. The page changed the Windows 8.1, Server 2012 R2, and Windows Server 2012 hotfix rollup references from clickable links to plain text."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/developer",
+        "detail": "The page now links to the `microsoft/mggraph-intune-samples` repository for Intune PowerShell examples. Internal reference links were also updated."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-configuration",
+        "detail": "Updated DevRel metadata references and the PowerShell Intune Samples link in the authentication guidance. The documentation link for Apple’s app.settings source schema changed from the seed_OS_27_0 branch to the release branch."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The page updates several authoring-document reference links and re-renders the guidance about evaluating compliance examples with the security team. The documentation’s internal reference links were updated. Guidance on evaluating threat environment, risk appetite, and usability remains unchanged. The documentation now uses different reference links in the examples guidance. The guidance on evaluating threat environment, risk appetite, and usability remains unchanged."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/fundamentals",
+        "detail": "The setup and migration guidance now links to the `microsoft/mggraph-intune-samples` GitHub repository instead of `microsoftgraph/powershell-intune-samples`."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -52,19 +52,84 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/app-management/deployment/management-agent-macos.md",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 2,
+      "changes": 2,
+      "patch": "diff --git a/intune/app-management/deployment/management-agent-macos.md b/intune/app-management/deployment/management-agent-macos.md\nindex e1233f1..995ca93 100644\n--- a/intune/app-management/deployment/management-agent-macos.md\n+++ b/intune/app-management/deployment/management-agent-macos.md\n@@ -61,8 +61,6 @@ The agent is automatically and silently installed on Intune-managed macOS device\n \r\n On a managed Mac that has the agent installed, open **Company Portal**, select the local device, select **Check status**. This initiates an MDM check-in as well as an agent check-in.\r\n \r\n-Alternatively, open **Terminal**, run the `sudo killall IntuneMdmAgent` command to terminate the `IntuneMdmAgent` process. The `IntuneMdmAgent` process restarts immediately, which will initiate a check-in with Intune.\r\n-\r\n Note\r\n \r\n The **Sync** action for devices in Microsoft Intune admin center initiates an MDM check-in and does not force an agent check-in.\r\n",
+      "baseCommitSha": "43caa7441e5289f437a5ac282e70bc035b994564",
+      "commitSha": "c50e69102894ed1267f3d143c109b8d9a734a968",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-23 22:45:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/deployment/management-agent-macos.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/deployment/management-agent-macos",
+      "eventId": "intune-docs:c50e69102894ed1267f3d143c109b8d9a734a968:modified:intune/app-management/deployment/management-agent-macos.md",
+      "firstSeenAt": "2026-10-23T23:07:30.660Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Removed macOS agent restart instructions",
+        "summary": "The article no longer includes the Terminal command to terminate and restart the IntuneMdmAgent process to initiate an Intune check-in.",
+        "adminImpact": "Administrators will not find this command-based check-in method in the documented procedure.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
-  "messageCenterItems": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1456780",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-10-23",
+      "title": "Plan for Change: New device page experience will become the default view",
+      "summary": "The new Intune device page will become the default view starting with the September (2609) release, replacing the legacy page. All device management features remain, but admins now need the Managed devices/Update permission plus specific action permissions. Update documentation and review permissions accordingly.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "endpoint-analytics",
+        "name": "Endpoint analytics",
+        "icon": "/assets/topics/endpoint-analytics.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1456780/",
+      "originalUrl": "https://mc.merill.net/message/MC1456780",
+      "body": "<p>Updated October 23, 2026: The content has been updated to provide additional clarity on admin permissions for the new device experience.</p><p><a href=\"https://learn.microsoft.com/intune/whats-new/#preview-the-new-device-page-in-the-intune-admin-center-preview\" rel=\"noopener noreferrer\">Earlier this year</a>, we released the new single device experience that provides a single, consolidated view for device management, making it easier to access device information, monitor activity, use management tools, and perform device actions The new single device page is turned on by default. You can use the \"Preview new device toggle\" to turn it off and return to the original device page.</p><p>Starting with Intune’s September (2609) release, the new device page will become the default experience for all administrators, and the previous device page experience will no longer be available.</p><p><b>How this will affect your organization:</b></p><p>Admins who navigate to <b>Devices &gt; All devices</b> and select a device will automatically see the new device page experience. The legacy device page will no longer be available after this change.</p><p>All existing device management capabilities remain available. This update focuses on improving discoverability, usability, and navigation without removing existing management functionality.</p><p>With the new device experience, administrators must have the Managed devices/Update permission in addition to any permissions required for the specific device action they want to perform. For example, to change or remove a device’s primary user, an administrator must have both Managed devices/Update and Managed devices/Set primary user. Administrators who do not have Managed devices/Update may also be unable to perform actions such as renaming a device.</p><p><b>What you need to do to prepare:</b></p><p>Update your documentation and review your admin permissions for device management actions as needed. We recommend becoming familiar with the updated interface before it becomes the default view.</p><p>To preview the new experience today:</p><ol><li>In the Microsoft Intune admin center, navigate to <b>Devices &gt; All devices</b>.</li><li>Select a device to view device-specific information, such as device properties, device activity, tools, and reports.</li></ol>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "Updated message",
+        "Admin impact"
+      ],
+      "startDate": "2026-08-17T22:55:23Z",
+      "endDate": "2026-12-11T07:00:00Z",
+      "lastModifiedDateTime": "2026-10-23T19:43:51.07Z",
+      "version": "2026-10-23T19:43:51.07Z",
+      "eventId": "message-center:MC1456780:2026-10-23T19:43:51.07Z",
+      "firstSeenAt": "2026-10-23T23:07:36.264Z"
+    }
+  ],
   "summary": {
-    "totalCommits": 2,
-    "totalFiles": 2,
+    "totalCommits": 3,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "New feature",
@@ -81,6 +146,14 @@
         "sourceFiles": [
           "intune/device-configuration/troubleshoot-device-profiles.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/app-management",
+        "summary": "The article no longer includes the Terminal command to terminate and restart the IntuneMdmAgent process to initiate an Intune check-in.",
+        "sourceFiles": [
+          "intune/app-management/deployment/management-agent-macos.md"
+        ]
       }
     ],
     "highlights": [
@@ -93,6 +166,11 @@
         "category": "Feature update",
         "headline": "intune/device-configuration",
         "detail": "The documented macOS check-in schedule changed to every 3 minutes for 15 minutes, every 15 minutes for 2 hours, and then about hourly."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/app-management",
+        "detail": "The article no longer includes the Terminal command to terminate and restart the IntuneMdmAgent process to initiate an Intune check-in."
       }
     ],
     "generatedBy": "fallback"

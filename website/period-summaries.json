@@ -7571,6 +7571,28 @@
         "outputTokens": 3421,
         "costUsd": 0.004525
       }
+    },
+    "2026-10-23": {
+      "headline": "Intune documents unlimited-license assignment for Apple Business and School Manager VPP apps on iOS/iPadOS",
+      "overview": "The updated Intune index records support for assigning Apple Business and Apple School Manager VPP apps with unlimited licenses on iOS/iPadOS.",
+      "adminImpact": "Administrators can deploy these apps across their organizations without managing license quantities.",
+      "keyChanges": [
+        {
+          "title": "Unlimited Apple VPP app licenses on iOS/iPadOS",
+          "detail": "The Intune index now states that Apple Business and Apple School Manager VPP apps can be assigned with unlimited licenses on iOS/iPadOS, enabling organization-wide deployment without quantity management.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-23-index-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-23T13:21:24.752Z",
+      "usage": {
+        "inputTokens": 1019,
+        "outputTokens": 1290,
+        "costUsd": 0.001752
+      }
     }
   },
   "weeks": {
@@ -9371,49 +9393,49 @@
       }
     },
     "2026-10-19": {
-      "headline": "CMPivot signing certificate guidance now spells out version-specific trust requirements",
-      "overview": "The clearest operational updates concern CMPivot certificate trust, Intune’s comprehensive Sync scope, macOS password-rotation sequencing, and Configuration Manager 2603 rollup coverage. A new Windows Autopilot page describes prerequisites, request review, and technical onboarding for MDM providers integrating device association into their services. Microsoft also says recipients can safely disregard the Security Copilot E5/E7 inclusion message. Other notable edits are reference maintenance, including Intune sample links moving to `microsoft/mggraph-intune-samples`.",
-      "adminImpact": "If PowerShell is set to AllSigned, ensure devices trust CMPivot’s Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with its update rollup and version 2609 or later add it automatically; earlier versions require manual certificate export. On macOS, configure **Failed Attempts Reset In Minutes** in the Settings catalog before password rotation when lockout-timer control is needed. Administrators can use comprehensive Sync for Windows and iOS/iPadOS without a configuration change. For update 37942646, installing KB 39169655 removes the need for a separate out-of-band hotfix. Individual administrators have no action in the provider-facing Autopilot process, and the updated Security Copilot message should be disregarded.",
+      "headline": "Intune adds unlimited Apple VPP licensing and expands comprehensive Sync to iOS/iPadOS",
+      "overview": "Most of the supplied updates are documentation maintenance, but several have concrete operational consequences. Intune now supports unlimited-license assignments for Apple Business and Apple School Manager VPP apps on iOS/iPadOS, and its comprehensive Sync action covers Windows and iOS/iPadOS workloads including configuration policies, apps, and scripts. The week also documents a macOS password-rotation prerequisite, records CMPivot certificate-trust requirements by Configuration Manager version, and states that update 37942646 is included in the Configuration Manager 2603 update rollup.",
+      "adminImpact": "Administrators can deploy the covered Apple VPP apps without managing license quantities and use the Intune admin center's comprehensive Sync action for supported Windows and iOS/iPadOS devices. For macOS, configure Failed Attempts Reset In Minutes in the Settings catalog before rotating the password when managing the lockout timer. In Configuration Manager environments using PowerShell AllSigned, ensure devices trust the Microsoft Code Signing PCA 2011 certificate; earlier Configuration Manager versions require manual certificate export. Administrators installing the Configuration Manager 2603 rollup do not need to schedule a separate 37942646 out-of-band hotfix.",
       "keyChanges": [
         {
-          "title": "CMPivot trust handling now depends on Configuration Manager version",
-          "detail": "The updated guidance states that CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with the update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export. Devices using PowerShell with **AllSigned** must trust the certificate.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-21-cmpivot-05"
+          "title": "Apple Business and School Manager VPP apps support unlimited licenses",
+          "detail": "Intune now supports assigning Apple Business and Apple School Manager VPP apps with unlimited licenses on iOS/iPadOS. Administrators can deploy these apps across their organizations without managing license quantities.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-23-index-01"
         },
         {
-          "title": "Intune comprehensive Sync is documented for Windows and iOS/iPadOS",
-          "detail": "The updated Intune index states that the comprehensive **Sync** device action applies to Windows and iOS/iPadOS devices and synchronizes key workloads such as configuration policies, apps, and scripts. Administrators can initiate it from the Intune admin center without changing configuration.",
+          "title": "Comprehensive Sync now covers Windows and iOS/iPadOS workloads",
+          "detail": "The comprehensive Sync device action applies to Windows and iOS/iPadOS devices and synchronizes key workloads including configuration policies, apps, and scripts. Administrators can invoke it from the Intune admin center without a configuration change.",
           "product": "Intune",
           "sourceId": "doc-2026-10-21-index-11"
         },
         {
-          "title": "macOS lockout-timer setup must precede password rotation",
-          "detail": "The setup guidance directs administrators to configure **Failed Attempts Reset In Minutes** in the Settings catalog before rotating the password when they need to manage the lockout timer.",
+          "title": "macOS password rotation guidance adds a lockout-timer prerequisite",
+          "detail": "The setup guidance now directs administrators to configure `Failed Attempts Reset In Minutes` in the Settings catalog before rotating the password when they need to manage the lockout timer.",
           "product": "Intune",
           "sourceId": "doc-2026-10-19-setup-macos-03"
         },
         {
-          "title": "Configuration Manager 2603 rollup includes update 37942646",
-          "detail": "The 37942646 guidance now states that Configuration Manager 2603 update rollup KB 39169655 includes the update, so a separate out-of-band hotfix is not required after the rollup is installed.",
+          "title": "CMPivot certificate trust requirements are spelled out by Configuration Manager version",
+          "detail": "CMPivot is signed with the Microsoft Code Signing PCA 2011 certificate. Configuration Manager 2603 with the update rollup and version 2609 or later automatically add the certificate to Trusted Publishers; earlier versions require manual certificate export. Devices running PowerShell with AllSigned must trust the certificate.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-21-37942646-06"
+          "sourceId": "doc-2026-10-21-cmpivot-05"
         },
         {
-          "title": "Security Copilot E5/E7 inclusion message should be disregarded",
-          "detail": "The updated October 19 Message Center item says the notice did not reach its intended audience and can safely be disregarded.",
-          "product": "Security Copilot",
-          "sourceId": "MC1478465"
+          "title": "Configuration Manager 2603 rollup includes update 37942646",
+          "detail": "The update entry now states that Configuration Manager 2603 update rollup KB 39169655 includes update 37942646, so administrators who install the rollup do not need a separate out-of-band hotfix.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-21-37942646-06"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-22T13:44:58.434Z",
+      "generatedAt": "2026-10-23T13:21:24.752Z",
       "usage": {
-        "inputTokens": 3715,
-        "outputTokens": 9105,
-        "costUsd": 0.011669
+        "inputTokens": 3806,
+        "outputTokens": 7675,
+        "costUsd": 0.009971
       }
     }
   },
@@ -9833,65 +9855,59 @@
       }
     },
     "2026-10": {
-      "headline": "Intune ends Windows MDM-only DNS CNAME auto-discovery on January 15, 2027",
-      "overview": "Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027, requiring users to enter the Microsoft enrollment server URL manually. October also documents Windows 11 version 26H2 baseline adoption, controlled network-setting changes through Endpoint Privilege Management, and Configuration Manager 2609 support changes. Purview DLP will add Intune multi-admin approval coordination for unmanaged apps in Edge for Business beginning in November 2026. Much of the remaining period consisted of reference, link, label, and metadata maintenance.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; existing devices and other enrollment methods are unaffected. Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. EPM administrators need an enabled elevation settings policy before delegating IPv4, IPv6, or DNS changes. Configuration Manager teams should identify Windows Server 2012 and 2012 R2 client devices affected by version 2609 and move them to a supported Windows Server version. Purview and Intune administrators should plan the new approval workflow, while existing DLP policies and enforcement remain unchanged.",
+      "headline": "Intune will end Windows MDM-only DNS discovery January 15, alongside 26H2 baseline guidance",
+      "overview": "October’s most consequential changes center on a January 2027 enrollment deadline, Windows 11 version 26H2 security-baseline coverage, controlled network-setting delegation through Endpoint Privilege Management, and Configuration Manager 2609 migration checks. Microsoft Purview DLP will also add Intune multi-admin approval support for unmanaged Edge for Business apps in November, while Intune now supports unlimited-license Apple VPP assignments on iOS/iPadOS. Most remaining updates refresh links, metadata, reference lists, or explanatory wording.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; existing devices and other enrollment methods are unaffected. Administrators adopting the 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. Enable an EPM elevation settings policy before delegating network changes, and verify CMG vCPU and regional quotas before Configuration Manager 2609 upgrades. Coordinate Purview and Intune administrators for the November approval workflow, and use unlimited VPP assignments where applicable.",
       "keyChanges": [
         {
           "title": "Windows MDM-only enrollment loses DNS CNAME auto-discovery",
-          "detail": "Starting January 15, 2027, Intune will no longer support DNS CNAME auto-discovery for Windows MDM-only enrollment. Users will need to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
+          "detail": "Beginning January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Affected organizations must have users enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for Edge unmanaged apps",
-          "detail": "Beginning in November 2026, Purview DLP will improve setup for unmanaged apps in Edge for Business and support Intune multi-admin approval, including clearer status, detailed errors, and task coordination between Purview and Intune administrators. Existing policies and enforcement do not change.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
-        },
-        {
-          "title": "Windows 11 version 26H2 baseline guidance adds Settings Catalog coverage",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Windows 11 version 26H2 baseline guidance requires profile handling",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don't update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Endpoint Privilege Management documents controlled network changes for standard users",
-          "detail": "New guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices must have an EPM elevation settings policy enabled.",
+          "title": "Endpoint Privilege Management documents controlled network-setting delegation",
+          "detail": "A new EPM guide describes policies that let standard Windows users change IPv4, IPv6, and DNS settings. Administrators can require confirmation, business justification, Windows authentication, or both, and the device must have an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Configuration Manager 2609 drops legacy Windows Server client support",
-          "detail": "Configuration Manager version 2609 no longer supports Windows Server 2012, Windows Server 2012 R2, or their Windows Storage Server editions as client operating systems.",
+          "title": "Configuration Manager 2609 adds CMG quota checks before migration",
+          "detail": "The 2609 upgrade guidance adds pre-upgrade steps for CMG VM scale set migration: identify CMGs, calculate required vCPUs, check Standard Dadv6 Family and regional quotas, and request increases where necessary. Insufficient quota can cause a QuotaExceeded error.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-06-what-s-new-in-version-2609-configuration-manager-microsoft-learn-01"
+          "sourceId": "doc-2026-10-14-whats-new-version-2609-01"
+        },
+        {
+          "title": "Purview DLP will coordinate Intune approval for unmanaged Edge apps",
+          "detail": "Starting in November 2026, Microsoft Purview DLP will improve setup and support Intune multi-admin approval for unmanaged apps in Edge for Business. The change adds clearer status, detailed errors, and task coordination between Purview and Intune administrators without changing existing policies or enforcement.",
+          "product": "Intune",
+          "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-22T13:44:58.434Z",
+      "generatedAt": "2026-10-23T13:21:24.752Z",
       "usage": {
-        "inputTokens": 6353,
-        "outputTokens": 5402,
-        "costUsd": 0.007753
+        "inputTokens": 6306,
+        "outputTokens": 8491,
+        "costUsd": 0.01145
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-22T13:44:58.434Z",
+  "generatedAt": "2026-10-23T13:21:24.752Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-17": {
-      "inputTokens": 14552,
-      "outputTokens": 8828,
-      "requests": 6,
-      "costUsd": 0.013504
-    },
     "2026-09-24": {
       "inputTokens": 7423,
       "outputTokens": 5868,
@@ -10023,18 +10039,24 @@
       "outputTokens": 17928,
       "requests": 3,
       "costUsd": 0.023947
+    },
+    "2026-10-23": {
+      "inputTokens": 11131,
+      "outputTokens": 17456,
+      "requests": 3,
+      "costUsd": 0.023173
     }
   },
   "lastRun": {
-    "inputTokens": 12168,
-    "outputTokens": 17928,
+    "inputTokens": 11131,
+    "outputTokens": 17456,
     "requests": 3,
-    "costUsd": 0.023947
+    "costUsd": 0.023173
   },
   "totalUsage": {
-    "inputTokens": 3417408,
-    "outputTokens": 2074719,
-    "requests": 375,
-    "costUsd": 3.173145
+    "inputTokens": 3428539,
+    "outputTokens": 2092175,
+    "requests": 378,
+    "costUsd": 3.196318
   }
 }

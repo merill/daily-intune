@@ -7611,6 +7611,46 @@
         "outputTokens": 1552,
         "costUsd": 0.002134
       }
+    },
+    "2026-10-26": {
+      "headline": "Configuration Manager 2609 reaches all customers as CMG tiers adopt new VM sizes",
+      "overview": "Configuration Manager 2609 became globally available on October 26, 2026, while CMG guidance specifies new D2ads_v6, D4ads_v6, and D8ads_v6 sizes for the Small, Medium, and Large tiers. Intune updates add concrete guidance for AOSP referenced-app assignments and Apple device-wide VPN route enforcement.",
+      "adminImpact": "Configuration Manager administrators can install 2609 without the documented early-update-ring opt-in. Before upgrading CMG deployments, verify Azure-region availability for the new sizes and ensure Dadv6 Family and regional vCPU quotas have sufficient headroom. Intune administrators managing AOSP apps should account for package-name and assignment limitations, while Apple VPN administrators should use the documented Include all networks and Exclude local networks settings for device-wide profiles.",
+      "keyChanges": [
+        {
+          "title": "Configuration Manager 2609 is globally available",
+          "detail": "The installation checklist now states that version 2609 became globally available on October 26, 2026, replacing the early-update-ring opt-in instructions. Administrators can install the update without that opt-in process.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-26-checklist-for-installing-update-2609-08"
+        },
+        {
+          "title": "CMG tiers adopt new VM sizes for 2609 and patched 2603",
+          "detail": "For Configuration Manager 2609 and Configuration Manager 2603 with KB39169655, the Small, Medium, and Large CMG tiers use D2ads_v6, D4ads_v6, and D8ads_v6 respectively. Existing deployments migrate automatically to the corresponding tiers, while earlier versions retain the previous sizes.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-26-cost-03"
+        },
+        {
+          "title": "AOSP referenced-app guidance defines assignment behavior",
+          "detail": "New Intune guidance explains how to add AOSP referenced apps without an APK or Google Play selection. Required assignments unhide apps already resident on devices, Uninstall assignments hide them, and Available assignments aren't supported. The package name is required and can't be changed after the app is created.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-26-manage-aosp-referenced-apps-in-microsoft-intune-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Apple VPN profiles gain documented Enforce Routes configuration",
+          "detail": "For device-wide VPN profiles on iOS/iPadOS and macOS, administrators configure Include all networks and Exclude local networks; Intune derives the Apple Enforce Routes value automatically. The settings don't apply to per-app VPN, and split tunneling isn't recommended with them.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-26-ref-vpn-settings-apple-10"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-26T23:51:29.147Z",
+      "usage": {
+        "inputTokens": 2501,
+        "outputTokens": 2664,
+        "costUsd": 0.003697
+      }
     }
   },
   "weeks": {
@@ -9455,6 +9495,52 @@
         "outputTokens": 7634,
         "costUsd": 0.00999
       }
+    },
+    "2026-10-26": {
+      "headline": "Configuration Manager 2609 reaches global availability as CMG tiers adopt new VM sizes",
+      "overview": "Configuration Manager 2609 became globally available for installation on October 26, while CMG guidance set out new D2ads_v6, D4ads_v6, and D8ads_v6 VM sizes for 2609 and 2603 with KB39169655. Intune’s most actionable additions cover AOSP referenced-app assignments and configuration constraints, plus Apple device-wide VPN route controls. Other updates mainly add connector-health troubleshooting, OEMConfig metadata, and in-development planning entries.",
+      "adminImpact": "Configuration Manager administrators can install 2609 without the documented early-update-ring opt-in. Before updating CMG, verify that the new VM sizes are available in the Azure region and that Dadv6 Family and regional vCPU quotas have headroom; keep the Small tier for lab or proof-of-concept use. Intune administrators setting up AOSP referenced apps need the package name and an app already present on devices or deployed externally. For managed-app configuration, use vendor- or manufacturer-provided JSON because Configuration Designer and Connected apps aren't supported. Apple VPN administrators should apply Include all networks and Exclude local networks only to device-wide profiles, not per-app VPN profiles.",
+      "keyChanges": [
+        {
+          "title": "Configuration Manager 2609 is globally available to all customers",
+          "detail": "The installation checklist now states that version 2609 became globally available on October 26, replacing the early-update-ring opt-in instructions. Administrators can install it without following that documented opt-in process.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-26-checklist-for-installing-update-2609-08"
+        },
+        {
+          "title": "CMG VM sizing shifts to D2ads_v6, D4ads_v6, and D8ads_v6",
+          "detail": "For version 2609 and version 2603 with KB39169655, CMG tiers now use the D2ads_v6, D4ads_v6, and D8ads_v6 VM sizes. Existing deployments migrate automatically to the corresponding tiers, connection limits remain unchanged, and earlier versions retain their previous sizes. Verify Azure-region availability and vCPU quota headroom before updating.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-26-cost-03"
+        },
+        {
+          "title": "AOSP referenced apps gain a defined Intune assignment workflow",
+          "detail": "New guidance describes adding AOSP referenced apps without an APK or Google Play selection. Required assignments unhide apps already resident on devices, Uninstall assignments hide them, and Available assignments aren't supported. Setup requires AOSP-enrolled devices, the package name, and the app already deployed on devices or externally; the package name can't be changed after creation.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-26-manage-aosp-referenced-apps-in-microsoft-intune-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "AOSP managed-app configuration requires vendor-provided JSON",
+          "detail": "Updated managed Android app guidance adds AOSP referenced apps alongside Android Enterprise apps and specifies JSON-only configuration using vendor- or manufacturer-provided settings. Configuration Designer and Connected apps aren't supported for these apps.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-26-configure-managed-android-apps-with-microsoft-intune-microsoft-intune-microsoft-learn-02"
+        },
+        {
+          "title": "Apple device-wide VPN profiles document Enforce Routes controls",
+          "detail": "For device-wide VPN profiles on iOS/iPadOS and macOS, administrators configure Include all networks and Exclude local networks; Intune derives the Enforce Routes value automatically. The settings don't apply to per-app VPN, and split tunneling isn't recommended with them.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-26-ref-vpn-settings-apple-10"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-26T23:51:29.147Z",
+      "usage": {
+        "inputTokens": 2297,
+        "outputTokens": 4938,
+        "costUsd": 0.006385
+      }
     }
   },
   "months": {
@@ -9873,54 +9959,54 @@
       }
     },
     "2026-10": {
-      "headline": "Windows MDM-only enrollment CNAME auto-discovery ends January 15, 2027",
-      "overview": "October’s highest-impact Intune changes center on a dated enrollment retirement and a planned administrator-experience shift: DNS CNAME auto-discovery for Windows MDM-only enrollment ends January 15, 2027, while the new device page is set to replace the legacy page as the default with the September (2609) release. Intune also added Windows 11 version 26H2 baseline guidance, unlimited-license Apple VPP assignments, and a November 2026 Purview DLP approval change for unmanaged apps in Edge for Business. A new Endpoint Privilege Management article documents controlled IPv4, IPv6, and DNS changes for standard users. Much of the remaining record consists of link, label, author, and reference maintenance.",
-      "adminImpact": "Revise Windows MDM-only enrollment procedures before January 15, 2027 so affected users can enter the Microsoft enrollment server URL; existing devices and other enrollment methods are unaffected. Review role assignments for the new device page, which requires the Managed devices/Update permission plus specific action permissions. For the Windows 11 26H2 security baseline, create a new profile or update an existing one because current profiles don't update automatically. Where the Purview workflow applies, coordinate Purview and Intune administrators for the November setup and approval changes. EPM administrators delegating network-setting changes need an enabled elevation settings policy.",
+      "headline": "Windows MDM-only enrollment deadline and device-page permissions lead October’s Intune changes",
+      "overview": "October’s highest-impact Intune changes are operational: DNS CNAME auto-discovery for Windows MDM-only enrollment ends January 15, 2027, and the new device page is planned to replace the legacy page as the default with explicit update and action permissions. Learn updates also document Windows 11 26H2 baseline handling and controlled Endpoint Privilege Management network-setting delegation. Configuration Manager guidance specifies CMG VM-size migration and quota checks. Other representative edits are mainly link, metadata, reference, and planning updates.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027 and prepare affected users to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected. Review permissions for the new device page, including Managed devices/Update and the permissions required for specific actions. For Windows 11 26H2, create a new security baseline profile or update an existing one rather than expecting current profiles to update automatically. Before Configuration Manager CMG upgrades, verify Azure region availability and Dadv6 Family and regional vCPU quota headroom.",
       "keyChanges": [
         {
-          "title": "Windows MDM-only enrollment loses DNS CNAME auto-discovery",
-          "detail": "Starting January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Affected users must enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods remain unaffected.",
+          "title": "Windows MDM-only enrollment loses DNS CNAME auto-discovery on January 15, 2027",
+          "detail": "Intune will stop supporting DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027. Users in affected organizations must enter the Microsoft enrollment server URL manually. Existing devices and other enrollment methods are unaffected, but enrollment procedures should be updated before the deadline.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "The new Intune device page brings a revised permission model",
-          "detail": "The new device page will become the default view with the September (2609) release and replace the legacy page. Device-management features remain available, but administrators need the Managed devices/Update permission along with the specific permissions for individual actions.",
+          "title": "The new Intune device page changes the default view and required permissions",
+          "detail": "Microsoft says the new device page will become the default starting with the September (2609) release and replace the legacy page. Device-management features remain available, but administrators need the Managed devices/Update permission plus the specific permissions for individual actions.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Windows 11 version 26H2 baseline guidance requires profile work",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles don't update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Windows 11 26H2 baseline guidance requires deliberate profile creation or update",
+          "detail": "Intune guidance now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Purview DLP plans Intune multi-admin approval for Edge unmanaged apps",
-          "detail": "Starting November 2026, Microsoft Purview DLP will improve setup and add Intune multi-admin approval for unmanaged apps in Edge for Business, with clearer status, detailed errors, and task coordination between Purview and Intune administrators.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
+          "title": "Endpoint Privilege Management documents controlled IPv4, IPv6, and DNS changes",
+          "detail": "Endpoint Privilege Management guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices also need an enabled EPM elevation settings policy.",
+          "product": "Endpoint Privilege Management",
+          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Unlimited Apple VPP licensing expands iOS and iPadOS app assignment",
-          "detail": "Intune now supports assigning Apple Business and Apple School Manager VPP apps with unlimited licenses on iOS/iPadOS, allowing organizations to deploy these apps without managing license quantities.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-23-index-01"
+          "title": "Configuration Manager 2609 CMG tiers adopt new Dadv6 VM sizes",
+          "detail": "For Configuration Manager 2609 and 2603 with KB39169655, CMG tiers use D2ads_v6, D4ads_v6, and D8ads_v6. Existing CMG deployments migrate automatically to the corresponding tiers when the update is installed; older versions retain their previous sizes and connection limits remain unchanged. Administrators should verify regional availability and Dadv6 Family and regional vCPU quotas before updating.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-26-perf-scale-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-23T23:07:36.497Z",
+      "generatedAt": "2026-10-26T23:51:29.147Z",
       "usage": {
-        "inputTokens": 6263,
-        "outputTokens": 9418,
-        "costUsd": 0.012554
+        "inputTokens": 6527,
+        "outputTokens": 6137,
+        "costUsd": 0.00867
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-23T23:07:36.497Z",
+  "generatedAt": "2026-10-26T23:51:29.147Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10063,18 +10149,24 @@
       "outputTokens": 46912,
       "requests": 9,
       "costUsd": 0.063135
+    },
+    "2026-10-26": {
+      "inputTokens": 11325,
+      "outputTokens": 13739,
+      "requests": 3,
+      "costUsd": 0.018752
     }
   },
   "lastRun": {
-    "inputTokens": 11764,
-    "outputTokens": 18604,
+    "inputTokens": 11325,
+    "outputTokens": 13739,
     "requests": 3,
-    "costUsd": 0.024678
+    "costUsd": 0.018752
   },
   "totalUsage": {
-    "inputTokens": 3451613,
-    "outputTokens": 2121631,
-    "requests": 384,
-    "costUsd": 3.23628
+    "inputTokens": 3462938,
+    "outputTokens": 2135370,
+    "requests": 387,
+    "costUsd": 3.255032
   }
 }

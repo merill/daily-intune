@@ -27,25 +27,87 @@
       }
     }
   ],
-  "modifiedFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/advanced-analytics/ref-data-platform-schema.md",
+      "status": "modified",
+      "additions": 144,
+      "deletions": 2,
+      "changes": 146,
+      "patch": "diff --git a/intune/advanced-analytics/ref-data-platform-schema.md b/intune/advanced-analytics/ref-data-platform-schema.md\nindex 14ec7a9..28bb2fa 100644\n--- a/intune/advanced-analytics/ref-data-platform-schema.md\n+++ b/intune/advanced-analytics/ref-data-platform-schema.md\n@@ -11,7 +11,7 @@ author: paolomatarazzo\n ms.author: paoloma\n ms.subservice: suite\n description: Review the Microsoft Intune data platform schema for device queries and inventory. Discover supported properties and data types to efficiently manage and report on your devices with Intune.\n-ms.date: 2026-03-24T00:00:00.0000000Z\n+ms.date: 2026-10-26T00:00:00.0000000Z\n ms.topic: reference\n locale: en-us\n document_id: 2e80527c-7c5b-3351-7af9-4b8b94b31013\n@@ -55,6 +55,24 @@ For entities that include Android data, the following platforms are supported:\n - Android Enterprise corporate owned work profile (COPE)\r\n - Android Enterprise personally owned devices with a work profile (BYOD) using Android Management API (AM API)\r\n \r\n+## `AppleAccessibility`\r\n+\r\n+> \r\n+> **Description**: Reports accessibility settings on Apple devices.**Supported platforms**: iOS, iPadOS\r\n+\r\n+These properties are available on supervised devices running iOS 16 or later or iPadOS 16 or later.\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `BoldTextEnabled` | bool | Indicates whether bold text is enabled. | iOS, iPadOS |\r\n+| `IncreaseContrastEnabled` | bool | Indicates whether increased display contrast is enabled. | iOS, iPadOS |\r\n+| `ReduceMotionEnabled` | bool | Indicates whether reduced motion is enabled. | iOS, iPadOS |\r\n+| `ReduceTransparencyEnabled` | bool | Indicates whether reduced transparency is enabled. | iOS, iPadOS |\r\n+| `TextSize` | long | The configured accessibility text-size value. Values range from 0 (smallest) to 11 (largest). A value of -1 indicates that the size is unknown or hasn't been explicitly set. | iOS, iPadOS |\r\n+| `TouchAccommodationsEnabled` | bool | Indicates whether Touch Accommodations is enabled. | iOS, iPadOS |\r\n+| `VoiceOverEnabled` | bool | Indicates whether the VoiceOver screen reader is enabled. | iOS, iPadOS |\r\n+| `ZoomEnabled` | bool | Indicates whether accessibility Zoom is enabled. | iOS, iPadOS |\r\n+\r\n ## `AppleAutoSetupAdminAccounts`\r\n \r\n > \r\n@@ -65,6 +83,66 @@ For entities that include Android data, the following platforms are supported:\n | `AccountGUID` | String | The generated GUID of the administrator account | macOS |\r\n | `AccountShortName` | String | The short name of the administrator account | macOS |\r\n \r\n+## `AppleContentCache`\r\n+\r\n+> \r\n+> **Description**: Reports content caching configuration, storage usage, and service status.**Supported platforms**: macOS\r\n+\r\n+These properties require macOS 27 or later.\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `CacheServerGuid` | string | The unique identifier of the content caching server. | macOS |\r\n+| `CacheStatus` | string | The reported status of the content cache. | macOS |\r\n+| `FreeBytes` | long | The available content cache storage, in bytes. | macOS |\r\n+| `LimitBytes` | long | The storage limit for the content cache, in bytes. | macOS |\r\n+| `MaxCachePressureLastHour` | double | The maximum cache pressure reported during the previous hour. Values range from 0.0 to 1.0; a lower value indicates less pressure. | macOS |\r\n+| `PersonalCacheFreeBytes` | long | The available personal content cache storage, in bytes. | macOS |\r\n+| `PersonalCacheLimitBytes` | long | The storage limit for the personal content cache, in bytes. | macOS |\r\n+| `PersonalCacheUsedBytes` | long | The storage used by the personal content cache, in bytes. | macOS |\r\n+| `ServiceActivated` | bool | Indicates whether the content caching service is activated. | macOS |\r\n+| `ServiceActive` | bool | Indicates whether the content caching service is currently active. | macOS |\r\n+| `ServiceCacheStatus` | string | The cache status reported by the content caching service. | macOS |\r\n+| `ServicePort` | long | The network port used by the content caching service. | macOS |\r\n+| `ServicePublicIpAddress` | string | The public IP address reported by the content caching service. | macOS |\r\n+| `ServiceRegistrationStatus` | long | The registration status code reported by the content caching service. | macOS |\r\n+| `ServiceSendingReports` | bool | Indicates whether the content caching service is sending reports. | macOS |\r\n+| `ServiceStartupStatus` | string | The startup status of the content caching service. | macOS |\r\n+| `ServiceTetheratorStatus` | long | The tethered caching status code reported by the content caching service. | macOS |\r\n+| `ServiceVersion` | string | The version of the content caching service. | macOS |\r\n+| `UsedBytes` | long | The storage used by the content cache, in bytes. | macOS |\r\n+\r\n+## `AppleContentCacheParent`\r\n+\r\n+> \r\n+> **Description**: Reports information about parent content caches.**Supported platforms**: macOS\r\n+\r\n+These properties require macOS 27 or later.\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `ContentCacheIdentifier` | string | The identifier of the parent content cache. | macOS |\r\n+| `Healthy` | bool | Indicates whether the parent content cache is reported as healthy. | macOS |\r\n+| `IpAddressV4` | string | The IPv4 address of the parent content cache. | macOS |\r\n+| `ParentCacheVersion` | string | The version of the parent content cache. | macOS |\r\n+| `Port` | long | The network port used by the parent content cache. | macOS |\r\n+\r\n+## `AppleContentCachePeer`\r\n+\r\n+> \r\n+> **Description**: Reports information about peer content caches.**Supported platforms**: macOS\r\n+\r\n+These properties require macOS 27 or later.\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `ContentCacheIdentifier` | string | The identifier of the peer content cache. | macOS |\r\n+| `Friendly` | bool | Indicates whether the peer content cache is willing to respond to requests from this content cache. | macOS |\r\n+| `Healthy` | bool | Indicates whether the peer content cache is able to respond to requests from this content cache. | macOS |\r\n+| `IpAddressV4` | string | The IPv4 address of the peer content cache. | macOS |\r\n+| `PeerCacheVersion` | string | The version of the peer content cache. | macOS |\r\n+| `Port` | long | The network port used by the peer content cache. | macOS |\r\n+\r\n ## `AppleDeviceStates`\r\n \r\n > \r\n@@ -82,6 +160,63 @@ For entities that include Android data, the following platforms are supported:\n | `SupportsiOSAppInstalls` | bool | Are iOS app installs supported on this device | macOS |\r\n | `SystemIntegrityProtectionEnabled` | bool | System Integrity Protection (SIP) is a security technology on Mac that prevents malicious software from modifying protected resources | macOS |\r\n \r\n+## `AppleEnhancedLogging`\r\n+\r\n+> \r\n+> **Description**: Reports enhanced logging status and session information.**Supported platforms**: iOS, iPadOS, macOS\r\n+\r\n+These properties require supervised devices running iOS 27 or later, iPadOS 27 or later, or macOS 27 or later.\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `AppleCareToken` | string | The AppleCare token associated with the enhanced logging session. | iOS, iPadOS, macOS |\r\n+| `EnhancedLoggingStatus` | string | The reported status of enhanced logging. | iOS, iPadOS, macOS |\r\n+| `LastSessionChangeDateTime` | datetime | The date and time of the most recent enhanced logging session change. | iOS, iPadOS, macOS |\r\n+\r\n+## `AppleMdmStatus`\r\n+\r\n+> \r\n+> **Description**: Reports mobile device management enrollment and configuration status.**Supported platforms**: iOS, iPadOS, macOS\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `AppleEnrollmentType` | string | The device's Apple management enrollment type. | iOS 27 or later, iPadOS 27 or later, macOS 27 or later |\r\n+| `AwaitingConfiguration` | bool | Indicates whether the device is waiting for management configuration to complete. | iOS, iPadOS, macOS |\r\n+| `InReturnToServiceFlow` | bool | Indicates whether the device is in the Return to Service with app preservation workflow. | iOS 27 or later, iPadOS 27 or later |\r\n+| `IsSharedIPad` | bool | Indicates whether the device is configured as Shared iPad. | iPadOS |\r\n+\r\n+## `AppleSecurity`\r\n+\r\n+> \r\n+> **Description**: Reports security settings on Apple devices.**Supported platforms**: iOS, iPadOS, macOS\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `FileVaultEnabled` | bool | Indicates whether FileVault disk encryption is enabled. | macOS 14 or later |\r\n+| `LockdownModeEnabled` | bool | Indicates whether Lockdown Mode is enabled. | iOS 27 or later, iPadOS 27 or later, macOS 27 or later |\r\n+| `PasscodePresent` | bool | Indicates whether a passcode is set on the device. | iOS 16 or later, iPadOS 16 or later |\r\n+\r\n+Note\r\n+\r\n+`LockdownModeEnabled` requires supervision and isn't available on Shared iPad.\r\n+\r\n+## `AppleSystemHealthStatus`\r\n+\r\n+> \r\n+> **Description**: Reports the health status of device hardware components.**Supported platforms**: iOS, iPadOS\r\n+\r\n+These properties require supervised devices running iOS 27 or later or iPadOS 27 or later. Only components that are present and reportable on the device return a value.\r\n+\r\n+| Property | Type | Description | Platform |\r\n+| --- | --- | --- | --- |\r\n+| `BasebandHealthStatus` | string | The reported health status of the cellular baseband subsystem. | iOS, iPadOS |\r\n+| `CameraHealthStatus` | string | The reported health status of the camera. | iOS, iPadOS |\r\n+| `DisplayHealthStatus` | string | The reported health status of the display. | iOS, iPadOS |\r\n+| `FaceIdHealthStatus` | string | The reported health status of Face ID. | iOS, iPadOS |\r\n+| `NfcHealthStatus` | string | The reported health status of the near-field communication (NFC) subsystem. | iOS, iPadOS |\r\n+| `TouchIdHealthStatus` | string | The reported health status of Touch ID. | iOS, iPadOS |\r\n+| `UwbHealthStatus` | string | The reported health status of the ultra-wideband (UWB) subsystem. | iOS, iPadOS |\r\n+\r\n ## `AppleUpdateSettings`\r\n \r\n > \r\n@@ -467,7 +602,9 @@ Chassis Types property is currently not supported for Inventory or Device query\n ## `SystemInfo`\r\n \r\n > \r\n-> **Description**: System information of the device.**Supported platforms**: Android, Windows**Supported for**: single device query on-demand, Device query for multiple devices, Inventory.\r\n+> **Description**: System information of the device.**Supported platforms**: Android, iOS, iPadOS, macOS, Windows**Supported for**: single device query on-demand, Device query for multiple devices, Inventory.\r\n+\r\n+The Apple properties listed in this table aren't supported for device queries.\r\n \r\n | Property | Type | Description | Supported platforms |\r\n | --- | --- | --- | --- |\r\n@@ -479,6 +616,11 @@ Chassis Types property is currently not supported for Inventory or Device query\n | `HardwareManufacturer` | string (max 256 characters) | Hardware vendor | Android, Windows single device query |\r\n | `HardwareModel` | string (max 256 characters) | Hardware model | Android, Windows single device query |\r\n | `HardwareSerialNumber` | string (max 256 characters) | Hardware serial number | Android |\r\n+| `AppleProductName` | string | The Apple product model identifier reported by the device. | iOS, iPadOS, macOS |\r\n+| `AppleSilicon` | bool | Indicates whether the Mac uses Apple silicon. | macOS 12 or later |\r\n+| `AppleSoftwareUpdateDeviceId` | string | The device identifier used to look up applicable Apple software updates. | iOS 15 through 26, iPadOS 15 through 26, macOS 12 through 26 |\r\n+| `DeviceName` | string | The device name reported by the device. | iOS, iPadOS, macOS |\r\n+| `MarketingName` | string | The marketing name of the device model. | iOS 15 or later, iPadOS 15 or later, macOS 13 or later |\r\n \r\n ## `Time`\r\n \r\n",
+      "baseCommitSha": "9ef3562b0af688f5216892b89d0b2a76994f8264",
+      "commitSha": "90ba7b9835b864dc66456f057c13e6dd31e970e8",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 19:05:34 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/advanced-analytics/ref-data-platform-schema.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/ref-data-platform-schema",
+      "eventId": "intune-docs:90ba7b9835b864dc66456f057c13e6dd31e970e8:modified:intune/advanced-analytics/ref-data-platform-schema.md",
+      "firstSeenAt": "2026-10-27T19:25:35.663Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Apple accessibility and content cache schemas added",
+        "summary": "The data platform schema reference now documents AppleAccessibility properties for supervised iOS/iPadOS 16+ devices and AppleContentCache, AppleContentCacheParent, and AppleContentCachePeer properties for macOS 27+.",
+        "adminImpact": "Administrators can use these documented fields to interpret accessibility settings and content-cache status, storage, and relationships in analytics data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2609/2377842.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 7,
+      "changes": 10,
+      "patch": "diff --git a/intune/configmgr/hotfix/2609/2377842.md b/intune/configmgr/hotfix/2609/2377842.md\nindex 11c910c..3bfd537 100644\n--- a/intune/configmgr/hotfix/2609/2377842.md\n+++ b/intune/configmgr/hotfix/2609/2377842.md\n@@ -38,13 +38,9 @@ monikers: []\n item_type: Content\n source_path: intune/configmgr/hotfix/2609/2377842.md\n cmProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/eea02214-631d-404a-92d1-5a3357c32a26\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/4c50f262-d533-4ba4-9d4a-08899ec3a3d1\n spProducts:\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/f42c31d7-eed9-43b7-9757-54caffb53cdc\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/6a8c83be-f1de-4e90-bde0-bd097999a60c\n platformId: 502cbeb0-f5cc-7f6a-7823-d77bc8b95baf\n ---\n \n@@ -58,7 +54,7 @@ Release version 2609 of Configuration Manager current branch contains fixes and\n \r\n ##### Notes\r\n \r\n-- The early update ring version is available as an in-console update that can be installed at the top-tier site in a hierarchy.\r\n+- As of October 26, 2026, version 2609 is globally available for all customers to install.\r\n - For installation information, see [Checklist for installing update 2609 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2609).\r\n - For more information about the changes that are included in version 2609, see [What's new in version 2609 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-version-2609).\r\n - This release contains all of the fixes summarized in the following article.\r\n",
+      "baseCommitSha": "9ef3562b0af688f5216892b89d0b2a76994f8264",
+      "commitSha": "90ba7b9835b864dc66456f057c13e6dd31e970e8",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-27 19:05:34 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2609/2377842.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2609/2377842",
+      "eventId": "intune-docs:90ba7b9835b864dc66456f057c13e6dd31e970e8:modified:intune/configmgr/hotfix/2609/2377842.md",
+      "firstSeenAt": "2026-10-27T19:25:35.666Z",
+      "englishSummary": {
+        "category": "Generally available",
+        "headline": "Configuration Manager version 2609 is available to all customers",
+        "summary": "The documentation now states that, as of October 26, 2026, version 2609 is globally available for all customers to install.",
+        "adminImpact": "Administrators can install version 2609 without relying on the early update ring.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 1,
+    "totalCommits": 2,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 1 new, 0 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "overview": "Today's report includes 1 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Feature update",
         "title": "intune/configmgr",
-        "summary": "KB39169655 documents security and functional fixes, plus CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes.",
+        "summary": "KB39169655 documents security and functional fixes, plus CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. The documentation now states that, as of October 26, 2026, version 2609 is globally available for all customers to install.",
         "sourceFiles": [
-          "intune/configmgr/hotfix/2603/39169655.md"
+          "intune/configmgr/hotfix/2603/39169655.md",
+          "intune/configmgr/hotfix/2609/2377842.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/advanced-analytics",
+        "summary": "The data platform schema reference now documents AppleAccessibility properties for supervised iOS/iPadOS 16+ devices and AppleContentCache, AppleContentCacheParent, and AppleContentCachePeer properties for macOS 27+.",
+        "sourceFiles": [
+          "intune/advanced-analytics/ref-data-platform-schema.md"
         ]
       }
     ],
@@ -53,7 +115,12 @@
       {
         "category": "Feature update",
         "headline": "intune/configmgr",
-        "detail": "KB39169655 documents security and functional fixes, plus CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes."
+        "detail": "KB39169655 documents security and functional fixes, plus CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. The documentation now states that, as of October 26, 2026, version 2609 is globally available for all customers to install."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/advanced-analytics",
+        "detail": "The data platform schema reference now documents AppleAccessibility properties for supervised iOS/iPadOS 16+ devices and AppleContentCache, AppleContentCacheParent, and AppleContentCachePeer properties for macOS 27+."
       }
     ],
     "generatedBy": "fallback"

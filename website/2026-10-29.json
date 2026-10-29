@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 8,
+      "changes": 18,
+      "patch": "diff --git a/intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md b/intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md\nindex 41dd51a..f4adb56 100644\n--- a/intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md\n+++ b/intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md\n@@ -39,8 +39,10 @@ item_type: Content\n source_path: intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/4c50f262-d533-4ba4-9d4a-08899ec3a3d1\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/6a8c83be-f1de-4e90-bde0-bd097999a60c\n platformId: 2d335c13-683f-109b-308a-26a383fa3f32\n ---\n \n@@ -48,21 +50,21 @@ platformId: 2d335c13-683f-109b-308a-26a383fa3f32\n \n *Applies to: Configuration Manager (current branch)*\r\n \r\n-The **Pre-provision BitLocker** task sequence step in Configuration Manager allows you to enable BitLocker from the Windows Preinstallation Environment (Windows PE) prior to operating system deployment. Only the used drive space is encrypted, and therefore, encryption times are much faster. This is done with a randomly generated clear protector applied to the formatted volume and encrypting the volume prior to running the Windows setup process. The ability to pre-provision BitLocker was introduced with Windows 8 and Windows Server 2012. However, you can pre-provision BitLocker on a hard drive and install Windows 7 as long as you follow specific steps. After Windows 7 Setup completes, you must set a BitLocker key protector because the Windows 7 BitLocker control panel does not support BitLocker with a clear protector. You must add a key protector by using the **Enable BitLocker** step or by using the manage-bde.exe command-line tool.\r\n+The **Pre-provision BitLocker** task sequence step in Configuration Manager allows you to enable BitLocker from the Windows Preinstallation Environment (Windows PE) prior to operating system deployment. Only the used drive space is encrypted, and therefore, encryption times are much faster. This is done with a randomly generated clear protector applied to the formatted volume and encrypting the volume prior to running the Windows setup process. The ability to pre-provision BitLocker only applies to currently supported Windows operating system versions.\r\n \r\n-Generally, you must do the following to successfully pre-provision BitLocker on a computer that will install Windows 7:\r\n+Generally, you must do the following to successfully pre-provision BitLocker on a computer that will install Windows:\r\n \r\n-- Restart the computer in Windows PE\r\n+- If starting your task sequence in the full OS, restart the computer in Windows PE\r\n \r\n     Important\r\n \r\n-    You must use a boot image with Windows PE 4 or later to pre-provision BitLocker. For more information about supported Windows PE versions in Configuration Manager, see [Dependencies External to Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment#dependencies-external-to-configuration-manager).\r\n+    You must use a boot image from a supported ADK version and updated Configuration Manager client version to pre-provision BitLocker. For more information about supported Windows PE versions in Configuration Manager, see [Dependencies External to Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment#dependencies-external-to-configuration-manager).\r\n - Partition and format the hard drive\r\n - Pre-provision BitLocker\r\n-- Install Windows 7 with specific operating system and network settings\r\n-- Add a key protector to BitLocker\r\n+- Install Windows with specific operating system and network settings\r\n+- Enable BitLocker\r\n \r\n-    In Configuration Manager, the recommended way to pre-provision BitLocker on a hard drive and install Windows 7 is to create a new task sequence and select **Install an existing image package** from the **Create New Task Sequence** page of the **Create Task Sequence Wizard**. The wizard creates the task sequence steps listed in following table.\r\n+    In Configuration Manager, the recommended way to pre-provision BitLocker on a hard drive and install Windows is to create a new task sequence and select **Install an existing image package** from the **Create New Task Sequence** page of the **Create Task Sequence Wizard**. The wizard creates the task sequence steps listed in following table.\r\n \r\n Note\r\n \r\n@@ -79,4 +81,4 @@ The task sequence might have additional steps depending on how you configured th\n | Apply Network Settings | This step adds Network settings to the answer file. The answer file is used by the Setup Windows and ConfigMgr step to install the operating system. For more information, see [Apply Network Settings Step](../understand/task-sequence-steps#BKMK_ApplyNetworkSettings). |\r\n | Apply Device Drivers | This step matches and installs drivers as part of the operating system deployment. For more information, see [Auto Apply Drivers](../understand/task-sequence-steps#BKMK_AutoApplyDrivers). |\r\n | Setup Windows and ConfigMgr | This step performs the transition from Windows PE to the new operating system. This task sequence step is a required part of any operating system deployment. It installs the Configuration Manager client into the new operating system and prepares for the task sequence to continue execution in the new operating system. For more information, see [Setup Windows and ConfigMgr](../understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr). |\r\n-| Enable BitLocker | This step enables BitLocker encryption on the hard drive and sets key protectors. Because the hard drive was pre-provisioned with BitLocker, this step completes very quickly. Windows 7 requires that you add a key protector. If you do not use this step, you can run the manage-bde.exe command-line tool to set a key protector. For more information, see [Enable BitLocker](../understand/task-sequence-steps#enable-bitlocker). |\n\\ No newline at end of file\n+| Enable BitLocker | This step enables BitLocker encryption on the hard drive and sets key protectors. Because the hard drive was pre-provisioned with BitLocker, this step completes very quickly. Windows requires that you add a key protector. If you do not use this step, you can run the manage-bde.exe command-line tool to set a key protector. For more information, see [Enable BitLocker](../understand/task-sequence-steps#enable-bitlocker). |\n\\ No newline at end of file\n",
+      "baseCommitSha": "89e9a7040e69a52c17985dd297eccda06a7b8423",
+      "commitSha": "69d71c1f61d00c67e3fc092d4bfc455cf6ae2c35",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-29 14:48:05 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe",
+      "eventId": "intune-docs:69d71c1f61d00c67e3fc092d4bfc455cf6ae2c35:modified:intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md",
+      "firstSeenAt": "2026-10-29T15:11:43.491Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Pre-provision BitLocker guidance now covers Windows generally",
+        "summary": "The documentation replaces Windows 7-specific instructions with Windows guidance, updates the boot image requirement to a supported ADK and Configuration Manager client version, and clarifies when to restart in Windows PE.",
+        "adminImpact": "Verify that task sequences use a supported ADK boot image and updated Configuration Manager client version.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "intune/configmgr",
+        "summary": "The documentation replaces Windows 7-specific instructions with Windows guidance, updates the boot image requirement to a supported ADK and Configuration Manager client version, and clarifies when to restart in Windows PE.",
+        "sourceFiles": [
+          "intune/configmgr/osd/deploy-use/preprovision-bitlocker-in-windows-pe.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "intune/configmgr",
+        "detail": "The documentation replaces Windows 7-specific instructions with Windows guidance, updates the boot image requirement to a supported ADK and Configuration Manager client version, and clarifies when to restart in Windows PE."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

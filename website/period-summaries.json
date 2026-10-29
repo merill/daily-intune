@@ -7713,6 +7713,28 @@
         "outputTokens": 1351,
         "costUsd": 0.00185
       }
+    },
+    "2026-10-29": {
+      "headline": "Windows PE BitLocker guidance drops Windows 7 steps for supported ADK and client versions",
+      "overview": "Configuration Manager’s “Preprovision BitLocker in Windows PE” guidance replaces Windows 7-specific instructions with general Windows guidance. It updates the boot image requirement to a supported ADK and Configuration Manager client version, and clarifies when to restart in Windows PE.",
+      "adminImpact": "Review affected task sequences and verify that their boot images use a supported ADK and updated Configuration Manager client version.",
+      "keyChanges": [
+        {
+          "title": "BitLocker preprovisioning guidance updates Windows PE requirements",
+          "detail": "The article replaces Windows 7-specific steps with Windows guidance, updates the boot image requirement to a supported ADK and Configuration Manager client version, and clarifies when to restart in Windows PE.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-29-preprovision-bitlocker-in-windows-pe-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-29T15:11:52.263Z",
+      "usage": {
+        "inputTokens": 1033,
+        "outputTokens": 825,
+        "costUsd": 0.001197
+      }
     }
   },
   "weeks": {
@@ -9559,37 +9581,37 @@
       }
     },
     "2026-10-26": {
-      "headline": "Configuration Manager 2609 goes global as CMG tiers move to new Azure VM sizes",
-      "overview": "Configuration Manager 2609 is documented as globally available for installation from October 26, while KB39169655 updates Cloud Management Gateway migrations, load-balancing rules, and VM sizing. Intune guidance also specifies concrete administration behavior for AOSP referenced apps, eSIM management, and Apple device-wide VPN routes.",
-      "adminImpact": "Configuration Manager administrators can install 2609 without the early-update-ring process. For KB39169655 and CMG changes, verify Azure capacity and vCPU quotas, upgrade the Configuration Manager console afterward, and plan around the September 30, 2027 deadline for avoiding inbound NAT rules version 1. Intune administrators managing AOSP devices need the package name and an externally or previously deployed app; eSIM activation applies to supported Android devices, and bulk wipe preserves plans unless removal is selected.",
+      "headline": "Configuration Manager 2609 goes global as Intune documents AOSP apps and eSIM controls",
+      "overview": "Configuration Manager 2609 became globally available for installation on October 26, ending the early-update-ring opt-in path. The related 2603 rollup documents security and functional fixes, CMG migration to Windows Server 2022 and Azure Load Balancer inbound NAT rules version 2, plus newer VM sizes. Intune’s most actionable guidance covers AOSP referenced-app assignments, eSIM activation for up to 100 Android 15-or-later corporate-owned Android Enterprise devices, and Apple device-wide VPN route controls.",
+      "adminImpact": "Administrators can plan 2609 installation without early-ring enrollment. For KB39169655, check Azure capacity and vCPU quotas before installation, upgrade the Configuration Manager console afterward, and account for the September 30, 2027 retirement of inbound NAT rules version 1. AOSP app administrators need package names and apps already deployed on devices or externally; eSIM administrators need a carrier activation server URL and a decision on whether bulk wipe should retain or remove plans. For Apple device-wide VPN profiles, configure Include all networks and Exclude local networks; these controls don't apply to per-app VPN.",
       "keyChanges": [
         {
-          "title": "Configuration Manager 2609 is globally available",
-          "detail": "The installation checklist now states that version 2609 became globally available on October 26, 2026, replacing the early-update-ring opt-in process.",
+          "title": "Configuration Manager 2609 becomes globally installable",
+          "detail": "Configuration Manager version 2609 became globally available for installation on October 26, 2026. Administrators can install it without following the documented early-update-ring opt-in procedure.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-26-checklist-for-installing-update-2609-08"
         },
         {
-          "title": "KB39169655 changes CMG infrastructure and adds a retirement deadline",
-          "detail": "The rollup documents security and functional fixes, migration to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the console afterward, and install before September 30, 2027, to avoid the retirement of inbound NAT rules version 1.",
+          "title": "KB39169655 documents major CMG infrastructure changes",
+          "detail": "The Configuration Manager 2603 update rollup documents security and functional fixes, CMG migration to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the console afterward, and install before September 30, 2027, to avoid the inbound NAT rules version 1 retirement.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-27-update-rollup-for-microsoft-configuration-manager-version-2603-configuration-manager-microsoft-l-01"
         },
         {
-          "title": "AOSP referenced apps use resident-app assignment behavior",
-          "detail": "The Intune workflow allows an AOSP referenced app to be added without an APK or Google Play selection. Required assignments unhide apps already resident on devices, Uninstall assignments hide them, and Available assignments aren't supported. Administrators need AOSP-enrolled devices, the package name, and an app already deployed on the devices or externally; the package name can't be changed after creation.",
+          "title": "Intune documents AOSP referenced-app assignment behavior",
+          "detail": "The new workflow describes adding AOSP referenced apps without an APK or Google Play selection. Required assignments unhide device-resident apps, Uninstall assignments hide them, and Available assignments aren't supported. The process requires AOSP-enrolled devices, an app package name, and an app already deployed on devices or externally; the package name can't be changed after creation.",
           "product": "Intune",
           "sourceId": "doc-2026-10-26-manage-aosp-referenced-apps-in-microsoft-intune-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "eSIM activation supports batches of up to 100 Android devices",
-          "detail": "The guidance specifies eSIM activation for up to 100 selected Android 15 or later corporate-owned Android Enterprise devices through a carrier activation server URL. Bulk wipe preserves eSIM plans by default, with an option to remove them.",
+          "title": "eSIM activation guidance covers up to 100 Android devices",
+          "detail": "The Intune index now states that administrators can activate eSIMs on up to 100 selected Android 15 or later corporate-owned Android Enterprise devices using a carrier activation server URL. Bulk wipe preserves eSIM plans by default, with an option to remove them.",
           "product": "Intune",
           "sourceId": "doc-2026-10-28-index-02"
         },
         {
           "title": "Apple device-wide VPN profiles gain Enforce Routes guidance",
-          "detail": "For iOS/iPadOS and macOS device-wide VPN profiles, administrators configure Include all networks and Exclude local networks; Intune derives the Enforce Routes value automatically. The settings don't apply to per-app VPN, and the guidance doesn't recommend using them with split tunneling.",
+          "detail": "The Apple VPN reference documents Enforce Routes for device-wide VPN profiles on iOS/iPadOS and macOS. Administrators configure Include all networks and Exclude local networks, while Intune derives the Enforce Routes value automatically. The settings don't apply to per-app VPN, and split tunneling isn't recommended with them.",
           "product": "Intune",
           "sourceId": "doc-2026-10-26-ref-vpn-settings-apple-10"
         }
@@ -9597,11 +9619,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-28T23:59:51.331Z",
+      "generatedAt": "2026-10-29T15:11:52.263Z",
       "usage": {
-        "inputTokens": 2944,
-        "outputTokens": 2787,
-        "costUsd": 0.003933
+        "inputTokens": 3068,
+        "outputTokens": 8568,
+        "costUsd": 0.010895
       }
     }
   },
@@ -10021,54 +10043,54 @@
       }
     },
     "2026-10": {
-      "headline": "Intune will end Windows MDM-only DNS discovery support January 15, 2027",
-      "overview": "Intune’s most consequential October notice sets a January 15, 2027 deadline for ending DNS CNAME auto-discovery in Windows MDM-only enrollment. Affected users will need to enter the Microsoft enrollment server URL manually, while existing devices and other enrollment methods remain unaffected. Other substantive changes cover the new device-page default and permissions, Windows 11 version 26H2 security baselines, Configuration Manager CMG migrations, and controlled network-setting delegation through Endpoint Privilege Management. Much of the remaining activity consists of reference, link, metadata, and roadmap documentation maintenance.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027; no remediation is indicated for existing devices. Review permissions for the new device page. For the Windows 11 26H2 baseline, create a new profile or update an existing one because current profiles do not update automatically. Before installing Configuration Manager KB39169655, check Azure capacity and vCPU quotas, upgrade the console afterward, and plan installation before September 30, 2027 to avoid inbound NAT rules version 1 retirement. EPM network-setting delegation requires an enabled elevation settings policy.",
+      "headline": "Intune ends Windows MDM-only CNAME discovery January 15, 2027",
+      "overview": "October’s actionable changes center on an enrollment retirement, an administrator permission shift, and Windows 11 security-baseline planning. Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027; Microsoft says the new device page will replace the legacy default starting with the September (2609) release and requires additional permissions. The month also added Windows 11 version 26H2 baseline guidance and documented controlled Endpoint Privilege Management network-setting changes. Configuration Manager administrators should separately account for the 2603 rollup’s CMG migration prerequisites and September 30, 2027, NAT-rules deadline. Most remaining updates were reference, metadata, link, or wording maintenance.",
+      "adminImpact": "Update Windows MDM-only enrollment instructions before January 15, 2027; existing devices and other enrollment methods are unaffected. Review role assignments for the new device page, create or update a 26H2 baseline profile if adopting it, and enable an Endpoint Privilege Management elevation settings policy before delegating network changes. For the Configuration Manager 2603 rollup, verify Azure capacity and vCPU quotas, upgrade the console afterward, and install before September 30, 2027, to avoid the retirement of inbound NAT rules version 1.",
       "keyChanges": [
         {
           "title": "Windows MDM-only enrollment loses DNS CNAME auto-discovery",
-          "detail": "Starting January 15, 2027, Intune will no longer support DNS CNAME auto-discovery for Windows MDM-only enrollment. Organizations using the method must have users enter the Microsoft enrollment server URL manually. Existing devices and other enrollment methods are unaffected, so administrators should update enrollment procedures rather than remediate enrolled devices.",
+          "detail": "Starting January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Users will need to enter the Microsoft enrollment server URL manually. Existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "The new Intune device page brings a changed permission model",
-          "detail": "The new device page will become the default view starting with the September (2609) release and will replace the legacy page while retaining device-management features. Administrators will need the Managed devices/Update permission together with specific action permissions; review role assignments and operating procedures accordingly.",
+          "title": "The new device page changes role requirements as it replaces the legacy view",
+          "detail": "Microsoft says the new Intune device page will become the default starting with the September (2609) release, replacing the legacy page while retaining device-management features. Administrators will need the Managed devices/Update permission plus specific action permissions.",
           "product": "Intune",
           "sourceId": "MC1456780"
         },
         {
-          "title": "Windows 11 version 26H2 baseline guidance requires profile action",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators who want the 26H2 baseline must create a new profile or update an existing one.",
+          "title": "26H2 baseline guidance adds settings, defaults, and a profile decision",
+          "detail": "Intune’s updated guidance covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
         },
         {
-          "title": "Configuration Manager CMG updates move deployments to newer Azure infrastructure",
-          "detail": "KB39169655 documents CMG migration to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Check Azure capacity and vCPU quotas before installation, upgrade the Configuration Manager console afterward, and install before September 30, 2027 to avoid the retirement of inbound NAT rules version 1.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-27-update-rollup-for-microsoft-configuration-manager-version-2603-configuration-manager-microsoft-l-01"
-        },
-        {
-          "title": "EPM guidance details controlled network-setting delegation",
-          "detail": "A new Endpoint Privilege Management article documents policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or both. Devices must have an EPM elevation settings policy enabled before administrators use this policy model.",
+          "title": "Endpoint Privilege Management guidance details controlled network changes",
+          "detail": "The new guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or a combination of those controls. Devices must have an EPM elevation settings policy enabled.",
           "product": "Endpoint Privilege Management",
           "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Configuration Manager 2603 rollup sets CMG migration checks and deadline",
+          "detail": "KB39169655 documents security and functional fixes, CMG migration to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the Configuration Manager console afterward, and install before September 30, 2027, to avoid the retirement of inbound NAT rules version 1.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-10-27-update-rollup-for-microsoft-configuration-manager-version-2603-configuration-manager-microsoft-l-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-28T23:59:51.331Z",
+      "generatedAt": "2026-10-29T15:11:52.263Z",
       "usage": {
-        "inputTokens": 6504,
-        "outputTokens": 3890,
-        "costUsd": 0.005969
+        "inputTokens": 6568,
+        "outputTokens": 5975,
+        "costUsd": 0.008484
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-28T23:59:51.331Z",
+  "generatedAt": "2026-10-29T15:11:52.263Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10229,18 +10251,24 @@
       "outputTokens": 8028,
       "requests": 3,
       "costUsd": 0.011752
+    },
+    "2026-10-29": {
+      "inputTokens": 10669,
+      "outputTokens": 15368,
+      "requests": 3,
+      "costUsd": 0.020575
     }
   },
   "lastRun": {
-    "inputTokens": 10593,
-    "outputTokens": 8028,
+    "inputTokens": 10669,
+    "outputTokens": 15368,
     "requests": 3,
-    "costUsd": 0.011752
+    "costUsd": 0.020575
   },
   "totalUsage": {
-    "inputTokens": 3494225,
-    "outputTokens": 2170092,
-    "requests": 396,
-    "costUsd": 3.302956
+    "inputTokens": 3504894,
+    "outputTokens": 2185460,
+    "requests": 399,
+    "costUsd": 3.323531
   }
 }

@@ -7737,31 +7737,37 @@
       }
     },
     "2026-10-30": {
-      "headline": "Intune ends legacy Apple enrollment authentication as iOS update controls shift to DDM",
-      "overview": "The period’s consequential Intune changes affect Apple enrollment and software updates. In the October 2026 (2610) service release, Setup Assistant (legacy) authentication for ADE with user affinity is no longer supported, while Apple’s OS 27 changes require administrators to use DDM-based update controls. Windows Autopilot guidance also sets a connector cutoff for enrollment processing. Most of the 3,056 recorded changes were Configuration Manager metadata and reference-link maintenance rather than operational changes.",
-      "adminImpact": "Review ADE profiles and use modern authentication with just-in-time registration for new configurations; existing legacy profiles are updated automatically, so no manual migration is stated. Replace legacy MDM software-update workflows with Software Update enforcement and Software Update Settings, and review any UTC-based scheduling assumptions because enforcement uses each device’s local time zone. Upgrade Intune Connectors for Active Directory older than 6.2501.2000.5; version 6.2504.2001.8 and later use WebView2, so Internet Explorer Enhanced Security Configuration no longer needs to be disabled.",
+      "headline": "Intune Connector versions older than 6.2501.2000.5 no longer process Autopilot enrollments",
+      "overview": "The meaningful changes center on enrollment, Apple software updates, and Defender policy planning. Windows Autopilot guidance sets an operational cutoff for older Intune Connector versions, while Intune records the end of legacy ADE authentication and redirects iOS/iPadOS update planning toward DDM controls. Intune also adds in-development and preview Defender policy guidance. Most remaining updates are Configuration Manager and other metadata or link-maintenance edits with no stated administrative action.",
+      "adminImpact": "Upgrade Intune Connector for Active Directory versions older than 6.2501.2000.5; version 6.2504.2001.8 uses WebView2 and does not require disabling Internet Explorer Enhanced Security Configuration. Review ADE user-affinity profiles and enrollment communications, although no manual profile migration is stated. Rework iOS/iPadOS software-update planning around DDM controls and device local time zones. Treat the Defender Safe Deployment material as planning input, while the many taxonomy and link-only changes require no configuration action.",
       "keyChanges": [
         {
-          "title": "ADE drops Setup Assistant legacy authentication",
-          "detail": "Intune ended support for Setup Assistant (legacy) authentication for Apple Automated Device Enrollment profiles with user affinity in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, and the legacy option is no longer available. New configurations should use modern authentication with just-in-time registration.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
-        },
-        {
-          "title": "Apple OS 27 guidance moves software updates to DDM",
-          "detail": "The iOS/iPadOS planning guidance says Apple deprecated MDM-based software-update workloads and removed related commands with OS 27. It directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
-        },
-        {
-          "title": "Older Intune AD connectors can no longer process enrollments",
-          "detail": "Windows Autopilot guidance states that Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. It also states that version 6.2504.2001.8 uses WebView2, removing the need to disable Internet Explorer Enhanced Security Configuration on Windows Server.",
+          "title": "Autopilot connector versions below the cutoff can no longer process enrollments",
+          "detail": "Updated Connector guidance says Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. It also states that version 6.2504.2001.8 uses WebView2, eliminating the need to disable Internet Explorer Enhanced Security Configuration on Windows Server. Upgrade connectors below the cutoff.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-10-30-updated-connector-09"
         },
         {
-          "title": "Intune device-configuration guidance adds Defender profile coverage",
-          "detail": "The Manage Policies page now lists Defender Safe Deployment (Preview) and Microsoft Defender AI agent runtime protection profiles, and identifies a Windows device-management use case for controlling when Microsoft Defender updates are received. Administrators should review whether these documented profiles apply to their endpoint-security policies.",
+          "title": "Setup Assistant legacy authentication ends for ADE user affinity",
+          "detail": "Intune says support for Setup Assistant (legacy) authentication with ADE user affinity ended in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, and the legacy option is no longer available. New configurations should use modern authentication with just-in-time registration; no manual migration is stated.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
+        },
+        {
+          "title": "Apple OS 27 moves iOS update control from legacy MDM workloads",
+          "detail": "The iOS/iPadOS planning guidance says Apple deprecated MDM-based software update workloads and removed related commands with OS 27. It directs administrators to Software Update enforcement and Software Update Settings through DDM, with enforcement based on each device’s local time zone. Policies relying on legacy MDM workloads or UTC scheduling should be reviewed.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
+        },
+        {
+          "title": "In-development guidance details a Defender Safe Deployment template",
+          "detail": "Intune’s in-development guidance describes a dedicated template for Microsoft Defender for Endpoint safe deployment settings on Windows, including update channels for platform, engine, and security intelligence updates. Administrators can use the material to plan standalone Defender update rollout policies for Windows devices managed through Intune or Microsoft Defender for Endpoint security settings management.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-in-development-3060"
+        },
+        {
+          "title": "Intune policy guidance lists Defender Safe Deployment and AI agent profiles",
+          "detail": "The Manage Policies page now lists Defender Safe Deployment (Preview) and Microsoft Defender AI agent runtime protection profiles. It also documents the ability to control when Windows devices receive Microsoft Defender updates, giving administrators specific profiles to review when designing Defender policy.",
           "product": "Intune",
           "sourceId": "doc-2026-10-30-manage-policies-2537"
         }
@@ -7769,11 +7775,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-30T01:03:29.078Z",
+      "generatedAt": "2026-10-30T08:37:06.395Z",
       "usage": {
-        "inputTokens": 5250,
-        "outputTokens": 1681,
-        "costUsd": 0.003067
+        "inputTokens": 5264,
+        "outputTokens": 6694,
+        "costUsd": 0.009086
       }
     }
   },
@@ -9621,49 +9627,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "Intune ends legacy Apple enrollment authentication as Apple update controls shift to DDM",
-      "overview": "The week’s meaningful changes center on Apple enrollment and update management, Windows Autopilot connector support, and Configuration Manager cloud management. Intune ended Setup Assistant (legacy) authentication for ADE user-affinity profiles in the October 2026 (2610) service release, while its Apple guidance now points administrators to DDM-based update controls. Most other updates, particularly the large Configuration Manager set, were metadata or reference-link maintenance.",
-      "adminImpact": "Review ADE profiles and use modern authentication with just-in-time registration for new configurations. Replace reliance on legacy Apple MDM software-update workloads with DDM controls, accounting for each device’s local time zone. Upgrade Intune Connector for Active Directory installations older than 6.2501.2000.5. Configuration Manager CMG operators should validate Azure capacity and vCPU quotas before installing KB39169655 and plan around the September 30, 2027 inbound NAT rules version 1 retirement.",
+      "headline": "Apple ADE Setup Assistant legacy authentication ends as Intune details Defender safe-deployment guidance",
+      "overview": "The consequential changes center on Intune enrollment, Apple update management, and Windows endpoint security. Apple ADE user-affinity profiles now use modern authentication, Apple OS 27 removes MDM software-update commands, and older Intune AD connectors can no longer process enrollments. Intune also added in-development guidance for a Windows Defender Safe Deployment template. Much of the remaining supplied activity, particularly in Configuration Manager, is reference-link or metadata maintenance, with the significant exception of a Configuration Manager 2603 rollup affecting CMG infrastructure.",
+      "adminImpact": "Review ADE enrollment policies and communications, although existing legacy profiles are updated automatically. Replace legacy Apple MDM update scheduling with DDM-based controls and account for device-local time zones. Upgrade Intune AD connectors older than 6.2501.2000.5. Treat the Defender Safe Deployment material as planning guidance labeled In Development. Configuration Manager administrators installing KB39169655 should verify Azure capacity and vCPU quotas, upgrade the console afterward, and install before September 30, 2027, to avoid the inbound NAT rules version 1 retirement.",
       "keyChanges": [
         {
-          "title": "Setup Assistant legacy authentication ended for ADE user-affinity profiles",
-          "detail": "Intune ended support for Setup Assistant (legacy) authentication for automated device enrollment with user affinity in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, and the legacy option is no longer available. New configurations should use modern authentication with just-in-time registration.",
-          "product": "Intune",
+          "title": "Setup Assistant legacy authentication ended for ADE user affinity",
+          "detail": "Intune ended support for Setup Assistant (legacy) authentication with ADE user affinity in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, the legacy option is no longer available, and new configurations should use modern authentication with just-in-time registration.",
+          "product": "Intune — Automated Device Enrollment",
           "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
         },
         {
-          "title": "Apple software-update guidance moves from MDM workloads to DDM controls",
-          "detail": "The Intune planning guidance says Apple deprecated MDM-based software-update workloads and removed related commands with OS 27. It directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
-          "product": "Intune",
+          "title": "Apple OS 27 removes MDM software-update commands",
+          "detail": "Apple deprecated MDM-based software update workloads and removed related commands with OS 27. Intune guidance now directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
+          "product": "Intune — iOS/iPadOS device updates",
           "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
         },
         {
+          "title": "Defender Safe Deployment gains an in-development Windows template",
+          "detail": "Intune’s In Development guidance now describes a dedicated template for Microsoft Defender for Endpoint safe-deployment settings on Windows, including separate update channels for platform, engine, and security intelligence updates. The guidance covers devices managed through Intune or Microsoft Defender security settings management.",
+          "product": "Intune — Microsoft Defender for Endpoint safe deployment",
+          "sourceId": "doc-2026-10-30-in-development-3060"
+        },
+        {
           "title": "Older Intune AD connectors can no longer process enrollments",
-          "detail": "Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. Connector version 6.2504.2001.8 uses WebView2, so Windows Server installations no longer need Internet Explorer Enhanced Security Configuration disabled.",
-          "product": "Windows Autopilot",
+          "detail": "Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests, so they must be upgraded. Connector version 6.2504.2001.8 and later uses WebView2, removing the need to disable Internet Explorer Enhanced Security Configuration on Windows Server.",
+          "product": "Windows Autopilot — Intune Connector for Active Directory",
           "sourceId": "doc-2026-10-30-updated-connector-09"
         },
         {
-          "title": "Configuration Manager 2603 rollup adds CMG changes and a 2027 deadline",
-          "detail": "KB39169655 documents security and functional fixes, CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the console afterward, and install before September 30, 2027, to avoid the inbound NAT rules version 1 retirement.",
-          "product": "Configuration Manager",
+          "title": "Configuration Manager 2603 rollup changes CMG infrastructure",
+          "detail": "KB39169655 documents CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the Configuration Manager console afterward, and install before September 30, 2027, to avoid the inbound NAT rules version 1 retirement.",
+          "product": "Configuration Manager — Cloud Management Gateway",
           "sourceId": "doc-2026-10-27-update-rollup-for-microsoft-configuration-manager-version-2603-configuration-manager-microsoft-l-01"
-        },
-        {
-          "title": "Intune policy guidance now lists Defender protection profiles and update timing",
-          "detail": "The Manage Policies page now lists Defender Safe Deployment (Preview) and Microsoft Defender AI agent runtime protection profiles. It also documents controlling when Windows devices receive Microsoft Defender updates, giving administrators additional policy scenarios to assess against existing endpoint-security requirements.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-30-manage-policies-2537"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-30T01:03:29.078Z",
+      "generatedAt": "2026-10-30T08:37:06.395Z",
       "usage": {
-        "inputTokens": 8721,
-        "outputTokens": 3334,
-        "costUsd": 0.005745
+        "inputTokens": 8727,
+        "outputTokens": 4421,
+        "costUsd": 0.007051
       }
     }
   },
@@ -10083,54 +10089,54 @@
       }
     },
     "2026-10": {
-      "headline": "Intune ends legacy Apple enrollment authentication and sets January 15, 2027 Windows CNAME cutoff",
-      "overview": "October’s meaningful Intune changes clustered around enrollment and Apple management: Setup Assistant (legacy) authentication for ADE user affinity ended with the 2610 release, while Windows MDM-only CNAME auto-discovery is scheduled to end on January 15, 2027. Apple update guidance now points to DDM, older Intune Connector for Active Directory builds can no longer process enrollments, and Windows 11 26H2 baseline coverage is documented. Most remaining update volume involved links, metadata, and wording maintenance.",
-      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027, and upgrade Intune Connector for Active Directory versions older than 6.2501.2000.5. Use modern authentication with just-in-time registration for new ADE user-affinity configurations; existing legacy profiles update automatically. Move Apple software-update policies from legacy MDM workloads to DDM controls and account for each device’s local time zone. If adopting the Windows 11 26H2 baseline, create a new profile or update an existing one because existing profiles do not update automatically.",
+      "headline": "Windows MDM-only CNAME discovery gets a January 2027 retirement deadline",
+      "overview": "October was dominated by documentation maintenance, but several Intune changes carry operational weight: DNS CNAME auto-discovery for Windows MDM-only enrollment ends January 15, 2027; Apple ADE legacy authentication ended with the 2610 release; and Apple OS 27 removes legacy MDM software-update commands. Intune also documented the Windows 11 26H2 security baseline and the permissions required by the new device page.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures so users can enter the Microsoft enrollment server URL before January 15, 2027; existing devices and other enrollment methods are unaffected. Review ADE communications and profiles, which are automatically moved to modern authentication, and replace legacy Apple update workloads with DDM-based controls that use each device’s local time zone. Administrators adopting the Windows 11 26H2 baseline must create a new profile or update an existing one because current profiles do not update automatically. Also review permissions and runbooks for the new device page, which requires Managed devices/Update plus specific action permissions.",
       "keyChanges": [
         {
-          "title": "Setup Assistant legacy authentication ended for ADE user affinity",
-          "detail": "With the October 2026 (2610) service release, Intune ended support for Setup Assistant (legacy) authentication for Automated Device Enrollment with user affinity. Existing profiles are automatically updated to modern authentication; new configurations should use modern authentication with just-in-time registration.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
-        },
-        {
-          "title": "Windows MDM-only CNAME auto-discovery ends January 15, 2027",
-          "detail": "Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027. Affected users will need to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
+          "title": "DNS CNAME auto-discovery ends for Windows MDM-only enrollment",
+          "detail": "Starting January 15, 2027, Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment. Organizations using it must have users manually enter the Microsoft enrollment server URL. Existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "Apple OS 27 guidance shifts software updates to DDM",
-          "detail": "Apple deprecated MDM-based software-update workloads and removed related commands with OS 27. Intune’s guidance now directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
+          "title": "ADE user-affinity profiles move off Setup Assistant legacy authentication",
+          "detail": "Intune ended support for Setup Assistant (legacy) authentication for ADE with user affinity in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, and the legacy option is no longer available. New configurations should use modern authentication with just-in-time registration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
+        },
+        {
+          "title": "Apple OS 27 removes legacy MDM software-update commands",
+          "detail": "Apple deprecated MDM-based software-update workloads and removed the related commands with OS 27. Intune guidance directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
           "product": "Intune",
           "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
         },
         {
-          "title": "Older Intune AD connectors can no longer process enrollment requests",
-          "detail": "Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. Version 6.2504.2001.8 uses WebView2, removing the need to disable Internet Explorer Enhanced Security Configuration in Windows Server.",
-          "product": "Windows Autopilot",
-          "sourceId": "doc-2026-10-30-updated-connector-09"
-        },
-        {
-          "title": "Windows 11 26H2 baseline guidance adds Settings Catalog coverage",
-          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically.",
+          "title": "Windows 11 26H2 baseline guidance requires profile review",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
+        },
+        {
+          "title": "The new Intune device page brings a revised permission model",
+          "detail": "The new device page is scheduled to become the default view with the September (2609) release, replacing the legacy page while retaining device-management features. Administrators need the Managed devices/Update permission plus specific permissions for individual actions.",
+          "product": "Intune",
+          "sourceId": "MC1456780"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-30T01:03:29.078Z",
+      "generatedAt": "2026-10-30T08:37:06.395Z",
       "usage": {
-        "inputTokens": 6531,
-        "outputTokens": 9186,
-        "costUsd": 0.012329
+        "inputTokens": 6557,
+        "outputTokens": 3256,
+        "costUsd": 0.005219
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-30T01:03:29.078Z",
+  "generatedAt": "2026-10-30T08:37:06.395Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10293,22 +10299,22 @@
       "costUsd": 0.020575
     },
     "2026-10-30": {
-      "inputTokens": 20502,
-      "outputTokens": 14201,
-      "requests": 3,
-      "costUsd": 0.021142
+      "inputTokens": 41050,
+      "outputTokens": 28572,
+      "requests": 6,
+      "costUsd": 0.042497
     }
   },
   "lastRun": {
-    "inputTokens": 20502,
-    "outputTokens": 14201,
+    "inputTokens": 20548,
+    "outputTokens": 14371,
     "requests": 3,
-    "costUsd": 0.021142
+    "costUsd": 0.021355
   },
   "totalUsage": {
-    "inputTokens": 3525396,
-    "outputTokens": 2199661,
-    "requests": 402,
-    "costUsd": 3.344673
+    "inputTokens": 3545944,
+    "outputTokens": 2214032,
+    "requests": 405,
+    "costUsd": 3.366028
   }
 }

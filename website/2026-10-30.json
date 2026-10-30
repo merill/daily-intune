@@ -79898,6 +79898,110 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/upgrade.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 2,
+      "changes": 13,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/upgrade.md b/intune/device-security/microsoft-tunnel/upgrade.md\nindex 5252063..380fc4a 100644\n--- a/intune/device-security/microsoft-tunnel/upgrade.md\n+++ b/intune/device-security/microsoft-tunnel/upgrade.md\n@@ -15,9 +15,9 @@ ms.collection:\n ms.reviewer: ochukwunyere\n ms.subservice: protect\n description: Understand how Microsoft Tunnel Gateway upgrades to new versions of the tunnel software for Microsoft Intune.\n-ms.date: 2026-09-22T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n ms.topic: how-to\n-ms.custom: msecd-doc-authoring-1028\n+ms.custom: msecd-doc-authoring-1030\n ai-usage: ai-assisted\n locale: en-us\n document_id: 0c11d6eb-282a-9313-0aae-12cd76adac5a\n@@ -160,6 +160,15 @@ Important\n \r\n Container releases take place in stages. If you notice that your container images aren't the most recent, please be assured that they will be updated and delivered within the following week.\r\n \r\n+### November 2, 2026\r\n+\r\n+Version Number: 20261028.3\r\n+\r\n+Image hash values:\r\n+\r\n+- **agentImageDigest**: sha256:760c240d6b25bfa18330617e4517ac95afe652556bc720744491905cfc459190\r\n+- **serverImageDigest**: sha256:f8773f5a82b815159142985ef50af0e343082363394d2ee5bc872ba01cd503e4\r\n+\r\n ### September 9, 2026\r\n \r\n Version Number: 20260909.1\r\n",
+      "baseCommitSha": "b9a15f313b49f623bce0cd9af4044fe9cf52bf97",
+      "commitSha": "4280dbfa36c11a53d938515b64a66f8cf85eae1b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-30 23:21:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/microsoft-tunnel/upgrade.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/upgrade",
+      "eventId": "intune-docs:4280dbfa36c11a53d938515b64a66f8cf85eae1b:modified:intune/device-security/microsoft-tunnel/upgrade.md",
+      "firstSeenAt": "2026-10-30T23:43:45.798Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Microsoft Tunnel upgrade documentation adds November 2, 2026 image details",
+        "summary": "The page now lists version 20261028.3 and SHA-256 digests for the agent and server images.",
+        "adminImpact": "Administrators can use the documented version and image digests when checking Microsoft Tunnel upgrade images.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/security-baselines/stig-audit-baseline.md",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 32,
+      "changes": 55,
+      "patch": "diff --git a/intune/device-security/security-baselines/stig-audit-baseline.md b/intune/device-security/security-baselines/stig-audit-baseline.md\nindex 4917035..b272503 100644\n--- a/intune/device-security/security-baselines/stig-audit-baseline.md\n+++ b/intune/device-security/security-baselines/stig-audit-baseline.md\n@@ -7,17 +7,18 @@ uhfHeaderId: MSDocsHeader-Intune\n feedback_system: Standard\n ms.service: microsoft-intune\n manager: laurawi\n-author: lenewsad\n-ms.author: lanewsad\n+author: aanavath\n+ms.author: aanavath\n ms.collection:\n - M365-identity-device-management\n - sub-secure-endpoints\n ms.reviewer: aanavath\n ms.subservice: protect\n description: Learn how to use the Security Technical Implementation Guide security baseline in Microsoft Intune to assess Windows device compliance against Security Technical Implementation Guide recommendations for Department of Defense organizations.\n-ms.date: 2026-06-09T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n ms.topic: how-to\n-ai.usage: ai-assisted\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1030\n locale: en-us\n document_id: 93d0390c-d738-9569-a798-af9d6515b8fa\n document_version_independent_id: 93d0390c-d738-9569-a798-af9d6515b8fa\n@@ -90,14 +91,14 @@ Before you use the STIG audit baseline, confirm that your environment meets the\n ![](../../media/icons/16/cloud.svg)**Cloud requirements**\r\n \r\n > \r\n-> Your organization must use a [US Government Community Cloud High (GCC High)](../../fundamentals/government-service) tenant. The STIG audit baseline isn't available in commercial cloud or GCC environments.\r\n+> The STIG audit baseline is available in commercial and [US Government Community Cloud High (GCC High)](../../fundamentals/government-service) environments.\r\n \r\n ![](../../media/icons/16/licensing.svg)**Licensing requirements**\r\n \r\n > \r\n > The STIG audit baseline requires [Intune Advanced Analytics](../../advanced-analytics/).\r\n > \r\n-> This feature requires a subscription in addition to Microsoft Intune Plan 1 or Plan 2. For licensing options, see [Microsoft Intune plans and pricing](https://aka.ms/MicrosoftIntunePricing) and [Microsoft 365 Security Enterprise Plans](https://www.microsoft.com/security/pricing/enterprise-plans).\r\n+> For licensing options, see [Microsoft Intune plans and pricing](https://aka.ms/MicrosoftIntunePricing) and [Microsoft 365 Security Enterprise Plans](https://www.microsoft.com/security/pricing/enterprise-plans).\r\n \r\n ![](../../media/icons/16/devices.svg)**Device platform requirements**\r\n \r\n@@ -124,6 +125,8 @@ Before you use the STIG audit baseline, confirm that your environment meets the\n > \r\n > The [Endpoint Security Manager](../../fundamentals/role-based-access-control/ref-built-in-roles#endpoint-security-manager) built-in role includes these permissions. You can also add them to a [custom role](../../fundamentals/role-based-access-control/create-custom-role).\r\n > \r\n+> To view STIG audit reports, your Intune role must also include the **Device configurations** &gt; **View Reports** permission.\r\n+> \r\n > You also need **scope tag** permissions for the device groups you want to audit.\r\n \r\n ## Create a STIG audit baseline profile\r\n@@ -151,34 +154,22 @@ To create a STIG audit baseline profile, use the following steps:\n 8. On the **Assignments** tab, select the device groups that you want to audit against the STIG baseline. You can target all devices or specific groups.\r\n 9. Review your settings on the **Review + create** tab, and then select **Create**.\r\n \r\n-After you create the profile and assign it to groups, Intune evaluates the targeted devices against the STIG baseline as devices check in. Audit report data begins to populate as devices report their assessment results. Initial results for newly targeted devices can take up to 24 hours to appear.\r\n+After you create the profile and assign it to groups, Intune evaluates the targeted devices against the STIG baseline as devices check in. Audit report data begins to populate as devices report their assessment results. Initial audit results for newly targeted devices can take 24 hours or longer to appear.\r\n+\r\n+During initial reporting, devices may temporarily show Error before audit results become available. An initial Error doesn't necessarily mean the device failed a benchmark check. Error can also indicate a problem retrieving the data needed for evaluation.\r\n \r\n ## Review STIG audit results\r\n \r\n After devices check in, you can review audit results through the **Audit report** view in the Intune admin center.\r\n \r\n-![Screenshot showing the STIG audit baseline profile overview with device and user check-in status, Device assignment status report, and Audit report options in the Intune admin center.](media/stig-audit/stig-audit-profile-overview.png)\r\n+Note\r\n+\r\n+For audit-only baselines, including STIG, the profile overview doesn't show **Device and user check-in status**, **Device assignment status**, or the standard **Per setting status** report. Use **Audit report** to review per-setting audit results and drill down into individual device results.\r\n \r\n 1. Go to **Endpoint security** &gt; **Security baselines**, and select **Microsoft Windows 11 STIG SCAP Benchmark**.\r\n 2. Select the audit profile you want to review.\r\n 3. Select **Audit report** to load the report view. You might need to select **Generate** the first time to begin populating data.\r\n \r\n-### Device assignment status\r\n-\r\n-The **Device assignment status** report shows all devices that the policy targets, including devices in a pending policy assignment state. Use this report to confirm which devices received the audit profile and to track assignment progress.\r\n-\r\n-| Column | Description |\r\n-| --- | --- |\r\n-| **Device name** | The display name of the device as registered in Intune. |\r\n-| **Last active user** | The last user who signed in to the device. |\r\n-| **Assignment status** | The current policy assignment state for the device. |\r\n-| **Last report modification time** | The last time the device reported its assignment status. |\r\n-| **Intune Device ID** | The unique device identifier in Intune. |\r\n-| **Microsoft Entra Device ID** | The device's identifier in Microsoft Entra ID. |\r\n-| **Model** | The hardware model of the device. |\r\n-| **Platform** | The operating system platform of the device. |\r\n-| **Entra User ID** | The identifier of the associated user in Entra ID. |\r\n-\r\n ### Audit report\r\n \r\n The **Audit report** shows whether device values meet the recommended values for settings in the baseline version. This report provides a per-setting summary across all targeted devices, so you can quickly identify which STIG rules have the highest failure rates and prioritize remediation efforts. Each row represents a single STIG rule and shows how many devices passed, failed, or reported other statuses for that rule.\r\n@@ -198,7 +189,7 @@ You can filter the report by **Severity** to focus on specific areas. Use the **\n \r\n Select the device count for a rule, such as the number under **Success devices**, to open a detailed view for that rule. The drill-down view includes:\r\n \r\n-- A **summary bar** that shows the count of devices in each status: *Pending*, *Not applicable*, *Success*, *Error*, *Conflict*, and *Total*.\r\n+- A **summary bar** that shows the count of devices in each status: *Unknown*, *Not applicable*, *Pass*, *Fail*, *Error*, and *Conflict*. *Total* is the count of devices in the report, not an individual audit outcome.\r\n - A **device list** that shows the audit result for each targeted device. You can filter the list by status, search for specific devices, and export the results.\r\n \r\n The device list includes the following columns:\r\n@@ -331,7 +322,7 @@ Before you can call the report APIs, you need the **PolicyId** (GUID) of your ST\n \r\n Note\r\n \r\n-Policy IDs are tenant-specific and change when a tenant upgrades to a new STIG version. For organizations that aggregate STIG audit data across multiple tenants, such as for the DISA Continuous Monitoring and Risk Scoring (CMRS) program, run this discovery call in each tenant to find the current PolicyId. Setting IDs are globally consistent across tenants for a given STIG template version, so you can correlate results across tenants by SettingId.\r\n+Policy IDs are tenant-specific. After upgrading to a new STIG version, retrieve the PolicyId for the profile you want to report on. For organizations that aggregate STIG audit data across multiple tenants, such as for the DISA Continuous Monitoring and Risk Scoring (CMRS) program, run this discovery call in each tenant to find the current PolicyId. Setting IDs are globally consistent across tenants for a given STIG template version, so you can correlate results across tenants by SettingId.\r\n \r\n ### Retrieve the per-policy audit summary\r\n \r\n@@ -458,9 +449,9 @@ The STIG audit baseline works differently from other Intune security baselines:\n | Pushes settings to devices | Yes | No |\r\n | Modifies device configuration | Yes | No |\r\n | Reports assessment status | Yes (delivery of policy) | Yes (on-device value assessment) |\r\n-| Customizable settings | Yes | No (all rules audited) |\r\n+| Customizable settings | Yes | No (all supported automated checks audited) |\r\n | Can conflict with other policies | Yes | No |\r\n-| Available in commercial cloud | Yes | No (GCC High only) |\r\n+| Available in commercial cloud | Yes | Yes |\r\n | Supports CSV export and Graph API | Yes | Yes |\r\n | XCCDF result mapping | N/A | Yes |\r\n \r\n@@ -508,10 +499,10 @@ The following STIG rules require manual verification:\n ## Known limitations\r\n \r\n - **Audit-only** — The STIG Audit baseline doesn't enforce or fix settings. Use Settings Catalog profiles for configuration.\r\n-- **No custom baselines** — You can't upload custom STIG profiles. The baseline includes the full set of STIG rules for the supported benchmark.\r\n+- **No custom baselines** — You can't upload custom STIG profiles. The baseline evaluates the supported automated checks for the benchmark. Rules requiring manual verification must be assessed separately.\r\n - **No actual device values** — The Audit report shows the pass or fail result of each rule check, but it doesn't display the actual configuration value on the device.\r\n - **Single baseline version** — You can only use the latest supported baseline version to create new Audit profiles. You can't create profiles against older baseline versions. However, profiles you previously created with an older version remain available to run.\r\n-- **GCC High only** — The STIG Audit baseline isn't available in commercial, GCC, or DoD cloud environments.\r\n+- **Cloud availability** — The STIG audit baseline is available in commercial and GCC High environments.\r\n - **UX-only profile creation** — You must create STIG Audit profiles through the Intune admin center. API-based profile creation isn't supported.\r\n - **Data latency** — Audit data isn't real-time. There can be a delay of several hours between a device evaluation and the data appearing in the report. For details, see Data freshness.\r\n \r\n@@ -527,11 +518,11 @@ The initial baseline audits against the **Microsoft Windows 11 STIG SCAP Benchma\n \r\n ### Can I use the STIG Audit baseline in a commercial cloud tenant?\r\n \r\n-No. The STIG Audit baseline is available only for [GCC High](../../fundamentals/government-service) tenants.\r\n+Yes. The STIG audit baseline is available in commercial and [GCC High](../../fundamentals/government-service) environments.\r\n \r\n ### Can I customize which STIG rules are audited?\r\n \r\n-No. The STIG Audit baseline evaluates all rules in the supported benchmark as a single profile. You can't select a subset of rules for auditing. CAT I, CAT II, and CAT III rules are all included in a single baseline - there are no separate profiles by severity category.\r\n+No. The STIG Audit baseline evaluates the supported automated checks as a single profile. You can't select a subset of checks for auditing. CAT I, CAT II, and CAT III checks are included in the same profile; there are no separate profiles by severity category. Rules requiring manual verification must be assessed separately.\r\n \r\n ### Does the STIG audit baseline conflict with other baselines or policies?\r\n \r\n",
+      "baseCommitSha": "b9a15f313b49f623bce0cd9af4044fe9cf52bf97",
+      "commitSha": "4280dbfa36c11a53d938515b64a66f8cf85eae1b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-30 23:21:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/security-baselines/stig-audit-baseline.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/security-baselines/stig-audit-baseline",
+      "eventId": "intune-docs:4280dbfa36c11a53d938515b64a66f8cf85eae1b:modified:intune/device-security/security-baselines/stig-audit-baseline.md",
+      "firstSeenAt": "2026-10-30T23:43:45.802Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "STIG audit baseline availability and reporting behavior expanded",
+        "summary": "The STIG audit baseline is documented as available in commercial and GCC High environments. The update adds a View Reports role permission requirement, clarifies that audit-only profiles use Audit report, and updates initial reporting behavior and status meanings.",
+        "adminImpact": "Ensure report viewers have Device configurations > View Reports permission. Expect initial results after 24 hours or longer, and interpret an early Error as potentially temporary data-retrieval failure rather than a failed check.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/in-development.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 9,
+      "changes": 11,
+      "patch": "diff --git a/intune/whats-new/in-development.md b/intune/whats-new/in-development.md\nindex f4bfcb7..2d9adfe 100644\n--- a/intune/whats-new/in-development.md\n+++ b/intune/whats-new/in-development.md\n@@ -10,9 +10,10 @@ manager: laurawi\n author: lenewsad\n ms.author: lanewsad\n description: This article describes Microsoft Intune features that are in development.\n-ms.date: 2026-10-29T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n ms.topic: whats-new\n ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1030\n ms.reviewer: intuner\n ms.collection:\n - M365-identity-device-management\n@@ -189,14 +190,6 @@ Applies to:\n \r\n - Windows\r\n \r\n-### STIG audit baselines for Windows devices in commercial tenants\r\n-\r\n-Intune will support STIG audit baselines for Windows devices in commercial tenants. You'll be able to assess devices against Security Technical Implementation Guide (STIG) recommendations and review per-setting and per-device results to identify configuration gaps and prioritize remediation. The baseline will evaluate supported automated checks without changing device settings, helping you understand where follow-up is needed before making configuration changes. This feature will require Intune Advanced Analytics. Rules that require manual verification will need to be assessed separately; the automated results won't replace those manual checks.\r\n-\r\n-Applies to:\r\n-\r\n-- Windows\r\n-\r\n ### Configure Quality Update approvals and policies for Quick Machine Recovery (QMR)\r\n \r\n Windows Autopatch currently offers limited control over the deployment of quality updates. Today, the *expedite mechanism* focuses on deploying the latest security update and doesn't let admins select specific quality update releases or apply different deployment schedules, which can limit compliance, validation, and operational planning scenarios.\r\n",
+      "baseCommitSha": "b9a15f313b49f623bce0cd9af4044fe9cf52bf97",
+      "commitSha": "4280dbfa36c11a53d938515b64a66f8cf85eae1b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-30 23:21:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/in-development.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
+      "eventId": "intune-docs:4280dbfa36c11a53d938515b64a66f8cf85eae1b:modified:intune/whats-new/in-development.md",
+      "firstSeenAt": "2026-10-30T23:43:45.806Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "In-development page removes STIG audit baseline entry",
+        "summary": "The page date was updated, and the section describing planned STIG audit baselines for Windows devices in commercial tenants was removed.",
+        "adminImpact": "Administrators tracking this planned capability will no longer find its assessment and results details on the in-development page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 1,
+      "changes": 14,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex efe8b88..512d922 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -10,7 +10,7 @@ manager: laurawi\n author: lenewsad\n ms.author: lanewsad\n description: Find out what's new in Microsoft Intune.\n-ms.date: 2026-10-29T00:00:00.0000000Z\n+ms.date: 2026-10-30T00:00:00.0000000Z\n ms.topic: whats-new\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1030\n@@ -158,6 +158,18 @@ Applies to:\n \r\n ### Device security\r\n \r\n+#### STIG audit baselines for Windows devices in commercial tenants\r\n+\r\n+Microsoft Intune commercial tenants can now audit Windows devices against Security Technical Implementation Guide (STIG) recommendations. Review per-setting and per-device audit results to identify configuration gaps and prioritize remediation. The baseline evaluates supported automated checks without changing device settings.\r\n+\r\n+This feature requires Intune Advanced Analytics. Assess rules that require manual verification separately.\r\n+\r\n+For more information, see [Use STIG audit baselines to assess Windows device compliance](../device-security/security-baselines/stig-audit-baseline).\r\n+\r\n+Applies to:\r\n+\r\n+- Windows\r\n+\r\n #### Updated Windows support for Administrator protection settings\r\n \r\n Microsoft Intune now supports two Administrator protection settings in the settings catalog on Windows 11 versions 24H2 and 25H2. Admins can configure the Administrator Approval Mode type and choose the elevation prompt behavior used with Administrator protection.\r\n",
+      "baseCommitSha": "b9a15f313b49f623bce0cd9af4044fe9cf52bf97",
+      "commitSha": "4280dbfa36c11a53d938515b64a66f8cf85eae1b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-10-30 23:21:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:4280dbfa36c11a53d938515b64a66f8cf85eae1b:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-10-30T23:43:45.915Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "STIG audit baselines added for Windows devices",
+        "summary": "Intune commercial tenants can audit Windows devices against STIG recommendations, with per-setting and per-device results to identify configuration gaps. The capability requires Intune Advanced Analytics and supports automated checks; manual checks are separate.",
+        "adminImpact": "Administrators can use the audit results to prioritize remediation for Windows devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [
@@ -79956,14 +80060,14 @@
   ],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 3,
-    "totalFiles": 3075,
+    "totalCommits": 4,
+    "totalFiles": 3079,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 3073 updated, and 2 removed Microsoft Intune documentation files across 10 documentation areas.",
+    "overview": "Today's report includes 0 new, 3077 updated, and 2 removed Microsoft Intune documentation files across 10 documentation areas.",
     "groups": [
       {
         "category": "Doc update",

@@ -7735,6 +7735,46 @@
         "outputTokens": 825,
         "costUsd": 0.001197
       }
+    },
+    "2026-10-30": {
+      "headline": "Intune ends legacy Apple enrollment authentication as iOS update controls shift to DDM",
+      "overview": "The period’s consequential Intune changes affect Apple enrollment and software updates. In the October 2026 (2610) service release, Setup Assistant (legacy) authentication for ADE with user affinity is no longer supported, while Apple’s OS 27 changes require administrators to use DDM-based update controls. Windows Autopilot guidance also sets a connector cutoff for enrollment processing. Most of the 3,056 recorded changes were Configuration Manager metadata and reference-link maintenance rather than operational changes.",
+      "adminImpact": "Review ADE profiles and use modern authentication with just-in-time registration for new configurations; existing legacy profiles are updated automatically, so no manual migration is stated. Replace legacy MDM software-update workflows with Software Update enforcement and Software Update Settings, and review any UTC-based scheduling assumptions because enforcement uses each device’s local time zone. Upgrade Intune Connectors for Active Directory older than 6.2501.2000.5; version 6.2504.2001.8 and later use WebView2, so Internet Explorer Enhanced Security Configuration no longer needs to be disabled.",
+      "keyChanges": [
+        {
+          "title": "ADE drops Setup Assistant legacy authentication",
+          "detail": "Intune ended support for Setup Assistant (legacy) authentication for Apple Automated Device Enrollment profiles with user affinity in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, and the legacy option is no longer available. New configurations should use modern authentication with just-in-time registration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
+        },
+        {
+          "title": "Apple OS 27 guidance moves software updates to DDM",
+          "detail": "The iOS/iPadOS planning guidance says Apple deprecated MDM-based software-update workloads and removed related commands with OS 27. It directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
+        },
+        {
+          "title": "Older Intune AD connectors can no longer process enrollments",
+          "detail": "Windows Autopilot guidance states that Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. It also states that version 6.2504.2001.8 uses WebView2, removing the need to disable Internet Explorer Enhanced Security Configuration on Windows Server.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-10-30-updated-connector-09"
+        },
+        {
+          "title": "Intune device-configuration guidance adds Defender profile coverage",
+          "detail": "The Manage Policies page now lists Defender Safe Deployment (Preview) and Microsoft Defender AI agent runtime protection profiles, and identifies a Windows device-management use case for controlling when Microsoft Defender updates are received. Administrators should review whether these documented profiles apply to their endpoint-security policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-manage-policies-2537"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-10-30T01:03:29.078Z",
+      "usage": {
+        "inputTokens": 5250,
+        "outputTokens": 1681,
+        "costUsd": 0.003067
+      }
     }
   },
   "weeks": {
@@ -9581,49 +9621,49 @@
       }
     },
     "2026-10-26": {
-      "headline": "Configuration Manager 2609 goes global as Intune documents AOSP apps and eSIM controls",
-      "overview": "Configuration Manager 2609 became globally available for installation on October 26, ending the early-update-ring opt-in path. The related 2603 rollup documents security and functional fixes, CMG migration to Windows Server 2022 and Azure Load Balancer inbound NAT rules version 2, plus newer VM sizes. Intune’s most actionable guidance covers AOSP referenced-app assignments, eSIM activation for up to 100 Android 15-or-later corporate-owned Android Enterprise devices, and Apple device-wide VPN route controls.",
-      "adminImpact": "Administrators can plan 2609 installation without early-ring enrollment. For KB39169655, check Azure capacity and vCPU quotas before installation, upgrade the Configuration Manager console afterward, and account for the September 30, 2027 retirement of inbound NAT rules version 1. AOSP app administrators need package names and apps already deployed on devices or externally; eSIM administrators need a carrier activation server URL and a decision on whether bulk wipe should retain or remove plans. For Apple device-wide VPN profiles, configure Include all networks and Exclude local networks; these controls don't apply to per-app VPN.",
+      "headline": "Intune ends legacy Apple enrollment authentication as Apple update controls shift to DDM",
+      "overview": "The week’s meaningful changes center on Apple enrollment and update management, Windows Autopilot connector support, and Configuration Manager cloud management. Intune ended Setup Assistant (legacy) authentication for ADE user-affinity profiles in the October 2026 (2610) service release, while its Apple guidance now points administrators to DDM-based update controls. Most other updates, particularly the large Configuration Manager set, were metadata or reference-link maintenance.",
+      "adminImpact": "Review ADE profiles and use modern authentication with just-in-time registration for new configurations. Replace reliance on legacy Apple MDM software-update workloads with DDM controls, accounting for each device’s local time zone. Upgrade Intune Connector for Active Directory installations older than 6.2501.2000.5. Configuration Manager CMG operators should validate Azure capacity and vCPU quotas before installing KB39169655 and plan around the September 30, 2027 inbound NAT rules version 1 retirement.",
       "keyChanges": [
         {
-          "title": "Configuration Manager 2609 becomes globally installable",
-          "detail": "Configuration Manager version 2609 became globally available for installation on October 26, 2026. Administrators can install it without following the documented early-update-ring opt-in procedure.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-26-checklist-for-installing-update-2609-08"
+          "title": "Setup Assistant legacy authentication ended for ADE user-affinity profiles",
+          "detail": "Intune ended support for Setup Assistant (legacy) authentication for automated device enrollment with user affinity in the October 2026 (2610) service release. Existing profiles are automatically updated to modern authentication, and the legacy option is no longer available. New configurations should use modern authentication with just-in-time registration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
         },
         {
-          "title": "KB39169655 documents major CMG infrastructure changes",
-          "detail": "The Configuration Manager 2603 update rollup documents security and functional fixes, CMG migration to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the console afterward, and install before September 30, 2027, to avoid the inbound NAT rules version 1 retirement.",
+          "title": "Apple software-update guidance moves from MDM workloads to DDM controls",
+          "detail": "The Intune planning guidance says Apple deprecated MDM-based software-update workloads and removed related commands with OS 27. It directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
+        },
+        {
+          "title": "Older Intune AD connectors can no longer process enrollments",
+          "detail": "Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. Connector version 6.2504.2001.8 uses WebView2, so Windows Server installations no longer need Internet Explorer Enhanced Security Configuration disabled.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-10-30-updated-connector-09"
+        },
+        {
+          "title": "Configuration Manager 2603 rollup adds CMG changes and a 2027 deadline",
+          "detail": "KB39169655 documents security and functional fixes, CMG migrations to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the console afterward, and install before September 30, 2027, to avoid the inbound NAT rules version 1 retirement.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-10-27-update-rollup-for-microsoft-configuration-manager-version-2603-configuration-manager-microsoft-l-01"
         },
         {
-          "title": "Intune documents AOSP referenced-app assignment behavior",
-          "detail": "The new workflow describes adding AOSP referenced apps without an APK or Google Play selection. Required assignments unhide device-resident apps, Uninstall assignments hide them, and Available assignments aren't supported. The process requires AOSP-enrolled devices, an app package name, and an app already deployed on devices or externally; the package name can't be changed after creation.",
+          "title": "Intune policy guidance now lists Defender protection profiles and update timing",
+          "detail": "The Manage Policies page now lists Defender Safe Deployment (Preview) and Microsoft Defender AI agent runtime protection profiles. It also documents controlling when Windows devices receive Microsoft Defender updates, giving administrators additional policy scenarios to assess against existing endpoint-security requirements.",
           "product": "Intune",
-          "sourceId": "doc-2026-10-26-manage-aosp-referenced-apps-in-microsoft-intune-microsoft-intune-microsoft-learn-01"
-        },
-        {
-          "title": "eSIM activation guidance covers up to 100 Android devices",
-          "detail": "The Intune index now states that administrators can activate eSIMs on up to 100 selected Android 15 or later corporate-owned Android Enterprise devices using a carrier activation server URL. Bulk wipe preserves eSIM plans by default, with an option to remove them.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-28-index-02"
-        },
-        {
-          "title": "Apple device-wide VPN profiles gain Enforce Routes guidance",
-          "detail": "The Apple VPN reference documents Enforce Routes for device-wide VPN profiles on iOS/iPadOS and macOS. Administrators configure Include all networks and Exclude local networks, while Intune derives the Enforce Routes value automatically. The settings don't apply to per-app VPN, and split tunneling isn't recommended with them.",
-          "product": "Intune",
-          "sourceId": "doc-2026-10-26-ref-vpn-settings-apple-10"
+          "sourceId": "doc-2026-10-30-manage-policies-2537"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-29T15:11:52.263Z",
+      "generatedAt": "2026-10-30T01:03:29.078Z",
       "usage": {
-        "inputTokens": 3068,
-        "outputTokens": 8568,
-        "costUsd": 0.010895
+        "inputTokens": 8721,
+        "outputTokens": 3334,
+        "costUsd": 0.005745
       }
     }
   },
@@ -10043,65 +10083,59 @@
       }
     },
     "2026-10": {
-      "headline": "Intune ends Windows MDM-only CNAME discovery January 15, 2027",
-      "overview": "October’s actionable changes center on an enrollment retirement, an administrator permission shift, and Windows 11 security-baseline planning. Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027; Microsoft says the new device page will replace the legacy default starting with the September (2609) release and requires additional permissions. The month also added Windows 11 version 26H2 baseline guidance and documented controlled Endpoint Privilege Management network-setting changes. Configuration Manager administrators should separately account for the 2603 rollup’s CMG migration prerequisites and September 30, 2027, NAT-rules deadline. Most remaining updates were reference, metadata, link, or wording maintenance.",
-      "adminImpact": "Update Windows MDM-only enrollment instructions before January 15, 2027; existing devices and other enrollment methods are unaffected. Review role assignments for the new device page, create or update a 26H2 baseline profile if adopting it, and enable an Endpoint Privilege Management elevation settings policy before delegating network changes. For the Configuration Manager 2603 rollup, verify Azure capacity and vCPU quotas, upgrade the console afterward, and install before September 30, 2027, to avoid the retirement of inbound NAT rules version 1.",
+      "headline": "Intune ends legacy Apple enrollment authentication and sets January 15, 2027 Windows CNAME cutoff",
+      "overview": "October’s meaningful Intune changes clustered around enrollment and Apple management: Setup Assistant (legacy) authentication for ADE user affinity ended with the 2610 release, while Windows MDM-only CNAME auto-discovery is scheduled to end on January 15, 2027. Apple update guidance now points to DDM, older Intune Connector for Active Directory builds can no longer process enrollments, and Windows 11 26H2 baseline coverage is documented. Most remaining update volume involved links, metadata, and wording maintenance.",
+      "adminImpact": "Update Windows MDM-only enrollment procedures before January 15, 2027, and upgrade Intune Connector for Active Directory versions older than 6.2501.2000.5. Use modern authentication with just-in-time registration for new ADE user-affinity configurations; existing legacy profiles update automatically. Move Apple software-update policies from legacy MDM workloads to DDM controls and account for each device’s local time zone. If adopting the Windows 11 26H2 baseline, create a new profile or update an existing one because existing profiles do not update automatically.",
       "keyChanges": [
         {
-          "title": "Windows MDM-only enrollment loses DNS CNAME auto-discovery",
-          "detail": "Starting January 15, 2027, Intune will end support for DNS CNAME auto-discovery in Windows MDM-only enrollment. Users will need to enter the Microsoft enrollment server URL manually. Existing devices and other enrollment methods are unaffected.",
+          "title": "Setup Assistant legacy authentication ended for ADE user affinity",
+          "detail": "With the October 2026 (2610) service release, Intune ended support for Setup Assistant (legacy) authentication for Automated Device Enrollment with user affinity. Existing profiles are automatically updated to modern authentication; new configurations should use modern authentication with just-in-time registration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-10-30-setup-automated-ios-2652"
+        },
+        {
+          "title": "Windows MDM-only CNAME auto-discovery ends January 15, 2027",
+          "detail": "Intune will end DNS CNAME auto-discovery for Windows MDM-only enrollment on January 15, 2027. Affected users will need to enter the Microsoft enrollment server URL manually; existing devices and other enrollment methods are unaffected.",
           "product": "Intune",
           "sourceId": "MC1509780"
         },
         {
-          "title": "The new device page changes role requirements as it replaces the legacy view",
-          "detail": "Microsoft says the new Intune device page will become the default starting with the September (2609) release, replacing the legacy page while retaining device-management features. Administrators will need the Managed devices/Update permission plus specific action permissions.",
+          "title": "Apple OS 27 guidance shifts software updates to DDM",
+          "detail": "Apple deprecated MDM-based software-update workloads and removed related commands with OS 27. Intune’s guidance now directs administrators to Software Update enforcement and Software Update Settings, with enforcement based on each device’s local time zone.",
           "product": "Intune",
-          "sourceId": "MC1456780"
+          "sourceId": "doc-2026-10-30-planning-guide-ios-ipados-2831"
         },
         {
-          "title": "26H2 baseline guidance adds settings, defaults, and a profile decision",
-          "detail": "Intune’s updated guidance covers the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically; administrators must create a new profile or update an existing one to use the 26H2 baseline.",
+          "title": "Older Intune AD connectors can no longer process enrollment requests",
+          "detail": "Intune Connector for Active Directory versions older than 6.2501.2000.5 are deprecated and can no longer process enrollment requests. Version 6.2504.2001.8 uses WebView2, removing the need to disable Internet Explorer Enhanced Security Configuration in Windows Server.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-10-30-updated-connector-09"
+        },
+        {
+          "title": "Windows 11 26H2 baseline guidance adds Settings Catalog coverage",
+          "detail": "Intune now documents the Windows 11 version 26H2 security baseline and Settings Catalog support, including new settings, updated defaults, and revised guidance. Existing security baseline profiles do not update automatically.",
           "product": "Intune",
           "sourceId": "doc-2026-10-06-index-06"
-        },
-        {
-          "title": "Endpoint Privilege Management guidance details controlled network changes",
-          "detail": "The new guidance describes policies that let standard Windows users change IPv4, IPv6, and DNS settings while requiring confirmation, business justification, Windows authentication, or a combination of those controls. Devices must have an EPM elevation settings policy enabled.",
-          "product": "Endpoint Privilege Management",
-          "sourceId": "doc-2026-10-02-manage-system-settings-with-endpoint-privilege-management-microsoft-intune-microsoft-learn-01"
-        },
-        {
-          "title": "Configuration Manager 2603 rollup sets CMG migration checks and deadline",
-          "detail": "KB39169655 documents security and functional fixes, CMG migration to a supported Windows Server 2022 image, Azure Load Balancer inbound NAT rules version 2, and newer VM sizes. Administrators should check Azure capacity and vCPU quotas before installation, upgrade the Configuration Manager console afterward, and install before September 30, 2027, to avoid the retirement of inbound NAT rules version 1.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-10-27-update-rollup-for-microsoft-configuration-manager-version-2603-configuration-manager-microsoft-l-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-10-29T15:11:52.263Z",
+      "generatedAt": "2026-10-30T01:03:29.078Z",
       "usage": {
-        "inputTokens": 6568,
-        "outputTokens": 5975,
-        "costUsd": 0.008484
+        "inputTokens": 6531,
+        "outputTokens": 9186,
+        "costUsd": 0.012329
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-29T15:11:52.263Z",
+  "generatedAt": "2026-10-30T01:03:29.078Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-24": {
-      "inputTokens": 7423,
-      "outputTokens": 5868,
-      "requests": 3,
-      "costUsd": 0.008526
-    },
     "2026-09-25": {
       "inputTokens": 7759,
       "outputTokens": 6549,
@@ -10257,18 +10291,24 @@
       "outputTokens": 15368,
       "requests": 3,
       "costUsd": 0.020575
+    },
+    "2026-10-30": {
+      "inputTokens": 20502,
+      "outputTokens": 14201,
+      "requests": 3,
+      "costUsd": 0.021142
     }
   },
   "lastRun": {
-    "inputTokens": 10669,
-    "outputTokens": 15368,
+    "inputTokens": 20502,
+    "outputTokens": 14201,
     "requests": 3,
-    "costUsd": 0.020575
+    "costUsd": 0.021142
   },
   "totalUsage": {
-    "inputTokens": 3504894,
-    "outputTokens": 2185460,
-    "requests": 399,
-    "costUsd": 3.323531
+    "inputTokens": 3525396,
+    "outputTokens": 2199661,
+    "requests": 402,
+    "costUsd": 3.344673
   }
 }

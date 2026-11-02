@@ -7781,6 +7781,52 @@
         "outputTokens": 3260,
         "costUsd": 0.004966
       }
+    },
+    "2026-11-02": {
+      "headline": "Configuration Manager TLS 1.2 guidance separates client tasks and sharpens .NET steps",
+      "overview": "All six updates affected Configuration Manager documentation. The most substantive revisions tighten TLS 1.2 client and server instructions, clarify that Cloud Management Gateway and co-management are independent but can be used together, and state that the console is always installed on every site server. The period also included tooling wording updates and removal of the Download MDT link from the index.",
+      "adminImpact": "Administrators should use the revised TLS pages when reviewing .NET, registry, protocol, security-update, and architecture-specific guidance. The co-management and console revisions provide clearer planning and access instructions. The Index page no longer exposes the Download MDT link.",
+      "keyChanges": [
+        {
+          "title": "TLS 1.2 client guidance now separates the three enablement tasks",
+          "detail": "The client article more clearly separates its three client-enablement tasks, refines the sequencing for enabling TLS 1.2 and disabling older protocols, and updates .NET Framework wording and references. It also provides clearer guidance on client readiness and registry settings.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-client-02"
+        },
+        {
+          "title": "Server-side TLS guidance clarifies .NET and architecture-specific registry steps",
+          "detail": "The server article now uses consistent .NET terminology and gives clearer instructions for framework support, security updates, and registry subkey updates by application and operating-system architecture.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
+        },
+        {
+          "title": "Co-management guidance distinguishes CMG from the co-management relationship",
+          "detail": "The overview updates terminology and explanations covering co-management, workload piloting, licensing, and Entra join. It now explicitly states that Cloud Management Gateway and co-management are independent capabilities that can be used together.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-co-management-for-windows-devices-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "The console article now says every site server always installs it",
+          "detail": "The revised article covers opening the console, connecting to a site, authentication, navigation, and PowerShell folder management, while also updating screenshot descriptions. Its installation guidance now states that the console is always installed on every site server.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-admin-console-04"
+        },
+        {
+          "title": "The Configuration Manager index removes its Download MDT link",
+          "detail": "The Index page date was updated to October 26, 2026, and the Download MDT link was removed. No administrator action is specified beyond recognizing that the link is no longer present on that page.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-index-06"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-02T22:46:28.046Z",
+      "usage": {
+        "inputTokens": 1632,
+        "outputTokens": 2134,
+        "costUsd": 0.002887
+      }
     }
   },
   "weeks": {
@@ -9671,6 +9717,52 @@
         "outputTokens": 4808,
         "costUsd": 0.007516
       }
+    },
+    "2026-11-02": {
+      "headline": "Configuration Manager tightens TLS 1.2 guidance and clarifies co-management planning",
+      "overview": "The supplied period contains six updated Configuration Manager documentation pages and no Intune-specific product changes. The most consequential revisions refine TLS 1.2 client and server procedures and clarify that Cloud Management Gateway (CMG) and co-management are independent capabilities that can be used together. Console and tools guidance received smaller navigation and support clarifications, while the Configuration Manager Index removed its Download MDT link.",
+      "adminImpact": "Administrators configuring TLS 1.2 should use the revised client and server pages for the clarified .NET, registry, framework-support, security-update, and sequencing guidance. Teams planning co-management can use the updated terminology and CMG relationship guidance. The console and tools updates improve interpretation of existing instructions; the supplied evidence specifies no action for those changes.",
+      "keyChanges": [
+        {
+          "title": "TLS 1.2 client guidance separates enablement tasks and sequencing",
+          "detail": "The client page now more clearly separates the three client-enablement tasks, refines the sequence for enabling TLS 1.2 and disabling older protocols, and updates .NET Framework wording and references, including applicable Windows or .NET updates.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-client-02"
+        },
+        {
+          "title": "TLS 1.2 server guidance expands framework and registry instructions",
+          "detail": "The server page uses consistent .NET terminology and provides clearer instructions for framework support, security updates, and registry subkey updates by application and operating-system architecture.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
+        },
+        {
+          "title": "Co-management guidance clarifies its relationship with CMG",
+          "detail": "The overview updates descriptions of co-management, workload piloting, licensing, and Entra join terminology, and explicitly states that CMG and co-management are independent but can be used together.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-co-management-for-windows-devices-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "The console article now states it is installed on every site server",
+          "detail": "The article revises procedures for opening the console, connecting to a site, authentication, navigation, and PowerShell folder management, while also updating screenshot descriptions.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-admin-console-04"
+        },
+        {
+          "title": "The Configuration Manager Index removes its Download MDT link",
+          "detail": "The Index page date was updated to October 26, 2026, and the Download MDT link was removed. The supplied evidence specifies no further administrator action.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-index-06"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-02T22:46:28.046Z",
+      "usage": {
+        "inputTokens": 1434,
+        "outputTokens": 2128,
+        "costUsd": 0.00284
+      }
     }
   },
   "months": {
@@ -10133,21 +10225,55 @@
         "outputTokens": 6943,
         "costUsd": 0.009635
       }
+    },
+    "2026-11": {
+      "headline": "Configuration Manager sharpens TLS 1.2 sequencing and co-management guidance",
+      "overview": "November’s six supplied changes were all Configuration Manager documentation updates; the evidence contains no Intune-specific product change. The substantive revisions improve TLS 1.2 client and server procedures and clarify that Cloud Management Gateway (CMG) and co-management are independent capabilities that can be used together. The console page adds an explicit site-server installation statement, while the tools and Index pages mainly revise support wording, dates, formatting, and the Download MDT link.",
+      "adminImpact": "Use the revised TLS 1.2 client and server pages when reviewing configuration: the client guidance separates the three enablement tasks and clarifies their sequencing, while the server guidance covers .NET and framework support, security updates, and registry subkeys by application and operating-system architecture. For co-management planning, use the clarified independent-but-compatible CMG relationship. The console changes improve access and navigation instructions; the supplied evidence specifies no action for the console, tools, or Index edits.",
+      "keyChanges": [
+        {
+          "title": "TLS 1.2 client guidance separates tasks and clarifies sequencing",
+          "detail": "The client page now separates the three client-enablement tasks, refines the sequencing for enabling TLS 1.2 and disabling older protocols, and updates .NET Framework wording and references. Administrators configuring TLS 1.2 can use the revised guidance for client readiness, registry settings, and applicable Windows or .NET updates.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-client-02"
+        },
+        {
+          "title": "Server TLS 1.2 guidance adds architecture-specific registry detail",
+          "detail": "The server page now uses consistent .NET terminology and clearer instructions for framework support, security updates, and registry subkey updates by application and operating-system architecture. Administrators reviewing server TLS 1.2 configuration should use the revised guidance.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
+        },
+        {
+          "title": "Co-management guidance clarifies the CMG relationship",
+          "detail": "The co-management overview now states that CMG and co-management are independent but can be used together. It also revises descriptions of workload piloting, licensing, Entra join terminology, and the relationship between co-management and CMG.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-co-management-for-windows-devices-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "The console article now states it is installed on every site server",
+          "detail": "The Admin Console article explicitly says the console is always installed on every site server and revises instructions for opening it, connecting to a site, authentication, navigation, and PowerShell folder management. The supplied guidance describes this as a usability clarification with no required administrator action.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-admin-console-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-02T22:46:28.046Z",
+      "usage": {
+        "inputTokens": 1819,
+        "outputTokens": 2681,
+        "costUsd": 0.003581
+      }
     }
   },
   "version": 3,
-  "generatedAt": "2026-10-30T23:43:58.383Z",
+  "generatedAt": "2026-11-02T22:46:28.046Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-09-25": {
-      "inputTokens": 7759,
-      "outputTokens": 6549,
-      "requests": 3,
-      "costUsd": 0.009411
-    },
     "2026-09-28": {
       "inputTokens": 13422,
       "outputTokens": 25611,
@@ -10303,18 +10429,24 @@
       "outputTokens": 61930,
       "requests": 12,
       "costUsd": 0.090734
+    },
+    "2026-11-02": {
+      "inputTokens": 4885,
+      "outputTokens": 6943,
+      "requests": 3,
+      "costUsd": 0.009309
     }
   },
   "lastRun": {
-    "inputTokens": 20521,
-    "outputTokens": 15011,
+    "inputTokens": 4885,
+    "outputTokens": 6943,
     "requests": 3,
-    "costUsd": 0.022117
+    "costUsd": 0.009309
   },
   "totalUsage": {
-    "inputTokens": 3586981,
-    "outputTokens": 2247390,
-    "requests": 411,
-    "costUsd": 3.414265
+    "inputTokens": 3591866,
+    "outputTokens": 2254333,
+    "requests": 414,
+    "costUsd": 3.423574
   }
 }

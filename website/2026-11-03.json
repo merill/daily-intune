@@ -1,0 +1,178 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-management/tools/run-powershell-scripts-windows.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-management/tools/run-powershell-scripts-windows.md b/intune/device-management/tools/run-powershell-scripts-windows.md\nindex 7e4d363..058947c 100644\n--- a/intune/device-management/tools/run-powershell-scripts-windows.md\n+++ b/intune/device-management/tools/run-powershell-scripts-windows.md\n@@ -58,7 +58,7 @@ For information about the Intune management extension for Windows, see [Intune m\n - Scripts set to user context with administrator rights run PowerShell by default under administrator privilege.\r\n - End users aren't required to sign in to the device to execute PowerShell scripts.\r\n - The Intune management extension checks after every reboot for any new scripts or changes. After you assign the policy to the Microsoft Entra groups, the PowerShell script runs, and the run results are reported. Once the script executes, it doesn't execute again unless there's a change in the script or policy. If the script fails, the Intune management extension retries the script three times for the next three consecutive Intune management extension check-ins.\r\n-- PowerShell scripts assigned to the device run for every new user that signs in, except on multi-session SKUs where user check-in is disabled.\r\n+- PowerShell scripts assigned to the device run for every new user that signs in.\r\n - PowerShell scripts are executed before Win32 apps run. In other words, PowerShell scripts execute first. Then, Win32 apps execute.\r\n - PowerShell scripts time out after 30 minutes.\r\n \r\n",
+      "baseCommitSha": "9ec63038b67c8a8ab50f0709c85bba3984c9cd47",
+      "commitSha": "165a1f8e632bce43a7a4417110a8b07e9c4fd16b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 08:40:58 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-management/tools/run-powershell-scripts-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/tools/run-powershell-scripts-windows",
+      "eventId": "intune-docs:165a1f8e632bce43a7a4417110a8b07e9c4fd16b:modified:intune/device-management/tools/run-powershell-scripts-windows.md",
+      "firstSeenAt": "2026-11-03T09:29:45.453Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated PowerShell script execution guidance",
+        "summary": "The documentation now states that PowerShell scripts assigned to a device run for every new user who signs in, removing the previous multi-session SKU exception.",
+        "adminImpact": "Administrators managing multi-session devices should use the updated guidance when planning device-assigned scripts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-defender/security-settings-management.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "patch": "diff --git a/intune/device-security/microsoft-defender/security-settings-management.md b/intune/device-security/microsoft-defender/security-settings-management.md\nindex 68a89b9..3c378a0 100644\n--- a/intune/device-security/microsoft-defender/security-settings-management.md\n+++ b/intune/device-security/microsoft-defender/security-settings-management.md\n@@ -498,6 +498,11 @@ When you select a policy, you can view information about the device check-in sta\n - **View report** - View a list of devices that received the policy. You can select a device to drill in and see its per-setting status. You can then select a setting to view more information about it, including other policies that manage that same setting, which could be a source of conflict.\r\n - **Per setting status** - View the settings that are managed by the policy, and a count of success, errors, or conflicts for each setting.\r\n \r\n+    [!IMPORTANT]\r\n+\r\n+> \r\n+> Per-setting reporting is available for most Endpoint Security policies. For Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM, reporting is limited to policy-level status and doesn't include per-setting reporting statuses. To view per-setting status for Firewall Rules and ASR Rules policies, devices must be enrolled with [Defender for Endpoint security settings management]. (/intune/device-security/microsoft-defender/security-settings-management).\r\n+\r\n **Defender Portal:**\r\n \r\n You can also monitor the Intune policies that are applied from within the [Microsoft Defender portal](https://security.microsoft.com/). Within the portal, go to **Endpoints**, expand *configuration management* and select *Endpoint security policies*. Select a policy to view its status, and then select:\r\n",
+      "baseCommitSha": "9ec63038b67c8a8ab50f0709c85bba3984c9cd47",
+      "commitSha": "165a1f8e632bce43a7a4417110a8b07e9c4fd16b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 08:40:58 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/microsoft-defender/security-settings-management.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-defender/security-settings-management",
+      "eventId": "intune-docs:165a1f8e632bce43a7a4417110a8b07e9c4fd16b:modified:intune/device-security/microsoft-defender/security-settings-management.md",
+      "firstSeenAt": "2026-11-03T09:29:45.456Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Reporting limitations added for Firewall and ASR policies",
+        "summary": "The documentation now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported.",
+        "adminImpact": "Administrators should use policy-level status when reviewing these MDM-managed policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/endpoints.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/endpoints.md b/intune/fundamentals/endpoints.md\nindex 3acad6d..8f71fe5 100644\n--- a/intune/fundamentals/endpoints.md\n+++ b/intune/fundamentals/endpoints.md\n@@ -97,7 +97,7 @@ Intune endpoints also use *Azure Front Door* for communicating with the Intune s\n | --- | --- | --- | --- | --- | --- |\r\n | 163 | Intune client and host service | AllowRequired | False | `*.manage.microsoft.com``manage.microsoft.com``*.dm.microsoft.com``EnterpriseEnrollment.manage.microsoft.com``104.46.162.96/27, 13.67.13.176/28, 13.67.15.128/27, 13.69.231.128/28, 13.69.67.224/28, 13.70.78.128/28, 13.70.79.128/27, 13.74.111.192/27, 13.77.53.176/28, 13.86.221.176/28,13.89.174.240/28, 13.89.175.192/28, 20.189.229.0/25, 20.191.167.0/25, 20.37.153.0/24, 20.37.192.128/25, 20.38.81.0/24, 20.41.1.0/24, 20.42.1.0/24, 20.42.130.0/24, 20.42.224.128/25, 20.43.129.0/24, 20.44.19.224/27, 40.119.8.128/25, 40.67.121.224/27, 40.70.151.32/28, 40.71.14.96/28, 40.74.25.0/24, 40.78.245.240/28, 40.78.247.128/27, 40.79.197.64/27, 40.79.197.96/28, 40.80.180.208/28, 40.80.180.224/27, 40.80.184.128/25, 40.82.248.224/28, 40.82.249.128/25, 52.150.137.0/25, 52.162.111.96/28, 52.168.116.128/27, 52.182.141.192/27, 52.236.189.96/27, 52.240.244.160/27, 20.204.193.12/30, 20.204.193.10/31, 20.192.174.216/29, 20.192.159.40/29, 104.208.197.64/27, 172.160.217.160/27, 172.201.237.160/27, 172.202.86.192/27, 172.205.63.0/25, 172.212.214.0/25, 172.215.131.0/27, 20.168.189.128/27, 20.199.207.192/28, 20.204.194.128/31, 20.208.149.192/27, 20.208.157.128/27, 20.214.131.176/29, 20.43.129.0/24, 20.91.147.72/29, 4.145.74.224/27, 4.150.254.64/27, 4.154.145.224/27, 4.200.254.32/27, 4.207.244.0/27, 4.213.25.64/27, 4.213.86.128/25, 4.216.205.32/27, 4.237.143.128/25, 40.84.70.128/25, 48.218.252.128/25, 57.151.0.192/27, 57.153.235.0/25, 57.154.140.128/25, 57.154.195.0/25, 57.155.45.128/25, 68.218.134.96/27, 74.224.214.64/27, 74.242.35.0/25, 172.208.170.0/25, 74.241.231.0/25, 74.242.184.128/25``Azure Front Door Endpoints:`` 13.107.219.0/24, 13.107.227.0/24, 13.107.228.0/23, 150.171.97.0/24, 2620:1ec:40::/48, 2620:1ec:49::/48, 2620:1ec:4a::/47` | **TCP:** 80, 443 |\r\n | 172 | MDM Delivery Optimization | DefaultRequired | False | `*.do.dsp.mp.microsoft.com``*.dl.delivery.mp.microsoft.com` | **TCP:** 80, 443 |\r\n-| 170 | MEM - Win32Apps | DefaultRequired | False | `swda01-mscdn.manage.microsoft.com``swda02-mscdn.manage.microsoft.com``swdb01-mscdn.manage.microsoft.com``swdb02-mscdn.manage.microsoft.com``swdc01-mscdn.manage.microsoft.com``swdc02-mscdn.manage.microsoft<.com``swdd01-mscdn.manage.microsoft.com``swdd02-mscdn.manage.microsoft.com``swdin01-mscdn.manage.microsoft.com``swdin02-mscdn.manage.microsoft.com``aam-content-cdn.manage.microsoft.com`(this endpoint is only for Enterprise App Catalog apps) | **TCP:** 80, 443 |\r\n+| 170 | MEM - Win32Apps | DefaultRequired | False | `mmcswdc01.blob.core.windows.net``mmcswdc02.blob.core.windows.net``swda01-mscdn.manage.microsoft.com``swda02-mscdn.manage.microsoft.com``swdb01-mscdn.manage.microsoft.com``swdb02-mscdn.manage.microsoft.com``swdc01-mscdn.manage.microsoft.com``swdc02-mscdn.manage.microsoft<.com``swdd01-mscdn.manage.microsoft.com``swdd02-mscdn.manage.microsoft.com``swdin01-mscdn.manage.microsoft.com``swdin02-mscdn.manage.microsoft.com``aam-content-cdn.manage.microsoft.com`(this endpoint is only for Enterprise App Catalog apps) | **TCP:** 80, 443 |\r\n | 97 | Consumer Outlook.com, OneDrive, Device authentication, and Microsoft account | DefaultRequired | False | `account.live.com``login.live.com` | **TCP:** 443 |\r\n | 190 | Endpoint discovery | DefaultRequired | False | `go.microsoft.com` | **TCP:** 80, 443 |\r\n | 189 | Dependency - Feature Deployment | DefaultRequired | False | `config.edge.skype.com``ecs.office.com` | **TCP:** 443 |\r\n",
+      "baseCommitSha": "9ec63038b67c8a8ab50f0709c85bba3984c9cd47",
+      "commitSha": "165a1f8e632bce43a7a4417110a8b07e9c4fd16b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 08:40:58 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/fundamentals/endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/endpoints",
+      "eventId": "intune-docs:165a1f8e632bce43a7a4417110a8b07e9c4fd16b:modified:intune/fundamentals/endpoints.md",
+      "firstSeenAt": "2026-11-03T09:29:45.459Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Win32 app endpoint list adds two Blob Storage hosts",
+        "summary": "The endpoint documentation now lists `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` for MEM-Win32Apps, alongside the existing hosts.",
+        "adminImpact": "Review network allowlists that support Win32 app delivery and add the new hostnames if required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/user-help/security/setup-mobile-threat-defense.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/user-help/security/setup-mobile-threat-defense.md b/intune/user-help/security/setup-mobile-threat-defense.md\nindex 7d10e1a..8e698d0 100644\n--- a/intune/user-help/security/setup-mobile-threat-defense.md\n+++ b/intune/user-help/security/setup-mobile-threat-defense.md\n@@ -13,7 +13,7 @@ ms.subservice: end-user\n ms.topic: end-user-help\n description: Find out what mobile threat defense apps are and how to set one up to meet work or school requirements.\n ms.date: 2025-01-27T00:00:00.0000000Z\n-ms.reviewer: aanavath\n+ms.reviewer: ilwu\n locale: en-us\n document_id: 15a2c16e-975e-cdee-226f-4f305f67401e\n document_version_independent_id: 2355e80f-0abd-dff8-642d-bc2e982147b9\n",
+      "baseCommitSha": "9ec63038b67c8a8ab50f0709c85bba3984c9cd47",
+      "commitSha": "165a1f8e632bce43a7a4417110a8b07e9c4fd16b",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 08:40:58 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/user-help/security/setup-mobile-threat-defense.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/user-help/security/setup-mobile-threat-defense",
+      "eventId": "intune-docs:165a1f8e632bce43a7a4417110a8b07e9c4fd16b:modified:intune/user-help/security/setup-mobile-threat-defense.md",
+      "firstSeenAt": "2026-11-03T09:29:45.462Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated",
+        "summary": "The article’s reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/device-management",
+        "summary": "The documentation now states that PowerShell scripts assigned to a device run for every new user who signs in, removing the previous multi-session SKU exception.",
+        "sourceFiles": [
+          "intune/device-management/tools/run-powershell-scripts-windows.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The documentation now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported.",
+        "sourceFiles": [
+          "intune/device-security/microsoft-defender/security-settings-management.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/fundamentals",
+        "summary": "The endpoint documentation now lists `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` for MEM-Win32Apps, alongside the existing hosts.",
+        "sourceFiles": [
+          "intune/fundamentals/endpoints.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/user-help",
+        "summary": "The article’s reviewer changed from aanavath to ilwu.",
+        "sourceFiles": [
+          "intune/user-help/security/setup-mobile-threat-defense.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/device-management",
+        "detail": "The documentation now states that PowerShell scripts assigned to a device run for every new user who signs in, removing the previous multi-session SKU exception."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The documentation now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/fundamentals",
+        "detail": "The endpoint documentation now lists `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` for MEM-Win32Apps, alongside the existing hosts."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/user-help",
+        "detail": "The article’s reviewer changed from aanavath to ilwu."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

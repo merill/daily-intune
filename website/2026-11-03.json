@@ -104,19 +104,71 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/solutions/azure-virtual-desktop-multi-session.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "changes": 6,
+      "patch": "diff --git a/intune/solutions/azure-virtual-desktop-multi-session.md b/intune/solutions/azure-virtual-desktop-multi-session.md\nindex 737f1e6..7379e54 100644\n--- a/intune/solutions/azure-virtual-desktop-multi-session.md\n+++ b/intune/solutions/azure-virtual-desktop-multi-session.md\n@@ -73,7 +73,7 @@ User configuration support in Microsoft Intune for Windows Enterprise multi-sess\n \r\n - Configure user scope policies using **Settings catalog** and assign to groups of users. You can use the search bar to search all configurations with scope set to \"user\".\r\n - Configure user certificates and assign to users.\r\n-- Configure PowerShell scripts to install in the user context and assign to users.\r\n+- Configure PowerShell scripts to install in the user context.\r\n \r\n ## Prerequisites\r\n \r\n@@ -198,9 +198,7 @@ All Windows apps can be deployed to Windows Enterprise multi-session with the fo\n \r\n ## Script deployment\r\n \r\n-Scripts configured to run in the system context and assigned to devices are supported on Windows Enterprise multi-session. This can be configured under Script settings by setting **Run this script using the logged on credentials** to **No**.\r\n-\r\n-Scripts configured to run in the user context and assigned to users are supported on Windows Enterprise multi-session. This can be configured under Script settings by setting **Run this script using the logged on credentials** to **Yes**.\r\n+Scripts must be targeted to devices. Under Script settings, set **Run this script using the logged on credentials** to **No** to run scripts in the system context, or set to **Yes** to run in the user context.\r\n \r\n ## Windows Update client policies\r\n \r\n",
+      "baseCommitSha": "165a1f8e632bce43a7a4417110a8b07e9c4fd16b",
+      "commitSha": "08480f4c5201a5ccf3710f7e5291d6aa99fe811e",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:23:46 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/solutions/azure-virtual-desktop-multi-session.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/solutions/azure-virtual-desktop-multi-session",
+      "eventId": "intune-docs:08480f4c5201a5ccf3710f7e5291d6aa99fe811e:modified:intune/solutions/azure-virtual-desktop-multi-session.md",
+      "firstSeenAt": "2026-11-03T20:30:00.193Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "PowerShell scripts must target devices in Windows Enterprise multi-session",
+        "summary": "The documentation now requires PowerShell scripts to be targeted to devices. Set logged-on credentials to No for system context or Yes for user context.",
+        "adminImpact": "Review script assignments and change user-targeted scripts to device targeting where needed.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 13,
+      "changes": 14,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex 512d922..c27446b 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -10,7 +10,7 @@ manager: laurawi\n author: lenewsad\n ms.author: lanewsad\n description: Find out what's new in Microsoft Intune.\n-ms.date: 2026-10-30T00:00:00.0000000Z\n+ms.date: 2026-11-02T00:00:00.0000000Z\n ms.topic: whats-new\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1030\n@@ -200,18 +200,6 @@ Applies to:\n \r\n - Certificate Connector for Microsoft Intune\r\n \r\n-### Role-based access control\r\n-\r\n-#### Scoped permissions for role-based access control are generally available\r\n-\r\n-Microsoft Intune scoped permissions for role-based access control are now generally available. Permissions from role assignments with different scope tags are applied independently instead of being merged, giving admins the intended access within each scope. Use the **Permissions Assessment Report** before enabling scoped permissions to review how access will change.\r\n-\r\n-For more information, see [Permission behavior across role assignments](../fundamentals/role-based-access-control/scope-tags#permission-behavior-across-role-assignments).\r\n-\r\n-Applies to:\r\n-\r\n-- Microsoft Intune admin center\r\n-\r\n ### Scripts\r\n \r\n #### Faster delivery of Windows scripts\r\n",
+      "baseCommitSha": "165a1f8e632bce43a7a4417110a8b07e9c4fd16b",
+      "commitSha": "08480f4c5201a5ccf3710f7e5291d6aa99fe811e",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-03 20:23:46 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:08480f4c5201a5ccf3710f7e5291d6aa99fe811e:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-11-03T20:30:00.577Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "What's New page removes scoped-permissions announcement",
+        "summary": "The page date changed to November 2, 2026, and the section announcing general availability of scoped permissions for role-based access control was removed.",
+        "adminImpact": "Administrators relying on this What's New page will no longer see that announcement there; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 4,
+    "totalCommits": 2,
+    "totalFiles": 6,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "overview": "Today's report includes 0 new, 6 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -149,6 +201,22 @@
         "sourceFiles": [
           "intune/user-help/security/setup-mobile-threat-defense.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/solutions",
+        "summary": "The documentation now requires PowerShell scripts to be targeted to devices. Set logged-on credentials to No for system context or Yes for user context.",
+        "sourceFiles": [
+          "intune/solutions/azure-virtual-desktop-multi-session.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/whats-new",
+        "summary": "The page date changed to November 2, 2026, and the section announcing general availability of scoped permissions for role-based access control was removed.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
       }
     ],
     "highlights": [
@@ -171,6 +239,16 @@
         "category": "Doc update",
         "headline": "intune/user-help",
         "detail": "The article’s reviewer changed from aanavath to ilwu."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/solutions",
+        "detail": "The documentation now requires PowerShell scripts to be targeted to devices. Set logged-on credentials to No for system context or Yes for user context."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/whats-new",
+        "detail": "The page date changed to November 2, 2026, and the section announcing general availability of scoped permissions for role-based access control was removed."
       }
     ],
     "generatedBy": "fallback"

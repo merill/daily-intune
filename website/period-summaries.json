@@ -7829,37 +7829,43 @@
       }
     },
     "2026-11-03": {
-      "headline": "Intune guidance specifies policy-level reporting for MDM Firewall and ASR policies",
-      "overview": "The meaningful updates refine administrator guidance for device security, Win32 app delivery, and PowerShell scripts. Security Settings Management now documents a reporting limitation for MDM-managed Firewall Rules and ASR Rules; Endpoints adds two MEM-Win32Apps hostnames; and PowerShell guidance applies device-assigned scripts to every new user who signs in. A separate update changes the reviewer attribution from aanavath to ilwu.",
-      "adminImpact": "Review Firewall Rules and ASR Rules at policy level, update network allowlists for the new MEM-Win32Apps hosts if required, and revisit device-assigned PowerShell script planning on multi-session devices. No administrator action is indicated for the reviewer-attribution change.",
+      "headline": "Intune documents policy-only reporting for MDM Firewall and ASR Rules",
+      "overview": "The period is guidance-heavy, with the most operationally relevant updates covering reporting limits for MDM-managed Firewall Rules and ASR Rules, device-assigned PowerShell scripts on multi-session devices, Azure Virtual Desktop Multi Session script targeting, and Win32 app delivery endpoints. The remaining edits remove a scoped-permissions general availability announcement from the Index and change an article reviewer.",
+      "adminImpact": "Use policy-level status when reviewing MDM-managed Firewall Rules and ASR Rules. Audit device-assigned PowerShell scripts on multi-session devices, ensure Azure Virtual Desktop Multi Session scripts use device targeting with the appropriate logged-on-credentials setting, and add the two new MEM-Win32Apps hostnames to network allowlists where required. No administrator action is indicated for the Index or reviewer changes.",
       "keyChanges": [
         {
-          "title": "MDM Firewall and ASR reporting is documented at policy level",
-          "detail": "The Security Settings Management article now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Administrators should use policy-level status when reviewing these policies.",
+          "title": "MDM Firewall Rules and ASR Rules report at policy level",
+          "detail": "The Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Administrators reviewing these policies should use policy-level status rather than expect per-setting results.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Win32 app delivery guidance adds two blob hostnames",
-          "detail": "The Endpoints article now lists mmcswdc01.blob.core.windows.net and mmcswdc02.blob.core.windows.net for MEM-Win32Apps alongside the existing hosts. Review network allowlists supporting Win32 app delivery and add the hostnames if required.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-endpoints-03"
-        },
-        {
-          "title": "Device-assigned PowerShell scripts apply to every new user",
-          "detail": "The Run Powershell Scripts Windows article now states that PowerShell scripts assigned to a device run for every new user who signs in, removing the previous multi-session SKU exception. Administrators managing multi-session devices should use the updated guidance when planning device-assigned scripts.",
+          "title": "Device-assigned PowerShell scripts cover each new multi-session sign-in",
+          "detail": "The Windows PowerShell script guidance now states that a script assigned to a device runs for every new user who signs in, with the previous multi-session SKU exception removed. Administrators managing multi-session devices should use the updated guidance when planning device-assigned scripts.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-run-powershell-scripts-windows-01"
+        },
+        {
+          "title": "Azure Virtual Desktop Multi Session scripts must target devices",
+          "detail": "The guidance now requires PowerShell scripts to be targeted to devices. It specifies setting logged-on credentials to No for system context or Yes for user context, so administrators should review script assignments and credential settings.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-azure-virtual-desktop-multi-session-05"
+        },
+        {
+          "title": "MEM-Win32Apps allowlists gain two blob storage hosts",
+          "detail": "The Endpoints guidance now lists mmcswdc01.blob.core.windows.net and mmcswdc02.blob.core.windows.net for MEM-Win32Apps alongside the existing hosts. Review network allowlists supporting Win32 app delivery and add the hostnames if required.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-endpoints-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-03T09:29:53.985Z",
+      "generatedAt": "2026-11-03T20:30:08.838Z",
       "usage": {
-        "inputTokens": 1322,
-        "outputTokens": 1999,
-        "costUsd": 0.002663
+        "inputTokens": 1534,
+        "outputTokens": 3098,
+        "costUsd": 0.004024
       }
     }
   },
@@ -9753,37 +9759,37 @@
       }
     },
     "2026-11-02": {
-      "headline": "Intune guidance names two Win32 app hosts and clarifies script and reporting scope",
-      "overview": "The week’s most consequential Intune updates refine operational guidance: the Endpoints page adds two MEM-Win32Apps hostnames, PowerShell guidance covers every new user signing in on device-assigned scripts, and Security Settings Management limits reporting interpretation to policy level for certain MDM policies. Configuration Manager updates also clarify co-management and CMG planning and refine TLS 1.2 client setup instructions.",
-      "adminImpact": "Review Win32 app delivery allowlists for `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` if required. For device-assigned PowerShell scripts on multi-session devices, plan for execution for every new user who signs in. Review Firewall Rules and ASR Rules MDM policies using policy-level status rather than per-setting reporting. Co-management planners should account for CMG and co-management as independent capabilities that can be used together.",
+      "headline": "Multi-session Intune scripts now require device targeting in revised guidance",
+      "overview": "Microsoft’s changes this week are documentation-led. The most actionable Intune updates refine the documented assignment and execution model for PowerShell on Azure Virtual Desktop multi-session devices, add two MEM-Win32Apps hosts to endpoint guidance, and define the reporting limits for MDM-managed Firewall Rules and ASR Rules. Configuration Manager’s strongest update clarifies the TLS 1.2 client procedure, while other edits mainly refine console, co-management, tools, and index content.",
+      "adminImpact": "Review PowerShell assignments and credential-context settings on multi-session devices, validate Win32 app network allowlists, and use policy-level status when assessing MDM-managed firewall and ASR policies. For Configuration Manager TLS 1.2 work, follow the revised client-enablement sequence and framework guidance.",
       "keyChanges": [
         {
-          "title": "Two MEM-Win32Apps hostnames were added to endpoint guidance",
-          "detail": "The Intune Endpoints page now lists `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` alongside the existing hosts for MEM-Win32Apps. Administrators supporting Win32 app delivery should review network allowlists and add the hosts if required.",
+          "title": "Azure Virtual Desktop scripts now use device targeting guidance",
+          "detail": "The Azure Virtual Desktop multi-session guidance now requires PowerShell scripts to target devices. It also specifies setting Logged-on credentials to No for system context or Yes for user context. Review assignments and credential-context settings for multi-session scripts.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-03-endpoints-03"
+          "sourceId": "doc-2026-11-03-azure-virtual-desktop-multi-session-05"
         },
         {
-          "title": "Device-assigned PowerShell scripts now cover every new signing-in user",
-          "detail": "The Windows PowerShell scripts guidance now states that scripts assigned to a device run for every new user who signs in, removing the previous multi-session SKU exception. This is especially relevant when planning scripts for multi-session devices.",
+          "title": "Device-assigned scripts run for every new user sign-in",
+          "detail": "The Windows PowerShell script guidance now states that scripts assigned to a device run for every new user who signs in, and removes the previous multi-session SKU exception. Recheck multi-session deployment plans against this documented execution model.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-run-powershell-scripts-windows-01"
         },
         {
-          "title": "Firewall Rules and ASR Rules MDM policies report at policy level",
-          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Administrators should use policy-level status when reviewing these policies.",
+          "title": "MEM-Win32Apps endpoint guidance adds two blob hosts",
+          "detail": "The endpoint list now includes mmcswdc01.blob.core.windows.net and mmcswdc02.blob.core.windows.net for MEM-Win32Apps alongside the existing hosts. Review network allowlists supporting Win32 app delivery and add the hostnames if required.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-endpoints-03"
+        },
+        {
+          "title": "MDM firewall and ASR policies report only at policy level",
+          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Use policy-level status when reviewing these policies.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Co-management guidance separates CMG from co-management",
-          "detail": "The revised Configuration Manager overview states that Cloud Management Gateway and co-management are independent, although they can be used together. It also updates guidance on workload pilots, licensing, and Entra join terminology for planning deployments.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-02-co-management-for-windows-devices-configuration-manager-microsoft-learn-01"
-        },
-        {
-          "title": "TLS 1.2 client instructions now separate the three enablement tasks",
-          "detail": "The updated Configuration Manager guidance more clearly separates client-enablement tasks, refines the sequence for enabling TLS 1.2 and disabling older protocols, and updates .NET Framework wording and references. Administrators configuring TLS 1.2 can use the revised sequencing and registry guidance.",
+          "title": "Configuration Manager TLS 1.2 client steps are more clearly sequenced",
+          "detail": "The client guidance now separates the three client-enablement tasks, refines the sequence for enabling TLS 1.2 and disabling older protocols, and updates .NET Framework wording and references. Use the revised procedure when configuring TLS 1.2 client readiness.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-02-enable-tls-1-2-client-02"
         }
@@ -9791,11 +9797,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-03T09:29:53.985Z",
+      "generatedAt": "2026-11-03T20:30:08.838Z",
       "usage": {
-        "inputTokens": 1854,
-        "outputTokens": 2754,
-        "costUsd": 0.003676
+        "inputTokens": 2066,
+        "outputTokens": 2613,
+        "costUsd": 0.003549
       }
     }
   },
@@ -10261,37 +10267,37 @@
       }
     },
     "2026-11": {
-      "headline": "Intune endpoint guidance names two Win32 delivery hosts and clarifies script execution scope",
-      "overview": "November’s most actionable Intune updates concern Win32 app delivery, device-assigned PowerShell scripts, and reporting scope for MDM-managed security policies. Configuration Manager guidance also clarifies the relationship between co-management and Cloud Management Gateway and refines TLS 1.2 client setup instructions. The period is dominated by operational documentation refinements.",
-      "adminImpact": "Review Win32 app delivery allowlists for `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` where required. Plan device-assigned PowerShell scripts on multi-session devices for execution for every new user who signs in, and use policy-level status when reviewing MDM-managed Firewall Rules and ASR Rules. For co-management planning, treat CMG and co-management as independent capabilities that can be used together.",
+      "headline": "PowerShell targeting and TLS sequencing lead November’s Intune and Configuration Manager guidance",
+      "overview": "November was documentation-led: all 12 recorded changes were updates, with no new or removed entries and no Message Center notices. The most consequential revisions sharpen Intune’s PowerShell execution model for Azure Virtual Desktop multi-session devices, add two MEM-Win32Apps hostnames to endpoint guidance, and define the reporting boundary for MDM-managed Firewall Rules and ASR Rules policies. Configuration Manager’s TLS 1.2 client guidance now separates the three enablement tasks and refines their sequence; its co-management overview also says CMG and co-management are independent but can be used together. The remaining edits are chiefly terminology, navigation, date, link, formatting, or reviewer changes.",
+      "adminImpact": "Review PowerShell assignments on Azure Virtual Desktop multi-session devices: use device targeting, and set Logged-on credentials to No for system context or Yes for user context. Also plan device-assigned scripts on the basis that the revised Windows guidance says they run for every new user who signs in. Check Win32 app network allowlists for mmcswdc01.blob.core.windows.net and mmcswdc02.blob.core.windows.net, and use policy-level rather than per-setting status for MDM-managed Firewall Rules and ASR Rules. For Configuration Manager TLS 1.2 work, follow the revised client sequence and framework guidance; use the clarified CMG/co-management relationship in planning.",
       "keyChanges": [
         {
-          "title": "Two MEM-Win32Apps hostnames are now listed in endpoint guidance",
-          "detail": "The Endpoints page adds `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` alongside the existing hosts. Review network allowlists supporting Win32 app delivery and add the hostnames if required.",
+          "title": "Azure Virtual Desktop multi-session scripts require device targeting",
+          "detail": "The revised Intune page requires PowerShell scripts to be targeted to devices. It sets Logged-on credentials to No for system context and Yes for user context, giving administrators concrete assignment and context values to check.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-03-endpoints-03"
+          "sourceId": "doc-2026-11-03-azure-virtual-desktop-multi-session-05"
         },
         {
-          "title": "Device-assigned PowerShell scripts are documented for every new user",
-          "detail": "The Windows PowerShell script guidance now states that a script assigned to a device runs for every new user who signs in, removing the previous multi-session SKU exception. This changes how administrators should plan device-assigned scripts on multi-session devices.",
+          "title": "Device-assigned PowerShell scripts run for every new user",
+          "detail": "The Windows PowerShell guidance now states that a script assigned to a device runs for every new user who signs in, and removes the previous multi-session SKU exception from the documented behavior. Use that rule when planning device-assigned scripts.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-run-powershell-scripts-windows-01"
         },
         {
-          "title": "Firewall and ASR MDM reporting is limited to policy-level status",
-          "detail": "Security Settings Management guidance states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM. Administrators should interpret these policies using policy-level status.",
+          "title": "MEM-Win32Apps guidance adds two endpoint hostnames",
+          "detail": "The Endpoints page now lists `mmcswdc01.blob.core.windows.net` and `mmcswdc02.blob.core.windows.net` for MEM-Win32Apps alongside existing hosts. Review Win32 app delivery allowlists and add them where required.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-endpoints-03"
+        },
+        {
+          "title": "MDM-managed Firewall and ASR policies report only at policy level",
+          "detail": "For Firewall Rules and ASR Rules policies managed through MDM, per-setting reporting is unavailable; only policy-level status is reported. Administrators should assess these policies at that level.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Co-management guidance separates CMG from co-management planning",
-          "detail": "The revised overview states that Cloud Management Gateway and co-management are independent but can be used together. It also updates guidance on workload piloting, licensing, Entra join terminology, and remote management.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-02-co-management-for-windows-devices-configuration-manager-microsoft-learn-01"
-        },
-        {
-          "title": "TLS 1.2 client guidance now separates setup tasks and sequencing",
-          "detail": "The client guide more clearly separates the three client-enablement tasks and refines the sequence for enabling TLS 1.2 and disabling older protocols. It also updates .NET Framework wording and references for client readiness, registry settings, and applicable Windows or .NET updates.",
+          "title": "TLS 1.2 client guidance separates three enablement tasks",
+          "detail": "The Configuration Manager client page now separates the three client-enablement tasks, refines the order for enabling TLS 1.2 and disabling older protocols, and updates .NET Framework wording and references. Use the revised sequence when configuring client readiness.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-02-enable-tls-1-2-client-02"
         }
@@ -10299,16 +10305,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-03T09:29:53.985Z",
+      "generatedAt": "2026-11-03T20:30:08.838Z",
       "usage": {
-        "inputTokens": 2270,
-        "outputTokens": 2571,
-        "costUsd": 0.003539
+        "inputTokens": 2451,
+        "outputTokens": 6840,
+        "costUsd": 0.008698
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-03T09:29:53.985Z",
+  "generatedAt": "2026-11-03T20:30:08.838Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10471,22 +10477,22 @@
       "costUsd": 0.009309
     },
     "2026-11-03": {
-      "inputTokens": 5446,
-      "outputTokens": 7324,
-      "requests": 3,
-      "costUsd": 0.009878
+      "inputTokens": 11497,
+      "outputTokens": 19875,
+      "requests": 6,
+      "costUsd": 0.026149
     }
   },
   "lastRun": {
-    "inputTokens": 5446,
-    "outputTokens": 7324,
+    "inputTokens": 6051,
+    "outputTokens": 12551,
     "requests": 3,
-    "costUsd": 0.009878
+    "costUsd": 0.016271
   },
   "totalUsage": {
-    "inputTokens": 3597312,
-    "outputTokens": 2261657,
-    "requests": 417,
-    "costUsd": 3.433452
+    "inputTokens": 3603363,
+    "outputTokens": 2274208,
+    "requests": 420,
+    "costUsd": 3.449723
   }
 }

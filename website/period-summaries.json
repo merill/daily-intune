@@ -7869,49 +7869,25 @@
       }
     },
     "2026-11-04": {
-      "headline": "Configuration Manager TLS guidance adds Azure Policy as co-management enrollment prerequisites are clarified",
-      "overview": "All six entries are documentation updates, with most involving wording, formatting, or refreshed links. The substantive exceptions are Configuration Manager guidance that adds a direct Azure Policy reference for TLS 1.2 and documents the Windows requirement, token fallback, and diagnostic log for co-management auto-enrollment. Intune updates also clarify the Account Driven Apple User Enrollment flow, distinguish default from custom boot images in operating-system deployment guidance, and expand the protected-app reference.",
-      "adminImpact": "For TLS 1.2 work, administrators should review the updated prerequisites and support notes and can use the linked built-in Azure Policy definition. When troubleshooting pending or failed co-management enrollment, verify Windows 10 version 1803 or later and check ComanagementHandler.log; device-token enrollment falls back to the user token if the device token fails. The Apple enrollment and protected-app updates provide clearer reference material, with no mandatory action stated.",
+      "headline": "Co-management troubleshooting gains Windows 10 1803 requirement and token-fallback guidance",
+      "overview": "The period was dominated by mechanical Microsoft Learn metadata refreshes across Configuration Manager and Intune. The substantive exception was updated co-management monitoring guidance covering device-token enrollment prerequisites, fallback behavior, and diagnostics.",
+      "adminImpact": "For pending or failed co-management enrollment, verify devices run Windows 10 version 1803 or later and review ComanagementHandler.log. The supplied evidence indicates no mandatory configuration or migration action.",
       "keyChanges": [
         {
-          "title": "TLS 1.2 guidance gains a built-in Azure Policy reference",
-          "detail": "The Configuration Manager page now links directly to the built-in Azure Policy definition for configuring TLS 1.2. It also clarifies SQL Server, WSUS, and Windows Server support notes, along with related prerequisites and platform guidance.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-04-enable-tls-1-2-server-03"
-        },
-        {
-          "title": "Co-management enrollment documents its Windows requirement and token fallback",
-          "detail": "The updated guidance states that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token; ComanagementHandler.log is identified as the diagnostic log to check.",
+          "title": "Monitor Co-management adds enrollment prerequisites and troubleshooting detail",
+          "detail": "Configuration Manager guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token; the page also directs administrators to ComanagementHandler.log and refreshes dashboard descriptions and image text.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
-        },
-        {
-          "title": "Account Driven Apple User Enrollment guidance spells out the sign-in flow",
-          "detail": "The revised Intune article explains that users begin enrollment by signing in to their work account in Settings, approve device management, and then receive silent policy installation. Service-discovery instructions were also refreshed.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-04-set-up-account-driven-apple-user-enrollment-microsoft-intune-microsoft-learn-05"
-        },
-        {
-          "title": "Configuration Manager deployment guidance separates default and custom boot images",
-          "detail": "The operating-system deployment introduction now states that Configuration Manager provides default x86 and x64 boot images, while images added by administrators are custom. Deployment scenario and PXE, multicast, and bootable-media descriptions were also refreshed.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-04-introduction-to-operating-system-deployment-configuration-manager-microsoft-learn-04"
-        },
-        {
-          "title": "Intune’s protected-app reference adds three applications",
-          "detail": "The reference now includes Elevate UC for Intune, eScription One, and Prisma Browser for Intune, with descriptions and icons. eScription One also has an Android Google Play link.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-04-ref-protected-apps-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-04T09:08:17.360Z",
+      "generatedAt": "2026-11-04T21:53:05.431Z",
       "usage": {
-        "inputTokens": 1773,
-        "outputTokens": 2217,
-        "costUsd": 0.003015
+        "inputTokens": 5480,
+        "outputTokens": 735,
+        "costUsd": 0.001978
       }
     }
   },
@@ -9805,49 +9781,37 @@
       }
     },
     "2026-11-02": {
-      "headline": "Device-targeted scripts and policy-level reporting headline Intune guidance changes",
-      "overview": "The week of 2 November was documentation-led: all 18 supplied entries were updates, with no new or removed items and no Message Center notices. The most consequential edits clarify Intune script assignment and security reporting, document two additional MEM-Win32Apps hostnames, and sharpen Configuration Manager enrollment troubleshooting and TLS 1.2 guidance. Most remaining changes were wording, links, dates, navigation, or reference maintenance.",
-      "adminImpact": "Review Azure Virtual Desktop multi-session PowerShell assignments for device targeting and the correct logged-on credentials setting. For MDM-managed Firewall Rules and ASR Rules, use policy-level status rather than per-setting reporting. Check Win32 app delivery allowlists for the two listed hostnames where explicit allowlisting is required. During co-management enrollment troubleshooting, verify Windows 10 version 1803 or later and consult ComanagementHandler.log. Administrators configuring TLS 1.2 should review the linked Azure Policy and updated prerequisite and platform guidance.",
+      "headline": "Co-management token fallback and MDM security reporting limits lead a metadata-heavy week",
+      "overview": "The week recorded 3,585 updates, with no new or removed items and no message-center notices. Most representative changes were mechanical author-metadata, taxonomy, or internal-reference refreshes across Configuration Manager and Intune. The meaningful administrator-facing exceptions were clearer co-management enrollment troubleshooting guidance, an explicit reporting limitation for MDM-managed Firewall and ASR Rules, and more precise TLS 1.2 setup wording.",
+      "adminImpact": "Administrators troubleshooting co-management should verify the Windows version requirement and inspect ComanagementHandler.log. For MDM-managed Firewall Rules and ASR Rules, evaluate status at the policy level. TLS administrators can use the clarified .NET, security-update, and registry-subkey guidance when reviewing TLS 1.2 configurations. The metadata-only revisions require no action.",
       "keyChanges": [
         {
-          "title": "Azure Virtual Desktop PowerShell guidance now specifies device targeting and credential context",
-          "detail": "The revised Intune guidance requires PowerShell scripts to be targeted to devices. It specifies setting logged-on credentials to No for system context or Yes for user context. Review assignments that use a different target or execution context.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-azure-virtual-desktop-multi-session-05"
-        },
-        {
-          "title": "MDM Firewall Rules and ASR Rules reporting is documented as policy-level only",
-          "detail": "For Firewall Rules and ASR Rules policies managed through MDM, per-setting reporting is unavailable; only policy-level status is reported. Use policy-level status when reviewing these policies.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
-        },
-        {
-          "title": "Win32 app delivery guidance now lists two MEM-Win32Apps hostnames",
-          "detail": "The endpoint guidance now lists mmcswdc01.blob.core.windows.net and mmcswdc02.blob.core.windows.net alongside the existing MEM-Win32Apps hosts. Review network allowlists and add the hostnames where required.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-endpoints-03"
-        },
-        {
-          "title": "Co-management enrollment guidance adds a device-token prerequisite and fallback",
-          "detail": "Device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token. For pending or failed enrollment, the guidance directs administrators to ComanagementHandler.log.",
+          "title": "Co-management guidance documents device-token prerequisites and fallback behavior",
+          "detail": "The Monitor Co-management guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token; the page also directs troubleshooters to ComanagementHandler.log. Dashboard descriptions and image text were refreshed as part of the same update.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Configuration Manager TLS 1.2 server guidance links to a built-in Azure Policy",
-          "detail": "The updated server guidance links to a built-in Azure Policy definition for configuring TLS 1.2 and clarifies SQL Server, WSUS, and Windows Server support notes. Administrators configuring TLS 1.2 should review the updated prerequisites and platform guidance.",
+          "title": "MDM Firewall and ASR reporting is documented at policy level",
+          "detail": "Security Settings Management now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM. Only policy-level status is reported, so administrators reviewing these policies should interpret status at that level.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-security-settings-management-02"
+        },
+        {
+          "title": "TLS 1.2 instructions clarify .NET and architecture-specific registry guidance",
+          "detail": "The Enable TLS 1.2 Server page standardizes .NET terminology and clarifies instructions covering framework support, security updates, and registry subkey changes by application and operating-system architecture. The revised wording is useful when reviewing Configuration Manager TLS 1.2 hardening procedures.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-04-enable-tls-1-2-server-03"
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-04T09:08:17.360Z",
+      "generatedAt": "2026-11-04T21:53:05.431Z",
       "usage": {
-        "inputTokens": 2920,
-        "outputTokens": 4802,
-        "costUsd": 0.006346
+        "inputTokens": 9071,
+        "outputTokens": 2038,
+        "costUsd": 0.00426
       }
     }
   },
@@ -10313,54 +10277,42 @@
       }
     },
     "2026-11": {
-      "headline": "Device-targeted scripts and policy-level security reporting lead November Intune updates",
-      "overview": "November was documentation-led: all 18 supplied entries were updates, with no new or removed items and no Message Center notices. The most consequential guidance changes cover PowerShell assignment on Azure Virtual Desktop multi-session, security-policy reporting, Win32 app delivery allowlists, and co-management enrollment troubleshooting. Most other edits involved wording, links, dates, navigation, or reference maintenance.",
-      "adminImpact": "Review Azure Virtual Desktop multi-session PowerShell assignments: target scripts to devices and set logged-on credentials to No for system context or Yes for user context. Use policy-level status for MDM-managed Firewall Rules and ASR Rules. Add the two listed MEM-Win32Apps hostnames to network allowlists where explicit allowlisting is required. For co-management enrollment issues, verify Windows 10 version 1803 or later and check ComanagementHandler.log.",
+      "headline": "Co-management token fallback, MDM reporting limits, and TLS guidance lead November",
+      "overview": "November was dominated by documentation maintenance: 3,585 items were updated, with no new or removed items and no Message Center notices. The clearest administrator-facing changes clarify co-management enrollment prerequisites and diagnostics, set expectations for MDM reporting of Firewall and ASR Rules, and tighten TLS 1.2 configuration wording in Configuration Manager. Most other supplied changes were author, taxonomy, or internal-reference updates.",
+      "adminImpact": "When troubleshooting co-management enrollment, check that devices run Windows 10 version 1803 or later and review ComanagementHandler.log. For MDM-managed Firewall Rules and ASR Rules, assess status at the policy level because per-setting reporting is unavailable. TLS administrators can use the revised .NET, security-update, and registry-subkey guidance when reviewing TLS 1.2 configurations. The metadata-only revisions require no action.",
       "keyChanges": [
         {
-          "title": "Azure Virtual Desktop multi-session scripts now require device targeting",
-          "detail": "Updated Intune guidance requires PowerShell scripts to be targeted to devices. It specifies No for logged-on credentials when system context is needed and Yes for user context. Review affected assignments and change user-targeted scripts to device targeting where necessary.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-azure-virtual-desktop-multi-session-05"
+          "title": "Co-management enrollment now documents token prerequisite and fallback",
+          "detail": "The Monitor Co-management guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token. The page also directs troubleshooting to ComanagementHandler.log and refreshes dashboard descriptions and image text.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Device-assigned PowerShell scripts are documented to run for every new user",
-          "detail": "The Windows PowerShell script guidance now states that a script assigned to a device runs for every new user who signs in, removing the previous multi-session SKU exception. Use this behavior when planning scripts for multi-session devices.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-run-powershell-scripts-windows-01"
-        },
-        {
-          "title": "MDM Firewall and ASR policies report only at policy level",
-          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM. Administrators should use policy-level status when reviewing these policies.",
+          "title": "MDM Firewall and ASR Rules reporting is policy-level only",
+          "detail": "Security Settings Management now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Administrators reviewing these policies should use policy-level status rather than expecting individual-rule results.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Win32 app delivery allowlists gain two MEM-Win32Apps hostnames",
-          "detail": "The Intune endpoint list now includes mmcswdc01.blob.core.windows.net and mmcswdc02.blob.core.windows.net for MEM-Win32Apps, alongside the existing hosts. Add them to network allowlists where required.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-endpoints-03"
-        },
-        {
-          "title": "Co-management enrollment troubleshooting adds Windows version and log checks",
-          "detail": "Configuration Manager guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later, falls back to the user token if the device token fails, and directs troubleshooting to ComanagementHandler.log. Check the Windows version and log when enrollment is pending or fails.",
+          "title": "TLS 1.2 guidance clarifies .NET, updates, and registry architecture",
+          "detail": "The Configuration Manager TLS 1.2 page now uses consistent .NET terminology and clearer instructions for framework support, security updates, and registry subkey updates by application and operating-system architecture. The revision provides a clearer reference for reviewing TLS 1.2 configurations.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-04T09:08:17.360Z",
+      "generatedAt": "2026-11-04T21:53:05.431Z",
       "usage": {
-        "inputTokens": 3345,
-        "outputTokens": 3757,
-        "costUsd": 0.005177
+        "inputTokens": 5687,
+        "outputTokens": 2047,
+        "costUsd": 0.003594
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-04T09:08:17.360Z",
+  "generatedAt": "2026-11-04T21:53:05.431Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10523,22 +10475,22 @@
       "costUsd": 0.026149
     },
     "2026-11-04": {
-      "inputTokens": 8038,
-      "outputTokens": 10776,
-      "requests": 3,
-      "costUsd": 0.014539
+      "inputTokens": 28276,
+      "outputTokens": 15596,
+      "requests": 6,
+      "costUsd": 0.024371
     }
   },
   "lastRun": {
-    "inputTokens": 8038,
-    "outputTokens": 10776,
+    "inputTokens": 20238,
+    "outputTokens": 4820,
     "requests": 3,
-    "costUsd": 0.014539
+    "costUsd": 0.009832
   },
   "totalUsage": {
-    "inputTokens": 3611401,
-    "outputTokens": 2284984,
-    "requests": 423,
-    "costUsd": 3.464262
+    "inputTokens": 3631639,
+    "outputTokens": 2289804,
+    "requests": 426,
+    "costUsd": 3.474094
   }
 }

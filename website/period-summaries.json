@@ -7891,49 +7891,49 @@
       }
     },
     "2026-11-05": {
-      "headline": "Automatic Autopilot policies now document 25-app selection and sovereign-cloud association limits",
-      "overview": "The period was dominated by Windows Autopilot guidance updates, with several concrete implications for deployment planning. Automatic Autopilot Policy documentation raises the managed-application selection limit from 10 to 25, while related pages clarify how device association selects between Autopilot and device preparation deployments and that association is unavailable in sovereign clouds. Other notable edits refine local Autopilot Reset procedures and remove a documented Enterprise App Catalog app restriction from current Enterprise App Management guidance.",
-      "adminImpact": "Review automatic policy app selections, verify device association and cloud scope before deployment, and use the revised Autopilot Reset instructions—especially for hybrid joined and Surface Hub devices. Recheck current Enterprise App Management guidance before relying on the former blocking-app limitation.",
+      "headline": "Automatic Autopilot Policy now documents a 25-app selection limit",
+      "overview": "5 November was a documentation-heavy Windows Autopilot update: the Automatic Autopilot Policy page now records a 25-managed-application selection limit, while related pages sharpen device-association behavior and sovereign-cloud scope. A separate Configuration Manager article documents a CMG bulk-registration token-verification failure and points administrators to KB remediation. The remaining edits mainly refresh procedures, terminology, links, metadata, and removed warnings.",
+      "adminImpact": "Use 25 as the current documented app-selection figure when planning essential Autopilot applications. Verify device association before choosing Autopilot deployment or device preparation, and do not plan device association in sovereign clouds. If CMG bulk registration uses non-Microsoft Entra joined devices, check the cited KB remediation. Apply the revised local Autopilot Reset steps where relevant, including the documented full-wipe requirement for hybrid joined and Surface Hub devices.",
       "keyChanges": [
         {
-          "title": "Automatic Autopilot Policy raises the documented managed-app selection limit",
-          "detail": "The Apps section now says administrators can select up to 25 managed applications for deployment, increased from 10. The page also links to Enterprise App Catalog and its auto-update apps, allowing broader documentation-supported app selection before users access a device.",
+          "title": "Automatic Autopilot Policy raises the documented application-selection limit",
+          "detail": "The Apps section now says up to 25 managed applications can be selected for deployment, up from 10, and adds links to Enterprise App Catalog and auto-update apps. Revisit essential-application planning against the new documented limit and linked catalog guidance.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-11-05-automatic-autopilot-policy-05"
         },
         {
-          "title": "Device association now determines whether Autopilot or device preparation runs",
-          "detail": "The Entra Join Device Association page states that unassociated devices run Windows Autopilot deployment, while associated devices run Windows Autopilot device preparation deployment. To run device preparation without association, administrators are directed to deregister the device from Windows Autopilot.",
+          "title": "Device-association guidance distinguishes Autopilot from device preparation",
+          "detail": "The updated page says unassociated devices run Windows Autopilot deployment, while associated devices run Windows Autopilot device preparation deployment. To run device preparation without association, it directs administrators to deregister the device from Windows Autopilot.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-11-05-entra-join-device-association-08"
         },
         {
-          "title": "Sovereign-cloud guidance documents device-preparation support without association",
-          "detail": "The Overview now states that device preparation supports GCCH and DoD environments, but device association is unavailable in sovereign clouds. Administrators in those environments should not plan deployments around device association.",
+          "title": "Autopilot overview adds GCCH and DoD scope with a sovereign-cloud limitation",
+          "detail": "The Overview page now states that device preparation supports GCCH and DoD environments, but device association isn't available in sovereign clouds. It also explains TPM-backed association, policy precedence, corporate ownership, naming, and OOBE customization. Sovereign-cloud administrators should not plan device association.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-11-05-overview-02"
         },
         {
-          "title": "Local Windows Autopilot Reset instructions are revised across configuration tools",
-          "detail": "The updated article revises local Reset configuration steps involving Intune, Windows Configuration Designer, and the Set up School PCs app. It also documents a full-wipe requirement for hybrid joined and Surface Hub devices.",
-          "product": "Windows Autopilot",
-          "sourceId": "doc-2026-11-05-windows-autopilot-reset-microsoft-learn-11"
+          "title": "Configuration Manager documents CMG bulk-registration token failures",
+          "detail": "The 39169655 article now documents that bulk registration token verification can fail on the management point after installing the update rollup for non-Microsoft Entra joined devices using a CMG; other CMG communication scenarios may also be affected. Administrators in that scenario should use the referenced KB remediation.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-05-39169655-15"
         },
         {
-          "title": "Enterprise App Management removes its former auto-update blocking-app statement",
-          "detail": "The page no longer states that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page or Autopilot device preparation. Administrators configuring blocking apps should review the current guidance rather than rely on the removed statement.",
-          "product": "Enterprise App Management",
-          "sourceId": "doc-2026-11-05-enterprise-app-management-12"
+          "title": "Autopilot Reset guidance revises local configuration procedures",
+          "detail": "The refreshed article revises local Windows Autopilot Reset configuration steps using Intune, Windows Configuration Designer, and the Set up School PCs app. It also documents the full-wipe requirement for hybrid joined and Surface Hub devices, so administrators should use the revised steps when configuring local Reset.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-11-05-windows-autopilot-reset-microsoft-learn-11"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-05T09:28:11.600Z",
+      "generatedAt": "2026-11-05T21:04:48.679Z",
       "usage": {
-        "inputTokens": 2594,
-        "outputTokens": 1657,
-        "costUsd": 0.002507
+        "inputTokens": 2817,
+        "outputTokens": 5472,
+        "costUsd": 0.00713
       }
     }
   },
@@ -9827,31 +9827,31 @@
       }
     },
     "2026-11-02": {
-      "headline": "Intune now documents policy-level reporting for MDM Firewall and ASR rules",
-      "overview": "The week of 2 November was a high-volume documentation maintenance cycle: all 3,599 tracked items were updates, with no new or removed entries. The meaningful administrator-facing edits were concentrated in Intune Security Settings Management, Configuration Manager co-management and TLS guidance, and Enterprise App Management. Many other sampled pages only refreshed author metadata, taxonomy links, or internal references.",
-      "adminImpact": "Use policy-level status when assessing MDM-managed Firewall Rules and ASR Rules. For co-management enrollment troubleshooting, verify Windows 10 version 1803 or later and inspect ComanagementHandler.log. Review the current Enterprise App Management guidance when configuring blocking apps for ESP or Autopilot device preparation. TLS administrators can use the revised .NET and registry guidance during configuration reviews; metadata-only edits require no action.",
+      "headline": "Co-management guidance adds Windows 10 1803 prerequisite and device-token fallback",
+      "overview": "This was a quiet documentation-maintenance week: the supplied representative changes are overwhelmingly author, taxonomy, or internal-reference edits across Intune and Configuration Manager. The meaningful exceptions update co-management enrollment troubleshooting, clarify reporting boundaries for MDM Firewall and ASR policies, revise Enterprise App Management blocking-app guidance, and refine TLS 1.2 server instructions.",
+      "adminImpact": "No broad configuration change is supported by the evidence. When troubleshooting co-management, verify Windows 10 version 1803 or later and check ComanagementHandler.log. For MDM Firewall and ASR policies, use policy-level rather than per-setting status. Review the current Enterprise App Management guidance before configuring blocking apps in ESP or Autopilot device preparation, and use the revised TLS wording when reviewing server configuration.",
       "keyChanges": [
         {
-          "title": "MDM Firewall and ASR reporting is documented at policy level",
-          "detail": "The Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Adjust compliance and troubleshooting reviews accordingly.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
-        },
-        {
-          "title": "Co-management enrollment guidance adds a Windows version prerequisite and log path",
-          "detail": "The Monitor Co-management page now states that device-token auto-enrollment requires Windows 10 version 1803 or later, falls back to the user token when the device token fails, and directs administrators to ComanagementHandler.log for troubleshooting pending or failed enrollment.",
+          "title": "Co-management enrollment documents a Windows 10 prerequisite and token fallback",
+          "detail": "The Monitor Co-management page now states that device-token auto-enrollment requires Windows 10 version 1803 or later and falls back to the user token if device-token enrollment fails. It also directs troubleshooting to ComanagementHandler.log; dashboard descriptions and image text were refreshed.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Enterprise App Management removes a blocking-app restriction statement",
-          "detail": "The page date changed to November 3, 2026, and the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in ESP or Autopilot device preparation was removed. Review the current guidance before configuring blocking apps in those scenarios.",
+          "title": "MDM Firewall and ASR reporting is documented at policy level",
+          "detail": "Security Settings Management now states that per-setting reporting is unavailable for Firewall Rules and Attack Surface Reduction Rules policies managed through MDM; only policy-level status is reported. Administrators should use policy-level status when reviewing these policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-security-settings-management-02"
+        },
+        {
+          "title": "Enterprise App Management removes its auto-update blocking-app statement",
+          "detail": "The November 3, 2026 page revision removes the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in ESP or Autopilot device preparation. Review the current guidance before configuring blocking apps in either workflow.",
           "product": "Enterprise App Management",
           "sourceId": "doc-2026-11-05-enterprise-app-management-12"
         },
         {
-          "title": "TLS 1.2 server guidance clarifies .NET and registry procedures",
-          "detail": "The Configuration Manager TLS 1.2 server page now uses consistent .NET terminology and clearer instructions covering framework support, security updates, and registry subkey updates by application and operating-system architecture.",
+          "title": "TLS 1.2 server guidance sharpens .NET and registry instructions",
+          "detail": "The Configuration Manager page now uses consistent .NET terminology and clearer instructions covering framework support, security updates, and registry subkey updates by application and operating-system architecture. The change gives administrators more precise wording when reviewing TLS 1.2 configuration.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
         }
@@ -9859,11 +9859,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-05T09:28:11.600Z",
+      "generatedAt": "2026-11-05T21:04:48.679Z",
       "usage": {
         "inputTokens": 9069,
-        "outputTokens": 2616,
-        "costUsd": 0.004953
+        "outputTokens": 3084,
+        "costUsd": 0.005515
       }
     }
   },
@@ -10329,48 +10329,42 @@
       }
     },
     "2026-11": {
-      "headline": "MDM Firewall and ASR policies report only at policy level",
-      "overview": "November was dominated by documentation maintenance: all 3,599 tracked items were updates, with no new or removed entries and no Message Center posts. The most consequential administrator-facing changes clarified reporting scope for Intune Security Settings Management, co-management enrollment prerequisites and troubleshooting, Enterprise App Management blocking-app guidance, and TLS 1.2 configuration terminology. Most other sampled edits changed author metadata or internal references only.",
-      "adminImpact": "Use policy-level status when reviewing MDM-managed Firewall Rules and ASR Rules. For co-management enrollment troubleshooting, verify Windows 10 version 1803 or later and inspect ComanagementHandler.log. Review the current Enterprise App Management guidance when configuring blocking apps for ESP or Autopilot device preparation. Use the revised TLS 1.2 wording during configuration reviews; metadata-only updates require no action.",
+      "headline": "Co-management guidance now documents Windows 10 1803 prerequisites and token fallback",
+      "overview": "November's supplied record is primarily documentation maintenance rather than a broad Intune rollout. All 3,601 entries were updates, with no new or removed entries, and most representative edits only changed author or taxonomy metadata. The administrator-relevant exceptions tighten co-management enrollment troubleshooting, document the reporting scope for MDM Firewall and ASR policies, and revise Enterprise App Management's blocking-app guidance.",
+      "adminImpact": "No broad migration is indicated. For pending or failed co-management enrollment, verify Windows 10 version 1803 or later and check ComanagementHandler.log. For MDM-managed Firewall Rules and ASR Rules, assess policy-level status rather than per-setting status. When configuring ESP or Autopilot device preparation, consult the current Enterprise App Management guidance about auto-update catalog apps.",
       "keyChanges": [
         {
-          "title": "MDM-managed Firewall and ASR policies have policy-level reporting only",
-          "detail": "The Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
-        },
-        {
-          "title": "Co-management guidance specifies Windows 10 1803+ device-token behavior",
-          "detail": "The Monitor Co-management documentation now states that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token, and administrators are directed to ComanagementHandler.log for diagnostics.",
+          "title": "Co-management enrollment troubleshooting adds a Windows version prerequisite and token fallback",
+          "detail": "The Monitor Co-management guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later, falls back to the user token if the device token fails, and directs administrators to ComanagementHandler.log. Verify the Windows version and use that log when investigating pending or failed enrollment.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Enterprise App Management removes its auto-update blocking-app restriction statement",
-          "detail": "The guidance no longer includes the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in ESP or Autopilot device preparation. The current guidance should be reviewed when configuring those scenarios.",
-          "product": "Enterprise App Management",
-          "sourceId": "doc-2026-11-05-enterprise-app-management-12"
+          "title": "Intune documents policy-level reporting for MDM Firewall and ASR rules",
+          "detail": "Security Settings Management now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Use policy-level status when reviewing these policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "TLS 1.2 guidance clarifies .NET and registry configuration terminology",
-          "detail": "The Enable TLS 1.2 Server documentation now uses consistent .NET terminology and provides clearer instructions for framework support, security updates, and registry subkey updates by application and operating-system architecture.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
+          "title": "Enterprise App Management removes an auto-update app limitation statement",
+          "detail": "The page removed the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page or Autopilot device preparation. Review the current guidance before configuring blocking apps in either workflow.",
+          "product": "Enterprise App Management",
+          "sourceId": "doc-2026-11-05-enterprise-app-management-12"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-05T09:28:11.600Z",
+      "generatedAt": "2026-11-05T21:04:48.679Z",
       "usage": {
-        "inputTokens": 5688,
-        "outputTokens": 2084,
-        "costUsd": 0.003638
+        "inputTokens": 5683,
+        "outputTokens": 3181,
+        "costUsd": 0.004954
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-05T09:28:11.600Z",
+  "generatedAt": "2026-11-05T21:04:48.679Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10533,22 +10527,22 @@
       "costUsd": 0.024371
     },
     "2026-11-05": {
-      "inputTokens": 17351,
-      "outputTokens": 6357,
-      "requests": 3,
-      "costUsd": 0.011099
+      "inputTokens": 34920,
+      "outputTokens": 18094,
+      "requests": 6,
+      "costUsd": 0.028697
     }
   },
   "lastRun": {
-    "inputTokens": 17351,
-    "outputTokens": 6357,
+    "inputTokens": 17569,
+    "outputTokens": 11737,
     "requests": 3,
-    "costUsd": 0.011099
+    "costUsd": 0.017598
   },
   "totalUsage": {
-    "inputTokens": 3648990,
-    "outputTokens": 2296161,
-    "requests": 429,
-    "costUsd": 3.485193
+    "inputTokens": 3666559,
+    "outputTokens": 2307898,
+    "requests": 432,
+    "costUsd": 3.502791
   }
 }

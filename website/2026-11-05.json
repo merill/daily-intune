@@ -364,19 +364,71 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2603/39169655.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/intune/configmgr/hotfix/2603/39169655.md b/intune/configmgr/hotfix/2603/39169655.md\nindex ba55b63..5c7eed5 100644\n--- a/intune/configmgr/hotfix/2603/39169655.md\n+++ b/intune/configmgr/hotfix/2603/39169655.md\n@@ -17,7 +17,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Update rollup for Configuration Manager 2603\n-ms.date: 2026-09-07T00:00:00.0000000Z\n+ms.date: 2026-11-04T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n locale: en-us\n@@ -104,6 +104,10 @@ For more information about changes in Configuration Manager version 2603, see:\n \r\n     On a Windows Server 2025 primary site server or management point, performance counter registration can fail. As a result, Configuration Manager performance counters aren't available. This update allows the performance counter setup process to register the Configuration Manager performance counters correctly.\r\n \r\n+## Known issues\r\n+\r\n+After you install this update rollup, bulk registration token verification fails on the management point for devices that aren't Microsoft Entra joined and connect through a cloud management gateway (CMG). Other CMG communication scenarios for these devices may also be affected. Install [KB 40345593](40345593) to resolve this issue.\r\n+\r\n ## Hotfixes that are included in this update\r\n \r\n - [KB 37942646](37942646): Cloud management gateway virtual machine scale set image update for Microsoft Configuration Manager\r\n",
+      "baseCommitSha": "999b27ad4e6ceb9f64fb0f903ffe6e4424dd1b6f",
+      "commitSha": "4e34e4d6a68a6f8d0ae15c6d4297a2a04d480b50",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05 20:56:16 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2603/39169655.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2603/39169655",
+      "eventId": "intune-docs:4e34e4d6a68a6f8d0ae15c6d4297a2a04d480b50:modified:intune/configmgr/hotfix/2603/39169655.md",
+      "firstSeenAt": "2026-11-05T21:04:41.082Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Known CMG registration issue documented",
+        "summary": "The article now documents that bulk registration token verification can fail on the management point after installing the update rollup for non-Microsoft Entra joined devices using a CMG. Other CMG communication scenarios may also be affected.",
+        "adminImpact": "Administrators using these scenarios should install the referenced KB remediation.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/index.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/intune/configmgr/hotfix/index.md b/intune/configmgr/hotfix/index.md\nindex 50bb006..90e2d50 100644\n--- a/intune/configmgr/hotfix/index.md\n+++ b/intune/configmgr/hotfix/index.md\n@@ -20,7 +20,7 @@ ms.reviewer:\n description: Knowledge Base articles for Microsoft Configuration Manager hotfixes, update rollups, and summary articles for new releases.\n ms.subservice: core-infra\n ms.topic: landing-page\n-ms.date: 2026-09-10T00:00:00.0000000Z\n+ms.date: 2026-11-03T00:00:00.0000000Z\n locale: en-us\n document_id: 44b6e3c1-c0ff-b9ab-b751-be915f43213c\n document_version_independent_id: 78df709e-f702-5cae-1539-89231a720345\n@@ -64,6 +64,7 @@ Knowledge Base articles for Microsoft Configuration Manager hotfixes, update rol\n - [KB 38982839 Security update for the SMS Provider and administration service](2603/38982839)\r\n - [KB 39398030 Security update for scripts, SMS Provider, MPE, and DDR](2603/39398030)\r\n - [KB 39169655 Update rollup for Microsoft Configuration Manager version 2603](2603/39169655)\r\n+- [KB 40345593 Bulk registration token verification fails after 2603 update rollup](2603/40345593)\r\n \r\n ## Configuration Manager 2509\r\n \r\n",
+      "baseCommitSha": "999b27ad4e6ceb9f64fb0f903ffe6e4424dd1b6f",
+      "commitSha": "4e34e4d6a68a6f8d0ae15c6d4297a2a04d480b50",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05 20:56:16 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/index",
+      "eventId": "intune-docs:4e34e4d6a68a6f8d0ae15c6d4297a2a04d480b50:modified:intune/configmgr/hotfix/index.md",
+      "firstSeenAt": "2026-11-05T21:04:41.085Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Hotfix index adds KB 40345593",
+        "summary": "The hotfix index date was updated, and a link was added for KB 40345593 covering bulk registration token verification failures after the 2603 update rollup.",
+        "adminImpact": "Administrators can use the index to locate information about this issue.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 14,
+    "totalCommits": 2,
+    "totalFiles": 16,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 14 updated, and 0 removed Microsoft Intune documentation files across 5 documentation areas.",
+    "overview": "Today's report includes 0 new, 16 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -426,6 +478,15 @@
         "sourceFiles": [
           "intune/device-security/security-baselines/stig-audit-baseline.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The article now documents that bulk registration token verification can fail on the management point after installing the update rollup for non-Microsoft Entra joined devices using a CMG. Other CMG communication scenarios may also be affected. The hotfix index date was updated, and a link was added for KB 40345593 covering bulk registration token verification failures after the 2603 update rollup.",
+        "sourceFiles": [
+          "intune/configmgr/hotfix/2603/39169655.md",
+          "intune/configmgr/hotfix/index.md"
+        ]
       }
     ],
     "highlights": [
@@ -453,6 +514,11 @@
         "category": "Doc update",
         "headline": "intune/device-security",
         "detail": "The page refreshes its metadata and changes the DISA SCAP benchmark hyperlink to a new URL."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The article now documents that bulk registration token verification can fail on the management point after installing the update rollup for non-Microsoft Entra joined devices using a CMG. Other CMG communication scenarios may also be affected. The hotfix index date was updated, and a link was added for KB 40345593 covering bulk registration token verification failures after the 2603 update rollup."
       }
     ],
     "generatedBy": "fallback"

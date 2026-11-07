@@ -6245,31 +6245,25 @@
       }
     },
     "2026-08-06": {
-      "headline": "Firewall and ASR policy reports require security settings management for per-setting status",
-      "overview": "The period contained two Intune documentation updates. The substantive clarification concerns reporting for Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM; the other change only renumbers steps in the Monitor Device Profile procedure.",
-      "adminImpact": "For MDM-managed Firewall Rules and ASR Rules policies, expect policy-level status rather than per-setting reporting. To view per-setting status, devices must be enrolled with Defender for Endpoint security settings management. The Monitor Device Profile edit does not indicate a tenant configuration or rollout change.",
+      "headline": "MDM-managed Firewall and ASR policies now document policy-level reporting only",
+      "overview": "The day’s substantive Intune update aligns the Firewall and Monitor Device Profile guidance: MDM-managed Firewall Rules and Attack Surface Reduction Rules policies provide policy-level status without per-setting reporting statuses.",
+      "adminImpact": "When reviewing these policies, administrators should interpret results at the policy level because per-setting statuses aren’t available through MDM.",
       "keyChanges": [
         {
-          "title": "MDM Firewall and ASR reporting scope is clarified",
-          "detail": "Per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and ASR Rules policies managed through MDM report only policy-level status and omit per-setting statuses. The documentation states that devices must be enrolled with Defender for Endpoint security settings management to view per-setting status.",
+          "title": "Firewall and ASR reporting is limited to policy-level status",
+          "detail": "Updated Intune guidance states that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies report only policy-level status, unlike most Endpoint Security policies with per-setting reporting. The limitation is documented in both the Firewall and Monitor Device Profile guidance.",
           "product": "Intune",
           "sourceId": "doc-2026-08-06-firewall-02"
-        },
-        {
-          "title": "Monitor Device Profile procedure steps are renumbered",
-          "detail": "The documented step directing admins to return to Device and user check-in status and select View report changes from step 5 to step 6, while the subsequent policy-property step changes from 6 to 7. The supplied diff shows a procedural numbering correction, not a product-behavior change.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-06-monitor-device-profile-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-07T08:38:38.622Z",
+      "generatedAt": "2026-11-07T09:03:44.304Z",
       "usage": {
-        "inputTokens": 1372,
-        "outputTokens": 1338,
-        "costUsd": 0.00188
+        "inputTokens": 1114,
+        "outputTokens": 701,
+        "costUsd": 0.001064
       }
     },
     "2026-08-07": {
@@ -9361,49 +9355,49 @@
       }
     },
     "2026-08-03": {
-      "headline": "Per-setting firewall and ASR reporting requires Defender security settings management",
-      "overview": "The week of 3 August 2026 was quiet in release terms: all 34 recorded items were documentation updates, with no new, removed, or Message Center entries. Most edits were wording, links, examples, or navigation, but several clarified consequential reporting limits, enrollment risks, data sensitivity, API handling, and infrastructure prerequisites. The evidence supports documentation clarification and operational guidance—not a new Intune launch, general-availability announcement, or retirement.",
-      "adminImpact": "Prioritize review of MDM Firewall Rules and ASR reporting expectations, registry inventory access, userless macOS ADE profile assignments, Multi Admin Approval integrations, and Microsoft Tunnel installation prerequisites. Apply administrator action only where the updated guidance states a concrete requirement; the supplied records do not establish broader product availability changes.",
+      "headline": "Multi-admin approval guidance adds app-authenticated Graph scope and policy exclusions",
+      "overview": "The strongest updates clarify the operating guidance for Intune Multi Admin Approval: delegated actions and app-authenticated Microsoft Graph calls are now explicitly covered, with bounded and audited enterprise-application exclusions. A related API article documents the approval response codes and resubmission requirements. Other consequential updates record a manually loaded ip_tables prerequisite for Microsoft Tunnel on RHEL 9.8, a PSSO warning for userless macOS ADE devices, and Configuration Manager 2603 media changes affecting SQL components. The remaining entries are targeted documentation corrections and clarifications.",
+      "adminImpact": "Review Multi Admin Approval coverage for service principals, scripts, and third-party applications; check approver-group assignments and exclusions against the documented limits. Update Graph integrations to handle HTTP 400 and 412 approval responses while retaining the original request method, URL, and body. On RHEL 9.8, load ip_tables before installing Tunnel. For macOS ADE, avoid targeting userless devices with profiles that enable PSSO registration during Setup Assistant. For Configuration Manager, validate packaging and required components if deployments depend on SQLSysClrTypes.msi or SharedManagementObjects.msi.",
       "keyChanges": [
         {
-          "title": "MDM Firewall Rules and ASR Rules have policy-level reporting limits",
-          "detail": "The Firewall page adds an IMPORTANT note that per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM provide only policy-level status and no per-setting reporting statuses. Viewing per-setting status requires devices to be enrolled with Defender for Endpoint security settings management. This is a reporting-scope clarification, so align monitoring expectations accordingly.",
+          "title": "Multi Admin Approval guidance defines Graph-call coverage and exclusion limits",
+          "detail": "The guidance now documents MAA enforcement for delegated actions and app-authenticated Microsoft Graph API calls. It clarifies approver permissions and direct group membership, while per-policy enterprise application exclusions apply only to app-authenticated calls, allow up to 50 applications, require second-admin approval, and are audited.",
           "product": "Intune",
-          "sourceId": "doc-2026-08-06-firewall-02"
+          "sourceId": "doc-2026-08-07-use-multi-admin-approval-in-intune-32"
         },
         {
-          "title": "Userless macOS ADE devices should not receive PSSO registration profiles",
-          "detail": "The Automated Device Enrollment guidance warns against targeting userless ADE devices with PSSO configuration profiles that enable PSSO registration during Setup Assistant. Doing so can cause unexpected enrollment behavior and loss of expected device affinity. Review assignments and exclude userless ADE devices from these profiles.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
-        },
-        {
-          "title": "Registry inventory data carries an explicit permissions and privacy warning",
-          "detail": "Collect Device Properties now states that collected registry key data is accessible through existing Device Inventory permissions and may expose sensitive device configuration information. Review the security and privacy implications of those permissions and the registry data being collected; the update does not describe a new permission model.",
-          "product": "Intune",
-          "sourceId": "doc-2026-08-07-collect-device-properties-19"
-        },
-        {
-          "title": "Multi Admin Approval Graph integrations need revised error handling",
-          "detail": "The Microsoft Graph guidance now specifies HTTP 400 when approval headers are missing. A pending approval returns HTTP 412 (Precondition Failed), a Microsoft Graph BadRequest code, and an x-msft-approval-code header. Integrations should preserve the original method, URL, and request body so the request can be resubmitted after approval.",
+          "title": "Graph API guidance specifies approval errors and resubmission data",
+          "detail": "Missing approval headers are documented as HTTP 400. A request pending approval returns HTTP 412 with a Graph BadRequest code and an x-msft-approval-code header; callers are instructed to retain the original request method, URL, and body for resubmission.",
           "product": "Intune",
           "sourceId": "doc-2026-08-07-use-multi-admin-approval-with-the-microsoft-graph-api-15"
         },
         {
-          "title": "Microsoft Tunnel prerequisites add RHEL 9.8 and manual ip_tables loading",
-          "detail": "The prerequisites page now lists Red Hat Enterprise Linux 9.8 with Podman 5.8.2 or later as the default and notes that RHEL 9.8 does not automatically load the ip_tables kernel module. Administrators installing Microsoft Tunnel on RHEL 9.8 should manually load ip_tables before installation.",
+          "title": "Microsoft Tunnel prerequisites add manual ip_tables loading on RHEL 9.8",
+          "detail": "The prerequisites list RHEL 9.8 with Podman 5.8.2 or later as the default and state that the ip_tables kernel module must be loaded manually before Tunnel installation.",
           "product": "Intune",
           "sourceId": "doc-2026-08-07-prerequisites-the-microsoft-tunnel-vpn-for-microsoft-intune-16"
+        },
+        {
+          "title": "macOS ADE guidance warns against PSSO profiles on userless devices",
+          "detail": "The Setup Assistant guidance warns administrators not to target userless ADE devices with profiles that enable PSSO registration. That combination can cause unexpected enrollment behavior and loss of expected device affinity.",
+          "product": "Intune",
+          "sourceId": "doc-2026-08-07-setup-automated-macos-04"
+        },
+        {
+          "title": "Configuration Manager 2603 media no longer includes SQL component MSIs",
+          "detail": "The version 2603 guidance states that SQL Server Management Objects and SQL Server CLR Types use SQL Server 2025 versions, identified as SMO 17, and that SQLSysClrTypes.msi and SharedManagementObjects.msi are no longer included in Configuration Manager media.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-08-07-whats-new-in-version-2603-20"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-07T11:03:29.508Z",
+      "generatedAt": "2026-11-07T09:03:44.304Z",
       "usage": {
-        "inputTokens": 5217,
-        "outputTokens": 6425,
-        "costUsd": 0.008753
+        "inputTokens": 4586,
+        "outputTokens": 5045,
+        "costUsd": 0.006971
       }
     },
     "2026-08-10": {
@@ -10235,49 +10229,49 @@
       }
     },
     "2026-08": {
-      "headline": "Intune plans iOS/iPadOS 18 and macOS 15 floors as DDM guidance expands",
-      "overview": "August’s 1,727 records were dominated by Configuration Manager, including many metadata-only recategorizations, but the main administrator-facing changes were Intune’s planned Apple OS support updates, new Apple DDM App Settings guidance, and the September 2609 switch to the new single-device page. Firewall guidance also clarified a significant MDM reporting limitation. Other substantive additions covered TPM-backed Windows Autopilot device association and unattended Remote Help for Windows and Android. Configuration Manager’s most consequential exception was a security update requiring a site reset and manual secondary-site recovery.",
-      "adminImpact": "Inventory Apple device versions and plan upgrades before the support changes; also check the separate OS requirements called out for userless devices enrolled through Automated Device Enrollment. For Apple DDM App Settings, use the Settings catalog on supported supervised devices and migrate iOS Restrictions-profile app-launch settings deprecated by iOS 27. Set reporting expectations for MDM-managed Firewall Rules and ASR Rules: per-setting status requires devices enrolled with Defender for Endpoint security settings management. Update runbooks for the September 2609 device-page change. Configuration Manager teams on versions 2603, 2509, or 2503 with the required rollups should plan the site reset and secondary-site recovery. Use operatingSystemVersion for new assignment filters; existing‌",
+      "headline": "Apple DDM app-setting guidance lands as Intune plans iOS 18 and macOS 15 floors",
+      "overview": "Apple is the clearest Intune theme this month: new Settings catalog guidance covers Apple DDM App Settings for supervised iOS/iPadOS 27+ and macOS 27+, while Message Center plans future minimums of iOS/iPadOS 18 and macOS 15 after Apple’s 27 releases. Windows Autopilot also gains documented TPM-backed device association guidance. Intune’s Remote Help plan now defines unattended sessions for Windows and Android, and the assignment-filter reference replaces deprecated `osVersion` for new filters with `operatingSystemVersion`. Much of the remaining volume was a broad Configuration Manager metadata reclassification; the substantive exception was security-update guidance requiring a site reset and secondary-site recovery.",
+      "adminImpact": "Inventory Apple devices and use Intune reports and OS-version controls to plan the upcoming enrollment floors. Existing macOS 14.x-and-earlier devices remain enrolled, but new enrollments on those versions will be blocked after the macOS change; userless Automated Device Enrollment devices have separate iOS/iPadOS requirements. For supervised Apple devices, configure the documented DDM controls through the Settings catalog and migrate iOS app-launch restrictions from Restrictions profiles because those settings are deprecated in iOS 27. Use `operatingSystemVersion` for new assignment filters; existing `osVersion` filters continue to work. Before adopting unattended Remote Help, review helper roles, Conditional Access, and privacy implications. Configuration Manager administrators applying1",
       "keyChanges": [
         {
-          "title": "Intune plans an iOS/iPadOS 18 minimum after Apple’s 27 release",
-          "detail": "Microsoft’s Message Center plan says Intune will require iOS/iPadOS 18 or later after Apple releases iOS/iPadOS 27 later this year. The notice calls for compatibility and Intune-report review and identifies separate OS requirements for userless devices enrolled through Automated Device Enrollment.",
-          "product": "Intune",
-          "sourceId": "MC1454371"
-        },
-        {
-          "title": "Intune support moves to macOS 15 and later after Golden Gate 27",
-          "detail": "After macOS Golden Gate 27 releases, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions won’t be allowed.",
-          "product": "Intune",
-          "sourceId": "MC1454370"
-        },
-        {
-          "title": "Apple DDM guidance details supervised app and binary controls",
-          "detail": "The new Intune page documents Apple DDM App Settings in the Settings catalog for supervised iOS/iPadOS 27+ and macOS 27+ devices, including allowed or denied apps, binaries, and managed-app allowances. Existing iOS app-launch restrictions in the Restrictions profile must be migrated because iOS 27 deprecates those settings.",
+          "title": "Apple DDM App Settings adds app and binary controls",
+          "detail": "New Intune guidance covers Settings catalog configuration for supervised iOS/iPadOS 27+ and macOS 27+, including allowed or denied apps, binaries, and managed-app allowances. Existing iOS app-launch restrictions in the Restrictions profile must be migrated because those settings are deprecated in iOS 27.",
           "product": "Intune",
           "sourceId": "doc-2026-08-26-app-settings-configuration-for-apple-devices-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "MDM Firewall and ASR policies provide policy-level reporting only",
-          "detail": "Updated Firewall guidance says per-setting reporting is available for most Endpoint Security policies, but Firewall Rules and Attack Surface Reduction Rules managed through MDM report only policy-level status. Per-setting status requires devices enrolled with Defender for Endpoint security settings management.",
+          "title": "Intune plans an iOS/iPadOS 18 minimum after iOS/iPadOS 27",
+          "detail": "Message Center says Intune will require iOS/iPadOS 18 or higher after Apple releases iOS/iPadOS 27 later this year. Organizations should check device compatibility and Intune reports, including the separate requirements for userless Automated Device Enrollment devices, and use Intune controls to manage OS versions.",
           "product": "Intune",
-          "sourceId": "doc-2026-08-06-firewall-02"
+          "sourceId": "MC1454371"
         },
         {
-          "title": "The new Intune single-device page becomes default in September 2609",
-          "detail": "The new consolidated device-management page will become the default view in the September 2609 release and replace the legacy page. All management features remain, but administrators should update internal documentation and familiarize support teams with the new interface.",
+          "title": "macOS enrollment moves to a macOS 15 minimum after Golden Gate 27",
+          "detail": "After macOS Golden Gate 27 releases, Intune will support macOS 15 and later. Existing devices on macOS 14.x or below remain enrolled, but new enrollments on those versions will not be allowed; affected devices should be identified and upgraded before the change.",
           "product": "Intune",
-          "sourceId": "MC1456780"
+          "sourceId": "MC1454370"
+        },
+        {
+          "title": "Windows Autopilot documents TPM-backed device association",
+          "detail": "The new overview describes writing tenant affinity to UEFI before enrollment, enabling device-targeted policies, device naming, OOBE customization, corporate marking, and stronger onboarding security. Administrators can pre-associate devices in Intune and manage association removal when devices leave the tenant.",
+          "product": "Windows Autopilot",
+          "sourceId": "doc-2026-08-27-overview-of-windows-autopilot-device-association-06"
+        },
+        {
+          "title": "Configuration Manager security update requires a site reset",
+          "detail": "The security-update guidance applies to Configuration Manager versions 2603, 2509, and 2503 with required rollups. Installation uses Updates and Servicing, requires a site reset, and requires administrators to use Recover Secondary Site to update existing secondary sites.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-08-27-security-update-for-the-sms-provider-and-administration-service-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-08-29T02:49:35.568Z",
+      "generatedAt": "2026-11-07T09:03:44.304Z",
       "usage": {
-        "inputTokens": 6741,
-        "outputTokens": 12155,
-        "costUsd": 0.015934
+        "inputTokens": 6914,
+        "outputTokens": 9636,
+        "costUsd": 0.012946
       }
     },
     "2026-09": {
@@ -10414,7 +10408,7 @@
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-07T08:45:06.491Z",
+  "generatedAt": "2026-11-07T09:03:44.304Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10577,22 +10571,22 @@
       "costUsd": 0.01267
     },
     "2026-11-07": {
-      "inputTokens": 16189,
-      "outputTokens": 10764,
-      "requests": 3,
-      "costUsd": 0.016155
+      "inputTokens": 28803,
+      "outputTokens": 26146,
+      "requests": 6,
+      "costUsd": 0.037136
     }
   },
   "lastRun": {
-    "inputTokens": 16189,
-    "outputTokens": 10764,
+    "inputTokens": 12614,
+    "outputTokens": 15382,
     "requests": 3,
-    "costUsd": 0.016155
+    "costUsd": 0.020981
   },
   "totalUsage": {
-    "inputTokens": 3703464,
-    "outputTokens": 2325768,
-    "requests": 438,
-    "costUsd": 3.531616
+    "inputTokens": 3716078,
+    "outputTokens": 2341150,
+    "requests": 441,
+    "costUsd": 3.552597
   }
 }

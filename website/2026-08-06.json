@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-08-06T14:11:49.000Z",
       "eventId": "intune-docs:a222e10df74d243ba274490695c97cf36a957ff6:modified:intune/device-configuration/monitor-device-profile.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Clarify reporting limitations for policies (#5203)",
-        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/monitor-device-profile.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Reporting limitations clarified for Firewall and ASR policies",
+        "summary": "The documentation now states that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies provide policy-level status only, without per-setting reporting statuses.",
+        "adminImpact": "Administrators should use policy-level status when reviewing these policies and account for the lack of per-setting reporting.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-08-06T14:12:31.000Z",
       "eventId": "intune-docs:9c11f35b40f70fd6f10526d944fe754bd42be4d7:modified:intune/device-configuration/endpoint-security/firewall.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update firewall.md with per-setting reporting note (#5202)",
-        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/firewall.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Per-setting reporting limitations clarified for Firewall and ASR policies",
+        "summary": "The documentation now notes that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies report only policy-level status, unlike most Endpoint Security policies that support per-setting reporting.",
+        "adminImpact": "Administrators should interpret these policies’ reports accordingly; per-setting statuses aren’t available through MDM.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -63,9 +67,9 @@
     "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/device-configuration",
-        "summary": "Updated Microsoft Intune documentation in intune/device-configuration/monitor-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/firewall.md.",
+        "summary": "The documentation now states that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies provide policy-level status only, without per-setting reporting statuses. The documentation now notes that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies report only policy-level status, unlike most Endpoint Security policies that support per-setting reporting.",
         "sourceFiles": [
           "intune/device-configuration/monitor-device-profile.md",
           "intune/device-configuration/endpoint-security/firewall.md"
@@ -74,9 +78,9 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/device-configuration",
-        "detail": "Updated Microsoft Intune documentation in intune/device-configuration/monitor-device-profile.md. Updated Microsoft Intune documentation in intune/device-configuration/endpoint-security/firewall.md."
+        "detail": "The documentation now states that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies provide policy-level status only, without per-setting reporting statuses. The documentation now notes that MDM-managed Firewall Rules and Attack Surface Reduction Rules policies report only policy-level status, unlike most Endpoint Security policies that support per-setting reporting."
       }
     ],
     "generatedBy": "fallback"

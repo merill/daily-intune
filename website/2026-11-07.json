@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/servers/manage/recover-sites.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 3,
+      "changes": 9,
+      "patch": "diff --git a/intune/configmgr/core/servers/manage/recover-sites.md b/intune/configmgr/core/servers/manage/recover-sites.md\nindex 693a877..f159861 100644\n--- a/intune/configmgr/core/servers/manage/recover-sites.md\n+++ b/intune/configmgr/core/servers/manage/recover-sites.md\n@@ -77,7 +77,8 @@ Use one of the following procedures to clean an existing server:\n #### Clean an existing server for site server recovery only\r\n \r\n 1. Delete SMS registry keys: `HKLM\\Software\\Microsoft\\SMS`\r\n-2. Delete any registry entries starting with `SMS` from `HKLM\\System\\CurrentControlSet\\Services`. For example:\r\n+2. Delete only registry entries that belong to Configuration Manager from `HKLM\\System\\CurrentControlSet\\Services`. For example:\r\n+\r\n     - SMS\\_DISCOVERY\\_DATA\\_MANAGER\r\n     - SMS\\_EXECUTIVE\r\n     - SMS\\_INBOX\\_MONITOR\r\n@@ -93,8 +94,10 @@ Use one of the following procedures to clean an existing server:\n     - SMS\\_STATE\\_SYSTEM\r\n     - SMS\\_STATUS\\_MANAGER\r\n     - SMS\\_WSUS\\_SYNC\\_MANAGER\r\n-    - SMSvcHost 3.0.0.0\r\n-    - SMSvcHost 4.0.0.0\r\n+\r\n+    Important\r\n+\r\n+    Don't delete the `SMSvcHost 3.0.0.0` or `SMSvcHost 4.0.0.0` registry entries. These entries belong to .NET Framework, not Configuration Manager.\r\n 3. Uninstall the Configuration Manager console\r\n 4. Restart the server\r\n 5. Confirm that all of the above registry keys are deleted.\r\n",
+      "baseCommitSha": "8acdf886fdb226e23c7469693a3bee1ec7754388",
+      "commitSha": "35a09387d87f2008fe20535f6dc98275d50cf176",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-07 07:53:32 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/servers/manage/recover-sites.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/manage/recover-sites",
+      "eventId": "intune-docs:35a09387d87f2008fe20535f6dc98275d50cf176:modified:intune/configmgr/core/servers/manage/recover-sites.md",
+      "firstSeenAt": "2026-11-07T08:44:58.711Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Recovery guidance now limits registry entry deletion",
+        "summary": "The procedure now says to delete only Configuration Manager entries from the Services registry key and explicitly excludes SMSvcHost entries, which belong to .NET Framework.",
+        "adminImpact": "When recovering a site, verify each registry entry belongs to Configuration Manager before deleting it.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The procedure now says to delete only Configuration Manager entries from the Services registry key and explicitly excludes SMSvcHost entries, which belong to .NET Framework.",
+        "sourceFiles": [
+          "intune/configmgr/core/servers/manage/recover-sites.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The procedure now says to delete only Configuration Manager entries from the Services registry key and explicitly excludes SMSvcHost entries, which belong to .NET Framework."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

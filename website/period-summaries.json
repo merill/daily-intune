@@ -7949,25 +7949,37 @@
       }
     },
     "2026-11-06": {
-      "headline": "Configuration Manager 2609 disables CMG shared-key access automatically",
-      "overview": "The period was dominated by documentation ownership metadata changes across Intune, Configuration Manager, and related endpoint products. The substantive exception is updated CMG security guidance, which states that shared-key access is automatically disabled for CMG storage from Configuration Manager version 2609, including existing deployments, and clarifies permissions for Microsoft Entra-authenticated storage.",
-      "adminImpact": "Administrators operating Cloud Management Gateway should review the CMG server application and operator Azure RBAC permissions. The updated guidance specifically calls for the required Storage Blob Data Contributor and Storage Table Data Contributor role assignments, and distinguishes storage keys from application secrets as separate credentials.",
+      "headline": "Configuration Manager 2609 disables CMG shared keys and adds Azure prerequisites",
+      "overview": "The 2609 guidance states that CMG storage shared-key access is automatically disabled, including for existing deployments. It adds service-principal role-assignment permissions and Microsoft.Maintenance registration requirements. Separately, Intune’s Windows bulk enrollment guidance changes token validity from 180 days to 90 days.",
+      "adminImpact": "Before updating sites with CMGs, verify the CMG server application and operator Azure RBAC permissions at the CMG resource group, including Storage Blob Data Contributor and Storage Table Data Contributor assignments, and register Microsoft.Maintenance in the subscription. Allow changes to propagate, then validate CMG deployment and client communication; missing permissions can cause HTTP 403 failures. Plan for earlier expiration of Windows bulk enrollment tokens.",
       "keyChanges": [
         {
-          "title": "CMG guidance adds the version 2609 shared-key cutoff and RBAC requirements",
-          "detail": "The Configuration Manager CMG security and privacy page now states that shared-key access is automatically disabled for CMG storage beginning with version 2609, including existing deployments. It also adds required permissions for Microsoft Entra-authenticated storage and clarifies that storage keys and application secrets are separate credentials.",
+          "title": "CMG storage shared-key access is disabled from version 2609",
+          "detail": "Configuration Manager guidance now states that shared-key access is automatically disabled for CMG storage starting with version 2609, including existing deployments. It also distinguishes storage keys from application secrets.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-387"
+          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
+        },
+        {
+          "title": "CMG updates require storage role assignments and provider registration",
+          "detail": "Starting in version 2609, the CMG server application requires permission to manage storage role assignments, and Microsoft.Maintenance must be registered for the subscription. Missing permissions can cause deployment updates to fail with HTTP 403 errors.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-06-configure-microsoft-entra-id-for-cmg-configuration-manager-microsoft-learn-01"
+        },
+        {
+          "title": "Windows bulk enrollment token validity is now documented as 90 days",
+          "detail": "Intune’s Windows bulk enrollment package instructions specify that bulk tokens are valid for 90 days instead of 180 days, requiring administrators to plan for earlier token expiration.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-06-bulk-enrollment-for-windows-devices-microsoft-intune-microsoft-learn-05"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-06T21:25:58.779Z",
+      "generatedAt": "2026-11-07T13:12:16.305Z",
       "usage": {
-        "inputTokens": 5595,
-        "outputTokens": 784,
-        "costUsd": 0.00206
+        "inputTokens": 1643,
+        "outputTokens": 1829,
+        "costUsd": 0.002523
       }
     },
     "2026-11-07": {
@@ -9883,43 +9895,49 @@
       }
     },
     "2026-11-02": {
-      "headline": "CMG shared-key access auto-disables in version 2609 as Intune clarifies Firewall/ASR reporting",
-      "overview": "Updated guidance now says Configuration Manager 2609 automatically disables shared-key access to CMG storage, including existing deployments, and adds Azure RBAC requirements for Microsoft Entra-authenticated storage. Intune's Security Settings Management guidance also specifies that MDM-managed Firewall Rules and ASR Rules have policy-level status only, not per-setting reporting. The week was otherwise dominated by maintenance: all 7,169 records were updates, with no new or removed items, and many representative Intune edits only refreshed author or manager metadata.",
-      "adminImpact": "Prioritize targeted reviews rather than a broad tenant change. For CMG deployments on Configuration Manager 2609, verify the server application and operator permissions needed to create Storage Blob Data Contributor and Storage Table Data Contributor assignments, and keep storage keys separate from application secrets. Use policy-level status when reviewing MDM-managed Firewall Rules and ASR Rules. For co-management enrollment troubleshooting, check the Windows version, token fallback behavior, and ComanagementHandler.log. Recheck the current Enterprise App Management guidance before configuring auto-update catalog apps as blocking apps for ESP or Autopilot device preparation. Metadata-only updates need no administrator action.",
+      "headline": "Configuration Manager 2609 disables CMG storage shared-key access, clarifying reporting limits",
+      "overview": "All 3,607 recorded items were updates, and the supplied examples are overwhelmingly author-metadata maintenance rather than feature delivery. The meaningful administrator-facing changes cover CMG storage access and permissions for Configuration Manager 2609, co-management enrollment troubleshooting, Intune reporting scope for MDM Firewall and ASR policies, and revised Enterprise App Management blocking-app guidance. Configuration Manager TLS 1.2 instructions also received a terminology and procedure cleanup.",
+      "adminImpact": "Most metadata-only edits require no action. For Configuration Manager 2609 CMG deployments, review the CMG server application and operator Azure RBAC permissions, especially permissions to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments. For co-management enrollment troubleshooting, verify Windows 10 version 1803 or later and inspect ComanagementHandler.log. Review MDM-managed Firewall Rules and ASR Rules at policy level rather than per setting. Recheck current Enterprise App Management guidance before configuring auto-update Enterprise App Catalog apps as blocking apps in ESP or Autopilot device preparation.",
       "keyChanges": [
         {
-          "title": "CMG shared-key access is documented as automatically disabled from Configuration Manager 2609",
-          "detail": "The updated CMG security and privacy guidance states that shared-key access to CMG storage is automatically disabled beginning with Configuration Manager version 2609, including existing deployments. For Microsoft Entra-authenticated storage, it adds required Storage Blob Data Contributor and Storage Table Data Contributor role assignments and distinguishes storage keys from application secrets.",
-          "product": "Configuration Manager — Cloud Management Gateway",
-          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-387"
+          "title": "CMG shared-key access is automatically disabled from Configuration Manager 2609",
+          "detail": "The CMG security and privacy guidance now says shared-key access for CMG storage is automatically disabled beginning with Configuration Manager 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage, calls out Storage Blob Data Contributor and Storage Table Data Contributor role assignments, and distinguishes storage keys from application secrets.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "MDM Firewall Rules and ASR Rules now have policy-level reporting guidance",
-          "detail": "The Security Settings Management page now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; administrators should use policy-level status when reviewing these policies.",
-          "product": "Intune — Security Settings Management",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
-        },
-        {
-          "title": "Co-management enrollment adds the Windows 10 1803 gate and token fallback",
-          "detail": "The updated co-management guidance says device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token, and ComanagementHandler.log is identified for troubleshooting.",
-          "product": "Configuration Manager — Co-management",
+          "title": "Co-management guidance adds a device-token enrollment prerequisite and fallback",
+          "detail": "The Monitor Co-management guidance now specifies that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device-token attempt fails, enrollment falls back to the user token; the page also directs administrators to ComanagementHandler.log when troubleshooting pending or failed enrollment.",
+          "product": "Configuration Manager",
           "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Enterprise App Management removes its auto-update blocking-app sentence",
-          "detail": "The Enterprise App Management page, dated November 3, 2026, no longer includes the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page or Autopilot device preparation. Administrators should use the current guidance when configuring that combination.",
+          "title": "Security Settings Management documents policy-level MDM reporting",
+          "detail": "For Firewall Rules and ASR Rules policies managed through MDM, the updated guidance states that per-setting reporting is unavailable and only policy-level status is reported.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-security-settings-management-02"
+        },
+        {
+          "title": "Enterprise App Management removes its auto-update blocking-app restriction statement",
+          "detail": "The revised page removes the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in ESP or Autopilot device preparation. Administrators should use the current guidance when configuring those blocking-app scenarios.",
           "product": "Enterprise App Management",
           "sourceId": "doc-2026-11-05-enterprise-app-management-12"
+        },
+        {
+          "title": "Configuration Manager TLS 1.2 server instructions clarify .NET and architecture handling",
+          "detail": "The TLS 1.2 server page now uses consistent .NET terminology and provides clearer instructions for framework support, security updates, and registry subkey changes by application and operating-system architecture.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-07T08:45:06.491Z",
+      "generatedAt": "2026-11-07T13:12:16.305Z",
       "usage": {
-        "inputTokens": 9297,
-        "outputTokens": 5580,
-        "costUsd": 0.008555
+        "inputTokens": 9104,
+        "outputTokens": 5226,
+        "costUsd": 0.008092
       }
     }
   },
@@ -10385,48 +10403,54 @@
       }
     },
     "2026-11": {
-      "headline": "CMG shared-key access auto-disables in 2609; Intune limits Firewall/ASR reporting detail",
-      "overview": "CMG security guidance now says shared-key access to CMG storage is automatically disabled beginning with Configuration Manager version 2609, including existing deployments, and adds Microsoft Entra storage RBAC requirements. Intune's Security Settings Management guidance now says MDM-managed Firewall Rules and ASR Rules provide policy-level status only. Co-management documentation adds Windows 10 1803+, token-fallback, and ComanagementHandler.log troubleshooting details, while Enterprise App Management removes a statement barring auto-update catalog apps from blocking-app use in ESP or Autopilot device preparation. The month otherwise was maintenance-heavy: 7,169 updates, no new or removed records, with many representative edits limited to author metadata.",
-      "adminImpact": "Review CMG 2609 deployments for the documented Azure RBAC prerequisites, including server application and operator permissions to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments. Keep storage keys distinct from application secrets. For MDM-managed Firewall Rules and ASR Rules, use policy-level status rather than expecting per-setting reporting. For co-management enrollment troubleshooting, verify Windows 10 version 1803 or later and inspect ComanagementHandler.log; the documented fallback is to the user token when the device token fails. Recheck current Enterprise App Management guidance before configuring auto-update catalog apps as blocking apps in ESP or Autopilot device preparation. Metadata-only ownership edits require no action.",
+      "headline": "CMG 2609 disables shared-key access while Intune narrows MDM rule reporting",
+      "overview": "November was dominated by author-metadata and internal-reference maintenance, but several administrator-facing changes stand out. Configuration Manager 2609 guidance now records automatic CMG storage shared-key disablement, co-management documentation adds enrollment prerequisites and diagnostics, Intune clarifies reporting limits for MDM Firewall and ASR policies, and Enterprise App Management changes its blocking-app guidance. TLS 1.2 instructions also received a more precise procedural rewrite.",
+      "adminImpact": "Review CMG server application and operator Azure RBAC permissions, especially permissions to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments. For co-management enrollment failures, verify Windows 10 version 1803 or later and inspect ComanagementHandler.log. Use policy-level status for MDM-managed Firewall Rules and ASR Rules. Recheck current Enterprise App Management guidance before configuring auto-update Enterprise App Catalog apps as blocking apps in ESP or Autopilot device preparation. Most other supplied updates are metadata-only and require no action.",
       "keyChanges": [
         {
-          "title": "CMG guidance adds 2609 shared-key behavior and Azure RBAC requirements",
-          "detail": "The CMG security and privacy page now states that shared-key access is automatically disabled for CMG storage beginning with Configuration Manager version 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets. Review the server application and operator Azure RBAC permissions needed to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments.",
+          "title": "CMG storage shared-key access is disabled from Configuration Manager 2609",
+          "detail": "The CMG security guidance now states that shared-key access for CMG storage is automatically disabled beginning with Configuration Manager version 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets. Review the CMG server application and operator Azure RBAC permissions, particularly permissions to create the required Storage Blob Data Contributor and Storage Table Data Contributor role assignments.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-387"
+          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "MDM Firewall and ASR reporting is documented at policy level",
-          "detail": "Security Settings Management now documents that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Administrators should use policy-level status when assessing these policies.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
-        },
-        {
-          "title": "Co-management enrollment adds token prerequisites and log guidance",
-          "detail": "The Monitor Co-management guidance now specifies that device-token auto-enrollment requires Windows 10 version 1803 or later, falls back to the user token if the device token fails, and directs troubleshooting to ComanagementHandler.log.",
+          "title": "Co-management enrollment guidance adds device-token prerequisites and fallback behavior",
+          "detail": "The monitoring guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later. If the device token fails, enrollment falls back to the user token; administrators troubleshooting pending or failed enrollment should check ComanagementHandler.log.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Enterprise App Management removes an auto-update blocking-app restriction statement",
-          "detail": "The page date changed to November 3, 2026, and the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in ESP or Autopilot device preparation was removed. Review the current guidance when configuring blocking apps in those workflows.",
+          "title": "MDM Firewall and ASR reporting is limited to policy-level status",
+          "detail": "Security Settings Management now states that per-setting reporting is unavailable for Firewall Rules and Attack Surface Reduction Rules policies managed through MDM. Administrators should use policy-level status when reviewing these policies.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-03-security-settings-management-02"
+        },
+        {
+          "title": "Enterprise App Management removes its auto-update blocking-app restriction",
+          "detail": "The page no longer includes the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page or Autopilot device preparation. Review the current guidance before using those apps as blocking apps in either workflow.",
           "product": "Enterprise App Management",
           "sourceId": "doc-2026-11-05-enterprise-app-management-12"
+        },
+        {
+          "title": "TLS 1.2 server instructions clarify .NET and registry procedures",
+          "detail": "The revised guidance uses consistent .NET terminology and clearer instructions for framework support, security updates, and registry subkey changes by application and operating-system architecture. Use the updated procedure when reviewing TLS 1.2 configuration.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-02-enable-tls-1-2-server-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-07T08:45:06.491Z",
+      "generatedAt": "2026-11-07T13:12:16.305Z",
       "usage": {
-        "inputTokens": 5885,
-        "outputTokens": 4653,
-        "costUsd": 0.006761
+        "inputTokens": 5787,
+        "outputTokens": 2779,
+        "costUsd": 0.004492
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-07T12:16:45.225Z",
+  "generatedAt": "2026-11-07T13:12:16.305Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10589,22 +10613,22 @@
       "costUsd": 0.01267
     },
     "2026-11-07": {
-      "inputTokens": 177234,
-      "outputTokens": 186975,
-      "requests": 45,
-      "costUsd": 0.259817
+      "inputTokens": 193768,
+      "outputTokens": 196809,
+      "requests": 48,
+      "costUsd": 0.274925
     }
   },
   "lastRun": {
-    "inputTokens": 148431,
-    "outputTokens": 160829,
-    "requests": 39,
-    "costUsd": 0.222681
+    "inputTokens": 16534,
+    "outputTokens": 9834,
+    "requests": 3,
+    "costUsd": 0.015108
   },
   "totalUsage": {
-    "inputTokens": 3864509,
-    "outputTokens": 2501979,
-    "requests": 480,
-    "costUsd": 3.775278
+    "inputTokens": 3881043,
+    "outputTokens": 2511813,
+    "requests": 483,
+    "costUsd": 3.790386
   }
 }

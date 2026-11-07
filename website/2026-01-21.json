@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-01-21T00:19:25.000Z",
       "eventId": "intune-docs:4c04b0e43de88244f0396b2be92469a8b6cda7e1:modified:intune/intune-service/fundamentals/free-trial-sign-up.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Free trial onboarding guidance updated",
+        "summary": "The documentation now points administrators to confirm their trial licenses after configuration, clarifies Intune admin center responsibilities, updates section headings, and links to built-in role assignment guidance.",
+        "adminImpact": "Administrators can use the updated links to verify licenses and set up role-based access for their admin team.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-01-21T00:25:20.000Z",
       "eventId": "intune-docs:0a242f6365094c669c89f41090a8e9e7eb9dfc2e:modified:intune/intune-service/fundamentals/quickstart-create-user.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "validation warning",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated free trial link text in the user creation quickstart",
+        "summary": "The quickstart now labels the free trial link “sign up for a free trial” instead of “sign up for a Microsoft Intune free trial.”",
+        "adminImpact": "Administrators following the quickstart will see the updated link wording when selecting the verified domain for a free trial.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-01-21T00:57:10.000Z",
       "eventId": "intune-docs:5e3c5f11a478f6a5ce419404fd3507a503ee09e0:modified:intune/intune-service/fundamentals/free-trial-sign-up.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Apply suggestions from code review",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Grammar correction in EMS free-trial documentation",
+        "summary": "The documentation changes “a Enterprise Mobility + Security” to “an Enterprise Mobility + Security.” The trial’s contents and license-confirmation guidance are unchanged.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-01-21T00:57:10.000Z",
       "eventId": "intune-docs:5e3c5f11a478f6a5ce419404fd3507a503ee09e0:modified:intune/intune-service/fundamentals/quickstart-create-user.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Apply suggestions from code review",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated wording for preexisting group licenses",
+        "summary": "The documentation now uses “preexisting licenses” instead of “pre-existing licenses” in the example describing failed group assignments.",
+        "adminImpact": "The guidance about selecting the notification for details is unchanged; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -114,11 +122,13 @@
       "firstSeenAt": "2026-01-21T18:09:59.000Z",
       "eventId": "intune-docs:47cd24759a719b1bc017615a54372533e68ee18b:modified:intune/intune-service/apps/apps-win32-deploy-update-package.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Learn Editor: Update apps-win32-deploy-update-package.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Warning added for deploying Windows update packages as Win32 apps",
+        "summary": "The documentation now notes that deploying *.msu* updates using the application method is not recommended and that the guidance is provided as-is.",
+        "adminImpact": "Administrators should consider this guidance when evaluating Win32 app deployment for Windows update packages.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -138,11 +148,13 @@
       "firstSeenAt": "2026-01-21T19:25:14.000Z",
       "eventId": "intune-docs:00cdb36a7eb4c82b789159fc9ff03c124347b2ad:modified:intune/intune-service/remote-actions/custom-notifications.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Added note about battery optimization",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/custom-notifications.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Battery optimization may affect custom notification delivery",
+        "summary": "The documentation now notes that battery optimization on some devices can prevent notifications from being delivered. It suggests disabling battery optimization for the Company Portal or Intune app to improve reliability.",
+        "adminImpact": "Review battery optimization settings when troubleshooting missed notifications.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -162,11 +174,13 @@
       "firstSeenAt": "2026-01-21T22:03:14.000Z",
       "eventId": "intune-docs:14afa8045b4bcd070ae1a137d6a5392bafd6ddfa:modified:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Microsoft Graph API links for managed home screen restore",
+        "summary": "The documentation now points to the current managedDevice resource and restoreManagedHomeScreen action references.",
+        "adminImpact": "Administrators using the documentation can follow the updated API links; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -186,11 +200,13 @@
       "firstSeenAt": "2026-01-21T22:03:14.000Z",
       "eventId": "intune-docs:14afa8045b4bcd070ae1a137d6a5392bafd6ddfa:modified:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Microsoft Graph API references",
+        "summary": "The documentation now links GRAPH-1 to the managedDevice resource and GRAPH-2 to the temporarilySuspendManagedHomeScreen action.",
+        "adminImpact": "Administrators get updated links for the managed device resource and suspension action; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -210,9 +226,9 @@
     "overview": "Today's report includes 0 new, 8 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/custom-notifications.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/dev",
+        "summary": "The documentation now points administrators to confirm their trial licenses after configuration, clarifies Intune admin center responsibilities, updates section headings, and links to built-in role assignment guidance. The quickstart now labels the free trial link “sign up for a free trial” instead of “sign up for a Microsoft Intune free trial.” The documentation changes “a Enterprise Mobility + Security” to “an Enterprise Mobility + Security.” The trial’s contents and license-confirmation guidance are unchanged. The documentation now uses “preexisting licenses” instead of “pre-existing licenses” in the example describing failed group assignments. The documentation now notes that deploying *",
         "sourceFiles": [
           "intune/intune-service/fundamentals/free-trial-sign-up.md",
           "intune/intune-service/fundamentals/quickstart-create-user.md",
@@ -227,9 +243,9 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/custom-notifications.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/dev"
+        "detail": "The documentation now points administrators to confirm their trial licenses after configuration, clarifies Intune admin center responsibilities, updates section headings, and links to built-in role assignment guidance. The quickstart now labels the free trial link “sign up for a free trial” instead of “sign up for a Microsoft Intune free trial.” The documentation changes “a Enterprise Mobility + Security” to “an Enterprise Mobility + Security.” The trial’s contents and license-confirmation guidance are unchanged. The documentation now uses “preexisting licenses” instead of “pre-existing licenses” in the example describing failed group assignments. The documentation now notes that deploying *"
       }
     ],
     "generatedBy": "fallback"

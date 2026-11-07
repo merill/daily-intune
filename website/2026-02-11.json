@@ -17,11 +17,13 @@
       "firstSeenAt": "2026-02-11T14:32:59.000Z",
       "eventId": "intune-docs:689512b1b08b54cee3f808dc16faae69c36707ed:added:intune/configmgr/hotfix/2603/12819689.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Add hotfix documentation for Configuration Manager version 2603",
-        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/12819689.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "KB12819689 fixes Connected Cache use for Intune Win32 apps",
+        "summary": "A hotfix for Configuration Manager version 2603 addresses Microsoft Connected Cache not being used as expected for Win32 apps deployed through Intune in co-managed environments. It provides DoincInstall.exe version 1.5.5.9002 and installation guidance.",
+        "adminImpact": "Affected administrators should install the hotfix on all site servers and reset MCC on affected distribution points by disabling and re-enabling the MCC setting, or using resetdps.trn for large deployments.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -41,11 +43,13 @@
       "firstSeenAt": "2026-02-11T16:51:51.000Z",
       "eventId": "intune-docs:9d16742f8b8e028f5c3d3eb653556dd24902855d:added:intune/configmgr/hotfix/2603/33247081.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Add documentation for Connected Cache update in Configuration Manager version 2603",
-        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/33247081.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "KB33247081 fixes Connected Cache use for Intune Win32 apps",
+        "summary": "A Configuration Manager 2603 hotfix resolves an issue where Microsoft Connected Cache isn't used as expected for Intune-deployed Win32 apps in co-managed environments.",
+        "adminImpact": "Affected administrators should apply the hotfix, update DoincInstall.exe on site servers, and reinstall or reset Connected Cache on affected distribution points. No restart is required.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -65,11 +69,13 @@
       "firstSeenAt": "2026-02-11T17:03:19.000Z",
       "eventId": "intune-docs:f39bb9686b16d7c9b6ebb787322e83712ead9a95:added:intune/configmgr/hotfix/2509/33247081.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Add documentation for Connected Cache update in Configuration Manager version 2603",
-        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "KB33247081 fixes Connected Cache use for Intune Win32 apps",
+        "summary": "A hotfix for Configuration Manager version 2603 resolves an issue where Microsoft Connected Cache isn't used for Intune-deployed Win32 apps in co-managed environments. The documentation includes installation steps, prerequisites, and replacement information.",
+        "adminImpact": "Affected administrators should install the hotfix, update DoincInstall.exe on site servers, and reinstall or re-enable Connected Cache on affected distribution points. No restart is required.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -91,11 +97,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/device-features-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple app notification guidance formatting updated",
+        "summary": "The Apple device features article reformats the “Add notifications for apps” section, including its image, app details, and notification-option instructions.",
+        "adminImpact": "Administrators can use the updated guidance; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -115,11 +123,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/device-features-configure.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-configure.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple device feature documentation links updated",
+        "summary": "The page date was updated, the AirPrint heading was corrected, and links for Apple device feature topics now point to the main Apple device features page instead of section anchors.",
+        "adminImpact": "Use the updated links when consulting AirPrint and related Apple device feature guidance; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -139,11 +149,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/device-profiles.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profiles.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated kiosk settings cross-reference",
+        "summary": "The iOS/iPadOS kiosk link now points to the general device restrictions page instead of a kiosk-section anchor. The page date was also updated.",
+        "adminImpact": "Administrators using this documentation should follow the revised iOS/iPadOS link.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -163,11 +175,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/kiosk-settings.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/kiosk-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated iOS/iPadOS kiosk documentation link",
+        "summary": "The iOS/iPadOS link now points to the general Apple device restrictions page instead of its kiosk-section anchor. The page metadata date was also updated.",
+        "adminImpact": "Administrators may need to locate the kiosk content on the broader device restrictions page when following the link.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -187,11 +201,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/use-enterprise-sso-plug-in-ios-ipados-macos.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/use-enterprise-sso-plug-in-ios-ipados-macos.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Apple SSO documentation links",
+        "summary": "The page date changed from 05/01/2024 to 02/10/2026. Three iOS/iPadOS and macOS SSO references now link to the parent Apple device features page instead of section anchors.",
+        "adminImpact": "Administrators following these links may need to locate the relevant SSO section on the destination page. No configuration change or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -211,11 +227,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/vpn-settings-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple on-demand VPN guidance reorganized",
+        "summary": "The article now presents On-demand VPN as a subsection of Automatic VPN and restructures guidance on rules, connection actions, per-attempt evaluation, and DNS-domain matching.",
+        "adminImpact": "Administrators can use the reorganized guidance to configure and interpret Apple on-demand VPN rules. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,11 +253,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/configuration/wi-fi-settings-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected a typo in Apple Wi-Fi profile instructions",
+        "summary": "The documentation now correctly says “Assign this profile” instead of “Aassign this profile.”",
+        "adminImpact": "No administrator action is required; the linked assignment and monitoring guidance is unchanged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -259,11 +279,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/enrollment/device-enrollment-shared-ios.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/device-enrollment-shared-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Shared iPad enrollment guidance and links refreshed",
+        "summary": "The documentation updates the Shared iPad reference link and standardizes apostrophe formatting in scenario descriptions and recommendations.",
+        "adminImpact": "No administrator action or configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -283,11 +305,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/enrollment/device-enrollment-shared-ipad.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/device-enrollment-shared-ipad.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated links for Shared iPad settings",
+        "summary": "The temporary sessions and Home screen layout references now link to broader pages that list the available settings.",
+        "adminImpact": "Administrators can use the updated links to review configurable settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -307,11 +331,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/fundamentals/deployment-plan-configuration-profile.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/deployment-plan-configuration-profile.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Apple device restrictions links in the deployment plan",
+        "summary": "The deployment plan now links to the full Apple device restrictions page instead of directly to the Password settings, ASAM, and kiosk sections.",
+        "adminImpact": "Administrators may need to locate the referenced section after opening the page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -331,11 +357,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/fundamentals/whats-new-archive.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Clarified iOS Company Portal update guidance",
+        "summary": "The documentation now links to the general device restriction page and specifies that updates should be pushed to related devices using the App Store restriction.",
+        "adminImpact": "Administrators can more clearly identify the affected devices and find the relevant setting documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -355,11 +383,13 @@
       "firstSeenAt": "2026-02-11T00:46:20.000Z",
       "eventId": "intune-docs:e605d22b3dbe6e938c7cbd998187cab8d9219abd:modified:intune/intune-service/protect/microsoft-tunnel-configure.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "cleanup",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-tunnel-configure.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Tunnel configuration examples and link updated",
+        "summary": "The article now uses standard quotation marks and apostrophes in proxy and PowerShell examples and links to the Automatic VPN settings page without a section anchor.",
+        "adminImpact": "Administrators following the article get cleaner examples and an updated navigation link.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -380,10 +410,12 @@
       "eventId": "intune-docs:ab11d87c485680f8159428428fb0f5f2bf861206:modified:intune/intune-service/apps/manage-microsoft-edge.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Revise Copilot features for Edge mobile",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Edge mobile Copilot chat behavior and settings updated",
+        "summary": "The documentation now states that M365 Copilot chat is available on Edge for iOS and Android, enabled by default, and launched from the address bar. It also states that browsing context access is enabled by default and describes M365 Copilot Mode and its NTP suggestion prompts.",
+        "adminImpact": "Review the Chat and ChatPageContext policies if you want to control Copilot availability or browsing-context access. Users can also change these settings individually, while policies apply to targeted users or tenants.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -403,11 +435,13 @@
       "firstSeenAt": "2026-02-11T13:26:54.000Z",
       "eventId": "intune-docs:fe23d9d1059ee91ae0827b1cfa35fa511f18bb55:modified:intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Adding a blurb on HSTS as per 16607249",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "HSTS requirements and compatibility warnings added",
+        "summary": "The documentation now states that HSTS requires HTTPS, is incompatible with enhanced HTTP, is unsupported for client communication, and can break HTTP-dependent roles such as FSP and SUP.",
+        "adminImpact": "Before configuring HSTS, administrators must enable HTTPS and verify that affected site system roles do not rely on HTTP.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -427,11 +461,13 @@
       "firstSeenAt": "2026-02-11T13:33:40.000Z",
       "eventId": "intune-docs:18f3bab2a1876bc1ac8637518517f6a453a518e5:modified:intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Link fix",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected the FSP documentation link",
+        "summary": "The Fallback Status Point link now points to the correct relative path. The documentation continues to state that FSP is HTTP-only and stops functioning when HSTS is enforced.",
+        "adminImpact": "No administrator action is required; the change improves documentation navigation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,11 +487,13 @@
       "firstSeenAt": "2026-02-11T13:39:17.000Z",
       "eventId": "intune-docs:c0a5ee782c35ce1ea6b05153b9cd23cabee298f1:modified:intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Cosmetic fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Clarified HSTS configuration guidance",
+        "summary": "The documentation improves wording and capitalization for Enhanced HTTP, and groups the HTTPS prerequisite with the HSTS guidance. It reiterates that HSTS isn't supported for client communication.",
+        "adminImpact": "Administrators can use the clearer guidance when reviewing HSTS configuration; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -476,10 +514,12 @@
       "eventId": "intune-docs:565235ca1906cf56f9fbefcab03180450abee9c1:modified:intune/intune-service/configuration/wi-fi-settings-apple.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Disable MAC address randomization for macOS",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "MAC address randomization setting documented for macOS 15 and newer",
+        "summary": "The Apple Wi-Fi settings documentation now includes macOS 15 and newer for the Disable MAC address randomization setting, alongside updated iOS/iPadOS guidance.",
+        "adminImpact": "Administrators managing macOS 15 or newer can use the documented platform applicability when configuring Wi-Fi profiles.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -499,11 +539,13 @@
       "firstSeenAt": "2026-02-11T16:04:56.000Z",
       "eventId": "intune-docs:a59500724484b185522635d287f0f9e982e3d54e:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removing work that moved to a later release",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "DDM assignment filter entry removed from development plans",
+        "summary": "The in-development page no longer lists planned assignment-filter support for Apple declarative device management configurations, including software updates on iOS/iPadOS and macOS.",
+        "adminImpact": "No administrator action is required; the page no longer provides this planned-release information.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -524,10 +566,12 @@
       "eventId": "intune-docs:3dd1949af841811c3aa3a8fcc31c3b095e440608:modified:intune/intune-service/configuration/wi-fi-settings-apple.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Revert \"8457343 - 2602 release: Disable MAC address randomization for macOS\"",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "MAC address randomization guidance is now scoped to iOS/iPadOS",
+        "summary": "The Wi-Fi settings article now specifies iOS/iPadOS 14 and later for the Disable MAC address randomization setting and removes the macOS 15-and-later entry.",
+        "adminImpact": "Review platform-specific Wi-Fi profile documentation when configuring or troubleshooting MAC address randomization.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -548,10 +592,12 @@
       "eventId": "intune-docs:4a9f70ca7f412b5880b411df9c7fdb88fb710a40:modified:intune/configmgr/hotfix/2509/33247081.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Fix formatting in summary header for Configuration Manager version 2509 documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Hotfix documentation now targets Configuration Manager version 2509",
+        "summary": "The article was updated from version 2603 to version 2509 throughout, including its title, applicability, issue description, and supported-version prerequisite.",
+        "adminImpact": "Administrators applying this hotfix should use the version 2509 guidance; no specific action is required by this update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -571,11 +617,13 @@
       "firstSeenAt": "2026-02-11T17:27:35.000Z",
       "eventId": "intune-docs:4a9f70ca7f412b5880b411df9c7fdb88fb710a40:modified:intune/configmgr/hotfix/2509/35877153.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Fix formatting in summary header for Configuration Manager version 2509 documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/35877153.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Configuration Manager version 2509 heading formatting corrected",
+        "summary": "The documentation heading for the Configuration Manager current branch version 2509 summary was updated.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -595,11 +643,13 @@
       "firstSeenAt": "2026-02-11T19:33:22.000Z",
       "eventId": "intune-docs:c1707fb79d9e8d198cd22e452ed23a25e28d3ff1:modified:intune/cloud-pki/renew-ca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI CA replacement guidance updated",
+        "summary": "The article’s wording and step formatting were revised. It instructs administrators to create a replacement issuing CA and update SCEP certificate profiles before the existing CA expires.",
+        "adminImpact": "For an expiring issuing CA, create a replacement CA and replace the old SCEP URI in each affected profile to avoid stopping new certificate issuance.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -619,11 +669,13 @@
       "firstSeenAt": "2026-02-11T19:33:22.000Z",
       "eventId": "intune-docs:c1707fb79d9e8d198cd22e452ed23a25e28d3ff1:modified:intune/device-updates/windows/compatibility-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Compatibility reports documentation refreshed",
+        "summary": "The page now describes using Windows compatibility reports in Intune to identify app and driver risks before deploying updates, and updates the screenshot markup and alt text.",
+        "adminImpact": "No administrator action is required; the revised wording and images provide clearer guidance when reviewing compatibility risks.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -643,11 +695,13 @@
       "firstSeenAt": "2026-02-11T20:27:17.000Z",
       "eventId": "intune-docs:0fd795e656fe47f593d35c8bd0090339bd50f964:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update release date and add note for Intune",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune 2601 release timing note added",
+        "summary": "The page date changed from January 12 to February 11, 2026. A note explains that 2601 includes updates from 2512 and 2601, is expected later than usual, and tenants may still display 2511.",
+        "adminImpact": "Administrators can use the note to understand that seeing 2511 in their tenant is expected.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -667,11 +721,13 @@
       "firstSeenAt": "2026-02-11T20:49:12.000Z",
       "eventId": "intune-docs:1b18dcce3eca09124f88b176fa00b3ad1add7d40:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Revert \"Update release date and add note for Intune\"",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune What's New page metadata and release note reverted",
+        "summary": "The page date changed from February 11, 2026, to January 12, 2026, and the note about the delayed 2601 release and tenants showing 2511 was removed.",
+        "adminImpact": "Administrators will see the revised page date and no longer see that release-timing note. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -691,11 +747,13 @@
       "firstSeenAt": "2026-02-11T21:22:29.000Z",
       "eventId": "intune-docs:1f935f9c9c930355355690420e53635da5762d1b:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update release date in what's new document",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "What's new page date and release week updated",
+        "summary": "The page metadata date changed from February 9 to February 11, 2026, and the heading changed from the week of February 2 to the week of February 9, 2026. The service release remains 2601.",
+        "adminImpact": "Administrators can use the updated date and week heading to identify the applicable release information. No action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -717,11 +775,13 @@
       "firstSeenAt": "2026-02-11T16:51:51.000Z",
       "eventId": "intune-docs:9d16742f8b8e028f5c3d3eb653556dd24902855d:removed:intune/configmgr/hotfix/2603/12819689.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Add documentation for Connected Cache update in Configuration Manager version 2603",
-        "summary": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2603/12819689.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Connected Cache hotfix documentation was removed",
+        "summary": "The documentation page for Configuration Manager 2603 hotfix KB12819689 was deleted. It previously covered a Microsoft Connected Cache issue affecting Intune Win32 apps in co-managed environments, along with hotfix installation steps and prerequisites.",
+        "adminImpact": "Administrators can no longer access this guidance at the documented URL; the supplied change does not require an administrator action.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -741,11 +801,13 @@
       "firstSeenAt": "2026-02-11T17:03:19.000Z",
       "eventId": "intune-docs:f39bb9686b16d7c9b6ebb787322e83712ead9a95:removed:intune/configmgr/hotfix/2603/33247081.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Add documentation for Connected Cache update in Configuration Manager version 2603",
-        "summary": "Removed Microsoft Intune documentation in intune/configmgr/hotfix/2603/33247081.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Documentation for the Configuration Manager 2603 Connected Cache hotfix was removed",
+        "summary": "The page describing KB33247081, including its issue details, download link, prerequisites, and installation steps, was deleted.",
+        "adminImpact": "Administrators can no longer rely on this page for the hotfix guidance and download reference.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -766,9 +828,9 @@
     "overview": "Today's report includes 3 new, 26 updated, and 2 removed Microsoft Intune documentation files across 4 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "Feature update",
         "title": "intune/configmgr",
-        "summary": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/12819689.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/33247081.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md. U",
+        "summary": "A hotfix for Configuration Manager version 2603 addresses Microsoft Connected Cache not being used as expected for Win32 apps deployed through Intune in co-managed environments. It provides DoincInstall.exe version 1.5.5.9002 and installation guidance. A Configuration Manager 2603 hotfix resolves an issue where Microsoft Connected Cache isn't used as expected for Intune-deployed Win32 apps in co-managed environments. A hotfix for Configuration Manager version 2603 resolves an issue where Microsoft Connected Cache isn't used for Intune-deployed Win32 apps in co-managed environments. The documentation includes installation steps, prerequisites, and replacement information. The documentation no",
         "sourceFiles": [
           "intune/configmgr/hotfix/2603/12819689.md",
           "intune/configmgr/hotfix/2603/33247081.md",
@@ -783,9 +845,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-configure.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profiles.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/kiosk-settings.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/use-enterprise-sso-plug-in-ios-ipados-macos.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/co",
+        "summary": "The Apple device features article reformats the “Add notifications for apps” section, including its image, app details, and notification-option instructions. The page date was updated, the AirPrint heading was corrected, and links for Apple device feature topics now point to the main Apple device features page instead of section anchors. The iOS/iPadOS kiosk link now points to the general device restrictions page instead of a kiosk-section anchor. The page date was also updated. The iOS/iPadOS link now points to the general Apple device restrictions page instead of its kiosk-section anchor. The page metadata date was also updated. The page date changed from 05/01/2024 to 02/10/2026. Three iO",
         "sourceFiles": [
           "intune/intune-service/configuration/device-features-apple.md",
           "intune/intune-service/configuration/device-features-configure.md",
@@ -809,17 +871,17 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/cloud-pki",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "summary": "The article’s wording and step formatting were revised. It instructs administrators to create a replacement issuing CA and update SCEP certificate profiles before the existing CA expires.",
         "sourceFiles": [
           "intune/cloud-pki/renew-ca.md"
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/device-updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md.",
+        "summary": "The page now describes using Windows compatibility reports in Intune to identify app and driver risks before deploying updates, and updates the screenshot markup and alt text.",
         "sourceFiles": [
           "intune/device-updates/windows/compatibility-reports.md"
         ]
@@ -827,24 +889,24 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "Feature update",
         "headline": "intune/configmgr",
-        "detail": "Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/12819689.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2603/33247081.md. Added Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/communications-between-endpoints.md. Updated Microsoft Intune documentation in intune/configmgr/hotfix/2509/33247081.md. U"
+        "detail": "A hotfix for Configuration Manager version 2603 addresses Microsoft Connected Cache not being used as expected for Win32 apps deployed through Intune in co-managed environments. It provides DoincInstall.exe version 1.5.5.9002 and installation guidance. A Configuration Manager 2603 hotfix resolves an issue where Microsoft Connected Cache isn't used as expected for Intune-deployed Win32 apps in co-managed environments. A hotfix for Configuration Manager version 2603 resolves an issue where Microsoft Connected Cache isn't used for Intune-deployed Win32 apps in co-managed environments. The documentation includes installation steps, prerequisites, and replacement information. The documentation no"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-configure.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profiles.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/kiosk-settings.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/use-enterprise-sso-plug-in-ios-ipados-macos.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/co"
+        "detail": "The Apple device features article reformats the “Add notifications for apps” section, including its image, app details, and notification-option instructions. The page date was updated, the AirPrint heading was corrected, and links for Apple device feature topics now point to the main Apple device features page instead of section anchors. The iOS/iPadOS kiosk link now points to the general device restrictions page instead of a kiosk-section anchor. The page date was also updated. The iOS/iPadOS link now points to the general Apple device restrictions page instead of its kiosk-section anchor. The page metadata date was also updated. The page date changed from 05/01/2024 to 02/10/2026. Three iO"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/cloud-pki",
-        "detail": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md."
+        "detail": "The article’s wording and step formatting were revised. It instructs administrators to create a replacement issuing CA and update SCEP certificate profiles before the existing CA expires."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/device-updates",
-        "detail": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md."
+        "detail": "The page now describes using Windows compatibility reports in Intune to identify app and driver risks before deploying updates, and updates the screenshot markup and alt text."
       }
     ],
     "generatedBy": "fallback"

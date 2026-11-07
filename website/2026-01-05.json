@@ -17,14 +17,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:added:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Windows Driver update management article published",
-        "summary": "A new consolidated article documents driver update policies: automatic or manual approval, pausing and approving drivers, prerequisites, supported editions, GCC limitations, RBAC, deployment planning, and reporting.",
-        "adminImpact": "Review the documented licensing, device, telemetry, endpoint, and RBAC requirements before creating or changing driver update policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "New guidance for managing Windows driver updates in Intune",
+        "summary": "A new page explains how to review, approve, pause, decline, and automatically deploy Windows driver updates. It also documents licensing, subscription, network, Windows edition requirements, and GCC environment limitations.",
+        "adminImpact": "Administrators can use this guidance to plan driver update management, verify eligibility, and configure approval policies for supported Windows devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,14 +43,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:added:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Windows quality update policy article published",
-        "summary": "A new article documents using the Windows quality update policy to deploy Hotpatch security updates through Autopatch, including benefits and prerequisites.",
-        "adminImpact": "Validate device eligibility and Autopatch requirements before planning Hotpatch deployment.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Public preview",
+        "headline": "Hotpatch quality update policies add Arm64 support requirements",
+        "summary": "The documentation describes deploying Hotpatch updates through Intune and Autopatch on Windows 11 Enterprise 24H2 or later. Arm64 support is in public preview and requires disabling CHPE with a registry setting and restarting devices.",
+        "adminImpact": "Verify prerequisites, including VBS and the latest baseline release. For Arm64 devices, set HotPatchRestrictions=1 and restart the device to receive Hotpatch updates.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -73,14 +71,13 @@
       "firstSeenAt": "2026-01-05T16:34:19.000Z",
       "eventId": "intune-docs:6585df8c39ff9adf94b679ce3e54d0028ea0f21c:modified:intune/device-updates/windows/driver-updates-overview.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update prerequisites align with other update policies",
-        "summary": "The driver update overview replaced its telemetry guidance with the shared device-configuration requirements, including enrollment, Entra join state, required telemetry, the Sign-In Assistant service, and Windows Update and Autopatch endpoints.",
-        "adminImpact": "Confirm targeted devices meet the listed enrollment, join, telemetry, service, and network requirements.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Feature update",
+        "headline": "Windows feature update policy prerequisites were revised",
+        "summary": "The documentation now requires Intune enrollment, Microsoft Entra join status, enabled telemetry, a running Microsoft Account Sign-In Assistant, access to required endpoints, and Intune data collection. It also warns that devices with telemetry not configured might install a later Windows version than specified.",
+        "adminImpact": "Review affected policies and device prerequisites. Enable telemetry and Intune data collection, ensure the service can run, and verify endpoint access to avoid failed or unintended updates.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -100,14 +97,13 @@
       "firstSeenAt": "2026-01-05T16:34:19.000Z",
       "eventId": "intune-docs:6585df8c39ff9adf94b679ce3e54d0028ea0f21c:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update article removes duplicate limitations and next steps",
-        "summary": "The article removed the Microsoft Entra registered-device limitations section and its next-steps links, leaving the core policy guidance in the main article.",
-        "adminImpact": "Consult the Windows Update policy limitations guidance if evaluating Microsoft Entra registered devices.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Feature updates page removes device limitation guidance and next steps",
+        "summary": "The page no longer includes the Microsoft Entra registered devices limitations section or its Next steps links for update rings, compatibility reports, update reports, and Windows Autopatch.",
+        "adminImpact": "Administrators using this page will need to find that limitation guidance and related resources elsewhere in the documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -127,14 +123,13 @@
       "firstSeenAt": "2026-01-05T16:34:19.000Z",
       "eventId": "intune-docs:6585df8c39ff9adf94b679ce3e54d0028ea0f21c:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows update overview clarifies policy and Autopatch relationship",
-        "summary": "The overview renamed the Windows Update client policy section and clarified that each update policy type has its own prerequisites, while feature, quality, driver, and Hotpatch use the same backend service as Autopatch.",
-        "adminImpact": "Check the prerequisites in each policy article instead of assuming a single identical prerequisite set.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Windows device updates documentation clarifies policy prerequisites",
+        "summary": "The page now distinguishes prerequisites by policy type, while listing common requirements such as Intune enrollment, Microsoft Entra join, and access to Microsoft update endpoints. It also updates terminology, icons, and Autopatch wording.",
+        "adminImpact": "Review the relevant policy documentation rather than assuming all update policies have identical prerequisites. Autopatch devices should not be assigned custom update rings; no action is required from this documentation change.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -154,14 +149,13 @@
       "firstSeenAt": "2026-01-05T17:19:59.000Z",
       "eventId": "intune-docs:ba7e79a1c77c8bed63581d44cd5a72bc08cf579c:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Preview",
-        "headline": "January in-development list adds partner, filter, DDM, and MTD items",
-        "summary": "The in-development page added planned items: an Intune admin center link to Lenovo Device Orchestration for Windows 11, Android settings catalog filtering by management mode, DDM assignment filters for Apple software updates, expanded managed-app device-management filter values, and Zimperium certificate inventory sync.",
-        "adminImpact": "Evaluate these as planned capabilities only; identify relevant Android, Apple, Windows 11, and Zimperium workflows for future testing.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "New feature",
+        "headline": "In-development page adds several planned Intune capabilities",
+        "summary": "The page now describes planned Lenovo Device Orchestration access, Android management-mode filtering, Apple DDM assignment filters, expanded managed-app filter values, and Zimperium certificate inventory integration.",
+        "adminImpact": "Administrators can review these items for future device-management and network planning. No immediate action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -181,14 +175,13 @@
       "firstSeenAt": "2026-01-05T17:27:34.000Z",
       "eventId": "intune-docs:bd2836ea293126067d6a14f28ef8212d1a1903e5:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Android settings catalog link corrected",
-        "summary": "The in-development entry changed the Android Intune settings catalog settings-list link to a relative documentation path.",
-        "adminImpact": "No tenant configuration change; use the corrected link when reviewing the planned Android management-mode filter.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Corrected Android settings catalog link",
+        "summary": "The in-development documentation now uses the corrected relative path for the Android Intune settings catalog settings list.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -208,14 +201,13 @@
       "firstSeenAt": "2026-01-05T19:42:19.000Z",
       "eventId": "intune-docs:c1e5c2e67901e478a70e8a33a7d008fecc4e8282:modified:intune/configmgr/comanage/workloads.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Co-management update reference points to Windows updates index",
-        "summary": "The co-management Windows Update workload guidance now links to the Windows software updates index rather than the former configure page.",
-        "adminImpact": "No configuration change; use the updated landing page for Intune Windows update guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Updated link to Windows software updates documentation",
+        "summary": "The workloads documentation now links to the Windows software updates index page instead of configure.md.",
+        "adminImpact": "Administrators using the link will be directed to the updated Intune Windows software updates documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,14 +227,13 @@
       "firstSeenAt": "2026-01-05T19:42:19.000Z",
       "eventId": "intune-docs:c1e5c2e67901e478a70e8a33a7d008fecc4e8282:modified:intune/device-updates/windows/driver-updates-overview.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver reporting setup moved out of overview",
-        "summary": "The driver overview removed the Windows diagnostic-data reporting section and its steps to enable the Windows data setting in Intune.",
-        "adminImpact": "Use the driver reports article for diagnostic-data setup instead of the overview.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Removed Windows diagnostic data setup guidance",
+        "summary": "The Windows Driver updates overview no longer includes instructions for enabling Intune Windows diagnostic data and configuring data collection for reports.",
+        "adminImpact": "Administrators will no longer find these reporting setup steps on this overview page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -262,14 +253,13 @@
       "firstSeenAt": "2026-01-05T19:42:19.000Z",
       "eventId": "intune-docs:c1e5c2e67901e478a70e8a33a7d008fecc4e8282:modified:intune/device-updates/windows/driver-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver reports article adds diagnostic-data setup",
-        "summary": "The driver reports article now states that Windows diagnostic data must be enabled and gives the Intune path: Tenant administration > Connectors and tokens > Windows data, then enable the processor-configuration setting.",
-        "adminImpact": "Enable the stated Windows diagnostic-data setting if driver update reports are required.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Feature update",
+        "headline": "Windows Driver update reports require Windows diagnostic data",
+        "summary": "The documentation adds a prerequisite to enable Windows diagnostic data in Intune for Windows Driver update reports.",
+        "adminImpact": "In Intune, go to Tenant administration > Connectors and tokens > Windows data and turn on the required processor-configuration setting. It may already be enabled for other reports.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -289,14 +279,13 @@
       "firstSeenAt": "2026-01-05T19:42:19.000Z",
       "eventId": "intune-docs:c1e5c2e67901e478a70e8a33a7d008fecc4e8282:modified:intune/device-updates/windows/feature-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update report references streamlined",
-        "summary": "The article removed duplicate device prerequisite text and corrected the organizational-report anchor from Windows 10 feature updates to Windows feature updates.",
-        "adminImpact": "Follow the feature update policy prerequisites referenced by the report article.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Feature updates reporting documentation was revised",
+        "summary": "The report link anchor was updated, and the article no longer lists the previous device prerequisites or Microsoft Entra join requirements for submitting reporting data.",
+        "adminImpact": "Admins should use the updated report link when referencing this documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -316,14 +305,13 @@
       "firstSeenAt": "2026-01-05T19:42:19.000Z",
       "eventId": "intune-docs:c1e5c2e67901e478a70e8a33a7d008fecc4e8282:modified:intune/device-updates/windows/feature-updates-windows-10.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows 10 feature update guidance links to the central policy workflow",
-        "summary": "The guidance for devices ineligible for Windows 11 now points administrators to the central feature update policy workflow for policy behavior, creation, and licensing requirements.",
-        "adminImpact": "When targeting Windows 11, retain the fallback option for ineligible devices and confirm the tenant meets feature-update licensing requirements.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:18:41.889Z"
+        "category": "Doc update",
+        "headline": "Windows 11 deployment documentation links updated",
+        "summary": "The Windows 11 deployment guidance now links to the shared feature-update policy procedure, and one upgrade bullet no longer contains an anchor link.",
+        "adminImpact": "Administrators should use the updated procedure link when navigating the deployment guidance; no configuration change is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -343,14 +331,13 @@
       "firstSeenAt": "2026-01-05T19:42:19.000Z",
       "eventId": "intune-docs:c1e5c2e67901e478a70e8a33a7d008fecc4e8282:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update article points to Windows 10 upgrade guidance",
-        "summary": "The Windows 10-to-Windows 11 upgrade link now directs to the separate feature-updates-windows-10 article rather than an anchor in the main article.",
-        "adminImpact": "No policy behavior changed; use the linked article for Windows 10 upgrade instructions.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Windows 11 upgrade link updated",
+        "summary": "The Windows feature updates documentation now links to feature-updates-windows-10.md for Windows 10-to-Windows 11 upgrade guidance.",
+        "adminImpact": "Use the updated link to access the upgrade guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -370,14 +357,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:modified:intune/device-updates/windows/driver-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver policy prerequisites link updated",
-        "summary": "The driver policy article now links its prerequisite, deployment-planning, and FAQ reference to the renamed driver-updates article.",
-        "adminImpact": "No configuration change; follow the current driver updates article before deployment.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Driver update policy documentation links were renamed",
+        "summary": "References to the Windows driver updates overview changed from `driver-updates-overview.md` to `driver-updates.md`, and link labels were updated to use “driver updates.”",
+        "adminImpact": "Administrators using this policy documentation will be directed to the renamed overview page; no configuration changes are required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -397,14 +383,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality update landing-page link updated",
-        "summary": "The Windows updates index changed its quality updates Learn more link from quality-updates-policy.md to the renamed quality-updates.md article.",
-        "adminImpact": "No configuration change; use the new quality updates article as the documentation entry point.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Updated quality updates documentation link",
+        "summary": "The Windows device updates page now links to `quality-updates.md` instead of `quality-updates-policy.md`.",
+        "adminImpact": "Use the updated Learn more link to access the quality updates documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -424,14 +409,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:modified:intune/intune-service/fundamentals/whats-new-archive.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Archived driver update reference renamed",
-        "summary": "The archived What's New entry now links Windows driver update policy guidance to driver-updates.md instead of driver-updates-overview.md.",
-        "adminImpact": "No configuration change; follow the current driver updates documentation.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Updated link for Windows Driver update policies",
+        "summary": "The Windows Driver update policies link in the What's New archive now points to `driver-updates.md` instead of `driver-updates-overview.md`.",
+        "adminImpact": "Administrators using the archive will be directed to the updated documentation page; no configuration changes are required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,14 +435,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:modified:intune/intune-service/protect/data-enable-windows-data.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows diagnostic data page updates driver-report link",
-        "summary": "The Windows diagnostic data page now links the Windows driver updates report to driver-updates.md rather than the retired overview article.",
-        "adminImpact": "No configuration change; retain diagnostic-data enablement where driver update reporting is needed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Updated link for the Windows driver updates report",
+        "summary": "The documentation link now points to `driver-updates.md` instead of `windows/driver-updates-overview.md`.",
+        "adminImpact": "Use the updated link when accessing the Windows driver updates report documentation; no configuration changes are required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -478,14 +461,13 @@
       "firstSeenAt": "2026-01-05T21:10:18.000Z",
       "eventId": "intune-docs:4589443cd6fb018b8e107aad7e7e101ee4c96dd0:modified:intune/intune-service/apps/store-apps-company-portal-app.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Company Portal download command documented",
-        "summary": "The Company Portal article now tells administrators to use `winget install \"Company Portal\" --source msstore` to download the Windows Company Portal app and its dependencies.",
-        "adminImpact": "Use the documented winget command when obtaining the Company Portal app from Microsoft Store.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Company Portal download command corrected",
+        "summary": "The documentation now provides the `winget install \"Company Portal\" --source msstore` command for downloading the Windows Company Portal app with dependencies.",
+        "adminImpact": "Admins can use the documented command to download the Company Portal app; files are saved to the Downloads folder by default.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -505,14 +487,13 @@
       "firstSeenAt": "2026-01-05T21:54:03.000Z",
       "eventId": "intune-docs:ea25b9459a6b1720d559ca21db0d4cf97989a697:modified:intune/intune-service/apps/apps-monitor.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "App monitoring article clarifies AOSP error guidance",
-        "summary": "The app monitoring article refreshed its wording and clarified several Android AOSP line-of-business app error descriptions and administrator actions, including conflicts, network failures, size limits, and download validation.",
-        "adminImpact": "Use the updated AOSP error table when troubleshooting app installation and download failures.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "App monitoring guidance refreshed for clarity",
+        "summary": "The app monitoring page was revised with clearer wording for app status reporting and Android LOB/AOSP installation errors. Its publication date was updated to January 5, 2026.",
+        "adminImpact": "The updated guidance provides a clearer reference when interpreting app statuses and installation errors. No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -534,14 +515,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:removed:intune/device-updates/windows/driver-updates-overview.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver updates overview article removed after rename",
-        "summary": "The former driver-updates-overview.md article was removed as part of the documentation rename to the consolidated driver-updates.md article.",
-        "adminImpact": "Update saved links and internal references to use driver-updates.md.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Windows Driver update management overview removed",
+        "summary": "The Windows Driver update management overview page was deleted, removing guidance on policy behavior, prerequisites, licensing, supported editions, and driver approval workflows.",
+        "adminImpact": "Administrators may no longer find this overview at its documented URL. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -561,14 +541,13 @@
       "firstSeenAt": "2026-01-05T20:39:30.000Z",
       "eventId": "intune-docs:fdc19312cdf751126a014f40cd35c7702dd9007e:removed:intune/device-updates/windows/quality-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality updates policy article removed after rename",
-        "summary": "The former quality-updates-policy.md article was removed as part of the documentation rename to quality-updates.md.",
-        "adminImpact": "Update saved links and internal references to use quality-updates.md.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:04:01.779Z"
+        "category": "Doc update",
+        "headline": "Windows quality update policy documentation was removed",
+        "summary": "The documentation page describing Hotpatch deployment, prerequisites, eligibility, and release cycles was deleted.",
+        "adminImpact": "Administrators can no longer access this guidance at the documented URL; the diff does not specify a required configuration change or migration.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -587,9 +566,9 @@
     "overview": "Today's report includes 2 new, 17 updated, and 2 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "title": "intune/device-updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Added Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-overview.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-overview.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune",
+        "summary": "A new page explains how to review, approve, pause, decline, and automatically deploy Windows driver updates. It also documents licensing, subscription, network, Windows edition requirements, and GCC environment limitations. The documentation describes deploying Hotpatch updates through Intune and Autopatch on Windows 11 Enterprise 24H2 or later. Arm64 support is in public preview and requires disabling CHPE with a registry setting and restarting devices. The documentation now requires Intune enrollment, Microsoft Entra join status, enabled telemetry, a running Microsoft Account Sign-In Assistant, access to required endpoints, and Intune data collection. It also warns that devices with teleme",
         "sourceFiles": [
           "intune/device-updates/windows/driver-updates.md",
           "intune/device-updates/windows/quality-updates.md",
@@ -608,9 +587,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "New feature",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md. Updated Microsoft Intune documentation in intune/intune-service/protect/data-enable-windows-data.md. Updated Microsoft Intune documentation in intune/intune-service/apps/store-apps-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-monitor.md.",
+        "summary": "The page now describes planned Lenovo Device Orchestration access, Android management-mode filtering, Apple DDM assignment filters, expanded managed-app filter values, and Zimperium certificate inventory integration. The in-development documentation now uses the corrected relative path for the Android Intune settings catalog settings list. The Windows Driver update policies link in the What's New archive now points to `driver-updates.md` instead of `driver-updates-overview.md`. The documentation link now points to `driver-updates.md` instead of `windows/driver-updates-overview.md`. The documentation now provides the `winget install \"Company Portal\" --source msstore` command for downloading t",
         "sourceFiles": [
           "intune/intune-service/fundamentals/in-development.md",
           "intune/intune-service/fundamentals/in-development.md",
@@ -621,9 +600,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/configmgr",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/comanage/workloads.md.",
+        "summary": "The workloads documentation now links to the Windows software updates index page instead of configure.md.",
         "sourceFiles": [
           "intune/configmgr/comanage/workloads.md"
         ]
@@ -631,19 +610,19 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "headline": "intune/device-updates",
-        "detail": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Added Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-overview.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-overview.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune"
+        "detail": "A new page explains how to review, approve, pause, decline, and automatically deploy Windows driver updates. It also documents licensing, subscription, network, Windows edition requirements, and GCC environment limitations. The documentation describes deploying Hotpatch updates through Intune and Autopatch on Windows 11 Enterprise 24H2 or later. Arm64 support is in public preview and requires disabling CHPE with a registry setting and restarting devices. The documentation now requires Intune enrollment, Microsoft Entra join status, enabled telemetry, a running Microsoft Account Sign-In Assistant, access to required endpoints, and Intune data collection. It also warns that devices with teleme"
       },
       {
-        "category": "Feature update",
+        "category": "New feature",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md. Updated Microsoft Intune documentation in intune/intune-service/protect/data-enable-windows-data.md. Updated Microsoft Intune documentation in intune/intune-service/apps/store-apps-company-portal-app.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-monitor.md."
+        "detail": "The page now describes planned Lenovo Device Orchestration access, Android management-mode filtering, Apple DDM assignment filters, expanded managed-app filter values, and Zimperium certificate inventory integration. The in-development documentation now uses the corrected relative path for the Android Intune settings catalog settings list. The Windows Driver update policies link in the What's New archive now points to `driver-updates.md` instead of `driver-updates-overview.md`. The documentation link now points to `driver-updates.md` instead of `windows/driver-updates-overview.md`. The documentation now provides the `winget install \"Company Portal\" --source msstore` command for downloading t"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/configmgr",
-        "detail": "Updated Microsoft Intune documentation in intune/configmgr/comanage/workloads.md."
+        "detail": "The workloads documentation now links to the Windows software updates index page instead of configure.md."
       }
     ],
     "generatedBy": "fallback"

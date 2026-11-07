@@ -19,10 +19,12 @@
       "eventId": "intune-docs:fb0f9837682724874404247756500d25c0a9a73f:modified:intune/intune-service/apps/manage-microsoft-edge.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Revise Copilot settings and management options",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Copilot settings now depend on the CopilotMode policy",
+        "summary": "Copilot settings are documented under different locations when CopilotMode is on or off. The update also adds the Copilot prompts card setting and documents the policy’s true and false behavior.",
+        "adminImpact": "Review CopilotMode and related settings: it defaults to true, while false prevents users from enabling Copilot Mode features.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -43,10 +45,12 @@
       "eventId": "intune-docs:ea3102dc3ce08dd5e2d1c3a7891026ef19bd1fc3:modified:intune/intune-service/apps/apps-supported-intune-apps.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "36072132 - 2601: Remove MAM app Microsoft Lists",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Microsoft Lists removed from supported MAM apps",
+        "summary": "The supported Intune app list no longer includes Microsoft Lists for iOS or Android.",
+        "adminImpact": "Administrators reviewing MAM app support should no longer rely on Microsoft Lists being listed as supported.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-01-30T14:29:07.000Z",
       "eventId": "intune-docs:a9870180aa29e0e12c7345e19c1b60e5c674527d:modified:intune/intune-service/apps/apps-supported-intune-apps.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updated app path",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Unique Moments entry updated",
+        "summary": "The supported Intune apps page refreshes the Unique Moments partner-app entry while retaining its icon and description.",
+        "adminImpact": "No administrator action is indicated; review the updated entry when referencing supported apps.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-01-30T14:44:51.000Z",
       "eventId": "intune-docs:19f13311c8a4675ed35788f6a54f4a31233986b4:modified:intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Minor fixes in Support for SQL Server page",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "SQL Server requirements guidance clarified",
+        "summary": "The page clarifies Visual C++ Redistributable upgrade guidance, simplifies compatibility-level wording, updates section headings, and states that Configuration Manager-managed SQL settings shouldn't be changed unless Microsoft Support instructs you to.",
+        "adminImpact": "No immediate action is required. Administrators should avoid modifying the listed SQL Server and database configurations without Microsoft Support guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -114,11 +122,13 @@
       "firstSeenAt": "2026-01-30T15:27:25.000Z",
       "eventId": "intune-docs:e5e231b7e18adf6a63d8d1b252837a5659d8c73c:modified:intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Link fix in prereq checks",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Prerequisite check links updated",
+        "summary": "The SQL Server prerequisite documentation now uses updated section anchors for the required SQL Server and Database configuration links.",
+        "adminImpact": "Administrators can follow the prerequisite references to the intended documentation sections; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -139,10 +149,12 @@
       "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Updating required .net versions across the checklists",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager now requires .NET Framework 4.8",
+        "summary": "The installation checklist updates the required .NET Framework version to 4.8 for site servers, specific site systems, clients, and the console.",
+        "adminImpact": "Install .NET Framework 4.8 and restart affected systems before running setup to install or update the site.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -163,10 +175,12 @@
       "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Updating required .net versions across the checklists",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager 2409 now requires .NET Framework 4.8",
+        "summary": "The installation checklist updates the required .NET Framework version from 4.6.2 to 4.8 for site servers, specific site systems, clients, and the console.",
+        "adminImpact": "Install .NET Framework 4.8 and restart affected systems before running setup to install or update the site.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -187,10 +201,12 @@
       "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Updating required .net versions across the checklists",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager update 2503 now requires .NET Framework 4.8",
+        "summary": "The installation checklist changed the required .NET Framework version from 4.6.2 to 4.8 for site servers, specified site systems, clients, and the console.",
+        "adminImpact": "Update .NET Framework to 4.8 and restart affected systems before running setup to install or update the site.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -211,10 +227,12 @@
       "eventId": "intune-docs:3d15177f2fddd00d35d736ef46cfa2abf1304889:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Updating required .net versions across the checklists",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager update 2509 now requires .NET Framework 4.8",
+        "summary": "The documented prerequisite changed from .NET Framework 4.6.2 to 4.8 for site servers, specific site systems, clients, and the console.",
+        "adminImpact": "Install .NET Framework 4.8 and restart affected systems before running site setup or update setup.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,10 +253,12 @@
       "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": ".NET 4.8 requirement no longer lists clients",
+        "summary": "The documented .NET 4.8 prerequisite now applies to site servers, specific site systems, and the console. The installation guidance still requires updating .NET and restarting before setup.",
+        "adminImpact": "Ensure affected site systems and the console meet the .NET 4.8 prerequisite and are restarted before installation or upgrade.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -259,10 +279,12 @@
       "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager clients no longer require .NET 4.8",
+        "summary": "The prerequisite now lists .NET Framework 4.8 for site servers, specific site systems, and the console, while clients require .NET 4.6.2.",
+        "adminImpact": "Ensure affected servers and consoles have .NET 4.8 installed and restarted before running setup; clients don't need to be upgraded to 4.8.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -283,10 +305,12 @@
       "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager .NET Framework prerequisites updated",
+        "summary": "The documentation now requires .NET Framework 4.8 for site servers, specific site systems, and the console, while clients require .NET Framework 4.6.2.",
+        "adminImpact": "Verify the required .NET versions and update affected systems before running setup; restart systems after updating .NET.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -307,10 +331,12 @@
       "eventId": "intune-docs:3d373afda3ab0f12396f0cbd339950574f067233:modified:intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "We do not require .NET 4.8 on clients - just 4.6.2.",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2509.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Configuration Manager .NET requirements now distinguish clients",
+        "summary": "The documentation now requires .NET Framework 4.8 for site servers, specific site systems, and the console, while clients require only .NET Framework 4.6.2.",
+        "adminImpact": "Verify .NET 4.8 on applicable infrastructure and console systems; client devices don't need .NET 4.8 for this update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -330,11 +356,13 @@
       "firstSeenAt": "2026-01-30T16:26:12.000Z",
       "eventId": "intune-docs:a35281d3b81d29b715da6b7af54f14b58e7219c9:modified:intune/intune-service/remote-actions/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Revert \"[Remote actions] Managed home screen\"",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Remote actions index removes managed home screen entries",
+        "summary": "The index no longer lists the Restore managed home screen and Suspend managed home screen actions or links to their documentation pages.",
+        "adminImpact": "Administrators using the Remote actions index will no longer find these two entries there.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -355,10 +383,12 @@
       "eventId": "intune-docs:6cd0889a165e9e4dcdfc2e65f9455265c3e4e7fd:modified:autopilot/device-preparation/whats-new.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Increase app limit to 25 in Autopilot device preparation",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Autopilot device preparation app limit increased to 25",
+        "summary": "Policies can now configure up to 25 apps for delivery during OOBE in both user-driven and automatic modes.",
+        "adminImpact": "Administrators can include more apps in device preparation policies when configuring deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -378,11 +408,13 @@
       "firstSeenAt": "2026-01-30T18:28:51.000Z",
       "eventId": "intune-docs:d3b35a1de456bf9bf6ea3643f7541993fdbfce13:modified:intune/intune-service/apps/apps-win32-deploy-update-package.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Fix broken documentation links in apps-win32-deploy-update-package.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Fixed Windows Update policy links",
+        "summary": "The article’s links to Update rings, Feature updates, and Quality updates now use corrected relative paths.",
+        "adminImpact": "Administrators can follow the referenced Windows Update policy links from the Win32 app update guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -402,11 +434,13 @@
       "firstSeenAt": "2026-01-30T19:58:39.000Z",
       "eventId": "intune-docs:48273b73277bbad0c45ed662d45ce4f7e2a87148:modified:intune/advanced-analytics/device-scopes.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Global Admin casing",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-scopes.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected capitalization for the Global Administrator role",
+        "summary": "The device scopes documentation now capitalizes “Global Administrator” consistently in the deletion permissions statement.",
+        "adminImpact": "No administrative action is required; the documented permission remains unchanged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -426,11 +460,13 @@
       "firstSeenAt": "2026-01-30T19:58:39.000Z",
       "eventId": "intune-docs:48273b73277bbad0c45ed662d45ce4f7e2a87148:modified:intune/intune-service/fundamentals/role-based-access-control.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Global Admin casing",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "RBAC role table updates privileged-role icons",
+        "summary": "The role table now uses the standardized SVG privileged-label icon syntax for listed roles. Role names, links, and permission values remain unchanged.",
+        "adminImpact": "Existing role assignments and permissions are unaffected; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -450,11 +486,13 @@
       "firstSeenAt": "2026-01-30T20:04:55.000Z",
       "eventId": "intune-docs:22ce4ba1a3282a51e755acc5c5554611e4e68de6:modified:intune/intune-service/fundamentals/role-based-access-control.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "RBAC role links now render correctly",
+        "summary": "The role-based access control table now correctly formats privileged-role icons as links for the listed Microsoft Entra roles.",
+        "adminImpact": "Administrators can use the role icons to open the related privileged-role permissions information; no configuration change is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -476,11 +514,13 @@
       "firstSeenAt": "2026-01-30T16:26:12.000Z",
       "eventId": "intune-docs:a35281d3b81d29b715da6b7af54f14b58e7219c9:removed:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Revert \"[Remote actions] Managed home screen\"",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Restore Managed Home Screen documentation removed",
+        "summary": "The Intune article describing the Restore Managed Home Screen remote action, including supported Android Enterprise platforms, prerequisites, admin-center steps, user experience, and API links, was deleted.",
+        "adminImpact": "Administrators can no longer use this page as documented guidance for the remote action.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -500,11 +540,13 @@
       "firstSeenAt": "2026-01-30T16:26:12.000Z",
       "eventId": "intune-docs:a35281d3b81d29b715da6b7af54f14b58e7219c9:removed:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Revert \"[Remote actions] Managed home screen\"",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Suspend Managed Home Screen documentation removed",
+        "summary": "The page documenting the Suspend Managed Home Screen remote action was deleted, including its supported platforms, permissions, admin center steps, user experience, and Graph API references.",
+        "adminImpact": "Administrators lose this documentation as a reference for using the action and its prerequisites.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -526,7 +568,7 @@
       {
         "category": "Feature update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.",
+        "summary": "Copilot settings are documented under different locations when CopilotMode is on or off. The update also adds the Copilot prompts card setting and documents the policy’s true and false behavior. The supported Intune app list no longer includes Microsoft Lists for iOS or Android. The supported Intune apps page refreshes the Unique Moments partner-app entry while retaining its icon and description. The index no longer lists the Restore managed home screen and Suspend managed home screen actions or links to their documentation pages. The article’s links to Update rings, Feature updates, and Quality updates now use corrected relative paths. The role table now uses the standardized SVG privileged",
         "sourceFiles": [
           "intune/intune-service/apps/manage-microsoft-edge.md",
           "intune/intune-service/apps/apps-supported-intune-apps.md",
@@ -540,9 +582,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/configmgr",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installi",
+        "summary": "The page clarifies Visual C++ Redistributable upgrade guidance, simplifies compatibility-level wording, updates section headings, and states that Configuration Manager-managed SQL settings shouldn't be changed unless Microsoft Support instructs you to. The SQL Server prerequisite documentation now uses updated section anchors for the required SQL Server and Database configuration links. The installation checklist updates the required .NET Framework version to 4.8 for site servers, specific site systems, clients, and the console. The installation checklist updates the required .NET Framework version from 4.6.2 to 4.8 for site servers, specific site systems, clients, and the console. The insta",
         "sourceFiles": [
           "intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md",
           "intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
@@ -559,15 +601,15 @@
       {
         "category": "Feature update",
         "title": "autopilot/device-preparation",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "summary": "Policies can now configure up to 25 apps for delivery during OOBE in both user-driven and automatic modes.",
         "sourceFiles": [
           "autopilot/device-preparation/whats-new.md"
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/advanced-analytics",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-scopes.md.",
+        "summary": "The device scopes documentation now capitalizes “Global Administrator” consistently in the deletion permissions statement.",
         "sourceFiles": [
           "intune/advanced-analytics/device-scopes.md"
         ]
@@ -577,22 +619,22 @@
       {
         "category": "Feature update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-supported-intune-apps.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/index.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control."
+        "detail": "Copilot settings are documented under different locations when CopilotMode is on or off. The update also adds the Copilot prompts card setting and documents the policy’s true and false behavior. The supported Intune app list no longer includes Microsoft Lists for iOS or Android. The supported Intune apps page refreshes the Unique Moments partner-app entry while retaining its icon and description. The index no longer lists the Restore managed home screen and Suspend managed home screen actions or links to their documentation pages. The article’s links to Update rings, Feature updates, and Quality updates now use corrected relative paths. The role table now uses the standardized SVG privileged"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/configmgr",
-        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/support-for-sql-server-versions.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2403.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2409.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installing-update-2503.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/checklist-for-installi"
+        "detail": "The page clarifies Visual C++ Redistributable upgrade guidance, simplifies compatibility-level wording, updates section headings, and states that Configuration Manager-managed SQL settings shouldn't be changed unless Microsoft Support instructs you to. The SQL Server prerequisite documentation now uses updated section anchors for the required SQL Server and Database configuration links. The installation checklist updates the required .NET Framework version to 4.8 for site servers, specific site systems, clients, and the console. The installation checklist updates the required .NET Framework version from 4.6.2 to 4.8 for site servers, specific site systems, clients, and the console. The insta"
       },
       {
         "category": "Feature update",
         "headline": "autopilot/device-preparation",
-        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+        "detail": "Policies can now configure up to 25 apps for delivery during OOBE in both user-driven and automatic modes."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/advanced-analytics",
-        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-scopes.md."
+        "detail": "The device scopes documentation now capitalizes “Global Administrator” consistently in the deletion permissions statement."
       }
     ],
     "generatedBy": "fallback"

@@ -17,11 +17,13 @@
       "firstSeenAt": "2026-01-14T21:14:14.000Z",
       "eventId": "intune-docs:89a941d2082586d70192f268ddcb13a19a1d5098:added:intune/device-updates/windows/expedite-policy.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Expedite Policies for Windows quality updates are documented",
+        "summary": "Intune now documents policies that accelerate a specific supported Windows security update, bypassing normal deferrals and deployment timing. The guidance covers creation, assignment, monitoring, prerequisites, and eligibility.",
+        "adminImpact": "Administrators can use expedited updates for urgent security remediation. Before deploying, verify prerequisites, configure update ring settings, remove conflicting Group Policy settings, and ensure Update Health Tools are installed on Windows versions earlier than 24H2.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -43,11 +45,13 @@
       "firstSeenAt": "2026-01-14T14:01:51.000Z",
       "eventId": "intune-docs:45a95cdaf4cd6f9e73dd231b8a161d67ce745e9c:modified:intune/intune-service/fundamentals/role-based-access-control.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Learn Editor: Update role-based-access-control.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Global Reader role description updated",
+        "summary": "The RBAC table no longer states that Global Reader is equivalent to the Intune Help Desk Operator role. Its access level remains listed as Read Only.",
+        "adminImpact": "Administrators comparing role permissions should no longer rely on this page for that equivalence statement.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -67,11 +71,13 @@
       "firstSeenAt": "2026-01-14T14:07:07.000Z",
       "eventId": "intune-docs:258c998ec5dc0168678769181150eabf72316703:modified:intune/intune-service/apps/vpp-apps-ios.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "update ms.date for Apple Volume-Purchased Apps documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/vpp-apps-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple Volume-Purchased Apps documentation date updated",
+        "summary": "The page’s `ms.date` metadata changed from October 27, 2025, to January 13, 2026. No product behavior or configuration change is documented.",
+        "adminImpact": "No action is required; administrators only see an updated documentation date.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -91,11 +97,13 @@
       "firstSeenAt": "2026-01-14T14:17:49.000Z",
       "eventId": "intune-docs:8f5a238ec3c917dbba661cdf471b7c7fb1d799fc:modified:intune/intune-service/apps/lob-apps-ios.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update lob-apps-ios.md to correct date and enhance clarity in app description",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/lob-apps-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "iOS/iPadOS LOB app documentation clarified",
+        "summary": "The article date was updated, terminology was refined for IPA packages and app updates, and installation and downgrade behavior was described more clearly.",
+        "adminImpact": "Administrators can use the clarified guidance when adding and assigning iOS/iPadOS line-of-business apps; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -115,11 +123,13 @@
       "firstSeenAt": "2026-01-14T14:39:45.000Z",
       "eventId": "intune-docs:c6741e07c36931256331e719d89a274af475bf4f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Added steps for reusable queries.",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Manage reusable device queries",
+        "summary": "Documentation now explains how to save, reuse, share, modify, and delete device queries. Personal queries are private; shared queries are available to other Intune admins but can't be edited or deleted.",
+        "adminImpact": "Admins can standardize recurring queries and share finalized queries with colleagues. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -139,11 +149,13 @@
       "firstSeenAt": "2026-01-14T16:03:40.000Z",
       "eventId": "intune-docs:89061820030837adffa7f5190fe8b45512a65235:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Device query guidance and sample formatting updated",
+        "summary": "The page now uses clearer wording for running a selected query and updates the CPU example description and formatting.",
+        "adminImpact": "Administrators can more easily identify which query runs and read the sample Kusto query; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -163,11 +175,13 @@
       "firstSeenAt": "2026-01-14T16:06:28.000Z",
       "eventId": "intune-docs:dfa5d0d900650d623488080b08bf06cdb5b8ddbd:modified:intune/intune-service/protect/microsoft-defender-with-intune.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Minor edit",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-defender-with-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Defender with Intune guidance receives minor wording and formatting updates",
+        "summary": "The documentation now describes Endpoint Security Manager as an Intune built-in role and removes the pin icon from the real-world scenario heading.",
+        "adminImpact": "Administrators can use the updated wording when identifying the required role; no configuration changes are indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -187,11 +201,13 @@
       "firstSeenAt": "2026-01-14T20:35:03.000Z",
       "eventId": "intune-docs:765208e545a6094a11d188fe42cdf181c93e42ab:modified:intune/device-updates/windows/driver-updates-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Documentation now focuses on Windows Driver update policy reports",
+        "summary": "The page title and description were updated to cover using Intune reports to monitor Windows driver updates for devices assigned to Windows Driver update policies.",
+        "adminImpact": "Administrators looking for reporting guidance should use the updated page context.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -211,11 +227,13 @@
       "firstSeenAt": "2026-01-14T20:35:03.000Z",
       "eventId": "intune-docs:765208e545a6094a11d188fe42cdf181c93e42ab:modified:intune/device-updates/windows/expedite-quality-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Expedited update guidance reflects current Intune navigation",
+        "summary": "The article updates policy-creation paths, setting names, wording, and Windows version examples for expedited quality updates.",
+        "adminImpact": "Administrators should use the revised navigation and labels when creating policies or configuring reboot enforcement.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,11 +253,13 @@
       "firstSeenAt": "2026-01-14T21:07:14.000Z",
       "eventId": "intune-docs:87f5e20773d868f8c1169aec820f6a12c85317ba:modified:intune/device-updates/windows/expedite-quality-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Expedite update guidance clarifies applicability and restart behavior",
+        "summary": "The documentation now explains that one policy selects a security update by release date, Windows Update evaluates device applicability, and installation begins after the next update scan and service communication. It also clarifies restart deadlines and directs ongoing servicing to update ring or Windows quality update policies.",
+        "adminImpact": "Administrators can more clearly understand policy scope, update applicability, installation timing, and restart expectations. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -259,11 +279,13 @@
       "firstSeenAt": "2026-01-14T21:07:14.000Z",
       "eventId": "intune-docs:87f5e20773d868f8c1169aec820f6a12c85317ba:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows update documentation clarifies Hotpatch and Expedite policies",
+        "summary": "The page now bolds and rewords the Hotpatch and Expedite policies descriptions, including updated terminology for critical security updates and deferral settings.",
+        "adminImpact": "Administrators can use the clearer terminology when reviewing Windows update documentation; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -283,11 +305,13 @@
       "firstSeenAt": "2026-01-14T21:14:14.000Z",
       "eventId": "intune-docs:89a941d2082586d70192f268ddcb13a19a1d5098:modified:intune/agents/vulnerability-remediation-agent-use.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/agents/vulnerability-remediation-agent-use.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated guidance for “Expedite” recommendations",
+        "summary": "The documentation wording for Windows update recommendations beginning with “Expedite” was updated. It states that these recommendations apply when a CVSS risk score is 9.0 or higher and advises expediting the updates.",
+        "adminImpact": "Review the revised guidance when interpreting vulnerability remediation agent recommendations; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -307,11 +331,13 @@
       "firstSeenAt": "2026-01-14T21:14:14.000Z",
       "eventId": "intune-docs:89a941d2082586d70192f268ddcb13a19a1d5098:modified:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Quality updates documentation link wording updated",
+        "summary": "The reviewer metadata changed, and the related link text was updated from “expedited updates” to “expedite policies.”",
+        "adminImpact": "No administrator action is required; the documentation link now uses updated terminology.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -331,11 +357,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/driver-updates-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated capitalization in Windows driver update policy page title",
+        "summary": "The title changed from “Manage Windows driver update policies” to “Manage Windows Driver Update Policies.”",
+        "adminImpact": "No administrator action is required; only the documentation title changed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -355,11 +383,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/driver-updates-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Driver Updates reports documentation title revised",
+        "summary": "The page title and heading changed from “Reports for Windows Driver updates policy” to “Reports for Windows Driver Updates Policies reports.”",
+        "adminImpact": "Use the revised title when locating or referencing this documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -379,11 +409,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Driver Updates documentation streamlined",
+        "summary": "The page title and description were revised, and the update date changed to January 14, 2026. Guidance on driver approvals, recommended-driver handling, and approving, pausing, or declining updates was removed.",
+        "adminImpact": "Administrators relying on this page for driver approval guidance should review the revised content.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -403,11 +435,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/hotpatch.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/hotpatch.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Hotpatch documentation title capitalization updated",
+        "summary": "The page title changed from “Use Hotpatch with Windows quality updates” to “Use Hotpatch With Windows Quality Updates.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -427,11 +461,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Page title updated for Windows Quality Updates Policies",
+        "summary": "The documentation title changed from “Windows quality update policy” to “Windows Quality Updates Policies.”",
+        "adminImpact": "Use the updated title when locating or referencing this documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,11 +487,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/software-update-agent-error-codes.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/software-update-agent-error-codes.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Software Update error reference article updated",
+        "summary": "The article title and description were revised, and its date was updated from May 29, 2019, to January 14, 2026.",
+        "adminImpact": "Administrators can use the updated article as the current reference for Software Update agent error codes; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -475,11 +513,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-policy-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Update Rings policy settings article streamlined",
+        "summary": "The article title and description were shortened to identify it as a reference listing Windows Update ring settings.",
+        "adminImpact": "Administrators can use the same article to reference the settings available for Update Rings policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -499,11 +539,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/update-rings-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated capitalization in Windows Update Rings report title",
+        "summary": "The documentation title changed from “Reports for Windows update rings policies” to “Reports for Windows Update Rings Policies.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -523,11 +565,13 @@
       "firstSeenAt": "2026-01-14T21:26:16.000Z",
       "eventId": "intune-docs:f001f4ce2ba2fba26a917254c7bf1f5eec205bc0:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Update rings documentation title updated",
+        "summary": "The page title and heading changed from “Windows Update rings policy” to “Windows Update Rings Policies.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -547,11 +591,13 @@
       "firstSeenAt": "2026-01-14T22:05:52.000Z",
       "eventId": "intune-docs:a96f2cc1f6dca5c04602e3bafbdbfdf45b89d93f:modified:intune/intune-service/apps/apps-win32-add.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "34496511 - 2601: (OOB) Update Win32 app management documentation to include PowerShell script installer details",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-add.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Win32 app documentation adds PowerShell installer guidance",
+        "summary": "The documentation now describes Command line and PowerShell script installer types. PowerShell scripts can be up to 50 KB, replace the standard install command, and support richer setup workflows.",
+        "adminImpact": "Admins using Multi-Admin Approval must create the app before adding or modifying a PowerShell installer script.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -571,11 +617,13 @@
       "firstSeenAt": "2026-01-14T22:05:52.000Z",
       "eventId": "intune-docs:a96f2cc1f6dca5c04602e3bafbdbfdf45b89d93f:modified:intune/intune-service/apps/apps-win32-app-management.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "34496511 - 2601: (OOB) Update Win32 app management documentation to include PowerShell script installer details",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-app-management.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Win32 apps can use PowerShell scripts as installers",
+        "summary": "The documentation now describes uploading a PowerShell script instead of an install command. Scripts run in the installer context, support prerequisite and post-install actions, are limited to 50 KB, and use return codes for status.",
+        "adminImpact": "Admins can use script-based installation workflows. With Multi-Admin Approval enabled, create the app first, then add or modify the script.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -595,11 +643,13 @@
       "firstSeenAt": "2026-01-14T22:06:21.000Z",
       "eventId": "intune-docs:538ec7c2ca88e3855f7bc75ee3d0067c5ab4e00a:modified:intune/device-updates/windows/driver-updates-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "feature updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows driver update policy links renamed",
+        "summary": "The policy documentation updated two link labels for the overview and reports pages.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -620,10 +670,12 @@
       "eventId": "intune-docs:538ec7c2ca88e3855f7bc75ee3d0067c5ab4e00a:modified:intune/device-updates/windows/feature-updates-policy.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "feature updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Feature update policy behavior and evaluation are clarified",
+        "summary": "The documentation now explains version targeting, no downgrades for devices already on newer versions, policy persistence until changed or removed, and inclusion of the latest applicable monthly quality update. It also clarifies optional versus required updates and how multiple policies are evaluated.",
+        "adminImpact": "Administrators can better predict update offers and installations, communicate the user action required for optional updates, and avoid assuming policies expire or downgrade devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -643,11 +695,13 @@
       "firstSeenAt": "2026-01-14T22:06:21.000Z",
       "eventId": "intune-docs:538ec7c2ca88e3855f7bc75ee3d0067c5ab4e00a:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "feature updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Feature update deployment guidance expanded",
+        "summary": "The documentation now explains interactions with update rings, deployment timing after Autopilot OOBE, policy evaluation, and Windows Autopatch behavior.",
+        "adminImpact": "Review targeted update rings, set feature update deferrals to 0, and ensure updates are not paused to avoid unintended delays. Note that policies apply after provisioning and that Autopatch enrollment remains when targeting changes.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -667,11 +721,13 @@
       "firstSeenAt": "2026-01-14T22:21:22.000Z",
       "eventId": "intune-docs:f191adf19a5b933c5894acfa3081e9eb015ffaae:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Feature updates documentation adds rollout guidance",
+        "summary": "The page now states that feature update policies support scheduled and gradual deployments through rollout options and links to rollout-timing details.",
+        "adminImpact": "Administrators can use the referenced rollout guidance when planning feature update deployments; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -691,11 +747,13 @@
       "firstSeenAt": "2026-01-14T22:21:22.000Z",
       "eventId": "intune-docs:f191adf19a5b933c5894acfa3081e9eb015ffaae:modified:intune/device-updates/windows/rollout-options.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/rollout-options.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows rollout guidance now covers gradual and intelligent rollouts",
+        "summary": "The documentation adds gradual rollout configuration, offer-group behavior, examples, and intelligent rollout guidance using Windows Autopatch telemetry and safeguard holds.",
+        "adminImpact": "Administrators can plan staged update offers with availability dates and group spacing. Intelligent rollouts require enabling Windows Update for Business Cloud Processing in a settings catalog profile.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -717,11 +775,13 @@
       "firstSeenAt": "2026-01-14T21:14:14.000Z",
       "eventId": "intune-docs:89a941d2082586d70192f268ddcb13a19a1d5098:removed:intune/device-updates/windows/expedite-quality-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "updates",
-        "summary": "Removed Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Expedite Windows quality updates documentation removed",
+        "summary": "The Intune page documenting expedited Windows security updates, prerequisites, Update Health Tools, and policy behavior was deleted.",
+        "adminImpact": "No administrator action is stated, but administrators relying on this page will no longer have its guidance at the documented URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -740,9 +800,9 @@
     "overview": "Today's report includes 1 new, 28 updated, and 1 removed Microsoft Intune documentation files across 4 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "New feature",
         "title": "intune/device-updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md. Updated Microsoft Intune documentatio",
+        "summary": "Intune now documents policies that accelerate a specific supported Windows security update, bypassing normal deferrals and deployment timing. The guidance covers creation, assignment, monitoring, prerequisites, and eligibility. The page title and description were updated to cover using Intune reports to monitor Windows driver updates for devices assigned to Windows Driver update policies. The article updates policy-creation paths, setting names, wording, and Windows version examples for expedited quality updates. The documentation now explains that one policy selects a security update by release date, Windows Update evaluates device applicability, and installation begins after the next updat",
         "sourceFiles": [
           "intune/device-updates/windows/expedite-policy.md",
           "intune/device-updates/windows/driver-updates-reports.md",
@@ -768,9 +828,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md. Updated Microsoft Intune documentation in intune/intune-service/apps/vpp-apps-ios.md. Updated Microsoft Intune documentation in intune/intune-service/apps/lob-apps-ios.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-defender-with-intune.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-add.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-app-management.md.",
+        "summary": "The RBAC table no longer states that Global Reader is equivalent to the Intune Help Desk Operator role. Its access level remains listed as Read Only. The page’s `ms.date` metadata changed from October 27, 2025, to January 13, 2026. No product behavior or configuration change is documented. The article date was updated, terminology was refined for IPA packages and app updates, and installation and downgrade behavior was described more clearly. The documentation now describes Endpoint Security Manager as an Intune built-in role and removes the pin icon from the real-world scenario heading. The documentation now describes Command line and PowerShell script installer types. PowerShell scripts ca",
         "sourceFiles": [
           "intune/intune-service/fundamentals/role-based-access-control.md",
           "intune/intune-service/apps/vpp-apps-ios.md",
@@ -781,18 +841,18 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "New feature",
         "title": "intune/advanced-analytics",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "summary": "Documentation now explains how to save, reuse, share, modify, and delete device queries. Personal queries are private; shared queries are available to other Intune admins but can't be edited or deleted. The page now uses clearer wording for running a selected query and updates the CPU example description and formatting.",
         "sourceFiles": [
           "intune/advanced-analytics/device-query-multiple-devices.md",
           "intune/advanced-analytics/device-query-multiple-devices.md"
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/agents",
-        "summary": "Updated Microsoft Intune documentation in intune/agents/vulnerability-remediation-agent-use.md.",
+        "summary": "The documentation wording for Windows update recommendations beginning with “Expedite” was updated. It states that these recommendations apply when a CVSS risk score is 9.0 or higher and advises expediting the updates.",
         "sourceFiles": [
           "intune/agents/vulnerability-remediation-agent-use.md"
         ]
@@ -800,24 +860,24 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "New feature",
         "headline": "intune/device-updates",
-        "detail": "Added Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md. Updated Microsoft Intune documentatio"
+        "detail": "Intune now documents policies that accelerate a specific supported Windows security update, bypassing normal deferrals and deployment timing. The guidance covers creation, assignment, monitoring, prerequisites, and eligibility. The page title and description were updated to cover using Intune reports to monitor Windows driver updates for devices assigned to Windows Driver update policies. The article updates policy-creation paths, setting names, wording, and Windows version examples for expedited quality updates. The documentation now explains that one policy selects a security update by release date, Windows Update evaluates device applicability, and installation begins after the next updat"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md. Updated Microsoft Intune documentation in intune/intune-service/apps/vpp-apps-ios.md. Updated Microsoft Intune documentation in intune/intune-service/apps/lob-apps-ios.md. Updated Microsoft Intune documentation in intune/intune-service/protect/microsoft-defender-with-intune.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-add.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-app-management.md."
+        "detail": "The RBAC table no longer states that Global Reader is equivalent to the Intune Help Desk Operator role. Its access level remains listed as Read Only. The page’s `ms.date` metadata changed from October 27, 2025, to January 13, 2026. No product behavior or configuration change is documented. The article date was updated, terminology was refined for IPA packages and app updates, and installation and downgrade behavior was described more clearly. The documentation now describes Endpoint Security Manager as an Intune built-in role and removes the pin icon from the real-world scenario heading. The documentation now describes Command line and PowerShell script installer types. PowerShell scripts ca"
       },
       {
-        "category": "Feature update",
+        "category": "New feature",
         "headline": "intune/advanced-analytics",
-        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+        "detail": "Documentation now explains how to save, reuse, share, modify, and delete device queries. Personal queries are private; shared queries are available to other Intune admins but can't be edited or deleted. The page now uses clearer wording for running a selected query and updates the CPU example description and formatting."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/agents",
-        "detail": "Updated Microsoft Intune documentation in intune/agents/vulnerability-remediation-agent-use.md."
+        "detail": "The documentation wording for Windows update recommendations beginning with “Expedite” was updated. It states that these recommendations apply when a CVSS risk score is 9.0 or higher and advises expediting the updates."
       }
     ],
     "generatedBy": "fallback"

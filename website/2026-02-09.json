@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-02-09T02:55:43.000Z",
       "eventId": "intune-docs:ab9daf12b7aa270b40dfa2a00c055191e6c4683f:modified:intune/intune-service/apps/apps-win32-add.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update script result evaluation details in documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-add.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Script result evaluation details updated",
+        "summary": "The documentation now updates details on how the Intune agent evaluates script output, including STDOUT, STDERR, and the exit code. A nonzero exit code indicates failure and leaves detection status as not installed.",
+        "adminImpact": "Administrators can use these details to troubleshoot Win32 app detection scripts and interpret installation results.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-02-09T11:32:46.000Z",
       "eventId": "intune-docs:a7ee563abd5bd0a7fff89ef0bc8dde351445a7a0:modified:intune/configmgr/core/servers/manage/replication/sql-replication.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Learn Editor: Update sql-replication.md",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/replication/sql-replication.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated SQL replication query filter",
+        "summary": "The documented query now filters on `SiteStatus = 120` instead of `Status = 120`.",
+        "adminImpact": "Use the updated column name when referencing or adapting this query.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-02-09T12:13:49.000Z",
       "eventId": "intune-docs:cabfd6ae16cdc641ea7f1bc084bc5c73d9e5a888:modified:intune/device-updates/apple/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Apple DDM prereqs",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/apple/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple device update enrollment methods documented",
+        "summary": "The Apple device updates documentation now lists Device Enrollment and Automated Device Enrollment as supported enrollment methods.",
+        "adminImpact": "Administrators can use this information to verify enrollment eligibility when planning Apple device updates.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-02-09T13:50:06.000Z",
       "eventId": "intune-docs:29bd354ba207ad725430fc4933cd4f809245a252:modified:intune/intune-service/configuration/properties-catalog.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update ms.date to reflect new publication date",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/properties-catalog.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Properties catalog documentation date updated",
+        "summary": "The page metadata date changed from October 20, 2025, to February 9, 2026.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -115,10 +123,12 @@
       "eventId": "intune-docs:9107f05227d33e34b89ba10a23fc3e192e7c59b0:modified:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Managed Home Screen permission required for device restore",
+        "summary": "The device restore remote action requires the Managed Home Screen to have the Alarms & Reminders permission granted.",
+        "adminImpact": "Grant this permission to Managed Home Screen before running the remote action.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -139,10 +149,12 @@
       "eventId": "intune-docs:9107f05227d33e34b89ba10a23fc3e192e7c59b0:modified:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Alarms & Reminders permission required for device suspension",
+        "summary": "The remote action documentation now states that Managed Home Screen must be granted the Alarms & Reminders permission to run the action.",
+        "adminImpact": "Grant this permission to Managed Home Screen before using the remote action.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -162,11 +174,13 @@
       "firstSeenAt": "2026-02-09T20:01:47.000Z",
       "eventId": "intune-docs:c8346c12324205eb1e0f39e879d56423a1782b81:modified:intune/intune-service/fundamentals/settings-insight.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Improvements for clarity, conciseness, and just in general to bring this article together.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Settings insight documentation clarifies peer benchmarking and supported baselines",
+        "summary": "The article now explains that light bulb icons show when similar organizations use Microsoft’s recommended default values. It lists the Microsoft Edge and Microsoft 365 Apps for Enterprise baselines, describes when insights appear, and clarifies that they are informational.",
+        "adminImpact": "Administrators can better understand where Settings insight is available and how to interpret its recommendations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -186,11 +200,13 @@
       "firstSeenAt": "2026-02-09T20:16:21.000Z",
       "eventId": "intune-docs:87b1c5d4929e9b3e8132fa180aebe508884e8992:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Reconstructed What's New to account for delayed release and dev revisions",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "In-development page revised and several planned items removed",
+        "summary": "The page date changed from January 7 to February 9, 2026. Entries covering EPM on Azure Virtual Desktop, Lenovo Device Orchestration, Apple settings, Android management-mode filtering, Device Offboarding Agent tasks, and assignment-filter options were removed.",
+        "adminImpact": "Administrators tracking planned Intune capabilities should review the revised page; these items are no longer listed there. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -211,10 +227,12 @@
       "eventId": "intune-docs:87b1c5d4929e9b3e8132fa180aebe508884e8992:modified:intune/intune-service/fundamentals/whats-new-archive.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Reconstructed What's New to account for delayed release and dev revisions",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "What's New archive adds July 2025 Intune updates",
+        "summary": "The archive now documents EPM wildcard support, RugGear OEMConfig availability, new Apple Settings Catalog settings, device cleanup platform support, and macOS ADE local administrator and LAPS configuration.",
+        "adminImpact": "Administrators can use the new rule matching and management options where applicable; no mandatory configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,10 +253,12 @@
       "eventId": "intune-docs:87b1c5d4929e9b3e8132fa180aebe508884e8992:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Reconstructed What's New to account for delayed release and dev revisions",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Intune expands AVD, app, and settings support",
+        "summary": "Service release 2601 documents EPM support for AVD single-session VMs, a Lenovo Device Orchestration portal link, four newly available protected apps, and new Windows settings catalog policies.",
+        "adminImpact": "Administrators can use the new EPM deployment support, Lenovo portal link, protected apps, and settings catalog options. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -259,10 +279,12 @@
       "eventId": "intune-docs:3e3ff228ab8ce9fdaab818c4fca9b75501bafd4f:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Late arrival",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Windows feature update reports support Windows 11, version 25H2",
+        "summary": "The Windows feature update compatibility risks and device readiness reports now support Windows 11, version 25H2 as a selectable target OS.",
+        "adminImpact": "Administrators can select Windows 11, version 25H2 to assess device readiness and compatibility risks.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -282,11 +304,13 @@
       "firstSeenAt": "2026-02-09T20:50:50.000Z",
       "eventId": "intune-docs:d190388ff1ebfb0d02e6083ee8dc9f7faaf0eaa0:modified:intune/device-updates/windows/feature-update-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update feature-update-policy.md",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected typo in Windows feature update policy heading",
+        "summary": "The heading now correctly reads “Manage Windows feature update policies”; the reference link remains unchanged.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -306,11 +330,13 @@
       "firstSeenAt": "2026-02-09T23:02:32.000Z",
       "eventId": "intune-docs:9f7d2f25943a95e5ea980ab666ec5d19b1d02798:modified:autopilot/known-issues.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Document Hybrid Entra join timeout issue in Autopilot",
-        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Hybrid Entra join Autopilot timeout issue documented",
+        "summary": "The known-issues page now documents deployment timeouts with error 0x80004005. The issue is resolved by KB5065789 or later for Windows 25H2, KB5065426 or later for 24H2, and KB5070312 or later for 23H2.",
+        "adminImpact": "Administrators can use this information to identify affected deployments and verify whether devices include the applicable update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -333,9 +359,9 @@
     "overview": "Today's report includes 0 new, 13 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-add.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/properties-catalog.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/what",
+        "summary": "The documentation now updates details on how the Intune agent evaluates script output, including STDOUT, STDERR, and the exit code. A nonzero exit code indicates failure and leaves detection status as not installed. The page metadata date changed from October 20, 2025, to February 9, 2026. The device restore remote action requires the Managed Home Screen to have the Alarms & Reminders permission granted. The remote action documentation now states that Managed Home Screen must be granted the Alarms & Reminders permission to run the action. The article now explains that light bulb icons show when similar organizations use Microsoft’s recommended default values. It lists the Microsoft Edge and ",
         "sourceFiles": [
           "intune/intune-service/apps/apps-win32-add.md",
           "intune/intune-service/configuration/properties-catalog.md",
@@ -349,26 +375,26 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/configmgr",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/replication/sql-replication.md.",
+        "summary": "The documented query now filters on `SiteStatus = 120` instead of `Status = 120`.",
         "sourceFiles": [
           "intune/configmgr/core/servers/manage/replication/sql-replication.md"
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/device-updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/apple/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md.",
+        "summary": "The Apple device updates documentation now lists Device Enrollment and Automated Device Enrollment as supported enrollment methods. The heading now correctly reads “Manage Windows feature update policies”; the reference link remains unchanged.",
         "sourceFiles": [
           "intune/device-updates/apple/index.md",
           "intune/device-updates/windows/feature-update-policy.md"
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "Windows Autopilot",
-        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md.",
+        "summary": "The known-issues page now documents deployment timeouts with error 0x80004005. The issue is resolved by KB5065789 or later for Windows 25H2, KB5065426 or later for 24H2, and KB5070312 or later for 23H2.",
         "sourceFiles": [
           "autopilot/known-issues.md"
         ]
@@ -376,24 +402,24 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-add.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/properties-catalog.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/in-development.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/what"
+        "detail": "The documentation now updates details on how the Intune agent evaluates script output, including STDOUT, STDERR, and the exit code. A nonzero exit code indicates failure and leaves detection status as not installed. The page metadata date changed from October 20, 2025, to February 9, 2026. The device restore remote action requires the Managed Home Screen to have the Alarms & Reminders permission granted. The remote action documentation now states that Managed Home Screen must be granted the Alarms & Reminders permission to run the action. The article now explains that light bulb icons show when similar organizations use Microsoft’s recommended default values. It lists the Microsoft Edge and "
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/configmgr",
-        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/manage/replication/sql-replication.md."
+        "detail": "The documented query now filters on `SiteStatus = 120` instead of `Status = 120`."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/device-updates",
-        "detail": "Updated Microsoft Intune documentation in intune/device-updates/apple/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md."
+        "detail": "The Apple device updates documentation now lists Device Enrollment and Automated Device Enrollment as supported enrollment methods. The heading now correctly reads “Manage Windows feature update policies”; the reference link remains unchanged."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "Windows Autopilot",
-        "detail": "Updated Microsoft Intune documentation in autopilot/known-issues.md."
+        "detail": "The known-issues page now documents deployment timeouts with error 0x80004005. The issue is resolved by KB5065789 or later for Windows 25H2, KB5065426 or later for 24H2, and KB5070312 or later for 23H2."
       }
     ],
     "generatedBy": "fallback"

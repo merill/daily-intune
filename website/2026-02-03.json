@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-02-03T00:27:57.000Z",
       "eventId": "intune-docs:6f52c61c661a90cf64b884b4de59b27e47efaa79:modified:intune/intune-service/fundamentals/microsoft-intune-service-description.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "refresh",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune service description refreshes scope and trial wording",
+        "summary": "The article updates Intune’s description from enterprise mobility management to endpoint management, clarifies supported devices and apps, revises integration wording, removes the stated 100-user trial limit, and refreshes related guidance and metadata.",
+        "adminImpact": "Administrators should use the updated article when communicating Intune’s scope, integrations, trial offering, and service-update guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-02-03T14:56:03.000Z",
       "eventId": "intune-docs:d8e8b2b2b6541affd9a960b7e70d4fff1b80f485:modified:intune/intune-service/apps/mamedge-overview.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "docs: Remove diagram image from mamedge-overview article",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-overview.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Removed the data security steps diagram from the Microsoft Edge overview",
+        "summary": "The MAM for Microsoft Edge overview article no longer displays the linked diagram showing steps to secure corporate data.",
+        "adminImpact": "Administrators using the article as a visual reference should use the updated page without this diagram. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-02-03T15:13:03.000Z",
       "eventId": "intune-docs:77a03b92ef320b19a0cec17d4c953bd3d66caedf:modified:intune/intune-service/apps/app-protection-policy-settings-android.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "docs: Update ms.date to 02/03/2026",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/app-protection-policy-settings-android.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Android app protection policy page date updated",
+        "summary": "The page metadata date changed from November 18, 2025, to February 3, 2026.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-02-03T15:18:28.000Z",
       "eventId": "intune-docs:da6f9475ee2ec0eff702f2c1af6531617859aa3d:modified:intune/intune-service/apps/manage-microsoft-edge.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "docs: Update ms.date to 02/03/2026",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Edge management article date updated",
+        "summary": "The article’s ms.date metadata changed from 12/02/2025 to 02/03/2026.",
+        "adminImpact": "No administrator action is required; the updated date helps identify the latest documentation revision.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -114,11 +122,13 @@
       "firstSeenAt": "2026-02-03T15:24:34.000Z",
       "eventId": "intune-docs:b83f47e27a6cc4ec1ff98986a0c49b6f2d68cb1f:modified:intune/intune-service/apps/manage-microsoft-edge.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "docs: Apply Acrolinx style improvements to manage-microsoft-edge.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Edge for mobile guidance receives wording and terminology refinements",
+        "summary": "The article was edited for grammar, concision, and clarity, including revised descriptions of data-protection levels, app configuration terminology, SSO prerequisites, and policy guidance.",
+        "adminImpact": "Administrators should find the Microsoft Edge for mobile guidance easier to read and interpret; no configuration change is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -138,11 +148,13 @@
       "firstSeenAt": "2026-02-03T15:40:50.000Z",
       "eventId": "intune-docs:bb623edc3804edc9794c968bd8a4c3fbbdd5e5ec:modified:intune/intune-service/apps/manage-microsoft-edge.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "docs: Restore default behavior description for PAC failed-open support",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "PAC failed-open default behavior is clarified",
+        "summary": "The Microsoft Edge for iOS and Android documentation now states that invalid or unavailable PAC scripts block network access by default, while organizations can change the behavior to PAC failed-open.",
+        "adminImpact": "Administrators can use the clarified default when reviewing or configuring PAC policies; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -162,11 +174,13 @@
       "firstSeenAt": "2026-02-03T20:47:09.000Z",
       "eventId": "intune-docs:3f79f5117daaffeace2b6211a09120d3558022cb:modified:intune/intune-service/fundamentals/microsoft-intune-service-description.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "admin center",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune documentation adds the location for service notices",
+        "summary": "The article now states that service change and service health notices are available in the Intune admin center under Tenant administration > Tenant status > Service health and message center. It also updates deprecation wording and the article date.",
+        "adminImpact": "Administrators have a documented location for monitoring Intune service notices; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -186,11 +200,13 @@
       "firstSeenAt": "2026-02-03T21:44:16.000Z",
       "eventId": "intune-docs:71ffdad00ece2238f8de916d61145fc547566921:modified:intune/intune-service/fundamentals/assign-role.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update custom roles and available list of permission/actions based on what is currently availablew in the Intune UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/assign-role.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Custom role terminology updated",
+        "summary": "The documentation now describes custom roles using “permissions and actions” instead of “categories and category permissions.”",
+        "adminImpact": "This clarifies the terminology used when reviewing custom role assignments; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -210,11 +226,13 @@
       "firstSeenAt": "2026-02-03T21:44:16.000Z",
       "eventId": "intune-docs:71ffdad00ece2238f8de916d61145fc547566921:modified:intune/intune-service/fundamentals/create-custom-role.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update custom roles and available list of permission/actions based on what is currently availablew in the Intune UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/create-custom-role.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Custom role permissions and actions list updated",
+        "summary": "The page now reflects the current Intune UI, adds permissions for cloud-attached devices, Cloud PKI, Deployment Plans, and Android Enterprise enrollment-time membership assignment, and updates several descriptions and links.",
+        "adminImpact": "Review the updated permission and action list when creating or auditing custom roles. No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -234,11 +252,13 @@
       "firstSeenAt": "2026-02-03T21:44:16.000Z",
       "eventId": "intune-docs:71ffdad00ece2238f8de916d61145fc547566921:modified:intune/intune-service/fundamentals/role-based-access-control-reference.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update custom roles and available list of permission/actions based on what is currently availablew in the Intune UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control-reference.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Custom role permissions documentation now includes guidance links",
+        "summary": "The RBAC reference now links to the complete list of permission/action combinations and detailed instructions for creating custom roles.",
+        "adminImpact": "Administrators can use the linked guidance to identify available permissions and configure custom roles.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -258,11 +278,13 @@
       "firstSeenAt": "2026-02-03T21:44:16.000Z",
       "eventId": "intune-docs:71ffdad00ece2238f8de916d61145fc547566921:modified:intune/intune-service/fundamentals/role-based-access-control.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update custom roles and available list of permission/actions based on what is currently availablew in the Intune UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/role-based-access-control.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "RBAC documentation now uses Permission and Action terminology",
+        "summary": "The role-based access control guidance updates permission details and user lookup instructions to identify entries by Permission and Action instead of Category and Permission.",
+        "adminImpact": "This aligns the guidance with the current Intune admin center UI and helps administrators locate assigned permissions more accurately. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -282,11 +304,13 @@
       "firstSeenAt": "2026-02-03T23:23:36.000Z",
       "eventId": "intune-docs:2afd18bd15544b2ebea8ef51c01f3d725f1205e0:modified:intune/intune-service/fundamentals/microsoft-intune-service-description.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final changes, hopefully",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Service description adds Intune admin center notification guidance",
+        "summary": "The documentation now directs administrators to service change and health notices in both the Microsoft Intune and Microsoft 365 admin centers, with navigation paths for each. It also updates guidance for the Microsoft 365 Admin mobile app and Message Center.",
+        "adminImpact": "Administrators can monitor notices in Intune at Tenant administration > Tenant status > Service health and message center, or in Microsoft 365 at Health > Message center.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -305,9 +329,9 @@
     "overview": "Today's report includes 0 new, 12 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-overview.md. Updated Microsoft Intune documentation in intune/intune-service/apps/app-protection-policy-settings-android.md. Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-s",
+        "summary": "The article updates Intune’s description from enterprise mobility management to endpoint management, clarifies supported devices and apps, revises integration wording, removes the stated 100-user trial limit, and refreshes related guidance and metadata. The MAM for Microsoft Edge overview article no longer displays the linked diagram showing steps to secure corporate data. The page metadata date changed from November 18, 2025, to February 3, 2026. The article’s ms.date metadata changed from 12/02/2025 to 02/03/2026. The article was edited for grammar, concision, and clarity, including revised descriptions of data-protection levels, app configuration terminology, SSO prerequisites, and policy",
         "sourceFiles": [
           "intune/intune-service/fundamentals/microsoft-intune-service-description.md",
           "intune/intune-service/apps/mamedge-overview.md",
@@ -326,9 +350,9 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-service-description.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-overview.md. Updated Microsoft Intune documentation in intune/intune-service/apps/app-protection-policy-settings-android.md. Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/apps/manage-microsoft-edge.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/microsoft-intune-s"
+        "detail": "The article updates Intune’s description from enterprise mobility management to endpoint management, clarifies supported devices and apps, revises integration wording, removes the stated 100-user trial limit, and refreshes related guidance and metadata. The MAM for Microsoft Edge overview article no longer displays the linked diagram showing steps to secure corporate data. The page metadata date changed from November 18, 2025, to February 3, 2026. The article’s ms.date metadata changed from 12/02/2025 to 02/03/2026. The article was edited for grammar, concision, and clarity, including revised descriptions of data-protection levels, app configuration terminology, SSO prerequisites, and policy"
       }
     ],
     "generatedBy": "fallback"

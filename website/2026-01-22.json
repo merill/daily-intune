@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-01-22T17:58:52.000Z",
       "eventId": "intune-docs:3b97a2230ff9142635e98f768b026c2ccf2d56fd:modified:intune/intune-service/apps/apps-win32-deploy-update-package.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Updated text, replaced note.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows update package deployment guidance clarified",
+        "summary": "The article now recommends Windows Update policies, including update rings, feature updates, and quality updates, instead of deploying updates as Win32 apps. It also includes minor wording and UI-label updates.",
+        "adminImpact": "Administrators planning .msu deployments should review the updated guidance and linked Windows Update policy options. No required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-01-22T19:06:51.000Z",
       "eventId": "intune-docs:a81381123d3f7350bbfe6abe40b3ea36cf6fbaa4:modified:intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "removing links until API doc updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Minor updates to device restore documentation",
+        "summary": "The device restore managed home screen page received minor formatting changes.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-01-22T19:06:51.000Z",
       "eventId": "intune-docs:a81381123d3f7350bbfe6abe40b3ea36cf6fbaa4:modified:intune/intune-service/remote-actions/device-suspend-managed-home-screen.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "removing links until API doc updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Minor updates to Device Suspend Managed Home Screen documentation",
+        "summary": "The documentation page received minor or formatting changes.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-01-22T19:29:58.000Z",
       "eventId": "intune-docs:ad8e802d7d773ed0b6bf6582f4fa0bfb48c6cb57:modified:intune/solutions/end-to-end-guides/macos-endpoints-get-started.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update macOS endpoints guide and Platform SSO details",
-        "summary": "Updated Microsoft Intune documentation in intune/solutions/end-to-end-guides/macos-endpoints-get-started.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "macOS guide updates Platform SSO wording",
+        "summary": "The guide’s date and Platform SSO wording were updated, including a revised recommendation to enforce Platform SSO during device registration.",
+        "adminImpact": "Administrators should use the updated terminology and recommendation when following the macOS guide; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -114,11 +122,13 @@
       "firstSeenAt": "2026-01-22T19:41:01.000Z",
       "eventId": "intune-docs:14c039e516bba99ea8803b528342b44dd2a475d5:modified:intune/solutions/end-to-end-guides/macos-endpoints-get-started.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Fix grammar in Platform SSO recommendation",
-        "summary": "Updated Microsoft Intune documentation in intune/solutions/end-to-end-guides/macos-endpoints-get-started.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected grammar in Platform SSO recommendation",
+        "summary": "The macOS endpoints guide now uses corrected wording when describing Platform SSO as a Zero Trust best practice.",
+        "adminImpact": "The recommendation is unchanged; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -139,10 +149,12 @@
       "eventId": "intune-docs:ff256ec810450abd3b5e8cf48a8b9dd7a1c39a99:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "PM review",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Migration guide clarifies Intune license and policy behavior",
+        "summary": "The guide now states that assigning Intune licenses switches users to Intune management and that Basic Mobility and Security policies no longer apply to users assigned Intune. It also adds policy-mapping and license-assignment guidance and recommends removing old policies.",
+        "adminImpact": "Administrators should account for the policy transition when planning migrations and review existing Basic Mobility and Security policies to prevent unintended future assignments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -162,11 +174,13 @@
       "firstSeenAt": "2026-01-22T23:40:58.000Z",
       "eventId": "intune-docs:a872dcdac71d5a48e369582211a6e3538d33f745:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "PM review",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Migration guide adds detailed Intune transition steps",
+        "summary": "The guide now includes policy-mapping and license-assignment guidance, clarifies policy behavior after licensing, and recommends removing obsolete Basic Mobility and Security policies.",
+        "adminImpact": "Administrators planning a migration have clearer preparation steps and guidance for managing legacy policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -185,9 +199,9 @@
     "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
+        "summary": "The article now recommends Windows Update policies, including update rings, feature updates, and quality updates, instead of deploying updates as Win32 apps. It also includes minor wording and UI-label updates. The device restore managed home screen page received minor formatting changes. The documentation page received minor or formatting changes. The guide now states that assigning Intune licenses switches users to Intune management and that Basic Mobility and Security policies no longer apply to users assigned Intune. It also adds policy-mapping and license-assignment guidance and recommends removing old policies. The guide now includes policy-mapping and license-assignment guidance, clar",
         "sourceFiles": [
           "intune/intune-service/apps/apps-win32-deploy-update-package.md",
           "intune/intune-service/remote-actions/device-restore-managed-home-screen.md",
@@ -197,9 +211,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/solutions",
-        "summary": "Updated Microsoft Intune documentation in intune/solutions/end-to-end-guides/macos-endpoints-get-started.md. Updated Microsoft Intune documentation in intune/solutions/end-to-end-guides/macos-endpoints-get-started.md.",
+        "summary": "The guide’s date and Platform SSO wording were updated, including a revised recommendation to enforce Platform SSO during device registration. The macOS endpoints guide now uses corrected wording when describing Platform SSO as a Zero Trust best practice.",
         "sourceFiles": [
           "intune/solutions/end-to-end-guides/macos-endpoints-get-started.md",
           "intune/solutions/end-to-end-guides/macos-endpoints-get-started.md"
@@ -208,14 +222,14 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/apps-win32-deploy-update-package.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-restore-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/remote-actions/device-suspend-managed-home-screen.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md."
+        "detail": "The article now recommends Windows Update policies, including update rings, feature updates, and quality updates, instead of deploying updates as Win32 apps. It also includes minor wording and UI-label updates. The device restore managed home screen page received minor formatting changes. The documentation page received minor or formatting changes. The guide now states that assigning Intune licenses switches users to Intune management and that Basic Mobility and Security policies no longer apply to users assigned Intune. It also adds policy-mapping and license-assignment guidance and recommends removing old policies. The guide now includes policy-mapping and license-assignment guidance, clar"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/solutions",
-        "detail": "Updated Microsoft Intune documentation in intune/solutions/end-to-end-guides/macos-endpoints-get-started.md. Updated Microsoft Intune documentation in intune/solutions/end-to-end-guides/macos-endpoints-get-started.md."
+        "detail": "The guide’s date and Platform SSO wording were updated, including a revised recommendation to enforce Platform SSO during device registration. The macOS endpoints guide now uses corrected wording when describing Platform SSO as a Zero Trust best practice."
       }
     ],
     "generatedBy": "fallback"

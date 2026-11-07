@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-01-23T00:48:16.000Z",
       "eventId": "intune-docs:bd59857be7773a82f615dcf4257712640f307bcd:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "validation warning",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Migration guide clarifies licenses, roles, and policy cleanup",
+        "summary": "The guide now refers to assigning licenses and policies, identifies relevant Intune and Microsoft Entra roles for Conditional Access, and links to policy-removal guidance. It also updates wording, formatting, and links.",
+        "adminImpact": "Administrators have clearer guidance on required roles and on removing unneeded Basic Mobility and Security policies during migration.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-01-23T00:58:35.000Z",
       "eventId": "intune-docs:7712f47afcb7f12e5ba9fd9e8de82220dbe00601:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final review",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Migration guide updates Basic Mobility and Security references",
+        "summary": "The guide removes a standalone overview link and revises the reference to Basic Conditional Access policy documentation.",
+        "adminImpact": "Review the updated migration guidance when using these references; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -67,10 +71,12 @@
       "eventId": "intune-docs:f8c4863c9227ccc553d28e219b2fd916486f1f0f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Updates",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Device query documentation expands supported joins",
+        "summary": "The documentation now lists nine supported join types, adding leftsemi, rightsemi, leftanti, and rightanti. It also clarifies that Device must be referenced through a scalar property for operators such as distinct, summarize, and order by, and provides corrected aggregation examples.",
+        "adminImpact": "Administrators can use the expanded join options and avoid query errors by referencing properties such as Device.DeviceId when scalar values are required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-01-23T12:54:40.000Z",
       "eventId": "intune-docs:332f4e179bcadd38c28e33e8975e4e840de60bac:modified:intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update high-impact-task-sequence-settings.md",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "High-impact task sequence location in Software Center clarified",
+        "summary": "The documentation now states that high-impact task sequences appear under Operating Systems in Software Center, while other task sequence deployments appear under Applications.",
+        "adminImpact": "Administrators can use this distinction to understand where each deployment appears in Software Center.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -114,11 +122,13 @@
       "firstSeenAt": "2026-01-23T00:48:16.000Z",
       "eventId": "intune-docs:378575de73f3ae7e613ab3669e606482e44695de:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "validation warning",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Migration guide clarifies license assignment and Conditional Access roles",
+        "summary": "The guide now says to assign licenses and policies, identifies the Endpoint Security Manager and Conditional Access Administrator roles, and adds links for role details and removing Basic Mobility and Security policies. It also updates wording and policy references.",
+        "adminImpact": "Administrators migrating to Intune can use the added role guidance and links to complete the documented steps more easily.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -138,11 +148,13 @@
       "firstSeenAt": "2026-01-23T00:58:35.000Z",
       "eventId": "intune-docs:f421bb5899a243d7f103ca9891e8b865a9235498:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final review",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Basic Mobility and Security references updated",
+        "summary": "The migration-to-Intune guide removes a standalone overview link and revises the Basic Conditional Access policy guidance references.",
+        "adminImpact": "Administrators using the migration guide should follow the revised references.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -162,11 +174,13 @@
       "firstSeenAt": "2026-01-23T13:53:20.000Z",
       "eventId": "intune-docs:ff379a494e563a80719395adc892896ceac77fe7:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Query documentation formatting improved",
+        "summary": "The page now consistently formats query operators, entities, properties, and example values as code or emphasis, and adds punctuation to the supported join-type list.",
+        "adminImpact": "Administrators can more easily read and distinguish query syntax when creating or reviewing device queries.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -186,11 +200,13 @@
       "firstSeenAt": "2026-01-23T13:57:18.000Z",
       "eventId": "intune-docs:34654258a4c4c086d7e5360fb4f6ef0199128181:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated documentation for the `join` operator",
+        "summary": "The multi-device query documentation refreshes the `join` operator entry and lists its supported join types, with `innerunique` as the default.",
+        "adminImpact": "Administrators can refer to the updated entry when writing device queries; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -211,10 +227,12 @@
       "eventId": "intune-docs:0bd24bf7ab6920164c8e3dba089d740bfb0565cf:modified:intune/intune-service/fundamentals/remediations.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Update remediations.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remediations.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Run remediation requires successful device communication",
+        "summary": "The documentation now states that a device will not receive the Run remediation action when it is offline or cannot communicate successfully with Intune or WNS when the action is sent.",
+        "adminImpact": "Administrators should account for device connectivity when sending Run remediation actions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -234,11 +252,13 @@
       "firstSeenAt": "2026-01-23T14:41:47.000Z",
       "eventId": "intune-docs:80d72fd4473ed3eb65d20519100b9fbb2c9f2ee7:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "examples updates",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Device query examples and guidance updated",
+        "summary": "The documentation clarifies how the `Device` entity appears in results and how to reference its properties. Examples now explicitly use properties such as `Device.DeviceName`, use corrected equality syntax and quoted values, and show projecting the `Device` entity.",
+        "adminImpact": "Administrators writing or troubleshooting device queries should follow the updated examples, especially when filtering or sorting by device properties.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -258,11 +278,13 @@
       "firstSeenAt": "2026-01-23T14:58:42.000Z",
       "eventId": "intune-docs:9e45f7d623df8e4320b237599a2b0499065dc41f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Device query examples were clarified",
+        "summary": "The documentation reformats several sample queries and explicitly joins EncryptableVolume to LogicalDrive on the Device field.",
+        "adminImpact": "No action is required. Administrators using these examples get clearer, more readable query syntax.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -282,11 +304,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-1-mamca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-1-mamca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Microsoft Edge app protection documentation",
+        "summary": "The page date was updated, and the linked Step 2 screenshot was removed. The update also removes a section and makes grammar changes.",
+        "adminImpact": "No administrator action is required based on this update.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -306,11 +330,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-2-app.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-2-app.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "MAM Edge documentation removes a Step 3 image link",
+        "summary": "The page date was updated to January 23, 2026, and the linked image for Step 3 of the Mobile Threat Defense integration was removed.",
+        "adminImpact": "Administrators following the integration guidance may notice that the Step 3 visual reference is no longer available.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -330,11 +356,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-3-scc.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-3-scc.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "App protection policy documentation updated",
+        "summary": "The page date changed from 12/05/2025 to 01/23/2026, and the linked image illustrating app protection policy creation was removed.",
+        "adminImpact": "No administrator action is required; review the page if you rely on that image.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -354,11 +382,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-4-acp-edge.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-4-acp-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Edge policy guidance and navigation updated",
+        "summary": "The page date was updated, the explicit warning against deploying both policy types was shortened, and the “Next steps” section’s image link was removed and renamed “Next step.”",
+        "adminImpact": "Administrators will see less explicit conflict guidance and no linked next-step image when using this page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -378,11 +408,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-5-settings-catalog.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-5-settings-catalog.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Microsoft Edge settings catalog documentation",
+        "summary": "The page date changed from January 15 to January 23, 2026. The “Next steps” heading became “Next step,” and the Step 6 image link was removed.",
+        "adminImpact": "Administrators following the documentation may notice the revised next-step navigation. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -402,11 +434,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-6-end-user-experience.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-6-end-user-experience.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Edge end-user experience documentation updated",
+        "summary": "The page date changed to January 23, 2026, and the Step 7 troubleshooting image link was removed.",
+        "adminImpact": "Administrators consulting the page may no longer find the Step 7 troubleshooting image link.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -426,11 +460,13 @@
       "firstSeenAt": "2026-01-23T16:18:55.000Z",
       "eventId": "intune-docs:7756b221f4a05d29c1a496889a8100ac51bcc6be:modified:intune/intune-service/apps/mamedge-7-troubleshoot.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Removed section, updated grammar.",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-7-troubleshoot.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Microsoft Edge MAM troubleshooting documentation",
+        "summary": "The page’s revision date changed from January 15, 2026, to January 23, 2026; the update also removes a section and improves grammar.",
+        "adminImpact": "Administrators should use the revised troubleshooting page when referencing current guidance. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -450,11 +486,13 @@
       "firstSeenAt": "2026-01-23T16:32:22.000Z",
       "eventId": "intune-docs:e546b09fdfca5f8e0b124cb8a9af92572cc0112f:modified:intune/intune-service/apps/mamedge-4-acp-edge.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Fix formatting for policy type selection note in Microsoft Edge ACP documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-4-acp-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Policy type selection note formatting updated",
+        "summary": "The guidance to choose a policy type based on device enrollment status is now formatted as a blockquote.",
+        "adminImpact": "No administrator action is required; the guidance is easier to identify in the documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -475,9 +513,9 @@
     "overview": "Today's report includes 0 new, 19 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remediations.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-1-mamca.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-2-app.md. Updated Microsoft Intune documenta",
+        "summary": "The guide now refers to assigning licenses and policies, identifies relevant Intune and Microsoft Entra roles for Conditional Access, and links to policy-removal guidance. It also updates wording, formatting, and links. The guide removes a standalone overview link and revises the reference to Basic Conditional Access policy documentation. The guide now says to assign licenses and policies, identifies the Endpoint Security Manager and Conditional Access Administrator roles, and adds links for role details and removing Basic Mobility and Security policies. It also updates wording and policy references. The migration-to-Intune guide removes a standalone overview link and revises the Basic Condi",
         "sourceFiles": [
           "intune/intune-service/fundamentals/migrate-to-intune.md",
           "intune/intune-service/fundamentals/migrate-to-intune.md",
@@ -497,7 +535,7 @@
       {
         "category": "Feature update",
         "title": "intune/advanced-analytics",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "summary": "The documentation now lists nine supported join types, adding leftsemi, rightsemi, leftanti, and rightanti. It also clarifies that Device must be referenced through a scalar property for operators such as distinct, summarize, and order by, and provides corrected aggregation examples. The page now consistently formats query operators, entities, properties, and example values as code or emphasis, and adds punctuation to the supported join-type list. The multi-device query documentation refreshes the `join` operator entry and lists its supported join types, with `innerunique` as the default. The documentation clarifies how the `Device` entity appears in results and how to reference its properti",
         "sourceFiles": [
           "intune/advanced-analytics/device-query-multiple-devices.md",
           "intune/advanced-analytics/device-query-multiple-devices.md",
@@ -507,9 +545,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/configmgr",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md.",
+        "summary": "The documentation now states that high-impact task sequences appear under Operating Systems in Software Center, while other task sequence deployments appear under Applications.",
         "sourceFiles": [
           "intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md"
         ]
@@ -517,19 +555,19 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remediations.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-1-mamca.md. Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-2-app.md. Updated Microsoft Intune documenta"
+        "detail": "The guide now refers to assigning licenses and policies, identifies relevant Intune and Microsoft Entra roles for Conditional Access, and links to policy-removal guidance. It also updates wording, formatting, and links. The guide removes a standalone overview link and revises the reference to Basic Conditional Access policy documentation. The guide now says to assign licenses and policies, identifies the Endpoint Security Manager and Conditional Access Administrator roles, and adds links for role details and removing Basic Mobility and Security policies. It also updates wording and policy references. The migration-to-Intune guide removes a standalone overview link and revises the Basic Condi"
       },
       {
         "category": "Feature update",
         "headline": "intune/advanced-analytics",
-        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+        "detail": "The documentation now lists nine supported join types, adding leftsemi, rightsemi, leftanti, and rightanti. It also clarifies that Device must be referenced through a scalar property for operators such as distinct, summarize, and order by, and provides corrected aggregation examples. The page now consistently formats query operators, entities, properties, and example values as code or emphasis, and adds punctuation to the supported join-type list. The multi-device query documentation refreshes the `join` operator entry and lists its supported join types, with `innerunique` as the default. The documentation clarifies how the `Device` entity appears in results and how to reference its properti"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/configmgr",
-        "detail": "Updated Microsoft Intune documentation in intune/configmgr/osd/deploy-use/high-impact-task-sequence-settings.md."
+        "detail": "The documentation now states that high-impact task sequences appear under Operating Systems in Software Center, while other task sequence deployments appear under Applications."
       }
     ],
     "generatedBy": "fallback"

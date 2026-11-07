@@ -17,14 +17,13 @@
       "firstSeenAt": "2026-01-12T16:07:13.000Z",
       "eventId": "intune-docs:7936d54f2751c88cb9bb6af57b2d64d2006972fb:added:intune/device-updates/windows/ring-policy-settings.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Update Ring policy settings reference added",
-        "summary": "A reference article was added for Windows Update settings manageable through Intune Update Ring policies.",
-        "adminImpact": "Use the reference to evaluate available update-ring controls before policy design.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "New reference for Windows Update ring policy settings",
+        "summary": "Added documentation listing Windows Update settings manageable through Intune Update Ring policies, including update controls, user experience options, and CSP references.",
+        "adminImpact": "Administrators have a consolidated reference for configuring update delivery, deferrals, restarts, notifications, and user access to update controls.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,14 +43,13 @@
       "firstSeenAt": "2026-01-12T16:19:42.000Z",
       "eventId": "intune-docs:e09d9f09e99db4cd3b696ef5e3dcc0ed9fe31173:added:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Windows Update Ring settings policy reference added",
-        "summary": "A new reference article documents Windows Update settings available through Intune Update Ring policies.",
-        "adminImpact": "Use this new reference when selecting update ring settings.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "New reference page details Windows Update ring policy settings",
+        "summary": "The page documents Update ring settings for Windows devices, covering update delivery, deferrals, Windows 11 upgrades, uninstall periods, prerelease builds, restart behavior, pause and scan access, and notifications.",
+        "adminImpact": "Administrators can use the setting descriptions and CSP references to configure update delivery and the end-user update experience.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -73,14 +71,13 @@
       "firstSeenAt": "2026-01-12T13:18:33.000Z",
       "eventId": "intune-docs:4f100449bfed84c568011a8b0383b81808534f8b:modified:intune/device-updates/windows/settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring settings page restructured",
-        "summary": "The former settings page removes its introductory Update settings text and renames its main section to Update rings settings as content moves to policy-specific references.",
-        "adminImpact": "Follow the current update rings policy settings reference for configuration details.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "Update rings settings documentation reorganized",
+        "summary": "The page now uses an “Update rings settings” heading, adds an overview of the two setting categories, converts Microsoft product updates into a table, and reformats other settings and CSP links.",
+        "adminImpact": "Use the revised sections and table layout when locating update-ring settings and their CSP references.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -100,14 +97,13 @@
       "firstSeenAt": "2026-01-12T13:29:54.000Z",
       "eventId": "intune-docs:92f416e92beb575f6b267f4e9bee24378e9331da:modified:intune/device-updates/windows/settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring settings add driver and deferral controls",
-        "summary": "The settings table adds Windows drivers Allow/Block with the ExcludeWUDriversInQualityUpdate CSP and explains 0–30 day quality update deferrals; it also corrects the Microsoft Update CSP link.",
-        "adminImpact": "Set Windows drivers to Allow if drivers should scan from Windows Update, and choose quality deferrals appropriate to your servicing cadence.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "Windows update settings are reorganized",
+        "summary": "The page now presents Microsoft product updates, Windows drivers, deferral periods, Windows 11 upgrades, uninstall periods, and pre-release builds as table entries with updated CSP links.",
+        "adminImpact": "Use the updated table and links when configuring or documenting Windows update policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -127,14 +123,13 @@
       "firstSeenAt": "2026-01-12T14:35:12.000Z",
       "eventId": "intune-docs:8e003f24769bb9280e7210f4f5ef5c900a4b62a6:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Migration guidance reflects January 2026 review",
-        "summary": "The migration guidance carries a January 8, 2026 date, indicating its planned review point.",
-        "adminImpact": "No new migration action is specified; continue validating migration plans against the current guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:21:00.767Z"
+        "category": "Doc update",
+        "headline": "Migration guidance article updated",
+        "summary": "The article date changed to January 8, 2026, and the sentence about the removed Migration evaluation tool was deleted.",
+        "adminImpact": "Review the updated migration guidance; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -155,13 +150,12 @@
       "eventId": "intune-docs:6a9aeaf0d7070bdd877f6d29cbea92a1ca42f7d1:modified:intune/intune-service/fundamentals/filters-supported-workloads.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Assignment filters now supported for Settings Catalog DDM",
-        "summary": "The supported-workloads table changes Settings catalog (DDM) from unsupported to supported.",
-        "adminImpact": "Administrators can plan assignment filters for declarative device management Settings Catalog workloads.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "headline": "Settings catalog (DDM) is now listed as supported for filters",
+        "summary": "The supported-workloads documentation now marks Settings catalog (DDM) as supported in two table entries.",
+        "adminImpact": "Administrators can account for Settings catalog (DDM) when planning filter usage.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -181,14 +175,13 @@
       "firstSeenAt": "2026-01-12T15:33:46.000Z",
       "eventId": "intune-docs:9201252b33803f3379e73974e02c72271d1d82ec:modified:intune/device-updates/windows/settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring prerelease setting adds CSP reference",
-        "summary": "The settings table adds the BranchReadinessLevel CSP reference to Enable pre-release builds and removes a general behavior-reference sentence.",
-        "adminImpact": "Use the CSP reference when validating prerelease build configuration.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "Windows update settings documentation reorganized",
+        "summary": "The page now presents update and user experience settings in tables, including descriptions and CSP references for several settings.",
+        "adminImpact": "Administrators can more easily find setting behavior and corresponding CSP links. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -208,14 +201,13 @@
       "firstSeenAt": "2026-01-12T16:19:42.000Z",
       "eventId": "intune-docs:e09d9f09e99db4cd3b696ef5e3dcc0ed9fe31173:modified:intune/device-updates/windows/expedite-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Expedited quality update guidance is being consolidated",
-        "summary": "The expedited-update content participates in the move toward a consolidated quality update policy experience.",
-        "adminImpact": "Use the quality update policy guidance as the primary location for expedited-update configuration.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:21:00.767Z"
+        "category": "Doc update",
+        "headline": "Updated link for expedited update guidance",
+        "summary": "The documentation now links the “Use deadline settings” reference to the update rings policy settings page.",
+        "adminImpact": "Administrators get a more direct reference when reviewing alternatives for normal monthly quality update servicing.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,14 +227,13 @@
       "firstSeenAt": "2026-01-12T16:19:42.000Z",
       "eventId": "intune-docs:e09d9f09e99db4cd3b696ef5e3dcc0ed9fe31173:modified:intune/device-updates/windows/feature-updates-windows-10.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows 10 feature update links move to new policy references",
-        "summary": "The article links multiple-policy behavior to update-rings-policy-settings.md and replaces a creation-section link with the feature updates article root.",
-        "adminImpact": "Continue moving Windows 10 devices ineligible for Windows 11 to a Windows 10 feature update policy.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "Windows 11 feature update guidance link revised",
+        "summary": "The Windows 11 deployment instructions now link to the main feature updates page instead of a specific section anchor.",
+        "adminImpact": "Administrators can use the revised link when reviewing feature update policy deployment guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -262,14 +253,13 @@
       "firstSeenAt": "2026-01-12T16:19:42.000Z",
       "eventId": "intune-docs:e09d9f09e99db4cd3b696ef5e3dcc0ed9fe31173:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings setup links to new settings reference",
-        "summary": "The policy creation steps now direct administrators to update-rings-policy-settings.md instead of settings.md for available Update ring settings.",
-        "adminImpact": "Use the new update rings policy settings reference while creating ring policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:59.733Z"
+        "category": "Doc update",
+        "headline": "Updated Windows update settings link",
+        "summary": "The Update ring settings guidance now links to `update-rings-policy-settings.md` for available Windows update settings.",
+        "adminImpact": "Administrators configuring update rings can use the updated link to find the relevant settings information.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -289,14 +279,13 @@
       "firstSeenAt": "2026-01-12T16:26:18.000Z",
       "eventId": "intune-docs:d7dc01e83cb97b06b238dec0a14c22c329d63e66:modified:intune/intune-service/fundamentals/filters-device-properties.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Filter device-properties table formatting refreshed",
-        "summary": "The article date is updated and spacing is normalized for the iOS/iPadOS Managed property row.",
-        "adminImpact": "No filter behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Device filter documentation adds management types and examples",
+        "summary": "The page now lists additional Android and iOS/iPadOS device management types and includes two `deviceManagementType` filter expressions.",
+        "adminImpact": "Administrators can use the documented values and examples when creating or reviewing device filters.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -316,14 +305,13 @@
       "firstSeenAt": "2026-01-12T16:30:30.000Z",
       "eventId": "intune-docs:36f24b93a9340bc14d665d0f65de01105843f547:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring automatic behavior options documented",
-        "summary": "The policy reference expands Automatic update behavior with Notify download, maintenance-time installation and restart, scheduled installation, no end-user restart control, and reset-to-default behavior, including Active Hours and AllowAutoUpdate references.",
-        "adminImpact": "Choose the automatic behavior and active-hours approach that matches restart and user-notification requirements.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Automatic update behavior is now documented in the policy settings table",
+        "summary": "The automatic update behavior descriptions were moved into the corresponding policy-setting table entry, including the Notify download option and its user-action guidance.",
+        "adminImpact": "Administrators can find the automatic update behavior and related guidance directly alongside the setting; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -343,14 +331,13 @@
       "firstSeenAt": "2026-01-12T16:41:23.000Z",
       "eventId": "intune-docs:3b8c4284e2f92b0baf95c35f39246911c5cc29bc:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring reference removes retired user controls",
-        "summary": "The reference removes Restart checks (EDU Restart), the user option to pause updates, and the user option to check for updates while retaining expanded automatic update behavior guidance.",
-        "adminImpact": "Use Settings Catalog if an existing policy still needs EDU Restart; do not expect these options in new update ring policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Windows Update policy setting descriptions refreshed",
+        "summary": "Documentation for automatic update behavior, restart checks, pausing updates, and checking for updates was reformatted and clarified, including updated bullet punctuation and line breaks.",
+        "adminImpact": "Administrators can use the clearer descriptions when reviewing or configuring Windows Update policies; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -370,14 +357,13 @@
       "firstSeenAt": "2026-01-12T16:56:39.000Z",
       "eventId": "intune-docs:c01833ed39e37801b1a34d05df324b3a13bea4ca:modified:intune/endpoint-analytics/troubleshoot.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Endpoint analytics troubleshooting adds API limitations section",
-        "summary": "Known issues is renamed Known issues and limitations and gains an API operator support limitations subsection.",
-        "adminImpact": "Review API operator limitations when troubleshooting Endpoint analytics queries.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Endpoint analytics API query operator limitations documented",
+        "summary": "The troubleshooting page now lists supported and unsupported OData operators for three endpoint analytics APIs.",
+        "adminImpact": "Review queries using these APIs, as unsupported operators may cause unexpected results or errors.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -397,14 +383,13 @@
       "firstSeenAt": "2026-01-12T17:24:40.000Z",
       "eventId": "intune-docs:ed47c2e07b67249606fb658276b3d0d14297a336:modified:intune/intune-service/configuration/android-oem-configuration-overview.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Android OEMConfig overview adds X application",
-        "summary": "The supported OEMConfig applications table adds X with package identifier com.X.rgoem.",
-        "adminImpact": "Confirm the exact OEMConfig app package before creating Android Enterprise OEM configuration policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Android OEM configuration documentation adds X",
+        "summary": "The overview now lists X with the package identifier `com.X.rgoem`, and the page date was updated to January 26, 2026.",
+        "adminImpact": "Administrators referencing Android OEM configuration documentation can use the newly listed X package identifier.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -424,14 +409,13 @@
       "firstSeenAt": "2026-01-12T17:31:42.000Z",
       "eventId": "intune-docs:da0176d3bc08b350ac20bd42675ae8f0d485fbc0:modified:intune/intune-service/apps/apps-add-enterprise-app.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Enterprise App Catalog guidance refreshed for installer scripts",
-        "summary": "The Enterprise App Catalog article updates its date and describes the Win32 app type as supporting customizable capabilities including PowerShell script installers.",
-        "adminImpact": "Evaluate PowerShell installer scripts when packaging Enterprise App Catalog Win32 applications.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Enterprise App Catalog guidance adds script and MAA limitations",
+        "summary": "The documentation clarifies PowerShell script overrides for install and uninstall commands. In tenants with Multi-Admin Approval enabled, scripts can't be uploaded during app creation; they must be added or modified afterward. Scripts run in system context when no Microsoft Entra user is present.",
+        "adminImpact": "Administrators using script installers should create the app before adding scripts in MAA-enabled tenants and test scripts carefully, since they replace the standard commands.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,14 +435,13 @@
       "firstSeenAt": "2026-01-12T17:31:42.000Z",
       "eventId": "intune-docs:da0176d3bc08b350ac20bd42675ae8f0d485fbc0:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "What's New records Enterprise App Catalog installer script support",
-        "summary": "The What's New page adds a Week of January 12, 2026 section for Enterprise App Catalog Win32 installer script support.",
-        "adminImpact": "Review the new capability before selecting installer-script deployment for catalog apps.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "New feature",
+        "headline": "Use PowerShell scripts as Win32 app installers",
+        "summary": "When adding a Win32 app for Windows, administrators can upload a PowerShell script instead of specifying a command line. Intune packages the script with the app content and runs it in the app installer’s context.",
+        "adminImpact": "Administrators can use richer installation workflows, including prerequisite checks and configuration changes.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -478,14 +461,13 @@
       "firstSeenAt": "2026-01-12T17:59:08.000Z",
       "eventId": "intune-docs:a190d0db165034bf9ee1ef7d8681c80b83431f58:modified:intune/intune-service/fundamentals/admin-tasks.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Admin Tasks article title refocused on centralized management",
-        "summary": "The article is renamed Centrally manage common admin tasks in Microsoft Intune.",
-        "adminImpact": "No workflow behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Admin tasks documentation title updated",
+        "summary": "The page title changed to “Centrally manage common admin tasks in Microsoft Intune,” and the last-updated date changed to January 12, 2026.",
+        "adminImpact": "Administrators should use the updated title when locating this documentation. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -505,14 +487,13 @@
       "firstSeenAt": "2026-01-12T17:59:14.000Z",
       "eventId": "intune-docs:466a6bcc93aa0c10f8cea0cda8e0f837b5ab0c3e:modified:intune/intune-service/fundamentals/admin-tasks.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Admin Tasks metadata clarifies cross-capability scope",
-        "summary": "The title and description now describe managing common administrative tasks centrally across Intune capabilities.",
-        "adminImpact": "Use the central Admin tasks view to review tasks from multiple Intune capabilities.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Admin Tasks page wording updated",
+        "summary": "The page title now says “Centrally manage Admin Tasks,” and its description emphasizes managing common administrative tasks across Intune capabilities.",
+        "adminImpact": "The updated wording makes the centralized Admin Tasks view’s purpose clearer.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -532,14 +513,13 @@
       "firstSeenAt": "2026-01-12T18:40:09.000Z",
       "eventId": "intune-docs:26aa1c297642fe453c7303f46249a038e554ea70:modified:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality updates prerequisites section moved",
-        "summary": "The quality updates article removes its inline prerequisites heading and shared licensing include during content reorganization.",
-        "adminImpact": "Consult the current quality update documentation for prerequisites before deployment.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:14:01.193Z"
+        "category": "Doc update",
+        "headline": "Hotpatch prerequisites removed from the quality updates documentation",
+        "summary": "The Hotpatch prerequisites section was removed, including licensing information and requirements for Windows 11 Enterprise 24H2 or later, the latest baseline release, and Intune management.",
+        "adminImpact": "Administrators will no longer find these Hotpatch requirements on this page when planning deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -559,14 +539,13 @@
       "firstSeenAt": "2026-01-12T18:40:09.000Z",
       "eventId": "intune-docs:26aa1c297642fe453c7303f46249a038e554ea70:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update Ring settings navigation is simplified",
-        "summary": "The policy settings guidance removes an interim Update rings settings section heading as the reference is reorganized around the policy configuration flow.",
-        "adminImpact": "Use the current section layout to locate the setting you intend to configure.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:21:00.767Z"
+        "category": "Doc update",
+        "headline": "Update rings settings heading removed",
+        "summary": "The Windows update rings policy settings page no longer includes the “Update rings settings” heading.",
+        "adminImpact": "Administrators may notice a changed page structure when locating update ring settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -586,14 +565,13 @@
       "firstSeenAt": "2026-01-12T18:40:09.000Z",
       "eventId": "intune-docs:26aa1c297642fe453c7303f46249a038e554ea70:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings article removes legacy Windows as a Service description",
-        "summary": "The article deletes a commented legacy introduction describing feature and quality servicing updates.",
-        "adminImpact": "No update-ring behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Windows Update rings prerequisites were reorganized",
+        "summary": "The documentation now uses shared prerequisite content and explicitly states that the Microsoft Account Sign-In Assistant service must be enabled and running. Portal navigation and related guidance were also revised.",
+        "adminImpact": "Verify that the service is enabled and running, because Windows Update does not offer feature updates when it is disabled.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -613,14 +591,13 @@
       "firstSeenAt": "2026-01-12T18:48:09.000Z",
       "eventId": "intune-docs:f5c81117d8cf68ce269ec2eea97aa71ff466b92b:modified:intune/intune-service/configuration/settings-catalog.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Settings Catalog OS edition filtering guidance expanded",
-        "summary": "The article date is updated and its Windows OS Edition filter guidance is revised as part of the January release.",
-        "adminImpact": "Review OS Edition filtering when scoping Windows Settings Catalog policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Settings Catalog filtering guidance expanded",
+        "summary": "The documentation now explains that filtering can use platform-specific properties, including Windows OS edition, user or device scope, and Android enrollment mode. It also clarifies that filters narrow the settings list.",
+        "adminImpact": "Administrators have clearer guidance for finding applicable settings; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -640,14 +617,13 @@
       "firstSeenAt": "2026-01-12T18:53:36.000Z",
       "eventId": "intune-docs:43901685cdd5fa6db42f604ff8512941cdf1302a:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings settings reference reorganized by policy rows",
-        "summary": "The article is retitled Update rings policy settings and moves Windows 10-to-latest Windows 11 upgrade information into the reorganized settings layout.",
-        "adminImpact": "Check the current policy row for Windows 11 upgrade eligibility guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Update rings settings documentation expanded",
+        "summary": "The page was reorganized and now documents Microsoft product update scanning, Windows driver handling, and quality update deferrals of 0–30 days, including CSP references and deadline-calculation guidance. The pre-release build descriptions were also updated.",
+        "adminImpact": "Administrators can use the added settings and references to control app-update and driver scanning and understand quality-update deferral timing.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -667,14 +643,13 @@
       "firstSeenAt": "2026-01-12T18:53:36.000Z",
       "eventId": "intune-docs:43901685cdd5fa6db42f604ff8512941cdf1302a:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings article removes unsupported setting list entries",
-        "summary": "The update rings article removes the listed feature deferral, uninstall period, and prerelease-build entries from its limitations text.",
-        "adminImpact": "Consult the policy settings reference for currently exposed controls.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Windows update ring setting descriptions are shortened",
+        "summary": "The documentation now lists Feature Update Deferral period, Set feature update uninstall period, and Enable pre-release builds without the uninstall range or specific Insider channels previously shown.",
+        "adminImpact": "Administrators will see less detail on the page about the uninstall period and pre-release build options.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -694,14 +669,13 @@
       "firstSeenAt": "2026-01-12T19:19:21.000Z",
       "eventId": "intune-docs:f492fdf610426f60b01edfbcf8f2e21e7134232b:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings device-requirements include path corrected",
-        "summary": "The shared device-configuration include path is corrected from three parent levels to two.",
-        "adminImpact": "No requirements changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Updated requirements reference in Windows update rings documentation",
+        "summary": "The device-configuration requirements include path was corrected from a three-level relative path to a two-level relative path.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -721,14 +695,13 @@
       "firstSeenAt": "2026-01-12T19:31:07.000Z",
       "eventId": "intune-docs:7e97db2c12f055051ffced20d7a6e1141ad8ed80:modified:intune/intune-service/configuration/android-oem-configuration-overview.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Android OEMConfig app list adds FCNT and Sonim",
-        "summary": "The supported OEMConfig app table adds FCNT Senior Care, FCNT Schema, and Sonim package identifiers.",
-        "adminImpact": "Use the listed package identifiers when configuring OEMConfig for those Android Enterprise device vendors.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "OEMConfig app list updated",
+        "summary": "The documentation adds FCNT Senior Care, FCNT Schema, and Sonim OEMConfig app entries, and removes the X OEMConfig entry.",
+        "adminImpact": "Use the updated app names and package identifiers when referencing OEMConfig applications.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -748,14 +721,13 @@
       "firstSeenAt": "2026-01-12T19:35:22.000Z",
       "eventId": "intune-docs:de3f3a8a3965f727f84b8123c8e00e315d0aafcb:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings subheadings reduced in level",
-        "summary": "Microsoft product updates and Windows drivers headings are changed from level-three to level-four headings.",
-        "adminImpact": "No policy behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Formatting updated in Windows update ring policy settings",
+        "summary": "Heading levels were adjusted for Microsoft product updates and Windows drivers, and the Quality update deferral period setting was emphasized.",
+        "adminImpact": "No administrative action is required; the changes improve page readability.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -775,14 +747,13 @@
       "firstSeenAt": "2026-01-12T19:35:22.000Z",
       "eventId": "intune-docs:de3f3a8a3965f727f84b8123c8e00e315d0aafcb:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Sign-In Assistant requirement formatting simplified",
-        "summary": "The Microsoft Account Sign-In Assistant service requirement is changed from a list item to a direct note.",
-        "adminImpact": "Keep wlidsvc enabled and running for update delivery.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Formatting corrected for wlidsvc requirement",
+        "summary": "The update removes an extra Markdown list marker from the statement requiring the Microsoft Account Sign-In Assistant service (wlidsvc) to be enabled and running.",
+        "adminImpact": "No action is required. The documented service requirement remains unchanged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -802,14 +773,13 @@
       "firstSeenAt": "2026-01-12T19:40:58.000Z",
       "eventId": "intune-docs:2e7d339f53e0fe92b83c148afd017c351a1f7627:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring product update setting converted from heading to bold label",
-        "summary": "Microsoft product updates is converted from a heading and list to a bold setting label with Allow and Block choices.",
-        "adminImpact": "Set Allow to scan Microsoft Update for app updates, or Block to prevent the scan.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:15:29.250Z"
+        "category": "Doc update",
+        "headline": "Update rings policy settings page formatting revised",
+        "summary": "Formatting was updated for the Microsoft product updates, Windows drivers, and quality update sections. Related guidance and CSP references are now displayed as blockquotes.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -829,14 +799,13 @@
       "firstSeenAt": "2026-01-12T19:47:37.000Z",
       "eventId": "intune-docs:5a4a12c7bb36c779ccb8f0b806d5d82d8e9a8300:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring settings table converted to prose sections",
-        "summary": "The article removes its Setting, Description, and CSP Reference table and begins converting Microsoft product updates guidance to a section-based layout.",
-        "adminImpact": "Use the revised section-based reference when choosing ring settings.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Update ring settings documentation adds direct CSP references",
+        "summary": "The settings documentation was reformatted into structured rows and now includes CSP links for feature update deferral, feature update uninstall period, and pre-release builds.",
+        "adminImpact": "Administrators can use the direct CSP references to quickly map these update ring settings to their Windows policy configurations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -856,14 +825,13 @@
       "firstSeenAt": "2026-01-12T20:01:37.000Z",
       "eventId": "intune-docs:1ca11d80024ae4d5123b7a6f331045989c702e99:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update settings heading promoted",
-        "summary": "The Update settings heading changes from level three to level two while the former settings table is removed.",
-        "adminImpact": "No policy behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Update settings guidance is expanded",
+        "summary": "The Update settings section now uses a more detailed layout and explains automatic update behaviors, active hours, scheduled installation, restart controls, reset-to-default behavior, and related defaults and caveats.",
+        "adminImpact": "Administrators can use the expanded guidance to better understand how update installation and device restarts behave when configuring update ring policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -883,14 +851,13 @@
       "firstSeenAt": "2026-01-12T20:14:43.000Z",
       "eventId": "intune-docs:f6d21bd2fc6b075d775ce2251032356fe10746de:modified:intune/device-updates/windows/compatibility-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Compatibility reports prerequisites section removed",
-        "summary": "The article removes its Prerequisites and Licensing headings during requirements-content consolidation.",
-        "adminImpact": "Refer to current compatibility report requirements before using the reports.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Compatibility reports documentation removes prerequisites",
+        "summary": "The page no longer includes the Prerequisites section covering licensing, device eligibility, diagnostic data, tenant settings, and role permissions.",
+        "adminImpact": "Administrators should review the updated page when preparing to use these reports, as the previously documented requirements are no longer listed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -910,14 +877,13 @@
       "firstSeenAt": "2026-01-12T20:14:43.000Z",
       "eventId": "intune-docs:f6d21bd2fc6b075d775ce2251032356fe10746de:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring reference whitespace adjusted",
-        "summary": "Only blank lines were added to the update rings policy settings article.",
-        "adminImpact": "No administrator action.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Update rings settings table markup revised",
+        "summary": "The Windows update rings policy settings page reorganizes its table row markup.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -937,14 +903,13 @@
       "firstSeenAt": "2026-01-12T20:14:43.000Z",
       "eventId": "intune-docs:f6d21bd2fc6b075d775ce2251032356fe10746de:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings overview separates timing guidance",
-        "summary": "The article removes wording that update rings shape installation timing and removes the direct link to the policy settings reference from the creation step.",
-        "adminImpact": "Consult the current policy reference for detailed setting selection.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Update rings guidance emphasizes device-group assignments",
+        "summary": "The setup instructions were reorganized, and a tip now recommends assigning update rings to device groups so policies can apply without a user signing in.",
+        "adminImpact": "Administrators have clearer guidance for configuring settings and assigning update rings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -965,13 +930,12 @@
       "eventId": "intune-docs:e58993d84a3f58a3579302c91cffff0256931b5d:modified:intune/intune-service/fundamentals/whats-new.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Enrollment Status Page monthly quality update capability available January 13",
-        "summary": "The What's New entry replaces a delay notice with availability beginning January 13, 2026 and identifies the 2026-01 B quality update as the first offered update.",
-        "adminImpact": "Test the Enrollment Status Page monthly quality update behavior using the January 2026 B release.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "headline": "Capability becomes available January 13, 2026",
+        "summary": "The documentation now states that the capability is available beginning January 13, 2026. The first available Windows Update is the `2026-01 B` quality update.",
+        "adminImpact": "Administrators should account for the capability becoming available on that date; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -991,14 +955,13 @@
       "firstSeenAt": "2026-01-12T20:31:06.000Z",
       "eventId": "intune-docs:fb54209d4178c938bad3cff41cadee4b041f63cd:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring settings reference dated January 12",
-        "summary": "The article date is updated from July 15, 2024 to January 12, 2026 and the Microsoft product update setting is reformatted.",
-        "adminImpact": "No setting behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Windows update rings guidance refreshed",
+        "summary": "The article received wording, formatting, and link updates, including clearer explanations for app and driver scanning, quality and feature update deferrals, feature update rollback timing, and prerelease build selection.",
+        "adminImpact": "Administrators have clearer reference guidance for configuring and interpreting update ring settings; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1018,14 +981,13 @@
       "firstSeenAt": "2026-01-12T20:43:25.000Z",
       "eventId": "intune-docs:7cd08df034cab79c62709ed0dc22b6cac402db51:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update deferral range made explicit",
-        "summary": "The reference now states that feature update deferrals can be set from 0 to 365 days and adjusts prerelease build formatting.",
-        "adminImpact": "Set a value within the documented 0–365 day range when using feature deferrals.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Feature update",
+        "headline": "Feature-update deferral range and restart guidance clarified",
+        "summary": "The documentation now specifies a 0–365-day range for feature-update deferrals, renames Release Preview to Windows Insider - Release Preview, and clarifies automatic restart behavior and Active hours settings.",
+        "adminImpact": "Administrators can use the documented deferral range and better understand when automatic restarts may occur and how Active hours suppress them.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1045,14 +1007,13 @@
       "firstSeenAt": "2026-01-12T21:01:28.000Z",
       "eventId": "intune-docs:15fcd71210517a6f2f980494e91238d2e67590fd:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Deadline settings subsection removed",
-        "summary": "The article removes the Use deadline settings heading and its statement that deadline settings can be configured.",
-        "adminImpact": "Use the current update ring setting sections for deadline configuration guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Deadline settings guidance is reorganized",
+        "summary": "The Windows update rings documentation now presents deadline settings in a structured layout, with descriptions, ranges, the related grace-period guidance, and CSP references grouped together.",
+        "adminImpact": "Administrators can use the reorganized section to find deadline configuration details and CSP links more easily.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1072,14 +1033,13 @@
       "firstSeenAt": "2026-01-12T21:05:56.000Z",
       "eventId": "intune-docs:60e2cddfb27a1872ea389b1d98315cc63887e37a:modified:intune/device-updates/windows/update-rings-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring reports article removes portal navigation and sample image",
-        "summary": "The report introduction retains the deployment and status description but removes the detailed Intune navigation path and default-policy screenshot.",
-        "adminImpact": "Navigate through the current Windows updates reporting experience to open an update ring policy report.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:09.392Z"
+        "category": "Doc update",
+        "headline": "Windows update ring report navigation is clarified",
+        "summary": "The documentation now provides numbered steps to access reports through Devices > By platform > Windows > Manage updates > Windows updates > Update rings, then select an update ring policy. The screenshot is placed within these steps.",
+        "adminImpact": "Administrators can use the updated navigation path to locate Windows update ring reports more easily.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1099,14 +1059,13 @@
       "firstSeenAt": "2026-01-12T21:11:35.000Z",
       "eventId": "intune-docs:1ddd4af09683eba4cb7798004fe8d73c32c66b59:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Scheduled update-ring behavior controls removed",
-        "summary": "The reference removes Automatic behavior frequency, Scheduled install day, and Scheduled install time from its automatic update behavior guidance.",
-        "adminImpact": "Check the current policy surface before relying on scheduled installation controls.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Windows update ring settings documentation formatting refined",
+        "summary": "Improved indentation for scheduled installation settings and their note, added punctuation to CSP references, and standardized deadline-setting list formatting.",
+        "adminImpact": "The page is clearer and more consistent to read; no administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1126,14 +1085,13 @@
       "firstSeenAt": "2026-01-12T21:41:44.000Z",
       "eventId": "intune-docs:c2f76be1cc3defd3ae003607c43dd411d6d5afb6:modified:intune/device-updates/windows/driver-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update reports article refreshed",
-        "summary": "The article date is updated to January 12, 2026 and the User permissions to use reports heading is removed.",
-        "adminImpact": "Review current driver update reporting permissions guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Windows Driver updates reports article refreshed",
+        "summary": "The article now provides revised navigation steps and descriptions for the Windows Driver updates summary and detailed reports, along with updated screenshots, formatting, and status definitions.",
+        "adminImpact": "Use the updated Reports > Windows Updates navigation when following the documentation. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1153,14 +1111,13 @@
       "firstSeenAt": "2026-01-12T21:41:44.000Z",
       "eventId": "intune-docs:c2f76be1cc3defd3ae003607c43dd411d6d5afb6:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update Ring settings layout gains visual separation",
-        "summary": "A blank callout spacer separates adjacent controls in the Update Ring settings guidance.",
-        "adminImpact": "No configuration behavior changes.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:22:15.166Z"
+        "category": "Doc update",
+        "headline": "Minor formatting update to Windows update rings documentation",
+        "summary": "The Windows update rings policy settings documentation received a minor or formatting-only change.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1180,14 +1137,13 @@
       "firstSeenAt": "2026-01-12T22:05:29.000Z",
       "eventId": "intune-docs:2b421b9dadaefb97ac9c34357da3f728881f3be4:modified:intune/intune-service/configuration/settings-catalog.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Android Settings Catalog management-mode filtering clarified",
-        "summary": "The article explains that selecting two or more Android management modes displays settings that apply to at least one selected mode.",
-        "adminImpact": "Expect an inclusive union of applicable settings when filtering multiple Android management modes.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Settings Catalog documentation adds Android filtering guidance",
+        "summary": "The documentation now provides additional guidance for filtering by Android enrollment management modes, including when multiple modes are selected.",
+        "adminImpact": "Administrators can use Android management-mode filters to avoid applying settings that don't fit their device scenarios.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1207,14 +1163,13 @@
       "firstSeenAt": "2026-01-12T22:11:49.000Z",
       "eventId": "intune-docs:98cc81a35f5fff5a7bed7dd0e79bc20e48aeef8e:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver updates article removes commented legacy overview",
-        "summary": "A commented legacy introduction explaining approvals, pauses, and recommended versus optional drivers is removed.",
-        "adminImpact": "Use the current active article text for driver update guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Driver update guidance wording refreshed",
+        "summary": "The documentation updates wording around pending driver reviews and changes the configuration link text to “Learn how to configure driver updates policies.”",
+        "adminImpact": "Administrators can use the updated wording and link when reviewing or configuring driver update policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1234,14 +1189,13 @@
       "firstSeenAt": "2026-01-12T22:11:49.000Z",
       "eventId": "intune-docs:98cc81a35f5fff5a7bed7dd0e79bc20e48aeef8e:modified:intune/device-updates/windows/feature-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update policy article replaces reporting section with co-management considerations",
-        "summary": "The Validation and reporting section is removed and a Co-management considerations section is introduced.",
-        "adminImpact": "Evaluate co-management implications when assigning feature update policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Feature updates policy guidance reorganized",
+        "summary": "The page adds a Co-management considerations section and a link to feature-update reports, while removing detailed guidance on update-ring deferrals, Autopilot provisioning, workload switching, and Autopatch enrollment.",
+        "adminImpact": "Review the updated page and linked reporting and co-management guidance when managing feature updates on co-managed devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1261,14 +1215,13 @@
       "firstSeenAt": "2026-01-12T22:11:49.000Z",
       "eventId": "intune-docs:98cc81a35f5fff5a7bed7dd0e79bc20e48aeef8e:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature updates article removes commented legacy introduction",
-        "summary": "A commented legacy description about holding devices at a specific feature update version is removed.",
-        "adminImpact": "Use the current active feature update management guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Feature update",
+        "headline": "Feature update policies now document update ring and Autopatch behavior",
+        "summary": "The documentation adds guidance on update ring settings, paused updates, Autopilot provisioning timing, group validation, and automatic Windows Autopatch enrollment. Devices remain enrolled in Autopatch after policy removal and receive no feature update until reassigned or explicitly unenrolled.",
+        "adminImpact": "Review overlapping update ring policies and account for policy application after Autopilot provisioning. The guidance recommends setting feature update deferral to 0, but no mandatory administrator action or deadline is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1288,14 +1241,13 @@
       "firstSeenAt": "2026-01-12T22:15:36.000Z",
       "eventId": "intune-docs:aca525e6339f3bc4babfb4fce6a81ace76ce2d4e:modified:intune/device-updates/windows/feature-updates-policy.md",
       "englishSummary": {
-        "category": "Admin action",
-        "headline": "Feature update policy adds migration guidance from update-ring deferrals",
-        "summary": "The article recommends ending update-ring deferrals when using feature update policies because combining them can delay installation; user-experience settings can remain.",
-        "adminImpact": "Remove feature deferrals from update rings when moving to feature update policies, while retaining desired user-experience settings.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Guidance added for transitioning to feature updates policies",
+        "summary": "The documentation now explains how update-ring deferrals interact with feature updates policies and provides a transition process, including waiting for devices to reach OfferReady before setting deferrals to 0.",
+        "adminImpact": "Administrators can use this guidance to avoid devices being offered unintended updates during the transition.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1315,14 +1267,13 @@
       "firstSeenAt": "2026-01-12T22:25:09.000Z",
       "eventId": "intune-docs:f043beb9096272d775ca60c1e13fcbfc7e392def:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Automatic update behavior formatting changed to heading",
-        "summary": "Automatic update behavior changes from a bold label to a level-five heading.",
-        "adminImpact": "No setting behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Updated heading levels in Windows update ring settings",
+        "summary": "The documentation changed the heading formatting for “Automatic update behavior” and “Restart checks (EDU Restart).”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1342,14 +1293,13 @@
       "firstSeenAt": "2026-01-12T22:30:53.000Z",
       "eventId": "intune-docs:068c242755b4da0115ef7d7dbdf3751217c5b7ba:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Automatic update behavior formatting reverted",
-        "summary": "Automatic update behavior changes back from a level-five heading to a bold label and the EDU Restart heading is adjusted.",
-        "adminImpact": "No setting behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:16:50.412Z"
+        "category": "Doc update",
+        "headline": "Update ring policy headings were reformatted",
+        "summary": "The page reformats three headings: “Automatic update behavior” and “Restart checks (EDU Restart)” are now bold text, while “Option to pause Windows updates” is now a level-4 heading.",
+        "adminImpact": "No administrator action is required; the change affects page formatting only.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1369,14 +1319,13 @@
       "firstSeenAt": "2026-01-12T22:40:32.000Z",
       "eventId": "intune-docs:ecc7306605c593e60bb1f9327a3ded017d6319cb:modified:intune/device-updates/windows/quality-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality update distribution report section removed",
-        "summary": "The article removes the Windows quality update distribution report heading and its description of per-quality-update device counts.",
-        "adminImpact": "Use the current report tabs for quality update reporting guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Windows quality update reports documentation reorganized",
+        "summary": "The documentation now uses tabbed sections and updated headings for QU distribution, QU distribution per feature version, and QU device version reports.",
+        "adminImpact": "Administrators can use the new tab links to find the relevant report details more easily.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1396,14 +1345,13 @@
       "firstSeenAt": "2026-01-12T22:40:32.000Z",
       "eventId": "intune-docs:ecc7306605c593e60bb1f9327a3ded017d6319cb:modified:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Pause updates label converted to bold text",
-        "summary": "Option to pause Windows updates changes from a level-four heading to a bold setting label.",
-        "adminImpact": "No update-ring behavior changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Formatting updated for the Windows update pause option",
+        "summary": "The documentation now displays “Option to pause Windows updates” as bold text instead of a level-four heading.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1423,14 +1371,13 @@
       "firstSeenAt": "2026-01-12T22:43:54.000Z",
       "eventId": "intune-docs:fefcfae2824f821c8ff10331839d414373d9fe98:modified:intune/device-updates/windows/quality-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality update device-version tab anchor corrected",
-        "summary": "The QU device version tab now uses the device-version anchor instead of feature-version.",
-        "adminImpact": "Update saved deep links to the corrected tab anchor.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Updated Quality Updates report section anchor",
+        "summary": "The documentation changed the Quality Updates device version tab anchor from `feature-version` to `device-version`.",
+        "adminImpact": "No administrator action is required; use the updated anchor when linking directly to this section.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1450,14 +1397,13 @@
       "firstSeenAt": "2026-01-12T22:48:51.000Z",
       "eventId": "intune-docs:c24d3d8f9bffadc5f46413f5866e61037f766a44:modified:intune/device-updates/windows/quality-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality updates policy adds expedited updates section",
-        "summary": "The quality updates policy article adds an Expedite Windows quality updates in Microsoft Intune section.",
-        "adminImpact": "Use the quality updates policy article for expedited quality update guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Guidance added for expediting Windows quality updates",
+        "summary": "The article explains how to use Quality updates policies to deploy eligible Windows security updates without changing monthly update policies. It covers Update Health Tools requirements for Windows versions before 24H2, update selection, deferral overrides, and restart behavior.",
+        "adminImpact": "Administrators can use expedited policies for urgent security updates and should account for Update Health Tools on pre-24H2 devices. Regular monthly servicing remains covered by update rings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1477,14 +1423,13 @@
       "firstSeenAt": "2026-01-12T23:12:06.000Z",
       "eventId": "intune-docs:3ee6ccc3d6f270ea9ccb23c01af97d3d0723ded7:modified:autopilot/known-issues.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Autopilot known issue added for quality updates on Hybrid Entra join",
-        "summary": "Known issues now includes Devices don't get Quality Updates during Hybrid Entra joined deployments, dated January 13, 2026.",
-        "adminImpact": "Check this issue before expecting quality updates during Hybrid Entra joined Autopilot deployments.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Quality Updates may be missed during Hybrid Entra joined Autopilot OOBE",
+        "summary": "A known issue was added for devices with KB5041571 and later: Quality Update scans may time out during OOBE when Allow OOBE Updates is enabled in the Enrollment Status Page profile, so updates may not be installed during provisioning. The issue is under investigation.",
+        "adminImpact": "Administrators should account for devices potentially completing OOBE without the offered Quality Updates when troubleshooting deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1504,14 +1449,13 @@
       "firstSeenAt": "2026-01-12T14:35:12.000Z",
       "eventId": "intune-docs:72f0e36faba6c2e8f22a9cef144d986bef594868:modified:intune/intune-service/fundamentals/migrate-to-intune.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Migrate to Intune date updated",
-        "summary": "The article date changes from December 15, 2025 to January 8, 2026.",
-        "adminImpact": "No migration process changed.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Migration documentation updated",
+        "summary": "The page date changed from December 15, 2025, to January 8, 2026, and the statement that the Migration evaluation tool was removed was deleted.",
+        "adminImpact": "Administrators referencing this guidance should review the updated page for the current migration information.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1533,14 +1477,13 @@
       "firstSeenAt": "2026-01-12T16:07:13.000Z",
       "eventId": "intune-docs:7936d54f2751c88cb9bb6af57b2d64d2006972fb:removed:intune/device-updates/windows/settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Former Update Ring settings page removed",
-        "summary": "settings.md, the reference for Windows Update settings in Intune Update Ring policies, was removed.",
-        "adminImpact": "Update internal links to the current update-rings-policy-settings article.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Windows Update settings reference page removed",
+        "summary": "The Intune documentation page describing Windows Update settings for Update Ring policies, including update, user experience, and CSP references, was deleted.",
+        "adminImpact": "Administrators can no longer use this page as a reference for these documented settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1560,14 +1503,13 @@
       "firstSeenAt": "2026-01-12T16:19:42.000Z",
       "eventId": "intune-docs:e09d9f09e99db4cd3b696ef5e3dcc0ed9fe31173:removed:intune/device-updates/windows/ring-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Duplicate Update Ring settings reference removed",
-        "summary": "ring-policy-settings.md, another Update Ring policy settings reference, was removed.",
-        "adminImpact": "Use update-rings-policy-settings.md for Update Ring setting details.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Windows Update ring policy settings reference removed",
+        "summary": "The Windows Update ring policy settings page was deleted, including details about update settings, user experience settings, and their CSP references.",
+        "adminImpact": "Administrators can no longer use this page as a reference for configuring these settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1587,14 +1529,13 @@
       "firstSeenAt": "2026-01-12T22:15:36.000Z",
       "eventId": "intune-docs:aca525e6339f3bc4babfb4fce6a81ace76ce2d4e:removed:intune/device-updates/windows/ring-deferrals-to-feature-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Standalone update-ring deferral migration article removed",
-        "summary": "The move-from-update-ring-deferrals-to-feature-updates-policy article was removed after its guidance moved into feature-updates-policy.md.",
-        "adminImpact": "Follow the migration section in the feature updates policy article.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Transition guidance for Windows update policies was removed",
+        "summary": "The documentation page explaining how to move from update ring deferrals to feature updates policies was deleted. It included guidance to wait for devices to reach OfferReady before setting feature update deferrals to zero.",
+        "adminImpact": "Administrators relying on this procedure may no longer find the transition steps at the documented URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1614,14 +1555,13 @@
       "firstSeenAt": "2026-01-12T22:48:51.000Z",
       "eventId": "intune-docs:c24d3d8f9bffadc5f46413f5866e61037f766a44:removed:intune/device-updates/windows/expedite-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Standalone expedited updates article removed",
-        "summary": "The former expedite-updates.md article was removed after expedited quality update guidance was incorporated into quality-updates-policy.md.",
-        "adminImpact": "Update links to the Expedite Windows quality updates section in quality-updates-policy.md.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:17:36.752Z"
+        "category": "Doc update",
+        "headline": "Expedite Windows quality updates documentation was removed",
+        "summary": "The Intune article describing expedited Windows quality updates, prerequisites, Update Health Tools, policy behavior, and restart handling was deleted.",
+        "adminImpact": "Administrators relying on this page may no longer have access to its setup and operational guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1642,9 +1582,9 @@
     "overview": "Today's report includes 2 new, 54 updated, and 4 removed Microsoft Intune documentation files across 4 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "title": "intune/device-updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/ring-policy-settings.md. Added Microsoft Intune documentation in intune/device-updates/windows/update-rings-policy-settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-windows-10.md. Updated Microsoft Intune documentation in intune/de",
+        "summary": "Added documentation listing Windows Update settings manageable through Intune Update Ring policies, including update controls, user experience options, and CSP references. The page documents Update ring settings for Windows devices, covering update delivery, deferrals, Windows 11 upgrades, uninstall periods, prerelease builds, restart behavior, pause and scan access, and notifications. The page now uses an “Update rings settings” heading, adds an overview of the two setting categories, converts Microsoft product updates into a table, and reformats other settings and CSP links. The page now presents Microsoft product updates, Windows drivers, deferral periods, Windows 11 upgrades, uninstall p",
         "sourceFiles": [
           "intune/device-updates/windows/ring-policy-settings.md",
           "intune/device-updates/windows/update-rings-policy-settings.md",
@@ -1694,9 +1634,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/filters-supported-workloads.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/filters-device-properties.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/android-oem-configuration-overview.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-add-enterprise-app.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/adm",
+        "summary": "The article date changed to January 8, 2026, and the sentence about the removed Migration evaluation tool was deleted. The supported-workloads documentation now marks Settings catalog (DDM) as supported in two table entries. The page now lists additional Android and iOS/iPadOS device management types and includes two `deviceManagementType` filter expressions. The overview now lists X with the package identifier `com.X.rgoem`, and the page date was updated to January 26, 2026. The documentation clarifies PowerShell script overrides for install and uninstall commands. In tenants with Multi-Admin Approval enabled, scripts can't be uploaded during app creation; they must be added or modified aft",
         "sourceFiles": [
           "intune/intune-service/fundamentals/migrate-to-intune.md",
           "intune/intune-service/fundamentals/filters-supported-workloads.md",
@@ -1714,17 +1654,17 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/endpoint-analytics",
-        "summary": "Updated Microsoft Intune documentation in intune/endpoint-analytics/troubleshoot.md.",
+        "summary": "The troubleshooting page now lists supported and unsupported OData operators for three endpoint analytics APIs.",
         "sourceFiles": [
           "intune/endpoint-analytics/troubleshoot.md"
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "Windows Autopilot",
-        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md.",
+        "summary": "A known issue was added for devices with KB5041571 and later: Quality Update scans may time out during OOBE when Allow OOBE Updates is enabled in the Enrollment Status Page profile, so updates may not be installed during provisioning. The issue is under investigation.",
         "sourceFiles": [
           "autopilot/known-issues.md"
         ]
@@ -1732,24 +1672,24 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "headline": "intune/device-updates",
-        "detail": "Added Microsoft Intune documentation in intune/device-updates/windows/ring-policy-settings.md. Added Microsoft Intune documentation in intune/device-updates/windows/update-rings-policy-settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-windows-10.md. Updated Microsoft Intune documentation in intune/de"
+        "detail": "Added documentation listing Windows Update settings manageable through Intune Update Ring policies, including update controls, user experience options, and CSP references. The page documents Update ring settings for Windows devices, covering update delivery, deferrals, Windows 11 upgrades, uninstall periods, prerelease builds, restart behavior, pause and scan access, and notifications. The page now uses an “Update rings settings” heading, adds an overview of the two setting categories, converts Microsoft product updates into a table, and reformats other settings and CSP links. The page now presents Microsoft product updates, Windows drivers, deferral periods, Windows 11 upgrades, uninstall p"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/migrate-to-intune.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/filters-supported-workloads.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/filters-device-properties.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/android-oem-configuration-overview.md. Updated Microsoft Intune documentation in intune/intune-service/apps/apps-add-enterprise-app.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/adm"
+        "detail": "The article date changed to January 8, 2026, and the sentence about the removed Migration evaluation tool was deleted. The supported-workloads documentation now marks Settings catalog (DDM) as supported in two table entries. The page now lists additional Android and iOS/iPadOS device management types and includes two `deviceManagementType` filter expressions. The overview now lists X with the package identifier `com.X.rgoem`, and the page date was updated to January 26, 2026. The documentation clarifies PowerShell script overrides for install and uninstall commands. In tenants with Multi-Admin Approval enabled, scripts can't be uploaded during app creation; they must be added or modified aft"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/endpoint-analytics",
-        "detail": "Updated Microsoft Intune documentation in intune/endpoint-analytics/troubleshoot.md."
+        "detail": "The troubleshooting page now lists supported and unsupported OData operators for three endpoint analytics APIs."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "Windows Autopilot",
-        "detail": "Updated Microsoft Intune documentation in autopilot/known-issues.md."
+        "detail": "A known issue was added for devices with KB5041571 and later: Quality Update scans may time out during OOBE when Allow OOBE Updates is enabled in the Enrollment Status Page profile, so updates may not be installed during provisioning. The issue is under investigation."
       }
     ],
     "generatedBy": "fallback"

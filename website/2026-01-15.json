@@ -17,11 +17,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:added:intune/device-updates/windows/driver-update-policy.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "fix plurals",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New documentation for Windows driver update policies",
+        "summary": "A new how-to explains prerequisites, policy planning, automatic or manual driver approval, pausing and reapproving updates, and deployment behavior.",
+        "adminImpact": "Before using these policies, review prerequisites and ensure update-ring and settings-catalog policies allow driver installation. Avoid assigning devices to multiple driver update policies.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -41,11 +43,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:added:intune/device-updates/windows/feature-update-policy.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "fix plurals",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New guidance for managing Windows feature update policies",
+        "summary": "The documentation now explains how to create and assign feature update policies, target supported Windows versions, choose required or optional updates, configure rollout options, and understand safeguard holds and policy evaluation.",
+        "adminImpact": "Administrators can use this guidance to control Windows version targeting and understand how update availability affects users and devices. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -65,11 +69,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:added:intune/device-updates/windows/update-ring-policy-settings.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "fixes",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/update-ring-policy-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New reference article documents Windows Update ring policy settings",
+        "summary": "Intune documentation now lists Windows Update ring settings, including update deferrals, drivers, Microsoft product updates, Windows 11 upgrades, feature update uninstall periods, pre-release builds, and user experience controls.",
+        "adminImpact": "Administrators can use the reference to review available settings, supported value ranges, CSP mappings, and update deadline behavior when configuring update rings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -89,11 +95,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:added:intune/intune-service/apps/mamedge-6-end-user-experience.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Added Microsoft Intune documentation in intune/intune-service/apps/mamedge-6-end-user-experience.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Public preview",
+        "headline": "Edge for Business MAM onboarding guidance adds MDM enrollment controls",
+        "summary": "A new Step 6 page documents the Windows Microsoft Edge for Business experience, including work and personal browsing separation, sign-in, MAM prerequisites, enrollment prompts, and app protection notifications. It also documents an admin property that controls MDM-enrollment prompts.",
+        "adminImpact": "Admins can use the flow to test MAM on devices that aren't MDM-managed and help users avoid unintentionally enrolling devices in Intune, which prevents MAM from being applied.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -113,11 +121,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:added:intune/intune-service/apps/mamedge-7-troubleshoot.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Added Microsoft Intune documentation in intune/intune-service/apps/mamedge-7-troubleshoot.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New troubleshooting guidance for Edge data security",
+        "summary": "The documentation adds troubleshooting guidance for Microsoft Edge for Business data security in Intune, covering policy assignments, settings, sign-in, app and platform requirements, configuration channels, policy conflicts, and platform-specific issues.",
+        "adminImpact": "Administrators can use the new checks and resolutions to diagnose app protection and app configuration policy deployment or enforcement problems.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -139,11 +149,13 @@
       "firstSeenAt": "2026-01-15T02:12:07.000Z",
       "eventId": "intune-docs:c5f5ebe073142b3cb81649d5f557bd973142dbcb:modified:intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "saving progress",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Automatic enrollment setup documentation reorganized",
+        "summary": "The article was converted from a quickstart to a how-to, updated with new metadata and wording, and its prerequisites were reorganized into licensing, RBAC, and device-configuration sections.",
+        "adminImpact": "Administrators can more easily identify the required Intune subscription, Microsoft Entra licensing, Global Administrator role, users, and groups before configuring automatic enrollment.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -163,11 +175,13 @@
       "firstSeenAt": "2026-01-15T02:12:07.000Z",
       "eventId": "intune-docs:c5f5ebe073142b3cb81649d5f557bd973142dbcb:modified:intune/intune-service/fundamentals/free-trial-sign-up.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "saving progress",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Free trial setup guidance now documents tenant creation and account privileges",
+        "summary": "The guide was reorganized and now clarifies the 30-day trial, account choices, automatic tenant creation, setup prerequisites, and that the subscription-creating account receives the Microsoft Entra Global Administrator role.",
+        "adminImpact": "Administrators can better plan who performs trial signup and understand that the signup account receives a highly privileged role.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -188,10 +202,12 @@
       "eventId": "intune-docs:c5f5ebe073142b3cb81649d5f557bd973142dbcb:modified:intune/intune-service/fundamentals/quickstart-create-group.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "saving progress",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-group.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Group creation guide clarifies prerequisites and built-in groups",
+        "summary": "The guide now lists an Intune subscription and the User Administrator Microsoft Entra role as prerequisites. It also explains the automatically created All Users and All Devices groups, their policy-assignment use, and refreshed group-creation steps.",
+        "adminImpact": "Admins following the guide should verify they have the listed role and can use the built-in groups when assigning policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -211,11 +227,13 @@
       "firstSeenAt": "2026-01-15T02:12:07.000Z",
       "eventId": "intune-docs:c5f5ebe073142b3cb81649d5f557bd973142dbcb:modified:intune/intune-service/fundamentals/quickstart-create-user.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "saving progress",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "User-creation quickstart now highlights license assignment",
+        "summary": "The guide title and description now cover creating a user and assigning an Intune license. It also updates prerequisites, links to both admin centers, role guidance, step numbering, screenshots, and wording.",
+        "adminImpact": "Administrators following the guide have clearer instructions for accessing the required admin centers and assigning a license. No action is required for existing configurations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,11 +253,13 @@
       "firstSeenAt": "2026-01-15T02:12:07.000Z",
       "eventId": "intune-docs:c5f5ebe073142b3cb81649d5f557bd973142dbcb:modified:intune/intune-service/fundamentals/try-intune-overview.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "saving progress",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/try-intune-overview.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune evaluation guide adds a free-trial task sequence",
+        "summary": "The guide now focuses on evaluating Intune with a free trial and provides 11 guided tasks, including user and group creation, enrollment, policies, apps, roles, and device profiles. Recommended prerequisites were also revised to include RBAC familiarity.",
+        "adminImpact": "Administrators can use the revised sequence to set up a test environment and evaluate common Intune management tasks; no required changes are stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -259,11 +279,13 @@
       "firstSeenAt": "2026-01-15T16:27:31.000Z",
       "eventId": "intune-docs:402858a393dfc4824c5b29192c87f92c286bfca2:modified:intune/intune-service/protect/mobile-threat-defense.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Revisions",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/mobile-threat-defense.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Mobile Threat Defense inventory-sharing details were revised",
+        "summary": "The page now separates App Sync and Certificate Sync for iOS/iPadOS, clarifies that both are opt-in and share data during device check-in, and lists the information shared and Zimperium as a supported partner.",
+        "adminImpact": "Review the connector settings and updated data-sharing details before enabling either sync feature.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -284,10 +306,12 @@
       "eventId": "intune-docs:402858a393dfc4824c5b29192c87f92c286bfca2:modified:intune/intune-service/protect/mtd-connector-enable.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Revisions",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/mtd-connector-enable.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Certificate Sync availability now depends on partner support",
+        "summary": "The iOS/iPadOS Certificate Sync documentation now states that the option is available only when supported by the Mobile Threat Defense partner. When enabled, the partner can request installed certificate lists from Intune for threat analysis.",
+        "adminImpact": "Verify that the Mobile Threat Defense partner supports Certificate Sync before relying on this option.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -307,11 +331,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/compatibility-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated terminology for feature update policies",
+        "summary": "The compatibility reports documentation now uses lowercase “feature update policies” instead of “Feature updates policies.”",
+        "adminImpact": "No administrator action is required; this change updates wording only.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -331,11 +357,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/driver-updates-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Driver update reports terminology corrected",
+        "summary": "The page now uses consistent singular and plural wording for Windows Driver Update policies and updates the image alt text accordingly.",
+        "adminImpact": "No administrator action is required; the terminology is clearer and more consistent.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -355,11 +383,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Driver update policy terminology and link updated",
+        "summary": "The page now consistently uses the singular term “driver update policy” and links to `driver-update-policy.md` for configuration guidance.",
+        "adminImpact": "Administrators should use the updated terminology and follow the revised configuration link when referencing this documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -379,11 +409,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/expedite-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Terminology and policy link corrected",
+        "summary": "The guidance now uses the singular “quality update” consistently and updates the feature update policy link.",
+        "adminImpact": "No administrator action is required; use the corrected terminology and link when referring to these policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -403,11 +435,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/feature-updates-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Terminology standardized for Windows feature update policy reports",
+        "summary": "The documentation now consistently uses the singular “feature update policy” in the title, headings, description, and report guidance.",
+        "adminImpact": "No administrative action is required; the updated wording improves consistency when using the reports documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -427,11 +461,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/feature-updates-windows-10.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-windows-10.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Feature update policy terminology clarified",
+        "summary": "The documentation now consistently uses “feature update policy” and adjusts ellipsis formatting in several passages.",
+        "adminImpact": "No administrator action is required; the existing deployment guidance is easier to read.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,11 +487,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows feature updates page standardizes terminology and reorganizes guidance",
+        "summary": "The article changes “feature updates policies” to “feature update policies,” corrects internal links, and restructures planning guidance. Information about deferrals, policy removal outcomes, and scheduled or gradual rollouts is repositioned, while several former planning bullets are removed.",
+        "adminImpact": "The revised terminology and links affect how administrators locate setup, deferral, and rollout guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -475,11 +513,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/hotpatch.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/hotpatch.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Hotpatch documentation updates policy terminology",
+        "summary": "The article now consistently uses singular “Windows quality update policy” terminology instead of “policies” in descriptions of Hotpatch management and monitoring.",
+        "adminImpact": "Administrators benefit from clearer, more consistent terminology. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -499,11 +539,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Policy names standardized to singular form",
+        "summary": "The page now uses “Feature update policy,” “Quality update policy,” and “Driver update policy,” with matching singular icon filenames and updated table text.",
+        "adminImpact": "Administrators will see consistent policy names and icons when using the documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -523,11 +565,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/quality-updates-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Quality Update report terminology updated",
+        "summary": "The page title and description now use “Windows Quality Update” instead of “Windows Quality Updates.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -547,11 +591,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Terminology updated for Windows quality update policies",
+        "summary": "The documentation now consistently uses “quality update policy” instead of “quality updates policy” in the title, headings, body text, and links.",
+        "adminImpact": "Administrators will see updated terminology when reading or referencing this documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -571,11 +617,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/rollout-options.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/rollout-options.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Rollout options terminology updated",
+        "summary": "The page now uses “feature update policies” and updates the related link text from “Feature Updates policy” to “Feature Update policy.”",
+        "adminImpact": "No administrator action is indicated; the rollout options guidance remains available at the same documentation link.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -595,11 +643,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected Windows feature update policy link",
+        "summary": "The update rings page now links to `feature-update-policy.md` and uses the singular title “Windows feature update policy.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -619,11 +669,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:modified:intune/intune-service/fundamentals/whats-new-archive.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fix plurals",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Bulk driver updates link",
+        "summary": "The archive now links to `driver-update-policy.md` instead of `driver-updates-policy.md` for Bulk driver updates.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -643,11 +695,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:modified:intune/device-updates/windows/compatibility-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected Windows Update ring policy terminology",
+        "summary": "The compatibility reports documentation now refers to “Windows Update ring policies” instead of “Windows Update rings policies.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -667,11 +721,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:modified:intune/device-updates/windows/driver-update-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Driver update policy screenshots now use corrected image paths",
+        "summary": "The documentation references for five driver update policy screenshots were updated from `driver-updates-policy` to `driver-update-policy`.",
+        "adminImpact": "Screenshots should load correctly when following the documented procedures. No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -691,11 +747,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:modified:intune/device-updates/windows/expedite-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated terminology for update ring policies",
+        "summary": "The expedited updates guidance now refers to “update ring policies” instead of “update rings policies.”",
+        "adminImpact": "No administrative action is required; this is a terminology correction.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -715,11 +773,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Terminology updated to “Update ring policy”",
+        "summary": "The page replaces “Update rings policy/policies” with “Update ring policy/policies” in headings, descriptions, table content, and Entra registered device guidance.",
+        "adminImpact": "Administrators can use the updated terminology when locating or referencing these policies; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -739,11 +799,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:modified:intune/device-updates/windows/update-rings-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Update ring terminology standardized",
+        "summary": "The page title, description, heading, instruction, and image alt text now use singular “update ring” terminology.",
+        "adminImpact": "Administrators will see more consistent terminology when using the Windows Update Ring Policies reports documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -763,11 +825,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "fixes",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Update ring policy terminology and link updated",
+        "summary": "The page now uses “update ring policy” instead of “update rings policies” throughout. The settings link was also changed to update-ring-policy-settings.md.",
+        "adminImpact": "Administrators will see consistent terminology and an updated link when using this documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -787,11 +851,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:modified:intune/intune-service/apps/mamedge-4-acp-edge.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-4-acp-edge.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "SEB guidance adds policy-selection and security-level instructions",
+        "summary": "The guidance now distinguishes App Configuration Policies for non-enrolled devices from Settings Catalog policies for enrolled devices, warns against deploying both to one client, and explains that Levels 1–3 are progressively stricter, non-cumulative choices.",
+        "adminImpact": "Review SEB assignments: use the policy type matching enrollment status and deploy only one security level per user or device to avoid conflicts.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -811,11 +877,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:modified:intune/intune-service/apps/mamedge-5-settings-catalog.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-5-settings-catalog.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Secure Enterprise Browser guidance now separates policy choices",
+        "summary": "The guidance now distinguishes App Configuration Policies for non-enrolled devices from Settings Catalog policies for enrolled devices, warns not to deploy both, removes the Security Baseline deployment step, and explains security-level assignments.",
+        "adminImpact": "Review affected assignments and use only one applicable policy approach and one security level per user or device to avoid conflicts.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -835,11 +903,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:modified:intune/intune-service/apps/mamedge-overview.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-overview.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Secure Enterprise Browser guidance changes policy selection",
+        "summary": "The Security Baseline step was removed and the remaining steps were renumbered. New guidance says enrolled Windows devices should use either Settings Catalog policies or the Microsoft Edge Security Baseline—not both—and that App Configuration and Settings Catalog policies should not target the same client.",
+        "adminImpact": "Review browser policy assignments and avoid deploying conflicting policy types. Non-enrolled devices should use App Configuration Policies; enrolled devices should use Settings Catalog policies.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -859,11 +929,13 @@
       "firstSeenAt": "2026-01-15T17:19:03.000Z",
       "eventId": "intune-docs:1b8ac9314596e712cbd7a193adb3b5ceb371e9c3:modified:intune/intune-service/fundamentals/admin-tasks.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "add offboarding agent tasks",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/admin-tasks.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Admin tasks documentation adds Device Offboarding Agent links",
+        "summary": "The Admin tasks page now links to Device Offboarding tasks prerequisites and the Device Offboarding Agent documentation, while clarifying the Organization > Read permission formatting.",
+        "adminImpact": "Administrators can use the updated links to find Device Offboarding Agent guidance more easily; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -883,11 +955,13 @@
       "firstSeenAt": "2026-01-15T17:20:38.000Z",
       "eventId": "intune-docs:ef8d9d3fe30e3fe8ac64a3945058d2e90238f018:modified:intune/device-updates/windows/feature-update-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Feature update policy guidance is clarified",
+        "summary": "The article now clarifies version enforcement, non-downgrade behavior, policy duration, included quality updates, safeguard holds, prerequisites, and optional versus required user experiences.",
+        "adminImpact": "Use the revised checklist and safeguard-hold guidance when planning deployments and communicating installation behavior to users.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -907,11 +981,13 @@
       "firstSeenAt": "2026-01-15T17:20:38.000Z",
       "eventId": "intune-docs:ef8d9d3fe30e3fe8ac64a3945058d2e90238f018:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Client-side behavior guidance is now formatted as a bullet",
+        "summary": "The feature updates article now presents the existing guidance about restart experience, deadlines, and active hours as a bulleted item.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -931,11 +1007,13 @@
       "firstSeenAt": "2026-01-15T17:20:38.000Z",
       "eventId": "intune-docs:ef8d9d3fe30e3fe8ac64a3945058d2e90238f018:modified:intune/device-updates/windows/rollout-options.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/rollout-options.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Update rollout options title updated",
+        "summary": "The page title changed from “Rollout options for Windows Updates in Microsoft Intune” to “Rollout options for Windows Updates.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -955,11 +1033,13 @@
       "firstSeenAt": "2026-01-15T17:39:29.000Z",
       "eventId": "intune-docs:5b9d457a0e060465bb377a20cd0a30cf282c947d:modified:intune/configmgr/core/plan-design/configs/site-and-site-system-prerequisites.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Learn Editor: Update site-and-site-system-prerequisites.md",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/site-and-site-system-prerequisites.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "ODBC driver guidance added to site prerequisites",
+        "summary": "The documentation now recommends installing the latest Microsoft ODBC Driver for SQL Server for current fixes and security updates, while noting that Configuration Manager may not immediately test every new driver release.",
+        "adminImpact": "Review the guidance when planning SQL Server prerequisites; no required administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -980,10 +1060,12 @@
       "eventId": "intune-docs:2399c730f6039b2835f8d071827099e944555084:modified:intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Update ODBC driver prerequisites for SQL Server",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "ODBC Driver 18.4.1.1 or later required from version 2503",
+        "summary": "The prerequisite is required when creating a new site or updating an existing site starting with version 2309. From version 2503 onward, the minimum required ODBC Driver for SQL Server version is 18.4.1.1.",
+        "adminImpact": "Verify and install the required ODBC driver version before creating or updating a site.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1003,11 +1085,13 @@
       "firstSeenAt": "2026-01-15T19:14:32.000Z",
       "eventId": "intune-docs:1622f506dae99eca7a1a9291ddb78851da201362:modified:intune/device-updates/windows/rollout-options.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/rollout-options.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Rollout options guidance is clarified for feature update policies",
+        "summary": "The article now focuses on configuring rollout options in feature update policies, clarifies the three availability behaviors, explains offer groups and rollout scheduling, and notes that installation timing depends on settings such as deadlines and restart controls.",
+        "adminImpact": "Administrators can use the revised guidance to distinguish update availability from installation timing and plan gradual rollouts. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1027,11 +1111,13 @@
       "firstSeenAt": "2026-01-15T19:14:32.000Z",
       "eventId": "intune-docs:1622f506dae99eca7a1a9291ddb78851da201362:modified:intune/device-updates/windows/update-rings-reports.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-reports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Update for Business reports guidance added",
+        "summary": "The update rings reports documentation now explains that Windows Update for Business reports can monitor Windows update rollouts and device compliance, and that Intune can configure the required Windows device settings.",
+        "adminImpact": "Administrators can use the linked overview and Intune configuration guidance to support monitoring of Windows update rollouts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1051,11 +1137,13 @@
       "firstSeenAt": "2026-01-15T19:21:07.000Z",
       "eventId": "intune-docs:c7eacaafdca7c16bcbe75ef5a171cedc1e39cb74:modified:intune/device-updates/windows/feature-update-policy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "upodates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Removed rollout-options reference from feature update policy guidance",
+        "summary": "The article no longer links to guidance on controlling feature update availability through scheduled and gradual deployments.",
+        "adminImpact": "Administrators reviewing the article will no longer find this cross-reference to rollout guidance; no configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1075,11 +1163,13 @@
       "firstSeenAt": "2026-01-15T19:21:07.000Z",
       "eventId": "intune-docs:c7eacaafdca7c16bcbe75ef5a171cedc1e39cb74:modified:intune/device-updates/windows/rollout-options.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "upodates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/rollout-options.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Rollout options table formatting updated",
+        "summary": "The table formatting was refreshed, with the existing “Allow WUfB Cloud Processing” setting still shown as enabled under System.",
+        "adminImpact": "No administrator action is required; the documented setting and value remain unchanged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1099,11 +1189,13 @@
       "firstSeenAt": "2026-01-15T20:13:07.000Z",
       "eventId": "intune-docs:0f3a4bf268d0668f88044b0deaa53c079e771aa8:modified:intune/device-updates/windows/rollout-options.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/device-updates/windows/rollout-options.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Feature Update policies link formatting updated",
+        "summary": "The link to Feature Update policies in the Windows rollout options documentation was reformatted; its destination is unchanged.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1123,11 +1215,13 @@
       "firstSeenAt": "2026-01-15T20:23:01.000Z",
       "eventId": "intune-docs:67f37f1286ea0233b9880131d12c64269c749b5a:modified:intune/intune-service/fundamentals/admin-tasks.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "DocuMentor pass",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/admin-tasks.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Admin tasks documentation clarifies the centralized view",
+        "summary": "The description now identifies Device Offboarding, Endpoint Privilege Management, and other capabilities as sources of tasks. Headings were refined, and the Organization > Read permission requirement is presented more clearly.",
+        "adminImpact": "Administrators can more easily understand the centralized Admin tasks scope and confirm the permission needed to access the pane.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1148,10 +1242,12 @@
       "eventId": "intune-docs:cf3d09be26be8c70e1cd7edf3692066c1c942983:modified:intune/intune-service/fundamentals/review-logs-using-azure-monitor.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Learn Editor: Update review-logs-using-azure-monitor.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/review-logs-using-azure-monitor.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Intune report data may take up to 48 hours to reach Azure Monitor",
+        "summary": "The documentation now states that Device Compliance Organizational Logs and Intune Devices report data is sent once every 24 hours, with export occurring anytime during each 24-hour period and taking up to 48 hours overall.",
+        "adminImpact": "Allow up to 48 hours when planning Azure Monitor log availability and troubleshooting missing data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1171,11 +1267,13 @@
       "firstSeenAt": "2026-01-15T21:15:35.000Z",
       "eventId": "intune-docs:903e80fedc7b5d371fd93d4a6788ea1e16d0ad8c:modified:intune/intune-service/fundamentals/admin-tasks.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "revise path to Agent",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/admin-tasks.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated path to Device Offboarding Agent",
+        "summary": "The documentation now directs administrators to find Device Offboarding Agent under Agents instead of Tenant administration.",
+        "adminImpact": "Use Agents > Device Offboarding Agent in the Intune admin center to access Device Offboarding tasks.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1197,11 +1295,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:removed:intune/device-updates/windows/driver-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "fix plurals",
-        "summary": "Removed Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows driver update policy guidance was removed",
+        "summary": "The how-to page for creating and managing Windows driver update policies was deleted, including its prerequisites, planning guidance, approval behavior, and pause or reapproval instructions.",
+        "adminImpact": "Administrators can no longer use this page at the supplied URL for Windows driver update policy guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1221,11 +1321,13 @@
       "firstSeenAt": "2026-01-15T16:33:33.000Z",
       "eventId": "intune-docs:642e1bc70265cdb1dd6bca86a6248603f542381b:removed:intune/device-updates/windows/feature-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "fix plurals",
-        "summary": "Removed Microsoft Intune documentation in intune/device-updates/windows/feature-updates-policy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows Feature Update Policies documentation was removed",
+        "summary": "The documentation page covering Windows feature update policies, including targeting versions, rollout settings, policy creation, assignments, and user experience, was deleted.",
+        "adminImpact": "Administrators relying on this page may no longer have access to its management guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1245,11 +1347,13 @@
       "firstSeenAt": "2026-01-15T16:51:31.000Z",
       "eventId": "intune-docs:f070adea7dc006406c98d44e7d3f47a376760e5f:removed:intune/device-updates/windows/update-rings-policy-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "fixes",
-        "summary": "Removed Microsoft Intune documentation in intune/device-updates/windows/update-rings-policy-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Update Rings Policy Settings reference article deleted",
+        "summary": "The Windows Update rings policy settings reference page was removed, including documentation for update, deferral, upgrade, uninstall, prerelease, and user experience settings.",
+        "adminImpact": "Administrators relying on this page will no longer have this reference at the supplied URL. No required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1269,11 +1373,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:removed:intune/intune-service/apps/mamedge-6-security-baseline.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/apps/mamedge-6-security-baseline.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Security baseline deployment step removed from SEB guidance",
+        "summary": "The Microsoft Edge security baseline deployment step was removed from the Secure Enterprise Browser Intune guidance, including its prerequisites, deployment instructions, settings, and documentation links.",
+        "adminImpact": "Administrators using this guide will no longer find the security baseline instructions there. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1293,11 +1399,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:removed:intune/intune-service/apps/mamedge-7-end-user-experience.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/apps/mamedge-7-end-user-experience.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Step 7 Secure Enterprise Browser guidance removed",
+        "summary": "The Step 7 article covering Microsoft Edge for Business end-user experience, onboarding, and app protection notifications for Windows was deleted.",
+        "adminImpact": "Administrators following the Secure Enterprise Browser guidance can no longer use this article as a reference.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1317,11 +1425,13 @@
       "firstSeenAt": "2026-01-15T17:02:49.000Z",
       "eventId": "intune-docs:08f27ea3eadfa3376750e5f15ab43a77fcc3cc09:removed:intune/intune-service/apps/mamedge-8-troubleshoot.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "36436319: Remove Security Baseline step from Secure Enterprise Browser (SEB) Intune guidance",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/apps/mamedge-8-troubleshoot.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Step 8 Secure Enterprise Browser troubleshooting guidance was removed",
+        "summary": "The documentation page covering Microsoft Edge for Business data security troubleshooting was deleted, including policy deployment checks, platform-specific issues, and Windows security baseline troubleshooting.",
+        "adminImpact": "Administrators who relied on this page will no longer find this troubleshooting reference at the supplied URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1342,9 +1452,9 @@
     "overview": "Today's report includes 5 new, 44 updated, and 6 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "title": "intune/device-updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md. Added Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md. Added Microsoft Intune documentation in intune/device-updates/windows/update-ring-policy-settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md. Updated Microsoft Intune do",
+        "summary": "A new how-to explains prerequisites, policy planning, automatic or manual driver approval, pausing and reapproving updates, and deployment behavior. The documentation now explains how to create and assign feature update policies, target supported Windows versions, choose required or optional updates, configure rollout options, and understand safeguard holds and policy evaluation. Intune documentation now lists Windows Update ring settings, including update deferrals, drivers, Microsoft product updates, Windows 11 upgrades, feature update uninstall periods, pre-release builds, and user experience controls. The compatibility reports documentation now uses lowercase “feature update policies” in",
         "sourceFiles": [
           "intune/device-updates/windows/driver-update-policy.md",
           "intune/device-updates/windows/feature-update-policy.md",
@@ -1382,9 +1492,9 @@
         ]
       },
       {
-        "category": "New documentation",
+        "category": "Public preview",
         "title": "intune/intune-service",
-        "summary": "Added Microsoft Intune documentation in intune/intune-service/apps/mamedge-6-end-user-experience.md. Added Microsoft Intune documentation in intune/intune-service/apps/mamedge-7-troubleshoot.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-group.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/try-int",
+        "summary": "A new Step 6 page documents the Windows Microsoft Edge for Business experience, including work and personal browsing separation, sign-in, MAM prerequisites, enrollment prompts, and app protection notifications. It also documents an admin property that controls MDM-enrollment prompts. The documentation adds troubleshooting guidance for Microsoft Edge for Business data security in Intune, covering policy assignments, settings, sign-in, app and platform requirements, configuration channels, policy conflicts, and platform-specific issues. The article was converted from a quickstart to a how-to, updated with new metadata and wording, and its prerequisites were reorganized into licensing, RBAC, an",
         "sourceFiles": [
           "intune/intune-service/apps/mamedge-6-end-user-experience.md",
           "intune/intune-service/apps/mamedge-7-troubleshoot.md",
@@ -1409,9 +1519,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/configmgr",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/site-and-site-system-prerequisites.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md.",
+        "summary": "The documentation now recommends installing the latest Microsoft ODBC Driver for SQL Server for current fixes and security updates, while noting that Configuration Manager may not immediately test every new driver release. The prerequisite is required when creating a new site or updating an existing site starting with version 2309. From version 2503 onward, the minimum required ODBC Driver for SQL Server version is 18.4.1.1.",
         "sourceFiles": [
           "intune/configmgr/core/plan-design/configs/site-and-site-system-prerequisites.md",
           "intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md"
@@ -1420,19 +1530,19 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "headline": "intune/device-updates",
-        "detail": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-update-policy.md. Added Microsoft Intune documentation in intune/device-updates/windows/feature-update-policy.md. Added Microsoft Intune documentation in intune/device-updates/windows/update-ring-policy-settings.md. Updated Microsoft Intune documentation in intune/device-updates/windows/compatibility-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-policy.md. Updated Microsoft Intune do"
+        "detail": "A new how-to explains prerequisites, policy planning, automatic or manual driver approval, pausing and reapproving updates, and deployment behavior. The documentation now explains how to create and assign feature update policies, target supported Windows versions, choose required or optional updates, configure rollout options, and understand safeguard holds and policy evaluation. Intune documentation now lists Windows Update ring settings, including update deferrals, drivers, Microsoft product updates, Windows 11 upgrades, feature update uninstall periods, pre-release builds, and user experience controls. The compatibility reports documentation now uses lowercase “feature update policies” in"
       },
       {
-        "category": "New documentation",
+        "category": "Public preview",
         "headline": "intune/intune-service",
-        "detail": "Added Microsoft Intune documentation in intune/intune-service/apps/mamedge-6-end-user-experience.md. Added Microsoft Intune documentation in intune/intune-service/apps/mamedge-7-troubleshoot.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/quickstart-setup-auto-enrollment.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/free-trial-sign-up.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-group.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/quickstart-create-user.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/try-int"
+        "detail": "A new Step 6 page documents the Windows Microsoft Edge for Business experience, including work and personal browsing separation, sign-in, MAM prerequisites, enrollment prompts, and app protection notifications. It also documents an admin property that controls MDM-enrollment prompts. The documentation adds troubleshooting guidance for Microsoft Edge for Business data security in Intune, covering policy assignments, settings, sign-in, app and platform requirements, configuration channels, policy conflicts, and platform-specific issues. The article was converted from a quickstart to a how-to, updated with new metadata and wording, and its prerequisites were reorganized into licensing, RBAC, an"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/configmgr",
-        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/configs/site-and-site-system-prerequisites.md. Updated Microsoft Intune documentation in intune/configmgr/core/servers/deploy/install/list-of-prerequisite-checks.md."
+        "detail": "The documentation now recommends installing the latest Microsoft ODBC Driver for SQL Server for current fixes and security updates, while noting that Configuration Manager may not immediately test every new driver release. The prerequisite is required when creating a new site or updating an existing site starting with version 2309. From version 2503 onward, the minimum required ODBC Driver for SQL Server version is 18.4.1.1."
       }
     ],
     "generatedBy": "fallback"

@@ -17,11 +17,13 @@
       "firstSeenAt": "2026-01-31T14:03:11.000Z",
       "eventId": "intune-docs:b3547b6a3459521b32ad80f74452467e6b99de6c:added:intune/cloud-pki/renew-ca.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "New article",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New guidance for expiring Cloud PKI certificate authorities",
+        "summary": "The article explains how to prevent service disruption when a Cloud PKI CA expires: create a new issuing CA with matching properties and update every dependent SCEP certificate profile to use its SCEP URI.",
+        "adminImpact": "Administrators must review profiles referencing an expiring CA and replace the SCEP URI. Otherwise, new certificates may not be issued after expiration, affecting connectivity and certificate-based authentication.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -43,11 +45,13 @@
       "firstSeenAt": "2026-01-31T01:06:47.000Z",
       "eventId": "intune-docs:25c38ea15e91a22d78556c83095fd9dacf640bcb:modified:intune/intune-service/protect/epm-elevation-rules.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Clarify child process elevation behavior descriptions",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/epm-elevation-rules.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Child process elevation behavior is described in more detail",
+        "summary": "The documentation now explains how the three child-process options work, including that allowing elevated child processes skips rule evaluation and deny rules. It also adds guidance to avoid overly broad rules for applications that launch other processes.",
+        "adminImpact": "Administrators can better assess the elevation and security implications of each child-process setting when configuring elevation rules.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -67,11 +71,13 @@
       "firstSeenAt": "2026-01-31T17:43:42.000Z",
       "eventId": "intune-docs:95ea8c2031f99a19c4a2c9bcc76b16271a045345:modified:intune/cloud-pki/renew-ca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI CA expiration guidance clarifies replacement and SCEP profile steps",
+        "summary": "The article now clearly explains the impacts of an expiring issuing CA, the steps to create a replacement CA, and how to replace the SCEP URI in associated profiles. It also clarifies that URI updates don't trigger certificate reissuance.",
+        "adminImpact": "Administrators must create a replacement CA and update every referencing SCEP profile to prevent new certificate issuance from stopping after expiration.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -91,11 +97,13 @@
       "firstSeenAt": "2026-01-31T17:45:32.000Z",
       "eventId": "intune-docs:35750006cd4bb4e2bbe5018629412850e364ab88:modified:intune/cloud-pki/renew-ca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "acrolinx",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI renewal guidance wording updated",
+        "summary": "The guidance now says “Don’t add more SCEP URIs,” and the “Additional diagnostics” heading is now “More diagnostics.”",
+        "adminImpact": "Administrators can use the updated wording when reviewing Cloud PKI renewal guidance; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -113,9 +121,9 @@
     "overview": "Today's report includes 1 new, 3 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "title": "intune/cloud-pki",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md.",
+        "summary": "The article explains how to prevent service disruption when a Cloud PKI CA expires: create a new issuing CA with matching properties and update every dependent SCEP certificate profile to use its SCEP URI. The article now clearly explains the impacts of an expiring issuing CA, the steps to create a replacement CA, and how to replace the SCEP URI in associated profiles. It also clarifies that URI updates don't trigger certificate reissuance. The guidance now says “Don’t add more SCEP URIs,” and the “Additional diagnostics” heading is now “More diagnostics.”",
         "sourceFiles": [
           "intune/cloud-pki/renew-ca.md",
           "intune/cloud-pki/renew-ca.md",
@@ -123,9 +131,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/epm-elevation-rules.md.",
+        "summary": "The documentation now explains how the three child-process options work, including that allowing elevated child processes skips rule evaluation and deny rules. It also adds guidance to avoid overly broad rules for applications that launch other processes.",
         "sourceFiles": [
           "intune/intune-service/protect/epm-elevation-rules.md"
         ]
@@ -133,14 +141,14 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "headline": "intune/cloud-pki",
-        "detail": "Added Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md. Updated Microsoft Intune documentation in intune/cloud-pki/renew-ca.md."
+        "detail": "The article explains how to prevent service disruption when a Cloud PKI CA expires: create a new issuing CA with matching properties and update every dependent SCEP certificate profile to use its SCEP URI. The article now clearly explains the impacts of an expiring issuing CA, the steps to create a replacement CA, and how to replace the SCEP URI in associated profiles. It also clarifies that URI updates don't trigger certificate reissuance. The guidance now says “Don’t add more SCEP URIs,” and the “Additional diagnostics” heading is now “More diagnostics.”"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/protect/epm-elevation-rules.md."
+        "detail": "The documentation now explains how the three child-process options work, including that allowing elevated child processes skips rule evaluation and deny rules. It also adds guidance to avoid overly broad rules for applications that launch other processes."
       }
     ],
     "generatedBy": "fallback"

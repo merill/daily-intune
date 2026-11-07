@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-02-10T02:08:45.000Z",
       "eventId": "intune-docs:943d0fde95c1ff4391f205092457aaa93c87b752:modified:intune/intune-service/configuration/custom-settings-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "review updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple custom configuration profile guidance updated",
+        "summary": "The documentation now links to custom device configuration profiles instead of VPN profiles and adds Apple Configurator and Apple Profile Manager setup and compatibility guidance.",
+        "adminImpact": "Administrators creating Apple profiles can follow the updated workflow and verify exported settings are compatible with their devices’ iOS/iPadOS versions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-02-10T02:08:45.000Z",
       "eventId": "intune-docs:943d0fde95c1ff4391f205092457aaa93c87b752:modified:intune/intune-service/configuration/device-features-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "review updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple device features documentation reorganized",
+        "summary": "The page date was updated, image references were moved to a new media folder, and detailed SSO app extension guidance was removed from this page.",
+        "adminImpact": "Administrators using this page for SSO app extension configuration should consult the current related documentation for those details.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-02-10T02:08:45.000Z",
       "eventId": "intune-docs:943d0fde95c1ff4391f205092457aaa93c87b752:modified:intune/intune-service/configuration/device-restrictions-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "review updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-restrictions-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple app ID lists are documented as reporting-only",
+        "summary": "The documentation now states that Allow Listed App Bundle IDs and Blocked App Bundle IDs report listed apps in Intune but do not prevent users from installing or running them.",
+        "adminImpact": "Administrators should use the reported app information to inform app management decisions; no required configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-02-10T02:08:45.000Z",
       "eventId": "intune-docs:943d0fde95c1ff4391f205092457aaa93c87b752:modified:intune/intune-service/configuration/vpn-settings-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "review updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple VPN documentation wording updated",
+        "summary": "The page date was updated, and four statements changed from “may” to “might” in the NetMotion, IKEv2, iOS/iPadOS default, and MTU guidance.",
+        "adminImpact": "No administrator action is indicated; existing configuration guidance can continue to be used.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -114,11 +122,13 @@
       "firstSeenAt": "2026-02-10T02:08:45.000Z",
       "eventId": "intune-docs:943d0fde95c1ff4391f205092457aaa93c87b752:modified:intune/intune-service/configuration/wi-fi-settings-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "review updates",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple Wi-Fi documentation adds enrollment and EAP guidance",
+        "summary": "The page now states that these settings are available for all enrollment types and adds guidance for selecting SCEP or PKCS certificates and configuring EAP outer identity on iOS/iPadOS and macOS.",
+        "adminImpact": "Administrators have clearer guidance for matching client certificates to deployments and using an anonymous outer identity during authentication.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -139,10 +149,12 @@
       "eventId": "intune-docs:5a58b09560c75d141fae916a4c3c3410ea6f5d05:modified:intune/configmgr/core/plan-design/hierarchy/ports.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Changing SQL Browser port from TCP to UDP",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/ports.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "SQL Server Browser is documented on UDP port 1434",
+        "summary": "The ports documentation now lists SQL Server Browser port 1434 under UDP instead of TCP.",
+        "adminImpact": "Administrators reviewing ConfigMgr network and firewall requirements should account for SQL Server Browser traffic on UDP 1434.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -162,11 +174,13 @@
       "firstSeenAt": "2026-02-10T13:50:15.000Z",
       "eventId": "intune-docs:5fcc72eb4159e3e0cb1bb917e4d3f62aa816b8e4:modified:intune/configmgr/sum/get-started/install-a-software-update-point.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update legacy software and OS examples in documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/sum/get-started/install-a-software-update-point.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Legacy Windows and Office examples consolidated",
+        "summary": "The software update point documentation now combines legacy Windows and Office examples into one list, including Windows 7, Windows 8, Server 2008, and Office 2002/XP through Office 2013. Separate update-category examples were removed.",
+        "adminImpact": "Administrators consulting this guidance will see an updated, consolidated set of legacy software examples; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -186,11 +200,13 @@
       "firstSeenAt": "2026-02-10T16:09:13.000Z",
       "eventId": "intune-docs:1949fc604acbe3d0a3f3dbd6b7d18972a3a726b8:modified:autopilot/known-issues.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Revise known issues and update dates in documentation",
-        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Autopilot known-issues documentation refreshed",
+        "summary": "The page date was updated to February 10, 2026, and the hybrid-join timeout issue description, terminology, KB list formatting, and date styling were revised. The issue remains associated with error 0x80004005 and the listed fixes for Windows 25H2, 24H2, and 23H2.",
+        "adminImpact": "Administrators get clearer, updated guidance when reviewing this known issue; no configuration or migration is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -210,11 +226,13 @@
       "firstSeenAt": "2026-02-10T16:49:41.000Z",
       "eventId": "intune-docs:3ea3d1f2e4142ff951bd3cad1236adf71de66bec:modified:intune/intune-service/configuration/device-profile-assign.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Clarify terminology by updating to 'assignment filters'",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-assign.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "“Filters” terminology updated to “assignment filters”",
+        "summary": "The page now consistently uses “assignment filters” when describing filters used to target policies, apps, profiles, and devices, including related links and examples.",
+        "adminImpact": "No administrator action is required. The updated terminology helps align references when using or searching the documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -234,11 +252,13 @@
       "firstSeenAt": "2026-02-10T17:05:09.000Z",
       "eventId": "intune-docs:eb6c79f185d42386065db89aff0e2669bf80b83b:modified:autopilot/known-issues.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Clarify known issue title for Entra hybrid join",
-        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Known-issue heading updated to Microsoft Entra terminology",
+        "summary": "The heading now says “Microsoft Entra hybrid join” instead of “Hybrid Entra join”; the timeout error and issue description are unchanged.",
+        "adminImpact": "The updated terminology makes the known issue easier to identify when searching the documentation. No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -258,11 +278,13 @@
       "firstSeenAt": "2026-02-10T18:07:29.000Z",
       "eventId": "intune-docs:9142a4d780665d2c45d01fe4d0062b1624e1d46c:modified:intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update date and fix link formatting in documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/remote-help-troubleshoot-monitor.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Remote Help troubleshooting page updates its date and Policy CSP link",
+        "summary": "The page date changed from October 1, 2025, to February 10, 2026, and the Policy CSP - Notifications link was reformatted.",
+        "adminImpact": "Administrators can use the updated link when reviewing notification-blocking guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -282,11 +304,13 @@
       "firstSeenAt": "2026-02-10T18:57:02.000Z",
       "eventId": "intune-docs:27de96f4afb5cc8291a42647cdeac4607a590697:modified:intune/configmgr/sum/get-started/install-a-software-update-point.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Revise product selection warnings and tips",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/sum/get-started/install-a-software-update-point.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated guidance for selecting software update products",
+        "summary": "The warning now emphasizes selecting only required products, explains that unnecessary selections increase WSUS metadata and scan time, and recommends removing unused legacy products and products Configuration Manager can't deploy.",
+        "adminImpact": "Review product selections to help reduce update scan time and improve performance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -306,11 +330,13 @@
       "firstSeenAt": "2026-02-10T20:42:22.000Z",
       "eventId": "intune-docs:98a89484edbc5a715ed2990873105bff33014f73:modified:intune/intune-service/fundamentals/settings-insight.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Revision of date",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Settings insight documentation date updated",
+        "summary": "The document metadata date changed from July 31, 2024, to February 10, 2026.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -330,11 +356,13 @@
       "firstSeenAt": "2026-02-10T21:28:56.000Z",
       "eventId": "intune-docs:dfa17fe38905297160134512d6dc6bfab1c2bd53:modified:intune/intune-service/configuration/device-features-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects, UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Apple SSO documentation adds Kerberos configuration guidance",
+        "summary": "The documentation adds instructions for the Kerberos extension’s Realm and Domains fields, including capitalization, uniqueness, case-insensitivity, and the required leading period for domains. It also updates platform wording and removes the instruction to know the extension ID for generic credential app extensions.",
+        "adminImpact": "Administrators configuring Kerberos SSO have clearer requirements for entering authentication realms and domains.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -354,11 +382,13 @@
       "firstSeenAt": "2026-02-10T21:28:56.000Z",
       "eventId": "intune-docs:dfa17fe38905297160134512d6dc6bfab1c2bd53:modified:intune/intune-service/configuration/device-restrictions-apple.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects, UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/device-restrictions-apple.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Apple restrictions documentation adds iCloud folder-sync control",
+        "summary": "The page now documents **Block iCloud desktop and documents sync**. Setting it to **Yes** blocks iCloud from syncing desktop and documents folders; **Not configured** leaves the OS behavior unchanged. The page date was also updated.",
+        "adminImpact": "Administrators can now reference this documented restriction when managing iCloud synchronization on Apple devices. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -378,11 +408,13 @@
       "firstSeenAt": "2026-02-10T21:28:56.000Z",
       "eventId": "intune-docs:dfa17fe38905297160134512d6dc6bfab1c2bd53:modified:intune/intune-service/fundamentals/filters.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects, UI",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/filters.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune filter documentation adopts “assignment filter” terminology",
+        "summary": "The article consistently replaces “filter” with “assignment filter” in descriptions, instructions, links, and image text. The documented 3,072-character limit remains stated.",
+        "adminImpact": "Administrators should use the updated terminology when referencing this documentation. No configuration change or migration is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -402,11 +434,13 @@
       "firstSeenAt": "2026-02-10T22:26:09.000Z",
       "eventId": "intune-docs:e76775e88e4aa72e3d8d3879bfbe2accbb0e4a39:modified:intune/intune-service/fundamentals/settings-insight.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final polish",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Settings insight scope and data-use wording clarified",
+        "summary": "The page now specifies that Settings insight is available for Intune security baselines, notes that additional insights may appear as more data becomes available, and clarifies how aggregated usage data is categorized and used.",
+        "adminImpact": "Administrators get clearer information about supported baselines, future insights, and the handling of usage data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -426,11 +460,13 @@
       "firstSeenAt": "2026-02-10T22:29:32.000Z",
       "eventId": "intune-docs:e976fea9d01107560df8834919789de17f8dfa9c:modified:intune/intune-service/fundamentals/settings-insight.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final polish",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Settings insight availability wording updated",
+        "summary": "The documentation no longer states that Settings insight is unavailable for other Intune security baselines, including Windows 10 and later and Microsoft Defender for Endpoint.",
+        "adminImpact": "Review the updated page when determining Settings insight availability for these baselines.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -450,11 +486,13 @@
       "firstSeenAt": "2026-02-10T22:40:01.000Z",
       "eventId": "intune-docs:f54cf6d2755ac4e73b96bf109918039fc20bcaf7:modified:intune/intune-service/fundamentals/settings-insight.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "final polish",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/settings-insight.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Settings insight documentation receives wording and punctuation updates",
+        "summary": "The article’s introductory wording was refined, and punctuation was added to bullets and numbered steps covering licensing, eligibility, privacy, and insight behavior.",
+        "adminImpact": "No administrator action is indicated; the update improves documentation consistency and readability.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -476,11 +514,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/custom-settings-ios.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "The iOS/iPadOS custom settings documentation was removed",
+        "summary": "The article describing how to create custom profiles with Apple Configurator or Profile Manager, import them into Intune, and assign them to devices was deleted.",
+        "adminImpact": "Administrators can no longer use this article as documentation for these custom profile workflows. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -500,11 +540,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/custom-settings-macos.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-macos.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "macOS custom settings documentation was removed",
+        "summary": "The Intune article describing custom macOS configuration profiles, prerequisites, deployment channels, file limits, variables, and related links was deleted.",
+        "adminImpact": "Administrators relying on this article should use other available documentation for guidance on macOS custom profiles.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -524,11 +566,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/device-restrictions-ios.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/device-restrictions-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "The iOS/iPadOS device settings article was removed",
+        "summary": "The 798-line Microsoft Intune article documenting iOS/iPadOS device restriction settings was deleted.",
+        "adminImpact": "Administrators can no longer use this Microsoft Learn page as a reference when configuring iOS/iPadOS restriction profiles.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -548,11 +592,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/device-restrictions-macos.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/device-restrictions-macos.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "macOS device settings article deleted",
+        "summary": "The Intune article documenting macOS device restriction settings was removed, including its guidance for app, built-in app, cloud, and storage restrictions.",
+        "adminImpact": "Administrators can no longer access this settings reference at the published URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -572,11 +618,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/ios-device-features-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/ios-device-features-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "iOS/iPadOS device feature settings reference removed",
+        "summary": "The Intune documentation page covering iOS/iPadOS AirPrint, home screen layout, app notifications, shared devices, single sign-on, and web content filters was deleted.",
+        "adminImpact": "Administrators can no longer use this page as a reference for these iOS/iPadOS configuration settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -596,11 +644,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/macos-device-features-settings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/macos-device-features-settings.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "macOS device feature settings reference removed",
+        "summary": "The macOS device feature settings documentation was deleted, including guidance for AirPrint, login window controls, associated domains, enrollment applicability, and setup steps.",
+        "adminImpact": "Administrators can no longer use this page as a reference for configuring these macOS settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -620,11 +670,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/vpn-settings-ios.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "iOS/iPadOS VPN settings documentation removed",
+        "summary": "The `vpn-settings-ios.md` article was deleted, removing its guidance for configuring iOS/iPadOS VPN profiles and settings in Intune.",
+        "adminImpact": "Administrators can no longer access this VPN settings reference at the documented URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -644,11 +696,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/vpn-settings-macos.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-macos.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "macOS VPN settings reference removed",
+        "summary": "The 128-line article describing VPN configuration settings for macOS devices in Intune was deleted.",
+        "adminImpact": "Administrators can no longer use this article as a reference for macOS VPN profile settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -668,11 +722,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/wi-fi-settings-ios.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-ios.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "iOS/iPadOS Wi-Fi settings documentation removed",
+        "summary": "The Intune article describing iOS/iPadOS Wi-Fi configuration profiles and their basic and enterprise settings was deleted.",
+        "adminImpact": "Administrators who relied on this article will no longer have this reference available at its documented URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -692,11 +748,13 @@
       "firstSeenAt": "2026-02-10T21:42:20.000Z",
       "eventId": "intune-docs:c649f7a8171db6d90c05481d501acf208fc8573c:removed:intune/intune-service/configuration/wi-fi-settings-macos.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "deleted files",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-macos.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "macOS Wi-Fi settings documentation removed",
+        "summary": "The macOS Wi-Fi settings article was deleted. It previously documented macOS Wi-Fi profile creation, basic and enterprise settings, certificates, EAP authentication, and proxy configuration.",
+        "adminImpact": "Administrators can no longer access these configuration details at the published documentation URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -717,9 +775,9 @@
     "overview": "Today's report includes 0 new, 19 updated, and 10 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-restrictions-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-assign.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals",
+        "summary": "The documentation now links to custom device configuration profiles instead of VPN profiles and adds Apple Configurator and Apple Profile Manager setup and compatibility guidance. The page date was updated, image references were moved to a new media folder, and detailed SSO app extension guidance was removed from this page. The documentation now states that Allow Listed App Bundle IDs and Blocked App Bundle IDs report listed apps in Intune but do not prevent users from installing or running them. The page date was updated, and four statements changed from “may” to “might” in the NetMotion, IKEv2, iOS/iPadOS default, and MTU guidance. The page now states that these settings are available for ",
         "sourceFiles": [
           "intune/intune-service/configuration/custom-settings-apple.md",
           "intune/intune-service/configuration/device-features-apple.md",
@@ -750,7 +808,7 @@
       {
         "category": "Feature update",
         "title": "intune/configmgr",
-        "summary": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/ports.md. Updated Microsoft Intune documentation in intune/configmgr/sum/get-started/install-a-software-update-point.md. Updated Microsoft Intune documentation in intune/configmgr/sum/get-started/install-a-software-update-point.md.",
+        "summary": "The ports documentation now lists SQL Server Browser port 1434 under UDP instead of TCP. The software update point documentation now combines legacy Windows and Office examples into one list, including Windows 7, Windows 8, Server 2008, and Office 2002/XP through Office 2013. Separate update-category examples were removed. The warning now emphasizes selecting only required products, explains that unnecessary selections increase WSUS metadata and scan time, and recommends removing unused legacy products and products Configuration Manager can't deploy.",
         "sourceFiles": [
           "intune/configmgr/core/plan-design/hierarchy/ports.md",
           "intune/configmgr/sum/get-started/install-a-software-update-point.md",
@@ -758,9 +816,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "Windows Autopilot",
-        "summary": "Updated Microsoft Intune documentation in autopilot/known-issues.md. Updated Microsoft Intune documentation in autopilot/known-issues.md.",
+        "summary": "The page date was updated to February 10, 2026, and the hybrid-join timeout issue description, terminology, KB list formatting, and date styling were revised. The issue remains associated with error 0x80004005 and the listed fixes for Windows 25H2, 24H2, and 23H2. The heading now says “Microsoft Entra hybrid join” instead of “Hybrid Entra join”; the timeout error and issue description are unchanged.",
         "sourceFiles": [
           "autopilot/known-issues.md",
           "autopilot/known-issues.md"
@@ -769,19 +827,19 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-features-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-restrictions-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/vpn-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/wi-fi-settings-apple.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/device-profile-assign.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals"
+        "detail": "The documentation now links to custom device configuration profiles instead of VPN profiles and adds Apple Configurator and Apple Profile Manager setup and compatibility guidance. The page date was updated, image references were moved to a new media folder, and detailed SSO app extension guidance was removed from this page. The documentation now states that Allow Listed App Bundle IDs and Blocked App Bundle IDs report listed apps in Intune but do not prevent users from installing or running them. The page date was updated, and four statements changed from “may” to “might” in the NetMotion, IKEv2, iOS/iPadOS default, and MTU guidance. The page now states that these settings are available for "
       },
       {
         "category": "Feature update",
         "headline": "intune/configmgr",
-        "detail": "Updated Microsoft Intune documentation in intune/configmgr/core/plan-design/hierarchy/ports.md. Updated Microsoft Intune documentation in intune/configmgr/sum/get-started/install-a-software-update-point.md. Updated Microsoft Intune documentation in intune/configmgr/sum/get-started/install-a-software-update-point.md."
+        "detail": "The ports documentation now lists SQL Server Browser port 1434 under UDP instead of TCP. The software update point documentation now combines legacy Windows and Office examples into one list, including Windows 7, Windows 8, Server 2008, and Office 2002/XP through Office 2013. Separate update-category examples were removed. The warning now emphasizes selecting only required products, explains that unnecessary selections increase WSUS metadata and scan time, and recommends removing unused legacy products and products Configuration Manager can't deploy."
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "Windows Autopilot",
-        "detail": "Updated Microsoft Intune documentation in autopilot/known-issues.md. Updated Microsoft Intune documentation in autopilot/known-issues.md."
+        "detail": "The page date was updated to February 10, 2026, and the hybrid-join timeout issue description, terminology, KB list formatting, and date styling were revised. The issue remains associated with error 0x80004005 and the listed fixes for Windows 25H2, 24H2, and 23H2. The heading now says “Microsoft Entra hybrid join” instead of “Hybrid Entra join”; the timeout error and issue description are unchanged."
       }
     ],
     "generatedBy": "fallback"

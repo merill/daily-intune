@@ -17,11 +17,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/audit-logs.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/audit-logs.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Audit logs available for Intune Cloud PKI",
+        "summary": "Administrators can access Cloud PKI audit logs in the Intune admin center or through Microsoft Graph. Logs cover CA and certificate actions, including creation, updates, deletion, issuance searches, and revocations.",
+        "adminImpact": "Administrators can use the logs to track who performed Cloud PKI actions and when. Access requires an Intune Cloud PKI license, the Intune service administrator role, an access token, and the specified Microsoft Graph permissions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -41,11 +43,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/configure-byoca.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Cloud PKI BYOCA configuration guidance added",
+        "summary": "A new article explains how to create a Cloud PKI issuing CA and anchor it to an on-premises or private CA, including prerequisites, permissions, and configuration settings.",
+        "adminImpact": "Administrators planning to use BYOCA can follow the documented steps and review the required RBAC permissions and CA settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -65,11 +69,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/configure-ca.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/configure-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New guidance for configuring Microsoft Cloud PKI CAs",
+        "summary": "A new article explains how to create and deploy Microsoft Cloud PKI root and issuing CAs, including prerequisites, RBAC permissions, validity, EKU, subject, encryption, and scope-tag settings.",
+        "adminImpact": "Administrators can use the documented steps and constraints to plan and configure Cloud PKI, including ensuring the required CA permissions and creating a root CA before an issuing CA.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -89,11 +95,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/delete.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/delete.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI CA deletion guidance added",
+        "summary": "A new article explains how to pause, revoke, and permanently delete issuing and root CAs, including required permissions, certificate prerequisites, and status effects.",
+        "adminImpact": "Administrators should review the irreversible revoke and delete steps before removing CAs. Root CAs can be deleted only after their anchored issuing CAs are removed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -113,11 +121,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/deploy.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/deploy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New Microsoft Cloud PKI deployment guidance",
+        "summary": "A new article documents two deployment models: a Microsoft Cloud PKI root CA or BYOCA using a private CA. It also covers trust-chain prerequisites and certificate distribution to relying parties.",
+        "adminImpact": "Use this guidance to evaluate the appropriate deployment model and prepare trust anchors and CA certificates for managed devices and authentication services.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -137,11 +147,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/fundamentals.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/fundamentals.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI fundamentals documentation added",
+        "summary": "A new article explains Microsoft Cloud PKI concepts, including root and issuing CAs, certificate chaining, Windows chain validation, and the requirement that certificates are issued only to MDM-enrolled network devices.",
+        "adminImpact": "Administrators can use the guidance to understand PKI concepts and review prerequisites before configuring Cloud PKI.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -161,11 +173,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/index.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "New feature",
+        "headline": "Microsoft Cloud PKI overview added for Intune",
+        "summary": "The documentation describes Microsoft Cloud PKI, including supported platforms, certificate lifecycle management, certificate authorities, reporting, auditing, RBAC, and architecture.",
+        "adminImpact": "Administrators can use the overview to evaluate Cloud PKI support, prerequisites, and management capabilities for Intune-enrolled Android, iOS/iPadOS, and Windows devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -185,11 +199,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:added:intune/cloud-pki/monitor.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/monitor.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "New guidance for monitoring Cloud PKI certificates",
+        "summary": "The article explains how to view issued certificate counts, SCEP reports, and Cloud PKI issuing-CA dashboards; it also documents manual certificate revocation. Reports should be available within 24 hours, and an active SCEP assignment triggers a new certificate request after revocation at the next device check-in.",
+        "adminImpact": "Admins can use the documented Intune admin center paths to monitor certificates and manage revocations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -211,11 +227,13 @@
       "firstSeenAt": "2026-01-26T15:38:20.000Z",
       "eventId": "intune-docs:8c2a52a440b949a1c08eead2041e8a8c51874c33:modified:intune/intune-service/apps/mamedge-3-scc.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update max allowed device threat levels in MTD integration documentation",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-3-scc.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated device threat level guidance",
+        "summary": "The MTD integration documentation now lists High instead of Low, and Low instead of Medium, for configurations using the Block access action.",
+        "adminImpact": "Review the updated threat level values when configuring MTD integration.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -236,10 +254,12 @@
       "eventId": "intune-docs:04a9484b13d3cb14d5bd3df43892f28905dc95d2:modified:autopilot/whats-new.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Update date and note for Windows Autopilot changes",
-        "summary": "Updated Microsoft Intune documentation in autopilot/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Windows Autopilot capability included in the Windows 2026-01 B quality update",
+        "summary": "The documentation now states that, as of January 13, 2026, the previously delayed capability is included in the Windows 2026-01 B quality update. The page date and callout level were also updated.",
+        "adminImpact": "Administrators have the current delivery status and update reference. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -259,11 +279,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/configure-byoca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI BYOCA guide links and images updated",
+        "summary": "The guide now uses revised links for overview, deployment, and fundamentals pages, along with updated paths for its Cloud PKI images.",
+        "adminImpact": "Administrators following the guide will use the updated navigation links and image references.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -283,11 +305,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/configure-ca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/configure-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI configuration guide links and images updated",
+        "summary": "The guide now links to renamed overview, deployment, and fundamentals pages and references updated image locations.",
+        "adminImpact": "Use the updated links and image references when following the Cloud PKI configuration guide.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -307,11 +331,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/delete.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/delete.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI deletion guide updates screenshot links",
+        "summary": "Seven Cloud PKI deletion guide screenshots now use updated relative image paths, with their captions unchanged.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -331,11 +357,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/deploy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/deploy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI deployment guide links updated",
+        "summary": "The guide now links to fundamentals.md and moves three deployment diagrams to the images/deployment path.",
+        "adminImpact": "Administrators using the guide should follow the updated reference and image links.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -355,11 +383,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/fundamentals.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/fundamentals.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI documentation image paths updated",
+        "summary": "The Cloud PKI fundamentals page now references the diagrams from the `images/fundamentals` path instead of `media/microsoft-cloud-pki-fundamentals`.",
+        "adminImpact": "No administrator action is required; this only updates documentation asset locations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -379,11 +409,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI architecture diagram link updated",
+        "summary": "The documentation now references the architecture diagram at a different relative path.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -403,11 +435,13 @@
       "firstSeenAt": "2026-01-26T17:16:41.000Z",
       "eventId": "intune-docs:d52794e40c5e1afcb1cdd45700bb2c539c3665df:modified:intune/cloud-pki/monitor.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "media move",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/monitor.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI monitoring image references changed",
+        "summary": "Three screenshot links in the monitoring article now use updated image paths.",
+        "adminImpact": "Administrators using the article will see the revised screenshot references; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -427,11 +461,13 @@
       "firstSeenAt": "2026-01-26T17:29:39.000Z",
       "eventId": "intune-docs:d8e934e36249e66d09b6b08adad7a67d426bf791:modified:intune/cloud-pki/configure-byoca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "BYOCA guide links and image paths corrected",
+        "summary": "Updated the deployment, trusted certificate, and SCEP documentation links, and corrected image paths throughout the Microsoft Cloud PKI BYOCA guide.",
+        "adminImpact": "Administrators following the guide will have working links and correctly displayed screenshots.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,11 +487,13 @@
       "firstSeenAt": "2026-01-26T17:29:39.000Z",
       "eventId": "intune-docs:d8e934e36249e66d09b6b08adad7a67d426bf791:modified:intune/cloud-pki/configure-ca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/configure-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI setup guide links and images updated",
+        "summary": "The guide updates the deployment link, corrects image paths, and points trusted certificate and SCEP profile instructions to their current documentation locations.",
+        "adminImpact": "Administrators can follow the corrected links and view the setup images reliably; no configuration changes are required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -475,11 +513,13 @@
       "firstSeenAt": "2026-01-26T17:29:39.000Z",
       "eventId": "intune-docs:d8e934e36249e66d09b6b08adad7a67d426bf791:modified:intune/cloud-pki/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI documentation links updated",
+        "summary": "Updated the architecture image path and links to Intune licensing, scope tags, add-ons, and What's new documentation.",
+        "adminImpact": "Use the updated Cloud PKI page links when accessing these referenced resources.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -499,11 +539,13 @@
       "firstSeenAt": "2026-01-26T17:29:39.000Z",
       "eventId": "intune-docs:d8e934e36249e66d09b6b08adad7a67d426bf791:modified:intune/cloud-pki/monitor.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "updates",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/monitor.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected image links in Cloud PKI monitoring documentation",
+        "summary": "The monitoring article now uses the correct `/images/` path for three screenshots covering Certificates, certificate counts, and SCEP certificate profile reports.",
+        "adminImpact": "Administrators can view the referenced screenshots correctly; no configuration changes are required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -523,11 +565,13 @@
       "firstSeenAt": "2026-01-26T17:49:01.000Z",
       "eventId": "intune-docs:f5feb1d57985abbb0b2f91302631d5393570b4a6:modified:intune/cloud-pki/configure-byoca.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated punctuation in certificate authority guidance",
+        "summary": "The documentation changes the dash in the “certsrv.msc - Certificate Authority management console” reference from an en dash to a hyphen.",
+        "adminImpact": "No administrator action is required; the certificate template guidance remains the same.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -547,11 +591,13 @@
       "firstSeenAt": "2026-01-26T17:49:01.000Z",
       "eventId": "intune-docs:f5feb1d57985abbb0b2f91302631d5393570b4a6:modified:intune/cloud-pki/deploy.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/deploy.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI deployment diagrams use updated image paths",
+        "summary": "The deployment guide now references three Cloud PKI diagrams from their new image locations.",
+        "adminImpact": "No administrator action is required; the updated references keep the deployment diagrams available in the guide.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -571,11 +617,13 @@
       "firstSeenAt": "2026-01-26T17:49:01.000Z",
       "eventId": "intune-docs:f5feb1d57985abbb0b2f91302631d5393570b4a6:modified:intune/cloud-pki/fundamentals.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/fundamentals.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated image links in Cloud PKI fundamentals",
+        "summary": "The documentation now references the three diagrams from their updated image paths: chain validation, chain of trust, and certificate handshake.",
+        "adminImpact": "No administrator action is required; this change only updates documentation image links.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -595,11 +643,13 @@
       "firstSeenAt": "2026-01-26T17:49:01.000Z",
       "eventId": "intune-docs:f5feb1d57985abbb0b2f91302631d5393570b4a6:modified:intune/cloud-pki/index.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects",
-        "summary": "Updated Microsoft Intune documentation in intune/cloud-pki/index.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI documentation links to the corrected data residency guidance",
+        "summary": "The Cloud PKI page updates the data residency link path and standardizes punctuation in the licensed Cloud PKI description.",
+        "adminImpact": "Administrators can use the corrected link to access the relevant data residency information. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -619,11 +669,13 @@
       "firstSeenAt": "2026-01-26T17:49:01.000Z",
       "eventId": "intune-docs:f5feb1d57985abbb0b2f91302631d5393570b4a6:modified:intune/intune-service/fundamentals/intune-add-ons.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-add-ons.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Cloud PKI link updated",
+        "summary": "The Intune add-ons documentation now links to the Cloud PKI index instead of the previous overview page path.",
+        "adminImpact": "No action is required; use the updated link when accessing Microsoft Cloud PKI information.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -643,11 +695,13 @@
       "firstSeenAt": "2026-01-26T17:49:01.000Z",
       "eventId": "intune-docs:f5feb1d57985abbb0b2f91302631d5393570b4a6:modified:intune/intune-service/fundamentals/whats-new-archive.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "redirects",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated link to Cloud PKI deletion guidance",
+        "summary": "The What's New archive now links “Delete Microsoft Cloud PKI certification authority” to a new documentation path.",
+        "adminImpact": "Administrators following the archive entry will be directed to the current deletion guidance; no configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -668,10 +722,12 @@
       "eventId": "intune-docs:153dba48420dc719d060ce028d87a13072a3cd47:modified:autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Increase managed applications limit and update date",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Managed application limit increased to 25",
+        "summary": "The user-driven Entra join device preparation documentation now lists a limit of 25 managed applications, up from 10. The page date was also updated.",
+        "adminImpact": "Administrators can plan for the higher documented application limit; no required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -692,10 +748,12 @@
       "eventId": "intune-docs:24fbda1cca69221d0132b3a34a61fe8245b548d3:modified:autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Increase managed applications limit to 25",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Managed application limit increased to 25",
+        "summary": "The automatic assignment tutorial now lists 25 managed applications, up from 10.",
+        "adminImpact": "Administrators can plan for up to 25 managed applications in the documented configuration.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -716,10 +774,12 @@
       "eventId": "intune-docs:5ebe62f643e8378a372374298c616cf18efd37d5:modified:autopilot/device-preparation/whats-new.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Update date and add 28687797 app configuration limit feature for 2601",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Autopilot device preparation now supports up to 25 apps",
+        "summary": "The app limit for Windows Autopilot device preparation policies increased to 25 apps for installation during OOBE, applying to both user-driven and automatic modes.",
+        "adminImpact": "Administrators can deploy more apps during device preparation without changing configuration requirements.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -739,11 +799,13 @@
       "firstSeenAt": "2026-01-26T20:05:25.000Z",
       "eventId": "intune-docs:18971373b6d028fd09ea60cf4d9a4ba7592524f3:modified:autopilot/device-preparation/whats-new.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update tutorial links in whats-new.md",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated Windows Autopilot device preparation tutorial links",
+        "summary": "The What's new page now uses corrected paths for the user-driven Microsoft Entra join and automatic-mode assignment tutorials.",
+        "adminImpact": "Administrators can use the updated links to access these tutorials.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -763,11 +825,13 @@
       "firstSeenAt": "2026-01-26T21:47:45.000Z",
       "eventId": "intune-docs:2e8f210f080abe9552903e6766604509f4300fb6:modified:intune/intune-service/fundamentals/intune-endpoints.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Learn Editor: Update intune-endpoints.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Intune endpoint test script adds user and system execution steps",
+        "summary": "The guidance now explains how to run the connectivity script as the logged-on user or as Local System (device context), including PsExec commands for system execution.",
+        "adminImpact": "Administrators can test Intune endpoint connectivity in the context most relevant to their environment.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -787,11 +851,13 @@
       "firstSeenAt": "2026-01-26T21:51:01.000Z",
       "eventId": "intune-docs:aa7f05c3834ac69c2231310a3170113bed18954b:modified:intune/intune-service/fundamentals/intune-endpoints.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Learn Editor: Update intune-endpoints.md",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Corrected PsExec setup step numbering",
+        "summary": "The step to open PowerShell as an administrator and navigate to the PsExec directory is now labeled step 1 instead of step 2.",
+        "adminImpact": "Administrators following the procedure will see corrected step numbering.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -813,11 +879,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-audit-logs.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-audit-logs.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI audit logs documentation was removed",
+        "summary": "The page describing Microsoft Intune Cloud PKI audit logs, supported audit actions, prerequisites, and access through the admin center or Microsoft Graph was deleted during documentation restructuring.",
+        "adminImpact": "Administrators relying on this page will no longer have this reference at its documented URL. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -837,11 +905,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-configure-byoca.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-configure-byoca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI BYOCA configuration article was removed",
+        "summary": "The documentation page for configuring Microsoft Cloud PKI with a customer-owned CA was deleted. It previously covered prerequisites, permissions, issuing CA creation, certificate signing requests, and configuration settings.",
+        "adminImpact": "Administrators relying on this procedure may no longer find it at the supplied documentation URL. No required administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -861,11 +931,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-configure-ca.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-configure-ca.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Cloud PKI CA configuration documentation was reorganized",
+        "summary": "The 237-line article covering Microsoft Cloud PKI root and issuing CA configuration was deleted during a folder-structure, metadata, and DocFX update.",
+        "adminImpact": "No administrator action, migration, or deadline is specified. Administrators using these instructions should locate the updated documentation location.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -885,11 +957,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-delete.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-delete.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Cloud PKI deletion guidance was removed",
+        "summary": "The documentation page for deleting issued and root Microsoft Cloud PKI certification authorities was deleted, including its role requirements and step-by-step procedures.",
+        "adminImpact": "Administrators may no longer find the CA deletion guidance at the documented URL; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -909,11 +983,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-deployment.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-deployment.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Cloud PKI deployment article deleted",
+        "summary": "The 139-line article covering Microsoft Cloud PKI deployment models, including root CA and BYOCA options, prerequisites, trust chains, and relying-party certificate deployment, was removed.",
+        "adminImpact": "Administrators can no longer access this deployment guidance at the listed documentation URL.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -933,11 +1009,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-fundamentals.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-fundamentals.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Cloud PKI fundamentals documentation was removed",
+        "summary": "The Microsoft Cloud PKI fundamentals article was deleted during a folder-structure, metadata, and DocFX update. It covered certification authorities, chaining, validation, and related PKI concepts.",
+        "adminImpact": "Administrators relying on this reference should account for its content no longer being available at this documented file location.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -957,11 +1035,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-monitor.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-monitor.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Cloud PKI monitoring article removed",
+        "summary": "The documentation for monitoring, revoking, and viewing reports for Microsoft Cloud PKI certificates was deleted.",
+        "adminImpact": "Administrators can no longer rely on this article for the documented Intune admin center procedures.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -981,11 +1061,13 @@
       "firstSeenAt": "2026-01-26T16:40:40.000Z",
       "eventId": "intune-docs:3948dcbae4925709d6eb3ac4ec552dd616bb9e31:removed:intune/intune-service/protect/microsoft-cloud-pki-overview.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "new forder structure, metadata, and docfx updates",
-        "summary": "Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-overview.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Microsoft Cloud PKI overview page removed from its previous file path",
+        "summary": "The Microsoft Cloud PKI overview content was deleted from the specified documentation file as part of folder-structure, metadata, and DocFx updates. The removed content covered supported platforms, management tasks, features, and architecture.",
+        "adminImpact": "No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1005,9 +1087,9 @@
     "overview": "Today's report includes 8 new, 25 updated, and 8 removed Microsoft Intune documentation files across 4 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "New feature",
         "title": "intune/cloud-pki",
-        "summary": "Added Microsoft Intune documentation in intune/cloud-pki/audit-logs.md. Added Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md. Added Microsoft Intune documentation in intune/cloud-pki/configure-ca.md. Added Microsoft Intune documentation in intune/cloud-pki/delete.md. Added Microsoft Intune documentation in intune/cloud-pki/deploy.md. Added Microsoft Intune documentation in intune/cloud-pki/fundamentals.md. Added Microsoft Intune documentation in intune/cloud-pki/index.md. Added Microsoft Intune documentation in intune/cloud-pki/monitor.md. Updated Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md. Updated Microsoft Intune documentation in intune/clo",
+        "summary": "Administrators can access Cloud PKI audit logs in the Intune admin center or through Microsoft Graph. Logs cover CA and certificate actions, including creation, updates, deletion, issuance searches, and revocations. A new article explains how to create a Cloud PKI issuing CA and anchor it to an on-premises or private CA, including prerequisites, permissions, and configuration settings. A new article explains how to create and deploy Microsoft Cloud PKI root and issuing CAs, including prerequisites, RBAC permissions, validity, EKU, subject, encryption, and scope-tag settings. A new article explains how to pause, revoke, and permanently delete issuing and root CAs, including required permissio",
         "sourceFiles": [
           "intune/cloud-pki/audit-logs.md",
           "intune/cloud-pki/configure-byoca.md",
@@ -1035,9 +1117,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-3-scc.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-add-ons.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-audit-logs.md. Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-configure-byoca.md. Rem",
+        "summary": "The MTD integration documentation now lists High instead of Low, and Low instead of Medium, for configurations using the Block access action. The Intune add-ons documentation now links to the Cloud PKI index instead of the previous overview page path. The What's New archive now links “Delete Microsoft Cloud PKI certification authority” to a new documentation path. The guidance now explains how to run the connectivity script as the logged-on user or as Local System (device context), including PsExec commands for system execution. The step to open PowerShell as an administrator and navigate to the PsExec directory is now labeled step 1 instead of step 2. The page describing Microsoft Intune Cl",
         "sourceFiles": [
           "intune/intune-service/apps/mamedge-3-scc.md",
           "intune/intune-service/fundamentals/intune-add-ons.md",
@@ -1057,7 +1139,7 @@
       {
         "category": "Feature update",
         "title": "Windows Autopilot",
-        "summary": "Updated Microsoft Intune documentation in autopilot/whats-new.md.",
+        "summary": "The documentation now states that, as of January 13, 2026, the previously delayed capability is included in the Windows 2026-01 B quality update. The page date and callout level were also updated.",
         "sourceFiles": [
           "autopilot/whats-new.md"
         ]
@@ -1065,7 +1147,7 @@
       {
         "category": "Feature update",
         "title": "autopilot/device-preparation",
-        "summary": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md.",
+        "summary": "The user-driven Entra join device preparation documentation now lists a limit of 25 managed applications, up from 10. The page date was also updated. The automatic assignment tutorial now lists 25 managed applications, up from 10. The app limit for Windows Autopilot device preparation policies increased to 25 apps for installation during OOBE, applying to both user-driven and automatic modes. The What's new page now uses corrected paths for the user-driven Microsoft Entra join and automatic-mode assignment tutorials.",
         "sourceFiles": [
           "autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md",
           "autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md",
@@ -1076,24 +1158,24 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "New feature",
         "headline": "intune/cloud-pki",
-        "detail": "Added Microsoft Intune documentation in intune/cloud-pki/audit-logs.md. Added Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md. Added Microsoft Intune documentation in intune/cloud-pki/configure-ca.md. Added Microsoft Intune documentation in intune/cloud-pki/delete.md. Added Microsoft Intune documentation in intune/cloud-pki/deploy.md. Added Microsoft Intune documentation in intune/cloud-pki/fundamentals.md. Added Microsoft Intune documentation in intune/cloud-pki/index.md. Added Microsoft Intune documentation in intune/cloud-pki/monitor.md. Updated Microsoft Intune documentation in intune/cloud-pki/configure-byoca.md. Updated Microsoft Intune documentation in intune/clo"
+        "detail": "Administrators can access Cloud PKI audit logs in the Intune admin center or through Microsoft Graph. Logs cover CA and certificate actions, including creation, updates, deletion, issuance searches, and revocations. A new article explains how to create a Cloud PKI issuing CA and anchor it to an on-premises or private CA, including prerequisites, permissions, and configuration settings. A new article explains how to create and deploy Microsoft Cloud PKI root and issuing CAs, including prerequisites, RBAC permissions, validity, EKU, subject, encryption, and scope-tag settings. A new article explains how to pause, revoke, and permanently delete issuing and root CAs, including required permissio"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/apps/mamedge-3-scc.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-add-ons.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/intune-endpoints.md. Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-audit-logs.md. Removed Microsoft Intune documentation in intune/intune-service/protect/microsoft-cloud-pki-configure-byoca.md. Rem"
+        "detail": "The MTD integration documentation now lists High instead of Low, and Low instead of Medium, for configurations using the Block access action. The Intune add-ons documentation now links to the Cloud PKI index instead of the previous overview page path. The What's New archive now links “Delete Microsoft Cloud PKI certification authority” to a new documentation path. The guidance now explains how to run the connectivity script as the logged-on user or as Local System (device context), including PsExec commands for system execution. The step to open PowerShell as an administrator and navigate to the PsExec directory is now labeled step 1 instead of step 2. The page describing Microsoft Intune Cl"
       },
       {
         "category": "Feature update",
         "headline": "Windows Autopilot",
-        "detail": "Updated Microsoft Intune documentation in autopilot/whats-new.md."
+        "detail": "The documentation now states that, as of January 13, 2026, the previously delayed capability is included in the Windows 2026-01 B quality update. The page date and callout level were also updated."
       },
       {
         "category": "Feature update",
         "headline": "autopilot/device-preparation",
-        "detail": "Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/user-driven/entra-join-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/tutorial/automatic/automatic-assign-apps-scripts.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md. Updated Microsoft Intune documentation in autopilot/device-preparation/whats-new.md."
+        "detail": "The user-driven Entra join device preparation documentation now lists a limit of 25 managed applications, up from 10. The page date was also updated. The automatic assignment tutorial now lists 25 managed applications, up from 10. The app limit for Windows Autopilot device preparation policies increased to 25 apps for installation during OOBE, applying to both user-driven and automatic modes. The What's new page now uses corrected paths for the user-driven Microsoft Entra join and automatic-mode assignment tutorials."
       }
     ],
     "generatedBy": "fallback"

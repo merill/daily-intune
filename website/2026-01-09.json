@@ -17,14 +17,13 @@
       "firstSeenAt": "2026-01-09T13:14:25.000Z",
       "eventId": "intune-docs:8f69acf929da6991b728c6d6d8f8491dcd16ec98:added:intune/device-updates/windows/quality-updates-policy.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Windows quality updates policy article added",
-        "summary": "A dedicated quality updates policy article was added, covering Hotpatch security updates without restart.",
-        "adminImpact": "Review Hotpatch eligibility and quality update prerequisites.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:53.495Z"
+        "category": "Doc update",
+        "headline": "New guidance for Windows quality updates policies",
+        "summary": "The documentation adds prerequisites and configuration guidance for using Hotpatch and expedited updates, including update ring and Group Policy settings that can interfere with installation.",
+        "adminImpact": "Administrators should verify prerequisites and adjust conflicting update ring or Group Policy settings before deploying expedited updates.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,14 +43,13 @@
       "firstSeenAt": "2026-01-09T22:47:42.000Z",
       "eventId": "intune-docs:0da29fdc1d0d41b0f8c915e1cf7ae312734d04e8:added:intune/device-updates/windows/feature-updates-policy.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Windows feature update policies article added",
-        "summary": "A dedicated article was added for feature update policy settings and creating feature update releases.",
-        "adminImpact": "Use the new article when configuring feature update targeting.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:53.495Z"
+        "category": "Doc update",
+        "headline": "New guidance for Windows feature update policies",
+        "summary": "Intune documentation now explains how to create and assign Windows feature update policies, configure rollout timing, manage optional or required updates, and understand safeguard holds and multi-policy behavior.",
+        "adminImpact": "Administrators can use the documented workflow to deploy supported Windows versions and better anticipate device and user update behavior.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -73,14 +71,13 @@
       "firstSeenAt": "2026-01-09T02:24:22.000Z",
       "eventId": "intune-docs:f6fad3c005146a90d068b26db4ef518e19656652:modified:intune/intune-service/configuration/properties-catalog.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Properties catalog expands Entra join requirement",
-        "summary": "The requirements now include Microsoft Entra hybrid joined devices alongside corporate-owned, Intune-managed, and Entra joined devices.",
-        "adminImpact": "Include hybrid-joined devices when assessing applicable catalog properties.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:53.495Z"
+        "category": "Feature update",
+        "headline": "Microsoft Entra Hybrid joined devices are now included",
+        "summary": "The device requirements now include Microsoft Entra Hybrid joined devices in addition to Microsoft Entra joined devices.",
+        "adminImpact": "Administrators can evaluate corporate-owned, Intune-managed devices with either join state for this capability.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -100,14 +97,13 @@
       "firstSeenAt": "2026-01-09T13:14:25.000Z",
       "eventId": "intune-docs:8f69acf929da6991b728c6d6d8f8491dcd16ec98:modified:intune/device-updates/windows/expedite-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Expedited update behavior section moved",
-        "summary": "The expedited updates article removes its How expedited updates work section as content is reorganized.",
-        "adminImpact": "Use current quality update policy documentation for operation details.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:53.495Z"
+        "category": "Doc update",
+        "headline": "Expedited updates prerequisites reorganized",
+        "summary": "The article now uses shared prerequisite sections and separates Update Health Tools guidance. It also documents that Windows 11 version 24H2 and later cannot apply KB 4023057.",
+        "adminImpact": "Review the updated prerequisite guidance when validating expedited update deployments; no required administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -127,14 +123,13 @@
       "firstSeenAt": "2026-01-09T13:14:25.000Z",
       "eventId": "intune-docs:8f69acf929da6991b728c6d6d8f8491dcd16ec98:modified:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality updates policy naming standardized",
-        "summary": "The quality update article title is pluralized and its Hotpatch introduction is refreshed.",
-        "adminImpact": "No policy behavior change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:53.495Z"
+        "category": "Doc update",
+        "headline": "Windows quality updates policy wording corrected",
+        "summary": "The page title and introductory sentence now consistently use “Windows quality updates policy.”",
+        "adminImpact": "No administrator action is required; the policy documentation is clearer.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -154,14 +149,13 @@
       "firstSeenAt": "2026-01-09T17:40:39.000Z",
       "eventId": "intune-docs:a32d008b12adece39449fab635064edfe5f79e18:modified:intune/intune-service/protect/mobile-threat-defense.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Mobile Threat Defense adds certificate synchronization information",
-        "summary": "Mobile Threat Defense connector guidance was expanded with certificate synchronization content and refreshed connector-status material.",
-        "adminImpact": "Review certificate inventory sharing with each MTD partner before enabling the connector capability.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:18:41.889Z"
+        "category": "New feature",
+        "headline": "Certificate Sync for iOS/iPadOS is now documented",
+        "summary": "The documentation adds optional Certificate Sync through Mobile Threat Defense connectors. It describes certificate inventory sharing for corporate and personally owned devices, the certificate data sent, and how connector statuses affect certificate sync requests.",
+        "adminImpact": "No action is required. To share certificate inventory, administrators must enable Certificate Sync for iOS/iPadOS in the connector settings.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -181,14 +175,13 @@
       "firstSeenAt": "2026-01-09T17:50:00.000Z",
       "eventId": "intune-docs:3bc9190c562dc1ade85c83bfd9578b9a683ffecc:modified:intune/intune-service/protect/mtd-connector-enable.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Certificate synchronization follows device check-in cadence",
-        "summary": "The connector setup guidance states that Certificate Sync data is sent to Mobile Threat Defense partners at an interval based on device check-in.",
-        "adminImpact": "Factor device check-in frequency into expectations for when certificate inventory reaches the MTD partner.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:18:41.889Z"
+        "category": "New feature",
+        "headline": "Certificate Sync settings added for iOS/iPadOS MTD integration",
+        "summary": "The documentation now describes Certificate Sync and certificate inventory controls, including check-in-based synchronization and On/Off behavior for personally owned devices. Corporate devices share managed and unmanaged certificate data when requested by the MTD vendor.",
+        "adminImpact": "Administrators can control certificate inventory sharing for personally owned iOS/iPadOS devices and understand how the setting applies to corporate devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -208,14 +201,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/crowdstrike-falcon-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "CrowdStrike connector reviewer metadata updated",
-        "summary": "The CrowdStrike Falcon Defense connector article changes its reviewer metadata.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:53.495Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated",
+        "summary": "The CrowdStrike Falcon Defense connector documentation now lists ilwu instead of aanavath as the Microsoft reviewer.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,14 +227,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/crowdstrike-falcon-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "CrowdStrike MTD integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for CrowdStrike Falcon integration documentation",
+        "summary": "The document reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -262,14 +253,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/jamf-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Jamf MTD integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The document’s assigned reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required, and the documented Jamf integration behavior is unchanged.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -289,14 +279,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/jamf-mtd-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Jamf MTD connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for Jamf MTD connector documentation",
+        "summary": "The document’s ms.reviewer metadata changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -316,14 +305,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/lookout-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Lookout connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated",
+        "summary": "The document’s ms.reviewer metadata changed from aanavath to ilwu. No product behavior or configuration details changed.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -343,14 +331,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/lookout-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Lookout MTD integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer updated",
+        "summary": "The listed reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action or configuration change is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -370,14 +357,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mobile-threat-defense.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Mobile Threat Defense reviewer updated",
-        "summary": "Only the reviewer metadata changed from demerson to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The document’s ms.reviewer metadata changed from demerson to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -397,14 +383,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mtd-add-apps-unenrolled-devices.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Unenrolled-device MTD guidance reviewer updated",
-        "summary": "Only the reviewer metadata changed from demerson to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer updated",
+        "summary": "The page’s ms.reviewer metadata changed from demerson to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -424,14 +409,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mtd-app-protection-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "MTD app protection reviewer updated",
-        "summary": "Only the reviewer metadata changed from demerson to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated",
+        "summary": "The assigned reviewer for the mobile threat defense app protection policy documentation changed from demerson to ilwu.",
+        "adminImpact": "No administrator action is required; this update affects documentation ownership only.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,14 +435,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mtd-apps-ios-app-configuration-policy-add-assign.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "iOS MTD app configuration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer updated",
+        "summary": "The page metadata reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -478,14 +461,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mtd-connector-enable.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "MTD connector setup reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer updated",
+        "summary": "The document’s reviewer metadata changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -505,14 +487,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mtd-device-compliance-policy-create.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "MTD compliance policy reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s `ms.reviewer` metadata changed from `aanavath` to `ilwu`.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -532,14 +513,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/mtd-enable-unenrolled-devices.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Unenrolled-device MTD enablement reviewer updated",
-        "summary": "Only the reviewer metadata changed from demerson to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s reviewer metadata changed from demerson to ilwu.",
+        "adminImpact": "No operational impact or administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -559,14 +539,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/pradeo-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Pradeo connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s `ms.reviewer` metadata changed from `aanavath` to `ilwu`.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -586,14 +565,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/pradeo-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Pradeo MTD integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The Pradeo MTD connector integration page changed its `ms.reviewer` metadata from `aanavath` to `ilwu`.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -613,14 +591,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/sentinelone-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "SentinelOne connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "SentinelOne connector documentation reviewer updated",
+        "summary": "The document metadata now lists ilwu instead of aanavath as the reviewer.",
+        "adminImpact": "No impact to Intune configuration or administration.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -640,14 +617,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/sentinelone-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "SentinelOne integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "SentinelOne MTD connector page reviewer updated",
+        "summary": "The page metadata reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -667,14 +643,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/skycure-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Skycure connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for the Skycure connector documentation",
+        "summary": "The page reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required; this change affects documentation metadata only.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -694,14 +669,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/skycure-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Skycure integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for Skycure MTD connector documentation",
+        "summary": "The document's ms.reviewer metadata changed from aanavath to ilwu. No product or configuration details changed.",
+        "adminImpact": "No action is required from Intune administrators.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -721,14 +695,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/sophos-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Sophos integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated",
+        "summary": "The Sophos Mobile Threat Defense connector documentation now lists ilwu instead of aanavath as the reviewer.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -748,14 +721,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/sophos-mtd-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Sophos connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Sophos MTD connector documentation reviewer updated",
+        "summary": "The page metadata changed its listed reviewer from aanavath to ilwu. No product behavior or configuration content changed.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -775,14 +747,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/trellix-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Trellix connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The Trellix Mobile Threat Defense connector page's reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -802,14 +773,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/trellix-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Trellix integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for Trellix MTD connector documentation",
+        "summary": "The listed Microsoft reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -829,14 +799,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/trend-micro-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Trend Micro connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for the Trend Micro Mobile Threat Defense connector page",
+        "summary": "The page’s ms.reviewer value changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -856,14 +825,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/trend-micro-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Trend Micro integration reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Intune documentation reviewer updated",
+        "summary": "The assigned reviewer changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -883,14 +851,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/zimperium-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Zimperium connector reviewer updated",
-        "summary": "Only the reviewer metadata changed from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:08:51.044Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for Zimperium connector documentation",
+        "summary": "The page’s `ms.reviewer` metadata changed from `aanavath` to `ilwu`.",
+        "adminImpact": "No Intune configuration changes are indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -910,14 +877,13 @@
       "firstSeenAt": "2026-01-09T20:09:55.000Z",
       "eventId": "intune-docs:9f1bbc1900ff5f7a8fb0f30149f2e7d58a6e5085:modified:intune/intune-service/protect/zimperium-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Zimperium MTD integration reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for Zimperium MTD connector integration",
+        "summary": "The page’s reviewer metadata changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action or configuration change is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -937,14 +903,13 @@
       "firstSeenAt": "2026-01-09T20:15:13.000Z",
       "eventId": "intune-docs:ba74309973cacfd8950af61a8797888e384a5679:modified:intune/intune-service/protect/better-mobile-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Better Mobile integration reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer updated",
+        "summary": "The page metadata now lists ilwu instead of aanavath as the reviewer.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -964,14 +929,13 @@
       "firstSeenAt": "2026-01-09T20:15:13.000Z",
       "eventId": "intune-docs:ba74309973cacfd8950af61a8797888e384a5679:modified:intune/intune-service/protect/better-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Better Mobile connector reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s ms.reviewer metadata changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -991,14 +955,13 @@
       "firstSeenAt": "2026-01-09T20:15:13.000Z",
       "eventId": "intune-docs:ba74309973cacfd8950af61a8797888e384a5679:modified:intune/intune-service/protect/blackberry-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "BlackBerry connector reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s `ms.reviewer` metadata changed from `aanavath` to `ilwu`.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1018,14 +981,13 @@
       "firstSeenAt": "2026-01-09T20:15:13.000Z",
       "eventId": "intune-docs:ba74309973cacfd8950af61a8797888e384a5679:modified:intune/intune-service/protect/blackberry-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "BlackBerry integration reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s reviewer metadata changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required based on this change.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1045,14 +1007,13 @@
       "firstSeenAt": "2026-01-09T20:15:13.000Z",
       "eventId": "intune-docs:ba74309973cacfd8950af61a8797888e384a5679:modified:intune/intune-service/protect/checkpoint-sandblast-mobile-mobile-threat-defense-connector.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Check Point SandBlast connector reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The page’s ms.reviewer value changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1072,14 +1033,13 @@
       "firstSeenAt": "2026-01-09T20:15:13.000Z",
       "eventId": "intune-docs:ba74309973cacfd8950af61a8797888e384a5679:modified:intune/intune-service/protect/checkpoint-sandblast-mobile-mtd-connector-integration.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Check Point SandBlast integration reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated for the Check Point SandBlast Mobile integration article",
+        "summary": "The article’s ms.reviewer metadata changed from aanavath to ilwu. No guidance content changed.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1099,14 +1059,13 @@
       "firstSeenAt": "2026-01-09T20:28:59.000Z",
       "eventId": "intune-docs:1cbcc923ba77f8b55b19b4dd6a7a66bfd3002b85:modified:intune/intune-service/protect/mobile-threat-defense.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Mobile Threat Defense reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from demerson to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Documentation reviewer metadata updated",
+        "summary": "The mobile threat defense page's reviewer metadata changed from demerson to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1126,14 +1085,13 @@
       "firstSeenAt": "2026-01-09T20:28:59.000Z",
       "eventId": "intune-docs:1cbcc923ba77f8b55b19b4dd6a7a66bfd3002b85:modified:intune/intune-service/protect/mtd-connector-enable.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "MTD connector setup reviewer updated",
-        "summary": "The only changed line updates the reviewer metadata from aanavath to ilwu.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Reviewer metadata updated",
+        "summary": "The article’s reviewer metadata changed from aanavath to ilwu.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1153,14 +1111,13 @@
       "firstSeenAt": "2026-01-09T21:10:18.000Z",
       "eventId": "intune-docs:482e5a4db11058e7ec52ca969a95eb5d632db93d:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows updates overview reframes Intune and Autopatch policy surfaces",
-        "summary": "The overview now describes Autopatch as an Intune-integrated service for keeping Windows devices protected, and explains that feature, quality, and driver update policies use the same orchestration service but can be managed directly without Autopatch enrollment.",
-        "adminImpact": "Choose direct Intune policies when you need update management without enrolling devices in Windows Autopatch.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:11:15.795Z"
+        "category": "Doc update",
+        "headline": "Autopatch policy and update-ring guidance revised",
+        "summary": "The documentation now explains that Autopatch uses feature, quality, and driver update policies, and may create and manage update rings for enrolled devices. It also describes service-managed capabilities such as phased rollouts, health monitoring, and reporting.",
+        "adminImpact": "Avoid assigning custom update rings to Autopatch-managed devices and account for service-managed update coordination.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1180,14 +1137,13 @@
       "firstSeenAt": "2026-01-09T21:10:18.000Z",
       "eventId": "intune-docs:482e5a4db11058e7ec52ca969a95eb5d632db93d:modified:intune/device-updates/windows/quality-updates-policy.md",
       "englishSummary": {
-        "category": "Admin action",
-        "headline": "Expedited update prerequisites keep prerelease builds out of scope",
-        "summary": "The quality update policy prerequisites visually separate the update-ring settings table, which requires Enable pre-release builds to remain Not configured because Beta and Dev builds are unsupported for expedited updates.",
-        "adminImpact": "Set Enable pre-release builds to Not configured before targeting an expedited quality update.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:21:00.767Z"
+        "category": "Doc update",
+        "headline": "Minor formatting update to Windows quality updates policy documentation",
+        "summary": "The documentation received a minor formatting update.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1207,14 +1163,13 @@
       "firstSeenAt": "2026-01-09T22:47:42.000Z",
       "eventId": "intune-docs:0da29fdc1d0d41b0f8c915e1cf7ae312734d04e8:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver updates article reframed around managed approvals",
-        "summary": "The article is retitled Manage Windows driver updates and adds context that OEM driver and firmware releases can affect reliability, security, and hardware support, so organizations may prefer controlled approval.",
-        "adminImpact": "Use a controlled approval process and consider hardware-specific impact before broadly deploying driver updates.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:27.119Z"
+        "category": "Doc update",
+        "headline": "Windows driver update management guidance expanded",
+        "summary": "The page now explains driver updates policies, including review, approval, and deployment of manufacturer-provided drivers and firmware through cloud-based update orchestration. It also documents automatic and manual approval workflows.",
+        "adminImpact": "Administrators have clearer guidance for choosing how driver updates are reviewed and deployed to managed devices.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1234,14 +1189,13 @@
       "firstSeenAt": "2026-01-09T22:47:42.000Z",
       "eventId": "intune-docs:0da29fdc1d0d41b0f8c915e1cf7ae312734d04e8:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update article renamed to management guidance",
-        "summary": "The article title changes from Configure Windows feature updates releases to Manage Windows feature updates and replaces its introductory description.",
-        "adminImpact": "No policy behavior change; use the updated management article for feature-version targeting.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:27.119Z"
+        "category": "Doc update",
+        "headline": "Windows feature updates documentation reorganized",
+        "summary": "The page was substantially rewritten to explain Windows feature updates and how Intune policies lock devices to a release or target an upgrade while preventing later upgrades.",
+        "adminImpact": "Use the revised page for updated guidance when managing Windows feature update policies; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1261,14 +1215,13 @@
       "firstSeenAt": "2026-01-09T22:47:42.000Z",
       "eventId": "intune-docs:0da29fdc1d0d41b0f8c915e1cf7ae312734d04e8:modified:intune/device-updates/windows/quality-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality updates description broadened",
-        "summary": "The article description now covers managing Windows quality updates with quality update policies, expedited updates, and Hotpatch to maintain security and compliance.",
-        "adminImpact": "Evaluate quality policies, expedites, and Hotpatch together when planning Windows patching.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:27.119Z"
+        "category": "Doc update",
+        "headline": "Windows quality updates documentation expanded",
+        "summary": "The page now explains managing Windows quality updates in Intune through quality updates policies, expedited updates, and Hotpatch. It also adds background on cumulative quality updates and sections covering prerequisites.",
+        "adminImpact": "Administrators have a broader reference for update-management options and the prerequisites for using them.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1288,14 +1241,13 @@
       "firstSeenAt": "2026-01-09T22:59:47.000Z",
       "eventId": "intune-docs:f956f2c64b6bf3c2f79e4abc5ac2571dc8e3ae12:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings article explains deployment-stage controls",
-        "summary": "The article adds an overview of update ring policies: they control deferrals, restart settings, deadlines, active hours, and notifications, and can define test, pilot, and production stages alongside feature, quality, and driver policies.",
-        "adminImpact": "Use different ring assignments and settings to stage update deployment while coordinating with other Windows update policies.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:12:27.119Z"
+        "category": "Doc update",
+        "headline": "Windows update rings guidance adds Windows Autopatch context",
+        "summary": "The page now explains update ring policy scope and settings, and notes that Windows Autopatch may create and maintain rings. It advises that administrators typically shouldn’t assign custom rings to Autopatch-managed devices. The previous Microsoft Entra registered device limitations section was removed.",
+        "adminImpact": "Review ring assignments for Autopatch-managed devices and account for service-maintained policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1314,9 +1266,9 @@
     "overview": "Today's report includes 2 new, 46 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "title": "intune/device-updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/quality-updates-policy.md. Added Microsoft Intune documentation in intune/device-updates/windows/feature-updates-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/",
+        "summary": "The documentation adds prerequisites and configuration guidance for using Hotpatch and expedited updates, including update ring and Group Policy settings that can interfere with installation. Intune documentation now explains how to create and assign Windows feature update policies, configure rollout timing, manage optional or required updates, and understand safeguard holds and multi-policy behavior. The article now uses shared prerequisite sections and separates Update Health Tools guidance. It also documents that Windows 11 version 24H2 and later cannot apply KB 4023057. The page title and introductory sentence now consistently use “Windows quality updates policy.” The documentation now e",
         "sourceFiles": [
           "intune/device-updates/windows/quality-updates-policy.md",
           "intune/device-updates/windows/feature-updates-policy.md",
@@ -1333,7 +1285,7 @@
       {
         "category": "Feature update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/configuration/properties-catalog.md. Updated Microsoft Intune documentation in intune/intune-service/protect/mobile-threat-defense.md. Updated Microsoft Intune documentation in intune/intune-service/protect/mtd-connector-enable.md. Updated Microsoft Intune documentation in intune/intune-service/protect/crowdstrike-falcon-defense-connector.md. Updated Microsoft Intune documentation in intune/intune-service/protect/crowdstrike-falcon-mtd-connector-integration.md. Updated Microsoft Intune documentation in intune/intune-service/protect/jamf-mtd-connector-integration.md. Updated Microsoft Intune documentation in intune/intune-service",
+        "summary": "The device requirements now include Microsoft Entra Hybrid joined devices in addition to Microsoft Entra joined devices. The documentation adds optional Certificate Sync through Mobile Threat Defense connectors. It describes certificate inventory sharing for corporate and personally owned devices, the certificate data sent, and how connector statuses affect certificate sync requests. The documentation now describes Certificate Sync and certificate inventory controls, including check-in-based synchronization and On/Off behavior for personally owned devices. Corporate devices share managed and unmanaged certificate data when requested by the MTD vendor. The CrowdStrike Falcon Defense connector",
         "sourceFiles": [
           "intune/intune-service/configuration/properties-catalog.md",
           "intune/intune-service/protect/mobile-threat-defense.md",
@@ -1378,14 +1330,14 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "Doc update",
         "headline": "intune/device-updates",
-        "detail": "Added Microsoft Intune documentation in intune/device-updates/windows/quality-updates-policy.md. Added Microsoft Intune documentation in intune/device-updates/windows/feature-updates-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/expedite-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/index.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/"
+        "detail": "The documentation adds prerequisites and configuration guidance for using Hotpatch and expedited updates, including update ring and Group Policy settings that can interfere with installation. Intune documentation now explains how to create and assign Windows feature update policies, configure rollout timing, manage optional or required updates, and understand safeguard holds and multi-policy behavior. The article now uses shared prerequisite sections and separates Update Health Tools guidance. It also documents that Windows 11 version 24H2 and later cannot apply KB 4023057. The page title and introductory sentence now consistently use “Windows quality updates policy.” The documentation now e"
       },
       {
         "category": "Feature update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/configuration/properties-catalog.md. Updated Microsoft Intune documentation in intune/intune-service/protect/mobile-threat-defense.md. Updated Microsoft Intune documentation in intune/intune-service/protect/mtd-connector-enable.md. Updated Microsoft Intune documentation in intune/intune-service/protect/crowdstrike-falcon-defense-connector.md. Updated Microsoft Intune documentation in intune/intune-service/protect/crowdstrike-falcon-mtd-connector-integration.md. Updated Microsoft Intune documentation in intune/intune-service/protect/jamf-mtd-connector-integration.md. Updated Microsoft Intune documentation in intune/intune-service"
+        "detail": "The device requirements now include Microsoft Entra Hybrid joined devices in addition to Microsoft Entra joined devices. The documentation adds optional Certificate Sync through Mobile Threat Defense connectors. It describes certificate inventory sharing for corporate and personally owned devices, the certificate data sent, and how connector statuses affect certificate sync requests. The documentation now describes Certificate Sync and certificate inventory controls, including check-in-based synchronization and On/Off behavior for personally owned devices. Corporate devices share managed and unmanaged certificate data when requested by the MTD vendor. The CrowdStrike Falcon Defense connector"
       }
     ],
     "generatedBy": "fallback"

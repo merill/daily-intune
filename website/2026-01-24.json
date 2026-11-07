@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-01-24T17:35:18.000Z",
       "eventId": "intune-docs:b7ebf760cfcdd31aef60f0c9ea8979f7d61012fd:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "added note",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Join operator reference updated",
+        "summary": "The `join` operator entry in the device query documentation was edited. The visible diff continues to list the same supported join types, with `innerunique` as the default.",
+        "adminImpact": "Administrators using device queries can review the updated reference; no configuration change is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-01-24T17:50:49.000Z",
       "eventId": "intune-docs:300ed63d0cbfe9a1b46dbdaf162c2b0d065ed901:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "update",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Updated device query join operator documentation",
+        "summary": "The `join` operator reference was updated, including its list of supported join types and the `innerunique` default.",
+        "adminImpact": "Administrators should use the revised reference when creating device queries; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -66,11 +70,13 @@
       "firstSeenAt": "2026-01-24T17:57:49.000Z",
       "eventId": "intune-docs:1ff1206e2ae2ce7dd9fe83bb9026d2e83793b83f:modified:intune/advanced-analytics/device-query-multiple-devices.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "update",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Device query guidance now uses scalar property examples",
+        "summary": "The documentation now recommends using scalar device properties such as `Device.SerialNumber` or `Device.OSVersion` with operators like `distinct`, `summarize`, and `order by`.",
+        "adminImpact": "Use a specific scalar device property when writing queries with these operators.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -87,9 +93,9 @@
     "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/advanced-analytics",
-        "summary": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md.",
+        "summary": "The `join` operator entry in the device query documentation was edited. The visible diff continues to list the same supported join types, with `innerunique` as the default. The `join` operator reference was updated, including its list of supported join types and the `innerunique` default. The documentation now recommends using scalar device properties such as `Device.SerialNumber` or `Device.OSVersion` with operators like `distinct`, `summarize`, and `order by`.",
         "sourceFiles": [
           "intune/advanced-analytics/device-query-multiple-devices.md",
           "intune/advanced-analytics/device-query-multiple-devices.md",
@@ -99,9 +105,9 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/advanced-analytics",
-        "detail": "Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md. Updated Microsoft Intune documentation in intune/advanced-analytics/device-query-multiple-devices.md."
+        "detail": "The `join` operator entry in the device query documentation was edited. The visible diff continues to list the same supported join types, with `innerunique` as the default. The `join` operator reference was updated, including its list of supported join types and the `innerunique` default. The documentation now recommends using scalar device properties such as `Device.SerialNumber` or `Device.OSVersion` with operators like `distinct`, `summarize`, and `order by`."
       }
     ],
     "generatedBy": "fallback"

@@ -18,11 +18,13 @@
       "firstSeenAt": "2026-02-13T16:43:03.000Z",
       "eventId": "intune-docs:94a7871c2212af722514cdb5d619c5045f1ed13b:modified:intune/intune-service/enrollment/windows-enroll.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Update MDM enrollment documentation for clarity",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows MDM enrollment documentation simplifies preview and known-issue wording",
+        "summary": "The page now lists the feature as in public preview and replaces rollout-specific text with a general known-issues section introduction.",
+        "adminImpact": "No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -42,11 +44,13 @@
       "firstSeenAt": "2026-02-13T16:53:14.000Z",
       "eventId": "intune-docs:37965370bee99e0318307f3516d3b55e380f0cd8:modified:intune/intune-service/enrollment/windows-enroll.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Clarify known issues for MDM enrollment",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Windows MDM automatic enrollment is documented as having no known issues",
+        "summary": "The known-issues section now states that Microsoft Intune has no known issues with MDM automatic enrollment for Windows.",
+        "adminImpact": "Administrators reviewing Windows MDM automatic enrollment will see that no known issues are currently listed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -67,10 +71,12 @@
       "eventId": "intune-docs:b2d164cdf126b4ee1a79af7bcfe9fd3dcf309e6e:modified:intune/intune-service/protect/atp-manage-vulnerabilities.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Frehsness, accuracy, branding > Improvements",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/atp-manage-vulnerabilities.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Security task prerequisites and workflow are now specified",
+        "summary": "The documentation now lists required subscriptions and Intune–Defender configuration, and explains the Pending, Accept, and Complete Task remediation workflow for managed and unmanaged applications.",
+        "adminImpact": "Admins using this integration should verify the required subscriptions, service connection, device onboarding, and risk-assessment policies before creating security tasks.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -90,11 +96,13 @@
       "firstSeenAt": "2026-02-13T18:20:04.000Z",
       "eventId": "intune-docs:78837614d91da801a0fc625cbe747428b9a56322:modified:intune/intune-service/protect/atp-manage-vulnerabilities.md",
       "englishSummary": {
-        "category": "Feature update",
-        "headline": "Minor edit",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/atp-manage-vulnerabilities.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "category": "Doc update",
+        "headline": "Wording clarified for vulnerable managed apps",
+        "summary": "The documentation now says “the app that's vulnerable” instead of “the app that is vulnerable.”",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -115,10 +123,12 @@
       "eventId": "intune-docs:9c3b3727b456861d9eae838b0204f804ce40cb1b:modified:intune/intune-service/protect/device-protect.md",
       "englishSummary": {
         "category": "Feature update",
-        "headline": "Saving intial edits before deeper reviews",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/device-protect.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "generatedBy": "fallback"
+        "headline": "Intune security overview revises platform and policy guidance",
+        "summary": "The article now lists Android, iOS/iPadOS, and Windows for managed devices, explains extending policies to on-premises devices through tenant attach or co-management, and organizes endpoint security and device configuration policy coverage.",
+        "adminImpact": "Review the revised platform coverage and linked policy guidance when planning device protection and policy deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -136,9 +146,9 @@
     "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
     "groups": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/protect/atp-manage-vulnerabilities.md. Updated Microsoft Intune documentation in intune/intune-service/protect/atp-manage-vulnerabilities.md. Updated Microsoft Intune documentation in intune/intune-service/protect/device-protect.md.",
+        "summary": "The page now lists the feature as in public preview and replaces rollout-specific text with a general known-issues section introduction. The known-issues section now states that Microsoft Intune has no known issues with MDM automatic enrollment for Windows. The documentation now lists required subscriptions and Intune–Defender configuration, and explains the Pending, Accept, and Complete Task remediation workflow for managed and unmanaged applications. The documentation now says “the app that's vulnerable” instead of “the app that is vulnerable.” The article now lists Android, iOS/iPadOS, and Windows for managed devices, explains extending policies to on-premises devices through tenant attac",
         "sourceFiles": [
           "intune/intune-service/enrollment/windows-enroll.md",
           "intune/intune-service/enrollment/windows-enroll.md",
@@ -150,9 +160,9 @@
     ],
     "highlights": [
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/enrollment/windows-enroll.md. Updated Microsoft Intune documentation in intune/intune-service/protect/atp-manage-vulnerabilities.md. Updated Microsoft Intune documentation in intune/intune-service/protect/atp-manage-vulnerabilities.md. Updated Microsoft Intune documentation in intune/intune-service/protect/device-protect.md."
+        "detail": "The page now lists the feature as in public preview and replaces rollout-specific text with a general known-issues section introduction. The known-issues section now states that Microsoft Intune has no known issues with MDM automatic enrollment for Windows. The documentation now lists required subscriptions and Intune–Defender configuration, and explains the Pending, Accept, and Complete Task remediation workflow for managed and unmanaged applications. The documentation now says “the app that's vulnerable” instead of “the app that is vulnerable.” The article now lists Android, iOS/iPadOS, and Windows for managed devices, explains extending policies to on-premises devices through tenant attac"
       }
     ],
     "generatedBy": "fallback"

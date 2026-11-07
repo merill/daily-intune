@@ -17,14 +17,13 @@
       "firstSeenAt": "2026-01-07T21:47:41.000Z",
       "eventId": "intune-docs:6829129be0ede1f6c915db0323d59b38a9e451f6:added:intune/device-updates/windows/driver-updates-overview.md",
       "englishSummary": {
-        "category": "New documentation",
-        "headline": "Windows Driver updates overview article restored",
-        "summary": "A complete Windows Driver update management overview was added, documenting approvals, pauses, prerequisites, supported editions, cloud limitations, RBAC, deployment planning, and reporting.",
-        "adminImpact": "Review the overview before deploying driver policies and confirm licensing, platform, network, and role requirements.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:05:23.778Z"
+        "category": "New feature",
+        "headline": "Intune documents Windows driver update management",
+        "summary": "The documentation describes policies for reviewing, approving, automatically deploying, pausing, or manually managing Windows driver updates. It also details licensing, supported Windows editions, and deployment behavior.",
+        "adminImpact": "Administrators can control which approved driver updates deploy to managed Windows devices and can assess the documented subscription and device requirements before using the capability.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -46,14 +45,13 @@
       "firstSeenAt": "2026-01-07T11:59:46.000Z",
       "eventId": "intune-docs:2bcffe5e02935bb3323a07d890b1ca390aa8fc82:modified:intune/intune-service/protect/privacy-data-store-process.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Audit retention wording corrected",
-        "summary": "The privacy article corrects the audit-log retention phrase to two years.",
-        "adminImpact": "No change beyond the previously documented two-year retention period.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:05:23.778Z"
+        "category": "Doc update",
+        "headline": "Audit log retention wording corrected",
+        "summary": "The documentation now states that Intune audit logs are retained for up to two years for security purposes.",
+        "adminImpact": "Administrators have clearer retention information; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -73,14 +71,13 @@
       "firstSeenAt": "2026-01-07T12:54:30.000Z",
       "eventId": "intune-docs:62b9661fb83ca301616946ead9a8676198074963:modified:intune/device-updates/windows/driver-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver policy article refreshes setup guidance",
-        "summary": "The driver policy article is retitled Manage Windows driver update policies, adds a Before you begin section linking overview requirements, and clarifies that admins can create, approve, deploy, and pause individual driver updates.",
-        "adminImpact": "Review the overview prerequisites before creating a driver policy and plan regular review of newly available drivers.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:05:23.778Z"
+        "category": "Doc update",
+        "headline": "Windows driver update policy guidance is reorganized",
+        "summary": "The article now uses clearer terminology and structure, including a “Before you begin” checklist and a dedicated section for reviewing and approving new driver updates. It also clarifies assignments to Windows Update and updates related links.",
+        "adminImpact": "Administrators can use the revised checklist and sections to verify prerequisites and manage driver update approvals, pauses, and assignments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -100,14 +97,13 @@
       "firstSeenAt": "2026-01-07T12:54:30.000Z",
       "eventId": "intune-docs:62b9661fb83ca301616946ead9a8676198074963:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update article removes workplace-joined limitations section",
-        "summary": "The article removed its standalone Workplace Joined limitation section and link to the former configure page.",
-        "adminImpact": "Refer to the Windows updates overview for Microsoft Entra registered-device restrictions.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Windows driver update documentation links revised",
+        "summary": "The page removes the Workplace Joined device limitations section and updates its navigation links to the Windows Driver update policies and reports pages.",
+        "adminImpact": "Administrators should use the updated links when accessing driver update policy and reporting guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -127,14 +123,13 @@
       "firstSeenAt": "2026-01-07T12:54:30.000Z",
       "eventId": "intune-docs:62b9661fb83ca301616946ead9a8676198074963:modified:intune/device-updates/windows/feature-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update reports article retitled",
-        "summary": "The report article is now titled Reports for Windows feature updates policies and its description focuses on reports for those policies; the data-collection prerequisite wording was simplified.",
-        "adminImpact": "Configure data collection before expecting feature update report data.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Windows feature update reports page is retitled and streamlined",
+        "summary": "The page now focuses on reports for Windows feature update policies, removes inline navigation links, and retains the requirement to configure data collection before reports show data.",
+        "adminImpact": "Administrators should use the updated report names and page structure; the existing data collection prerequisite remains.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -154,14 +149,13 @@
       "firstSeenAt": "2026-01-07T12:54:30.000Z",
       "eventId": "intune-docs:62b9661fb83ca301616946ead9a8676198074963:modified:intune/device-updates/windows/feature-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update status and report wording refreshed",
-        "summary": "The feature updates article standardizes status formatting, clarifies that a user logon starts the initial USO scan for Last Scanned Time, and generalizes Windows 10/11 reporting text to Windows devices.",
-        "adminImpact": "Expect Not scanned yet until a user logs on and a USO scan starts.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Feature updates page refreshes terminology and guidance links",
+        "summary": "The page updates formatting and wording, replaces outdated report and migration references, broadens Windows 10/11 wording to Windows, and normalizes procedure numbering.",
+        "adminImpact": "No administrator action is indicated. Administrators will find updated links for feature update reports and migration guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -181,14 +175,13 @@
       "firstSeenAt": "2026-01-07T12:54:30.000Z",
       "eventId": "intune-docs:62b9661fb83ca301616946ead9a8676198074963:modified:intune/device-updates/windows/quality-updates-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality updates report article retitled",
-        "summary": "The article title and description now specifically identify reports for Windows quality update policies.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Documentation now focuses on Windows quality updates policy reports",
+        "summary": "The page title and description were revised from Windows Update for Business reports for deployed updates to reports available for Windows quality updates policies in Intune.",
+        "adminImpact": "No administrator action is indicated; the updated wording clarifies the page’s scope.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -208,14 +201,13 @@
       "firstSeenAt": "2026-01-07T12:54:30.000Z",
       "eventId": "intune-docs:62b9661fb83ca301616946ead9a8676198074963:modified:intune/device-updates/windows/update-rings-reports.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings report article retitled",
-        "summary": "The article title and description now specifically identify reports for Windows update rings policies.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Documentation reframed around Windows update ring reports",
+        "summary": "The page title and description now focus on reports available for Windows update rings policies in Microsoft Intune.",
+        "adminImpact": "Administrators can more easily identify this page as the reference for Windows update ring policy reports.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -235,14 +227,13 @@
       "firstSeenAt": "2026-01-07T13:23:41.000Z",
       "eventId": "intune-docs:f51dc3ae0b2341ee5c47f07c42d59ed3f812e7cf:modified:intune/device-updates/windows/driver-updates-faqs.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update FAQ title clarified",
-        "summary": "The FAQ title and description now explicitly identify it as frequently asked questions about Windows driver update policies.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Windows driver updates FAQ links updated",
+        "summary": "The page title and description now identify it as a Windows driver updates policy FAQ. Data collection and driver update report links now point to the dedicated driver-updates-reports page.",
+        "adminImpact": "Use the updated links when configuring data collection or accessing driver update reports.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -262,14 +253,13 @@
       "firstSeenAt": "2026-01-07T13:23:41.000Z",
       "eventId": "intune-docs:f51dc3ae0b2341ee5c47f07c42d59ed3f812e7cf:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update prerequisites reorganized",
-        "summary": "The driver update overview restructures cloud, licensing, device, and configuration prerequisites into shared requirements content.",
-        "adminImpact": "Recheck documented driver update prerequisites before deployment.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Feature update",
+        "headline": "Driver update requirements now specify cloud and licensing prerequisites",
+        "summary": "The documentation now states that Driver updates policies are supported only in the public cloud and require Intune Plan 1 plus a Windows license with the Autopatch entitlement. GCC High and DoD environments aren't supported; LTSC remains unsupported.",
+        "adminImpact": "Verify that your tenant uses a supported cloud environment and has the required Intune and Windows licensing before using Driver updates policies.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -289,14 +279,13 @@
       "firstSeenAt": "2026-01-07T14:29:42.000Z",
       "eventId": "intune-docs:1d91258ec52b9eb4aee23adb5cc574924a4d60ee:modified:intune/intune-service/configuration/settings-catalog.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Settings catalog article refreshed",
-        "summary": "The settings catalog article updates its date and removes a redundant feature-applies-to section.",
-        "adminImpact": "No policy behavior change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Settings Catalog documentation updated",
+        "summary": "The page date changed to January 7, 2026, and its Android, iOS/iPadOS, and Windows applicability list was removed.",
+        "adminImpact": "No administrator action is stated. Review the current page when checking platform applicability.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -316,14 +305,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/device-updates/windows/driver-updates-faqs.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver FAQ updates co-management and data-collection links",
-        "summary": "The FAQ describes its Configuration Manager coexistence procedure as supported for Windows 11 and redirects its driver/firmware data-collection link to the overview prerequisites.",
-        "adminImpact": "For Windows 10, follow the documented recommendation to move the Windows Update workload to Intune or Pilot.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Feature update",
+        "headline": "Windows driver update guidance revises Windows 11 support wording",
+        "summary": "The procedure is now described as supported for Windows 11 devices, with the previous “only works” and “managed” wording removed. The data collection link now points to the driver update prerequisites.",
+        "adminImpact": "Review the revised Windows 11 support guidance and prerequisite information when configuring driver and firmware deployments.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -343,14 +331,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/device-updates/windows/expedite-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Expedited updates data-collection prerequisite simplified",
-        "summary": "The expedited update article removes a duplicate data-collection statement and changes the Policy CSP link label.",
-        "adminImpact": "Enable tenant data collection before monitoring expedited update status.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Expedited updates documentation links are revised",
+        "summary": "The Policy CSP reference text was updated, and the data collection reference no longer links to the configuration section.",
+        "adminImpact": "Administrators may need to locate the data collection configuration guidance separately when reviewing monitoring requirements.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -370,14 +357,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/intune-service/configuration/custom-settings-windows-holographic.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "HoloLens RequireUpdateApproval link updated",
-        "summary": "The Windows Holographic custom-setting guidance now links to the Windows updates index for Windows Update client policies.",
-        "adminImpact": "No setting behavior change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated link for Windows Holographic update policies",
+        "summary": "The RequireUpdateApproval setting now links 19H1 (build 18362) and later devices to the Windows Update client policies index page instead of the configure page.",
+        "adminImpact": "Administrators should use the updated link when managing or reviewing these policies. No action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -397,14 +383,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/intune-service/fundamentals/cloud-configuration-setup-guide.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Cloud configuration guide updates update-ring reporting link",
-        "summary": "The guide now links directly to Reports for update rings policies.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated Windows Update ring reporting link",
+        "summary": "The guide now links to “Reports for update rings policies” at a new documentation URL.",
+        "adminImpact": "Administrators consulting the guide will be directed to the revised reporting documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -424,14 +409,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/intune-service/fundamentals/whats-new-archive.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Archived Windows update references refreshed",
-        "summary": "The archive updates links for feature update, optional feature update, and Windows update distribution reports to their new dedicated articles.",
-        "adminImpact": "Use current dedicated reporting articles rather than the former shared reports page.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Windows update rings reporting documentation refreshed",
+        "summary": "The archive entry updates terminology, punctuation, and links to the current feature-updates, quality-updates, and update-rings reporting articles.",
+        "adminImpact": "Administrators consulting the archive should use the updated links and the revised Windows update rings reporting terminology.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -451,14 +435,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/intune-service/fundamentals/windows-holographic-for-business.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "HoloLens software update link updated",
-        "summary": "Windows Holographic for Business guidance now links to the Windows software updates index.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated software updates documentation link",
+        "summary": "The Windows Holographic for Business page now links “Manage software updates” to the Windows device updates index.",
+        "adminImpact": "Use the updated link to access the software updates documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -478,14 +461,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/intune-service/protect/device-protect.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows protection guidance updates software update link",
-        "summary": "The device protection article now links its Windows update-management reference to the Windows updates index.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Windows documentation link updated",
+        "summary": "The Windows link in the device protection documentation now points to the Windows device updates index page instead of the configure page.",
+        "adminImpact": "Use the updated link to access the Windows Update management guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -505,14 +487,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/solutions/cloud-native-endpoints/cloud-native-endpoints-planning-guide.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Cloud-native planning guide updates Windows update link",
-        "summary": "The planning guide now points Manage Windows software updates in Intune to the Windows updates index.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated Windows software updates link",
+        "summary": "The planning guide now links to `../../device-updates/windows/index.md` instead of `../../device-updates/windows/configure.md`.",
+        "adminImpact": "Administrators using the guide will be directed to the updated Windows software updates documentation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -532,14 +513,13 @@
       "firstSeenAt": "2026-01-07T14:53:55.000Z",
       "eventId": "intune-docs:26a9603a6ee26ded18f6981c356b2b08b7282ac1:modified:intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Cloud-native endpoint guide refreshes Windows update reference",
-        "summary": "The cloud-native Windows endpoint guide updates a reference as part of the Windows updates documentation reorganization.",
-        "adminImpact": "No configuration change; use the current Windows updates index.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated Windows Update policies documentation link",
+        "summary": "The Cloud-native Windows endpoints page now links to the Windows Update client policies index page instead of configure.md.",
+        "adminImpact": "Administrators following the link will be directed to the updated documentation entry point; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -559,14 +539,13 @@
       "firstSeenAt": "2026-01-07T15:30:13.000Z",
       "eventId": "intune-docs:0c20cdd9e06d21b40e51875ea2e8738d5d752ab9:modified:intune/device-updates/windows/expedite-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Expedited updates article removes workplace-joined limitations section",
-        "summary": "The article removed its standalone Workplace Joined limitations text and former configure-page reference.",
-        "adminImpact": "Use the Windows updates overview for Microsoft Entra registered-device policy limitations.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "WPJ limitations guidance removed from expedite updates documentation",
+        "summary": "The page no longer includes the “Limitations for Workplace Joined devices” section, including guidance on quality update policies, Windows Update client policies, Windows Autopatch, and related WPJ limitations.",
+        "adminImpact": "Administrators reviewing expedite updates will no longer find this Workplace Joined device guidance on the page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -586,14 +565,13 @@
       "firstSeenAt": "2026-01-07T15:30:13.000Z",
       "eventId": "intune-docs:0c20cdd9e06d21b40e51875ea2e8738d5d752ab9:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Quality update overview adds Hotpatch description",
-        "summary": "The Windows updates overview simplifies the policy list and specifies that quality updates include monthly security and reliability updates, expedited updates, and Hotpatch for eligible security patches without reboot.",
-        "adminImpact": "Assess Hotpatch eligibility separately when planning quality update policy deployment.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Windows update guidance consolidates hotpatch information",
+        "summary": "The page now lists expedited updates and hotpatch under monthly cumulative updates, and removes the standalone Hotpatch updates section and its link.",
+        "adminImpact": "Administrators should use the updated monthly cumulative updates section when reviewing hotpatch guidance; no configuration change is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -613,14 +591,13 @@
       "firstSeenAt": "2026-01-07T15:30:13.000Z",
       "eventId": "intune-docs:0c20cdd9e06d21b40e51875ea2e8738d5d752ab9:modified:intune/device-updates/windows/ring-deferrals-to-feature-updates-policy.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Feature update migration report link updated",
-        "summary": "The update-ring-to-feature-update migration guide now links OfferReady validation to the dedicated feature update reports article.",
-        "adminImpact": "Verify devices are OfferReady in the current report before proceeding with migration.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated link to the Windows feature updates report",
+        "summary": "The guidance now links to the feature-updates-reports.md page for the Windows feature updates (Organizational) report while retaining the instruction to verify devices are in the OfferReady state.",
+        "adminImpact": "Administrators using this procedure will be directed to the updated report documentation link.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -640,14 +617,13 @@
       "firstSeenAt": "2026-01-07T15:30:13.000Z",
       "eventId": "intune-docs:0c20cdd9e06d21b40e51875ea2e8738d5d752ab9:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update ring settings links removed from limitations list",
-        "summary": "The update rings article replaces links in its unsupported-setting list with plain setting names: pause, feature deferral, uninstall period, and pre-release builds.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Simplified feature update settings list",
+        "summary": "The update rings page now lists feature update settings without inline links or emphasis formatting.",
+        "adminImpact": "No administrator action is required; use the related settings documentation separately when more detail is needed.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -667,14 +643,13 @@
       "firstSeenAt": "2026-01-07T15:30:13.000Z",
       "eventId": "intune-docs:0c20cdd9e06d21b40e51875ea2e8738d5d752ab9:modified:intune/intune-service/configuration/custom-settings-windows-holographic.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "HoloLens UpdateServiceUrl link updated",
-        "summary": "The Windows Holographic UpdateServiceUrl custom-setting guidance now links to the Windows updates index.",
-        "adminImpact": "No setting behavior change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Updated link for Windows Update client policies",
+        "summary": "The UpdateServiceUrl documentation now links to the Windows Update client policies index for devices starting with 19H1 (build 18362), replacing the previous configure page link. The RS5-and-earlier guidance is unchanged.",
+        "adminImpact": "Administrators will use the updated link when reviewing Windows Update policy guidance; no configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -694,14 +669,13 @@
       "firstSeenAt": "2026-01-07T15:33:34.000Z",
       "eventId": "intune-docs:d69495817b393c34a59f1852ea530c16f955fff2:modified:intune/intune-service/apps/lob-apps-ios.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "iOS LOB app guidance clarifies duplicate bundle-ID risk",
-        "summary": "The article clarifies that multiple Intune app instances can share a bundle ID but targeting separate instances can create unexpected device behavior; beta and production apps need different bundle identifiers.",
-        "adminImpact": "Use distinct bundle IDs for beta and production iOS LOB apps, and avoid targeting duplicate app instances.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Feature update",
+        "headline": "LOB app instances are treated separately",
+        "summary": "The documentation now states that each iOS/iPadOS line-of-business app instance in Intune is treated as a separate app, even when instances share a bundle ID. The 2 GB per-app size limit remains documented.",
+        "adminImpact": "Administrators can manage multiple LOB app entries while accounting for each entry as a separate app.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -721,14 +695,13 @@
       "firstSeenAt": "2026-01-07T15:41:52.000Z",
       "eventId": "intune-docs:2759d935b169be8af567ff4c96d5a76b6f190ee4:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows update overview refreshes Autopatch explanation",
-        "summary": "The overview describes Autopatch as an Intune-integrated service that orchestrates existing policies and adds dynamic grouping, phased rollout, health monitoring, compliance reporting, Hotpatch, and expedited delivery; its comparison table is reformatted.",
-        "adminImpact": "Do not assign custom update rings to Autopatch-managed devices as documented.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Feature update",
+        "headline": "Windows update guidance revises Autopatch and Hotpatch details",
+        "summary": "The page now describes Autopatch without naming WUfB DS, consolidates Hotpatch under Quality updates, and lists Feature, Quality, and Driver updates in the Microsoft Entra registered-device limitation. It also clarifies the shared orchestration layer and simplifies licensing and telemetry wording.",
+        "adminImpact": "Review the revised compatibility guidance. Hotpatch is described as optional for manual quality-update management and automatic for eligible Autopatch devices; no required migration or configuration change is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -748,14 +721,13 @@
       "firstSeenAt": "2026-01-07T15:58:14.000Z",
       "eventId": "intune-docs:5c0bdb84930b161ad67dcfd3dd33c04d7402f731:modified:intune/device-updates/windows/index.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Windows updates index redirect formatting adjusted",
-        "summary": "A formatting-only block was added to the Windows updates index as part of redirect maintenance.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:06:12.018Z"
+        "category": "Doc update",
+        "headline": "Minor formatting update to Windows device updates documentation",
+        "summary": "The Windows device updates page received minor formatting changes.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -775,14 +747,13 @@
       "firstSeenAt": "2026-01-07T16:00:05.000Z",
       "eventId": "intune-docs:e7a1c5bb1d8f4ce09b6727d73f3a3b24a4cddc4a:modified:intune/device-updates/windows/update-rings.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Update rings article removes reporting section",
-        "summary": "The update rings article removed its Validation and reporting section and link to the former shared Windows update reports page.",
-        "adminImpact": "Use the dedicated update rings reports article for reporting guidance.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Reporting guidance now points to Windows feature update reports",
+        "summary": "The Validation and reporting section replaces links to Windows update reports and Windows Autopatch with a link to Windows feature update reports.",
+        "adminImpact": "Use the Windows feature update reports link for the reporting guidance in this article.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -802,14 +773,13 @@
       "firstSeenAt": "2026-01-07T18:39:32.000Z",
       "eventId": "intune-docs:be64fdc8a7575727b9c742629181c6793a9e44a8:modified:intune/intune-service/apps/lob-apps-ios.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "iOS LOB app instructions refreshed",
-        "summary": "The iOS/iPadOS line-of-business app article updates its date and clarifies existing app-addition instructions without changing the workflow.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "iOS/iPadOS LOB app instructions use clearer portal terminology",
+        "summary": "The article updates UI action wording, grammar, formatting, and the publication date. It also clarifies the note about available and required app assignments and automatic updates.",
+        "adminImpact": "No administrator action is required; follow the existing app-add process using the updated labels.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -829,14 +799,13 @@
       "firstSeenAt": "2026-01-07T19:24:35.000Z",
       "eventId": "intune-docs:e5af69b417e49800418d74b40c8e38b8ac8c863c:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Preview",
-        "headline": "Admin tasks preview text formatting fixed",
-        "summary": "The in-development page corrects the Markdown emphasis for the planned general availability of Admin tasks.",
-        "adminImpact": "No configuration change; Admin tasks remain a planned capability in this entry.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Corrected formatting for “Admin tasks”",
+        "summary": "The documentation now correctly formats “Admin tasks” in bold.",
+        "adminImpact": "No administrator action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -856,14 +825,13 @@
       "firstSeenAt": "2026-01-07T20:51:16.000Z",
       "eventId": "intune-docs:8e7c6324036d9b142320300c815392f7715f4de7:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Preview",
-        "headline": "Device Offboarding Agent and Admin Tasks entry temporarily removed",
-        "summary": "The in-development page temporarily removed the planned Device Offboarding Agent and Admin Tasks integration entry.",
-        "adminImpact": "Do not rely on the removed planned-item description for roadmap decisions.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Device Offboarding Agent integration entry removed",
+        "summary": "The in-development page no longer includes the planned integration between Device Offboarding Agent and admin tasks for assigning, monitoring, and completing offboarding work.",
+        "adminImpact": "Administrators should no longer rely on this page for details about that planned integration. No action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -883,14 +851,13 @@
       "firstSeenAt": "2026-01-07T20:55:07.000Z",
       "eventId": "intune-docs:355ba08e3520ba1604eda720f60cfd7658ed834a:modified:intune/device-updates/windows/driver-updates-overview.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver updates overview removes GCC notice",
-        "summary": "The driver updates overview removed its explicit GCC and GCC High/DoD Autopatch subscription-activation notice.",
-        "adminImpact": "Check the current prerequisites documentation for cloud-environment support.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "GCC guidance updated for Windows driver updates",
+        "summary": "The page removes the statement that the feature isn't supported in GCC. It retains the note that subscription activation with an existing EA doesn't apply to GCC, GCC High, or DoD for Windows Autopatch capabilities.",
+        "adminImpact": "Review the revised GCC applicability guidance when planning Windows Autopatch capabilities. No administrator action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -910,14 +877,13 @@
       "firstSeenAt": "2026-01-07T21:05:46.000Z",
       "eventId": "intune-docs:5e3f7bc5ec55c38bec3e8e714e68b5b62ea42cd1:modified:intune/intune-service/fundamentals/admin-tasks.md",
       "englishSummary": {
-        "category": "Preview",
-        "headline": "Admin Tasks article removes public preview label",
-        "summary": "The Admin Tasks article updates its date and removes the statement that the feature is in public preview.",
-        "adminImpact": "Review the current service status and permissions before enabling Admin Tasks workflows.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Admin Tasks documentation updated",
+        "summary": "The page date changed from November 18, 2025, to January 26, 2026, and the statement that the feature is in public preview was removed.",
+        "adminImpact": "No administrator action is specified; review the updated documentation for the current feature-status wording.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -937,14 +903,13 @@
       "firstSeenAt": "2026-01-07T21:33:03.000Z",
       "eventId": "intune-docs:2394225ab4e92dff27ce6cce28011777d6fdb27b:modified:intune/intune-service/fundamentals/in-development.md",
       "englishSummary": {
-        "category": "Preview",
-        "headline": "Device Offboarding Agent and Admin Tasks roadmap entry restored",
-        "summary": "The planned integration entry was restored: it describes turning offboarding recommendations into assignable, monitored, and completable Admin Tasks.",
-        "adminImpact": "Treat this as planned functionality and identify offboarding workflows for future evaluation.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "New feature",
+        "headline": "Device Offboarding Agent integration with admin tasks documented",
+        "summary": "The documentation describes planned integration that will let IT operators assign, monitor, and complete tasks based on Device Offboarding Agent recommendations.",
+        "adminImpact": "Administrators can anticipate structured workflows for tracking offboarding work; no action is required now.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -964,14 +929,13 @@
       "firstSeenAt": "2026-01-07T21:47:41.000Z",
       "eventId": "intune-docs:6829129be0ede1f6c915db0323d59b38a9e451f6:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update cloud requirements content removed",
-        "summary": "The driver update article removed a shared cloud-requirements block as its prerequisites were reorganized.",
-        "adminImpact": "Use the current prerequisites sections when validating cloud support.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Driver update guidance adds EA licensing and cloud-environment details",
+        "summary": "The page now explains what to do when creating Windows Autopatch-dependent policies is blocked for EA-licensed customers, and states that existing-EA subscription activation doesn't apply to GCC, GCC High, or DoD environments. The architecture image was also updated.",
+        "adminImpact": "Admins affected by policy-creation blocks should contact their Microsoft account team or licensing partner; admins in the listed environments should not rely on the documented subscription-activation method.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -991,14 +955,13 @@
       "firstSeenAt": "2026-01-07T21:56:27.000Z",
       "eventId": "intune-docs:7b75f6b406a913bef1f48a7f3922a6fc580f7416:modified:intune/device-updates/windows/driver-updates.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Driver update prerequisites use neutral feature wording",
-        "summary": "Driver update licensing and supported-edition wording was generalized and an image path was corrected.",
-        "adminImpact": "No change to stated licensing or supported device requirements.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Driver updates documentation wording and image presentation updated",
+        "summary": "The article now refers to “this feature” instead of specific policy names in its licensing and Windows edition sections. The diagram lightbox also hides its border.",
+        "adminImpact": "Administrators will see more consistent terminology and updated diagram presentation when using the documentation; no action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1018,14 +981,13 @@
       "firstSeenAt": "2026-01-07T22:00:46.000Z",
       "eventId": "intune-docs:d4a91fe87f95aadab38c27970e557f212d2099b0:modified:intune/intune-service/apps/apps-enterprise-app-management.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Enterprise App Management guidance clarified",
-        "summary": "The article refreshes wording around the Intune Suite add-on and customer responsibility for application compliance and authorization.",
-        "adminImpact": "Continue to validate catalog applications against your own compliance and authorization requirements.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Enterprise App Management guidance updated",
+        "summary": "The page updates its date and clarifies wording about add-on availability, app authenticity and integrity, SLOs, validation, synchronization, and catalog availability.",
+        "adminImpact": "Review the updated guidance when evaluating Enterprise App Catalog apps and update timelines. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -1045,14 +1007,13 @@
       "firstSeenAt": "2026-01-07T22:06:16.000Z",
       "eventId": "intune-docs:1975e179718c71e36ab8a86e0a3536f11a6e397f:modified:intune/intune-service/apps/apps-enterprise-app-management.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Enterprise App Catalog detection FAQ rephrased",
-        "summary": "A FAQ heading now asks how Microsoft can detect whether an Enterprise App Catalog application is in use.",
-        "adminImpact": "No configuration change.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Enterprise App Catalog detection question reworded",
+        "summary": "The documentation changes the question from “How will Microsoft detect...” to “How can Microsoft detect...” regarding application usage detection.",
+        "adminImpact": "No administrator action is indicated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1074,14 +1035,13 @@
       "firstSeenAt": "2026-01-07T17:06:10.000Z",
       "eventId": "intune-docs:e5edebeca421ba9fa5175dd7d40f5ecfc4a292ff:removed:intune/device-updates/windows/driver-updates-faqs.md",
       "englishSummary": {
-        "category": "Documentation change",
-        "headline": "Markdown driver update FAQ removed for YAML migration",
-        "summary": "The Markdown driver-updates-faqs article was removed in an md-to-yml content migration.",
-        "adminImpact": "Update references to the current Driver updates FAQ location.",
-        "generatedBy": "codex-one-time-backfill",
-        "model": "gpt-5.6-terra",
-        "reasoningEffort": "medium",
-        "generatedAt": "2026-08-06T22:07:00.513Z"
+        "category": "Doc update",
+        "headline": "Windows driver updates FAQ documentation was deleted",
+        "summary": "The Windows driver updates FAQ page was removed, including guidance on assignment filters, Autopilot, rollback, policy assignments, reboots, driver availability, and Windows Autopatch synchronization.",
+        "adminImpact": "Administrators can no longer use this page as a reference for these driver update policy questions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -1102,9 +1062,9 @@
     "overview": "Today's report includes 1 new, 38 updated, and 1 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
-        "category": "New documentation",
+        "category": "New feature",
         "title": "intune/device-updates",
-        "summary": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-updates-overview.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-reports.md. Updated Microsoft Intune",
+        "summary": "The documentation describes policies for reviewing, approving, automatically deploying, pausing, or manually managing Windows driver updates. It also details licensing, supported Windows editions, and deployment behavior. The article now uses clearer terminology and structure, including a “Before you begin” checklist and a dedicated section for reviewing and approving new driver updates. It also clarifies assignments to Windows Update and updates related links. The page removes the Workplace Joined device limitations section and updates its navigation links to the Windows Driver update policies and reports pages. The page now focuses on reports for Windows feature update policies, removes in",
         "sourceFiles": [
           "intune/device-updates/windows/driver-updates-overview.md",
           "intune/device-updates/windows/driver-updates-policy.md",
@@ -1131,9 +1091,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/intune-service",
-        "summary": "Updated Microsoft Intune documentation in intune/intune-service/protect/privacy-data-store-process.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/settings-catalog.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-windows-holographic.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration-setup-guide.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/windows-holographic-for-business.md. Updated Microsoft Intune documentation in intune/intun",
+        "summary": "The documentation now states that Intune audit logs are retained for up to two years for security purposes. The page date changed to January 7, 2026, and its Android, iOS/iPadOS, and Windows applicability list was removed. The RequireUpdateApproval setting now links 19H1 (build 18362) and later devices to the Windows Update client policies index page instead of the configure page. The guide now links to “Reports for update rings policies” at a new documentation URL. The archive entry updates terminology, punctuation, and links to the current feature-updates, quality-updates, and update-rings reporting articles. The Windows Holographic for Business page now links “Manage software updates” to ",
         "sourceFiles": [
           "intune/intune-service/protect/privacy-data-store-process.md",
           "intune/intune-service/configuration/settings-catalog.md",
@@ -1154,9 +1114,9 @@
         ]
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "title": "intune/solutions",
-        "summary": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/cloud-native-endpoints-planning-guide.md. Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md.",
+        "summary": "The planning guide now links to `../../device-updates/windows/index.md` instead of `../../device-updates/windows/configure.md`. The Cloud-native Windows endpoints page now links to the Windows Update client policies index page instead of configure.md.",
         "sourceFiles": [
           "intune/solutions/cloud-native-endpoints/cloud-native-endpoints-planning-guide.md",
           "intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md"
@@ -1165,19 +1125,19 @@
     ],
     "highlights": [
       {
-        "category": "New documentation",
+        "category": "New feature",
         "headline": "intune/device-updates",
-        "detail": "Added Microsoft Intune documentation in intune/device-updates/windows/driver-updates-overview.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates-policy.md. Updated Microsoft Intune documentation in intune/device-updates/windows/driver-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/feature-updates.md. Updated Microsoft Intune documentation in intune/device-updates/windows/quality-updates-reports.md. Updated Microsoft Intune documentation in intune/device-updates/windows/update-rings-reports.md. Updated Microsoft Intune"
+        "detail": "The documentation describes policies for reviewing, approving, automatically deploying, pausing, or manually managing Windows driver updates. It also details licensing, supported Windows editions, and deployment behavior. The article now uses clearer terminology and structure, including a “Before you begin” checklist and a dedicated section for reviewing and approving new driver updates. It also clarifies assignments to Windows Update and updates related links. The page removes the Workplace Joined device limitations section and updates its navigation links to the Windows Driver update policies and reports pages. The page now focuses on reports for Windows feature update policies, removes in"
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/intune-service",
-        "detail": "Updated Microsoft Intune documentation in intune/intune-service/protect/privacy-data-store-process.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/settings-catalog.md. Updated Microsoft Intune documentation in intune/intune-service/configuration/custom-settings-windows-holographic.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/cloud-configuration-setup-guide.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/whats-new-archive.md. Updated Microsoft Intune documentation in intune/intune-service/fundamentals/windows-holographic-for-business.md. Updated Microsoft Intune documentation in intune/intun"
+        "detail": "The documentation now states that Intune audit logs are retained for up to two years for security purposes. The page date changed to January 7, 2026, and its Android, iOS/iPadOS, and Windows applicability list was removed. The RequireUpdateApproval setting now links 19H1 (build 18362) and later devices to the Windows Update client policies index page instead of the configure page. The guide now links to “Reports for update rings policies” at a new documentation URL. The archive entry updates terminology, punctuation, and links to the current feature-updates, quality-updates, and update-rings reporting articles. The Windows Holographic for Business page now links “Manage software updates” to "
       },
       {
-        "category": "Feature update",
+        "category": "Doc update",
         "headline": "intune/solutions",
-        "detail": "Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/cloud-native-endpoints-planning-guide.md. Updated Microsoft Intune documentation in intune/solutions/cloud-native-endpoints/cloud-native-windows-endpoints.md."
+        "detail": "The planning guide now links to `../../device-updates/windows/index.md` instead of `../../device-updates/windows/configure.md`. The Cloud-native Windows endpoints page now links to the Windows Update client policies index page instead of configure.md."
       }
     ],
     "generatedBy": "fallback"

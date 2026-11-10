@@ -1,0 +1,179 @@
+{
+  "newFiles": [
+    {
+      "filename": "intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+      "status": "added",
+      "additions": 84,
+      "deletions": 0,
+      "changes": 84,
+      "patch": "diff --git a/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md b/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\nnew file mode 100644\nindex 00000000..1ebcc3cd\n--- /dev/null\n+++ b/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\n@@ -0,0 +1,84 @@\n+---\n+layout: Conceptual\n+title: Become a Microsoft Intune Mobile Device Management Partner - Microsoft Intune | Microsoft Learn\n+canonicalUrl: https://learn.microsoft.com/en-us/intune/device-security/compliance/become-mobile-device-management-compliance-provider\n+author: ilwu-microsoft\n+ms.author: ilwu\n+breadcrumb_path: /intune/breadcrumb/toc.json\n+uhfHeaderId: MSDocsHeader-Intune\n+feedback_system: Standard\n+ms.service: microsoft-intune\n+ms.collection:\n+- M365-identity-device-management\n+- compliance\n+- sub-device-compliance\n+ms.subservice: protect\n+description: Learn the eligibility criteria and application process for becoming a Microsoft Intune mobile device management (MDM) compliance partner.\n+ms.date: 2026-11-03T00:00:00.0000000Z\n+ms.topic: how-to\n+ms.reviewer: ilwu-microsoft\n+ai-usage: ai-assisted\n+locale: en-us\n+document_id: bb0a5a33-7c31-a13c-e573-da1e1e9e7013\n+document_version_independent_id: bb0a5a33-7c31-a13c-e573-da1e1e9e7013\n+original_content_git_url: https://github.com/MicrosoftDocs/memdocs-pr/blob/live/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\n+site_name: Docs\n+depot_name: MSDN.memdocs\n+page_type: conceptual\n+toc_rel: ../../toc.json\n+pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/MSDN.memdocs/{branchName}{pdfName}\n+feedback_product_url: ''\n+feedback_help_link_type: ''\n+feedback_help_link_url: ''\n+asset_id: device-security/compliance/become-mobile-device-management-compliance-provider\n+moniker_range_name: \n+monikers: []\n+item_type: Content\n+source_path: intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\n+cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/57eae307-c3a1-4cac-b645-1a899934bac8\n+spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ee561821-1ac7-45a8-9409-6ba5eb7a5b97\n+platformId: 85b85062-d4b7-739a-1025-c25320ac4938\n+---\n+\n+# Become a Microsoft Intune Mobile Device Management Partner - Microsoft Intune | Microsoft Learn\n+\n+The Third-Party Compliance MDM Partner Program is designed for mobile device management (MDM) solutions that determine and manage compliance for user-associated devices and use Microsoft Entra ID to communicate device compliance status to Microsoft services.\r\n+\r\n+## Supported scenarios\r\n+\r\n+To be eligible as an Intune compliance partner, your MDM solution must meet the following criteria:\r\n+\r\n+- Manage devices using MDM protocols.\r\n+- Evaluate device compliance for user-based scenarios.\r\n+- Use Microsoft Entra ID for user identification.\r\n+- Support one or more of the following platforms: Android, iOS/iPadOS, and macOS.\r\n+\r\n+## Apply to become an Intune compliance MDM partner\r\n+\r\n+Partners interested in integrating with Microsoft should begin by creating a Microsoft Entra app for their MDM product. For instructions, see [Register a Microsoft Entra app and create a service principal](/en-us/entra/identity-platform/howto-create-service-principal-portal).\r\n+\r\n+After you create a Microsoft Entra app and obtain a Microsoft Entra app ID, you can apply to become a partner through the [Intune Compliance MDM Partner Application](https://forms.cloud.microsoft/r/GKYuFnrSdv).\r\n+\r\n+Microsoft uses the submitted information to validate that:\r\n+\r\n+- The solution aligns with the intended Intune and Microsoft Entra ID Conditional Access scenario.\r\n+- The proposed integration is appropriate for the Intune Device Compliance API.\r\n+- The partner is prepared to provide enterprise-grade support to customers after launch.\r\n+\r\n+To protect your organization and customers, do not include detailed implementation information, source code, API payloads, security internals, proprietary design details, or other information not reasonably necessary for Microsoft's evaluation.\r\n+\r\n+If Microsoft accepts your application, an API agreement is sent to the business or legal contact identified by your organization for review and signature. After your organization signs and returns the agreement, Microsoft provides the technical documentation required to begin developing the integration.\r\n+\r\n+Partners are responsible for implementing the integration based on the provided documentation. Microsoft does not guarantee dedicated onboarding assistance, implementation guidance, or engineering support during development.\r\n+\r\n+Submission of an application does not guarantee API documentation access, approval to integrate, public listing, or production availability. Microsoft might request additional information as part of the review process.\r\n+\r\n+Note\r\n+\r\n+For partners onboarded through the new self-service process, Microsoft does not publish partner-specific setup documentation or list each partner by name in the Microsoft Intune admin center. Partners should provide their customers with the setup information required to use their solution.\r\n+\r\n+To configure an MDM integration, a customer adds a custom MDM compliance partner in the Intune admin center by entering the Microsoft Entra application ID provided by their selected third-party MDM provider. Intune uses this application ID to create the connector and enable the partner integration.\n\\ No newline at end of file\n",
+      "baseCommitSha": "1fbb724ec84fc5d858f51b5a3499db813e400ee8",
+      "commitSha": "a396fdd5ced35c6dd593513b591ece1e3320d069",
+      "commitMessage": "Mirror Learn: 2 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 08:57:14 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/become-mobile-device-management-compliance-provider",
+      "eventId": "intune-docs:a396fdd5ced35c6dd593513b591ece1e3320d069:added:intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+      "firstSeenAt": "2026-11-10T09:45:03.394Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "New guidance for Intune compliance MDM partners",
+        "summary": "Microsoft added guidance describing eligibility criteria and the application process for becoming an Intune compliance MDM partner. Eligible solutions must support MDM, user-based compliance, Microsoft Entra ID, and Android, iOS/iPadOS, or macOS.",
+        "adminImpact": "MDM vendors can use the documented process to apply, while organizations using onboarded partners should obtain setup information directly from those partners.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "modifiedFiles": [
+    {
+      "filename": "intune/app-management/configuration/configure-managed-home-screen.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/app-management/configuration/configure-managed-home-screen.md b/intune/app-management/configuration/configure-managed-home-screen.md\nindex 6524bede..de6d2eeb 100644\n--- a/intune/app-management/configuration/configure-managed-home-screen.md\n+++ b/intune/app-management/configuration/configure-managed-home-screen.md\n@@ -241,7 +241,7 @@ The automatic relaunch functionality requires granting exact alarm permission (O\n | Offline work time before required sign-in | Integer | 60 | Set the time (in seconds) users can stay offline after the network is detected before they must sign in. This setting only applies when **Configure offline app access** is set to true for at least one application. | ❌ |\r\n | Configure app access without sign in | bundleArray | See **Enter JSON Data** section of this document | Select which apps are available to users from the sign-in screen before signing in to Managed Home Screen. These apps are available via entry point on the top bar regardless of network status. This setting can only be used if **Enable sign in** is set to true. | ✔️ |\r\n | Silence apps while Managed Home Screen requires authentication | bool | FALSE | Silence apps whenever MHS is prompting the user for authentication, such as during the sign-in or session PIN screens. Silenced apps can't start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing. Apps are automatically unsilenced when the device is unlocked. | ❌ |\r\n-| Exclude these apps from the silence setting | bundleArray | See **Enter JSON Data** section of this document | Specify apps to exclude from silencing while Managed Home Screen requires authentication. These apps can start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing while the device is locked. Specify the apps by entering the package name for each app that you want to exclude. <br>**Note:** On devices running Android 11 and later, if a user opens protected content in a MAM-integrated app while Managed Home Screen requires sign-in or session PIN authentication, the app redirects the user to Managed Home Screen to authenticate. To use this behavior, exclude the MAM-integrated app from silencing and assign an [Intune app protection policy](../protection/create-policy) to both the app and the signed-in user. No specific app protection policy setting is required. | ❌ |\r\n+| Exclude these apps from the silence setting | bundleArray | See **Enter JSON Data** section of this document | Specify apps to exclude from silencing while Managed Home Screen requires authentication. These apps can start activities, show notifications, appear in recent apps, or trigger alerts like toasts, dialogs, or ringing while the device is locked. Specify the apps by entering the package name for each app that you want to exclude. <br>**Note:** If a user opens protected content in a MAM-integrated app while Managed Home Screen requires sign-in or session PIN authentication, the app redirects the user to Managed Home Screen to authenticate. To use this behavior, exclude the MAM-integrated app from silencing and assign an [Intune app protection policy](../protection/create-policy) to both the app and the signed-in user. No specific app protection policy setting is required. | ❌ |\r\n \r\n Note\r\n \r\n",
+      "baseCommitSha": "1fbb724ec84fc5d858f51b5a3499db813e400ee8",
+      "commitSha": "a396fdd5ced35c6dd593513b591ece1e3320d069",
+      "commitMessage": "Mirror Learn: 2 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 08:57:14 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/app-management/configuration/configure-managed-home-screen.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/app-management/configuration/configure-managed-home-screen",
+      "eventId": "intune-docs:a396fdd5ced35c6dd593513b591ece1e3320d069:modified:intune/app-management/configuration/configure-managed-home-screen.md",
+      "firstSeenAt": "2026-11-10T09:45:03.391Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Managed Home Screen exclusion guidance updated",
+        "summary": "The documentation table entry for “Exclude these apps from the silence setting” was revised. It references the Enter JSON Data section and describes excluding apps from silencing while Managed Home Screen requires authentication.",
+        "adminImpact": "Administrators configuring app exclusions can use the updated entry and its JSON guidance.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/certificates/connector/setup-connector.md",
+      "status": "modified",
+      "additions": 38,
+      "deletions": 2,
+      "changes": 40,
+      "patch": "diff --git a/intune/fundamentals/certificates/connector/setup-connector.md b/intune/fundamentals/certificates/connector/setup-connector.md\nindex 86e9efab..32b873b2 100644\n--- a/intune/fundamentals/certificates/connector/setup-connector.md\n+++ b/intune/fundamentals/certificates/connector/setup-connector.md\n@@ -15,8 +15,10 @@ ms.collection:\n ms.reviewer: wicale\n ms.subservice: fundamentals\n description: Learn how to install and configure the unified Certificate Connector for Microsoft Intune, which supports SCEP, PKCS, imported PKCS, and certificate revocation.\n-ms.date: 2024-10-09T00:00:00.0000000Z\n+ms.date: 2026-11-06T00:00:00.0000000Z\n ms.topic: how-to\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1032\n locale: en-us\n document_id: 20653974-25d2-50fb-fe49-5ef2e7c04ecc\n document_version_independent_id: 20653974-25d2-50fb-fe49-5ef2e7c04ecc\n@@ -115,7 +117,41 @@ Use the following procedure to both configure a new connector and modify a previ\n \r\n     Important\r\n \r\n-    Be sure to include the HTTP or HTTPS prefix. This is a change from the proxy configuration for previous versions of the connector.\r\n+    Include the HTTP or HTTPS prefix in the proxy address. This requirement differs from previous versions of the connector.\r\n+\r\n+    The proxy settings configured in the Certificate Connector wizard apply to the connector services. They don't configure the system-wide Windows HTTP Services (WinHTTP) proxy.\r\n+\r\n+    If your environment also requires a WinHTTP proxy, configure it separately. Changing the system-wide WinHTTP proxy can affect other applications and services that use the default WinHTTP proxy configuration. Review any changes with your network administrator.\r\n+\r\n+    If your environment requires a system-wide static WinHTTP proxy, use the following procedure:\r\n+\r\n+    1. Open **Command Prompt as administrator**. Before making changes, display and record the existing configuration:\r\n+\r\n+        ```cmd\r\n+        netsh winhttp show proxy\r\n+        ```\r\n+    2. Configure the proxy. The following example sets a static proxy and bypass list. Replace the server, port, and bypass entries with values approved for your environment:\r\n+\r\n+        ```cmd\r\n+        netsh winhttp set proxy proxy-server=\"proxy.contoso.com:8080\" bypass-list=\"<local>;*.contoso.com\"\r\n+        ```\r\n+\r\n+        The bypass list allows direct connections to short-name hosts and hosts matching `*.contoso.com`.\r\n+    3. Verify the resulting configuration:\r\n+\r\n+        ```cmd\r\n+        netsh winhttp show proxy\r\n+        ```\r\n+\r\n+    To remove the configured proxy and use direct connections, run the following command only if direct connectivity is intended:\r\n+\r\n+    ```cmd\r\n+    netsh winhttp reset proxy\r\n+    ```\r\n+\r\n+    Resetting the proxy doesn't restore a previous proxy configuration and can interrupt connectivity where a proxy is required.\r\n+\r\n+    For available commands and configuration options, see [netsh winhttp](/en-us/windows-server/administration/windows-commands/netsh-winhttp).\r\n 5. On the *Prerequisites* page, the wizard runs several checks on the server before the configuration can begin. Review and resolve any errors or warnings before you continue.\r\n 6. On the *Microsoft Entra sign-in* page (which appears as *Azure AD Sign-In*), select the environment that hosts your Microsoft Entra ID, and then select **Sign In**. Then when prompted, authenticate your access. An Intune license is required for the account that you sign in with, which can be an Intune Administrator.\r\n \r\n",
+      "baseCommitSha": "1fbb724ec84fc5d858f51b5a3499db813e400ee8",
+      "commitSha": "a396fdd5ced35c6dd593513b591ece1e3320d069",
+      "commitMessage": "Mirror Learn: 2 changed, 1 added",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 08:57:14 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/fundamentals/certificates/connector/setup-connector.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/certificates/connector/setup-connector",
+      "eventId": "intune-docs:a396fdd5ced35c6dd593513b591ece1e3320d069:modified:intune/fundamentals/certificates/connector/setup-connector.md",
+      "firstSeenAt": "2026-11-10T09:45:03.403Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Certificate Connector documentation adds WinHTTP proxy guidance",
+        "summary": "The documentation now explains that Certificate Connector wizard proxy settings apply only to connector services, not the system-wide Windows WinHTTP proxy. It adds procedures for viewing, setting, verifying, and resetting a static WinHTTP proxy.",
+        "adminImpact": "Administrators can separately configure WinHTTP when their environment requires it and should review proxy changes with their network administrator.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1489971",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-10",
+      "title": "Microsoft Purview DLP: Improved setup and Intune multi-admin approval support for unmanaged apps in Edge for Business",
+      "summary": "Microsoft Purview DLP will improve setup and activation for unmanaged apps in Edge for Business starting late November 2026, adding support for Intune multi-admin approval. Enhancements include clearer status, detailed errors, and task coordination between Purview and Intune admins, with no policy migration needed.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "app-management",
+        "name": "App management",
+        "icon": "/assets/topics/app-management.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1489971/",
+      "originalUrl": "https://mc.merill.net/message/MC1489971",
+      "body": "<p>Updated November 9, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>Beginning in late November 2026, Microsoft Purview will roll out improvements to the setup and activation experience for inline collection and Data Loss Prevention (DLP) policies that protect interactions with unmanaged cloud apps in <i>Microsoft Edge for Business</i>.</p><p>This update adds support for organizations that use Microsoft Intune multi-admin approval and provides clearer status information, more detailed error reporting, and remediation guidance in the <i>Microsoft Purview portal</i>. These enhancements help administrators activate protection more efficiently while preserving existing Intune approval controls.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Worldwide:</b> Beginning in <b>late November 2026</b> (previously early November) and expected to complete by <b>early December 2026</b> (previously mid-November)</li></ul><p>The rollout will occur progressively. Until the update reaches your tenant, Microsoft Purview may continue to display the current setup experience or indicate that Intune multi-admin approval is not supported.</p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Purview collection or DLP policies to monitor and protect supported activities with unmanaged cloud apps in Microsoft Edge for Business</li><li>Organizations using Microsoft Intune multi-admin approval</li><li>Organizations that require coordination between Purview and Intune administrators</li></ul><p><i>Platforms/services</i></p><ul><li>Microsoft Purview</li><li>Microsoft Intune</li><li>Microsoft Edge for Business</li></ul><p><i>What will happen</i></p><ul><li>Microsoft Purview inline protection for unmanaged apps will support tenants that use Intune multi-admin approval.</li><li>Required Intune configuration changes will continue through your existing multi-admin approval process.</li><li>Microsoft Purview will not bypass Intune approval requirements.</li><li>The Microsoft Purview portal will provide clearer setup status information, more detailed error information, and guidance about actions required to complete activation.</li><li>When Intune administrator assistance is required, a Purview administrator can send a task to the appropriate Intune administrator.</li><li>Sending a task does not grant permissions, bypass approval requirements, or automatically complete requested Intune changes.</li><li>Protection may remain pending or inactive until required Intune approvals or administrator actions are completed.</li><li>You do not need to migrate or recreate existing collection or DLP policies.</li><li>This update does not expand supported applications, browsers, activities, licenses, devices, or cloud environments.</li><li>Existing DLP enforcement behavior remains unchanged.</li></ul><p><b><b>Action required and recommendations</b></b></p><p>No action is required before rollout.</p><p>After the update reaches your tenant, if Microsoft Purview indicates that administrator action is required:</p><ul><li>Review the status and error details in the Microsoft Purview portal to identify the required next step.</li><li>In Microsoft Purview, send a task to the appropriate Intune administrator and have that administrator complete the requested action.</li><li>Return to Microsoft Purview, review the request status, and complete any remaining steps.</li><li>Check again after approximately one hour to confirm the supporting configuration and activation status are complete and that the error no longer appears.</li></ul><p>If your organization does not use Intune multi-admin approval and your policies are already active, no action is required.</p><p>For questions or support, contact your Microsoft account representative or Microsoft Support.</p><p><b>Learn more</b></p><ul><li><a href=\"https://learn.microsoft.com/intune/governance/admin-tasks\" rel=\"noopener noreferrer\">Centrally manage Admin Tasks - Microsoft Intune | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/purview/dlp-browser-dlp-learn#policies-for-unmanaged-app-interactions\" rel=\"noopener noreferrer\">Learn about Data Loss Prevention for Cloud Apps in Edge for Business | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/intune/fundamentals/role-based-access-control/multi-admin-approval\" rel=\"noopener noreferrer\">Use Multi Admin Approval in Intune - Microsoft Intune | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td><b>Question</b></td><td><b>Answer</b></td></tr><tr><td>Does the change alter how administrators can monitor, report on, or demonstrate compliance activities, for example, through Microsoft Purview or administrator reporting?</td><td>Yes. Administrators will receive clearer setup status information, more detailed error information, remediation guidance, and task-based coordination between Microsoft Purview and Microsoft Intune administrators.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-06T23:07:36Z",
+      "endDate": "2027-01-11T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-10T00:12:37.56Z",
+      "version": "2026-11-10T00:12:37.56Z",
+      "eventId": "message-center:MC1489971:2026-11-10T00:12:37.56Z",
+      "firstSeenAt": "2026-11-10T09:45:12.070Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 1 new, 2 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "Microsoft added guidance describing eligibility criteria and the application process for becoming an Intune compliance MDM partner. Eligible solutions must support MDM, user-based compliance, Microsoft Entra ID, and Android, iOS/iPadOS, or macOS.",
+        "sourceFiles": [
+          "intune/device-security/compliance/become-mobile-device-management-compliance-provider.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/app-management",
+        "summary": "The documentation table entry for “Exclude these apps from the silence setting” was revised. It references the Enter JSON Data section and describes excluding apps from silencing while Managed Home Screen requires authentication.",
+        "sourceFiles": [
+          "intune/app-management/configuration/configure-managed-home-screen.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/fundamentals",
+        "summary": "The documentation now explains that Certificate Connector wizard proxy settings apply only to connector services, not the system-wide Windows WinHTTP proxy. It adds procedures for viewing, setting, verifying, and resetting a static WinHTTP proxy.",
+        "sourceFiles": [
+          "intune/fundamentals/certificates/connector/setup-connector.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "Microsoft added guidance describing eligibility criteria and the application process for becoming an Intune compliance MDM partner. Eligible solutions must support MDM, user-based compliance, Microsoft Entra ID, and Android, iOS/iPadOS, or macOS."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/app-management",
+        "detail": "The documentation table entry for “Exclude these apps from the silence setting” was revised. It references the Enter JSON Data section and describes excluding apps from silencing while Managed Home Screen requires authentication."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/fundamentals",
+        "detail": "The documentation now explains that Certificate Connector wizard proxy settings apply only to connector services, not the system-wide Windows WinHTTP proxy. It adds procedures for viewing, setting, verifying, and resetting a static WinHTTP proxy."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1547994",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-10",
+      "title": "Plan for Change: Update your iOS/iPadOS Company Portal minimum version to v5.2608.0",
+      "summary": "Starting early December, the minimum iOS/iPadOS Company Portal version will be v5.2608.0 to support new Apple OS releases. Most users update automatically; others will be prompted. If app installation is blocked via device restrictions, manual updates may be needed. Prepare helpdesk for update prompts.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "device-enrollment",
+        "name": "Device enrollment",
+        "icon": "/assets/topics/device-enrollment.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1547994/",
+      "originalUrl": "https://mc.merill.net/message/MC1547994",
+      "body": "<p>To support the latest Apple OS releases, starting in early December, the minimum supported version of the iOS/iPadOS Company Portal will change to v5.2608.0.&nbsp;</p><p><b>How this will affect your organization:</b></p><p><b>User impact:</b> Most users have app updates set to automatic, so they receive the updated Company Portal app without taking any action. Users that have an earlier app version will be prompted to update to the latest Company Portal app.&nbsp;</p><p><b>Note:</b> If you have enabled the ‘<a href=\"https://learn.microsoft.com/intune/device-configuration/templates/ref-device-restrictions-apple#settings-apply-to-automated-device-enrollment-supervised\" rel=\"noopener noreferrer\">Block installing apps using App Store</a>’ device restriction setting, you may need to manually push an update to devices.&nbsp;</p><p><b>What you need to do to prepare:</b></p><p>If you have enabled the above device restriction setting you will likely need to push an update to devices. Otherwise, no action is needed, but if you have a helpdesk, you may want to make them aware of the prompt to update the Company Portal app.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "User impact"
+      ],
+      "startDate": "2026-11-10T23:54:06Z",
+      "endDate": "2027-01-30T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-10T23:54:32.37Z",
+      "version": "2026-11-10T23:54:32.37Z",
+      "eventId": "message-center:MC1547994:2026-11-10T23:54:32.37Z",
+      "firstSeenAt": "2026-11-11T09:20:34.000Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}

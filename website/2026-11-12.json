@@ -260,19 +260,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/advanced-analytics/device-scopes.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/advanced-analytics/device-scopes.md b/intune/advanced-analytics/device-scopes.md\nindex 419fc5e4..53eb48a7 100644\n--- a/intune/advanced-analytics/device-scopes.md\n+++ b/intune/advanced-analytics/device-scopes.md\n@@ -69,7 +69,7 @@ Additional prerequisites for custom device scopes:\n > \r\n > Note\r\n > \r\n-> After custom device scopes are created, other users with access to endpoint analytics can use them. Only the user who created the custom device scopes or a Global Administrator can delete the custom device scopes.\r\n+> After custom device scopes are created, other users with access to endpoint analytics can use them. Only the user who created the custom device scopes or a user with Global Administrator or Intune Administrator Entra roles can delete the custom device scopes.\r\n \r\n ## Create and manage custom device scopes\r\n \r\n",
+      "baseCommitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitSha": "5e2bcb39b4cbd3471d8679e4cebb5018c3fcf36b",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 21:13:21 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/advanced-analytics/device-scopes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/advanced-analytics/device-scopes",
+      "eventId": "intune-docs:5e2bcb39b4cbd3471d8679e4cebb5018c3fcf36b:modified:intune/advanced-analytics/device-scopes.md",
+      "firstSeenAt": "2026-11-12T21:27:46.355Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Intune Administrators can delete custom device scopes",
+        "summary": "Users with the Global Administrator or Intune Administrator Entra roles can now delete custom device scopes, alongside the user who created them.",
+        "adminImpact": "Intune Administrators can manage deletion of custom device scopes without being the creator.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 10,
+    "totalCommits": 2,
+    "totalFiles": 11,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
+    "overview": "Today's report includes 0 new, 11 updated, and 0 removed Microsoft Intune documentation files across 7 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -325,6 +351,14 @@
         "sourceFiles": [
           "intune/whats-new/index.md"
         ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/advanced-analytics",
+        "summary": "Users with the Global Administrator or Intune Administrator Entra roles can now delete custom device scopes, alongside the user who created them.",
+        "sourceFiles": [
+          "intune/advanced-analytics/device-scopes.md"
+        ]
       }
     ],
     "highlights": [
@@ -357,6 +391,11 @@
         "category": "Feature update",
         "headline": "intune/whats-new",
         "detail": "Intune documentation adds eScription One, Prisma Browser for Intune, and Elevate UC for Intune to the available protected apps list."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/advanced-analytics",
+        "detail": "Users with the Global Administrator or Intune Administrator Entra roles can now delete custom device scopes, alongside the user who created them."
       }
     ],
     "generatedBy": "fallback"

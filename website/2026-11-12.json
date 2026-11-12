@@ -1,0 +1,364 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/configmgr/core/servers/deploy/install/release-notes.md",
+      "status": "modified",
+      "additions": 69,
+      "deletions": 136,
+      "changes": 205,
+      "patch": "diff --git a/intune/configmgr/core/servers/deploy/install/release-notes.md b/intune/configmgr/core/servers/deploy/install/release-notes.md\nindex afe46be9..c2af8d48 100644\n--- a/intune/configmgr/core/servers/deploy/install/release-notes.md\n+++ b/intune/configmgr/core/servers/deploy/install/release-notes.md\n@@ -16,7 +16,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Learn about urgent issues that aren't yet fixed in the product or covered in a Microsoft Support knowledge base article.\n-ms.date: 2026-09-22T00:00:00.0000000Z\n+ms.date: 2026-11-11T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: release-notes\n ms.collection: tier3\n@@ -38,10 +38,10 @@ item_type: Content\n source_path: intune/configmgr/core/servers/deploy/install/release-notes.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/4c50f262-d533-4ba4-9d4a-08899ec3a3d1\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/57eae307-c3a1-4cac-b645-1a899934bac8\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/6a8c83be-f1de-4e90-bde0-bd097999a60c\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ee561821-1ac7-45a8-9409-6ba5eb7a5b97\n platformId: 6d4ce334-3afa-92d0-7981-3abf49ff1bb0\n ---\n \n@@ -65,191 +65,124 @@ Tip\n \r\n You can use RSS to be notified when this page is updated. For more information, see [How to use the docs](../../../../../fundamentals/use-docs#notifications).\r\n \r\n-## Client management\r\n-\r\n-### Clients aren't able download content from CMG when branch cache is enabled\r\n-\r\n-*Applies to: version 2403*\r\n-\r\n-After Branch Cache is enabled on primary sites, clients are unable to download apps and packages from the cloud management gateway (CMG). They typically manage to download only 20-30% of the content before the process gets stuck. In some cases, after downloading certain blocks of packages from the CMG, clients look for Branch Cache to retrieve the remaining content. However, none of the clients are able to download the complete content from the CMG, which prevents others from using Branch Cache to access it. The **CTM.log** on the client includes entries similar to the following:\r\n+## Set up and upgrade\r\n \r\n-```log\r\n-(CTM.log - CTMJob({63B4C4CE-2DC4-4062-93C7-E5019B3B6CE1}): CCTMJob::Start - State=DownloadingContentFromPeers)\r\n-CTM.log _- CTMJob({D21758B0-D895-474E-9695-1023A25A1770}): CCTMJob::_PerformDownloadWithOutBranchCache - Download failure using branchcache, fallback to regular download\r\n-```\r\n+### ODBC driver version 18.7.1.1 can block site configuration before updating to 2609\r\n \r\n-To work around this issue, disable branch cache.\r\n+*Applies to: upgrades to version 2609*\r\n \r\n-Note\r\n+Microsoft ODBC Driver for SQL Server version [18.7.1.1](/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows#187) has a known issue with Configuration Manager version 2603 and earlier that can block site configuration.\r\n \r\n-Clients are able to download content from the on-premises distribution point when Branch Cache is enabled.\r\n+To avoid this issue, don't install ODBC driver version 18.7.1.1 before updating Configuration Manager. Use ODBC driver version [18.6.2.1](/en-us/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows#186), the validated version shipped with Configuration Manager 2609, for the update. Complete the Configuration Manager update to version 2609 before you install ODBC driver version 18.7.1.1.\r\n \r\n-## Endpoint Protection\r\n+For more information, see [ODBC driver for SQL Server](list-of-prerequisite-checks#odbc-driver-for-sql-server).\r\n \r\n-### Security configurations removed from Intune\r\n+### Configuration Manager performance counters are missing on Windows Server 2025\r\n \r\n-*Applies to: version 2309 with KB25858444 and later*\r\n+*Applies to: primary site servers and management points running Windows Server 2025*\r\n \r\n-Microsoft Defender security configurations are no longer managed with Microsoft Intune after updating to Configuration Manager version 2403, or installing the [Update Rollup for 2309](../../../../hotfix/2309/25858444).\r\n+On Windows Server 2025, Configuration Manager performance counter registration can fail, leaving the counters unavailable in Performance Monitor. This issue can occur after a clean installation of Windows Server 2025 or an in-place upgrade from Windows Server 2022.\r\n \r\n-The symptom is seen as a drop in the Microsoft Security Score values when viewed in Intune. This issue happens because security policy configuration data is incorrectly removed from clients after Configuration Manager clients are upgraded.\r\n+**Perfsetup.log** records errors similar to the following:\r\n \r\n-An updated version of the Microsoft Security Client Policy Configuration Tool, ConfigSecurityPolicy.exe, is available to resolve the Endpoint Protection policy issue described in this note.\r\n+```text\r\n+Error: InstallSMSObjectAndCounterKeySettingsIntoRegistry() could not get the \"HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SMS_SOFTWARE_INVENTORY_PROCESSOR\\Performance\" registry key; error = 6 (0x6).\r\n+```\r\n \r\n-The updated tool, version 4.18.24040.4, is distributed with the April 2024 monthly Microsoft Defender platform update. At the time of this writing, the platform update is in the process of global distribution, and should be broadly available in all regions by May 17, 2024. Once the platform update is installed on affected clients, Endpoint Protection policies are reapplied from Intune within 8 hours. The \"Manage Endpoint Protection client on client computers\" setting in Configuration Manager can be changed back to \"Yes\" as required.\r\n+Perfsetup can also exit with code `1000`. The affected component name in the registry path can vary.\r\n \r\n-#### Additional references\r\n+To resolve this issue, install the [update rollup for Configuration Manager version 2603 (KB39169655)](../../../../hotfix/2603/39169655) or update to Configuration Manager version 2609, which also includes this fix.\r\n \r\n-- [Monthly platform and engine versions](/en-us/defender-endpoint/microsoft-defender-antivirus-updates#monthly-platform-and-engine-versions)\r\n-- [Microsoft Defender update for Windows operating system installation images](https://support.microsoft.com/topic/microsoft-defender-update-for-windows-operating-system-installation-images-1c89630b-61ff-00a1-04e2-2d1f3865450d).\r\n-- [Sync devices to get the latest policies and actions with Intune](../../../../../device-management/actions/sync)\r\n+## Client authentication and registration\r\n \r\n-## Set up and upgrade\r\n+### Microsoft Entra token validation fails when the management point can't access the internet\r\n \r\n-### ODBC driver check\r\n+*Applies to: version 2603 and later*\r\n \r\n-*Applies to: version 2503 and later*\r\n+Starting in version 2603, the management point uses Microsoft Identity Service Essentials (MISE) for Microsoft Entra token validation and requires internet access. This requirement affects sites configured to support Microsoft Entra joined users and devices when clients authenticate using Microsoft Entra tokens, typically through a cloud management gateway (CMG). Environments that only use on-premises Active Directory authentication without Microsoft Entra integration aren't affected.\r\n \r\n-During site installation, the prerequisite checker looks for the minimum required version of the Microsoft ODBC driver. If the correct driver isn't detected the following message is recorded:\r\n+If the management point can't reach the required endpoints, **CCM\\_STS\\_ManagedBase.log** on the management point records a `MiseAuthenticationTicketProviderException` with an underlying network error, for example:\r\n \r\n ```text\r\n-[Failed]: Install the Microsoft ODBC driver 18 for SQL setup from https://go.microsoft.com/fwlink/?linkid=2220989.\r\n+Microsoft.Identity.ServiceEssentials.Exceptions.MiseAuthenticationTicketProviderException: MISE12034: AuthenticationTicketProvider Name:AuthenticationTicketProvider\r\n+System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it\r\n ```\r\n \r\n-The link provided installs an older version of the ODBC driver; the correct link to use is: https://go.microsoft.com/fwlink/?linkid=2299909\r\n+Important\r\n \r\n-### Version 2107 update fails to download\r\n+The `MISE12034` exception can also occur for other reasons. Before applying this resolution, verify that the underlying exception indicates a network connectivity problem, such as a `SocketException`, `HttpRequestException`, or connection timeout.\r\n \r\n-*Applies to: version 2107 and later*\r\n+To resolve this issue, allow the management point server to access the following Microsoft Entra authentication endpoints through the proxy and firewall in the Local System context:\r\n \r\n-The update for Configuration Manager version 2107 is available to download, but it fails to download. The **dmpdownloader.log** on the service connection point has entries similar to the following:\r\n+- `https://login.microsoftonline.com`\r\n+- `https://sts.windows.net`\r\n \r\n-```log\r\n-Download large file with BITs\r\n-WARNING: EasySetupDownloadSinglePackage Failed with exception: The remote name could not be resolved: 'configmgrbits.azureedge.net'\r\n-WARNING: Retry in the next polling cycle\r\n-```\r\n+If the management point uses a proxy, configure it in the Local System context. In version 2603, the proxy set in the site system properties and a WinHTTP-only proxy (`netsh winhttp set proxy`) aren't used for this validation path.\r\n \r\n-This failure happens because the service connection point can't communicate with the required internet endpoint, `configmgrbits.azureedge.net`. Confirm that the site system that hosts the service connection point role can communicate with this internet endpoint. It was already required, but its use is expanded in version 2107. The site system can't download version 2107 or later unless your network allows traffic to this URL.\r\n+For configuration steps and the full list of required endpoints, see [Management point proxy configuration](../../../plan-design/network/proxy-server-support#management-point) and [Management point internet access requirements](../../../plan-design/network/internet-endpoints#management-point).\r\n \r\n-For more information, see [internet access requirements](../../../plan-design/network/internet-endpoints#service-connection-point) for the service connection point.\r\n+### Bulk registration token verification fails after installing the version 2603 update rollup\r\n \r\n-## OS deployment\r\n+*Applies to: version 2603 with update rollup KB39169655 installed*\r\n \r\n-### PXE Responder isn't installed correctly after upgrading to 2403 in untrusted domain\r\n+After you install the [update rollup for Configuration Manager version 2603 (KB39169655)](../../../../hotfix/2603/39169655), bulk registration token verification fails on the management point for devices that aren't Microsoft Entra joined and connect through a cloud management gateway (CMG). Affected devices can't complete bulk registration through the CMG to obtain their individual Configuration Manager-issued client authentication tokens. Other CMG communication scenarios for these devices may also be affected.\r\n \r\n-*Applies to: version 2403*\r\n+This issue doesn't affect devices that use Microsoft Entra authentication or version 2603 sites that haven't installed KB39169655.\r\n \r\n-After upgrading to 2403, site servers serving as a PXE responder might see failures due to incorrect configuration of the registry keys. We can observe the below failures in **distmgr.log** indicating that the registry keys weren't configured correctly.\r\n+On the management point, errors similar to the following are recorded in `<MP_InstallDir>\\Logs\\CCM_STS.log`:\r\n \r\n-```log\r\n-Failed to get OS platform for server DP2.CONTOSO2.COM.Either a permissions issue or the server is not supported OS SMS_DISTRIBUTION_MANAGER\r\n-CDistributionManager::SetDpRegistry failed; 0x80070005 SMS_DISTRIBUTION_MANAGER\r\n+```text\r\n+ProcessRequest - Start\r\n+Incoming request URL: https://<management-point>/CCM_STS\r\n+Validated PreAuth SelfProve token. UniqueId: <client-id>. ClientKey: <public-key>\r\n+ProcessRequest - Exception: System.IO.FileLoadException:\r\n+Could not load file or assembly\r\n+'mpisapiclr, Version=5.0.9146.1045, Culture=neutral,\r\n+PublicKeyToken=31bf3856ad364e35' or one of its dependencies.\r\n+The located assembly's manifest definition does not match the assembly reference.\r\n+(Exception from HRESULT: 0x80131040)\r\n ```\r\n \r\n-This happened due to currently unexplained failures in platform architecture identification that were introduced during the addition of support for arm64 machines to serve as remote distribution points.\r\n+To resolve this issue, install [KB40345593](../../../../hotfix/2603/40345593), which is available in **Updates and Servicing** after you install KB39169655. This update requires a [site reset](../../manage/modify-your-infrastructure#bkmk_reset) after installation, but doesn't require a computer restart.\r\n \r\n-## Software updates\r\n+## Collection management\r\n \r\n-### Reset default value of superseding age in months for software updates\r\n+### Collections based on Active Directory group membership lose members after upgrading to version 2609\r\n \r\n-*Applies to: version 2303*\r\n-\r\n-Removing SUP role in Admin Console doesn't reset the superseding age property in WMI. As a result, while reconfiguring the role, the previously configured value is shown in the configuration window. This property needs to be reset to default value on role removal. For more information, see [supersedence rules for installing a software update point.](../../../../sum/get-started/install-a-software-update-point)\r\n+*Applies to: version 2609*\r\n \r\n-### Security roles are missing for phased deployments\r\n+After you upgrade to Configuration Manager version 2609, a full [Microsoft Entra user group discovery](../configure/about-discovery-methods#bkmk_azuregroupdisco) cycle might remove Active Directory user-group relationships from the Configuration Manager database. User collections with query-based membership rules that depend on Active Directory group membership might lose some or all members after collection evaluation. Deployments targeted to these collections might no longer reach the intended users.\r\n \r\n-The **OS Deployment Manager** built-in security role has permissions to [phased deployments](../../../../osd/deploy-use/create-phased-deployment-for-task-sequence). The following roles are missing these permissions:\r\n+To prevent further occurrences, disable [Microsoft Entra user group discovery](../configure/configure-discovery-methods#bkmk_azuregroupdisco). Disabling discovery doesn't restore user-group relationships that have already been removed.\r\n \r\n-- **Application Administrator**\r\n-- **Application Deployment Manager**\r\n-- **Software Update Manager**\r\n-\r\n-The **App Author** role can appear to have some permissions to phased deployments, but can't create deployments.\r\n-\r\n-A user with one these roles can start the Create Phased Deployment wizard, and can see phased deployments for an application or software update. They can't complete the wizard, or make any changes to an existing deployment.\r\n-\r\n-To work around this issue, create a custom security role. Copy an existing security role, and add the following permissions on the **Phased Deployment** object class:\r\n-\r\n-- Create\r\n-- Delete\r\n-- Modify\r\n-- Read\r\n-\r\n-For more information, see [Create custom security roles](../configure/configure-role-based-administration#create-custom-security-roles)\r\n-\r\n-## Configuration Manager console\r\n-\r\n-### Intune RBAC for tenant attached devices\r\n-\r\n-*Applies to: version 2207*\r\n+## Software updates\r\n \r\n-***[Updated]***: There's a checkbox for a role-based access control (RBAC) setting in the [cloud attach configuration wizard](../../../../cloud-attach/enable) in the console. By default, Configuration Manager RBAC is enforced along with Intune RBAC when you're uploading your Configuration Manager devices to the cloud service. This checkbox is selected by default.\r\n+### Devices continue scanning Windows Update after moving the update workload back to Configuration Manager\r\n \r\n-You can now configure Intune role-based access control (RBAC) when interacting with [tenant attached devices](../../../../tenant-attach/client-details?toc=/mem/configmgr/cloud-attach/toc.json&amp;bc=/mem/configmgr/cloud-attach/breadcrumb/toc.json) from the Microsoft Intune admin center. For more information, see [Intune role-based access control for tenant-attached clients](../../../../cloud-attach/use-intune-rbac).\r\n+*Applies to: version 2503 with update rollup KB32851084 and KB36495448 installed, version 2509 with KB36495448 installed, and later releases that inherit this behavior*\r\n \r\n-### Unable to open console because extension installation loops\r\n+After you move the **Windows Update policies** co-management workload from Intune back to Configuration Manager, devices might continue scanning Windows Update or Microsoft Update instead of WSUS, even after a machine policy cycle completes.\r\n \r\n-*Applies to: version 2111*\r\n+Starting with [KB36495448](../../../../hotfix/2509/36495448), the Configuration Manager client no longer sets or removes Windows Update scan source policies. Moving the workload slider doesn't automatically remove the Windows Update client policy state previously configured by Intune. This state can persist on the device after the Intune policy assignment is removed.\r\n \r\n-In certain circumstances, you're unable to open the console due to an extension installation loop. This issue occurs when two or more versions of a single extension were marked as [required for installation](../../manage/admin-console-extensions#require-installation-of-a-console-extension). This issue occurs for extensions imported through the wizard, from a PowerShell script, or through Community hub. If you use the **Make optional** setting before importing a new version of the extension, this issue doesn't occur.\r\n+To address this issue, review the effective scan source for each update category and explicitly manage scan source policies through Group Policy or Intune. As a best practice, remove or reassign the device's Intune Windows Update client policy assignment before moving the workload back. For the cleanup procedure and alternative policy configuration, see [Moving the workload back to Configuration Manager](../../../../sum/deploy-use/integrate-windows-update-client-policies#moving-the-workload-back-to-configuration-manager).\r\n \r\n-When you encounter this issue, it initially appears as a normal console extension installation. After the extension finishes installing, you select **Close** to restart the Configuration Manager console. When the console restarts, you're prompted to install the console extension again. The extension installation continues to loop and the Configuration Manager console doesn't fully open.\r\n+### Reset default value of superseding age in months for software updates\r\n \r\n-To both prevent and work around this issue, run the following SQL script on your CAS database and all of your primary site databases:\r\n+*Applies to: version 2303*\r\n \r\n-```sql\r\n-ALTER VIEW vSMS_ConsoleExtensionMetadata\r\n-AS\r\n-    WITH m AS(\r\n-       SELECT *,\r\n-           RN = ROW_NUMBER()OVER(PARTITION BY ID ORDER BY Version DESC)\r\n-       FROM ConsoleExtensionMetadata\r\n-    )\r\n-    SELECT\r\n-        m.ID,\r\n-        m.Name,\r\n-        m.Description,\r\n-        m.Author,\r\n-        m.Version,\r\n-        m.IsEnabled,\r\n-        m.IsApproved,\r\n-        m.CreatedTime,\r\n-        m.CreatedBy,\r\n-        m.UpdateTime,\r\n-        m.IsTombstoned,\r\n-        m.IsRequired,\r\n-        m.IsSigned,\r\n-        m.IsUnsignedAllowed,\r\n-        CASE m.IsRequired\r\n-            WHEN 0 THEN ''\r\n-            ELSE\r\n-            (\r\n-                SELECT top(1) author FROM ConsoleExtensionRevisionHistory h\r\n-                WHERE m.ID=h.ExtensionId AND m.Version=h.Version AND h.Changes & 1=1\r\n-                ORDER BY h.RevisionTime DESC\r\n-            )\r\n-        END AS RequiredBy,\r\n-        m.IsSetupDefined\r\n-    FROM m\r\n-    WHERE RN = 1\r\n-GO\r\n-```\r\n+Removing SUP role in Admin Console doesn't reset the superseding age property in WMI. As a result, while reconfiguring the role, the previously configured value is shown in the configuration window. This property needs to be reset to default value on role removal. For more information, see [supersedence rules for installing a software update point.](../../../../sum/get-started/install-a-software-update-point)\r\n \r\n-## Boundaries and Boundary groups\r\n+## Cloud services\r\n \r\n-### Clients not belonging to any boundary group can fail to download due to SQL issue\r\n+### CMG update to version 2609 fails when Azure permissions or resource provider registration are missing\r\n \r\n-*Applies to: version 2303, 2309 RTM*\r\n+*Applies to: version 2609 updates with an existing cloud management gateway*\r\n \r\n-Consider ConfigMgr hierarchy with a remote MP and CMG and you deploy an app to a device collection. The Clients can't download app, and reflect the following SQL permissions issue in **MP\\_Location.log**.\r\n+Starting in version 2609, Configuration Manager automatically disables shared-key access for cloud management gateway (CMG) storage. Existing CMGs that previously used shared-key access also require Azure role-assignment permissions and resource provider registration for this transition. A successful deployment on an earlier version doesn't confirm that these prerequisites are met.\r\n \r\n-```log\r\n-   The SELECT permission was denied on the object 'vSMS_DefaultBoundaryGroup', database 'CM_xxx', schema 'dbo'.\r\n-```\r\n+If the CMG server application's service principal can't create the required storage role assignments, the CMG deployment update can fail. **CloudMgr.log** can report HTTP `403`, `DeploymentFailed`, and a denied `Microsoft.Authorization/roleAssignments/write` action. Missing **Microsoft.Maintenance** resource provider registration can also cause the deployment update to fail.\r\n \r\n-To work around the issue run the following SQL script on the SQL database on the primary sites where the MP reports.\r\n+Before updating, verify the CMG server application's effective permissions at each CMG resource group. The **Contributor** role alone doesn't grant storage role-assignment permissions, and the signed-in administrator's permissions don't establish that the CMG application has access. Use the constrained role-assignment configuration described in [Configure Azure RBAC permissions for the server app](../../../clients/manage/cmg/configure-azure-ad#configure-azure-rbac-permissions-for-the-server-app), rather than granting unrestricted administrator permissions.\r\n \r\n-```sql\r\n-    GRANT SELECT ON vSMS_DefaultBoundaryGroup To smsdbrole_MP\r\n-```\n\\ No newline at end of file\n+Also verify that **Microsoft.Maintenance** is registered in every Azure subscription that hosts a CMG. Registration in a staging subscription doesn't register the provider in a different production subscription. For instructions, see [Configure Azure resource providers](../../../clients/manage/cmg/configure-azure-ad#configure-azure-resource-providers).\n\\ No newline at end of file\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/core/servers/deploy/install/release-notes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/core/servers/deploy/install/release-notes",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/configmgr/core/servers/deploy/install/release-notes.md",
+      "firstSeenAt": "2026-11-12T09:47:34.769Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "ODBC driver guidance added for Configuration Manager 2609 upgrades",
+        "summary": "The release notes now document that ODBC Driver 18.7.1.1 can block site configuration on Configuration Manager 2603 and earlier during an upgrade to version 2609. They recommend using validated driver version 18.6.2.1 instead.",
+        "adminImpact": "Before upgrading, verify the ODBC driver version and avoid installing 18.7.1.1; use 18.6.2.1 to prevent the configuration block.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2111/12709700.md",
+      "status": "modified",
+      "additions": 45,
+      "deletions": 3,
+      "changes": 48,
+      "patch": "diff --git a/intune/configmgr/hotfix/2111/12709700.md b/intune/configmgr/hotfix/2111/12709700.md\nindex 26443d21..41c3ed26 100644\n--- a/intune/configmgr/hotfix/2111/12709700.md\n+++ b/intune/configmgr/hotfix/2111/12709700.md\n@@ -61,9 +61,51 @@ You can access the update in the Updates and Servicing node of the Configuration\n \r\n - Adding or deleting orchestration post-installation script can cause the deletion of post-installation scripts from other orchestration groups.\r\n \r\n-- The following issue described in the 2111 release notes is resolved.\r\n-\r\n-    [Unable to open console because extension installation loops](../../core/servers/deploy/install/release-notes#unable-to-open-console-because-extension-installation-loops)\r\n+- **Unable to open the console because extension installation loops**\r\n+\r\n+    In certain circumstances, you're unable to open the console due to an extension installation loop. This issue occurs when two or more versions of a single extension are marked as [required for installation](../../core/servers/manage/admin-console-extensions#require-installation-of-a-console-extension). This issue can occur for extensions imported through the wizard, from a PowerShell script, or through Community hub. To prevent the issue, use the **Make optional** setting before importing a new version of the extension.\r\n+\r\n+    When this issue occurs, it initially appears as a normal console extension installation. After the extension finishes installing, you select **Close** to restart the Configuration Manager console. When the console restarts, you're prompted to install the console extension again. The extension installation continues to loop, and the Configuration Manager console doesn't fully open.\r\n+\r\n+    To prevent and work around this issue in previous versions of Configuration Manager, run the following SQL script on your CAS database and all your primary site databases:\r\n+\r\n+    ```sql\r\n+    ALTER VIEW vSMS_ConsoleExtensionMetadata\r\n+    AS\r\n+        WITH m AS(\r\n+           SELECT *,\r\n+               RN = ROW_NUMBER()OVER(PARTITION BY ID ORDER BY Version DESC)\r\n+           FROM ConsoleExtensionMetadata\r\n+        )\r\n+        SELECT\r\n+            m.ID,\r\n+            m.Name,\r\n+            m.Description,\r\n+            m.Author,\r\n+            m.Version,\r\n+            m.IsEnabled,\r\n+            m.IsApproved,\r\n+            m.CreatedTime,\r\n+            m.CreatedBy,\r\n+            m.UpdateTime,\r\n+            m.IsTombstoned,\r\n+            m.IsRequired,\r\n+            m.IsSigned,\r\n+            m.IsUnsignedAllowed,\r\n+            CASE m.IsRequired\r\n+                WHEN 0 THEN ''\r\n+                ELSE\r\n+                (\r\n+                    SELECT top(1) author FROM ConsoleExtensionRevisionHistory h\r\n+                    WHERE m.ID=h.ExtensionId AND m.Version=h.Version AND h.Changes & 1=1\r\n+                    ORDER BY h.RevisionTime DESC\r\n+                )\r\n+            END AS RequiredBy,\r\n+            m.IsSetupDefined\r\n+        FROM m\r\n+        WHERE RN = 1\r\n+    GO\r\n+    ```\r\n \r\n ## Update information for Microsoft Endpoint Configuration Manager, version 2111\r\n \r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2111/12709700.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2111/12709700",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/configmgr/hotfix/2111/12709700.md",
+      "firstSeenAt": "2026-11-12T09:47:34.784Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Console extension installation-loop issue now includes a SQL workaround",
+        "summary": "The documentation now details an issue where multiple required versions of an extension can repeatedly prompt installation and prevent the Configuration Manager console from opening. It adds a SQL workaround for previous versions.",
+        "adminImpact": "Administrators affected by this issue on previous versions should run the documented SQL script on the CAS and all primary site databases.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/configmgr/hotfix/2609/2377842.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 3,
+      "changes": 17,
+      "patch": "diff --git a/intune/configmgr/hotfix/2609/2377842.md b/intune/configmgr/hotfix/2609/2377842.md\nindex 042987cc..02e833e3 100644\n--- a/intune/configmgr/hotfix/2609/2377842.md\n+++ b/intune/configmgr/hotfix/2609/2377842.md\n@@ -16,7 +16,7 @@ ms.reviewer:\n - hugowu\n - qiani\n description: Article listing changes in Configuration Manager current branch, version 2609\n-ms.date: 2026-09-18T00:00:00.0000000Z\n+ms.date: 2026-11-11T00:00:00.0000000Z\n ms.subservice: core-infra\n ms.topic: reference\n ms.collection: tier3\n@@ -47,13 +47,16 @@ platformId: 502cbeb0-f5cc-7f6a-7823-d77bc8b95baf\n \n *Applies to: Configuration Manager (current branch, version 2609)*\r\n \r\n+Important\r\n+\r\n+As of November 11, 2026, the Configuration Manager version 2609 update (package GUID: `8B9745E4-B815-49D6-8FAA-5FDC8B3DF4FC`) has been unpublished due to an issue that might unexpectedly remove discovery data for Active Directory (AD) groups and Microsoft Entra ID groups when **Microsoft Entra ID Group Discovery** is enabled. This can subsequently cause members to be removed from collections whose membership rules are based on these groups. A new version 2609 update will be released at a later date.\r\n+\r\n ## Summary of KB2377842\r\n \r\n Release version 2609 of Configuration Manager current branch contains fixes and feature improvements. The \"Issues that are fixed\" list isn't inclusive of all changes. Instead, it highlights changes the product development team believes are most relevant to the broad Configuration Manager customer base. These changes were made in response to direct customer feedback about product issues and improvements.\r\n \r\n ##### Notes\r\n \r\n-- As of October 26, 2026, version 2609 is globally available for all customers to install.\r\n - For installation information, see [Checklist for installing update 2609 for Configuration Manager](../../core/servers/manage/checklist-for-installing-update-2609).\r\n - For more information about the changes that are included in version 2609, see [What's new in version 2609 of Configuration Manager current branch](../../core/plan-design/changes/whats-new-version-2609).\r\n - This release contains all of the fixes summarized in the following article.\r\n@@ -213,4 +216,12 @@ Release version 2609 of Configuration Manager current branch contains fixes and\n - KB [37942646](../2603/37942646): Cloud management gateway virtual machine scale set image update for Microsoft Configuration Manager\r\n - KB [38232642](../2603/38232642): Security update for Microsoft Configuration Manager Console Extension\r\n - KB [38982839](../2603/38982839): Security update for the SMS Provider and administration service\r\n-- KB [39398030](../2603/39398030): Security update for scripts, the SMS Provider, the Message Processing Engine, and Discovery Data Record processing\n\\ No newline at end of file\n+- KB [39398030](../2603/39398030): Security update for scripts, the SMS Provider, the Message Processing Engine, and Discovery Data Record processing\r\n+\r\n+## Release history\r\n+\r\n+| Date | Details |\r\n+| --- | --- |\r\n+| November 11, 2026 | Version 2609 was unpublished due to a group discovery issue that can affect collection membership. |\r\n+| October 26, 2026 | Version 2609 became globally available for all customers to install. |\r\n+| September 30, 2026 | Version 2609 became available to early update ring customers through the opt-in script. |\n\\ No newline at end of file\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/configmgr/hotfix/2609/2377842.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/configmgr/hotfix/2609/2377842",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/configmgr/hotfix/2609/2377842.md",
+      "firstSeenAt": "2026-11-12T09:47:34.791Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Configuration Manager 2609 is documented as unpublished",
+        "summary": "The documentation now states that the 2609 update was unpublished on November 11, 2026, because of an issue that can unexpectedly remove discovery data for Active Directory and Microsoft Entra ID groups, affecting collection membership. Release history was also added.",
+        "adminImpact": "Administrators should account for 2609's unpublished status and the potential impact on collection membership.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-enrollment/windows/setup-status-page.md",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 2,
+      "changes": 14,
+      "patch": "diff --git a/intune/device-enrollment/windows/setup-status-page.md b/intune/device-enrollment/windows/setup-status-page.md\nindex b2087676..7d360e45 100644\n--- a/intune/device-enrollment/windows/setup-status-page.md\n+++ b/intune/device-enrollment/windows/setup-status-page.md\n@@ -10,11 +10,13 @@ feedback_system: Standard\n ms.service: microsoft-intune\n ms.collection:\n - M365-identity-device-management\n-ms.reviewer: madakeva, davguy\n ms.subservice: enrollment\n description: Set up a greeting page for users signing in and enrolling Windows devices copy.\n-ms.date: 2026-01-20T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n ms.topic: how-to\n+ms.reviewer: madakeva, davguy\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1031\n locale: en-us\n document_id: 3f24a768-d015-d8d1-2204-33bc94631031\n document_version_independent_id: 3f24a768-d015-d8d1-2204-33bc94631031\n@@ -371,6 +373,14 @@ It also tracks the following types of apps when they're assigned to all devices,\n \r\n If you're using Microsoft Entra hybrid join, Win32 and UWP apps assigned to the device with user installation context aren't tracked during provisioning.\r\n \r\n+### PowerShell script execution during ESP\r\n+\r\n+PowerShell scripts can run while the Enrollment Status Page (ESP) is displayed. However, ESP doesn't track PowerShell scripts as blocking workloads or wait for them to complete successfully. ESP can complete when its tracked applications and policies meet the configured ESP criteria, even if a PowerShell script is still running.\r\n+\r\n+At startup, the Intune management extension processes PowerShell scripts first, then starts Win32 app processing in the same startup flow. This ordering doesn't guarantee that all PowerShell scripts finish before any Win32 app processing begins. Other device check-ins or notifications can independently trigger app processing while a script is still running.\r\n+\r\n+Don't rely on ESP or the Intune management extension startup order to ensure that a PowerShell script completes before a Win32 app starts installing. If an app requires a script or another prerequisite to complete before installation, include that prerequisite as part of the Win32 app deployment.\r\n+\r\n ### Known issues\r\n \r\n This section lists the known issues for the enrollment status page.\r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-enrollment/windows/setup-status-page.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-enrollment/windows/setup-status-page",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/device-enrollment/windows/setup-status-page.md",
+      "firstSeenAt": "2026-11-12T09:47:35.509Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "ESP doesn’t wait for PowerShell scripts before Win32 app processing",
+        "summary": "PowerShell scripts can run during ESP, but ESP doesn’t track them as blocking workloads or wait for completion. Startup ordering also doesn’t guarantee scripts finish before Win32 apps begin installing.",
+        "adminImpact": "Review dependent Win32 app deployments. Include required script prerequisites within the Win32 app deployment instead of relying on ESP or startup order.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-management/tools/run-powershell-scripts-windows.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 2,
+      "changes": 10,
+      "patch": "diff --git a/intune/device-management/tools/run-powershell-scripts-windows.md b/intune/device-management/tools/run-powershell-scripts-windows.md\nindex 48eb07af..a7cd03db 100644\n--- a/intune/device-management/tools/run-powershell-scripts-windows.md\n+++ b/intune/device-management/tools/run-powershell-scripts-windows.md\n@@ -14,8 +14,10 @@ ms.collection:\n - FocusArea_Apps_Win32\n ms.subservice: apps\n description: Create and run PowerShell scripts, assign the script policy to Microsoft Entra groups, and use reports to monitor the scripts. See the steps to delete scripts you add on Windows devices in Microsoft Intune. Read common issues and resolutions.\n-ms.date: 2025-10-02T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n ms.topic: how-to\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1031\n locale: en-us\n document_id: 54177408-b59e-dd06-1f20-6c337bcfd8da\n document_version_independent_id: 54177408-b59e-dd06-1f20-6c337bcfd8da\n@@ -58,7 +60,11 @@ For information about the Intune management extension for Windows, see [Intune m\n - End users aren't required to sign in to the device to execute PowerShell scripts.\r\n - The Intune management extension checks after every reboot for any new scripts or changes. After you assign the policy to the Microsoft Entra groups, the PowerShell script runs, and the run results are reported. Once the script executes, it doesn't execute again unless there's a change in the script or policy. If the script fails, the Intune management extension retries the script three times for the next three consecutive Intune management extension check-ins.\r\n - PowerShell scripts assigned to the device run for every new user that signs in.\r\n-- PowerShell scripts are executed before Win32 apps run. In other words, PowerShell scripts execute first. Then, Win32 apps execute.\r\n+- At startup, the Intune management extension processes PowerShell scripts first, then starts Win32 app processing in the same startup flow. This ordering doesn't guarantee that a PowerShell script completes before any Win32 app processing begins. Other triggers, such as device check-ins or notifications, can initiate app processing independently.\r\n+\r\n+    If a Win32 app requires a script or another prerequisite to complete before installation, include that prerequisite as part of the Win32 app deployment. Don't rely on the startup processing order to enforce this dependency.\r\n+\r\n+    For behavior during the Windows Autopilot Enrollment Status Page (ESP), see [PowerShell script execution during ESP](../../device-enrollment/windows/setup-status-page#powershell-script-execution-during-esp).\r\n - PowerShell scripts time out after 30 minutes.\r\n \r\n Important\r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-management/tools/run-powershell-scripts-windows.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/tools/run-powershell-scripts-windows",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/device-management/tools/run-powershell-scripts-windows.md",
+      "firstSeenAt": "2026-11-12T09:47:35.788Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "PowerShell completion is not guaranteed before Win32 app processing",
+        "summary": "The documentation now clarifies that Intune processes PowerShell scripts first during startup but does not guarantee they finish before Win32 app processing begins. It also adds guidance for dependencies and links to Windows Autopilot ESP behavior.",
+        "adminImpact": "If a Win32 app depends on a script or prerequisite completing first, include it in the Win32 app deployment rather than relying on startup order.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md b/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\nindex 1ebcc3cd..ca70563f 100644\n--- a/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\n+++ b/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md\n@@ -71,12 +71,14 @@ Microsoft uses the submitted information to validate that:\n \r\n To protect your organization and customers, do not include detailed implementation information, source code, API payloads, security internals, proprietary design details, or other information not reasonably necessary for Microsoft's evaluation.\r\n \r\n-If Microsoft accepts your application, an API agreement is sent to the business or legal contact identified by your organization for review and signature. After your organization signs and returns the agreement, Microsoft provides the technical documentation required to begin developing the integration.\r\n+Microsoft reviews partner applications in the order they are received. Review timelines may vary based on application volume and team capacity. Applicants should generally allow several weeks for an initial response. Once an application has been reviewed, Microsoft will contact the business or technical contacts listed in the application with follow-up questions or information outlining next steps. Please note that submission of an application does not guarantee approval to integrate, inclusion in a public listing, or production availability. Microsoft may also request additional information during the review process.\r\n \r\n Partners are responsible for implementing the integration based on the provided documentation. Microsoft does not guarantee dedicated onboarding assistance, implementation guidance, or engineering support during development.\r\n \r\n Submission of an application does not guarantee API documentation access, approval to integrate, public listing, or production availability. Microsoft might request additional information as part of the review process.\r\n \r\n+Microsoft may change the structure, organization, or presentation of its documentation at any time. Participation in the program does not guarantee that Microsoft will feature, promote, or otherwise provide marketing visibility for a partner or its solution.\r\n+\r\n Note\r\n \r\n For partners onboarded through the new self-service process, Microsoft does not publish partner-specific setup documentation or list each partner by name in the Microsoft Intune admin center. Partners should provide their customers with the setup information required to use their solution.\r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/become-mobile-device-management-compliance-provider",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+      "firstSeenAt": "2026-11-12T09:47:35.817Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Partner application review expectations clarified",
+        "summary": "The documentation now explains that Microsoft reviews applications in submission order, response times vary with volume and capacity, and an initial response may take several weeks. It also notes that participation does not guarantee marketing visibility.",
+        "adminImpact": "Organizations applying to become an integration partner should plan for a potentially several-week initial response. No configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/compliance/third-party-partners.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/device-security/compliance/third-party-partners.md b/intune/device-security/compliance/third-party-partners.md\nindex 185d76eb..85c1535d 100644\n--- a/intune/device-security/compliance/third-party-partners.md\n+++ b/intune/device-security/compliance/third-party-partners.md\n@@ -81,7 +81,7 @@ The following compliance partners are supported as generally available:\n \r\n Note\r\n \r\n-Microsoft Intune is currently revamping our device compliance partner process, which will be available for prospective partners in 2026 Q3.\r\n+For instructions on how to apply to be a Microsoft Intune Mobile Device Management Compliance partner, please visit our [partner page](/en-us/intune/device-security/compliance/become-mobile-device-management-compliance-provider?branch=main).\r\n \r\n ## Self-service onboarding for compliance partners\r\n \r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/compliance/third-party-partners.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/third-party-partners",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/device-security/compliance/third-party-partners.md",
+      "firstSeenAt": "2026-11-12T09:47:35.832Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Partner documentation now links to application instructions",
+        "summary": "The page now directs prospective Mobile Device Management Compliance partners to a partner application page, replacing the note about a process revamp planned for 2026 Q3.",
+        "adminImpact": "No administrator action is required. Organizations interested in becoming partners can use the linked application instructions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/device-security/microsoft-tunnel/upgrade.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 2,
+      "changes": 19,
+      "patch": "diff --git a/intune/device-security/microsoft-tunnel/upgrade.md b/intune/device-security/microsoft-tunnel/upgrade.md\nindex bd5db4e4..8eb04e66 100644\n--- a/intune/device-security/microsoft-tunnel/upgrade.md\n+++ b/intune/device-security/microsoft-tunnel/upgrade.md\n@@ -14,9 +14,9 @@ ms.collection:\n ms.reviewer: ochukwunyere\n ms.subservice: protect\n description: Understand how Microsoft Tunnel Gateway upgrades to new versions of the tunnel software for Microsoft Intune.\n-ms.date: 2026-10-30T00:00:00.0000000Z\n+ms.date: 2026-11-10T00:00:00.0000000Z\n ms.topic: how-to\n-ms.custom: msecd-doc-authoring-1030\n+ms.custom: msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: 0c11d6eb-282a-9313-0aae-12cd76adac5a\n@@ -159,6 +159,21 @@ Important\n \r\n Container releases take place in stages. If you notice that your container images aren't the most recent, please be assured that they will be updated and delivered within the following week.\r\n \r\n+### November 10, 2026\r\n+\r\n+Version Number: 20261026\r\n+\r\n+Image hash values:\r\n+\r\n+- **agentImageDigest**: sha256:92ea2b8510f086f1f01adcecdc6b03ee97f0c6855ab49c0b626836f51aa307d3\r\n+- **serverImageDigest**: sha256:c9f4ddff45b987dc111024a7594b40201af1e36d8ea749d0d555f7b599daa4c5\r\n+\r\n+Changes in this release:\r\n+\r\n+- Upgraded the Tunnel agent to .NET 10.\r\n+- Refreshed Azure Linux 3.0 base images, system dependencies, and VPN server components.\r\n+- Improved diagnostic operations.\r\n+\r\n ### November 2, 2026\r\n \r\n Version Number: 20261028.3\r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/microsoft-tunnel/upgrade.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/microsoft-tunnel/upgrade",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/device-security/microsoft-tunnel/upgrade.md",
+      "firstSeenAt": "2026-11-12T09:47:35.907Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Microsoft Tunnel release updates the agent and server images",
+        "summary": "The November 10, 2026 release (version 20261026) upgrades the Tunnel agent to .NET 10, refreshes Azure Linux 3.0 base images, dependencies, and VPN server components, and improves diagnostic operations. It also documents new agent and server image digests.",
+        "adminImpact": "Administrators can use the documented version and image digests to identify the release and benefit from the updated components and diagnostics. No required action is stated.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/fundamentals/endpoints.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/fundamentals/endpoints.md b/intune/fundamentals/endpoints.md\nindex 5da06f37..c42de9fd 100644\n--- a/intune/fundamentals/endpoints.md\n+++ b/intune/fundamentals/endpoints.md\n@@ -58,7 +58,7 @@ Note\n The information in this section also applies to the [Microsoft Intune Certificate Connector](certificates/connector/prerequisites). The connector has the same network requirements as managed devices.\r\n \r\n - The endpoints in this article allow access to the ports identified in the following tables.\r\n-- For some tasks, Intune requires unauthenticated proxy server access to manage.microsoft.com, \\*.azureedge.net, and graph.microsoft.com.\r\n+- For some tasks, Intune requires unauthenticated proxy server access to manage.microsoft.com, and graph.microsoft.com.\r\n \r\n     Note\r\n \r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/fundamentals/endpoints.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/fundamentals/endpoints",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/fundamentals/endpoints.md",
+      "firstSeenAt": "2026-11-12T09:47:35.938Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Updated Intune proxy access requirements",
+        "summary": "The documented unauthenticated proxy access list for some Intune tasks now includes manage.microsoft.com and graph.microsoft.com; *.azureedge.net was removed.",
+        "adminImpact": "Review proxy allowlists supporting Intune tasks to align them with the updated endpoint requirements.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "intune/whats-new/index.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "patch": "diff --git a/intune/whats-new/index.md b/intune/whats-new/index.md\nindex d262526f..806b103f 100644\n--- a/intune/whats-new/index.md\n+++ b/intune/whats-new/index.md\n@@ -70,6 +70,16 @@ You can use RSS to be notified when this page is updated. For more information,\n \r\n ### App management\r\n \r\n+#### Newly available protected apps for Intune\r\n+\r\n+The following protected apps are now available for Microsoft Intune:\r\n+\r\n+- eScription One by DeliverHealth\r\n+- Prisma Browser for Intune by Palo Alto Networks, Inc.\r\n+- Elevate UC for Intune by Serverdata.net, Inc.\r\n+\r\n+For more information about protected apps, see [Microsoft Intune protected apps](/en-us/intune/app-management/ref-protected-apps).\r\n+\r\n #### Manage referenced apps on AOSP devices\r\n \r\n Microsoft Intune now supports AOSP referenced app type that lets you identify an app by package name instead of uploading an APK on AOSP devices. You can assign Required or Uninstall intent to OEM, preloaded, or externally deployed apps that already exist on supported AOSP devices. Required makes an existing app unhidden, while Uninstall hides it. You'll also be able to target referenced apps with JSON-based app configuration policies; Configuration designer and Connected Apps won't be supported. This capability will help organizations manage device-resident apps without adding a new app distribution path.\r\n",
+      "baseCommitSha": "6ebbf676640805d651a44947d5614ea19f407459",
+      "commitSha": "502adbd45ad69c97aaa72c9acd6661476613a803",
+      "commitMessage": "Mirror Learn: 282 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 08:56:56 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/whats-new/index.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/whats-new/index",
+      "eventId": "intune-docs:502adbd45ad69c97aaa72c9acd6661476613a803:modified:intune/whats-new/index.md",
+      "firstSeenAt": "2026-11-12T09:47:36.724Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Three protected apps are now available for Intune",
+        "summary": "Intune documentation adds eScription One, Prisma Browser for Intune, and Elevate UC for Intune to the available protected apps list.",
+        "adminImpact": "Administrators can consider these apps when planning protected app deployments in Intune.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 10,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 10 updated, and 0 removed Microsoft Intune documentation files across 6 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/configmgr",
+        "summary": "The release notes now document that ODBC Driver 18.7.1.1 can block site configuration on Configuration Manager 2603 and earlier during an upgrade to version 2609. They recommend using validated driver version 18.6.2.1 instead. The documentation now details an issue where multiple required versions of an extension can repeatedly prompt installation and prevent the Configuration Manager console from opening. It adds a SQL workaround for previous versions. The documentation now states that the 2609 update was unpublished on November 11, 2026, because of an issue that can unexpectedly remove discovery data for Active Directory and Microsoft Entra ID groups, affecting collection membership. Relea",
+        "sourceFiles": [
+          "intune/configmgr/core/servers/deploy/install/release-notes.md",
+          "intune/configmgr/hotfix/2111/12709700.md",
+          "intune/configmgr/hotfix/2609/2377842.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-enrollment",
+        "summary": "PowerShell scripts can run during ESP, but ESP doesn’t track them as blocking workloads or wait for completion. Startup ordering also doesn’t guarantee scripts finish before Win32 apps begin installing.",
+        "sourceFiles": [
+          "intune/device-enrollment/windows/setup-status-page.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/device-management",
+        "summary": "The documentation now clarifies that Intune processes PowerShell scripts first during startup but does not guarantee they finish before Win32 app processing begins. It also adds guidance for dependencies and links to Windows Autopilot ESP behavior.",
+        "sourceFiles": [
+          "intune/device-management/tools/run-powershell-scripts-windows.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The documentation now explains that Microsoft reviews applications in submission order, response times vary with volume and capacity, and an initial response may take several weeks. It also notes that participation does not guarantee marketing visibility. The page now directs prospective Mobile Device Management Compliance partners to a partner application page, replacing the note about a process revamp planned for 2026 Q3. The November 10, 2026 release (version 20261026) upgrades the Tunnel agent to .NET 10, refreshes Azure Linux 3.0 base images, dependencies, and VPN server components, and improves diagnostic operations. It also documents new agent and server image digests.",
+        "sourceFiles": [
+          "intune/device-security/compliance/become-mobile-device-management-compliance-provider.md",
+          "intune/device-security/compliance/third-party-partners.md",
+          "intune/device-security/microsoft-tunnel/upgrade.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/fundamentals",
+        "summary": "The documented unauthenticated proxy access list for some Intune tasks now includes manage.microsoft.com and graph.microsoft.com; *.azureedge.net was removed.",
+        "sourceFiles": [
+          "intune/fundamentals/endpoints.md"
+        ]
+      },
+      {
+        "category": "Feature update",
+        "title": "intune/whats-new",
+        "summary": "Intune documentation adds eScription One, Prisma Browser for Intune, and Elevate UC for Intune to the available protected apps list.",
+        "sourceFiles": [
+          "intune/whats-new/index.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/configmgr",
+        "detail": "The release notes now document that ODBC Driver 18.7.1.1 can block site configuration on Configuration Manager 2603 and earlier during an upgrade to version 2609. They recommend using validated driver version 18.6.2.1 instead. The documentation now details an issue where multiple required versions of an extension can repeatedly prompt installation and prevent the Configuration Manager console from opening. It adds a SQL workaround for previous versions. The documentation now states that the 2609 update was unpublished on November 11, 2026, because of an issue that can unexpectedly remove discovery data for Active Directory and Microsoft Entra ID groups, affecting collection membership. Relea"
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-enrollment",
+        "detail": "PowerShell scripts can run during ESP, but ESP doesn’t track them as blocking workloads or wait for completion. Startup ordering also doesn’t guarantee scripts finish before Win32 apps begin installing."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/device-management",
+        "detail": "The documentation now clarifies that Intune processes PowerShell scripts first during startup but does not guarantee they finish before Win32 app processing begins. It also adds guidance for dependencies and links to Windows Autopilot ESP behavior."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The documentation now explains that Microsoft reviews applications in submission order, response times vary with volume and capacity, and an initial response may take several weeks. It also notes that participation does not guarantee marketing visibility. The page now directs prospective Mobile Device Management Compliance partners to a partner application page, replacing the note about a process revamp planned for 2026 Q3. The November 10, 2026 release (version 20261026) upgrades the Tunnel agent to .NET 10, refreshes Azure Linux 3.0 base images, dependencies, and VPN server components, and improves diagnostic operations. It also documents new agent and server image digests."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/fundamentals",
+        "detail": "The documented unauthenticated proxy access list for some Intune tasks now includes manage.microsoft.com and graph.microsoft.com; *.azureedge.net was removed."
+      },
+      {
+        "category": "Feature update",
+        "headline": "intune/whats-new",
+        "detail": "Intune documentation adds eScription One, Prisma Browser for Intune, and Elevate UC for Intune to the available protected apps list."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

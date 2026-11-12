@@ -8083,6 +8083,52 @@
         "outputTokens": 2209,
         "costUsd": 0.003107
       }
+    },
+    "2026-11-12": {
+      "headline": "Configuration Manager 2609 unpublished after group-discovery data removal risk emerges",
+      "overview": "Configuration Manager carries the period’s most consequential warning: release history now records that 2609 was unpublished on November 11 after an issue could unexpectedly remove discovery data for Active Directory and Microsoft Entra ID groups, affecting collection membership. Separate release notes warn that ODBC Driver 18.7.1.1 can block site configuration on Configuration Manager 2603 and earlier during an upgrade to 2609, recommending validated driver version 18.6.2.1 instead. Intune updates clarify that PowerShell scripts do not block or gate Win32 app processing during ESP, document a Tunnel release upgraded to .NET 10, and revise unauthenticated proxy endpoint guidance.",
+      "adminImpact": "Configuration Manager administrators should account for 2609’s unpublished status and potential collection-membership impact, and verify the ODBC driver before attempting an upgrade: avoid version 18.7.1.1 and use 18.6.2.1. Intune administrators with dependent Win32 apps should package required script prerequisites with the app rather than relying on ESP or startup ordering. Proxy allowlists supporting Intune tasks should also be reviewed against the revised endpoint list. The Tunnel update provides release and image-identification details but states no required action.",
+      "keyChanges": [
+        {
+          "title": "Configuration Manager 2609 is documented as unpublished after a group-discovery issue",
+          "detail": "Release history now states that the 2609 update was unpublished on November 11, 2026, because it could unexpectedly remove discovery data for Active Directory and Microsoft Entra ID groups, affecting collection membership.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-12-2377842-03"
+        },
+        {
+          "title": "ODBC Driver 18.7.1.1 can block site configuration during 2609 upgrades",
+          "detail": "The release notes document that ODBC Driver 18.7.1.1 can block site configuration on Configuration Manager 2603 and earlier when upgrading to 2609. The documented validated replacement is version 18.6.2.1.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-12-release-notes-01"
+        },
+        {
+          "title": "ESP guidance says PowerShell scripts do not gate Win32 app installation",
+          "detail": "The Setup Status Page documentation now states that PowerShell scripts can run during ESP, but ESP neither tracks them as blocking workloads nor waits for completion. Startup ordering also does not guarantee that scripts finish before Win32 apps begin installing.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-12-setup-status-page-04"
+        },
+        {
+          "title": "Intune Tunnel’s 20261026 release upgrades the agent to .NET 10",
+          "detail": "The November 10, 2026 release documentation records an upgrade to .NET 10, refreshed Azure Linux 3.0 base images, dependencies, and VPN server components, plus diagnostic improvements and new agent and server image digests.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-12-upgrade-08"
+        },
+        {
+          "title": "Intune’s unauthenticated proxy endpoint list changes",
+          "detail": "The documented list for some Intune tasks now includes manage.microsoft.com and graph.microsoft.com, while *.azureedge.net was removed. Administrators supporting these tasks should compare their proxy allowlists with the revised list.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-12-endpoints-09"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-12T09:47:57.186Z",
+      "usage": {
+        "inputTokens": 2143,
+        "outputTokens": 2604,
+        "costUsd": 0.003553
+      }
     }
   },
   "weeks": {
@@ -10021,49 +10067,49 @@
       }
     },
     "2026-11-09": {
-      "headline": "iOS Company Portal version deadline leads Intune’s latest enrollment and approval changes",
-      "overview": "Intune administrators should prepare for an iOS/iPadOS Company Portal minimum version of v5.2608.0 in early December, while Purview DLP is scheduled to add Intune multi-admin approval for unmanaged Edge for Business apps in late November. Revised enrollment guidance also makes Setup Assistant with modern authentication the required method for affected account-driven Apple User Enrollment scenarios and separates Certificate Connector proxy settings from Windows WinHTTP configuration. Beyond these items, the 39 changes were largely wording, navigation, metadata, and example updates across Intune, Windows Autopilot, and Configuration Manager.",
-      "adminImpact": "Prepare the helpdesk for Company Portal update prompts and identify users whose device restrictions could block app installation updates. Apply the revised Apple enrollment method where applicable, configure Windows WinHTTP separately when required by the connector environment, and assess the Configuration Manager fix only for sites matching its documented prerequisites.",
+      "headline": "Intune’s December Company Portal floor arrives as ESP scripting limits are clarified",
+      "overview": "Most of this 49-item week was documentation maintenance, but several changes have direct operational weight. Intune is preparing to require iOS/iPadOS Company Portal version 5.2608.0 in early December, while revised Apple enrollment guidance points affected account-driven User Enrollment flows to Setup Assistant with modern authentication and clarifies that ESP neither waits for PowerShell completion nor treats those scripts as blocking workloads. For co-management estates, Configuration Manager 2609 was unpublished on November 11 after an issue could remove Active Directory and Microsoft Entra group discovery data and affect collection membership.",
+      "adminImpact": "Prepare helpdesk support for Company Portal update prompts and check restrictions that could block manual app updates. For ESP deployments, package required script prerequisites with the dependent Win32 app rather than relying on startup order. Use Setup Assistant with modern authentication for affected Apple enrollments, and factor Configuration Manager 2609’s unpublished status and collection-membership risk into co-management planning. The Purview enhancement requires no policy migration.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS Company Portal minimum version will reach v5.2608.0",
-          "detail": "Starting in early December, v5.2608.0 will become the minimum Company Portal version for iOS/iPadOS to support new Apple operating system releases. Most users update automatically or receive a prompt; users blocked from installing app updates by device restrictions may need manual updates.",
+          "title": "iOS/iPadOS Company Portal minimum becomes version 5.2608.0 in early December",
+          "detail": "The planned minimum version supports new Apple operating-system releases. Most users should update automatically, but users affected by device restrictions that block app installation may need manual updates; helpdesk teams should be ready for update prompts.",
           "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
-          "detail": "Beginning in late November 2026, Purview DLP will improve setup and activation for unmanaged apps in Edge for Business with Intune multi-admin approval. The update adds clearer status and error details and coordinates tasks between Purview and Intune administrators; no policy migration is required.",
+          "title": "ESP will not wait for PowerShell scripts before Win32 apps",
+          "detail": "The revised Setup Status Page guidance states that PowerShell scripts can run during ESP, but ESP does not track them as blocking workloads or wait for completion. Startup ordering also does not guarantee that scripts finish before Win32 app processing, so required prerequisites belong in the dependent Win32 app deployment.",
           "product": "Intune",
-          "sourceId": "MC1489971"
+          "sourceId": "doc-2026-11-12-setup-status-page-04"
         },
         {
-          "title": "Affected Apple enrollments should use Setup Assistant with modern authentication",
-          "detail": "The revised automated-authentication guidance explicitly directs administrators to use Option 2, Setup Assistant with modern authentication, for successful automated enrollments involving account-driven Apple User Enrollment. The other authentication method blocks enrollment for targeted users.",
+          "title": "Affected Apple User Enrollment flows now require modern-authentication Setup Assistant",
+          "detail": "The updated automated-authentication guidance directs administrators to Option 2, Setup Assistant with modern authentication, for successful automated enrollments involving account-driven Apple User Enrollment. The other authentication method blocks enrollment for targeted users, with additional clarification around Company Portal and MFA.",
           "product": "Intune",
           "sourceId": "doc-2026-11-09-ref-automated-authentication-methods-21"
         },
         {
-          "title": "Certificate Connector guidance separates service proxy settings from Windows WinHTTP",
-          "detail": "Certificate Connector wizard proxy settings apply only to connector services and do not configure the system-wide Windows WinHTTP proxy. The guidance now includes procedures to view, set, verify, and reset a static WinHTTP proxy, which administrators can configure separately when required.",
+          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
+          "detail": "Beginning in late November 2026, improved setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval. The change also adds clearer status information, detailed errors, and coordination between Purview and Intune administrators; no policy migration is required.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-10-setup-connector-03"
+          "sourceId": "MC1489971"
         },
         {
-          "title": "Configuration Manager 2603 receives a bulk registration token-verification fix",
-          "detail": "KB40345593 fixes bulk registration token verification failures for non-Microsoft Entra-joined devices connecting through a cloud management gateway after KB39169655. For matching version 2603 sites, install it through Updates and Servicing; a site reset is required, existing secondary sites must be updated manually, and no computer restart is required.",
+          "title": "Configuration Manager 2609 was unpublished after a discovery-data issue",
+          "detail": "The release notes state that the 2609 update was unpublished on November 11 because an issue could unexpectedly remove discovery data for Active Directory and Microsoft Entra ID groups, affecting collection membership. Co-management administrators should account for the unpublished status and potential collection impact.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-09-bulk-registration-token-verification-fails-after-installing-configuration-manager-2603-update-ro-01"
+          "sourceId": "doc-2026-11-12-2377842-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-11T09:20:34.181Z",
+      "generatedAt": "2026-11-12T09:47:57.186Z",
       "usage": {
-        "inputTokens": 5981,
-        "outputTokens": 2763,
-        "costUsd": 0.004512
+        "inputTokens": 7215,
+        "outputTokens": 3887,
+        "costUsd": 0.006107
       }
     }
   },
@@ -10529,65 +10575,59 @@
       }
     },
     "2026-11": {
-      "headline": "Intune sets Company Portal v5.2608.0 as its early-December iOS/iPadOS minimum",
-      "overview": "Most of November’s activity was metadata, wording, navigation, and link maintenance. The consequential administrator-facing changes were the early-December Company Portal minimum, late-November Intune multi-admin approval support for Purview DLP’s unmanaged Edge for Business apps, and sharper Configuration Manager and Intune guidance on CMG access, MDM security reporting, and co-management enrollment diagnostics.",
-      "adminImpact": "Prepare the helpdesk for Company Portal update prompts and identify users whose device restrictions could block app installation. Coordinate Purview and Intune administrators for the new approval workflow; no policy migration is required. For configuration and troubleshooting, use the CMG RBAC, policy-level reporting, and co-management version and log details below.",
+      "headline": "Intune sets Company Portal v5.2608.0 as December iOS/iPadOS minimum",
+      "overview": "November was overwhelmingly documentation maintenance: 3,652 items were updated and two were new, with many representative edits limited to metadata, links, terminology, or wording. The substantive exceptions included the early-December Company Portal version floor, Configuration Manager 2609 CMG storage-access guidance, a Purview DLP workflow update involving Intune approval, and clearer Intune reporting and Enterprise App Management guidance.",
+      "adminImpact": "Prepare helpdesk staff for Company Portal update prompts and check device restrictions that could block manual updates. For Configuration Manager 2609 CMG deployments, review the CMG server application and operator Azure RBAC permissions. Use policy-level status when assessing MDM-managed Firewall Rules and ASR Rules, and review the current Enterprise App Management guidance before configuring blocking apps for ESP or Autopilot device preparation. No Purview policy migration is required.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS Company Portal minimum rises to v5.2608.0 in early December",
-          "detail": "Starting in early December 2026, the minimum iOS/iPadOS Company Portal version will be v5.2608.0 to support new Apple OS releases. Most users update automatically, but users affected by device restrictions that block app installation may need manual updates. Prepare the helpdesk for update prompts.",
-          "product": "Intune — Company Portal",
+          "title": "Company Portal minimum becomes v5.2608.0 in early December",
+          "detail": "A Message Center notice says the minimum iOS/iPadOS Company Portal version will become v5.2608.0 in early December to support new Apple operating-system releases. Most users update automatically; others receive prompts, while device restrictions that block app installation may require manual-update support.",
+          "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
-          "detail": "Starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval. The change adds clearer status, detailed errors, and coordinated tasks between Purview and Intune administrators; no policy migration is needed.",
-          "product": "Intune — multi-admin approval",
-          "sourceId": "MC1489971"
-        },
-        {
-          "title": "Configuration Manager 2609 CMG guidance documents shared-key shutdown and RBAC needs",
-          "detail": "CMG security guidance now states that shared-key access for CMG storage is automatically disabled beginning with Configuration Manager version 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets. Review CMG server application and operator Azure RBAC permissions, including the ability to assign Storage Blob Data Contributor and Storage Table Data Contributor roles.",
-          "product": "Configuration Manager — Cloud Management Gateway",
+          "title": "Configuration Manager 2609 disables CMG storage shared-key access",
+          "detail": "CMG security guidance now states that shared-key access is automatically disabled for CMG storage beginning with Configuration Manager version 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage, including Storage Blob Data Contributor and Storage Table Data Contributor role assignments, and distinguishes storage keys from application secrets.",
+          "product": "Configuration Manager",
           "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Intune Security Settings limits MDM Firewall and ASR reporting to policy level",
-          "detail": "The Security Settings guidance now states that per-setting reporting is unavailable for Firewall Rules and Attack Surface Reduction Rules policies managed through MDM. Administrators should use policy-level status when reviewing these policies.",
-          "product": "Intune — Security Settings Management",
+          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
+          "detail": "Starting in late November 2026, improved setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is required.",
+          "product": "Intune",
+          "sourceId": "MC1489971"
+        },
+        {
+          "title": "MDM Firewall and ASR reporting is limited to policy status",
+          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Administrators should interpret status for these policies at the policy level.",
+          "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Co-management guidance adds Windows and token-fallback diagnostics",
-          "detail": "The Monitor Co-management guidance now states that device-token auto-enrollment requires Windows 10 version 1803 or later and falls back to the user token if the device token fails. For pending or failed enrollment, verify the Windows version and check ComanagementHandler.log.",
-          "product": "Configuration Manager — Co-management",
-          "sourceId": "doc-2026-11-04-monitor-co-management-configuration-manager-microsoft-learn-02"
+          "title": "Enterprise App Management revises ESP blocking-app guidance",
+          "detail": "The current page no longer states that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page or Autopilot device preparation. Administrators configuring blocking apps in those workflows should follow the revised guidance.",
+          "product": "Enterprise App Management",
+          "sourceId": "doc-2026-11-05-enterprise-app-management-12"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-11T09:20:34.181Z",
+      "generatedAt": "2026-11-12T09:47:57.186Z",
       "usage": {
-        "inputTokens": 6109,
-        "outputTokens": 4321,
-        "costUsd": 0.006407
+        "inputTokens": 6132,
+        "outputTokens": 4531,
+        "costUsd": 0.006664
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-11T09:20:34.181Z",
+  "generatedAt": "2026-11-12T09:47:57.186Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-07": {
-      "inputTokens": 13088,
-      "outputTokens": 24070,
-      "requests": 6,
-      "costUsd": 0.031502
-    },
     "2026-10-08": {
       "inputTokens": 15265,
       "outputTokens": 15792,
@@ -10755,18 +10795,24 @@
       "outputTokens": 9293,
       "requests": 3,
       "costUsd": 0.014026
+    },
+    "2026-11-12": {
+      "inputTokens": 15490,
+      "outputTokens": 11022,
+      "requests": 3,
+      "costUsd": 0.016324
     }
   },
   "lastRun": {
-    "inputTokens": 14371,
-    "outputTokens": 9293,
+    "inputTokens": 15490,
+    "outputTokens": 11022,
     "requests": 3,
-    "costUsd": 0.014026
+    "costUsd": 0.016324
   },
   "totalUsage": {
-    "inputTokens": 3937643,
-    "outputTokens": 2553820,
-    "requests": 495,
-    "costUsd": 3.852115
+    "inputTokens": 3953133,
+    "outputTokens": 2564842,
+    "requests": 498,
+    "costUsd": 3.868439
   }
 }

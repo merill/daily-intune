@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "autopilot/device-preparation/device-association/requirements.md",
+      "status": "modified",
+      "additions": 21,
+      "deletions": 11,
+      "changes": 32,
+      "patch": "diff --git a/autopilot/device-preparation/device-association/requirements.md b/autopilot/device-preparation/device-association/requirements.md\nindex 49d1edc5..ccda0f06 100644\n--- a/autopilot/device-preparation/device-association/requirements.md\n+++ b/autopilot/device-preparation/device-association/requirements.md\n@@ -2,9 +2,8 @@\n layout: Conceptual\n title: Requirements for Windows Autopilot device association | Microsoft Learn\n canonicalUrl: https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/requirements\n-author: iceorbital\n-ms.author: acabello\n-ms.reviewer: madakeva\n+author: madakeva\n+ms.author: madakeva\n ms.service: windows-client\n ms.subservice: autopilot\n ms.suite: ems\n@@ -13,8 +12,8 @@ feedback_product_url: https://feedbackportal.microsoft.com/feedback/forum/ef1d6d\n feedback_system: Standard\n permissioned-type: public\n uhfHeaderId: MSDocsHeader-Windows\n-description: Software, networking, licensing, and RBAC requirements for Windows Autopilot device association.\n-ms.date: 2026-08-25T00:00:00.0000000Z\n+description: Software, hardware, networking, licensing, and RBAC requirements for Windows Autopilot device association.\n+ms.date: 2026-10-01T00:00:00.0000000Z\n ms.collection:\n - M365-modern-desktop\n ms.topic: article\n@@ -45,9 +44,10 @@ platformId: 53ceb5ed-3bd4-c8a2-7ebc-5f0bf88555f6\n \n # Requirements for Windows Autopilot device association | Microsoft Learn\n \n-The list of requirements for Windows Autopilot device association is organized into four categories:\r\n+The list of requirements for Windows Autopilot device association is organized into five categories:\r\n \r\n - **Software** - OS requirements.\r\n+- **Hardware** - Physical device and Trusted Platform Module (TPM) requirements.\r\n - **Networking** - Networking requirements.\r\n - **Licensing** - Licensing requirements.\r\n - **RBAC** - RBAC permissions required for Windows Autopilot device association.\r\n@@ -57,10 +57,6 @@ Select the appropriate tab to see the relevant requirements:\n # [Software](#tab/software)\r\n ### Software requirements\r\n \r\n-Important\r\n-\r\n-Device association requires a **physical device**. Virtual machines aren't supported.\r\n-\r\n #### Windows 11\r\n \r\n - Windows 11, version 25H2 with [KB5120998](https://support.microsoft.com/help/5120998) or later.\r\n@@ -75,9 +71,23 @@ The following editions are supported:\n - Windows 11 Education.\r\n - [Windows 11 Enterprise LTSC](/en-us/windows/whats-new/ltsc/overview).\r\n \r\n+# [Hardware](#tab/hardware)\r\n+### Hardware requirements\r\n+\r\n+Important\r\n+\r\n+Device association requires a **physical device**. Virtual machines aren't supported.\r\n+\r\n #### Trusted Platform Module (TPM)\r\n \r\n-Device association requires a **physical device**—virtual machines aren't supported. Each device must have **TPM 2.0**, enabled and in a good state. The TPM shouldn't be in **Reduced Functionality Mode**. TPM attestation is enforced during association: device association uses the TPM to attest the device's identity before enrollment.\r\n+TPM attestation is enforced during association: device association uses the TPM to attest the device's identity before enrollment.\r\n+\r\n+TPM requirements:\r\n+\r\n+- Each device must have TPM 2.0, enabled and in a good state.\r\n+- The TPM shouldn't be in Reduced Functionality Mode.\r\n+- TPM must be [FIPS 186-3](https://csrc.nist.gov/publications/fips) or newer compliant.\r\n+- TPM must support [TLS 1.3](https://www.rfc-editor.org/rfc/rfc9846#section-4.3.3).\r\n \r\n # [Networking](#tab/networking)\r\n ### Networking requirements\r\n",
+      "baseCommitSha": "5e2bcb39b4cbd3471d8679e4cebb5018c3fcf36b",
+      "commitSha": "32dd757333cb1bd207aece6cf432d88372f52949",
+      "commitMessage": "Mirror Learn: 318 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 08:52:15 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/autopilot/device-preparation/device-association/requirements.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/device-association/requirements",
+      "eventId": "intune-docs:32dd757333cb1bd207aece6cf432d88372f52949:modified:autopilot/device-preparation/device-association/requirements.md",
+      "firstSeenAt": "2026-11-13T09:28:59.193Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Hardware and TPM requirements added for device association",
+        "summary": "The requirements page now includes a Hardware category and explicitly requires physical devices with TPM 2.0 enabled and healthy, not in Reduced Functionality Mode, and compliant with FIPS 186-3 or newer and TLS 1.3.",
+        "adminImpact": "Administrators should validate device hardware and TPM compatibility before using Windows Autopilot device association.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Feature update",
+        "title": "autopilot/device-preparation",
+        "summary": "The requirements page now includes a Hardware category and explicitly requires physical devices with TPM 2.0 enabled and healthy, not in Reduced Functionality Mode, and compliant with FIPS 186-3 or newer and TLS 1.3.",
+        "sourceFiles": [
+          "autopilot/device-preparation/device-association/requirements.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Feature update",
+        "headline": "autopilot/device-preparation",
+        "detail": "The requirements page now includes a Hardware category and explicitly requires physical devices with TPM 2.0 enabled and healthy, not in Reduced Functionality Mode, and compliant with FIPS 186-3 or newer and TLS 1.3."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

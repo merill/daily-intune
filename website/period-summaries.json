@@ -8151,6 +8151,46 @@
         "outputTokens": 509,
         "costUsd": 0.000822
       }
+    },
+    "2026-11-14": {
+      "headline": "Android local actions and Windows maintenance windows get new Intune setup guidance",
+      "overview": "The period was dominated by documentation maintenance, but two new how-to pages add useful operational guidance: Android local actions for event-driven kiosk behavior and Windows maintenance windows for scheduled update activity. Existing guidance also adds more precise Windows Update ring settings and a workaround for a possible iOS/iPadOS enrollment failure.",
+      "adminImpact": "Admins managing dedicated or fully managed Android Enterprise devices can plan Local actions profiles, with Activity actions requiring Overlay Permission through OEMConfig. Windows administrators should note that the maintenance-window guidance applies to Windows 11 version 24H2 with KB5077181 and build 26100.7840 or later, uses each device’s local time, and should be tested on representative devices before broad assignment. The updated enrollment guidance provides concrete troubleshooting steps rather than requiring a policy change.",
+      "keyChanges": [
+        {
+          "title": "Android local actions are documented for event-driven device and kiosk workflows",
+          "detail": "The new guidance covers Local actions profiles for dedicated and fully managed Android Enterprise devices. Events include device reboots, Managed Home Screen sign-ins, and power-connection changes; available actions include launching apps, sending broadcasts, signing users out, and exiting kiosk mode. Activity actions require Overlay Permission granted through OEMConfig.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-14-configure-local-actions-for-android-devices-in-microsoft-intune-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Windows maintenance-window guidance specifies update scheduling limits and prerequisites",
+          "detail": "The new page explains one-time and recurring windows that control when automatic Windows Update downloads, installations, and update-related restarts can begin. Schedules use device local time. The documented prerequisite is Windows 11 version 24H2 with KB5077181 and build 26100.7840 or later; the guidance calls for testing on representative devices before broad assignment.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-14-configure-maintenance-windows-for-windows-updates-in-microsoft-intune-microsoft-intune-microsoft-02"
+        },
+        {
+          "title": "Update Ring Settings guidance now separates quality and feature update controls",
+          "detail": "The reference page now documents deadline, grace-period, and automatic-reboot settings separately for quality and feature updates, with related CSP references. It also recommends short quality-update deferrals and appropriate grace periods, giving administrators more specific guidance for configuring restart behavior.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-14-ref-update-ring-settings-09"
+        },
+        {
+          "title": "iOS/iPadOS enrollment troubleshooting adds a sync workaround for Entra join failure",
+          "detail": "The enrollment guide now covers a possible one-time Microsoft Entra ID join failure. A manual device sync is documented as resolving the issue for future enrollments, with adding the Microsoft Intune Certificate Authority client production app provided as an alternative workaround.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-14-ios-ipados-device-enrollment-guide-for-microsoft-intune-microsoft-intune-microsoft-learn-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-14T08:57:22.950Z",
+      "usage": {
+        "inputTokens": 2918,
+        "outputTokens": 1673,
+        "costUsd": 0.002591
+      }
     }
   },
   "weeks": {
@@ -10089,49 +10129,49 @@
       }
     },
     "2026-11-09": {
-      "headline": "Configuration Manager 2609 unpublished after group discovery data issue",
-      "overview": "Most changes this week were documentation maintenance, but several updates carry operational consequences. Configuration Manager 2609 was unpublished after an issue could remove Active Directory and Microsoft Entra ID group discovery data and affect collection membership. Microsoft also documented an ODBC driver that can block upgrades to 2609. Intune guidance clarified that ESP does not wait for PowerShell scripts before Win32 apps, while Apple enrollment guidance now requires Setup Assistant with modern authentication for affected account-driven enrollments. An iOS/iPadOS Company Portal minimum version change is planned for early December.",
-      "adminImpact": "Account for Configuration Manager 2609's unpublished status and possible collection-membership impact. Before upgrading, verify that ODBC Driver 18.7.1.1 is not installed and use validated version 18.6.2.1. For Intune deployments, package script prerequisites with the dependent Win32 app instead of relying on ESP or startup order. Configure Setup Assistant with modern authentication for the affected Apple enrollment scenario, and prepare support teams for the upcoming Company Portal version requirement, particularly where app updates are restricted.",
+      "headline": "iOS/iPadOS Company Portal minimum rises as Intune documents Windows maintenance windows",
+      "overview": "The week was largely editorial, but several updates have concrete planning value: Purview DLP is adding Intune multi-admin approval for unmanaged Edge apps in late November, the iOS/iPadOS Company Portal minimum will become v5.2608.0 in early December, and new or revised guidance covers Windows maintenance windows, Android local actions, and Apple enrollment authentication.",
+      "adminImpact": "Coordinate Purview and Intune administrators for the multi-admin approval workflow; no policy migration is required. Prepare helpdesk guidance for Company Portal update prompts, especially where device restrictions block app installation. For Windows maintenance windows, verify the required OS build and KB, account for device-local scheduling, and test representative devices before broad assignment. For Android activity actions, grant Overlay Permission through OEMConfig. For account-driven Apple User Enrollment, use Setup Assistant with modern authentication because the alternative method blocks enrollment for targeted users.",
       "keyChanges": [
         {
-          "title": "Configuration Manager 2609 was unpublished over group-discovery data risk",
-          "detail": "The release history states that the 2609 update was unpublished on November 11, 2026, because an issue could unexpectedly remove Active Directory and Microsoft Entra ID group discovery data, affecting collection membership.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-12-2377842-03"
+          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
+          "detail": "Starting in late November 2026, Purview DLP setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval. The update adds clearer status information, detailed errors, and task coordination between Purview and Intune administrators; no policy migration is needed.",
+          "product": "Intune — Purview DLP unmanaged apps",
+          "sourceId": "MC1489971"
         },
         {
-          "title": "ODBC Driver 18.7.1.1 can block Configuration Manager 2609 upgrades",
-          "detail": "Release notes warn that ODBC Driver 18.7.1.1 can block site configuration on Configuration Manager 2603 and earlier during an upgrade to 2609. The documented validated alternative is version 18.6.2.1.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-12-release-notes-01"
-        },
-        {
-          "title": "Intune ESP does not wait for PowerShell scripts before Win32 apps",
-          "detail": "PowerShell scripts can run during the Enrollment Status Page, but ESP does not track them as blocking workloads or wait for completion. Startup ordering also does not guarantee that scripts finish before Win32 app installation begins.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-12-setup-status-page-04"
-        },
-        {
-          "title": "Apple automated enrollment guidance now requires modern authentication",
-          "detail": "For automated enrollments involving account-driven Apple User Enrollment, the guidance directs administrators to use Option 2, Setup Assistant with modern authentication. The other authentication method blocks enrollment for targeted users.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-09-ref-automated-authentication-methods-21"
-        },
-        {
-          "title": "iOS/iPadOS Company Portal minimum version rises to 5.2608.0",
-          "detail": "Starting in early December, the minimum iOS/iPadOS Company Portal version will be 5.2608.0 to support new Apple operating system releases. Most users update automatically, but users blocked from installing app updates may need manual assistance.",
-          "product": "Intune",
+          "title": "The iOS/iPadOS Company Portal minimum moves to version 5.2608.0",
+          "detail": "Starting in early December 2026, the minimum iOS/iPadOS Company Portal version will be v5.2608.0 to support new Apple operating-system releases. Most users update automatically, but users on devices that block app installation may need a manual update, so helpdesk teams should be prepared for update prompts.",
+          "product": "Intune — Company Portal",
           "sourceId": "MC1547994"
+        },
+        {
+          "title": "Intune documents Windows maintenance windows with explicit build prerequisites",
+          "detail": "The new guidance covers one-time and recurring windows that control when automatic Windows Update downloads, installations, and update-related restarts can begin. Schedules use each device’s local time and require Windows 11 version 24H2 with KB5077181, build 26100.7840 or later. Microsoft recommends testing representative devices before broad assignment.",
+          "product": "Intune — Windows updates",
+          "sourceId": "doc-2026-11-14-configure-maintenance-windows-for-windows-updates-in-microsoft-intune-microsoft-intune-microsoft-02"
+        },
+        {
+          "title": "Android local actions respond to events on managed and kiosk devices",
+          "detail": "Intune now documents a Local actions profile for dedicated or fully managed Android Enterprise devices. Profiles can respond to device reboots, Managed Home Screen sign-ins, and power-connection changes by launching apps, sending broadcasts, signing users out, or exiting kiosk mode. Activity actions require Overlay Permission granted through OEMConfig.",
+          "product": "Intune — Android Enterprise and Managed Home Screen",
+          "sourceId": "doc-2026-11-14-configure-local-actions-for-android-devices-in-microsoft-intune-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Apple enrollment guidance points account-driven User Enrollment to modern authentication",
+          "detail": "For automated enrollments involving account-driven Apple User Enrollment, the revised guidance explicitly directs administrators to Option 2: Setup Assistant with modern authentication. It also clarifies Company Portal, MFA, and phishing-resistant MFA guidance and states that the other authentication method blocks enrollment for targeted users.",
+          "product": "Intune — Apple device enrollment",
+          "sourceId": "doc-2026-11-09-ref-automated-authentication-methods-21"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T09:29:10.718Z",
+      "generatedAt": "2026-11-14T08:57:22.950Z",
       "usage": {
-        "inputTokens": 7471,
-        "outputTokens": 3264,
-        "costUsd": 0.005411
+        "inputTokens": 9470,
+        "outputTokens": 6817,
+        "costUsd": 0.010074
       }
     }
   },
@@ -10597,37 +10637,37 @@
       }
     },
     "2026-11": {
-      "headline": "iOS Company Portal minimum rises in December as CMG 2609 disables shared-key access",
-      "overview": "November's supplied changes are mostly metadata and wording maintenance rather than feature delivery. The clearest administrator-facing exceptions are the early-December iOS/iPadOS Company Portal minimum of v5.2608.0, Configuration Manager 2609 CMG storage changes, Intune multi-admin approval support in Purview DLP setup for Edge unmanaged apps, policy-level-only reporting for MDM Firewall and ASR rules, and revised Enterprise App Management guidance for ESP and Autopilot blocking apps.",
-      "adminImpact": "Prepare for the Company Portal version floor, especially where device restrictions block app installation; most devices update automatically, but some users may need manual updates and help-desk handling. For CMG deployments on Configuration Manager 2609, review CMG server application and operator Azure RBAC permissions for the required Storage Blob Data Contributor and Storage Table Data Contributor role assignments. Use policy-level status for MDM-managed Firewall Rules and ASR Rules, and review current Enterprise App Management guidance before configuring blocking apps in ESP or Autopilot device preparation. The Purview DLP update requires no policy migration.",
+      "headline": "Intune plans higher iOS Company Portal minimum as CMG 2609 disables shared-key access",
+      "overview": "November was dominated by metadata and editorial maintenance, but several updates have direct planning value. Intune announced a minimum iOS/iPadOS Company Portal version of 5.2608.0 from early December, while Microsoft Purview DLP will add Intune multi-admin approval for unmanaged Edge for Business apps in late November. Configuration Manager guidance now says CMG storage shared-key access is automatically disabled from version 2609, including existing deployments. Other meaningful clarifications narrow MDM Firewall and ASR reporting to policy-level status and revise Enterprise App Management blocking-app guidance.",
+      "adminImpact": "Prepare helpdesk communications for Company Portal update prompts and identify devices where restrictions could block manual updates. For Configuration Manager 2609 CMG deployments, review the CMG server application and operator Azure RBAC permissions, including the required Storage Blob Data Contributor and Storage Table Data Contributor assignments. Coordinate Purview and Intune administrators for the multi-admin approval workflow; no policy migration is stated. Use policy-level status when assessing MDM-managed Firewall Rules and ASR Rules, and review the current Enterprise App Management guidance before configuring blocking apps.",
       "keyChanges": [
         {
-          "title": "iOS/iPadOS Company Portal minimum rises to v5.2608.0 in early December",
-          "detail": "Intune's minimum iOS/iPadOS Company Portal version is scheduled to become v5.2608.0 in early December 2026 to support new Apple OS releases. Most users update automatically; users blocked from installing apps by device restrictions may need a manual update, and help desks should prepare for update prompts.",
+          "title": "iOS/iPadOS Company Portal minimum moves to version 5.2608.0 in early December",
+          "detail": "The planned minimum Company Portal version will be v5.2608.0 to support new Apple operating-system releases. Most users will update automatically or receive a prompt, but devices with app installation blocked by device restrictions may require manual updates.",
           "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
-          "title": "Configuration Manager 2609 disables CMG storage shared-key access",
-          "detail": "The updated CMG security guidance says shared-key access is automatically disabled for CMG storage starting in Configuration Manager 2609, including existing deployments. Microsoft Entra-authenticated storage requires CMG server application and operator Azure RBAC permissions, including Storage Blob Data Contributor and Storage Table Data Contributor role assignments; storage keys and application secrets are separate credentials.",
+          "title": "Configuration Manager 2609 guidance says CMG shared-key access is automatically disabled",
+          "detail": "The CMG security and privacy page now states that shared-key access for CMG storage is automatically disabled starting with Configuration Manager version 2609, including existing deployments. It adds permissions guidance for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for Edge unmanaged apps",
-          "detail": "Starting in late November 2026, Microsoft Purview DLP setup and activation for unmanaged apps in Edge for Business gains Intune multi-admin approval support, clearer status, detailed errors, and coordination between Purview and Intune administrators. No policy migration is required.",
-          "product": "Intune / Microsoft Purview DLP",
+          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
+          "detail": "Starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will gain Intune multi-admin approval support, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is required.",
+          "product": "Intune",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Intune limits MDM Firewall and ASR reporting to policy-level status",
-          "detail": "Security Settings Management guidance now states that reporting for Firewall Rules and Attack Surface Reduction (ASR) Rules policies managed through MDM is limited to policy-level status rather than per-setting status.",
+          "title": "MDM Firewall and ASR policies report only at policy level",
+          "detail": "The Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM. Administrators should use policy-level status for these policies.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Enterprise App Management updates ESP blocking-app guidance",
-          "detail": "The Enterprise App Management page removed the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page (ESP) or Autopilot device preparation. Administrators should use the current guidance when configuring blocking apps in those flows.",
+          "title": "Enterprise App Management guidance drops its previous blocking-app statement",
+          "detail": "The updated page removes the statement that auto-update Enterprise App Catalog apps cannot be blocking apps in Enrollment Status Page or Autopilot device preparation. Administrators should consult the current guidance when configuring blocking apps in those workflows.",
           "product": "Enterprise App Management",
           "sourceId": "doc-2026-11-05-enterprise-app-management-12"
         }
@@ -10635,27 +10675,21 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T09:29:10.718Z",
+      "generatedAt": "2026-11-14T08:57:22.950Z",
       "usage": {
-        "inputTokens": 6147,
-        "outputTokens": 6129,
-        "costUsd": 0.008584
+        "inputTokens": 6119,
+        "outputTokens": 3800,
+        "costUsd": 0.005784
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-13T09:29:10.718Z",
+  "generatedAt": "2026-11-14T08:57:22.950Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-09": {
-      "inputTokens": 12513,
-      "outputTokens": 14229,
-      "requests": 3,
-      "costUsd": 0.019577
-    },
     "2026-10-10": {
       "inputTokens": 12443,
       "outputTokens": 13118,
@@ -10823,18 +10857,24 @@
       "outputTokens": 9902,
       "requests": 3,
       "costUsd": 0.014818
+    },
+    "2026-11-14": {
+      "inputTokens": 18507,
+      "outputTokens": 12290,
+      "requests": 3,
+      "costUsd": 0.018449
     }
   },
   "lastRun": {
-    "inputTokens": 14676,
-    "outputTokens": 9902,
+    "inputTokens": 18507,
+    "outputTokens": 12290,
     "requests": 3,
-    "costUsd": 0.014818
+    "costUsd": 0.018449
   },
   "totalUsage": {
-    "inputTokens": 3983581,
-    "outputTokens": 2587153,
-    "requests": 504,
-    "costUsd": 3.901302
+    "inputTokens": 4002088,
+    "outputTokens": 2599443,
+    "requests": 507,
+    "costUsd": 3.919751
   }
 }

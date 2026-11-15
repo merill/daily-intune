@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "intune/device-security/compliance/create-policy.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/intune/device-security/compliance/create-policy.md b/intune/device-security/compliance/create-policy.md\nindex cd56a568..48468d3c 100644\n--- a/intune/device-security/compliance/create-policy.md\n+++ b/intune/device-security/compliance/create-policy.md\n@@ -154,6 +154,7 @@ For more information about using custom compliance settings, including supported\n     1. On the *Compliance settings* page, expand **Custom Compliance** and set *Custom compliance* to **Require**.\r\n     2. For *Select your discovery script*, select **Click to select**, and then enter the name of a script that you previously added to the Microsoft Intune admin center. This script must be uploaded before you begin to create the policy. Choose **Select** to continue to the next step.\r\n     3. For *Upload and validate the JSON file with your custom compliance settings*, select the folder icon, and then find and add the JSON file for Windows that you want to use with this policy. For assistance with the JSON, see [Create a JSON for custom compliance settings](create-custom-json).\r\n+    4. For *Custom compliance evaluation frequency*, select how frequently you want the custom compliance settings to be evaluated on the device.\r\n \r\n     **For Linux and macOS**:\r\n \r\n",
+      "baseCommitSha": "b3678824180a5f18945659a467fe3337199b3261",
+      "commitSha": "16527edc3e056b7156b94c88e526a86cc1d76f56",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-15 19:35:42 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-security/compliance/create-policy.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-security/compliance/create-policy",
+      "eventId": "intune-docs:16527edc3e056b7156b94c88e526a86cc1d76f56:modified:intune/device-security/compliance/create-policy.md",
+      "firstSeenAt": "2026-11-15T19:45:46.314Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Custom compliance evaluation frequency is now documented",
+        "summary": "The policy creation instructions now include a step to select how frequently custom compliance settings are evaluated on the device.",
+        "adminImpact": "Administrators can use this guidance when configuring custom compliance policies; no action is required for existing policies.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "intune/device-security",
+        "summary": "The policy creation instructions now include a step to select how frequently custom compliance settings are evaluated on the device.",
+        "sourceFiles": [
+          "intune/device-security/compliance/create-policy.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "intune/device-security",
+        "detail": "The policy creation instructions now include a step to select how frequently custom compliance settings are evaluated on the device."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

@@ -8219,6 +8219,52 @@
         "outputTokens": 535,
         "costUsd": 0.000843
       }
+    },
+    "2026-11-16": {
+      "headline": "Android Local Actions permissions and macOS Platform SSO guidance headline Intune’s latest changes",
+      "overview": "November 16 is a documentation-led Intune update, but the Android Enterprise OEMConfig revision is operationally important: it spells out Local Actions permissions for Managed Home Screen and the Intune app, along with prerequisites, supported OEMs, role requirements, and a 500-KB profile limit. The period also records Platform SSO registration during macOS Automated Device Enrollment for macOS 26+ with Company Portal 5.2604.0+, documents finer Windows script targeting and additional macOS and Microsoft Edge controls, and adds ten protected-app entries. The in-development page was refreshed and no longer lists Windows maintenance windows, Android Enterprise local actions, or Remote Help in GCCH.",
+      "adminImpact": "Android administrators should validate both app permissions—especially overlay permission when Local Actions and Managed Home Screen are paired—and observe the documented OEM, role, prerequisite, and profile-size constraints. For macOS Platform SSO, use the specified settings catalog and ADE policies and deploy Company Portal 5.2604.0 or later. Windows administrators can use more precise script targeting and the faster, richer Windows 10/11 app inventory, while app teams can review the new protected-app references. Teams using the in-development page for planning should recheck it after the three entries were removed.",
+      "keyChanges": [
+        {
+          "title": "Android OEMConfig now details Local Actions app permissions",
+          "detail": "The article adds package names, permission details, prerequisites, supported OEMs, role requirements, and a 500-KB profile limit for granting permissions to Managed Home Screen and the Intune app. When Local Actions and Managed Home Screen are used together, the guidance specifies overlay permission for both apps.",
+          "product": "Android Enterprise OEMConfig and Local Actions",
+          "sourceId": "doc-2026-11-16-grant-android-app-permissions-by-using-android-enterprise-oemconfig-microsoft-intune-microsoft-l-02"
+        },
+        {
+          "title": "Platform SSO prerequisites and faster Windows app inventory are documented",
+          "detail": "The archive now documents Platform SSO registration during macOS Automated Device Enrollment for macOS 26+ with Company Portal 5.2604.0+, as well as faster, richer app inventory for Windows 10/11. Administrators adopting Platform SSO must configure the specified settings catalog and ADE policies and deploy the required Company Portal version.",
+          "product": "macOS Automated Device Enrollment, Platform SSO, and Windows app inventory",
+          "sourceId": "doc-2026-11-16-what-s-new-in-previous-months-in-the-microsoft-intune-microsoft-intune-microsoft-learn-03"
+        },
+        {
+          "title": "Windows script guidance adds exclusions and built-in group targeting",
+          "detail": "The service-release material documents PowerShell script group exclusions and built-in group targeting on Windows, alongside new macOS settings catalog controls and Microsoft Edge controls. These options let administrators target Windows scripts more precisely and configure additional controls.",
+          "product": "Windows PowerShell scripts, macOS settings catalog, and Microsoft Edge",
+          "sourceId": "doc-2026-11-16-index-05"
+        },
+        {
+          "title": "Ten protected apps join the reference list",
+          "detail": "The protected-app reference adds EnGlobe Mobile, Everbridge 360, Hypergate Files for Intune, Newcode, Ramp, Reliaquest GreyMatter, Rogo AI, Rogo AI (Intune Wrapped), ShareCRM, and Zoho Mail - Intune, with descriptions, icons, and store links.",
+          "product": "Intune protected apps",
+          "sourceId": "doc-2026-11-16-ref-protected-apps-01"
+        },
+        {
+          "title": "The in-development page drops three roadmap entries",
+          "detail": "The page date moved from October 30 to November 15, 2026, and the entries for Windows maintenance windows, Android Enterprise local actions, and Remote Help in GCCH were removed. Teams tracking those planned capabilities should use the refreshed page for current roadmap information.",
+          "product": "Intune in-development roadmap",
+          "sourceId": "doc-2026-11-16-in-development-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-16T09:37:36.221Z",
+      "usage": {
+        "inputTokens": 1620,
+        "outputTokens": 4981,
+        "costUsd": 0.006301
+      }
     }
   },
   "weeks": {
@@ -10201,6 +10247,52 @@
         "outputTokens": 7233,
         "costUsd": 0.010829
       }
+    },
+    "2026-11-16": {
+      "headline": "Platform SSO prerequisites and Android Local Actions permissions drive Intune’s latest updates",
+      "overview": "All five supplied records are Intune documentation updates. The most actionable changes add Android Enterprise OEMConfig guidance for Local Actions and document Platform SSO registration during macOS Automated Device Enrollment for macOS 26 and later. The period also records additional macOS and Windows controls, ten protected-app entries, and changes to the in-development roadmap.",
+      "adminImpact": "For Android Enterprise deployments using Local Actions with Managed Home Screen, use the updated OEMConfig permission table and verify the listed prerequisites, supported OEMs, roles, and profile-size limit. For macOS 26+ ADE deployments, configure the specified Settings Catalog and ADE policies and deploy Company Portal 5.2604.0 or later. Windows script administrators can review the documented targeting and exclusion options, while app administrators can evaluate the expanded protected-app reference. Roadmap users should consult the revised in-development page for current status.",
+      "keyChanges": [
+        {
+          "title": "Android OEMConfig details Local Actions permissions",
+          "detail": "The OEMConfig article now covers granting permissions to both Managed Home Screen and the Intune app for Local Actions scenarios. It adds app package names, permission details, prerequisites, supported OEMs, role requirements, and a 500-KB profile limit. When Local Actions and Managed Home Screen are used together, configure overlay permission for both apps.",
+          "product": "Intune — Android Enterprise OEMConfig",
+          "sourceId": "doc-2026-11-16-grant-android-app-permissions-by-using-android-enterprise-oemconfig-microsoft-intune-microsoft-l-02"
+        },
+        {
+          "title": "macOS ADE guidance documents Platform SSO registration requirements",
+          "detail": "The previous-months archive now documents Platform SSO registration during macOS Automated Device Enrollment for macOS 26 and later with Company Portal 5.2604.0 or later. The associated administrator guidance calls for the specified Settings Catalog and ADE policies and the required Company Portal version.",
+          "product": "Intune — macOS enrollment and Platform SSO",
+          "sourceId": "doc-2026-11-16-what-s-new-in-previous-months-in-the-microsoft-intune-microsoft-intune-microsoft-learn-03"
+        },
+        {
+          "title": "Index records Windows script targeting and additional macOS controls",
+          "detail": "The November 16 service-release index now records additional macOS Settings Catalog controls, including Microsoft Edge controls, along with PowerShell script group exclusions and built-in group targeting on Windows. These documented options let administrators configure more macOS controls and target Windows scripts more precisely.",
+          "product": "Intune — Settings Catalog and PowerShell scripts",
+          "sourceId": "doc-2026-11-16-index-05"
+        },
+        {
+          "title": "Protected-app reference adds ten app entries",
+          "detail": "The reference now includes EnGlobe Mobile, Everbridge 360, Hypergate Files for Intune, Newcode, Ramp, Reliaquest GreyMatter, Rogo AI, Rogo AI (Intune Wrapped), ShareCRM, and Zoho Mail - Intune, with descriptions, icons, and store links.",
+          "product": "Intune — App management",
+          "sourceId": "doc-2026-11-16-ref-protected-apps-01"
+        },
+        {
+          "title": "In-development page removes three roadmap entries",
+          "detail": "The page date moved from October 30 to November 15, 2026, and the entries for Windows maintenance windows, Android Enterprise local actions, and Remote Help in GCCH were removed. Administrators tracking these capabilities should review the revised in-development page for current roadmap information.",
+          "product": "Intune — In-development roadmap",
+          "sourceId": "doc-2026-11-16-in-development-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-16T09:37:36.221Z",
+      "usage": {
+        "inputTokens": 1427,
+        "outputTokens": 3341,
+        "costUsd": 0.004295
+      }
     }
   },
   "months": {
@@ -10665,37 +10757,37 @@
       }
     },
     "2026-11": {
-      "headline": "iOS Company Portal v5.2608.0 deadline leads November’s Intune administration changes",
-      "overview": "November was overwhelmingly documentation maintenance: 3,678 of 3,684 recorded items were updates, with many supplied examples limited to author metadata. The material administrator-facing changes were more specific: an early-December minimum iOS/iPadOS Company Portal version, late-November Intune multi-admin approval support for Purview DLP in Edge for Business, Configuration Manager 2609 CMG storage access changes, narrower MDM policy reporting, and expanded update-ring deadline and restart guidance.",
-      "adminImpact": "Prepare helpdesk communications and update paths for iOS/iPadOS devices, especially where device restrictions block app installation. Coordinate Purview and Intune administrators for the unmanaged-app DLP change; the notice states that policy migration isn't required. For Configuration Manager 2609 CMG deployments, review Azure RBAC permissions for the CMG server application and operators. Monitor MDM-managed Firewall Rules and ASR Rules at policy level rather than per setting, and use the expanded update-ring guidance when configuring deadlines, grace periods, and automatic restarts. Most metadata-only edits require no action.",
+      "headline": "Intune raises iOS Company Portal minimum as Edge DLP gains approval support",
+      "overview": "November’s consequential administrator changes center on an early-December iOS/iPadOS Company Portal minimum of v5.2608.0 and a late-November Purview DLP update adding Intune multi-admin approval for unmanaged apps in Edge for Business. The period also clarified MDM Firewall and ASR reporting limits, expanded update-ring guidance, and documented a significant Configuration Manager 2609 CMG storage access change. Most of the 3,689 records were documentation maintenance, including metadata-only edits.",
+      "adminImpact": "Prepare helpdesk communications and manual update paths for iOS/iPadOS devices where restrictions block app installation. Coordinate Purview and Intune administrators for the DLP setup. Review MDM-managed Firewall Rules and ASR Rules at policy level rather than per setting, use the updated update-ring guidance for deadlines and restart behavior, and verify CMG server application and operator Azure RBAC permissions in Configuration Manager 2609 environments.",
       "keyChanges": [
         {
-          "title": "Company Portal minimum rises to v5.2608.0 in early December",
-          "detail": "Microsoft says the minimum iOS/iPadOS Company Portal version will become v5.2608.0 starting in early December to support new Apple OS releases. Most users update automatically, while others receive prompts; devices subject to app-installation restrictions may need manual updates. Prepare helpdesk guidance for the prompts and update path.",
+          "title": "iOS/iPadOS Company Portal minimum reaches v5.2608.0 in early December",
+          "detail": "The minimum iOS/iPadOS Company Portal version will become v5.2608.0 starting in early December 2026 to support new Apple OS releases. Most users update automatically, but devices where app installation is blocked by device restrictions may need manual updates; helpdesk teams should prepare for update prompts.",
           "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
           "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
-          "detail": "Starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval. The change includes clearer status information, more detailed errors, and task coordination between Purview and Intune administrators; no policy migration is required.",
+          "detail": "Starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval. The update adds clearer status information, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is required.",
           "product": "Intune",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Configuration Manager 2609 automatically disables CMG storage shared-key access",
-          "detail": "The CMG security guidance states that shared-key access for CMG storage is automatically disabled starting with Configuration Manager version 2609, including existing deployments. It adds permissions needed for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets. Administrators should review CMG server application and operator Azure RBAC permissions, including Storage Blob Data Contributor and Storage Table Data Contributor role assignments.",
+          "title": "Configuration Manager 2609 disables CMG storage shared-key access",
+          "detail": "The CMG security guidance states that shared-key access is automatically disabled for CMG storage starting in Configuration Manager version 2609, including existing deployments. It also adds permissions required for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets. Administrators should review CMG server application and operator Azure RBAC permissions, especially rights to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "MDM Firewall and ASR reporting is documented as policy-level only",
-          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and Attack Surface Reduction Rules policies managed through MDM; only policy-level status is reported. Use policy-level status when reviewing these policies.",
+          "title": "MDM Firewall and ASR reporting is limited to policy status",
+          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM. Administrators should use policy-level status when reviewing these policies.",
           "product": "Intune",
           "sourceId": "doc-2026-11-03-security-settings-management-02"
         },
         {
-          "title": "Update-ring guidance separates quality and feature restart controls",
-          "detail": "The update-ring settings page now separates quality and feature updates and documents deadline, grace-period, and automatic-reboot settings for both, with related configuration service provider references. It also recommends short quality-update deferrals and appropriate grace periods, giving administrators more specific guidance for configuring update deadlines and restart behavior.",
+          "title": "Update-ring guidance separates quality and feature update restart controls",
+          "detail": "The updated Ref Update Ring Settings page separates quality and feature updates and documents deadline, grace-period, and automatic-reboot settings for each, with related CSP references. It recommends short quality-update deferrals and appropriate grace periods when configuring update behavior.",
           "product": "Intune",
           "sourceId": "doc-2026-11-14-ref-update-ring-settings-09"
         }
@@ -10703,16 +10795,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-15T19:45:51.810Z",
+      "generatedAt": "2026-11-16T09:37:36.221Z",
       "usage": {
-        "inputTokens": 6180,
-        "outputTokens": 3164,
-        "costUsd": 0.005033
+        "inputTokens": 6384,
+        "outputTokens": 3808,
+        "costUsd": 0.005846
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-15T19:45:51.810Z",
+  "generatedAt": "2026-11-16T09:37:36.221Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -10891,18 +10983,24 @@
       "outputTokens": 10932,
       "requests": 3,
       "costUsd": 0.016704
+    },
+    "2026-11-16": {
+      "inputTokens": 9431,
+      "outputTokens": 12130,
+      "requests": 3,
+      "costUsd": 0.016442
     }
   },
   "lastRun": {
-    "inputTokens": 17930,
-    "outputTokens": 10932,
+    "inputTokens": 9431,
+    "outputTokens": 12130,
     "requests": 3,
-    "costUsd": 0.016704
+    "costUsd": 0.016442
   },
   "totalUsage": {
-    "inputTokens": 4041157,
-    "outputTokens": 2624131,
-    "requests": 513,
-    "costUsd": 3.95719
+    "inputTokens": 4050588,
+    "outputTokens": 2636261,
+    "requests": 516,
+    "costUsd": 3.973632
   }
 }

@@ -8267,49 +8267,49 @@
       }
     },
     "2026-11-17": {
-      "headline": "Managed Google Account authentication guidance spans Android Enterprise enrollment, policy paths, and status behavior",
-      "overview": "The 17 November period was led by a coordinated Intune documentation expansion around requiring managed Google Workspace authentication on Android Enterprise. A new end-to-end article is joined by updates that spell out prerequisites, ownership-specific policy routes, enrollment timing, and the fact that the setting can report Error while overall device compliance remains unaffected. Other substantive updates cover SCEP certificate guidance and Configuration Manager workarounds; most remaining entries are wording, screenshot, metadata, or navigation refreshes.",
-      "adminImpact": "For Android Enterprise deployments, validate the Google Workspace prerequisites and select the policy method based on device ownership. Treat an authentication Error as a prompt to check completion status rather than as proof of overall noncompliance. Review the revised SCEP guidance when maintaining certificate profiles. Configuration Manager administrators affected by the documented certificate or PKI issues should apply the stated workarounds and restore IIS client-certificate enforcement after diagnosis.",
+      "headline": "Intune documents Windows Server Insider pilots as CIS audit baselines enter preview",
+      "overview": "The period’s most consequential Intune updates establish a documented, nonproduction management path for eligible Windows Server Insider Preview builds and introduce a Windows 11 CIS benchmark audit profile. Intune also adds guidance for managed Google Account authentication on Android Enterprise devices, while Remote Help documents consent-based device diagnostic sharing. Configuration Manager release notes add concrete certificate and HTTPS distribution-point failure scenarios. Most remaining updates are routine wording, formatting, navigation, and screenshot maintenance.",
+      "adminImpact": "For Windows Server evaluation, use the dedicated pilot guidance, supported Insider Preview builds, and nonproduction test groups; Server Core and production use are excluded. The CIS audit workflow requires Advanced Analytics, enrolled Windows 11 devices, and appropriate permissions, and reports findings without changing device settings. Android administrators should select the policy method that matches device ownership, while Remote Help diagnostics require sharer consent. Configuration Manager administrators encountering the documented failures should recreate boot media with a legacy CSP-backed RSA certificate and disable IIS client-certificate enforcement only temporarily for diagnosis.",
       "keyChanges": [
         {
-          "title": "New guidance consolidates Android Enterprise authentication setup",
-          "detail": "A new Intune article documents requiring managed Google Account authentication on supported corporate-owned and personally owned Android Enterprise devices, including prerequisites, enrollment types, policy creation, and assignment procedures.",
+          "title": "Windows Server Insider Preview gets a documented Intune pilot path",
+          "detail": "A new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for Windows Server Insider Preview vNext. The scenario is explicitly for testing and evaluation, and Server Core is unsupported.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
+        },
+        {
+          "title": "CIS audit profiles assess 404 Windows 11 settings without remediation",
+          "detail": "The new audit workflow creates and assigns a CIS Microsoft Intune for Windows 11 Benchmark profile covering Level 1, Level 2, and BitLocker checks. Administrators can review and export findings; the profile assesses configuration without configuring or remediating devices.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-17-audit-cis-benchmarks-with-microsoft-intune-microsoft-intune-microsoft-learn-02"
+        },
+        {
+          "title": "Managed Google Account authentication guidance expands across Android Enterprise",
+          "detail": "A new article explains how to require managed Google Account authentication on supported corporate-owned and personally owned Android Enterprise devices, including prerequisites, enrollment types, policy creation, and assignment steps.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-google-workspace-sign-in-with-microsoft-intune-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Device ownership determines the documented Google authentication policy route",
-          "detail": "Updated Android Enterprise restrictions guidance directs administrators to use Settings Catalog for corporate-owned fully managed and corporate-owned work-profile devices, while personally owned work-profile devices require a device configuration template.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-17-ref-device-restrictions-android-enterprise-11"
+          "title": "Remote Help sessions can expose consented device diagnostic reports",
+          "detail": "Helpers can request permission to view and potentially store a sharer’s diagnostic data. After consent, both participants can view the report and the helper can refresh it; reported information includes device, hardware, network, performance, security, update, storage, and peripheral details.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-11-17-start-session-46"
         },
         {
-          "title": "Authentication errors are distinguished from overall device compliance",
-          "detail": "Monitor Device Profile guidance now states that the Google Workspace authentication setting reports Error until authentication is completed, but this does not change the device’s overall compliance state. Check authentication completion before treating the deployment as a broader compliance failure.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-17-monitor-device-profile-05"
-        },
-        {
-          "title": "SCEP guidance adds specific strong-mapping and certificate limitations",
-          "detail": "The SCEP certificate profile page expands guidance on KDC strong mapping, the OnpremisesSecurityIdentifier SAN variable, Android trusted-root limitations, and public CA requirements for S/MIME certificates. Review these details when maintaining SCEP profiles.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-17-use-scep-certificate-profiles-with-microsoft-intune-microsoft-intune-microsoft-learn-03"
-        },
-        {
-          "title": "Configuration Manager notes add certificate and PKI distribution-point workarounds",
-          "detail": "Release notes document task-sequence status-message failures after Windows PE when boot media uses CNG/KSP certificates, plus HTTP 403.7 content-download failures from PKI HTTPS distribution points. The stated workaround is to recreate boot media with a legacy CSP-backed RSA certificate; for distribution-point diagnosis, temporarily adjust IIS client-certificate settings and do not leave enforcement disabled.",
+          "title": "Configuration Manager documents certificate and HTTPS distribution-point failures",
+          "detail": "Release notes describe task-sequence status-message failures after Windows PE when boot media uses CNG/KSP certificates, plus HTTP 403.7 content-download failures from PKI HTTPS distribution points. The documented responses include recreating media with a legacy CSP-backed RSA certificate and temporarily adjusting IIS client-certificate settings for diagnosis.",
           "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-17-release-notes-02"
+          "sourceId": "doc-2026-11-17-release-notes-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T10:41:55.042Z",
+      "generatedAt": "2026-11-17T22:19:44.718Z",
       "usage": {
-        "inputTokens": 3603,
-        "outputTokens": 3778,
-        "costUsd": 0.005254
+        "inputTokens": 6157,
+        "outputTokens": 4347,
+        "costUsd": 0.006448
       }
     }
   },
@@ -10295,49 +10295,49 @@
       }
     },
     "2026-11-16": {
-      "headline": "Company Portal minimum rises to 5.2608.0 on iOS, iPadOS, and macOS in February 2027",
-      "overview": "The week’s most consequential item is a February 2027 Company Portal minimum-version deadline for Apple platforms. Intune guidance now details managed Google Workspace authentication for Android Enterprise, while SCEP documentation expands certificate-mapping and CA requirements and Windows Autopilot clarifies recovery-key access. Most other updates are wording, formatting, metadata, or screenshot maintenance.",
-      "adminImpact": "Identify iOS/iPadOS and macOS users who may be unable to update Company Portal automatically, brief the helpdesk, and push updates where restrictions block installation. For Android, verify Google Workspace prerequisites and select the policy method appropriate to device ownership. Review SCEP strong-mapping and certificate requirements. Administrators also running Configuration Manager should apply the documented workarounds without leaving IIS client-certificate enforcement disabled.",
+      "headline": "CIS auditing, Windows Server pilots, and Intune’s 2027 Company Portal deadline",
+      "overview": "The week’s substantive changes center on a preview CIS audit workflow for Windows 11, a documented nonproduction management path for eligible Windows Server Insider Preview builds, and managed Google Workspace authentication for Android Enterprise. Remote Help now documents consent-based diagnostic reports, while Microsoft’s Message Center sets February 2027 as the point when iOS/iPadOS and macOS Company Portal must be version 5.2608.0; most other entries refine existing guidance, references, or presentation.",
+      "adminImpact": "Prioritize the CIS and server items for pilot planning: the CIS workflow requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions, while Windows Server Insider Preview use is for nonproduction evaluation only. For Android, choose the documented policy path for the device ownership and enrollment type and review its prerequisites. Remote Help does not specify an administrator change, but diagnostic sharing is consent-based. For the 2027 Company Portal minimum, brief helpdesk teams and push updates where app-installation restrictions prevent automatic updating.",
       "keyChanges": [
         {
-          "title": "Apple Company Portal minimum reaches 5.2608.0 in February 2027",
-          "detail": "The Message Center says the minimum iOS/iPadOS and macOS Company Portal version becomes 5.2608.0 starting February 2027. Most users update automatically, but users whose app installation is blocked may need a manual update. Microsoft recommends preparing helpdesk communications and pushing updates where necessary.",
+          "title": "CIS audit baseline (preview) covers 404 Windows 11 checks without remediation",
+          "detail": "The new Intune article documents creating and assigning a CIS Microsoft Intune for Windows 11 Benchmark audit profile. It assesses 404 settings across Level 1, Level 2, and BitLocker checks, reports findings, and does not configure or remediate devices; use requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions.",
           "product": "Intune",
-          "sourceId": "MC1547994"
+          "sourceId": "doc-2026-11-17-audit-cis-benchmarks-with-microsoft-intune-microsoft-intune-microsoft-learn-02"
         },
         {
-          "title": "Intune adds a dedicated procedure for managed Google Workspace sign-in",
-          "detail": "A new article explains how to require managed Google Account authentication through Intune policies on supported corporate-owned and personally owned Android Enterprise devices. It covers prerequisites, enrollment types, policy creation, assignment, and choosing the appropriate profile method for each device ownership type.",
+          "title": "Intune documents a nonproduction path for Windows Server Insider Preview",
+          "detail": "A new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for supported Windows Server Insider Preview vNext builds. The guidance is for testing and evaluation rather than production, and Server Core is unsupported; administrators can use it to prepare a nonproduction pilot.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
+        },
+        {
+          "title": "Managed Google Workspace authentication is documented for Android Enterprise",
+          "detail": "The new Intune article explains how to require managed Google Account authentication on supported corporate-owned and personally owned Android Enterprise devices. It covers prerequisites, enrollment types, policy creation, and assignment so administrators can match the setup to the intended device scenario.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-google-workspace-sign-in-with-microsoft-intune-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "SCEP guidance expands strong-mapping and certificate requirements",
-          "detail": "The SCEP profile guidance now expands explanations of KDC strong mapping and the `OnpremisesSecurityIdentifier` SAN variable, and calls out Android trusted-root limitations and public CA requirements for S/MIME certificates. Administrators maintaining SCEP profiles should review their strong-mapping and certificate-attribute assumptions against the revised guidance.",
+          "title": "Remote Help documents consent-based device diagnostic reports during sessions",
+          "detail": "Helpers can request permission to view and possibly store a sharer’s device diagnostic data. If consent is granted, both participants can view the report and the helper can refresh it; the report includes device, hardware, network, performance, security, update, storage, and peripheral details.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-11-17-start-session-46"
+        },
+        {
+          "title": "Company Portal minimum moves to version 5.2608.0 in February 2027",
+          "detail": "Microsoft’s Message Center says iOS/iPadOS and macOS will require Company Portal v5.2608.0 starting February 2027. Most users update automatically, but devices that block app installation may need a manual update; Microsoft advises informing helpdesk and pushing the update where restrictions apply.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-17-use-scep-certificate-profiles-with-microsoft-intune-microsoft-intune-microsoft-learn-03"
-        },
-        {
-          "title": "Autopilot recovery-key guidance distinguishes device-owner administrators",
-          "detail": "For reused Windows Autopilot devices, the guidance says non-owner IT administrators retain recovery-key access, while administrators who own affected devices face the same BitLocker self-service restriction as users, even with administrative permissions. Owner administrators must contact IT assistance for recovery keys.",
-          "product": "Windows Autopilot",
-          "sourceId": "doc-2026-11-16-whats-new-08"
-        },
-        {
-          "title": "Configuration Manager documents certificate and HTTP 403.7 failure workarounds",
-          "detail": "Release notes cover task-sequence status-message failures after Windows PE when boot media uses CNG/KSP certificates, plus content-download failures returning HTTP 403.7 from PKI HTTPS distribution points. The guidance says to recreate boot media with a legacy CSP-backed RSA certificate; IIS client-certificate changes are for diagnosis and shouldn't remain unenforced.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-17-release-notes-02"
+          "sourceId": "MC1547994"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T10:41:55.042Z",
+      "generatedAt": "2026-11-17T22:19:44.718Z",
       "usage": {
-        "inputTokens": 4840,
-        "outputTokens": 5384,
-        "costUsd": 0.007429
+        "inputTokens": 8313,
+        "outputTokens": 5571,
+        "costUsd": 0.008348
       }
     }
   },
@@ -10803,54 +10803,54 @@
       }
     },
     "2026-11": {
-      "headline": "Company Portal v5.2608.0 becomes Apple-platform minimum in February 2027",
-      "overview": "November's large update volume was mostly metadata and editorial maintenance, but several changes carry concrete administrator value. Intune announced an Apple Company Portal version deadline and Purview DLP support for Intune multi-admin approval, while Configuration Manager 2609 CMG guidance, SCEP certificate guidance, and MDM security reporting documentation became more specific.",
-      "adminImpact": "Prepare Company Portal update paths and helpdesk communications, especially for devices that cannot install apps automatically. Coordinate Purview and Intune administrators for the Edge for Business DLP setup; no policy migration is required. For Configuration Manager 2609 CMG deployments, review server-application and operator Azure RBAC permissions. Update SCEP runbooks and interpret MDM Firewall Rules and ASR Rules status at policy level.",
+      "headline": "Intune’s February 2027 Company Portal minimum joins CIS auditing and Windows Server pilots",
+      "overview": "November’s 3,742 recorded changes were overwhelmingly maintenance work—3,733 updates, seven new items, and no removals—but several changes have clear planning value. Intune guidance now covers a CIS audit baseline preview and a documented nonproduction path for Windows Server Insider Preview management. Message Center notices add late-November Purview DLP support for Intune multi-admin approval and set a February 2027 Company Portal minimum. Configuration Manager 2609 guidance also records a significant CMG storage access change.",
+      "adminImpact": "Most administrators need targeted review rather than a broad migration. Security teams can use the CIS audit baseline to assess Windows 11 without enforcement or remediation, while Windows Server Insider Preview management should remain isolated to nonproduction evaluation. Purview and Intune administrators should coordinate the unmanaged-app DLP rollout, and helpdesk teams should prepare for the Company Portal minimum, especially where device restrictions block automatic app installation. Configuration Manager administrators should review CMG server application and operator permissions for 2609 deployments.",
       "keyChanges": [
         {
-          "title": "Apple Company Portal minimum rises to v5.2608.0",
-          "detail": "Starting in February 2027, the minimum Company Portal version for iOS, iPadOS, and macOS will be v5.2608.0. Most users update automatically, but users whose device restrictions block app installation may need a manual update.",
+          "title": "CIS audit baseline adds non-enforcing Windows 11 assessment guidance",
+          "detail": "The Endpoint Security Policies guidance now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. The page also relabels security baselines as configuration baselines.",
           "product": "Intune",
-          "sourceId": "MC1547994"
+          "sourceId": "doc-2026-11-17-endpoint-security-policies-33"
         },
         {
-          "title": "Purview DLP adds Intune multi-admin approval for unmanaged Edge apps",
-          "detail": "Starting late November 2026, setup and activation for unmanaged apps in Edge for Business gain clearer status, detailed errors, and task coordination between Purview and Intune administrators. The change requires no policy migration.",
+          "title": "Intune documents a Windows Server Insider Preview pilot path",
+          "detail": "The new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for Windows Server Insider Preview vNext. It limits the documented management to nonproduction testing and evaluation, and Server Core isn't supported.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
+        },
+        {
+          "title": "Edge for Business DLP adds Intune multi-admin approval coordination",
+          "detail": "Starting late November 2026, Microsoft Purview DLP setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is required.",
           "product": "Intune",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Configuration Manager 2609 CMG guidance specifies shared-key and RBAC changes",
-          "detail": "Updated CMG security guidance states that shared-key access is automatically disabled for CMG storage starting in Configuration Manager version 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets.",
+          "title": "Company Portal v5.2608.0 becomes the minimum on iOS, iPadOS, and macOS",
+          "detail": "Starting February 2027, the minimum iOS/iPadOS and macOS Company Portal version will be v5.2608.0. Most users update automatically, but users whose devices block app installation may need a manual update; Microsoft advises informing helpdesk teams and pushing updates where restrictions apply.",
+          "product": "Intune",
+          "sourceId": "MC1547994"
+        },
+        {
+          "title": "Configuration Manager 2609 disables CMG storage shared-key access",
+          "detail": "The updated guidance states that shared-key access is automatically disabled for CMG storage starting in Configuration Manager 2609, including existing deployments. It adds required permissions for Microsoft Entra-authenticated storage, including Storage Blob Data Contributor and Storage Table Data Contributor role assignments, and distinguishes storage keys from application secrets.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
-        },
-        {
-          "title": "SCEP guidance expands strong-mapping and certificate requirements",
-          "detail": "The SCEP documentation expands guidance for KDC strong mapping, the `OnpremisesSecurityIdentifier` SAN variable, Android trusted-root limitations, and public CA requirements for S/MIME certificates. Administrators maintaining SCEP profiles should review the revised guidance.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-17-use-scep-certificate-profiles-with-microsoft-intune-microsoft-intune-microsoft-learn-03"
-        },
-        {
-          "title": "MDM Firewall and ASR reporting is limited to policy level",
-          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and ASR Rules policies managed through MDM; only policy-level status is reported. Use policy-level status when reviewing these policies.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T10:41:55.042Z",
+      "generatedAt": "2026-11-17T22:19:44.718Z",
       "usage": {
-        "inputTokens": 6421,
-        "outputTokens": 3870,
-        "costUsd": 0.005928
+        "inputTokens": 6621,
+        "outputTokens": 4452,
+        "costUsd": 0.006667
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-17T10:41:55.042Z",
+  "generatedAt": "2026-11-17T22:19:44.718Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -11031,22 +11031,22 @@
       "costUsd": 0.039148
     },
     "2026-11-17": {
-      "inputTokens": 14864,
-      "outputTokens": 13032,
-      "requests": 3,
-      "costUsd": 0.018611
+      "inputTokens": 35955,
+      "outputTokens": 27402,
+      "requests": 6,
+      "costUsd": 0.040073
     }
   },
   "lastRun": {
-    "inputTokens": 14864,
-    "outputTokens": 13032,
+    "inputTokens": 21091,
+    "outputTokens": 14370,
     "requests": 3,
-    "costUsd": 0.018611
+    "costUsd": 0.021462
   },
   "totalUsage": {
-    "inputTokens": 4076377,
-    "outputTokens": 2666394,
-    "requests": 522,
-    "costUsd": 4.014949
+    "inputTokens": 4097468,
+    "outputTokens": 2680764,
+    "requests": 525,
+    "costUsd": 4.036411
   }
 }

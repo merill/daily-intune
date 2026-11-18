@@ -8311,6 +8311,52 @@
         "outputTokens": 4347,
         "costUsd": 0.006448
       }
+    },
+    "2026-11-18": {
+      "headline": "Windows App joins Windows MAM support guidance as Android app selectors are clarified",
+      "overview": "This was a documentation-led Intune period, with the most consequential revisions concentrated in Windows MAM and Android app deployment. Windows App is now listed alongside Microsoft Edge for Windows MAM app protection policies, while Android procedures spell out Platform, Category, and App type choices; enrollment and support guides also add more explicit prerequisite and sign-in guidance. The remaining updates are largely terminology, navigation, metadata, and procedure-label cleanup.",
+      "adminImpact": "For Windows MAM reviews on personal Windows devices, include Windows App among the documented supported apps. For Android app work, follow the explicit Platform, Category, and App type path and the revised field and Select-button labels; use the enrollment links and Help and Support authentication steps when those scenarios apply.",
+      "keyChanges": [
+        {
+          "title": "Windows MAM guidance adds Windows App to the documented supported-app list",
+          "detail": "The Ref Settings Windows page now lists Windows App alongside Microsoft Edge as a supported app for Windows MAM app protection policies. Administrators reviewing Windows MAM protection scenarios for personal Windows devices should account for this documented app support.",
+          "product": "Intune Windows MAM app protection",
+          "sourceId": "doc-2026-11-18-ref-settings-windows-11"
+        },
+        {
+          "title": "Android app procedures now expose the full Platform, Category, and App type path",
+          "detail": "The deployment index now describes selecting Platform, Category, and App type for Android apps, covering store, Managed Google Play, line-of-business, built-in, web, and system apps. Other platforms retain App type-only instructions.",
+          "product": "Intune Android app management",
+          "sourceId": "doc-2026-11-18-index-10"
+        },
+        {
+          "title": "Android deployment guidance replaces direct Managed Google Play selection",
+          "detail": "The Deploy Android procedure now directs administrators to choose Android as Platform and Store app as Category in the Select app type pane, replacing the previous direct selection of Managed Google Play app.",
+          "product": "Intune Android app deployment",
+          "sourceId": "doc-2026-11-18-deploy-android-12"
+        },
+        {
+          "title": "Enrollment walkthrough now links the MDM authority and Intune setup prerequisites",
+          "detail": "The admin-center walkthrough now includes links explaining that device enrollment requires an MDM authority and Intune setup. Administrators using the tutorial should follow those prerequisite links through the enrollment process.",
+          "product": "Intune enrollment and setup",
+          "sourceId": "doc-2026-11-18-tutorial-walkthrough-the-microsoft-intune-admin-center-microsoft-intune-microsoft-learn-17"
+        },
+        {
+          "title": "Help and Support guidance adds authentication troubleshooting steps",
+          "detail": "The support article clarifies how to access Support Assistant and adds steps for resolving an authentication issue when opening Help and Support. Use the added steps when support access fails.",
+          "product": "Intune admin center Support Assistant",
+          "sourceId": "doc-2026-11-18-get-support-in-the-microsoft-intune-admin-center-microsoft-intune-microsoft-learn-15"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-18T10:06:24.130Z",
+      "usage": {
+        "inputTokens": 2984,
+        "outputTokens": 4071,
+        "costUsd": 0.005482
+      }
     }
   },
   "weeks": {
@@ -10295,37 +10341,37 @@
       }
     },
     "2026-11-16": {
-      "headline": "CIS auditing, Windows Server pilots, and Intune’s 2027 Company Portal deadline",
-      "overview": "The week’s substantive changes center on a preview CIS audit workflow for Windows 11, a documented nonproduction management path for eligible Windows Server Insider Preview builds, and managed Google Workspace authentication for Android Enterprise. Remote Help now documents consent-based diagnostic reports, while Microsoft’s Message Center sets February 2027 as the point when iOS/iPadOS and macOS Company Portal must be version 5.2608.0; most other entries refine existing guidance, references, or presentation.",
-      "adminImpact": "Prioritize the CIS and server items for pilot planning: the CIS workflow requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions, while Windows Server Insider Preview use is for nonproduction evaluation only. For Android, choose the documented policy path for the device ownership and enrollment type and review its prerequisites. Remote Help does not specify an administrator change, but diagnostic sharing is consent-based. For the 2027 Company Portal minimum, brief helpdesk teams and push updates where app-installation restrictions prevent automatic updating.",
+      "headline": "CIS audit baselines, Windows Server pilots and a 2027 Company Portal deadline shape Intune",
+      "overview": "Most of the week’s 78 records were documentation maintenance, but several operationally important updates stood out. Intune now documents a CIS audit workflow for Windows 11, an opt-in path for eligible Windows Server Insider Preview builds, and managed Google Workspace authentication for Android Enterprise. Remote Help guidance adds consent-based diagnostic sharing details, while a Message Center notice sets a February 2027 Company Portal minimum version for iOS/iPadOS and macOS.",
+      "adminImpact": "Plan for the February 2027 Company Portal requirement where app installation is restricted, and push updates or brief helpdesk teams as needed. Treat Windows Server Insider Preview enrollment as a nonproduction pilot, validate Advanced Analytics and Windows 11 prerequisites before using CIS audits, select Android authentication policies by device ownership, and ensure Remote Help users understand that diagnostic sharing requires consent.",
       "keyChanges": [
         {
-          "title": "CIS audit baseline (preview) covers 404 Windows 11 checks without remediation",
-          "detail": "The new Intune article documents creating and assigning a CIS Microsoft Intune for Windows 11 Benchmark audit profile. It assesses 404 settings across Level 1, Level 2, and BitLocker checks, reports findings, and does not configure or remediate devices; use requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions.",
+          "title": "CIS audit baseline assesses Windows 11 without enforcing settings",
+          "detail": "The new CIS Microsoft Intune for Windows 11 Benchmark audit profile evaluates 404 settings across Level 1, Level 2, and BitLocker checks without configuring or remediating devices. Administrators can assign the profile, review results, and export findings; use requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-audit-cis-benchmarks-with-microsoft-intune-microsoft-intune-microsoft-learn-02"
         },
         {
-          "title": "Intune documents a nonproduction path for Windows Server Insider Preview",
-          "detail": "A new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for supported Windows Server Insider Preview vNext builds. The guidance is for testing and evaluation rather than production, and Server Core is unsupported; administrators can use it to prepare a nonproduction pilot.",
+          "title": "Windows Server Insider enrollment is explicitly opt-in and nonproduction",
+          "detail": "Intune guidance now states that only eligible Windows Server Insider Preview builds can enroll, production server enrollment is unsupported, and servers are blocked by default. Enrollment restrictions and ownership filters provide the documented path for allowing server enrollment during evaluation.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
+          "sourceId": "doc-2026-11-17-create-platform-restrictions-28"
         },
         {
-          "title": "Managed Google Workspace authentication is documented for Android Enterprise",
-          "detail": "The new Intune article explains how to require managed Google Account authentication on supported corporate-owned and personally owned Android Enterprise devices. It covers prerequisites, enrollment types, policy creation, and assignment so administrators can match the setup to the intended device scenario.",
+          "title": "Intune documents managed Google Workspace authentication for Android Enterprise",
+          "detail": "A new guide explains how to require managed Google Account authentication on supported corporate-owned and personally owned Android Enterprise devices. It covers prerequisites, enrollment types, policy creation, assignment, and choosing the appropriate profile method for each ownership scenario.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-google-workspace-sign-in-with-microsoft-intune-microsoft-intune-microsoft-learn-01"
         },
         {
-          "title": "Remote Help documents consent-based device diagnostic reports during sessions",
-          "detail": "Helpers can request permission to view and possibly store a sharer’s device diagnostic data. If consent is granted, both participants can view the report and the helper can refresh it; the report includes device, hardware, network, performance, security, update, storage, and peripheral details.",
+          "title": "Remote Help guidance covers consent-based diagnostic reports",
+          "detail": "Helpers can request permission to view and potentially store a sharer’s device diagnostic data. With consent, both participants can view the report, and helpers can refresh it during troubleshooting; the report can include device, hardware, network, performance, security, update, storage, and peripheral information.",
           "product": "Remote Help",
           "sourceId": "doc-2026-11-17-start-session-46"
         },
         {
-          "title": "Company Portal minimum moves to version 5.2608.0 in February 2027",
-          "detail": "Microsoft’s Message Center says iOS/iPadOS and macOS will require Company Portal v5.2608.0 starting February 2027. Most users update automatically, but devices that block app installation may need a manual update; Microsoft advises informing helpdesk and pushing the update where restrictions apply.",
+          "title": "Company Portal will require version 5.2608.0 from February 2027",
+          "detail": "Beginning in February 2027, the minimum iOS/iPadOS and macOS Company Portal version will be v5.2608.0. Most users update automatically, but users whose devices block app installation may need a manual update. Microsoft advises preparing helpdesk communications and pushing updates where restrictions apply.",
           "product": "Intune",
           "sourceId": "MC1547994"
         }
@@ -10333,11 +10379,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T22:19:44.718Z",
+      "generatedAt": "2026-11-18T10:06:24.130Z",
       "usage": {
-        "inputTokens": 8313,
-        "outputTokens": 5571,
-        "costUsd": 0.008348
+        "inputTokens": 10192,
+        "outputTokens": 4325,
+        "costUsd": 0.007228
       }
     }
   },
@@ -10803,37 +10849,37 @@
       }
     },
     "2026-11": {
-      "headline": "Intune’s February 2027 Company Portal minimum joins CIS auditing and Windows Server pilots",
-      "overview": "November’s 3,742 recorded changes were overwhelmingly maintenance work—3,733 updates, seven new items, and no removals—but several changes have clear planning value. Intune guidance now covers a CIS audit baseline preview and a documented nonproduction path for Windows Server Insider Preview management. Message Center notices add late-November Purview DLP support for Intune multi-admin approval and set a February 2027 Company Portal minimum. Configuration Manager 2609 guidance also records a significant CMG storage access change.",
-      "adminImpact": "Most administrators need targeted review rather than a broad migration. Security teams can use the CIS audit baseline to assess Windows 11 without enforcement or remediation, while Windows Server Insider Preview management should remain isolated to nonproduction evaluation. Purview and Intune administrators should coordinate the unmanaged-app DLP rollout, and helpdesk teams should prepare for the Company Portal minimum, especially where device restrictions block automatic app installation. Configuration Manager administrators should review CMG server application and operator permissions for 2609 deployments.",
+      "headline": "CIS audit guidance, Windows Server pilots and a 2027 Company Portal deadline shape Intune",
+      "overview": "November’s 3,760-record period was dominated by maintenance—3,751 items were updates, and many supplied examples only changed author metadata—but several administrator-facing changes stood out. Intune now documents a non-enforcing CIS audit baseline for Windows 11 and a nonproduction Windows Server Insider Preview pilot. A Message Center notice sets a February 2027 Company Portal minimum, while Purview DLP is scheduled to improve Intune multi-admin approval setup in January 2027. Configuration Manager 2609 guidance also records automatic CMG storage shared-key disablement and the related RBAC requirements.",
+      "adminImpact": "Most metadata-only changes require no action. Use the CIS audit baseline to assess Windows 11 without enforcing or remediating settings, keep Windows Server Insider Preview work in nonproduction, and exclude unsupported Server Core systems. Prepare helpdesk communications and update paths for iOS/iPadOS and macOS devices where app installation restrictions may prevent automatic Company Portal updates before February 2027. Purview DLP requires no advance action and leaves existing policies unchanged. Configuration Manager administrators should review CMG server application and operator Azure RBAC permissions for version 2609, particularly permissions to create the required storage role assignments.",
       "keyChanges": [
         {
-          "title": "CIS audit baseline adds non-enforcing Windows 11 assessment guidance",
-          "detail": "The Endpoint Security Policies guidance now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. The page also relabels security baselines as configuration baselines.",
+          "title": "CIS audit guidance separates assessment from enforcement",
+          "detail": "The Endpoint Security Policies page now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. The update also relabels security baselines as configuration baselines.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-endpoint-security-policies-33"
         },
         {
-          "title": "Intune documents a Windows Server Insider Preview pilot path",
-          "detail": "The new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for Windows Server Insider Preview vNext. It limits the documented management to nonproduction testing and evaluation, and Server Core isn't supported.",
+          "title": "New Intune guidance details Windows Server Insider Preview pilots",
+          "detail": "A new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for Windows Server Insider Preview vNext builds in Intune. Server Core isn't supported, and the documented management is intended for nonproduction testing and evaluation rather than production use.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
         },
         {
-          "title": "Edge for Business DLP adds Intune multi-admin approval coordination",
-          "detail": "Starting late November 2026, Microsoft Purview DLP setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is required.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
-        },
-        {
-          "title": "Company Portal v5.2608.0 becomes the minimum on iOS, iPadOS, and macOS",
-          "detail": "Starting February 2027, the minimum iOS/iPadOS and macOS Company Portal version will be v5.2608.0. Most users update automatically, but users whose devices block app installation may need a manual update; Microsoft advises informing helpdesk teams and pushing updates where restrictions apply.",
+          "title": "Company Portal minimum version rises to v5.2608.0 in February 2027",
+          "detail": "The Message Center plan says the minimum iOS/iPadOS and macOS Company Portal version becomes v5.2608.0 starting in February 2027. Most users update automatically, but users on devices where app installation is blocked may need manual updates; Microsoft advises preparing helpdesk communications and update deployment.",
           "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
+          "title": "Purview DLP will streamline Intune approvals for Edge unmanaged apps",
+          "detail": "Microsoft Purview DLP is scheduled to improve setup and activation for unmanaged apps in Edge for Business, with clearer status, error reporting, and task coordination for Intune multi-admin approval. Rollout starts in January 2027; no prior action is required, existing policies remain unchanged, and Intune approvals continue as before.",
+          "product": "Intune",
+          "sourceId": "MC1489971"
+        },
+        {
           "title": "Configuration Manager 2609 disables CMG storage shared-key access",
-          "detail": "The updated guidance states that shared-key access is automatically disabled for CMG storage starting in Configuration Manager 2609, including existing deployments. It adds required permissions for Microsoft Entra-authenticated storage, including Storage Blob Data Contributor and Storage Table Data Contributor role assignments, and distinguishes storage keys from application secrets.",
+          "detail": "CMG security guidance states that shared-key access is automatically disabled for CMG storage starting with Configuration Manager version 2609, including existing deployments. It adds permissions guidance for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets; administrators should review server application and operator Azure RBAC, especially permissions to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         }
@@ -10841,27 +10887,21 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T22:19:44.718Z",
+      "generatedAt": "2026-11-18T10:06:24.130Z",
       "usage": {
-        "inputTokens": 6621,
-        "outputTokens": 4452,
-        "costUsd": 0.006667
+        "inputTokens": 6586,
+        "outputTokens": 5542,
+        "costUsd": 0.007968
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-17T22:19:44.718Z",
+  "generatedAt": "2026-11-18T10:06:24.130Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-13": {
-      "inputTokens": 16632,
-      "outputTokens": 25489,
-      "requests": 6,
-      "costUsd": 0.033913
-    },
     "2026-10-14": {
       "inputTokens": 18235,
       "outputTokens": 27478,
@@ -11035,18 +11075,24 @@
       "outputTokens": 27402,
       "requests": 6,
       "costUsd": 0.040073
+    },
+    "2026-11-18": {
+      "inputTokens": 19762,
+      "outputTokens": 13938,
+      "requests": 3,
+      "costUsd": 0.020678
     }
   },
   "lastRun": {
-    "inputTokens": 21091,
-    "outputTokens": 14370,
+    "inputTokens": 19762,
+    "outputTokens": 13938,
     "requests": 3,
-    "costUsd": 0.021462
+    "costUsd": 0.020678
   },
   "totalUsage": {
-    "inputTokens": 4097468,
-    "outputTokens": 2680764,
-    "requests": 525,
-    "costUsd": 4.036411
+    "inputTokens": 4117230,
+    "outputTokens": 2694702,
+    "requests": 528,
+    "costUsd": 4.057089
   }
 }

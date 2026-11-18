@@ -468,6 +468,32 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/device-management/inventory-and-status/device-details.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/intune/device-management/inventory-and-status/device-details.md b/intune/device-management/inventory-and-status/device-details.md\nindex 09d4abc1..7b842fcd 100644\n--- a/intune/device-management/inventory-and-status/device-details.md\n+++ b/intune/device-management/inventory-and-status/device-details.md\n@@ -33,12 +33,12 @@ item_type: Content\n source_path: intune/device-management/inventory-and-status/device-details.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/a72e95ff-4b4f-4cc1-90c6-7dcba67ff05f\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/68e4b2d8-b70c-4019-b49a-d1f8881e2aea\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/68e4b2d8-b70c-4019-b49a-d1f8881e2aea\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/24dc3ccd-591a-4415-a1fe-8759afafcb12\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/67b2ba1a-6f74-4044-a48a-f0f8ad076b8f\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/67b2ba1a-6f74-4044-a48a-f0f8ad076b8f\n platformId: c564587c-26f8-2062-9c1e-0e6764e728ba\n ---\n \n@@ -73,7 +73,7 @@ This section lists the hardware details exposed by the device, divided into the\n | Intune device ID | A GUID that uniquely identifies the device in Intune. | All |\r\n | Registered in Microsoft Entra | If **Yes**, the device is registered in Microsoft Entra. | All |\r\n | Microsoft Entra device ID | A GUID that uniquely identifies the device in Microsoft Entra. | All |\r\n-| Serial number | The device's serial number from the manufacturer. | All |\r\n+| Serial number | The device's serial number from the manufacturer. | Windows, iOS, macOS, Android |\r\n | Last check-in | The date and time that the device last connected to Intune. | All |\r\n \r\n Note\r\n",
+      "baseCommitSha": "5f3071203ab3f4191548e03e30eaf52899a998a1",
+      "commitSha": "6ab59b5acd22e705f820518c3868a92334d2b33f",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-18 21:42:59 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-management/inventory-and-status/device-details.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-management/inventory-and-status/device-details",
+      "eventId": "intune-docs:6ab59b5acd22e705f820518c3868a92334d2b33f:modified:intune/device-management/inventory-and-status/device-details.md",
+      "firstSeenAt": "2026-11-18T21:54:21.878Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Serial number applicability is now platform-specific",
+        "summary": "The device details table changes the Serial number entry from “All” to Windows, iOS, macOS, and Android.",
+        "adminImpact": "No administrator action is required; use the listed platforms when reviewing device serial-number details.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -512,14 +538,14 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 18,
+    "totalCommits": 2,
+    "totalFiles": 19,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 18 updated, and 0 removed Microsoft Intune documentation files across 4 documentation areas.",
+    "overview": "Today's report includes 0 new, 19 updated, and 0 removed Microsoft Intune documentation files across 5 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -566,6 +592,14 @@
         "sourceFiles": [
           "intune/solutions/ai/manage-ai-android.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-management",
+        "summary": "The device details table changes the Serial number entry from “All” to Windows, iOS, macOS, and Android.",
+        "sourceFiles": [
+          "intune/device-management/inventory-and-status/device-details.md"
+        ]
       }
     ],
     "highlights": [
@@ -588,6 +622,11 @@
         "category": "Doc update",
         "headline": "intune/solutions",
         "detail": "The instructions now direct admins to choose Android as the platform, Referenced app as the category, and Android Enterprise system app as the app type."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-management",
+        "detail": "The device details table changes the Serial number entry from “All” to Windows, iOS, macOS, and Android."
       }
     ],
     "generatedBy": "fallback"

@@ -8353,31 +8353,37 @@
       }
     },
     "2026-11-19": {
-      "headline": "Autopilot known issues flag delayed OOBE settings and false ESP failures",
-      "overview": "Windows Autopilot’s Known Issues documentation now covers two enrollment behaviors: TPM attestation and local device association can delay policy retrieval by about a minute, while completed pre-provisioning and ESP can still produce Failure reports with 0–1 second durations when a nonblocking Win32 app error is treated as ESP-blocking.",
-      "adminImpact": "Users may briefly see OOBE pages configured to be skipped, and devices may not be renamed immediately after reset. For reports marked Failure with a 0–1 second duration, verify enrollment status and app reporting before treating the deployment as failed; the device may remain enrolled and functional.",
+      "headline": "Windows Autopilot guidance adds OOBE timing and false ESP-failure scenarios",
+      "overview": "The period’s meaningful updates refine Windows Autopilot troubleshooting guidance and document the staged rollout timing for Intune local actions on Android. Two Autopilot entries address delayed policy retrieval during OOBE and misleading failure reports after successful pre-provisioning.",
+      "adminImpact": "Autopilot administrators should allow for roughly a minute of policy-retrieval delay during OOBE and avoid treating a Failure report with a 0–1 second duration as conclusive when pre-provisioning and ESP completed successfully. Verify enrollment status and app reporting before investigating such reports as deployment failures. Android local actions may appear at different times across tenants, with availability for all customers expected by the end of November 2026; no action is required.",
       "keyChanges": [
         {
-          "title": "TPM and device association can delay policy retrieval during OOBE",
-          "detail": "The Windows Autopilot Known Issues page now notes that associated devices may enter OOBE before organizational settings are downloaded and applied. TPM attestation and local device association can delay policy retrieval by about a minute, causing briefly visible OOBE pages that should be skipped and delayed device renaming after reset.",
+          "title": "Autopilot guidance documents delayed organizational settings during OOBE",
+          "detail": "The Known Issues guidance now says associated devices can enter OOBE before organizational settings are downloaded and applied. TPM attestation and local device association can delay policy retrieval by about a minute, which may briefly expose OOBE pages configured to be skipped or delay device renaming after reset.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-11-19-known-issues-01"
         },
         {
-          "title": "Completed ESP can still generate misleading Failure reports",
-          "detail": "The documentation now describes reports showing Failure with a 0–1 second duration even after pre-provisioning and ESP complete successfully. The device remains enrolled and functional; a nonblocking Win32 app error is being treated as ESP-blocking. Administrators should verify enrollment status and app reporting before classifying these reports as actual enrollment failures.",
+          "title": "Autopilot reports can show false failures after successful ESP completion",
+          "detail": "The guidance now describes reports showing Failure with a 0–1 second duration even though pre-provisioning and ESP completed successfully. A nonblocking Win32 app error is being treated as ESP-blocking in the report; the device remains enrolled and functional.",
           "product": "Windows Autopilot",
           "sourceId": "doc-2026-11-19-known-issues-02"
+        },
+        {
+          "title": "Android local actions rollout timing is now documented",
+          "detail": "The Intune Android local actions article now states that the capability is rolling out gradually, with availability for all customers expected by the end of November 2026, although the timing may change.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-19-configure-local-actions-for-android-devices-in-microsoft-intune-microsoft-intune-microsoft-learn-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T10:17:19.303Z",
+      "generatedAt": "2026-11-19T22:08:24.757Z",
       "usage": {
-        "inputTokens": 1164,
-        "outputTokens": 886,
-        "costUsd": 0.001296
+        "inputTokens": 1312,
+        "outputTokens": 982,
+        "costUsd": 0.001441
       }
     }
   },
@@ -10363,49 +10369,49 @@
       }
     },
     "2026-11-16": {
-      "headline": "Company Portal’s February 2027 version floor joins CIS audits and Windows Server pilots",
-      "overview": "Two scheduled changes give this period its clearest operational signals: iOS/iPadOS and macOS Company Portal will require v5.2608.0 starting in February 2027, while improved Microsoft Purview DLP setup and Intune multi-admin approval support for unmanaged apps in Edge for Business is scheduled to roll out from January 2027. New Intune guidance also covers a CIS Windows 11 audit profile in preview, a nonproduction Windows Server Insider Preview pilot, and managed Google Account authentication for supported Android Enterprise devices. The CIS profile assesses 404 settings without configuring or remediating devices.",
-      "adminImpact": "Prepare helpdesk communications for the Company Portal change; most users update automatically, but devices that block app installation may need pushed or manual updates. No prior action is required for the Purview DLP rollout, and existing policies and Intune approvals remain unchanged. CIS auditing requires Advanced Analytics, enrolled Windows 11 devices, and appropriate permissions, and its findings should be treated as assessment results rather than remediation. Keep Windows Server Insider testing in nonproduction environments, use the dedicated guide, and note that Server Core is unsupported. For Android Enterprise, follow the prerequisites and select the policy method that matches device ownership.",
+      "headline": "iOS/iPadOS and macOS Company Portal will require v5.2608.0 in February 2027",
+      "overview": "The week’s clearest administrator deadline is the February 2027 Company Portal minimum-version change; most users update automatically, but devices that block app installation may need manual updates. Other substantive developments include an audit-only CIS benchmark profile for Windows 11, a guarded Windows Server Insider Preview enrollment path, managed Google Workspace authentication guidance for Android Enterprise, and a gradual Android Local Actions rollout expected to reach all customers by the end of November 2026.",
+      "adminImpact": "Prepare helpdesk communications and push Company Portal v5.2608.0 where device restrictions prevent self-service updates. For CIS assessments, verify Advanced Analytics, enrolled Windows 11 devices, and the required Intune permissions; the audit reports gaps without changing device settings. Keep Windows Server enrollment limited to supported nonproduction Insider Preview testing, where servers are blocked by default and require documented restrictions. For Android Google Workspace authentication, verify prerequisites and select the policy method that matches device ownership. Local Actions may become available at different times across tenants.",
       "keyChanges": [
         {
-          "title": "Company Portal minimum version will rise to v5.2608.0",
-          "detail": "Microsoft 365 Message Center says iOS/iPadOS and macOS Company Portal will require version 5.2608.0 starting in February 2027. Most users update automatically; organizations that block app installation may need to push updates or arrange manual updates.",
+          "title": "Company Portal v5.2608.0 becomes the iOS/iPadOS and macOS minimum in February",
+          "detail": "MC1547994 sets v5.2608.0 as the minimum iOS/iPadOS and macOS Company Portal version starting in February 2027. Most users update automatically; users whose organizations block app installation may need manual updates. Microsoft advises preparing helpdesk communications and pushing updates where restrictions apply.",
           "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
-          "title": "CIS Windows 11 audit profile is documented in preview",
-          "detail": "The new audit workflow assesses 404 settings across CIS Level 1, Level 2, and BitLocker checks without configuring or remediating devices. Using it requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions, with results available for review and export.",
+          "title": "CIS audit profile preview evaluates 404 Windows 11 settings without remediation",
+          "detail": "The new Intune workflow covers 404 settings across CIS Level 1, Level 2, and BitLocker checks, allows administrators to review results and export findings, and does not configure or remediate devices. It requires Advanced Analytics, enrolled Windows 11 devices, and appropriate Intune permissions.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-audit-cis-benchmarks-with-microsoft-intune-microsoft-intune-microsoft-learn-02"
         },
         {
-          "title": "Windows Server Insider Preview gets a nonproduction Intune pilot guide",
-          "detail": "The end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for testing supported Windows Server Insider Preview vNext builds. The guidance is for evaluation rather than production, and Server Core is unsupported.",
+          "title": "Windows Server enrollment is limited to an Insider Preview test path",
+          "detail": "The enrollment guidance states that only Windows Server Insider Preview builds can enroll, production server enrollment is unsupported, and server devices are blocked by default. Enrollment restrictions and ownership filters provide the documented route for allowing the supported scenario.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
+          "sourceId": "doc-2026-11-17-create-platform-restrictions-28"
         },
         {
-          "title": "Purview DLP will improve unmanaged-app setup in Edge for Business",
-          "detail": "The planned January 2027 rollout adds clearer setup status, error reporting, and task coordination while supporting Intune multi-admin approval for unmanaged apps in Edge for Business. Existing policies remain unchanged and current Intune approval behavior continues during the transition.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
-        },
-        {
-          "title": "Managed Google Account authentication gets a dedicated Android Enterprise guide",
-          "detail": "New guidance explains how to require managed Google Account authentication through Intune policies on supported corporate-owned and personally owned Android Enterprise devices. It covers prerequisites, enrollment types, policy creation, assignment, and the profile approach for each ownership scenario.",
+          "title": "Managed Google Account authentication is documented across Android Enterprise enrollment types",
+          "detail": "Intune’s new article covers requiring managed Google Account authentication on supported corporate-owned and personally owned Android Enterprise devices, including prerequisites, enrollment types, policy creation, and assignment. Administrators should select the profile method that matches device ownership.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-google-workspace-sign-in-with-microsoft-intune-microsoft-intune-microsoft-learn-01"
+        },
+        {
+          "title": "Android Local Actions rollout targets all customers by the end of November",
+          "detail": "The updated guidance says Local Actions are rolling out gradually, with availability for all customers expected by the end of November 2026, although timing may change. Tenants may therefore see the capability at different times; no administrator action is specified.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-19-configure-local-actions-for-android-devices-in-microsoft-intune-microsoft-intune-microsoft-learn-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T10:17:19.303Z",
+      "generatedAt": "2026-11-19T22:08:24.757Z",
       "usage": {
-        "inputTokens": 10238,
-        "outputTokens": 7741,
-        "costUsd": 0.011337
+        "inputTokens": 10277,
+        "outputTokens": 7484,
+        "costUsd": 0.011036
       }
     }
   },
@@ -10871,54 +10877,54 @@
       }
     },
     "2026-11": {
-      "headline": "CIS audit baseline, Windows Server pilots and a 2027 Company Portal floor shape Intune",
-      "overview": "November was largely a documentation-maintenance period: 3,754 items were updated, seven were new, and no items were removed, with many representative edits limited to author metadata. The meaningful Intune developments were guidance for CIS Windows 11 auditing, a dedicated nonproduction path for Windows Server Insider Preview, and clearer reporting scope for MDM-managed security policies. Message Center notices also set a February 2027 Company Portal version floor and a January 2027 Purview DLP change for unmanaged apps in Edge for Business.",
-      "adminImpact": "Prepare for the Company Portal v5.2608.0 minimum, particularly where device restrictions block app installation. Treat CIS results as assessment findings rather than remediation, and keep Windows Server Insider Preview testing in nonproduction; Server Core is unsupported. No prior action is required for the Purview DLP rollout, and existing policies and Intune approvals remain unchanged. Review MDM-managed Firewall Rules and ASR Rules at policy level because per-setting reporting is unavailable.",
+      "headline": "Intune’s February 2027 Company Portal minimum arrives alongside Windows 11 CIS audit guidance",
+      "overview": "November’s meaningful exceptions to a high volume of metadata and wording maintenance were a February 2027 Company Portal version floor, documentation for an audit-only CIS benchmark path for Windows 11, and a nonproduction Windows Server Insider Preview route in Intune. Related endpoint guidance also clarifies Configuration Manager 2609 CMG storage access and Azure RBAC, while a January 2027 Purview DLP change will improve unmanaged-app setup and Intune multi-admin approval in Edge for Business.",
+      "adminImpact": "Prepare helpdesk messaging and update paths for Company Portal v5.2608.0 where app-installation restrictions may block automatic updates. Use the CIS baseline for assessment without expecting it to enforce or remediate settings. Keep Windows Server Insider testing in nonproduction pilot groups and exclude Server Core. For Configuration Manager 2609 CMG deployments, review the CMG server application’s and operators’ Azure RBAC permissions. The Purview DLP notice states that no prior action or policy migration is required.",
       "keyChanges": [
         {
           "title": "Company Portal minimum version rises to v5.2608.0 in February 2027",
-          "detail": "The minimum iOS/iPadOS and macOS Company Portal version will be v5.2608.0 starting in February 2027. Most users update automatically, but devices that block app installation may require a pushed or manual update; prepare helpdesk communications and update paths accordingly.",
+          "detail": "Starting in February 2027, the minimum iOS/iPadOS and macOS Company Portal version will be v5.2608.0. Most users update automatically, but users on devices that block app installation may need manual updates; Microsoft advises informing the helpdesk and pushing updates where restrictions apply.",
           "product": "Intune",
           "sourceId": "MC1547994"
         },
         {
-          "title": "Purview DLP adds clearer Edge for Business setup and Intune approval status",
-          "detail": "Beginning in January 2027, improved setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval with clearer status, error reporting, and task coordination. Existing policies remain unchanged, Intune approvals continue as before, and the notice requires no prior action.",
-          "product": "Intune",
-          "sourceId": "MC1489971"
+          "title": "Configuration Manager 2609 changes the CMG storage access guidance",
+          "detail": "The security guidance states that shared-key access is automatically disabled for CMG storage starting in Configuration Manager 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage, distinguishes storage keys from application secrets, and calls for CMG server application and operator Azure RBAC rights to create Storage Blob Data Contributor and Storage Table Data Contributor assignments.",
+          "product": "Configuration Manager",
+          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "CIS audit baseline guidance separates assessment from configuration baselines",
-          "detail": "The Endpoint Security Policies guidance now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. It also relabels security baselines as configuration baselines.",
+          "title": "Intune documents an audit-only CIS baseline for Windows 11",
+          "detail": "The Endpoint Security Policies page now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. It also relabels security baselines as configuration baselines, allowing administrators to distinguish assessment from configuration enforcement.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-endpoint-security-policies-33"
         },
         {
-          "title": "A dedicated guide defines the Windows Server Insider Preview pilot path",
-          "detail": "The new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for Windows Server Insider Preview vNext builds in Intune. The documented management is for nonproduction testing and evaluation; Server Core is unsupported.",
+          "title": "Windows Server Insider Preview gets a nonproduction Intune pilot guide",
+          "detail": "A new end-to-end guide covers piloting supported Windows Server Insider Preview vNext builds in Intune, including enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types. Server Core is not supported, and the documented management path is for testing and evaluation rather than production use.",
           "product": "Intune",
           "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
         },
         {
-          "title": "MDM Firewall and ASR reporting is limited to policy-level status",
-          "detail": "Security Settings Management guidance now states that per-setting reporting is unavailable for Firewall Rules and Attack Surface Reduction Rules policies managed through MDM. Administrators should use policy-level status when reviewing these policies.",
+          "title": "Purview DLP will improve Edge unmanaged-app setup and Intune approvals",
+          "detail": "Starting in January 2027, Microsoft Purview DLP will add clearer status, error reporting, and task coordination for unmanaged apps in Edge for Business, along with Intune multi-admin approval support. Existing policies remain unchanged, Intune approvals continue as before, and the notice requires no prior action.",
           "product": "Intune",
-          "sourceId": "doc-2026-11-03-security-settings-management-02"
+          "sourceId": "MC1489971"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T10:17:19.303Z",
+      "generatedAt": "2026-11-19T22:08:24.757Z",
       "usage": {
-        "inputTokens": 6662,
-        "outputTokens": 4841,
-        "costUsd": 0.007142
+        "inputTokens": 6623,
+        "outputTokens": 10090,
+        "costUsd": 0.013433
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-19T10:17:19.303Z",
+  "generatedAt": "2026-11-19T22:08:24.757Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -11099,22 +11105,22 @@
       "costUsd": 0.042697
     },
     "2026-11-19": {
-      "inputTokens": 18064,
-      "outputTokens": 13468,
-      "requests": 3,
-      "costUsd": 0.019774
+      "inputTokens": 36276,
+      "outputTokens": 32024,
+      "requests": 6,
+      "costUsd": 0.045684
     }
   },
   "lastRun": {
-    "inputTokens": 18064,
-    "outputTokens": 13468,
+    "inputTokens": 18212,
+    "outputTokens": 18556,
     "requests": 3,
-    "costUsd": 0.019774
+    "costUsd": 0.02591
   },
   "totalUsage": {
-    "inputTokens": 4155168,
-    "outputTokens": 2723207,
-    "requests": 534,
-    "costUsd": 4.098882
+    "inputTokens": 4173380,
+    "outputTokens": 2741763,
+    "requests": 537,
+    "costUsd": 4.124792
   }
 }

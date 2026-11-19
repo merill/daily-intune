@@ -52,19 +52,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/device-configuration/templates/configure-local-actions-android.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/intune/device-configuration/templates/configure-local-actions-android.md b/intune/device-configuration/templates/configure-local-actions-android.md\nindex edf14a0c..ef6bf8c2 100644\n--- a/intune/device-configuration/templates/configure-local-actions-android.md\n+++ b/intune/device-configuration/templates/configure-local-actions-android.md\n@@ -42,6 +42,10 @@ platformId: 4c29a00a-b544-b964-8144-16c560fc0272\n \n # Configure local actions for Android devices in Microsoft Intune - Microsoft Intune | Microsoft Learn\n \n+Note\r\n+\r\n+The local actions feature is rolling out gradually, so some tenants might see it before others. It's expected to be available to all customers by the end of November 2026. Rollout timing might change to help ensure quality and reliability.\r\n+\r\n Android local actions let you configure actions that run directly on managed Android devices when supported device events occur. By pairing triggers with actions, you can make devices respond to events such as a device reboot, a Managed Home Screen sign-in, or a change in the device's power connection.\r\n \r\n You can use local actions to launch apps, send broadcasts to apps, initiate a global sign-out, or exit Managed Home Screen from kiosk mode.\r\n",
+      "baseCommitSha": "56ec4902d720fce1753ba77b86c15810741d37cb",
+      "commitSha": "8814ddc19f2dde33b07fa844789736c71bfba821",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 21:55:25 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/device-configuration/templates/configure-local-actions-android.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-local-actions-android",
+      "eventId": "intune-docs:8814ddc19f2dde33b07fa844789736c71bfba821:modified:intune/device-configuration/templates/configure-local-actions-android.md",
+      "firstSeenAt": "2026-11-19T22:08:18.834Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Local actions rollout timing added",
+        "summary": "The documentation now states that local actions are rolling out gradually, with availability for all customers expected by the end of November 2026, although timing may change.",
+        "adminImpact": "Administrators may see the capability at different times across tenants; no action is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 3 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -81,6 +107,14 @@
         "sourceFiles": [
           "autopilot/known-issues.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/device-configuration",
+        "summary": "The documentation now states that local actions are rolling out gradually, with availability for all customers expected by the end of November 2026, although timing may change.",
+        "sourceFiles": [
+          "intune/device-configuration/templates/configure-local-actions-android.md"
+        ]
       }
     ],
     "highlights": [
@@ -93,6 +127,11 @@
         "category": "Doc update",
         "headline": "Windows Autopilot",
         "detail": "The documentation now describes reports showing Failure and a 0–1 second duration after pre-provisioning and ESP complete successfully. The device remains enrolled and functional; the issue is caused by a nonblocking Win32 app error being treated as ESP-blocking."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/device-configuration",
+        "detail": "The documentation now states that local actions are rolling out gradually, with availability for all customers expected by the end of November 2026, although timing may change."
       }
     ],
     "generatedBy": "fallback"

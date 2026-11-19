@@ -1,0 +1,100 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "autopilot/device-preparation/known-issues.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 1,
+      "changes": 14,
+      "patch": "diff --git a/autopilot/device-preparation/known-issues.md b/autopilot/device-preparation/known-issues.md\nindex d9e5654d..d3cfa74b 100644\n--- a/autopilot/device-preparation/known-issues.md\n+++ b/autopilot/device-preparation/known-issues.md\n@@ -13,7 +13,9 @@ feedback_system: Standard\n permissioned-type: public\n uhfHeaderId: MSDocsHeader-Windows\n description: Information regarding known issues that might occur during a Windows Autopilot device preparation deployment.\n-ms.date: 2026-09-14T00:00:00.0000000Z\n+ms.date: 2026-11-18T00:00:00.0000000Z\n+ai-usage: ai-assisted\n+ms.custom: msecd-doc-authoring-1030\n ms.collection:\n - M365-modern-desktop\n ms.topic: troubleshooting\n@@ -64,6 +66,16 @@ For more information on using RSS for notifications, see [How to use the docs](/\n \r\n ## Known issues\r\n \r\n+### OOBE experience settings for associated devices may not apply immediately after a reset\r\n+\r\n+Date added: *November 18, 2026*\r\n+\r\n+This issue affects associated devices after a reset. When the device reboots into the out-of-box experience (OOBE), users might advance through setup before organizational settings are downloaded and applied. For example, users might see OOBE pages that their organization configured to skip. The device might not be renamed as configured.\r\n+\r\n+The device needs to complete Trusted Platform Module (TPM) attestation and local device association before it can retrieve the correct organizational policy. Retrieving the policy can take about a minute. During this time, settings that customize OOBE pages or rename the device might not yet be applied.\r\n+\r\n+This issue will be resolved in a future OS release.\r\n+\r\n ### Device preparation deployments on Windows 365 devices time out after 60 minutes\r\n \r\n Date added: *November 10, 2025* Date updated: *February 5, 2026*\r\n",
+      "baseCommitSha": "6ab59b5acd22e705f820518c3868a92334d2b33f",
+      "commitSha": "56ec4902d720fce1753ba77b86c15810741d37cb",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 09:37:07 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/autopilot/device-preparation/known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/device-preparation/known-issues",
+      "eventId": "intune-docs:56ec4902d720fce1753ba77b86c15810741d37cb:modified:autopilot/device-preparation/known-issues.md",
+      "firstSeenAt": "2026-11-19T10:17:12.823Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Known issue added for delayed OOBE settings after reset",
+        "summary": "The documentation now notes that associated devices may enter OOBE before organizational settings are downloaded and applied. TPM attestation and local device association can delay policy retrieval by about a minute.",
+        "adminImpact": "Users may briefly see OOBE pages configured to be skipped, or the device may not be renamed immediately after reset.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "autopilot/known-issues.md",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "patch": "diff --git a/autopilot/known-issues.md b/autopilot/known-issues.md\nindex 394b4685..841b1125 100644\n--- a/autopilot/known-issues.md\n+++ b/autopilot/known-issues.md\n@@ -13,7 +13,7 @@ feedback_system: Standard\n permissioned-type: public\n uhfHeaderId: MSDocsHeader-Windows\n description: Be informed about known issues that might occur during Windows Autopilot deployment.\n-ms.date: 2026-09-08T00:00:00.0000000Z\n+ms.date: 2026-11-16T00:00:00.0000000Z\n ms.collection:\n - M365-modern-desktop\n ms.topic: troubleshooting\n@@ -64,6 +64,16 @@ For issues with Windows Autopilot with Co-management, see [Windows Autopilot wit\n \r\n ## Known issues\r\n \r\n+### Windows Autopilot deployment report shows failure after successful pre-provisioning\r\n+\r\n+Date added: *November 16, 2026*\r\n+\r\n+After Windows Autopilot pre-provisioning and the device enrollment status page (ESP) complete successfully, the deployment report might incorrectly show **Failure**. The report shows a deployment duration of **0-1 seconds**. This issue appears under **Windows &gt; Monitor &gt; Windows Autopilot deployment status** in the Microsoft Intune admin center.\r\n+\r\n+This issue occurs when the report treats an installation error from a nonblocking, best-effort Win32 app as an ESP-blocking failure. It affects deployment reporting, not enrollment. The device is enrolled and works normally.\r\n+\r\n+The report should show **Success** and the actual deployment duration. The individual app's installation error should still appear in app reporting.\r\n+\r\n ### Pre-provisioning fails for Microsoft Entra hybrid join when policy conflict resolution requires domain controller connectivity\r\n \r\n Date added: *September 1, 2026*\r\n",
+      "baseCommitSha": "6ab59b5acd22e705f820518c3868a92334d2b33f",
+      "commitSha": "56ec4902d720fce1753ba77b86c15810741d37cb",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 09:37:07 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/autopilot/known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/autopilot/known-issues",
+      "eventId": "intune-docs:56ec4902d720fce1753ba77b86c15810741d37cb:modified:autopilot/known-issues.md",
+      "firstSeenAt": "2026-11-19T10:17:12.833Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Known issue added for incorrect Autopilot deployment failures",
+        "summary": "The documentation now describes reports showing Failure and a 0–1 second duration after pre-provisioning and ESP complete successfully. The device remains enrolled and functional; the issue is caused by a nonblocking Win32 app error being treated as ESP-blocking.",
+        "adminImpact": "Administrators should verify enrollment status and app reporting before treating these deployment reports as actual enrollment failures.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 2,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "autopilot/device-preparation",
+        "summary": "The documentation now notes that associated devices may enter OOBE before organizational settings are downloaded and applied. TPM attestation and local device association can delay policy retrieval by about a minute.",
+        "sourceFiles": [
+          "autopilot/device-preparation/known-issues.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Windows Autopilot",
+        "summary": "The documentation now describes reports showing Failure and a 0–1 second duration after pre-provisioning and ESP complete successfully. The device remains enrolled and functional; the issue is caused by a nonblocking Win32 app error being treated as ESP-blocking.",
+        "sourceFiles": [
+          "autopilot/known-issues.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "autopilot/device-preparation",
+        "detail": "The documentation now notes that associated devices may enter OOBE before organizational settings are downloaded and applied. TPM attestation and local device association can delay policy retrieval by about a minute."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Windows Autopilot",
+        "detail": "The documentation now describes reports showing Failure and a 0–1 second duration after pre-provisioning and ESP complete successfully. The device remains enrolled and functional; the issue is caused by a nonblocking Win32 app error being treated as ESP-blocking."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

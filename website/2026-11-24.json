@@ -1,0 +1,92 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1565960",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-23",
+      "title": "Plan for Change: Updates to policy-related reporting in Microsoft Intune Data Warehouse",
+      "summary": "Starting January 4, 2027, Microsoft Intune Data Warehouse will update policy-related reporting collections, possibly causing changes in policy-status counts. Existing connections and schemas remain unchanged, and no action is required. Differences from Intune admin center reports may occur due to timing and aggregation.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "compliance",
+        "name": "Compliance",
+        "icon": "/assets/topics/compliance.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1565960/",
+      "originalUrl": "https://mc.merill.net/message/MC1565960",
+      "body": "<p>Starting January 4, 2027, or soon after, we are updating Microsoft Intune Data Warehouse infrastructure to align policy-related reporting with updated Intune reporting infrastructure. This update applies to the following collections:</p><ul><li>policyDeviceActivities</li><li>policyTypeActivities</li><li>policyUserActivities</li><li>deviceConfigurationProfileDeviceActivities</li><li>deviceConfigurationProfileUserActivities</li><li>compliancePolicyStatusDeviceActivities</li><li>compliancePolicyStatusDevicePerPolicyActivities</li></ul><p></p><p><b>How this will affect your organization:</b></p><p>Existing Data Warehouse connections and report schemas will remain unchanged. Following this update, you may notice differences in policy-status counts in reports that use the affected collections.&nbsp;</p><p><b>Note:</b> Counts in Data Warehouse may also differ from reports in the Intune admin center due to differences in refresh timing and data aggregation.</p><p><b>What you need to do to prepare:</b></p><p>No action is required. If your organization uses the affected collections for custom reporting or analysis, you may notice that policy-status counts may change following the update.</p><p></p><p>Learn more: <a href=\"https://learn.microsoft.com/intune/developer/data-warehouse/create-reports\" rel=\"noopener noreferrer\">Use the Intune Data Warehouse - Microsoft Intune | Microsoft Learn</a></p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "Admin impact"
+      ],
+      "startDate": "2026-11-23T22:41:36Z",
+      "endDate": "2027-03-31T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-23T22:41:42.297Z",
+      "version": "2026-11-23T22:41:42.297Z",
+      "eventId": "message-center:MC1565960:2026-11-23T22:41:42.297Z",
+      "firstSeenAt": "2026-11-24T12:25:42.041Z"
+    },
+    {
+      "id": "MC1565959",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-23",
+      "title": "Plan for Change: Updated web-based device enrollment experience for iOS/iPadOS",
+      "summary": "Microsoft Intune will update the web-based device enrollment experience for iOS/iPadOS in late January 2027, affecting only tenants using this method. No admin action is needed, but user guidance may be updated. This change precedes web-based enrollment becoming the default for iOS/iPadOS.",
+      "product": {
+        "slug": "intune",
+        "name": "Microsoft Intune",
+        "short": "Intune",
+        "icon": "intune.svg",
+        "learn": "https://learn.microsoft.com/en-us/intune/"
+      },
+      "topic": {
+        "slug": "device-enrollment",
+        "name": "Device enrollment",
+        "icon": "/assets/topics/device-enrollment.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1565959/",
+      "originalUrl": "https://mc.merill.net/message/MC1565959",
+      "body": "<p>Expected in late January 2027, Microsoft Intune will introduce an updated user experience for iOS/iPadOS web-based device enrollment. This change applies only to tenants that already use web-based device enrollment as an enrollment profile.</p><p>This update is part of our continued investment in web-based device enrollment ahead of web-based device enrollment becoming the default enrollment method for iOS/iPadOS in early 2027, as previously communicated in MC1476216.</p><p><b>How this will affect your organization:</b></p><p>Users enrolling iOS/iPadOS devices with web-based device enrollment will see an updated enrollment experience. There is no impact to existing enrollment profile configuration, and no admin action is required.</p><p>Note: This change does not impact other iOS/iPadOS enrollment profile types.</p><p><b>What you need to do to prepare:</b></p><p>No action is required. You may want to update your internal user guidance or helpdesk documentation to reflect the updated enrollment experience. You can learn more and view a demo of the new experience in the blog: <a href=\"https://aka.ms/Intune/Web-Enrollment-UX-update\" rel=\"noopener noreferrer\">Use web-based device enrollment for BYOD enrollment on iOS/iPadOS</a></p><p><b>Additional information:</b></p><p><a href=\"https://learn.microsoft.com/intune/device-enrollment/apple/setup-web-based-ios\" rel=\"noopener noreferrer\">Set up web based device enrollment for iOS</a></p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Intune"
+      ],
+      "tags": [
+        "User impact"
+      ],
+      "startDate": "2026-11-23T22:39:58Z",
+      "endDate": "2027-03-02T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-23T22:41:11.75Z",
+      "version": "2026-11-23T22:41:11.75Z",
+      "eventId": "message-center:MC1565959:2026-11-23T22:41:11.75Z",
+      "firstSeenAt": "2026-11-24T12:25:42.041Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Intune documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}

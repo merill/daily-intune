@@ -8459,6 +8459,28 @@
         "outputTokens": 591,
         "costUsd": 0.00094
       }
+    },
+    "2026-11-25": {
+      "headline": "Government Service table now uses “Microsoft Store” terminology",
+      "overview": "The sole Intune update changes the linked-resource label in the Government Service documentation from “Microsoft Store for Business” to “Microsoft Store.” The destination link and its “n/a” value remain unchanged, so this is a terminology update rather than a service or configuration change.",
+      "adminImpact": "No administrator action is required. Use “Microsoft Store” when referring to the updated resource name in the table.",
+      "keyChanges": [
+        {
+          "title": "Government Service resource label updated",
+          "detail": "The Government Service table now labels the linked resource “Microsoft Store” instead of “Microsoft Store for Business.” The link target and “n/a” value are unchanged.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-25-government-service-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-25T23:04:53.951Z",
+      "usage": {
+        "inputTokens": 1011,
+        "outputTokens": 367,
+        "costUsd": 0.000643
+      }
     }
   },
   "weeks": {
@@ -10490,30 +10512,36 @@
     },
     "2026-11-23": {
       "headline": "Intune flags January 2027 enrollment and Data Warehouse reporting changes",
-      "overview": "Microsoft has announced two planned Intune changes for January 2027: an updated web-based enrollment experience for iOS/iPadOS and revised policy-related reporting in Intune Data Warehouse.",
-      "adminImpact": "No administrator action is required for either change. Tenants using web-based iOS/iPadOS enrollment may need to update user guidance, while Data Warehouse users should expect possible policy-status count differences and account for timing and aggregation differences when comparing reports.",
+      "overview": "The week brought two planned Intune changes with clear future timing and one terminology update. Web-based iOS/iPadOS enrollment is scheduled for an experience update in late January 2027, while policy-related Data Warehouse reporting collections will change on January 4, 2027. The Government Service table now uses the “Microsoft Store” label instead of “Microsoft Store for Business,” without changing the link or value.",
+      "adminImpact": "No immediate administrator action is required for the two planned changes. Administrators supporting tenants that use web-based iOS/iPadOS enrollment should be prepared to refresh user guidance. Data Warehouse users should expect possible policy-status count differences while existing connections and schemas remain unchanged. The Government Service terminology update requires no action.",
       "keyChanges": [
         {
-          "title": "Web-based iOS/iPadOS enrollment experience will be updated",
-          "detail": "In late January 2027, Intune will update web-based device enrollment for iOS/iPadOS tenants using that enrollment method. The change precedes web-based enrollment becoming the default for iOS/iPadOS; no admin action is required, although related user guidance may need updating.",
-          "product": "Intune device enrollment",
+          "title": "Web-based iOS/iPadOS enrollment experience is planned for a late-January update",
+          "detail": "Microsoft Intune will update the web-based device enrollment experience in late January 2027 for tenants using this enrollment method. The change comes before web-based enrollment becomes the iOS/iPadOS default; no administrator action is required, although user guidance may need updating.",
+          "product": "Intune",
           "sourceId": "MC1565959"
         },
         {
-          "title": "Data Warehouse policy reporting collections will change",
-          "detail": "Starting January 4, 2027, policy-related reporting collections in Intune Data Warehouse may produce different policy-status counts. Existing connections and schemas remain unchanged, and differences from Intune admin center reports can result from timing and aggregation.",
-          "product": "Intune Data Warehouse",
+          "title": "Data Warehouse policy reporting collections will change on January 4",
+          "detail": "Starting January 4, 2027, updates to policy-related reporting collections may change policy-status counts in Microsoft Intune Data Warehouse. Existing connections and schemas remain unchanged, and differences from Intune admin center reports may result from timing and aggregation.",
+          "product": "Intune",
           "sourceId": "MC1565960"
+        },
+        {
+          "title": "Government Service documentation adopts the “Microsoft Store” label",
+          "detail": "The linked resource in the Government Service documentation is now labeled “Microsoft Store” rather than “Microsoft Store for Business.” The link target and its “n/a” value are unchanged.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-25-government-service-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-24T12:25:42.191Z",
+      "generatedAt": "2026-11-25T23:04:53.951Z",
       "usage": {
-        "inputTokens": 957,
-        "outputTokens": 729,
-        "costUsd": 0.001066
+        "inputTokens": 1061,
+        "outputTokens": 937,
+        "costUsd": 0.001337
       }
     }
   },
@@ -10979,65 +11007,59 @@
       }
     },
     "2026-11": {
-      "headline": "CIS audit guidance leads Intune’s Windows Server pilots and 2027 enrollment readiness",
-      "overview": "November’s meaningful Intune changes centered on assessment, controlled Windows Server evaluation, and Apple enrollment preparation. Endpoint Security Policies now documents a preview CIS audit baseline for Windows 11, a new Server Insider guide outlines a nonproduction pilot while excluding Server Core, and Message Center notices describe a late-January 2027 web-enrollment experience change plus a February 2027 Company Portal minimum of v5.2608.0. Adjacent Configuration Manager guidance now states that version 2609 disables CMG shared-key access, including for existing deployments; much of the remaining volume was metadata or procedural clarification.",
-      "adminImpact": "Use the CIS baseline for assessment: its documented behavior reports findings without enforcing or remediating settings, and distinguish the revised configuration-baseline terminology. Keep Windows Server Insider testing in nonproduction because Server Core is unsupported. For Apple fleets, review user guidance for tenants using web-based iOS/iPadOS enrollment and prepare helpdesk or deployment paths for devices that cannot automatically update Company Portal to v5.2608.0. For Configuration Manager 2609 CMG deployments, review CMG server application and operator Azure RBAC permissions, especially Storage Blob Data Contributor and Storage Table Data Contributor role assignments. The metadata-only edits require no broad administrator action.",
+      "headline": "CIS audit guidance and the February Company Portal deadline reshape Intune planning",
+      "overview": "November was largely mechanical—3,763 updates, many involving metadata-only edits—but the meaningful Intune changes centered on assessment, controlled Windows Server testing, support diagnostics, certificate security guidance, and Apple app readiness. The standout content is the CIS audit baseline (preview), which reports Windows 11 benchmark findings without enforcement or remediation. Intune also added an end-to-end, nonproduction guide for supported Windows Server Insider Preview vNext builds. A February 2027 Company Portal minimum-version notice supplies the clearest preparation deadline.",
+      "adminImpact": "Prioritize targeted readiness: use the CIS baseline for assessment rather than remediation; keep the Windows Server Insider path in nonproduction and exclude Server Core. For Remote Help, account for sharer consent before viewing or storing diagnostic reports. Review SCEP profiles against the updated strong-mapping, SAN, Android trust, and S/MIME certificate guidance. Prepare helpdesk communications and update pushes for iOS/iPadOS and macOS Company Portal v5.2608.0 before February 2027 where app installation restrictions prevent automatic updates.",
       "keyChanges": [
         {
-          "title": "CIS audit baseline preview is documented for Windows 11 assessment",
-          "detail": "The Intune Endpoint Security Policies guidance now covers a CIS audit baseline (preview) that checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. It also relabels security baselines as configuration baselines.",
-          "product": "Intune",
+          "title": "CIS audit baseline documents assessment without enforcement",
+          "detail": "The Endpoint Security Policies page now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. The update also relabels security baselines as configuration baselines.",
+          "product": "Intune — Endpoint security",
           "sourceId": "doc-2026-11-17-endpoint-security-policies-33"
         },
         {
-          "title": "Windows Server Insider Preview gets an end-to-end Intune pilot guide",
-          "detail": "The new guide covers prerequisites, enrollment, configuration, compliance, apps, updates, verification, and supported server types for piloting Windows Server Insider Preview vNext in Intune. The documented scenario is for nonproduction testing and does not support Server Core.",
-          "product": "Intune",
+          "title": "Intune documents a bounded Windows Server Insider pilot path",
+          "detail": "The new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported server types for Windows Server Insider Preview vNext. The scenario is intended for testing and evaluation, and Server Core is unsupported.",
+          "product": "Intune — Windows Server Insider Preview management",
           "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
         },
         {
-          "title": "Company Portal minimum version rises to v5.2608.0 in February 2027",
-          "detail": "Starting in February 2027, the minimum iOS/iPadOS and macOS Company Portal version will be v5.2608.0. Most users update automatically, but users whose devices block app installation may need manual updates.",
-          "product": "Intune",
+          "title": "Remote Help guidance adds consent-based diagnostic sharing",
+          "detail": "The Start Session guidance explains that helpers can request permission to view and possibly store a sharer’s device diagnostic data. With consent, both participants can view the report and helpers can refresh it; the report covers device, hardware, network, performance, security, update, storage, and peripheral details.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-11-17-start-session-46"
+        },
+        {
+          "title": "SCEP guidance expands strong-mapping and certificate edge cases",
+          "detail": "The revised SCEP guidance expands coverage of KDC strong mapping, the OnpremisesSecurityIdentifier SAN variable, Android trusted-root limitations, and public CA requirements for S/MIME certificates. Administrators maintaining SCEP profiles should use these details when reviewing certificate attributes and trust design.",
+          "product": "Intune — SCEP certificate profiles",
+          "sourceId": "doc-2026-11-17-use-scep-certificate-profiles-with-microsoft-intune-microsoft-intune-microsoft-learn-05"
+        },
+        {
+          "title": "Company Portal minimum version moves to v5.2608.0 in February 2027",
+          "detail": "The Message Center notice sets v5.2608.0 as the minimum iOS/iPadOS and macOS Company Portal version starting February 2027. Most users update automatically, but devices with app installation blocked may need manual updates; the stated preparation is to brief the helpdesk and push updates where necessary.",
+          "product": "Intune — Company Portal",
           "sourceId": "MC1547994"
-        },
-        {
-          "title": "Web-based iOS/iPadOS enrollment experience is scheduled for late January 2027",
-          "detail": "The updated web-based enrollment experience will affect tenants using that enrollment method in late January 2027. No administrator action is required, although user guidance may need updating; the change precedes web-based enrollment becoming the default for iOS/iPadOS.",
-          "product": "Intune",
-          "sourceId": "MC1565959"
-        },
-        {
-          "title": "CMG guidance now states 2609 disables shared-key access for existing deployments",
-          "detail": "Configuration Manager guidance now states that shared-key access for CMG storage is automatically disabled starting with version 2609, including existing deployments. It adds permissions for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets.",
-          "product": "Configuration Manager",
-          "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-24T12:25:42.191Z",
+      "generatedAt": "2026-11-25T23:04:53.951Z",
       "usage": {
-        "inputTokens": 6766,
-        "outputTokens": 4900,
-        "costUsd": 0.007233
+        "inputTokens": 6824,
+        "outputTokens": 7491,
+        "costUsd": 0.010354
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-24T12:25:42.191Z",
+  "generatedAt": "2026-11-25T23:04:53.951Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
-    "2026-10-20": {
-      "inputTokens": 8959,
-      "outputTokens": 9025,
-      "requests": 3,
-      "costUsd": 0.012622
-    },
     "2026-10-21": {
       "inputTokens": 20143,
       "outputTokens": 23855,
@@ -11199,18 +11221,24 @@
       "outputTokens": 6220,
       "requests": 3,
       "costUsd": 0.009239
+    },
+    "2026-11-25": {
+      "inputTokens": 8896,
+      "outputTokens": 8795,
+      "requests": 3,
+      "costUsd": 0.012333
     }
   },
   "lastRun": {
-    "inputTokens": 8876,
-    "outputTokens": 6220,
+    "inputTokens": 8896,
+    "outputTokens": 8795,
     "requests": 3,
-    "costUsd": 0.009239
+    "costUsd": 0.012333
   },
   "totalUsage": {
-    "inputTokens": 4201151,
-    "outputTokens": 2765578,
-    "requests": 543,
-    "costUsd": 4.158924
+    "inputTokens": 4210047,
+    "outputTokens": 2774373,
+    "requests": 546,
+    "costUsd": 4.171257
   }
 }

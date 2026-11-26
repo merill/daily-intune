@@ -8483,19 +8483,25 @@
       }
     },
     "2026-11-26": {
-      "headline": "China Intune guidance now maps supported, unavailable, and planned features",
-      "overview": "Two Intune Fundamentals pages were revised. The China operated by 21Vianet article now organizes feature status into supported, unavailable, and planned categories and refreshes deployment and Windows management links. Government Service guidance now says its unsupported-features list is not comprehensive and that planned investments, target dates, and capabilities may change.",
-      "adminImpact": "Administrators planning deployments in China should use the revised feature table and deployment links. For government-service planning, treat the unsupported-features list and investment outlook as directional guidance rather than a complete or fixed roadmap.",
+      "headline": "Intune’s China planning guidance and iOS wrapping prerequisite links are refreshed",
+      "overview": "The period was documentation-led, with one concrete prerequisite-link replacement and two planning-guidance revisions. The China and Government Service updates sharpen how administrators should interpret feature availability, unsupported capabilities, and roadmap information.",
+      "adminImpact": "For Intune operated by 21Vianet deployments, use the revised supported, unavailable, and planned-feature guidance and updated deployment links. Treat the Government Service unsupported-features list as directional rather than exhaustive or fixed. For iOS app wrapping, use the Microsoft Security Blog link in the provisioning-profile prerequisites.",
       "keyChanges": [
         {
-          "title": "China article adds structured feature-availability guidance",
-          "detail": "The Intune operated by 21Vianet article now directs readers to supported, unavailable, and planned features, presents feature differences in a table, and updates deployment and Windows management links.",
+          "title": "iOS App Wrapping Tool prerequisites now use the Microsoft Security Blog link",
+          "detail": "The provisioning-profile instructions replace the former TechNet URL with a Microsoft Security Blog URL. Administrators referencing prerequisites for the Intune App Wrapping Tool for iOS should use the updated link.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-26-configure-wrapping-ios-03"
+        },
+        {
+          "title": "China deployment guidance reorganizes feature availability and management links",
+          "detail": "The Intune operated by 21Vianet article now directs readers to supported, unavailable, and planned features, presents feature differences in a table, and updates deployment and Windows management links. Use this revised material when planning device and app management deployments in China.",
           "product": "Intune",
           "sourceId": "doc-2026-11-26-china-01"
         },
         {
-          "title": "Government Service guidance qualifies feature and roadmap information",
-          "detail": "The page now states that its unsupported-features list is not comprehensive and explains that planned investments are directional; plans, target dates, and capabilities may change.",
+          "title": "Government Service guidance makes unsupported-feature and roadmap limits explicit",
+          "detail": "The guidance now states that its unsupported-features list is not comprehensive, provides directional information about planned investments, and notes that plans, target dates, and capabilities may change. Use the list as planning guidance rather than a complete or fixed roadmap.",
           "product": "Intune",
           "sourceId": "doc-2026-11-26-government-service-02"
         }
@@ -8503,11 +8509,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-26T10:51:12.570Z",
+      "generatedAt": "2026-11-26T22:58:22.292Z",
       "usage": {
-        "inputTokens": 1118,
-        "outputTokens": 798,
-        "costUsd": 0.001181
+        "inputTokens": 1219,
+        "outputTokens": 912,
+        "costUsd": 0.001338
       }
     }
   },
@@ -10539,49 +10545,49 @@
       }
     },
     "2026-11-23": {
-      "headline": "January 2027 iOS enrollment changes pair with Data Warehouse reporting updates",
-      "overview": "Two planned January changes are the period’s most consequential items: Intune will update the web-based iOS/iPadOS enrollment experience in late January 2027, and policy-related Intune Data Warehouse reporting collections will change starting January 4. The enrollment change affects only tenants using that method; Data Warehouse connections and schemas remain unchanged. Documentation updates also refine China and government-service planning guidance, while a Windows government-service table changes “Microsoft Store for Business” to “Microsoft Store” without changing the link target or value.",
-      "adminImpact": "No technical administrator action is required for either planned service change. Tenants using web-based iOS/iPadOS enrollment may need to refresh user guidance. Administrators should expect possible policy-status count changes in Data Warehouse reporting and account for timing and aggregation when comparing it with Intune admin center reports. For China and government-service deployments, use the revised guidance and treat unsupported-feature lists and planned investments as planning guidance rather than fixed or comprehensive inventories.",
+      "headline": "Intune flags January 2027 enrollment UX and Data Warehouse reporting changes",
+      "overview": "The period’s most consequential items are two forward-looking notices: a late-January 2027 update to web-based iOS/iPadOS enrollment and a January 4, 2027 change to policy-related Data Warehouse reporting collections. The remaining updates are documentation maintenance, including clearer China feature-planning guidance, more qualified government-service roadmap language, an updated iOS app-wrapping prerequisite link, and a Microsoft Store label correction.",
+      "adminImpact": "No administrator action is required for either Message Center notice. Tenants using web-based iOS/iPadOS enrollment may need to review user guidance, while Data Warehouse consumers may see policy-status count differences without changing existing connections or schemas. Use the revised China and government-service documentation for planning, and the Microsoft Security Blog link for iOS app-wrapping prerequisites.",
       "keyChanges": [
         {
-          "title": "Web-based iOS/iPadOS enrollment experience changes in late January 2027",
-          "detail": "Intune plans to update the web-based device enrollment experience for iOS/iPadOS in late January 2027. Only tenants using this enrollment method are affected, and the update precedes web-based enrollment becoming the default for iOS/iPadOS. No administrator action is required, although user guidance may need updating.",
-          "product": "Intune",
+          "title": "Web-based iOS/iPadOS enrollment will receive a late-January 2027 experience update",
+          "detail": "The change affects only tenants using web-based device enrollment and precedes web-based enrollment becoming the default for iOS/iPadOS. No administrator action is required, although user guidance may need updating.",
+          "product": "Intune device enrollment",
           "sourceId": "MC1565959"
         },
         {
-          "title": "Data Warehouse policy reporting collections update January 4",
-          "detail": "Starting January 4, 2027, Intune Data Warehouse will update policy-related reporting collections, which may change policy-status counts. Existing connections and schemas remain unchanged. Differences from Intune admin center reports may occur because of timing and aggregation.",
-          "product": "Intune",
+          "title": "Data Warehouse policy reporting collections will change on January 4, 2027",
+          "detail": "Policy-related reporting collections may produce different policy-status counts. Existing connections and schemas remain unchanged, and differences from Intune admin center reports can result from timing and aggregation.",
+          "product": "Intune Data Warehouse",
           "sourceId": "MC1565960"
         },
         {
-          "title": "China guidance separates supported, unavailable, and planned features",
-          "detail": "The Intune operated by 21Vianet article now directs readers to supported, unavailable, and planned features, presents feature differences in a table, and includes updated deployment and Windows management links. Use the revised guidance when planning device and app management deployments in China.",
-          "product": "Intune",
+          "title": "China guidance now separates supported, unavailable, and planned features",
+          "detail": "The Intune operated by 21Vianet article presents feature differences in a table and adds updated deployment and Windows management links. Use the revised material when planning device and app management in China.",
+          "product": "Intune operated by 21Vianet",
           "sourceId": "doc-2026-11-26-china-01"
         },
         {
-          "title": "Government-service planning guidance now states its scope and uncertainty",
-          "detail": "The documentation now says the unsupported-features list is not comprehensive, gives directional guidance on planned investments, and notes that plans, target dates, and capabilities may change. Treat the list as planning guidance rather than a complete or fixed roadmap.",
-          "product": "Intune",
+          "title": "Government-service guidance qualifies the scope of its unsupported-features list",
+          "detail": "The documentation now says the list is not comprehensive, provides directional guidance on planned investments, and states that plans, target dates, and capabilities may change. Treat it as planning guidance rather than a complete or fixed roadmap.",
+          "product": "Intune government service",
           "sourceId": "doc-2026-11-26-government-service-02"
         },
         {
-          "title": "Windows government-service table adopts the “Microsoft Store” name",
-          "detail": "The linked resource is now labeled “Microsoft Store” instead of “Microsoft Store for Business.” The link target and its “n/a” value are unchanged, so no administrator action is required.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-25-government-service-01"
+          "title": "The iOS app-wrapping prerequisite now points to the Microsoft Security Blog",
+          "detail": "Provisioning-profile instructions replace the former TechNet URL with the Microsoft Security Blog URL. Use the updated link when referencing prerequisites for the Intune App Wrapping Tool for iOS.",
+          "product": "Intune App Wrapping Tool for iOS",
+          "sourceId": "doc-2026-11-26-configure-wrapping-ios-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-26T10:51:12.570Z",
+      "generatedAt": "2026-11-26T22:58:22.292Z",
       "usage": {
-        "inputTokens": 1272,
-        "outputTokens": 2526,
-        "costUsd": 0.003286
+        "inputTokens": 1373,
+        "outputTokens": 2151,
+        "costUsd": 0.002856
       }
     }
   },
@@ -11047,54 +11053,54 @@
       }
     },
     "2026-11": {
-      "headline": "CMG 2609 flags shared-key disablement as Intune prepares 2027 enrollment changes",
-      "overview": "November’s 3,776-record period was overwhelmingly maintenance-heavy: 3,765 updates, seven new items, and no removals. The meaningful administrator-facing changes include updated Configuration Manager 2609 guidance stating that CMG storage shared-key access is automatically disabled, planned January changes to web-based iOS/iPadOS enrollment and Intune Data Warehouse policy reporting, and a February 2027 minimum Company Portal version. Intune also now documents a CIS audit baseline (preview) that reports Windows 11 benchmark findings without enforcing or remediating settings. A new Windows Server Insider Preview guide remains limited to nonproduction evaluation.",
-      "adminImpact": "Prioritize Azure RBAC review for Configuration Manager 2609 CMG deployments, including the CMG server application’s and operators’ permissions to create Storage Blob Data Contributor and Storage Table Data Contributor role assignments. Prepare Company Portal version 5.2608.0 updates and helpdesk messaging for iOS/iPadOS and macOS devices where app installation restrictions can block automatic updates. Tenants using web-based iOS/iPadOS enrollment should refresh user guidance for the late-January 2027 experience change. After January 4, 2027, expect possible policy-count differences in Data Warehouse reports because of timing and aggregation. Use the CIS baseline for assessment rather than remediation, and keep Windows Server Insider testing nonproduction.",
+      "headline": "CIS audits and a February Company Portal minimum shape Intune's November guidance",
+      "overview": "November was overwhelmingly an update month: 3,766 items were updated, seven were new, and none were removed. The supplied examples include substantial metadata and wording maintenance, but several administrator-facing changes stand out: a report-only CIS Windows 11 audit baseline (preview), a new nonproduction Windows Server Insider Preview pilot guide, consent-based Remote Help diagnostics, a February 2027 Company Portal minimum, and Configuration Manager 2609 guidance on CMG storage access.",
+      "adminImpact": "Use the CIS baseline for assessment without remediation, and keep Windows Server Insider Preview testing in nonproduction; Server Core is unsupported. For Configuration Manager 2609, review CMG server-application and operator Azure RBAC permissions because shared-key access is disabled, including for existing deployments. Ensure Remote Help workflows account for sharer consent and possible diagnostic-report storage. Prepare iOS/iPadOS and macOS Company Portal deployments for version 5.2608.0 from February 2027, especially where app installation is restricted.",
       "keyChanges": [
         {
-          "title": "CMG 2609 guidance flags automatic shared-key disablement",
-          "detail": "The updated security guidance states that shared-key access is automatically disabled for CMG storage starting with Configuration Manager version 2609, including existing deployments. It also specifies permissions for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets. Review CMG server application and operator Azure RBAC permissions, particularly permissions to create the required Storage Blob Data Contributor and Storage Table Data Contributor role assignments.",
+          "title": "CIS audit baseline assesses Windows 11 without enforcing settings",
+          "detail": "The Endpoint Security Policies guidance now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. It also relabels security baselines as configuration baselines.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-17-endpoint-security-policies-33"
+        },
+        {
+          "title": "New Intune guide frames Windows Server Insider management as a pilot",
+          "detail": "The new end-to-end guide covers enrollment, configuration, compliance, apps, updates, verification, prerequisites, and supported Windows Server Insider Preview vNext builds. Server Core is not supported, and the documented management path is for testing and evaluation rather than production use.",
+          "product": "Intune",
+          "sourceId": "doc-2026-11-17-end-to-end-guide-to-get-started-with-windows-server-insider-preview-microsoft-intune-microsoft-l-03"
+        },
+        {
+          "title": "CMG storage shared-key access turns off in Configuration Manager 2609",
+          "detail": "The guidance states that shared-key access is automatically disabled for CMG storage starting with Configuration Manager version 2609, including existing deployments. It adds permissions requirements for Microsoft Entra-authenticated storage and distinguishes storage keys from application secrets.",
           "product": "Configuration Manager",
           "sourceId": "doc-2026-11-06-cmg-security-and-privacy-configuration-manager-microsoft-learn-02"
         },
         {
-          "title": "Company Portal minimum reaches v5.2608.0 in February 2027",
-          "detail": "Starting in February 2027, the minimum iOS/iPadOS and macOS Company Portal version will be 5.2608.0. Most users update automatically, but users whose device restrictions block app installation may need a manual update. Microsoft recommends preparing helpdesk communications and update deployment where those restrictions apply.",
+          "title": "Remote Help diagnostic sharing is consent-based",
+          "detail": "Start Session guidance documents that helpers can request permission to view and possibly store a sharer's device diagnostic data. With consent, both participants can view the report, and helpers can refresh it during troubleshooting; the report covers device, hardware, network, performance, security, update, storage, and peripheral details.",
+          "product": "Remote Help",
+          "sourceId": "doc-2026-11-17-start-session-46"
+        },
+        {
+          "title": "Company Portal v5.2608.0 becomes the minimum in February 2027",
+          "detail": "A Message Center notice sets v5.2608.0 as the minimum iOS/iPadOS and macOS Company Portal version starting in February 2027. Most users update automatically, but users whose devices block app installation may need manual updates; Microsoft recommends preparing helpdesk communications and pushing updates where restrictions apply.",
           "product": "Intune",
           "sourceId": "MC1547994"
-        },
-        {
-          "title": "Web-based iOS/iPadOS enrollment experience changes in late January",
-          "detail": "Intune plans to update the web-based iOS/iPadOS enrollment experience in late January 2027. The change affects only tenants using this enrollment method; no administrator action is required, but user guidance may need revision before web-based enrollment becomes the default.",
-          "product": "Intune",
-          "sourceId": "MC1565959"
-        },
-        {
-          "title": "Intune Data Warehouse policy counts may change January 4",
-          "detail": "Beginning January 4, 2027, policy-related reporting collections in Intune Data Warehouse will be updated. Existing connections and schemas remain unchanged, but policy-status counts may shift and can differ from Intune admin center reports because of timing and aggregation.",
-          "product": "Intune",
-          "sourceId": "MC1565960"
-        },
-        {
-          "title": "CIS audit baseline previews non-remediating Windows 11 assessment",
-          "detail": "The Endpoint Security Policies guidance now documents the CIS audit baseline (preview), which checks Windows 11 configurations against the CIS benchmark and reports findings without enforcing or remediating settings. The documentation also relabels security baselines as configuration baselines to distinguish them from audit baselines.",
-          "product": "Intune",
-          "sourceId": "doc-2026-11-17-endpoint-security-policies-33"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-26T10:51:12.570Z",
+      "generatedAt": "2026-11-26T22:58:22.292Z",
       "usage": {
-        "inputTokens": 6873,
-        "outputTokens": 7531,
-        "costUsd": 0.010412
+        "inputTokens": 6840,
+        "outputTokens": 7196,
+        "costUsd": 0.010003
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-26T10:51:12.570Z",
+  "generatedAt": "2026-11-26T22:58:22.292Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -11263,22 +11269,22 @@
       "costUsd": 0.012333
     },
     "2026-11-26": {
-      "inputTokens": 9263,
-      "outputTokens": 10855,
-      "requests": 3,
-      "costUsd": 0.014879
+      "inputTokens": 18695,
+      "outputTokens": 21114,
+      "requests": 6,
+      "costUsd": 0.029076
     }
   },
   "lastRun": {
-    "inputTokens": 9263,
-    "outputTokens": 10855,
+    "inputTokens": 9432,
+    "outputTokens": 10259,
     "requests": 3,
-    "costUsd": 0.014879
+    "costUsd": 0.014197
   },
   "totalUsage": {
-    "inputTokens": 4219310,
-    "outputTokens": 2785228,
-    "requests": 549,
-    "costUsd": 4.186136
+    "inputTokens": 4228742,
+    "outputTokens": 2795487,
+    "requests": 552,
+    "costUsd": 4.200333
   }
 }

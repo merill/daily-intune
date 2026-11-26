@@ -52,19 +52,45 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "intune/developer/app-sdk/configure-wrapping-ios.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/intune/developer/app-sdk/configure-wrapping-ios.md b/intune/developer/app-sdk/configure-wrapping-ios.md\nindex 9e11565a..290e79a3 100644\n--- a/intune/developer/app-sdk/configure-wrapping-ios.md\n+++ b/intune/developer/app-sdk/configure-wrapping-ios.md\n@@ -377,7 +377,7 @@ Before wrapping your app, you can grant *[entitlements](https://developer.apple.\n \r\n     a. Sign in to the Apple Developer Member Center.\r\n \r\n-    b. Create a provisioning profile for your app. For instructions, see [How to Obtain the Prerequisites for the Intune App Wrapping Tool for iOS](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/25/how-to-obtain-the-prerequisites-for-the-intune-app-wrapping-tool-for-ios/).\r\n+    b. Create a provisioning profile for your app. For instructions, see [How to Obtain the Prerequisites for the Intune App Wrapping Tool for iOS](https://techcommunity.microsoft.com/blog/microsoft-security-blog/how-to-obtain-the-prerequisites-for-the-intune-app-wrapping-tool-for-ios/248929).\r\n \r\n     c. In your provisioning profile, enable the same entitlements that you have in your app. You need to supply the same IDs (the `AppIdentifierPrefix` values) that you specified during the development of your app.\r\n \r\n",
+      "baseCommitSha": "6115f6a4f70e2c2bb75c9027eeb6a1eeb8f787ca",
+      "commitSha": "a7a19b86dc21d3f5f5af020b12a8afde14fea25a",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 22:42:44 +0000",
+      "githubUrl": "https://github.com/merill/intune-docs-mirror/blob/main/intune/developer/app-sdk/configure-wrapping-ios.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/intune/developer/app-sdk/configure-wrapping-ios",
+      "eventId": "intune-docs:a7a19b86dc21d3f5f5af020b12a8afde14fea25a:modified:intune/developer/app-sdk/configure-wrapping-ios.md",
+      "firstSeenAt": "2026-11-26T22:58:16.934Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated prerequisite instructions link for iOS app wrapping",
+        "summary": "The provisioning profile instructions now link to the Microsoft Security Blog URL instead of the former TechNet URL.",
+        "adminImpact": "Use the updated link when referencing prerequisites for the Intune App Wrapping Tool for iOS.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
   "messageCenterItems": [],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 3,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Intune documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Intune documentation files across 2 documentation areas.",
     "groups": [
       {
         "category": "Doc update",
@@ -74,6 +100,14 @@
           "intune/fundamentals/china.md",
           "intune/fundamentals/government-service.md"
         ]
+      },
+      {
+        "category": "Doc update",
+        "title": "intune/developer",
+        "summary": "The provisioning profile instructions now link to the Microsoft Security Blog URL instead of the former TechNet URL.",
+        "sourceFiles": [
+          "intune/developer/app-sdk/configure-wrapping-ios.md"
+        ]
       }
     ],
     "highlights": [
@@ -81,6 +115,11 @@
         "category": "Doc update",
         "headline": "intune/fundamentals",
         "detail": "The Intune operated by 21Vianet article now directs readers to supported, unavailable, and planned features and presents feature differences in a table with updated deployment and Windows management links. The documentation now says the unsupported-features list is not comprehensive, provides directional guidance on planned investments, and notes that plans, target dates, and capabilities may change."
+      },
+      {
+        "category": "Doc update",
+        "headline": "intune/developer",
+        "detail": "The provisioning profile instructions now link to the Microsoft Security Blog URL instead of the former TechNet URL."
       }
     ],
     "generatedBy": "fallback"
